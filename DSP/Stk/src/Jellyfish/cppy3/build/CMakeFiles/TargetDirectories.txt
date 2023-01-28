@@ -1,0 +1,7 @@
+/home/quake/Projects/jam/cppy3/build/CMakeFiles/tests.dir
+/home/quake/Projects/jam/cppy3/build/CMakeFiles/console.dir
+/home/quake/Projects/jam/cppy3/build/CMakeFiles/edit_cache.dir
+/home/quake/Projects/jam/cppy3/build/CMakeFiles/rebuild_cache.dir
+/home/quake/Projects/jam/cppy3/build/cppy3/CMakeFiles/cppy3.dir
+/home/quake/Projects/jam/cppy3/build/cppy3/CMakeFiles/edit_cache.dir
+/home/quake/Projects/jam/cppy3/build/cppy3/CMakeFiles/rebuild_cache.dir

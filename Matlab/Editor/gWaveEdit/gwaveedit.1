@@ -1,0 +1,46 @@
+.TH "gwaveedit" "1" "2010\-07\-29"
+.SH "NAME"
+gwaveedit \- A simple and fast GTK2 sound editor
+.SH "SYNOPSIS"
+.PP
+.B gwaveedit
+.RI "[ " options " ]"
+.RI "[ " "audio_file  ..." " ]"
+.SH "DESCRIPTION"
+.PP
+This manual page documents briefly the \fBgwaveedit\fR command.
+.PP
+.B gwaveedit
+is a graphical program for editing sound files, intended to be user\-friendly
+and robust.
+.SH "OPTIONS"
+.\" main.c, ~ line 130\-150
+.TP
+.BR \-\-no\-ladspa
+Disable LADSPA plugins
+.TP
+.BR \-\-driver " \fIalsa\fR | \fIoss\fR | \fIjack\fR | \fIpulse\fR | \fIdummy\fR"
+Use a specific sound driver for playback
+.TP
+.BR \-\-test
+Perform a test of conversion functions
+.TP
+.BR \-\-perftest
+Perform a conversion performance test
+.TP
+.BR \-\-help
+Show a short help message
+.TP
+.BR \-\-version
+Display the version of \fBgwaveedit\fR 
+.SH "AUTHOR"
+.PP
+\fBgwaveedit\fR is Copyright (C) 2002-2010, Magnus Hjorth
+
+gWaveEdit is free software; you can redistribute it and/or modify 
+it under the terms of the GNU General Public License as published by the 
+Free Software Foundation; either version 2 of the License, or (at your 
+option) any later version.
+.PP
+This manual page was written by Francois Wendling <frwendling@free.fr> for the
+Debian GNU/Linux system (but may be used by others).

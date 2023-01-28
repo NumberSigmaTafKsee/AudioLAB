@@ -1,0 +1,115 @@
+ReZound 0.13.0beta Installation instructions 
+
+TODO -- shorten this up.. at least have a quick read section at the top.. exampling how to use cmake configuration varaibles
+
+REQUIRED OR RECOMMENDED LIBRARIES AND APPLICATIONS:
+
+Before attempting to build ReZound you will need to have (or are encouraged to have) the following:
+
+1. Compiler:
+	- cmake -- ReZound uses cmake for platform detection and generating build files.
+
+	- gcc -- ReZound was originally developed using gcc/g++.  A typical system will be set up for
+	cmake to find gcc/g++ automatically and use it.
+
+	- clang -- effort has been made to support compiling against clang/clang++.  To compile using
+	clang, some cmake variables may need to be set before running configure:
+		
+		cmake -DCMAKE_CXX_COMPILER=clang++ ...
+
+2. Libraries: 
+
+	- libaudiofile v0.2.3 (or later) -- http://www.68k.org/~michael/audiofile/ --
+	Development was done with v0.2.3, but earlier versions above than v0.1.9-0.1 
+	may work as well. audiofile is available on most distributions. 
+
+	- libfox v1.0.0 (or later) -- http://www.fox-toolkit.org/ -- The FOX GUI 
+	toolkit, (earlier version may work)
+		- NOTE: reswrap comes with fox.  If you install from the fox tarball
+			then you should not have any problems.  If your distro's fox
+			package is split into more than 1 package, then you made need
+			to install the package containing the reswrap executable.
+
+	- libfftw v3.0.0 (or later) -- http://www.fftw.org -- This is required for 
+	convolution filtering, arbitrary FIR filtering, the frequency analyzer, etc.
+
+	- lame v3.92 (or later) -- http://www.mp3dev.org/mp3 -- It is recommended that 
+	you have lame installed because it provides ReZound with the ability to load and 
+	save .mp3 files.  Some distros name the package: 'notlame'.
+
+	- cdrdao -- http://cdrdao.sourceforge.net/ -- This is require for the "Burn to CD"
+	action
+
+	- libogg, libvorbis, libvorbisfile and libvorbisenc -- http://www.xiph.org/ogg/vorbis/ 
+	These are required for loading and saving .ogg files
+
+	- libFLAC, libFLAC++ -- http://flac.sourceforge.net/ -- These are required for loading
+	and saving FLAC files
+
+	- libSoundTouch -- http://www.surina.net/soundtouch/ This library is required for 
+	the the actions that change pitch without changing tempo and that change tempo without 
+	changing pitch.
+
+	- libasound2 -- This is the ALSA library so that audio I/O can use ALSA.
+
+	- libpulseaudio -- (often libpulse-dev) This can be used to use the pulseaudio daemon 
+	for sound output
+
+	- libportaudio -- http://www.portaudio.com -- This can be used if you know what you're
+	doing and need it for some reason.
+
+	- libjack -- http://jackit.sourceforge.net -- This can be used to enable JACK 
+	support.  JACK is a really nice system where the jackd server runs and JACK 
+	enabled applications connect to it.  Then you can route audio between applications
+	instead of being limited in that applications alway do I/O with the hardware device 
+	itself.
+
+	- vox/devox -- http://www.cis.ksu.edu/~tim/vox/ -- required if you want to load 
+	.vox files.  This seems to be a quite obscure format, so support would be for 
+	rather few people I think.  THESE TWO ARE APPLICATIONS, NOT LIBRARIES
+
+
+3. You should also have a working C++ compiler (g++ is preferred) as well as the 
+normal group of regular libraries and headers for compiling packages. 
+
+
+4. bison -- This is required for building the config file parser.
+
+5. flex -- (free-lex) This is commonly installed, but there should be a package 
+for your distro.  I have not tried building ReZound using lex.
+
+
+
+See the end of this file for information on configure options specific to
+ReZound.
+
+If you encounter any errors in the build process and you think you have all the 
+required libraries, please send a bug report to: 
+	http://sourceforge.net/tracker/?atid=105056&group_id=5056
+
+If at all possible try to send details, preferably a screen dump or script file.
+
+The ReZound homepage is at http://rezound.sourceforge.net
+
+# REMOVED To build a stand alone binary use the configure flag: --enable-standalone.  However,
+# this requires having all the static libraries that may be depended on by ReZound's 
+# dependancies (i.e. FOX depends on libjpeg, libpng, libtiff, etc, so libjpeg.a, 
+# libpng.a, libtiff.a, etc would be required to link.  But that is, only if FOX was not 
+# configured with --disable-... flags to remove FOX's depenance on these libs.)
+
+
+=======================
+cmake quick usage guide
+=======================
+
+	- cd rezound-src
+	- mkdir build
+	- cd build
+	- cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$HOME/rezound
+	- (optional)   cmake-gui .   then tweak values then press 'generate'
+	- make
+	- make install/strip
+	- (optional cleanup) cd .. ; rm -rf build
+	- $HOME/rezound/bin/rezound
+
+

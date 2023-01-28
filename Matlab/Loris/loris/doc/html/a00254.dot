@@ -1,0 +1,22 @@
+digraph "Loris::PartialUtils::PartialMutator"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Loris::PartialUtils\l::PartialMutator",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="std::unary_function\l\< Partial, void \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Loris::PartialUtils\l::AmplitudeScaler",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00259.html",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Loris::PartialUtils\l::BandwidthScaler",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00263.html",tooltip=" "];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Loris::PartialUtils\l::BandwidthSetter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00267.html",tooltip=" "];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Loris::PartialUtils\l::FrequencyScaler",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00271.html",tooltip=" "];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Loris::PartialUtils\l::NoiseRatioScaler",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00275.html",tooltip=" "];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Loris::PartialUtils\l::PitchShifter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00279.html",tooltip=" "];
+}

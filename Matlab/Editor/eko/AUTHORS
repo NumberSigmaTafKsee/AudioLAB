@@ -1,0 +1,30 @@
+Code and design:
+
+Peter 'Roxton' Semiletov <tea@list.ru, http://semiletov.org>
+
+Standalone DX headers for MinGW - https://github.com/lifthrasiir/w32api-directx-standalone
+
+Used libraries:
+
+libsndfile, libsamplerate (http://www.mega-nerd.com/libsndfile/, http://www.mega-nerd.com/SRC/) by Erik de Castro Lopo
+Portaudio - http://www.portaudio.com
+ 
+##
+Translators:
+
+Czech UI translation: Pavel Fric
+Russian UI translation and documentation: Peter Semiletov
+
+##
+Packages and ports:
+
+need to update
+
+
+##
+Acknowledgements:
+
+Thanks to (an incomplete and unsorted list):
+
+Nastia
+Shifter (downshft)

@@ -1,0 +1,381 @@
+#!/bin/csh -f
+
+rm libc_s7.c
+rm libc_s7.so
+rm libm_s7.c
+rm libm_s7.so
+rm libdl_s7.c
+rm libdl_s7.so
+rm libgsl_s7.c
+rm libgsl_s7.so
+rm libgdbm_s7.c
+rm libgdbm_s7.so
+rm ffitest
+
+
+echo ' -------------------------------- without-gui -------------------------------- '
+rm -f snd
+rm -f config.cache
+./configure --quiet CFLAGS="-Wall -Wno-restrict -Wno-array-bounds -Wno-stringop-overflow -Wno-parentheses -I/usr/local/include" --without-gui
+make
+echo ' '
+echo ' '
+./snd --version
+./snd -l snd-test
+echo ' '
+echo ' '
+echo ' -------------------------------- that was snd-test without-gui (also s7test) -------------------------------- '
+echo ' '
+echo ' '
+
+./snd -noinit s7test.scm
+# ./snd lint.scm -e '(begin (catch #t (lambda () (lint "s7test.scm" #f)) (lambda args #f)) (exit))'
+# ./snd -e '(begin (load "snd-lint.scm") (lint "snd-test.scm") (exit))'
+
+valgrind ./snd -noinit -l snd-test
+echo ' '
+echo ' '
+echo ' -------------------------------- that was valgrind without-gui (also s7test) -------------------------------- '
+echo ' '
+echo ' '
+
+gcc s7.c -o repl -DWITH_MAIN -DUSE_SND=0 -I. -O2 -g -Wl,-export-dynamic -ldl -lm 
+./repl tools/tauto.scm
+
+echo ' '
+echo ' '
+echo ' -------------------------------- that was s7 tauto -------------------------------- '
+echo ' '
+echo ' '
+
+echo ' -------------------------------- without-gui S7_DEBUGGING=1 -------------------------------- '
+make allclean
+rm -f snd
+rm -f config.cache
+./configure --quiet CFLAGS="-Wall -Wno-restrict -Wno-array-bounds -Wno-stringop-overflow -Wno-parentheses -I/usr/local/include -DS7_DEBUGGING" --without-gui --disable-deprecated
+make
+echo ' '
+echo ' '
+./snd --version
+./snd -l snd-test
+# ./snd lint.scm -e '(begin (lint "s7test.scm" #f) (exit))'
+
+# cp s7test.scm tmptest.scm
+# ./snd tools/sed.scm -e '(sed "tmptest.scm" "tmp" "(define full-test #f)" "(define full-test #t)")'
+# mv tmp tmptest.scm
+# ./snd tmptest.scm
+
+echo ' '
+echo ' '
+echo ' -------------------------------- that was snd-test without-gui debugging disable deprecated -------------------------------- '
+echo ' '
+echo ' '
+
+echo ' -------------------------------- pure-s7 -------------------------------- '
+make allclean
+rm -f snd
+rm -f config.cache
+./configure --quiet CFLAGS="-Wall -Wno-restrict -Wno-array-bounds -Wno-stringop-overflow -Wno-parentheses -I/usr/local/include -DWITH_PURE_S7=1" --without-gui --disable-deprecated
+make
+echo ' '
+echo ' '
+./snd --version
+./snd -l snd-test
+echo ' '
+echo ' '
+echo ' -------------------------------- that was snd-test pure-s7 -------------------------------- '
+echo ' '
+echo ' '
+
+echo ' -------------------------------- no vectorize -------------------------------- '
+make allclean
+rm -f snd
+rm -f config.cache
+./configure --quiet CFLAGS="-Wall -Wno-restrict -Wno-array-bounds -Wno-stringop-overflow -Wno-parentheses -I/usr/local/include -DWITH_VECTORIZE=0 -DHAVE_OVERFLOW_CHECKS=0" --without-gui --disable-deprecated
+make
+echo ' '
+echo ' '
+./snd --version
+./snd -l snd-test 8
+echo ' '
+echo ' '
+echo ' -------------------------------- that was snd-test without vectorize -------------------------------- '
+echo ' '
+echo ' '
+
+echo ' -------------------------------- without-gui CC=g++ --disable-deprecated -------------------------------- '
+make allclean
+rm -f snd
+rm -f config.cache
+./configure --quiet CFLAGS="-Wall -Wno-restrict -Wno-array-bounds -Wno-stringop-overflow -Wno-parentheses -DWITH_EXTRA_EXPONENT_MARKERS=1" --without-gui --disable-deprecated CC=g++
+make
+echo ' '
+echo ' '
+./snd --version
+./snd -l snd-test
+echo ' '
+echo ' '
+echo ' -------------------------------- that was snd-test g++/disable-deprecated -------------------------------- '
+echo ' '
+echo ' '
+
+valgrind ./snd -l snd-test
+echo ' '
+echo ' '
+echo ' -------------------------------- that was valgrind g++ -------------------------------- '
+echo ' '
+echo ' '
+
+echo ' -------------------------------- without-gui --with-gmp -------------------------------- '
+make allclean
+rm -f snd
+rm -f config.cache
+./configure --quiet CFLAGS="-Wall -Wno-restrict -Wno-array-bounds -Wno-stringop-overflow -Wno-parentheses" --without-gui --with-gmp --disable-deprecated
+make
+echo ' '
+echo ' '
+./snd --version
+./snd -l snd-test
+echo ' '
+echo ' '
+echo ' -------------------------------- that was snd-test --with-gmp -------------------------------- '
+echo ' '
+echo ' '
+
+# valgrind ./snd -l snd-test
+# echo ' '
+# echo ' '
+# echo ' -------------------------------- that was valgrind --with-gmp -------------------------------- '
+# echo ' '
+# echo ' '
+
+# gcc s7.c -o repl -DWITH_MAIN -I. -O2 -g -Wl,-export-dynamic -ldl -lm -lgmp -lmpfr -lmpc
+# ./repl tools/tauto.scm
+
+
+echo ' -------------------------------- without-gui --with-gmp debugging -------------------------------- '
+make allclean
+rm -f snd
+rm -f config.cache
+./configure --quiet CFLAGS="-Wall -Wno-restrict -Wno-array-bounds -Wno-stringop-overflow -Wno-parentheses -DS7_DEBUGGING=1" --without-gui --with-gmp --disable-deprecated
+make
+echo ' '
+echo ' '
+./snd --version
+./snd -l snd-test
+echo ' '
+echo ' '
+echo ' -------------------------------- that was snd-test --with-gmp debugging -------------------------------- '
+echo ' '
+echo ' '
+
+
+echo ' -------------------------------- motif -------------------------------- '
+make allclean
+rm -f snd
+rm -f config.cache
+./configure --quiet --with-motif CFLAGS="-Wall -Wno-restrict -Wno-array-bounds -Wno-stringop-overflow -Wno-parentheses" 
+make
+echo ' '
+echo ' '
+./snd --version
+# ./snd -l snd-test 23
+./snd -noinit -l snd-test
+make clmclean
+make sndinfo
+./sndinfo oboe.snd
+make sndplay
+./sndplay oboe.snd
+echo ' '
+echo ' '
+echo ' -------------------------------- that was motif -------------------------------- '
+echo ' '
+echo ' '
+
+# valgrind ./snd -l snd-test
+# echo ' '
+# echo ' '
+# echo ' -------------------------------- that was valgrind --with-motif? -------------------------------- '
+# echo ' '
+# echo ' '
+
+echo ' -------------------------------- motif + gl -------------------------------- '
+make allclean
+rm -f snd
+rm -f config.cache
+./configure --quiet --with-gl --with-motif CFLAGS="-Wall -Wno-restrict -Wno-array-bounds -Wno-stringop-overflow -Wno-parentheses" 
+make
+echo ' '
+echo ' '
+./snd --version
+./snd -l snd-test 24
+./snd -l snd-test
+echo ' '
+echo ' '
+echo ' -------------------------------- that was motif? and gl -------------------------------- '
+echo ' '
+echo ' '
+
+# valgrind ./snd -l snd-test
+# echo ' '
+# echo ' '
+# echo ' -------------------------------- that was valgrind --with-motif and gl -------------------------------- '
+# echo ' '
+# echo ' '
+
+echo ' -------------------------------- motif + gl + debug -------------------------------- '
+make allclean
+rm -f snd
+rm -f config.cache
+./configure --quiet --with-gl --with-motif CFLAGS="-DS7_DEBUGGING -Wall -Wno-restrict -Wno-array-bounds -Wno-stringop-overflow -Wno-parentheses" 
+make
+echo ' '
+echo ' '
+./snd --version
+./snd -l snd-test 24
+./snd -l snd-test
+echo ' '
+echo ' '
+echo ' -------------------------------- that was motif? and gl and debugging -------------------------------- '
+echo ' '
+echo ' '
+
+make allclean
+rm -f snd
+rm -f config.cache
+./configure --without-gui --quiet CC=clang CFLAGS="-Wall -Wno-array-bounds -Wno-parentheses" LDFLAGS="-Wl,-export-dynamic"
+make
+./snd --version
+./snd -l snd-test
+echo ' '
+echo ' '
+echo ' -------------------------------- that was clang? -------------------------------- '
+echo ' '
+echo ' '
+
+
+cp snd-test.scm orig-snd-test.scm
+./snd tools/sed.scm -e '(sed "snd-test.scm" "tmp" "(define tests 1)" "(define tests 5)")'
+# sed snd-test.scm -e 's/(define tests 1)/(define tests 5)/g' > tmp
+# sed differs so much between systems that it is useless
+mv tmp snd-test.scm
+
+echo ' -------------------------------- without-gui -------------------------------- '
+make allclean
+rm -f snd
+rm -f config.cache
+./configure --quiet CFLAGS="-Wall -Wno-restrict -Wno-array-bounds -Wno-stringop-overflow -Wno-parentheses" --without-gui
+make
+echo ' '
+echo ' '
+./snd --version
+./snd -l snd-test
+echo ' '
+echo ' '
+echo ' -------------------------------- that was snd-test mult without-gui -------------------------------- '
+echo ' '
+echo ' '
+
+valgrind ./snd -l snd-test
+echo ' '
+echo ' '
+echo ' -------------------------------- that was valgrind mult -------------------------------- '
+echo ' '
+echo ' '
+
+
+cp orig-snd-test.scm snd-test.scm
+./snd tools/sed.scm -e '(sed "snd-test.scm" "tmp" "(define test-at-random 0)" "(define test-at-random 100)")'
+# sed snd-test.scm -e 's/(define test-at-random 0)/(define test-at-random 100)/g' > tmp
+mv tmp snd-test.scm
+
+# this hangs sometimes?
+# echo ' '
+# echo ' '
+# ./snd --version
+# ./snd -l snd-test
+# echo ' '
+# echo ' '
+# echo ' -------------------------------- that was snd-test at-random without-gui -------------------------------- '
+echo ' '
+echo ' '
+
+valgrind ./snd -l snd-test
+echo ' '
+echo ' '
+echo ' -------------------------------- that was valgrind at-random -------------------------------- '
+echo ' '
+echo ' '
+
+
+cp orig-snd-test.scm snd-test.scm
+./snd tools/sed.scm -e '(sed "snd-test.scm" "tmp" "(define all-args #f)" "(define all-args #t)")'
+# sed snd-test.scm -e 's/(define all-args #f)/(define all-args #t)/g' > tmp
+mv tmp snd-test.scm
+
+echo ' '
+echo ' '
+./snd --version
+./snd -l snd-test
+echo ' '
+echo ' '
+echo ' -------------------------------- that was snd-test full without-gui -------------------------------- '
+echo ' '
+echo ' '
+
+valgrind ./snd -l snd-test
+echo ' '
+echo ' '
+echo ' -------------------------------- that was valgrind full -------------------------------- '
+echo ' '
+echo ' '
+
+make allclean
+rm -f snd
+rm -f config.cache
+./configure --quiet CFLAGS="-Wall -Wno-restrict -Wno-array-bounds -Wno-stringop-overflow -Wno-parentheses" CC=g++
+make
+echo ' '
+echo ' '
+./snd --version
+./snd -l snd-test
+echo ' '
+echo ' '
+echo ' -------------------------------- that was snd-test full g++ -------------------------------- '
+echo ' '
+echo ' '
+
+make allclean
+rm -f snd
+rm -f config.cache
+./configure --quiet CFLAGS="-Wall -Wno-restrict -Wno-array-bounds -Wno-stringop-overflow -Wno-parentheses" --with-gmp --without-gui
+make
+echo ' '
+echo ' '
+./snd --version
+./snd -l snd-test
+echo ' '
+echo ' '
+echo ' -------------------------------- that was snd-test full gmp -------------------------------- '
+echo ' '
+echo ' '
+
+./snd tools/sed.scm -e '(sed "snd-test.scm" "tmp" "(define tests 1)" "(define tests 7)")'
+# sed snd-test.scm -e 's/(define tests 1)/(define tests 7)/g' > tmp
+mv tmp snd-test.scm
+
+make allclean
+rm -f snd
+rm -f config.cache
+./configure --quiet CFLAGS="-Wall -Wno-restrict -Wno-array-bounds -Wno-stringop-overflow -Wno-parentheses" --without-gui
+make
+echo ' '
+echo ' '
+./snd -l snd-test
+echo ' '
+echo ' '
+echo ' -------------------------------- that was snd-test full mult no-gui -------------------------------- '
+echo ' '
+echo ' '
+
+cp orig-snd-test.scm snd-test.scm

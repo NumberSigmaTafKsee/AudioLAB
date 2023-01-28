@@ -1,0 +1,165 @@
+
+[[widget]]
+==== widget
+
+[small]#Rfr: http://www.fltk.org/doc-1.3/classFl__Widget.html[Fl_Widget]. +
+No constructor (abstract class).#
+
+* *:activate*( )
+
+* _boolean_ = *:active*( )
+
+* _boolean_ = *:active_r*( )
+
+* *:align*(<<alignment, _alignment_>>) +
+<<alignment, _alignment_>> = *:align*( )
+
+
+* *:argument*(_arg_) +
+_arg_ = *:argument*( ) +
+[small]#_arg_: any Lua value.#
+
+* *:box*(<<boxtype, _boxtype_>>) +
+* *:box*( ) +
+-> <<boxtype, _boxtype_>>
+
+[[widget.callback]]
+* *:callback*(_func_ [, _arg_]) +
+_func_ = *:callback*( ) +
+[small]#The _func_ callback (a Lua function) is executed as *func(widget, arg)*. +
+The optional argument _arg_ may be any Lua value.#
+
+* _boolean_ = *:changed*( )
+
+* *:clear_active*( ) +
+*:clear_changed*( ) +
+*:clear_damage*(<<damagebits, _damagebits_>>) +
+*:clear_output*( ) +
+*:clear_visible*( ) +
+*:clear_visible_focus*( )
+
+* *:color*(<<color, _bgcolor_>> [, <<color, _selcolor_>>]) +
+<<color, _bgcolor_>> = *:color*( )
+
+* _boolean_ = *:contains*(_widget_)
+
+* *:damage*(<<damagebits, _damagebits_>>)
+*:damage*(_x_, _y_, _w_, _h_, <<damagebits, _damagebits_>>) +
+<<damagebits, _damagebits_>> = *:damage*( )
+
+* *:deactivate*( )
+
+* *:deimage*(<<image, _image_>>) +
+ <<image, _image_>> = *:deimage*( )
+
+* *:do_callback*([_arg_]) +
+[small]#The optional argument _arg_ may be any Lua value. +
+If _arg_ is not passed, the current argument is used. +
+If _arg_=_nil_, the callback receives _nil_ as argument.#
+
+[[widget.draw]]
+* *:draw*( )
+
+* *:draw_label*( ) +
+*:draw_label*(_x_, _y_, _w_, _h_ [, <<alignment, _alignment_>>])
+
+[[widget.handle]]
+* _boolean_ = *:handle*(<<event, _event_>>)
+
+[[widget.hide]]
+* *:hide*( )
+
+* *:image*(<<image, _image_>>) +
+<<image, _image_>> = *:image*( )
+
+* _boolean_ = *:inside*(_widget_)
+
+* *:label*(_label_) +
+_label_ = *:label*( )
+
+* *:labelcolor*(<<color, _color_>>) +
+<<color, _color_>> = *:labelcolor*( )
+
+* *:labelfont*(<<font, _font_>>) +
+<<font, _font_>> = *:labelfont*( )
+
+* *:labelsize*(_fontsize_) +
+_fontsize_ = *:labelsize*( )
+
+* *:labeltype*(<<labeltype, _labeltype_>>) +
+<<labeltype, _labeltype_>> = *:labeltype*( )
+
+* _width_, _height_ = *:measure_label*( )
+
+* _boolean_ = *:output*( )
+
+* _group_ = *:parent*( )
+
+* *:position*(_x_, _y_)
+
+* *:redraw*( ) +
+*:redraw_label*( )
+
+[[widget.resize]]
+* *:resize*(_x_, _y_, _w_, _h_)
+
+* *:selection_color*(<<color, _color_>>) +
+<<color, _color_>> = *:selection_color*( )
+
+* *:set_active*( ) +
+*:set_changed*( ) +
+*:set_output*( ) +
+*:set_visible*( ) +
+*:set_visible_focus*( ) +
+
+[[widget.show]]
+* *:show*( )
+
+* *:size*(_w_, _h_)
+
+* _boolean_ = *:take_focus*( )
+
+* _boolean_ = *:takesevents*( )
+
+* *:tooltip*(_text_) +
+_text_ = *:tooltip*( )
+
+* <<window, _window_>> = *:top_window*( )
+
+* _xoffset_, _yoffset_ = *:top_window_offset*( )
+
+* *:type*(<<rtti, _rtti_>>) +
+<<rtti, _rtti_>> = *:type*( )
+
+* *:userdata*: alias for *:argument*
+
+* _boolean_ = *:visible*( )
+
+* *:visible_focus*(_boolean_) +
+_boolean_ = *:visible_focus*( )
+
+* _boolean_ = *:visible_r*( )
+
+* <<whenflags, _whenflags_>> = *:when*(<<whenflags, _whenflags_>>)
+
+* <<window, _window_>> = *:window*( )
+
+* _x_, _y_, _w_, _h_ = *:xywh*( ) +
+_x_ = *:x*( ) +
+_y_ = *:y*( ) +
+_h_ = *:h*( ) +
+_w_ = *:w*( )
+
+'''
+
+Protected methods, exposed for subclassing:
+
+* *:draw_backdrop*( )
+
+* *:draw_box*( ) +
+*:draw_box*(<<boxtype, _boxtype_>>, <<color, _color_>>) +
+*:draw_box*(<<boxtype, _boxtype_>>, _x_, _y_, _w_, _h_, <<color, _color_>>)
+
+* *:draw_focus*( ) +
+*:draw_focus*(<<boxtype, _boxtype_>>, _x_, _y_, _w_, _h_, <<color, _color_>>)
+

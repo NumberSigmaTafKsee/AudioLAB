@@ -1,0 +1,74 @@
+
+- Hot-Keys
+	- alt-1 through alt-0 switch between the opened sounds
+	- alt-` switches back to the previously active window
+
+
+- Action menu-items (edit menu-items, effect menu-items, etc):
+	- Holding SHIFT while clicking the menu-item will generally causes a dialog to be displayed which lets the user choose which channels to apply the action to.
+
+
+- On a sound window:
+	- LEFT mouse button changes start position
+	- RIGHT mouse button changes stop position
+
+	- In the wave view, while holding CONTROL and clicking the LEFT mouse button the sound will play from the mouse cursor position until the end of the sound or stop is pressed
+	- In the wave view, while holding CONTROL and pressing the RIGHT mouse button the sound will play from the mouse cursor position until the RIGHT mouse button is released
+        - In the wave view, while holding SHIFT and clicking the LEFT mouse button, a cue will be created at the clicked position.  The name of the cue created can be configured currently by editing ~/.rezound/registry.dat
+	- Pressing 'c' while playing will add a cue at the current play position
+		
+	- mouse WHEEL *should* scroll the wave view when not zoomed out full
+		- holding CONTROL while using the mouse WHEEL will cause it to scroll faster
+	- RIGHT clicking the ruler across the top shows a popup menu for manipulating cues, RIGHT clicking on a cue shows one menu and RIGHT clicking on the other part of the ruler shows another
+		- normally the selection positions will 'snap' to the cue positions
+		- holding SHIFT while changing the selection positions will momentarily disable the 'snap to cue' feature
+		- holding SHIFT while changing the selection positions will also momentarily disable auto scrolling when selecting near the edges
+	- DOUBLE LEFT clicking the ruler brings up the cue list dialog
+	- DOUBLE LEFT clicking a cue brings up the edit dialog
+	- A cue can be dragged using the LEFT mouse button.  Pressing ESCAPE while dragging a cue will cancel the drag
+		- If the start or stop position is exactly on a cue position when dragging the cue starts then that start or stop position will be dragged too. Holding SHIFT when starting the drag disables this action.
+	- LEFT clicking a cue focuses that cue.  
+		- Cues can be deleted by pressing DELETE 
+		- The LEFT, RIGHT, HOME and END cursor keys will focues the next or previous cue.  When the next or previous cue is focued that cue's position will be centered (useful when zoomed in)
+		- Pressing RETURN will bring up the edit dialog for that focused cue
+
+	- Holding SHIFT while changing the horizontal zoom level dial will center the start position on screen
+	- Holding CONTROL while changing the horizontal zoom level dial will center the stop position on screen
+
+	- There are checkboxes on the left side of the waveform for muting channels 
+		- The LEFT mouse button inverts the mute selections on the button below all the mute channel checkboxes 
+		- The RIGHT mouse button unmutes all the channels on the button below all the mute channel checkboxes 
+
+	- On the horizontal and vertical scroll bars, when the sound is not zoomed out full
+		- RIGHT dragging the slider on the scroll bar is a fine-adjustment to the scroll position
+		- MIDDLE clicking the scroll bar sends the slider immediately to the clicked position
+		
+		- RIGHT clicking the arrow buttons at the ends of the scroll bar moves the scroll position by a very small amount
+		- MIDDLE clicking the arrow buttons at the ends of the scroll bar moves the scroll position immediately to that end
+
+	- The buttons on either side of the horizontal or vertical zoom dials zooms in or out full
+	- The button at the bottom right corner of the waveform zooms out full horizontally and vertically
+
+	- ReZound will attempt to maintain the visibility of either the start or stop positions while changing the horizontal zoom dial depending on wether the start or stop position was last changed and one is on screen
+		- If neither the start or stop position is visible on screen it attempts to keep the left most sample at the left edge of the waveform view
+
+
+
+- Play controls:
+	- The shuttle control can be toggled between 'spring-back mode' or 'free mode' by clicking the switch just to the right of the shuttle control
+	- RIGHT clicking the shuttle control is useful to recenter the shuttle control while in 'free mode'
+	- list keyboard bindings here ...
+
+
+- Cue List Dialog:
+	- Double clicking a cue brings up the edit cue dialog
+
+- Graph Parameter Widget:
+	- LEFT clicking where there is not a node will create a node.
+	- LEFT dragging on an existing node will move it around.
+	- RIGHT clicking on an existing node will remove it.
+	- Holding SHIFT or CONTROL while dragging a node will lock either the horizontal or vertical movement when only needing to move the node in one direction.
+
+- Record Dialog:
+	- You can start and stop the recording multiple times to create a longer and longer recording.  You must hit redo/reset to actually reset the recording position to the beginning
+

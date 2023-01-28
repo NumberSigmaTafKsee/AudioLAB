@@ -1,0 +1,62 @@
+
+[[help_view]]
+==== help_view
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Help__View.html++[Fl_Help_View]. +
+Inherits from: <<widget, widget>>, <<group, group>>.#
+
+
+* _help_view_ = *fl.help_view*(_x_, _y_, _w_, _h_, [_label_])
+
+* *:clear_selection*( )
+
+* _dirname_ = *:directory*( )
+
+* _filename_ = *:filename*( )
+
+* _line_  = *:find*(_string_, [_pos_]) +
+[small]#Returns _nil_ if _string_ is not found.#
+
+* *:leftline*(_p_) +
+_p_ = *:leftline*( )
+
+
+* *:link*(_func_) +
+[small]#The _func_ callback (a function) is executed as *func(help_view, uri)* where
+_help_view_ is this widget and _uri_ is an URI or a pathname.
+It must return a pahname that can be opened as a local file, or _nil_ 
+(see Fl_Help_View::link() in the FLTK manual for more details).#
+
+* *:load*(_filename_)
+
+* *:scrollbar_size*(_pixels_) +
+_pixels_  = *:scrollbar_size*( ) +
+[small]#Do not use this function, use <<fl.scrollbar_size, fl.scrollbar_size>>( ) instead.#
+
+* *:select_all*( )
+
+* *:size*(_w_, _h_) +
+_size_ = *:size*( )
+
+
+* *:textcolor*(<<color, _color_>>) +
+<<color, _color_>> = *:textcolor*( )
+
+* *:textfont*(<<font, _font_>>) +
+<<font, _font_>> = *:textfont*( )
+
+* *:textsize*(_fontsize_) +
+_fontsize_ = *:textsize*( )
+
+
+* _title_ = *:title*( )
+
+
+* *:topline*(_line_) +
+*:topline*(_name_) +
+_line_ = *:topline*( )
+
+
+* *:value*(_text_) +
+_text_ = *:value*( )
+
+

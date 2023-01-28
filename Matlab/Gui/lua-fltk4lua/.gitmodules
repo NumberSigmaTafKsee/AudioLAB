@@ -1,0 +1,13 @@
+[submodule "moon"]
+	path = moon
+	url = https://github.com/siffiejoe/lua-moon
+[submodule "compat-5.3"]
+	path = compat-5.3
+	url = https://github.com/keplerproject/lua-compat-5.3.git
+[submodule "doc"]
+	path = doc
+	url = https://github.com/siffiejoe/lua-fltk4lua.wiki
+	branch = doc
+[submodule ".travis"]
+	path = .travis
+	url = https://github.com/siffiejoe/lua-travis

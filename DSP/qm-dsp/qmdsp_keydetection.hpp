@@ -1,0 +1,398 @@
+#pragma once
+
+#include "qmpdsp_math.hpp"
+#include "qmdsp_decimator.hpp"
+#include "qmdsp_chromagram.hpp"
+
+#include <iostream>
+#include <cstring>
+#include <cstdlib>
+
+namespace qmdsp
+{
+    class Decimator;
+    class Chromagram;
+
+    class GetKeyMode  
+    {
+    public:
+        struct Config {
+            double sampleRate;
+            float tuningFrequency;
+            double hpcpAverage;
+            double medianAverage;
+            int frameOverlapFactor; // 1 = none (default, fast, but means
+                                    // we skip a fair bit of input data);
+                                    // 8 = normal chroma overlap
+            int decimationFactor;
+
+            Config(double _sampleRate, float _tuningFrequency) :
+                sampleRate(_sampleRate),
+                tuningFrequency(_tuningFrequency),
+                hpcpAverage(10),
+                medianAverage(10),
+                frameOverlapFactor(1),
+                decimationFactor(8) {
+            }
+        };
+        
+        GetKeyMode(Config config);
+
+        virtual ~GetKeyMode();
+
+        /**
+        * Process a single time-domain input sample frame of length
+        * getBlockSize(). Successive calls should provide overlapped data
+        * with an advance of getHopSize() between frames.
+        *
+        * Return a key index in the range 0-24, where 0 indicates no key
+        * detected, 1 is C major, and 13 is C minor.
+        */
+        int process(double *pcmData);
+
+        /**
+        * Return a pointer to an internal 24-element array containing the
+        * correlation of the chroma vector generated in the last
+        * process() call against the stored key profiles for the 12 major
+        * and 12 minor keys, where index 0 is C major and 12 is C minor.
+        */
+        double *getKeyStrengths();
+
+        int getBlockSize() {
+            return m_chromaFrameSize * m_decimationFactor;
+        }
+        int getHopSize() {
+            return m_chromaHopSize * m_decimationFactor;
+        }
+
+    protected:
+        double krumCorr(const double *pDataNorm, const double *pProfileNorm, 
+                        int shiftProfile, int length);
+
+        double m_hpcpAverage;
+        double m_medianAverage;
+        int m_decimationFactor;
+
+        // Decimator (fixed)
+        Decimator* m_decimator;
+
+        // Chromagram object
+        Chromagram* m_chroma;
+
+        // Chromagram output pointer
+        double* m_chrPointer;
+
+        // Framesize
+        int m_chromaFrameSize;
+
+        // Hop
+        int m_chromaHopSize;
+
+        int m_chromaBufferSize;
+        int m_medianWinSize;
+            
+        int m_bufferIndex;
+        int m_chromaBufferFilling;
+        int m_medianBufferFilling;
+
+        double* m_decimatedBuffer;
+        double* m_chromaBuffer;
+        double* m_meanHPCP;
+
+        double* m_majProfileNorm;
+        double* m_minProfileNorm;
+        double* m_majCorr;
+        double* m_minCorr;
+        int* m_medianFilterBuffer;
+        int* m_sortedBuffer;
+
+        double *m_keyStrengths;
+    };
+
+    static const int kBinsPerOctave = 36;
+
+    // Chords profile
+    static double MajProfile[kBinsPerOctave] = {
+        0.0384, 0.0629, 0.0258, 0.0121, 0.0146, 0.0106, 0.0364, 0.0610, 0.0267,
+        0.0126, 0.0121, 0.0086, 0.0364, 0.0623, 0.0279, 0.0275, 0.0414, 0.0186, 
+        0.0173, 0.0248, 0.0145, 0.0364, 0.0631, 0.0262, 0.0129, 0.0150, 0.0098,
+        0.0312, 0.0521, 0.0235, 0.0129, 0.0142, 0.0095, 0.0289, 0.0478, 0.0239
+    };
+
+    static double MinProfile[kBinsPerOctave] = { 
+        0.0375, 0.0682, 0.0299, 0.0119, 0.0138, 0.0093, 0.0296, 0.0543, 0.0257,
+        0.0292, 0.0519, 0.0246, 0.0159, 0.0234, 0.0135, 0.0291, 0.0544, 0.0248,
+        0.0137, 0.0176, 0.0104, 0.0352, 0.0670, 0.0302, 0.0222, 0.0349, 0.0164,
+        0.0174, 0.0297, 0.0166, 0.0222, 0.0401, 0.0202, 0.0175, 0.0270, 0.0146
+    };
+    //
+        
+
+    //////////////////////////////////////////////////////////////////////
+    // Construction/Destruction
+    //////////////////////////////////////////////////////////////////////
+
+    GetKeyMode::GetKeyMode(Config config) :
+        m_hpcpAverage(config.hpcpAverage),
+        m_medianAverage(config.medianAverage),
+        m_decimationFactor(config.decimationFactor),
+        m_chrPointer(0),
+        m_decimatedBuffer(0),
+        m_chromaBuffer(0),
+        m_meanHPCP(0),
+        m_majCorr(0),
+        m_minCorr(0),
+        m_medianFilterBuffer(0),
+        m_sortedBuffer(0),
+        m_keyStrengths(0)
+    {
+        ChromaConfig chromaConfig;
+        
+        // Chromagram configuration parameters
+        chromaConfig.normalise = MathUtilities::NormaliseUnitMax;
+        chromaConfig.FS = config.sampleRate / (double)m_decimationFactor;
+        if (chromaConfig.FS < 1) {
+            chromaConfig.FS = 1;
+        }
+
+        // Set C3 (= MIDI #48) as our base:
+        // This implies that key = 1 => Cmaj, key = 12 => Bmaj, key = 13 => Cmin, etc.
+        chromaConfig.min =
+            Pitch::getFrequencyForPitch( 48, 0, config.tuningFrequency );
+        chromaConfig.max =
+            Pitch::getFrequencyForPitch( 96, 0, config.tuningFrequency );
+
+        chromaConfig.BPO = kBinsPerOctave;
+        chromaConfig.CQThresh = 0.0054;
+
+        // Chromagram inst.
+        m_chroma = new Chromagram(chromaConfig);
+
+        // Get calculated parameters from chroma object
+        m_chromaFrameSize = m_chroma->getFrameSize();
+
+        // override hopsize for this application
+        m_chromaHopSize = m_chromaFrameSize / config.frameOverlapFactor;
+
+    //    std::cerr << "chroma frame size = " << m_ChromaFrameSize << ", decimation factor = " << m_DecimationFactor << " therefore block size = " << getBlockSize() << std::endl;
+
+        // Chromagram average and estimated key median filter lengths
+        m_chromaBufferSize = (int)ceil
+            (m_hpcpAverage * chromaConfig.FS / m_chromaFrameSize);
+        m_medianWinSize = (int)ceil
+            (m_medianAverage * chromaConfig.FS / m_chromaFrameSize);
+        
+        // Reset counters
+        m_bufferIndex = 0;
+        m_chromaBufferFilling = 0;
+        m_medianBufferFilling = 0;
+
+        // Spawn objectc/arrays
+        m_decimatedBuffer = new double[m_chromaFrameSize];
+        m_chromaBuffer = new double[kBinsPerOctave * m_chromaBufferSize];
+
+        memset(m_chromaBuffer, 0,
+            sizeof(double) * kBinsPerOctave * m_chromaBufferSize);
+        
+        m_meanHPCP = new double[kBinsPerOctave];
+        
+        m_majCorr = new double[kBinsPerOctave];
+        m_minCorr = new double[kBinsPerOctave];
+        
+        m_majProfileNorm = new double[kBinsPerOctave];
+        m_minProfileNorm = new double[kBinsPerOctave];
+
+        double mMaj = MathUtilities::mean( MajProfile, kBinsPerOctave );
+        double mMin = MathUtilities::mean( MinProfile, kBinsPerOctave );
+
+        for (int i = 0; i < kBinsPerOctave; i++) {
+            m_majProfileNorm[i] = MajProfile[i] - mMaj;
+            m_minProfileNorm[i] = MinProfile[i] - mMin;
+        }
+
+        m_medianFilterBuffer = new int[ m_medianWinSize ];
+        memset( m_medianFilterBuffer, 0, sizeof(int)*m_medianWinSize);
+        
+        m_sortedBuffer = new int[ m_medianWinSize ];
+        memset( m_sortedBuffer, 0, sizeof(int)*m_medianWinSize);
+        
+        m_decimator = new Decimator( m_chromaFrameSize * m_decimationFactor,
+                                    m_decimationFactor );
+
+        m_keyStrengths = new double[24];
+    }
+
+    GetKeyMode::~GetKeyMode()
+    {
+        delete m_chroma;
+        delete m_decimator;
+        
+        delete [] m_decimatedBuffer;
+        delete [] m_chromaBuffer;
+        delete [] m_meanHPCP;
+        delete [] m_majCorr;
+        delete [] m_minCorr;
+        delete [] m_majProfileNorm;
+        delete [] m_minProfileNorm;
+        delete [] m_medianFilterBuffer;
+        delete [] m_sortedBuffer;
+        delete [] m_keyStrengths;
+    }
+
+    double GetKeyMode::krumCorr( const double *pDataNorm, const double *pProfileNorm, 
+                                int shiftProfile, int length)
+    {
+        double retVal= 0.0;
+        
+        double num = 0;
+        double den = 0;
+        double sum1 = 0;
+        double sum2 = 0;
+        
+        for (int i = 0; i < length; i++) {
+
+            int k = (i - shiftProfile + length) % length;
+
+            num += pDataNorm[i] * pProfileNorm[k];
+
+            sum1 += (pDataNorm[i] * pDataNorm[i]);
+            sum2 += (pProfileNorm[k] * pProfileNorm[k]);
+        }
+            
+        den = sqrt(sum1 * sum2);
+
+        if (den > 0) {
+            retVal = num/den;
+        } else {
+            retVal = 0;
+        }
+
+        return retVal;
+    }
+
+    int GetKeyMode::process(double *pcmData)
+    {
+        int key;
+        int j, k;
+
+        m_decimator->process(pcmData, m_decimatedBuffer);
+
+        m_chrPointer = m_chroma->process(m_decimatedBuffer);
+
+        // populate hpcp values
+        int cbidx;
+        for (j = 0;j < kBinsPerOctave;j++ ) {
+            cbidx = (m_bufferIndex * kBinsPerOctave) + j;
+            m_chromaBuffer[ cbidx ] = m_chrPointer[j];
+        }
+
+        // keep track of input buffers
+        if (m_bufferIndex++ >= m_chromaBufferSize - 1) {
+            m_bufferIndex = 0;
+        }
+
+        // track filling of chroma matrix
+        if (m_chromaBufferFilling++ >= m_chromaBufferSize) {
+            m_chromaBufferFilling = m_chromaBufferSize;
+        }
+
+        // calculate mean
+        for (k = 0; k < kBinsPerOctave; k++) {
+            double mnVal = 0.0;
+            for (j = 0; j < m_chromaBufferFilling; j++) {
+                mnVal += m_chromaBuffer[ k + (j * kBinsPerOctave) ];
+            }
+
+            m_meanHPCP[k] = mnVal / (double)m_chromaBufferFilling;
+        }
+
+        // Normalize for zero average
+        double mHPCP = MathUtilities::mean(m_meanHPCP, kBinsPerOctave);
+        for (k = 0; k < kBinsPerOctave; k++) {
+            m_meanHPCP[k] -= mHPCP;
+        }
+
+        for (k = 0; k < kBinsPerOctave; k++) {
+            // The Chromagram has the center of C at bin 0, while the major
+            // and minor profiles have the center of C at 1. We want to have
+            // the correlation for C result also at 1.
+            // To achieve this we have to shift two times:
+            m_majCorr[k] = krumCorr
+                (m_meanHPCP, m_majProfileNorm, k - 2, kBinsPerOctave);
+            m_minCorr[k] = krumCorr
+                (m_meanHPCP, m_minProfileNorm, k - 2, kBinsPerOctave);
+        }
+
+        // m_MajCorr[1] is C center  1 / 3 + 1 = 1
+        // m_MajCorr[4] is D center  4 / 3 + 1 = 2
+        // '+ 1' because we number keys 1-24, not 0-23.
+        double maxMaj;
+        int maxMajBin = MathUtilities::getMax(m_majCorr, kBinsPerOctave, &maxMaj);
+        double maxMin;
+        int maxMinBin = MathUtilities::getMax(m_minCorr, kBinsPerOctave, &maxMin);
+        int maxBin = (maxMaj > maxMin) ? maxMajBin : (maxMinBin + kBinsPerOctave);
+        key = maxBin / 3 + 1;
+
+        // Median filtering
+
+        // track Median buffer initial filling
+        if (m_medianBufferFilling++ >= m_medianWinSize) {
+            m_medianBufferFilling = m_medianWinSize;
+        }
+
+        // shift median buffer
+        for (k = 1; k < m_medianWinSize; k++ ) {
+            m_medianFilterBuffer[ k - 1 ] = m_medianFilterBuffer[ k ];
+        }
+
+        // write new key value into median buffer
+        m_medianFilterBuffer[ m_medianWinSize - 1 ] = key;
+
+        // copy median into sorting buffer, reversed
+        int ijx = 0;
+        for (k = 0; k < m_medianWinSize; k++) {
+            m_sortedBuffer[k] = m_medianFilterBuffer[m_medianWinSize - 1 - ijx];
+            ijx++;
+        }
+
+        qsort(m_sortedBuffer, m_medianBufferFilling, sizeof(int),
+            MathUtilities::compareInt);
+
+        int sortlength = m_medianBufferFilling;
+        int midpoint = (int)ceil((double)sortlength / 2);
+
+        if (midpoint <= 0) {
+            midpoint = 1;
+        }
+
+        key = m_sortedBuffer[midpoint-1];
+
+        return key;
+    }
+
+    double* GetKeyMode::getKeyStrengths() {
+        int k;
+
+        for (k = 0; k < 24; ++k) {
+            m_keyStrengths[k] = 0;
+        }
+
+        for (k = 0; k < kBinsPerOctave; k++) {
+            int idx = k / (kBinsPerOctave/12);
+            int rem = k % (kBinsPerOctave/12);
+            if (rem == 0 || m_majCorr[k] > m_keyStrengths[idx]) {
+                m_keyStrengths[idx] = m_majCorr[k];
+            }
+        }
+
+        for (k = 0; k < kBinsPerOctave; k++) {
+            int idx = (k + kBinsPerOctave) / (kBinsPerOctave/12);
+            int rem = k % (kBinsPerOctave/12);
+            if (rem == 0 || m_minCorr[k] > m_keyStrengths[idx]) {
+                m_keyStrengths[idx] = m_minCorr[k];
+            }
+        }
+
+        return m_keyStrengths;
+    }
+}

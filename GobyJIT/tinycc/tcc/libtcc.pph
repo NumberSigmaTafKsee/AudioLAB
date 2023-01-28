@@ -1,0 +1,95 @@
+# 1 "libtcc.h"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 31 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 32 "<command-line>" 2
+# 1 "libtcc.h"
+# 12 "libtcc.h"
+struct TCCState;
+
+typedef struct TCCState TCCState;
+
+typedef void (*TCCErrorFunc)(void *opaque, const char *msg);
+
+
+ TCCState *tcc_new(void);
+
+
+ void tcc_delete(TCCState *s);
+
+
+ void tcc_set_lib_path(TCCState *s, const char *path);
+
+
+ void tcc_set_error_func(TCCState *s, void *error_opaque, TCCErrorFunc error_func);
+
+
+ TCCErrorFunc tcc_get_error_func(TCCState *s);
+
+
+ void *tcc_get_error_opaque(TCCState *s);
+
+
+ void tcc_set_options(TCCState *s, const char *str);
+
+
+
+
+
+ int tcc_add_include_path(TCCState *s, const char *pathname);
+
+
+ int tcc_add_sysinclude_path(TCCState *s, const char *pathname);
+
+
+ void tcc_define_symbol(TCCState *s, const char *sym, const char *value);
+
+
+ void tcc_undefine_symbol(TCCState *s, const char *sym);
+
+
+
+
+
+ int tcc_add_file(TCCState *s, const char *filename);
+
+
+ int tcc_compile_string(TCCState *s, const char *buf);
+
+
+
+
+
+ int tcc_set_output_type(TCCState *s, int output_type);
+
+
+
+
+
+
+
+ int tcc_add_library_path(TCCState *s, const char *pathname);
+
+
+ int tcc_add_library(TCCState *s, const char *libraryname);
+
+
+ int tcc_add_symbol(TCCState *s, const char *name, const void *val);
+
+
+
+ int tcc_output_file(TCCState *s, const char *filename);
+
+
+
+ int tcc_run(TCCState *s, int argc, char **argv);
+
+
+ int tcc_relocate(TCCState *s1, void *ptr);
+# 101 "libtcc.h"
+ void *tcc_get_symbol(TCCState *s, const char *name);
+
+
+ void tcc_list_symbols(TCCState *s, void *ctx,
+    void (*symbol_cb)(void *ctx, const char *name, const void *val));

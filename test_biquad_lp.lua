@@ -1,0 +1,5 @@
+require("kfr_core")
+wav = kfr_core.load_wav("test.wav")
+fc = kfr_core.normalize_frequency(100.0,44100.0)
+lp  = kfr_core.lowpassfilter(wav,fc/2,0.9)
+kfr_core.save_wav(wav,"lp.wav",1,kfr_core.audio_sample_type_f32,44100)

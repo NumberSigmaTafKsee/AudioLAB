@@ -1,0 +1,13 @@
+var searchData=
+[
+  ['effect_79',['effect',['../a00347.html#aa79ae6a4f34eafcae142923f03274fb2',1,'Loris::SpectralSurface']]],
+  ['enablelogampmorphing_80',['enableLogAmpMorphing',['../a00223.html#ad334076c0db9db82952b92ced18d6dd0',1,'Loris::Morpher']]],
+  ['enablelogfreqmorphing_81',['enableLogFreqMorphing',['../a00223.html#a379f6f4402c382849777fc32e5bff361',1,'Loris::Morpher']]],
+  ['end_82',['end',['../a00167.html#acfc3dbd2e5cb86ab60a4fecbe95b4602',1,'Loris::FourierTransform::end(void)'],['../a00167.html#a29707b330c25650546d753511f65bb4a',1,'Loris::FourierTransform::end(void) const'],['../a00239.html#a688629e4a8688be26982be4eee6e5e54',1,'Loris::Partial::end(void)'],['../a00239.html#ade73f273058d8b31b948ff3b981511a9',1,'Loris::Partial::end(void) const']]],
+  ['endtime_83',['endTime',['../a00239.html#a1a9387256c6bd40a2f0cc2420a0a0a6d',1,'Loris::Partial']]],
+  ['env_84',['env',['../a00255.html#ab0191dbb7dba137ee8af5c84c7c8be1a',1,'Loris::PartialUtils::PartialMutator']]],
+  ['envelope_85',['Envelope',['../a00155.html',1,'Loris::Envelope'],['../a00171.html#a44bf1783e8f062391ebd4ced7b97bb30',1,'Loris::FrequencyReference::envelope()']]],
+  ['erase_86',['erase',['../a00239.html#a11424401bfa7abe2b3100092e7942194',1,'Loris::Partial::erase(iterator beg, iterator end)'],['../a00239.html#ada3ec7f195fa8606e69af10fb3fb5500',1,'Loris::Partial::erase(iterator pos)']]],
+  ['estimateat_87',['estimateAt',['../a00179.html#a399af4c3f047f17a7a5a2f804b5fc6e4',1,'Loris::FundamentalFromSamples::estimateAt(const double *sampsBeg, const double *sampsEnd, double sampleRate, double time, double lowerFreqBound, double upperFreqBound)'],['../a00179.html#a4e5e08555c477631b215064fc3cd04b2',1,'Loris::FundamentalFromSamples::estimateAt(const double *sampsBeg, unsigned long nsamps, double sampleRate, double time, double lowerFreqBound, double upperFreqBound)'],['../a00179.html#a362664ef1d035f15012bd232fca6f057',1,'Loris::FundamentalFromSamples::estimateAt(const std::vector&lt; double &gt; &amp;samps, double sampleRate, double time, double lowerFreqBound, double upperFreqBound)'],['../a00183.html#aa9cb2ddc111d459abb6d7a8e6cbf717e',1,'Loris::FundamentalFromPartials::estimateAt(PartialList::const_iterator begin_partials, PartialList::const_iterator end_partials, double time, double lowerFreqBound, double upperFreqBound)'],['../a00183.html#a29ce8d17517b25f13cebf247b12f27d9',1,'Loris::FundamentalFromPartials::estimateAt(const PartialList &amp;partials, double time, double lowerFreqBound, double upperFreqBound)']]],
+  ['export_88',['Export',['../a00335.html#a3c02a334d22d728713ae7dd93cec5530',1,'Loris::SdifFile']]]
+];

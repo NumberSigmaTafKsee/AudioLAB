@@ -1,0 +1,19 @@
+[submodule "cimgui"]
+	path = cimgui
+	url = https://github.com/cimgui/cimgui.git
+	branch = docking_inter
+[submodule "cimplot"]
+	path = cimplot
+	url = https://github.com/cimgui/cimplot.git
+[submodule "cimguizmo"]
+	path = cimguizmo
+	url = https://github.com/cimgui/cimguizmo.git
+[submodule "cimguizmo_quat"]
+	path = cimguizmo_quat
+	url = https://github.com/cimgui/cimguizmo_quat.git
+[submodule "cimnodes"]
+	path = cimnodes
+	url = https://github.com/cimgui/cimnodes.git
+[submodule "cimnodes_r"]
+	path = cimnodes_r
+	url = https://github.com/cimgui/cimnodes_r.git

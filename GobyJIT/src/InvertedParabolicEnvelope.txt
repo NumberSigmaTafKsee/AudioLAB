@@ -1,0 +1,19 @@
+dur = duration in samples
+midlevel = amplitude at midpoint
+beglevel = beginning and ending level (typically zero)
+
+amp = midlevel - beglevel;
+
+rdur = 1.0 / dur;
+rdur2 = rdur * rdur;
+
+level = beglevel;
+slope = 4.0 * amp * (rdur - rdur2);
+curve = -8.0 * amp * rdur2;
+
+...
+
+for (i=0; i<dur; ++i) {
+        level += slope;
+        slope += curve;
+}

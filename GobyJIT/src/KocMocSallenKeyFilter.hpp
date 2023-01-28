@@ -1,0 +1,427 @@
+#pragma once
+
+#include "KocMocIIR.hpp"
+
+// filter modes
+enum SKFilterMode {
+   SK_LOWPASS_MODE,
+   SK_BANDPASS_MODE,
+   SK_HIGHPASS_MODE
+};
+
+// integration methods
+enum SKIntegrationMethod {
+   SK_SEMI_IMPLICIT_EULER,
+   SK_PREDICTOR_CORRECTOR,
+   SK_TRAPEZOIDAL
+};
+
+class SKFilter{
+public:
+  // constructor/destructor
+  SKFilter(double newCutoff, double newResonance, int newOversamplingFactor,
+	   SKFilterMode newFilterMode, double newSampleRate,
+	   SKIntegrationMethod newIntegrationMethod, int newDecimatorOrder);
+  SKFilter();
+  ~SKFilter();
+
+  // set filter parameters
+  void SetFilterCutoff(double newCutoff);
+  void SetFilterResonance(double newResonance);
+  void SetFilterMode(SKFilterMode newFilterMode);
+  void SetFilterSampleRate(double newSampleRate);
+  void SetFilterIntegrationMethod(SKIntegrationMethod method);
+  void SetFilterOversamplingFactor(int newOversamplingFactor);
+  void SetFilterDecimatorOrder(int decimatorOrder);
+  
+  // get filter parameters
+  double GetFilterCutoff();
+  double GetFilterResonance();
+  SKFilterMode GetFilterMode();  
+  double GetFilterSampleRate();
+  SKIntegrationMethod GetFilterIntegrationMethod();
+  int GetFilterOversamplingFactor();  
+  int GetFilterDecimatorOrder();
+  
+  // tick filter state
+  void filter(double input);
+
+  // set filter inputs
+  void SetFilterLowpassInput(double input);
+  void SetFilterBandpassInput(double input);
+  void SetFilterHighpassInput(double input);
+
+  // get filter output
+  double GetFilterOutput();
+
+  // reset state
+  void ResetFilterState();
+  
+private:
+  // set integration rate
+  void SetFilterIntegrationRate();
+
+  // filter parameters
+  double cutoffFrequency;
+  double Resonance;
+  SKFilterMode filterMode;
+  double sampleRate;
+  double dt;
+  SKIntegrationMethod integrationMethod;
+  int oversamplingFactor;
+  int decimatorOrder;
+  
+  // filter state
+  double p0;
+  double p1;
+
+  // filter input
+  double input_lp;
+  double input_bp;
+  double input_hp;
+  double input_lp_t1;
+  double input_bp_t1;
+  double input_hp_t1;
+  
+  // filter output
+  double out;
+
+  // IIR downsampling filter
+  IIRLowpass *iir;
+};
+
+
+/*
+ *  (C) 2021 Janne Heikkarainen <janne808@radiofreerobotron.net>
+ *
+ *  All rights reserved.
+ *
+ *  This file is part of Kocmoc VCV Rack plugin.
+ *
+ *  Kocmoc VCV Rack plugin is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  Kocmoc VCV Rack plugin is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Kocmoc VCV Rack plugin.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#include <cstdlib>
+#include <cmath>
+#include "sallenkey.h"
+#include "iir.h"
+#include "fastmath.h"
+
+// steepness of downsample filter response
+#define IIR_DOWNSAMPLE_ORDER 16
+
+// downsampling passthrough bandwidth
+#define IIR_DOWNSAMPLING_BANDWIDTH 0.9
+
+// maximum newton-raphson iteration steps
+#define SKF_MAX_NEWTON_STEPS 8
+
+// check for newton-raphson breaking limit
+#define SKF_NEWTON_BREAKING_LIMIT 1
+
+// constructor
+SKFilter::SKFilter(double newCutoff, double newResonance, int newOversamplingFactor,
+		   SKFilterMode newFilterMode, double newSampleRate,
+		   SKIntegrationMethod newIntegrationMethod, int newDecimatorOrder){
+  // initialize filter parameters
+  cutoffFrequency = newCutoff;
+  Resonance = newResonance;
+  filterMode = newFilterMode;
+  sampleRate = newSampleRate;
+  oversamplingFactor = newOversamplingFactor;
+  decimatorOrder = newDecimatorOrder;
+
+  SetFilterIntegrationRate();
+
+  // initialize filter state
+  p0 = p1 = out = 0.0;
+
+  // initialize filter inputs
+  input_lp = input_bp = input_hp = 0.0;
+  input_lp_t1 = input_bp_t1 = input_hp_t1 = 0.0;
+  
+  integrationMethod = newIntegrationMethod;
+  
+  // instantiate downsampling filter
+  iir = new IIRLowpass(sampleRate * oversamplingFactor,
+		       IIR_DOWNSAMPLING_BANDWIDTH*sampleRate/2.0,
+		       decimatorOrder);
+}
+
+// default constructor
+SKFilter::SKFilter(){
+  // initialize filter parameters
+  cutoffFrequency = 0.25;
+  Resonance = 0.5;
+  filterMode = SK_LOWPASS_MODE;
+  sampleRate = 44100.0;
+  oversamplingFactor = 2;
+  decimatorOrder = IIR_DOWNSAMPLE_ORDER;
+
+  SetFilterIntegrationRate();
+  
+  // initialize filter state
+  p0 = p1 = out = 0.0;
+
+  // initialize filter inputs
+  input_lp = input_bp = input_hp = 0.0;
+  input_lp_t1 = input_bp_t1 = input_hp_t1 = 0.0;
+  
+  integrationMethod = SK_TRAPEZOIDAL;
+  
+  // instantiate downsampling filter
+  iir = new IIRLowpass(sampleRate * oversamplingFactor,
+		       IIR_DOWNSAMPLING_BANDWIDTH*sampleRate/2.0,
+		       decimatorOrder);
+}
+
+// default destructor
+SKFilter::~SKFilter(){
+  delete iir;
+}
+
+void SKFilter::ResetFilterState(){
+  // initialize filter parameters
+  cutoffFrequency = 0.25;
+  Resonance = 0.5;
+
+  SetFilterIntegrationRate();
+  
+  // initialize filter state
+  p0 = p1 = out = 0.0;
+
+  // initialize filter inputs
+  input_lp = input_bp = input_hp = 0.0;
+  input_lp_t1 = input_bp_t1 = input_hp_t1 = 0.0;
+  
+  // set oversampling
+  iir->SetFilterSamplerate(sampleRate * oversamplingFactor);
+  iir->SetFilterCutoff(IIR_DOWNSAMPLING_BANDWIDTH*sampleRate/2.0);
+  iir->SetFilterOrder(decimatorOrder);
+}
+
+void SKFilter::SetFilterCutoff(double newCutoff){
+  cutoffFrequency = newCutoff;
+
+  SetFilterIntegrationRate();
+}
+
+void SKFilter::SetFilterResonance(double newResonance){
+  Resonance = newResonance;
+}
+
+void SKFilter::SetFilterMode(SKFilterMode newFilterMode){
+  filterMode = newFilterMode;
+}
+
+void SKFilter::SetFilterSampleRate(double newSampleRate){
+  sampleRate = newSampleRate;
+  iir->SetFilterSamplerate(sampleRate * (double)(oversamplingFactor));
+  iir->SetFilterCutoff(IIR_DOWNSAMPLING_BANDWIDTH*sampleRate/2.0);
+
+  SetFilterIntegrationRate();
+}
+
+void SKFilter::SetFilterIntegrationMethod(SKIntegrationMethod method){
+  integrationMethod = method;
+}
+
+void SKFilter::SetFilterOversamplingFactor(int newOversamplingFactor){
+  oversamplingFactor = newOversamplingFactor;
+  iir->SetFilterSamplerate(sampleRate * oversamplingFactor);
+  iir->SetFilterCutoff(IIR_DOWNSAMPLING_BANDWIDTH*sampleRate/2.0);
+  iir->SetFilterOrder(decimatorOrder);
+
+  SetFilterIntegrationRate();
+}
+
+void SKFilter::SetFilterDecimatorOrder(int newDecimatorOrder){
+  decimatorOrder = newDecimatorOrder;
+  iir->SetFilterOrder(decimatorOrder);
+}
+
+void SKFilter::SetFilterIntegrationRate(){
+  // normalize cutoff freq to samplerate
+  dt = 44100.0 / (sampleRate * oversamplingFactor) * cutoffFrequency;
+
+  // clamp integration rate
+  if(dt < 0.0){
+    dt = 0.0;
+  }
+  else if(dt > 0.55){
+    dt = 0.55;
+  }
+}
+
+double SKFilter::GetFilterCutoff(){
+  return cutoffFrequency;
+}
+
+double SKFilter::GetFilterResonance(){
+  return Resonance;
+}
+
+int SKFilter::GetFilterOversamplingFactor(){
+  return oversamplingFactor;
+}
+
+int SKFilter::GetFilterDecimatorOrder(){
+  return decimatorOrder;
+}
+
+double SKFilter::GetFilterOutput(){
+  return out;
+}
+
+SKFilterMode SKFilter::GetFilterMode(){
+  return filterMode;
+}
+
+double SKFilter::GetFilterSampleRate(){
+  return sampleRate;
+}
+
+SKIntegrationMethod SKFilter::GetFilterIntegrationMethod(){
+  return integrationMethod;
+}
+
+void SKFilter::filter(double input){
+  // noise term
+  double noise;
+
+  // feedback amount variables
+  double res=4.0*Resonance;
+  double fb=0.0;
+
+  // update noise terms
+  noise = static_cast <double> (rand()) / static_cast <double> (RAND_MAX);
+  noise = 1.0e-6 * 2.0 * (noise - 0.5);
+
+  input += noise;
+
+  // set filter mode
+  switch(filterMode){
+  case SK_LOWPASS_MODE:
+    input_lp = input;
+    input_bp = 0.0;
+    input_hp = 0.0;
+    break;
+  case SK_BANDPASS_MODE:
+    input_lp = 0.0;
+    input_bp = input;
+    input_hp = 0.0;
+    break;
+  case SK_HIGHPASS_MODE:
+    input_lp = 0.0;
+    input_bp = 0.0;
+    input_hp = input;
+    break;
+  default:
+    input_lp = 0.0;
+    input_bp = 0.0;
+    input_hp = 0.0;
+  }
+    
+  // integrate filter state
+  // with oversampling
+  for(int nn = 0; nn < oversamplingFactor; nn++){
+    // switch integration method
+    switch(integrationMethod){
+    case SK_SEMI_IMPLICIT_EULER:
+      // semi-implicit euler integration
+      {
+	fb = input_bp + res*p1;
+	p0 += dt*(input_lp - p0 - fb);
+       	p1 += dt*(p0 + fb - p1 - 1.0/4.0*SinhPade34(p0*4.0));
+      	out = p1;
+      }
+      break;
+    case SK_PREDICTOR_CORRECTOR:
+      // predictor-corrector integration
+      {
+	double p0_prime, p1_prime, fb_prime;
+	  
+	fb = input_bp_t1 + res*p1;
+	p0_prime = p0 + dt*(input_lp_t1 - p0 - fb);
+       	p1_prime = p1 + dt*(p0 + fb - p1 - 1.0/4.0*SinhPade34(p1*4.0));	
+	fb_prime = input_bp + res*p1_prime;
+	
+       	p1 += 0.5*dt*((p0 + fb - p1 - 1.0/4.0*SinhPade34(p1*4.0)) +
+		      (p0_prime + fb_prime - p1_prime - 1.0/4.0*SinhPade34(p1*4.0)));
+	p0 += 0.5*dt*((input_lp_t1 - p0 - fb) +
+		      (input_lp - p0_prime - fb_prime));
+
+	out = p1;
+      }
+      break;
+    case SK_TRAPEZOIDAL:
+      // trapezoidal integration
+      {
+	double x_k, x_k2;
+	double fb_t = input_bp_t1 + res*p1;
+	double alpha = dt/2.0;
+	double A = p0 + fb_t - p1 - 1.0/4.0*SinhPade54(4.0*p1) +
+	           p0/(1.0 + alpha) + alpha/(1 + alpha)*(input_lp_t1 - p0 - fb_t + input_lp);
+	double c = 1.0 - (alpha - alpha*alpha/(1.0 + alpha))*res + alpha;
+	double D_n = p1 + alpha*A + (alpha - alpha*alpha/(1.0 + alpha))*input_bp;
+
+	x_k = p1;
+	
+	// newton-raphson
+	for(int ii=0; ii < SKF_MAX_NEWTON_STEPS; ii++) {
+	  x_k2 = x_k - (c*x_k + alpha*1.0/4.0*SinhPade54(4.0*x_k) - D_n)/(c + alpha*CoshPade54(4.0*x_k));
+	  
+#ifdef SKF_NEWTON_BREAKING_LIMIT
+	  // breaking limit
+	  if(abs(x_k2 - x_k) < 1.0e-9) {
+	    x_k = x_k2;
+	    break;
+	  }
+#endif	  
+	  x_k = x_k2;
+	}
+	
+	p1 = x_k;
+	fb = input_bp + res*p1;
+	p0 = p0/(1.0 + alpha) + alpha/(1.0 + alpha)*(input_lp_t1 - p0 - fb_t + input_lp - fb);
+	out = p1;
+      }
+      break;
+    default:
+      break;
+    }
+
+    // downsampling filter
+    if(oversamplingFactor > 1){
+      out = iir->IIRfilter(out);
+    }
+  }
+  
+  // set input at t-1
+  input_lp_t1 = input_lp;    
+  input_bp_t1 = input_bp;    
+  input_hp_t1 = input_hp;    
+}
+
+void SKFilter::SetFilterLowpassInput(double input){
+  input_lp = input;
+}
+
+void SKFilter::SetFilterBandpassInput(double input){
+  input_bp = input;
+}
+
+void SKFilter::SetFilterHighpassInput(double input){
+  input_hp = input;
+}

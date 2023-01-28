@@ -1,0 +1,341 @@
+
+--- THINGS TO DO FOR SURE ---
+
+	- Make ASoundTranslator::onSaveSound not take const CSound * so I can set the general pool data so that subsequent saves have the right values on the save-parameters prompt dialog
+
+	- Hmm, when portaudio failed to initialize I would get a segfault elsewhere in ASoundPlayer when it the failed-to-initialize object was deleted
+
+	- See if I can speed up the loading of .rez files it seems much slower than simply loading a .wav
+
+	- oops.. many actions don't use 'const CActionSound &actionSound', instead they're using a copy not a reference
+		- fix that
+
+	- in AActionFactory instead of having two bools in the constructor and one or two overloadable methods in AAction for settings flags, I could have an OR-ed set of enums for setting flags like that .. a single parameter to the AActionFactory at construction
+
+	- grep for CRezPoolAccessor and make sure that all accessors that are only used for reading are const (and const *s if new-ed)
+
+	- I could write some template functions for converting various types to the native type
+		- I would implement specializations for each type to the native type
+		- I would implement the unspecialized version to cause a compiler error
+		- I could either use an integer/enum/#define to define the types that should be converted to the native type
+			or try to use the type of the parameter
+			- if I used the type of the parameter, then going from native back to the various could use the return type to infer the appropriate specialization
+			- not using some integer/enum/#define wouldn't allow me to use 24bit since there's no native C type for 24 bit ints
+			- using an integer/enum/#define, I could save that value into the native saved files and know how to load or save it 
+
+		- when I do this I should use in it the Edit/CBurnToCDAction instead of the macro I wrote
+
+		- since floats store in [-1,1] but can actually contain a value outside the range, I need to be sure to clip the value when going from an float type to an integer type efficiently
+	
+	- definiately look into prebuffering a lot more data to the card, but knowing the sample rate (and remembering past chunks' positions written to the card) and the time passed since last redrawing the play position estimate the current output position in the file.  This will allow much more data to be buffered and remove those pesky audio output glitches people are complaining about.
+
+	- Added a "Lock Channels" check box feature to the noise gate, also it would be better if noise gate has a choice of dBFS or percent for the threshold
+
+	DONE - create separate CDSPLevelDetectorRMS and CDSPPeakLevelDetectorPeak dsp blocks
+		- now I need to make a choice of peak or RMS in the NoiseGate and Compressor blocks
+
+	- create a template method in DSPBlocks which is a mean finder given an accessor and a range to find the mean for removing DC
+		- it would handle avoiding overflow by use of recursion and also should be give an accuracy parameter to avoid looking at every value
+
+	DONE except for symetric or non-symetic - distortion would be an easy effect
+		- create the same widget as the curved amplitude or rate change has and make both axies dBFS and the user can create a mapping f
+or sample values to follow
+		- create presets for 'mute above axis' and 'mute below axis'
+
+	- figure out what to do with the 4 bogus cues that appear in an aiff file when the file had no cues in it, itself
+		- libaudiofile is doing this and the author insists that it's correct for some reason
+		- just check for them (4 unnamed at zero) and remove them I guess?
+		- won't be a problem if I move to libsndfile
+
+	- use progress bars when doing TPoolAccesser::copyData and TPoolAccesser::zeroData 
+		- acutally... break the call into 100 chunks and update a progress bar then
+
+	- rename MAX_CHANNELS and MAX_LENGTH in CSound_defs.h to something a little more ReZound specific like REZ_MAX_CHANNELS REZ_MAX_LENGTH
+
+	- I need to think thru and handle problems with the data becoming too large for whatever address space is currently active
+		- if CSound is about to change the space, if the total space is about to cross some threshhold, I shouldn't proceed to do the action
+
+	- Warn the user if saving to a file format that doesn't save more than 31bits worth of sound and the sound file is longer than that
+
+	- add   PCM to PWM  and  PWM to PCM  actions... I'm not sure if they would really fall under Effects... Maybe a new category should be created.  If a new one, then plan other new actions related to these.
+
+	- when I get ready to create a settings dialog and as settings become more numerous I need to create a class for getting the settings' values
+		- perhaps I should create sub-classes than separate the settings by group.. but all-in-all the code for saving and loading the settings should be in that class rather than directly in initialize.cpp and initialize.h
+			- I should probably create template methods (for the different types) so I'm not always rewriting the same code
+				- it would be easier to switch to xml if I ever did
+
+
+	- There is an issue with falling back to OSS for recording.  In ASoundFileManager and CRecordClipboard there are #ifdef checks for ENABLE_JACK which are used to know the sample rate of the recorder since I need to know the sample rate before I created the sound and I need to create the sound before I initialize the recorder.
+		- Probably what I need to do is have a method in CJACKSoundRecorder which will do its best to determine the sample rate and return it.. ENABLE_JACK is enabled if this method succeeds then I use the returned value, otherwise prompt for the sample rate
+
+	- Do some testing with copy/cut/delete to/from files with different sample rates and a selection size of 1 to make sure flooring errors don't cause problems
+
+
+--- POSSIBLE THINGS TO DO ---
+
+	- macros would be a good feature for rezound to have.  Marc on the mailing list described an interesting way to add ambience to a mono sample that could be done through the use of several standard features that already exist.
+		- if these could be scripted (thru something like CScriptedAction(name)) like this (undo would be for the action as a whole instead of a individual undos on each part)
+		- CActionParameters is a step in that direction if it could be saved/loaded from disk
+
+	- consider moving the cue oriented actions to a Cue directory or something
+	- if no more looping actions get created, consider moving the make symetric action under effects
+
+	- play with morphing from one filter kernel to another filter kernel when doing convolution for reverb, could invent some interesting new effects
+
+	- The ASoundClipboard::temporarilyShortenLength() method could be removed (and it's a significant implemenation) if CSound::mixSound() had a srcLength parameter telling it how much of the src to regard instead of my having to use the method of the clipboard in fit mix paste when there is a non-integer repeat count
+
+	- add a "antialias" check button to the gain or volume change effects
+		- this would just make it add random noise to the sound when making the sound louder
+
+	- could warn the user if they are saving a file that was loaded from a lossy format then saving again to a lossy format that the loss will start to build up and become quite audible rather quickly
+
+	- I could enhance moveDataIntoPool/moveDataOutOfPool to save peak chunk information too, so it wouldn't recalc all the peak chunks when undoing an action... I would still have to recalculate the 1 or 2 peak chunks for the edges, but be able to avoid doing all of the middle
+
+	- I could easily remember native clipboards between runs by not deleting removing the pool file's file
+
+	- Implement a CFileClipboard which can paste to/from a file
+		- it would need to let the user paste from a file, the whole file probably...
+		- when copying to this clipboard it should ask for a filename and save to that filename... possibly even having the option to turn around and open that file when the copy is done...
+			- if at all possible, avoid doing any extra read/write of all the audio when opening after copying/cuting
+		- don't let CFileClipboard act on a file that is already loaded
+
+	- To speed up initial work upon loading a large file (>100mb) I could have the loading functions calculate the peak chunk info instead of loading then calcing the peak chunk on the first draw which causes it to have to read and write the data twice instead of once
+		- or use the background fage as I'm leaning toward
+
+	- It would seem profitable to merge CActionSound and CActionParameters into being the same class, since the sound, start and stop positions, and doChannels of CActionSound seem to also be parameters to the action
+		- However, the reason I didn't do this right away, was because I thought that someday I might want to stream CActionParameters to disk and be able to recall it in the future to 
+		  to do the action again with the same parameters.  But, the sound, stop and start positions, and doChannels of CActionSound would not be the same later, so I figured I should have one part of the parameters parameters that was fixed (CActionParameters) and one part that changes later (CActionSound)
+		- Now, granted, there may be some parameters to actions within CActionParameters which don't necessarily work later on a different sound, namely any values which indicate positions within the sound or channel numbers within the sound... For these situations, I either should disallow this saving functionality make the parameters more relative to the sound not absolute
+
+	- When moving data to temp pools, I could send the peak chunk data too, and avoid recalculating it except maybe the very edges when/if that data is restored to its original location
+
+	- Truthfully, a good implementation of the action should also adjust the cues if it is change the size of a selection, if a cue is tied to a particular sample, then that cue should go with that sample's new position
+		- reverse would reverse the cues in the selection, changing the rate would adjust their positions, etc.. Most actions wouldn't really have to worry about it, but it would seem that it should follow that the cues should change as the audio changes
+		- if I see myself using cues a lot or other users wanting new cue features I may just implement this.
+
+	- I'm not sure how the frontend would deal with it (as it currently stands),
+		- but the backend could fairly easily support multiple selection regions by just having CSoundPlayerChannel have a list of regions, then everywere in AAction that handled a region would simply do a for loop on each region invoking the base class with still a given single start and stop
+		- or the backend could have a wrapper around AAction that called AAction's current implementation with with a single region but grouped all of these into a single undo/redo unit (probably rename then current AAction to ASubAction or APartialAction and create a new AAction which created one of these for each region)
+			- in either case problems would arise with actions that used two selected regions to do a single action
+
+	- something to clean up:
+		- the parameters which are given to AAction's constructor and doAction are somewhat arbirary in which ones are where
+		- possibly I should just give all of them to the constructor or all to the doAction method, except maybe the channel
+		- or I could decide which ones logically go where and for what reason
+
+	- change the ClipSample macro to an inline function so _SSS is no longer a static global... verify that the assembler for the inline is no less efficient than the macro
+		- I did this, and the inlined function is just as good as the macro, but it won't get inlined unless -O1 is given
+		- -O1 does make ReZound run much faster but takes a LONG time to compile and I haven't tested it to know that it doesn't introduce bugs
+
+	- evenutually I should have a fage that runs in the background... or perhaps do it ever so often on frontend calls to AAction that it determines the fragmentation level and calls defrag about a certain level
+		- it's really not necessary unless I think that the fragmentation is really going to affect performance
+		- the fragmentation level should probably be calculated as a ratio of the number of logical blocks that a perfectly defragged pool would take to the number of logical blocks that it is taking.. and it might be good to take into accound how long it's going to take to defrag based on the amount of the data that will have to be copied
+		
+
+
+
+
+--- DONE ---
+
+	- create ASound::moveData which we can use to more efficiently maintain undo copies
+		- i.e. CChangeRateEffect should move the selection to an newly created undo pool, then add new space for the calculated data; upon undo, it should remove the space for the calculated data, then move from the undo pool back to the sound, then destroy the undo pool
+		- I guess this means that an array or list of C...PoolAccessers should be passed to moveData, one for each channel that whichChannels is true for
+
+		- i.e. CCropEdit should move the data before the selection to an undo pool, then the data after the selection to an undo pool
+
+		- if I go thru each action and figure out how to do it, I should be able to create some general methods in ASound to manager the most common undo operations
+
+		- Now using libaudiofile in anticipation of using sox's libst when it's more usable
+			- support .wav format any better?
+				- I should probably use libsndfile or SOX for loading and saving many more types of formats
+			- support sample rates or bit rates other than what I have... Use either realtime conversion or alway convert to the native format when the sound is loaded
+
+	- make a 'rotate' edit where 'X' samples from the beginning of the selection are moved to the end or X samples from the end are moved to the begginning... that is a left or right rotation
+
+	- ASound::bits is probably on longer necessary since we don't support anything different than sample_t's type
+
+	- CSoundPlayerChannel could be enhanced to read a mapping in ASound that maps each channel in the ASound with a channel in the player
+		- ??? this is done, except there is no front-end interface to edit the mapping... by default all channels in a sound are assigned, left, right, left, right, etc...
+
+	- I need to make the CSoundPlayerChannel heed the sample rate of the ASound object... I should just use linear interpolation of the playSpeed instead of the cheap aliased way of doing it... perhaps the audio hardware could be taken advantage of???
+
+	- change rint to nearbyint since rint raises a math exception if it did rounding and should therefore be less efficient
+
+	- cues within an ASound object with each having their own time index also need to be subject to adding and remove space.. 
+		- any cue within the removed space needs to also be removed
+		- any cue after added space needs to be shifted down by the amount of space added
+		- and these times need to be restored if a actions is undo... Perhaps I could brute force, just save a copy of all the cues before an action is done, and restore this set of cues when an action is undo
+			- this would not have serious memory requirements if the number of cues is relatively small... And I could do it all within AAction::doAction/undoAction and within the space modifier methods of ASound
+		- actions should only affect cues if all the channels were affected
+
+	- If I am to make selection changes actions, I should probably have a flag to AAciton which says not to lock the sounds for resize because 
+		- both adding cues and selection changes would then cause hiccups in the sound if they are done while playing since a resize lock was unnessarily make on the data
+		- I surely be a flag passed to AActionFactory's constructor
+
+	- also, it may be benefitial to have a flag for each cue which says wether that cue is achored or not meaning it would move as the space changes within the sound or not
+		- these would probably be a different color and/or symbol
+
+	- Change CSoundPlayerChannel to do interpolation for sample rate conversion
+
+	- on revert, a newly recorded sound has not been saved, so we shouldn't even let the user revert... possibly, just test for the file's existance, and if it doesn't exist, revert should beep
+
+	- something wasn't handled right when I did a recording to filename 'A' and hit okay.. then recorded to filename 'A' again.. I need to check is registrered after I get the new filename before I popup the record dialog
+
+	- a newly recorded sound needs to be !saved
+	- a new sounds need to be !saved
+
+	- the copy action doesn't need to lockForResize, but could do fine on lockSize so playing doesn't stop while copying
+
+	- Need to purge waiting audio input when COSSSoundRecorder does a redo()
+		- coded it, but in testing (without the new code) I couldn't get it to be a problem, so I just left it commented out until it does show itself as a problem
+
+	- need to eventually use a different sound file library which can also retrieve and store arbitrary data sections in the formats that support it (namely .wav).. So I can store and load cues
+		- I'd like to use libst (lib form of SOX), but there is no documentation or common API I don't think
+
+	- I need to go thru these backend classes and make sure of what they all do... 
+		- I went thru and reorganized everything
+		- I have the concept that a sound can be loaded that does have a window: i.e. it's been registered with CSoundManager but not thru ASoundFileManager
+		- I should think thru just exactly what my requirements are and base the classes on that... I shouldn't have to rewrite much code.. it's all there
+			- ASoundPlayer plays CSoundPlayerChannels (perhaps change the name from Channel to Track so as not to confuse it with the channels of PCM data)
+			- CSoundManager managers CSoundManagerClients... Now, just WHY is this necessary?  So I can have one sound loaded assigned to many CSoundPlayerTracks
+		- I think my motives were to be able to implement MIDISamplePlayer with most of ReZound's code, but a different front end
+			- while this may be feasible, I also need to think thru how multitrack editing may be accomplished... Perhaps it already can
+		- I just don't have a good grip that there is a reason for everything I did in the backend as far as these managers... 
+
+	- I might want to at least touch a file (and remove if closed) when a new file is created so that it will at least exist on disk if I every try to determine a default filename for the CNewSoundDialog
+		- this functionality which determines the default filename should be in the backend so I don't have to rewrite that code for a different frontend
+		- FIXED: now I just check the list of loaded filenames as well as the file system
+
+	- need to do a backup of the SAT after recording because right now, all the insertSpace calls didn't do it
+		- do this AFTER backupSAT is faster
+
+	- move the typedefs at the top of CSound.h to its own file so we don't have to include it in so many places
+
+	- Need to make all actions have the ability to blend the edges of the affected audio with the existing audio
+		- let there be a parameter which says in milliseconds how long the blend takes
+		- if not every action, at least paste for editing
+
+	- split AAction.* into separate files for each class
+		- and go thru every file that includes AAction.h and see if it could avoid including it for one of the split-offs
+		- probably leave AAction and AActionFactory in the same AAction.h
+		- need definiately: CActionParameter.h AActionDialog.h CActionSound.h (and make sure CActionSound.h doesn't include CSound.h)
+		- this should really improve compiling the frontend dialogs speed
+		- ??? however, it looks (after doing it) that CActionParameters and CActionSound would pair well together
+			- they're almost the same thing anyway... maybe I'll combine them later??? it would seem that I could still stream CActionParameter data to and from disk, only that some of the information to the streamFromDisk method would have to be supplied, like the sound to apply the action to because it shouldn't stream
+
+	- There is something I don't care for in the crossfade edges
+		- it always makes the total length shorter...
+		- what I could do is, before the action happens save the original data inward toward the middle selection and crossfade with that instead of making the selection shorter
+		- if the selection's short length cannot support as long a crossfade as asked, just do a lesser one
+		
+	- the clip board that the edit actions use is not set up to allow it to paste and copy from other applications
+		- when/if I want to allow that, I should create a base class clipboard which has the platform specific
+		  implementation that reads from the system clipboard.
+		- this base class would probably have some sort of accesser class with a operator[] defined because I need
+		  to support all the mixing methods when pasting...
+		- When pasting data, there is no heeding of the differences in sample rate of the src data when pasting to the destination
+			- I should fix this problem when I implement a real clipboard system and I would have to supply the PCM parameters to the clipboard when I copied the data there, then pasting could do something to resolve any differances when reading from it
+
+		- make CSound::mixSound convert sample rates
+
+
+	- need a method that can make an available cue name which isn't already used
+		- use whenever the new-cue-dialog is shown
+		- or when a button is pressed while playing (hmm.. ??? latency of play position might matter.. maybe I could work with COSSSoundPlayer to know where the real play position is by subtracting the amount of prebuffered samples from the CSoundPlayerChannel's playPosition... looping would be an issue and so would sample rate... )
+
+	- have CRecordClipboard ask for recording parameters
+
+	- need to do a better job than CRecordClipboard just calling ASoundFileManager for prompting for recording parameters and the recording dialog
+		- perhaps have a backend abstract class which has virtual methods for all that the frontend will actually be responsible for doing.
+		- all prompting functions would be pure virtual and one of these would be constructed by the frontend
+
+	- enhance TSoundStretcher to do interpolation
+		- done... used a pointer to a method to dynamically choose an implementation based on how it needs to be stretched
+
+	- in CrezSoundTranslator::onSaveSound, copyToFile unnecessarily copies any temp pools and peak chunk pools...  thus making the saved file way too big
+		- so I should manually copy the pools... TPoolAccessor should have a method for copying pool efficiently
+		- PoolFile::copyToFile is still without a progress bar, this is used when loading native .rez files
+
+	- warn the user if he's saving an exported file format and information such as cues and user notes will not be exported (for now)
+		- implement in the derivations from ASoundTranslator
+		- in ClibaudiosoundTranslator, I should probably query the capabilities of a format
+
+	- research and create DSP blocks for filters.. it should use a delay line multiplied by some vector of coefficients
+		- which is just time-domain convolution
+
+	- need to put some #if version_checks in ClibaudiofileSoundTranslator when the patch is in production
+		- and unstick the 1.9 revision number on ClibaudiofileSoundTranslator (cvs update -A)
+
+	- DONE BY REWRITING CSoundPlayerChannel
+		- use TSoundStretcher in CSoundPlayerChannel
+			- the checks in the inner loop are not necessary... I should be able to determine before hand, how many loops to do and when the loop point will be.... just use TSoundStretcher in the mean time of each loop
+			- handling the amplitudes and envelopes is still a matter of scaling the result of TSoundStretcher::getSample()
+			- I'm not sure how I would handle reverse direction
+			- before  do this.. check the CPU usage when playing 5 sounds... after changing it, check 5 sounds again
+
+		- The only reason I don't prebuffer more data than I do is because the play position drawn in the front end is always a little ahead of the acutal playing sound... I could buffer a lot of data if I were to know the approximate delay time of processing to sound card I might be able to overcome the problem...
+			- One possibility is to be able to know which buffer is playing, then I could tag each buffer with a play position for the start of that buffer... then I would just render the play position on screen as the start position of the currently playing buffer
+			- Right now, if I play a bunch of sounds and run top, each time top updates it causes a break in the sound.  This shouldn't happen though if I were to prebuffer more data, I only need to over come the play position problem.  Perhaps there is a schedule that the play position could be on, each time a buffer is mixed it records a rather precise time-of-day and each time them method is called that asks for the play position it knows how much time has passed since then and returns where it should be playing... There would be a problem with positions after a loop point, but perhaps I could keep a list of times when the loop point should have been crossed and factor in those times
+
+
+	- use a registry setting for knowing where to put the working file for a loaded file instead of always /tmp
+
+	- use a registry setting for knowing where to put the clipboard instead of always /tmp
+
+	- With the new way of doing audio output, I can enhance the output routing info where it can actually play a mono file in both speakers
+		- I will need to rename the pool "OutputRoutes" to "OutputRoutes_v2"
+
+	- need to make 'add channel' and remove channel actions so I can test more than stereo number of channels... 
+		- DONE (but no frontend control yet): when I do implement the more than 2 channels, I need to have a way to route the multiple channels of a sound to the 2 (or more) channels of sound card output
+		- DONE the default (when a sound is loaded) should be just to assign each channel to the lesser number of sound card channels in a rotating fashion
+		- DONE the routing should be assigned per CSoundPlayerChannel object, but the routing information should also be saved in a pool in the sound object
+
+	- Eventually, I need to have the frontend make use of the backend's ability for some of the actions to use different LFO implementations
+
+	- quantize would be a pretty easy effect.. it would need to have a parameter to define the number of values from 0 to 0dBFS
+		- then I could have presets for 1bit 2bit 3bit 4bit 5bit ... which would be 1 value, 2 values, ... 32678 values
+		- but I should probably pop up a notice if the bitrate they are choosing is more values than the native format which wouldn't change anything
+		- to implement, I just map the 0 to MAX value to 0 to NEW_MAX with floating point calculations and floor the integer values
+			- I think this would even work with sample_t being float
+
+	- I need to eventually handle command line arguments.
+		- I should implement handling them in the backend so that I wouldn't have to reimplement parsing them for each frontend.
+		- I need to check that when I pass argv to fox's initialize function that it either does or does not remove the X arguments.
+		- --help should be detected by all processers of command line arguement and add to the stdout the arguments that they handle.
+		NOT FOR NOW - I suppose I should use popt because it is packaged for most all rpm and deb based distros.. I need to find URL of popt's homepage and refer to that on error in configure
+
+	- change the use of the macros for progress bars to an object so that on destruction if can automatically undisplay the progress bar and I can get just the same speed increase from inlined functions and I can enhance the funcitonality with cancellable progress bars too
+		- this also removes the need for endAllStatusBars()
+
+	- change CLoadedSound->sound to be public and a *const if after looking at things it could be.. then I could elimintate loadedSound->getSound() everywhere
+
+	- make SAMPLE_RATE and CHANNELS registry settings
+
+	- change ASoundFileManager to cancel closing if the close asks to save an mp3 file.. then it asks for the save parameters, then they hit cancel on the mp3 parameters dialog... just return the bool value back up.. this should also top a close all on exit and stop the exit
+	
+	- implement a windowed FFT DSP block... I'm not quite sure what the interface should be
+		- I think it should be that you initialize the DSPBlock with some number of samples and then you can use a outputSample=block.processSample(inputSample) type scheme where internally it is windowing the data and doing the window-and-add method
+			- well, actually, this is probably what the interface to an FFT convolver would look like, except I wouldn't call it FFT, that would just be the implementation it used
+			- oooooo I can't wait to hear what a reverb will sound like using FFT convolution
+
+	- I could make the noise-gate/exciter and compresser/limiter CDSPBlocks so their abilities would be easily used in other effects
+		- Plus, it would be possible to use in realtime applications eventually
+		- I could do the same for the rate change (I could construct the CDSPBlock with the graph parameter object, and the length of the sound)
+			 - DONE: Except for the performance hit of virtual functions or pointers to functions in the algorithm, I could create an LFO object which some of the CDSP-blocks could use... Constant LFOs would exist, and an LFO for the CGraphParameterNodes (given a length until repeat) could be given
+				- might not take a performance hit of virtual functions if I precalculate a table for the LFOs
+			 - (I did this already and the performance hit was actually quite acceptable)
+		- The same could go for CChangeAmplitudeRate, flange(done) and Echo(done) effect
+
+	- Need to handle duplicate named cues when loading a file.. I don't allow them, but a file format might
+
+	- create an effects->pan action where two chosen channels (or default if stereo) can be crossfaded/mixed in every combination I can think of
+
+	- Add a feature to ASoundRecorder that tells it to start when a certain threshold is hit in percent or dBFS
+
+	- in order to implement a "Save Selection" under the editing menu, I should make the sound translator objects accept a start and stop paramater in the save methods (and even later, a vector of starts and stops for multiple selected regions or something)
+
+	- I ended up implementing an iterator class for this job:
+		- I should make an f(x) feature for CGraphParamValueNodes which will return y given x and it should be implemented for line segments, cos, or bicubic interpretation of the nodes
+			- I should reimplement the Distortion module to use this
+			- But I don't guess I should implement f(x) unless anything else were already going to use it
+

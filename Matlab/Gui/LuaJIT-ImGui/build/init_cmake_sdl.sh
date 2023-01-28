@@ -1,0 +1,1 @@
+cmake -G"Unix Makefiles" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DIMPL_GLFW=no -DSDL_PATH="" -DLUAJIT_BIN="where to install"  ../LuaJIT-ImGui

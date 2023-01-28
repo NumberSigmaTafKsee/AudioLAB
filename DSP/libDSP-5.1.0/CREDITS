@@ -1,0 +1,6 @@
+Author would like thank:
+
+Takuya OOURA <ooura@mmm.t.u-tokyo.ac.jp> for transform code (DFT, DCT, DST)
+	http://momonga.t.u-tokyo.ac.jp/~ooura/fft.html
+
+Dave Hale, Colorado School of Mines for Hankel and PFA FFT code

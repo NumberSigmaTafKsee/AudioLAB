@@ -1,0 +1,22 @@
+#!/usr/bin/octave
+#
+# script to read window from file and plot transformed result
+
+hold on;
+
+wfile = fopen("example3.samples.txt", "r", "native");
+[win, winsize] = fscanf(wfile, "%g");
+fclose(wfile);
+
+winlen = length(win);
+winpad = win;
+winpad(winlen:(2 * winlen)) = 0;
+wint = fft(winpad);
+wins = 20 * log10(abs(wint) / (winsize / 2));
+wins = wins + abs(max(wins));
+
+plot(win);
+#plot(wins(1:winsize));
+
+keyboard("Done> ");
+

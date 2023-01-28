@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcppy3.a CMakeFiles/cppy3.dir/cppy3.cpp.o CMakeFiles/cppy3.dir/utils.cpp.o CMakeFiles/cppy3.dir/cppy3_numpy.cpp.o
+/usr/bin/ranlib libcppy3.a

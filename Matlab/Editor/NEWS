@@ -1,0 +1,10 @@
+Snd 22.3:
+
+s7_eval_with_location, thanks to Woody Douglass.
+s7_apply_n* removed (now in xen.c|h)
+s7_is_multiple_value
+
+checked: notcurses 3.0.8
+
+Thanks!: Daniel Hensel, Woody Douglass, johnm
+

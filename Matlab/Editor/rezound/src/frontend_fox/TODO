@@ -1,0 +1,335 @@
+
+--- THINGS TO DO FOR SURE ---
+	
+	- put a vertical dBFS scale on the wave view
+		- add a label somewhere that displays dBFS
+		- moving the mouse on the vertical dBFS scale draws a horz line on the waveform for reference (and displays the dBFS in the label)
+		- moving the mouse on the wave view displays the dBFS (and perhaps time too) of the cursor position
+		- all this should take into account the vert zoom factor and vert offset
+
+	- allow users to save a selection positions so they can quickly recall them
+		- !perhaps even adjust them in the AAction if they're not anchored (like cues)!
+			- perhaps save them like cues with special names
+
+	- Possibly I could develop a set of widget for FOX that are generic enough that I could use them to create plugin routes
+		- basically it would be a generic widget set that allows drawing lines and making/removing connections between widgets
+		- widgets would be draggable and lines would follow
+		- hooks would exist to know when things changed
+		- each 'node' would have a name, and there would be rules about what is 'connectable' to what
+
+	- fix the dotted lines when the phase scope meter is rotated .. it should look solid
+
+	- The pause button has no effect when the shuttle mode is 'free' since the backend doesn't pause if the play speed isn't 1.0 (since it things you're shuttling while paused so it should play except that the wheel doesn't spring back)
+
+	- The CGarphParamValue widget should darken even more the channels that aren't being affected by the action
+
+	- Would be nice to get the Title of Action Dialogs from the ActionFactory (optionally)
+
+	- put a menu at the top of the LADSPA dropdown for "Recent" which would work like the reopen menu, but for recently used LADSPA plugings.. this would be helpful since there's so many
+	- I could also have one other submenu at the top which ordered by author instead of name 
+	- put a menu separator below these two
+	
+	- use #ifdefs to avoid compiling and implementing certain methods depending on vorbis existing or not, or JACK being used or not and others if they exist
+		 - be sure to test compile with the lib in and out
+	
+	- I think I should make all the FX*ParamValue::readFromFile() methods not do anything when the value is not in the preset rather than setting itself to the initial value
+
+	- need to have a hot-key that centers the cue's by seeing the right or left most one on screen and centering the one after that.. might include the start and stop positions in that too
+
+	- add a quick (shortcut to) fading in or out the selection use x^2 for the algorithm
+
+	- put a dBFS scale indicator next to the record level meters
+
+	- put a scale indicator next to the wave form in the FXRezWaveView widget
+
+	- create some useful presets for the new filter actions
+
+	- on the standard action dialog I could put a "applies to" button so that the user can change the selection after the fact.. this would not be as useful until I implement preview for all actions
+		- this selection button would bring up another standard dialog that would allow the user to choose: all, selected region, before selected region, after selected region, beginning to end of selected region, beginning of selected region to end
+		- I should make icons demonstrating all of these to make it easier to look at
+		- if the possible selection choice is zero length, then I should probably gray it out
+		- the dialog should have been passed the CActionSound and it should be able to change the start and stop positions of the sound... 
+			- perhaps tho, since the size will not be locked until the action is about to happen, so I could still leave start and stop the way they are.. then when I'm really ready to do whatever, I would have an enum set to what the user chose here and base it on the actual then size of the sound
+		- it could also have functions like.. look for next zero crossing and such.. perhaps this should be reflected in the underlying sound window beneth the dialog
+		- also, the user should be able to reselect the doChannels values
+			- but this would only be possible if the doChannels were applicable to the action.. pressing the 'channels' button should make a call back to the backend for it to reshow the channelSelectDialog, so that would work if the channelSelectDialog is not the generic one
+				- gray out this button if no channelSelectDialog was given
+			- this should probably be a function of AActionDialog so that the frontend just knows that the button was pressed, but doesn't have to do anything about it.
+			- there should probably be a flag to disable this functionality when it's known not to even try to make this work (I'm thinking swapping channels)
+
+	- perhaps adjust the 10000 ticks that I put in the FXActionConstantParam to something based on the range
+	- the scalar spinner box does not update the slider's labels when you press enter or leave the edit box
+		- it also needs a border around it
+
+	- the scalar spinner on the much used slider can be cumbersome having so many values.. perhaps I should give it a skip based on its range
+
+	- add some some wet/dry mix parameter to the filter actions which says -100%(original) to 0 to 100%(filtered)
+
+	- Other commercial audio editors do this, and now I think I know why...
+		XXX - When loading a sound it doesn't start zoomed out to see the whole thing.. 
+		- if I had a thread always running in the background low priority, I could be calculating peak chunk information while the user isn't looking
+
+	- use TEXTFIELD_INTEGER or TEXTFIELD_REAL for FXConstantParamValue
+
+	- figure out why the limit isn't always working.. twice I entered 90:00.00 and it didn't stop
+		- I haven't seen it since, but with the limit label I should know when it is at least going to happen
+
+	- if the sound is playing and a certain button is pressed (or key also bound to that button) I should place a marker with a given name "cue #" where the number is an integer being kept up with
+
+	- make sure that nothing is being allocated and left around when a file is unable to be loaded at startup...
+		- I guess that should go for any load of a sound... that upon having an error (unsupported format perhaps) that nothing be left around...
+		- Also if there's  an error creating perhaps the CSoundPlayerChannel that the ASound is deleted and all temp data is cleaned up
+		- use valgrind for this
+
+	- make some checkbox on the mainWindow that disable undo functionality incase they know they don't want it or don't want to incurr the overhead of undo resources
+		- the backend already supports this (although it hasn't been tested yet since there's been no frontend means)
+		- when an action is done after undo is disabled, I must clear all previous undo history
+
+	- decide on exactly what keys to finally bind to by default for play controls
+		- all bindings should (at some point in development) be configurable
+		- list the default bindings in the FrontendFoxFeatures.txt file and its copy on the www site
+
+	- the frontend needs a way to tell COSSSoundPlayer and COSSSoundRecorder which device to use
+		- I should be able to test this at home since I have 2 sound cards installed
+		- I've already made a registry setting for it
+
+
+
+
+--- POSSIBLE THINGS TO DO ---
+
+	- may not want misc to be on the include -I list.. (except maybe istring) simply because I will know the paths to include things
+
+	- If I continue with the FXGraphParamValue, then I should make an undo stack (limited to some number of saves) where every time a preset is selected or a mouse button is pressed for dragging, removing or creating a node that I push the current node list on a stack.. ctrl-z should pull from the history.. even ctrl-r could pull from a redo stack (which gets emptied when the user does anything except undo
+
+	- Add a popup menu to the frequency slider of the LFO widget and make it have items like.. 1/4, 1/2 1, 2, 3, 4 cyles time per selected area
+		- Could this could be a unit selection of the LFO slider widget.. units are in cycles per selected area
+	- could also add a popup to the phase slider for 0 90 180 270.. or could make notches
+
+	- A more musical friendly unit would be BPM instead of Hz for parameters like LFO frequency
+
+	- If I did every want to get rid of using reswrap, then I could have CFOXIcons go out and manually load from disk the icon files by looking in the share directory.. this would allow the user to replace the icons if they wanted and it would still avoid loading a reused icon over and over since it's abstracted in the CFOXIcon class
+
+	- like a webbrowser... if the program is already running and they run it again with a filename... just open it in the existing process... 
+
+	- in order to create multiple taps for an echo effect... I could have the dialog have tabs and each tap could be tap.. there would be buttons outside the tab bar to insert, remove, move left/right the tabs to rearrange the taps
+
+	- right now all the play control buttons are activated on mouse_button_release events, where it might be good to active on mouse button down.... perhaps I could derive my own button class... or get a feature added to FXButton to selected which way it should behave
+
+	- perhaps I could have the channel select dialog default its check boxes according to the mute buttons of the sound window
+
+	- I should probably pass the factory objects to the channelSelect dialog, since I could use the NxN matrix of radio buttons for the paste edits' channel select dialog and the others could have the default one
+
+	- perhaps put some buttons on the shift dialogs meaning, half, quarter, eight of the selection length
+		- I could probably think of other things of this nature for the other actions
+		- This would probably be a useful example of implementing a flag which makes a preset mean some percentage of the input value
+			- the question is, can I get that input value? or how can I specify it?  Perhaps there would be some defined like: sound length, channel count, sample rate, selection length
+
+	- Put the name of each channel horizontally along the left of the channels so that if the sound is 5 channels you label the first 2 'left' and 'right' then the next ones 'center', 'rear left' and 'rear right' 
+	
+	- if the frontend gets too slow about saving user presets, I could create a gUserPresetFile which stays allocated and doesn't have to reparse the file every time like it does now.
+
+	- Need to remember openAsRaw when doing reopen's 
+		- this also affects the registered filenames history
+
+
+
+
+--- PREFERENCES when I make a preferences dialog --
+	- "auto-play after load" feature 
+	- clipboard basename
+	- clipboard directory
+	- working directory space(s)
+		- maybe a checkmark that says never open where it was loaded from
+	- reopen history size
+
+
+
+--- TRIED ---
+
+	- presets might look better as a drop-down list instead of a list box... then figure where the buttons will go.. probably just normal file buttons save/delete/rename
+		- there should then be no 'use' button
+		- I did this, but didn't completely like the way it looked.. I saved the patch as CActionParamDialog.comboboxes.patch
+
+
+
+
+--- DONE ---
+	- there are still some issues with scaling I think
+
+	- perhaps create a base class for some of the windows to derive from that remember their locations when last the application was run
+		- ??? however fox seems to have a problem with top windows relative coordinates
+
+	- right now the PWD of the open dialog is not maintained across showings of it... I think this is becase teh method I'm using is recreating the open dialog each tiem
+		- if CSoundFileManager were to opene it differently, it should fix that
+		- ??? however it doesn't maintain the same scroll position in the file listing which would be nice too
+
+	- create a dialog which shows a list of the cues and their times.... perhaps have buttons which set the start or stop position, add remove, etc
+
+	- I need to consider that sometimes a user may not want to affect the cues when editing
+		- perhaps this would be a check box on the CChannelSelectDialog and CPasteChannelsDialog
+		- or have a check box on the main form which says to adjust cues at all
+
+	- allow the user to make notes and store them within a pool... use a pool of chars
+
+	- in the documentation mention that the right mouse button often does things... whether clicking a button or dragging a scroll bar
+
+	- add seek buttons that move the play position forward to the next cue or backwards to the prior cue
+
+	- I need to make some predefiner buttons on the dialogs of any graph param of common curves, and in flange and delay dialogs
+		- have some predines that come with rezound and a way for the user to save them
+
+	- doing a save as needs to update the CLoadedSoundWindow's filename
+
+	- on the record dialog, put a red-led while recording, and put a lable that says what the recording is limited to by actually asking the recorder for the limit it's using
+
+	- need to design a record dialog that has the format selection, real-time level meters, start, redo, stop buttons, create cue buttons (one for anchored, one not), check mark to add cues at the beginning and end of the recorded section, (more useful for insert record)
+		- need to modify the ASoundRecorder public interface some, because I need the record dialog to have a start, stop, redo buttons, if you start, then stop, then start again, the second start should void the previous recorded data, but stop should just leave whats there intact
+
+	- set the horz and vert spacing of the channel select dialogs to 1, this should decrease the necessary dialog size
+
+	- it is possible to close the application while a modal dialog is opened... this probably should not be permitted
+
+	- move the undo/redo buttons off of the file tab and to an always visible location (play controls)
+
+	- move to the backend what can be from intializations
+		- have two initializations, one for the backend and one for the front
+
+	- move reopen history code (writting to the registry) to the backend
+		- create a method in the backend for getting the reopen history items rather than the front end reading directly from the registry
+
+	- need a real default value in the newSound dialog's filename edit, either a temporary name that is incremented each time the dialog shows and check agains the FS, or just 'untitled0.rez'
+		- increment a number on "untitled#.rez" until a file doesn't exist
+		- this code should actually be in the backend so I don't have to rewrite that code for a different frontend
+
+	- I should probably put whatever code in the frontend (i.e. button handlers in CMainWindow) that could be put in the backend (i.e. would be done by any frontend) into the backend like the file operations already are
+
+	- I need to display the sample rate (and perhaps the number of channels) in the status info of CSoundWindow
+
+	- make the cue list dialog's list box have a fixed width font
+
+	- add tip text support to the reusable slider and graph widget to and allow a way to set it in the base class dialogs
+
+	- I should use FXAccelTable so that I can make key bindings to things like 
+		- (ctrl-a)select all (space)play, (space)stop, (p)pause, (a,z)seek, (ctrl-c)copy, (ctrl-x)cut, (ctrl-d,del)delete, (ctrl-v)paste, etc
+		- make keys for zooming out full
+		- this should be relatively simple I think... 
+
+	- I was able to create a preset named "3 seconds" which is invalid when it reparses, but verifyKey should have caught it
+
+	- there needs to be a key binding for "center" start position or "center" stop position, list this key in the drop down from the CSoundWindow ruler too
+		- ??? this binding should be read from a list of bindings.... but I don't have that yet
+
+	- NAH.... just let them choose it by extensions in the file dialog
+		- need to make a type parameter in the "new sound" dialog... Allow the user to choose among wave, rezound, etc types
+			- it can be done with the given extension right now, but the user may not know the extensions... or perhaps the open dialog should have separate filetype entries and it will add the extension chosen
+			- right now the backend knows it by file extension, and the backend may need to pop up a subsequent dialog to ask for format specifiy parametesr
+			- should be easier now that the code has be reorganized
+			- make a dropdown box which is the type to explicitly use or its first item is 'by filename extension'
+
+	- Somehow the registered Translators need to convey a list of file extensions to the frontend.. the front end can turn that into whatever format the frontend needs to make it work for the file dialog
+		- an extension and a format name needs to be given (i.e. Wave .wav  Sun/Next .au )
+		- in the frontend create a conglomerated list called all file types that includes all the extensions as well as a *.* entry
+
+	- I still probably need to instatiate a FXFileDialog to use for saving and opening because it doesn't remember the size, view mode, etc.. when it opens each time
+
+	- Didn't find any problems after going back to fix it
+		- the 'active' sound window is not staying raised and I don't know why (when focus method is fmActiveButton)
+		- set any "stay on top" flags that need to be for dialogs 
+		- I don't see anything in the DECOR flags, ask the fox user list about there being any "stay on top" flags
+
+	- inquire to jeroen if FXLabel could become an FXComposite so that the label would go beside, above, below, etc, whatever any child objects there were
+		- then I could go thru all the code and anywhere that I declare an FXComposite then put a widget and a lable beside it it could change that to something simpler
+		--> - actually.. I could myself derive from FXLabel and do this, except that label is not derived from composite
+
+	- move the undo button to the edit tool bar
+
+	- before the first public release, I should create an about dialog:
+		- give version, name
+		- give authors
+		- give introductary instructions
+		- give where to go for bugs
+		- give where to go for feature requests
+		- give a few of the major features hopefully implemented in the future
+
+		- either list these things themselves, or give URLs or file paths of where to find the information
+			- could I actually #include the file from the docs directory ?
+
+		- Also, encourage the user to actually report bugs or request features and not to just assume someone else will
+		- make the about dialog show up on the first run
+
+	- add file operation icons for all the file operations
+	
+	- improve the two icons, normal_action and advanced_action 12x12 should be a good size
+
+	- testing -
+		- on jack's machine reswrap did not come with the libfox0-devel package (it comes with the fox package)
+		- on jack's machine using libfox0-1.0.11 wouldn't compile (best I can tell is that libfox0-1.0.11 is really messed up)
+		- on jack's machine it complained that the registry.dat was not found.. it shouldn't have complained, but should have just touched the file before opening
+		- on jack's machine it complained that presets.dat was not found.. it should be detecting it in the build directory tho
+		- on jack's machine using CommonC++ 2.0 wouldn't compile (2.x is quite different and can coexist with a 1.x install sort of like libpng2 and 3 can)
+
+	- images.h is causing a problem because 'make dist' deletes images.h but images.cpp goes with it and when someone does make, images.cpp isn't too old so images.h isn't recreated
+		- I think this got fixed now
+
+	- need a logo icon
+		- make a large medium and small scaled version so that It can be used on the website, in the about dialog, and as the tiny icons in the decor
+
+	- perhaps I should have volume and gain as separate actions... but the same backend code would be used
+		- I could even have advanced and normal dialogs for both
+		- negative gain could also be used to invert the phase with a gain of -1
+
+	- all the dialogs are based on fixed widths and heights (of the dialog itself)
+		- I would rather these widths and heights that I'm passing the dialogs, be minimums
+		- I added remember support so it wouldn't be as much of a problem, but perhaps ask the fox people how to get the dialog to make itself large enough for all the inner widgets
+			- FOUND IT: getDefaultWidth() and getDefaultHeight()
+		- If I tought about it long enough, I might be able to come up with the answer
+
+	- put a clear and reset button on CPasteChannelDialog
+
+	- need to create an LFO action dialog widget for selecting LFO parameters
+		- every LFO has 3 parameters, frequency[0..1000Hz], amplitude[0..1] and phase[0..359] -- except a constant 
+		- so selecting a constant LFO would gray out frequency and phase and only allow selection of amplitude
+
+	- the FXCanvas::copyArea doesn't do right, when part of the window is off-screen.. I don't know if X needs to handle this.. or if I can tell if it's exposed or not.. if it's not exposed then I do need to draw instead of copyArea
+
+	- rename setHelpText in my FX...ParamValues to setTipText since that's what it's known as in FOX
+
+	- FIXED: with FXApp::repaint()
+		- some of the stuff with repaints after action dialogs show isn't pretty, but its at least functional
+			- I tried, but one place to fix some of the problems is to handle all repaint events after an FXModalDialog hide's in its hide() method
+			- I called app->flush() but in there, but it didn't seem to help... perhaps X hadn't sent repaint messages yet... but then I called repaint on mainWindow but it didn't help either
+			- These issues I may figure out on my own as I learn more about fox, but perhaps it would be nice if the fox author could look at my app and tell me just how to fix it
+
+			- I'm not sure why it's not a problem and perhaps it will be in the future...
+				- But, while the pogress dialog is showing, the sound object being worked on is usually locked for resize so if a paint message tried to be processed for the sound window's waveform view it would cause the applicaiton to lock up
+				- Perhaps fox doesn't process paint messages in a sparate thread, which is fortunate at the moment, however if he changes this behavior, I would need to probably trylock and just paint the background color if it couldn't lock... Actions usually call refresh after the action is completed, so that should redraw any places where we couldn't update
+
+	- go ahead and implement a frontend for raw.. parameters should be:
+		- sample rate
+		- number of channels
+			- interleaved or non-interleaved channels
+		- several sample format choices.. use all of audiofile's abilities
+			- big or little endian
+		- bytes to skip at the beginning
+
+	- in subsequent versions when a default width/height of a dialog changes, I should have stored the version in the registry, if that's older, then I should remove the WindowDimensions key from the registry
+		- I just removed all splitter positions and window dimensions whenever the version changes
+
+	- need make sure there is a virtual destructor for all the classes
+
+	- perhaps a 'view' pull-down ... possible menu items...
+		- zoom controls.. increase/decrease zoom both vert and horz (and showing the hot-keys)
+		- redraw
+		- find start/stop positions (really, just to show key bindings)
+		- a few for the loaded files
+		- one for the flash-back features (to show key binding)
+		- toggle on/off the level meters 
+		- toggle on/off the analyzer 
+
+	- Add a button to the FXGraphParamValue which smoothes out angles by making it many nodes to approximate curve.. call it 'approximate'
+
+	- make cues draggable
+		- snap them to the start, stop, beginning and end positions
+		- maybe even autoscroll when a cue is near the edge if it's not terribly difficult
+

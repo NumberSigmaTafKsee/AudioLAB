@@ -1,0 +1,28 @@
+var a00111 =
+[
+    [ "markers_type", "a00111.html#a6939c475957ad33af9309e10a3924b83", null ],
+    [ "samples_type", "a00111.html#abf27dbf4fb488f6470a3fabf0c23a9a7", null ],
+    [ "size_type", "a00111.html#acfbe550278cbfb987dee37772947e8b4", null ],
+    [ "AiffFile", "a00111.html#a32e3e72a4ef8ea75d4980bd8ef08a836", null ],
+    [ "AiffFile", "a00111.html#a5b81457837f9759bc71bd857f95592e5", null ],
+    [ "AiffFile", "a00111.html#a1117ac089b5bc2e569ea658008557dc0", null ],
+    [ "AiffFile", "a00111.html#af45a62cb1268564e9f84535045f52b84", null ],
+    [ "AiffFile", "a00111.html#a70554bc2a650c1df09e179f2b827d37e", null ],
+    [ "AiffFile", "a00111.html#a91790a37f3f277b82d7bff2da8262c95", null ],
+    [ "AiffFile", "a00111.html#acbc4063960fddad4c891b5d3877debcb", null ],
+    [ "AiffFile", "a00111.html#a73b5c8bb68493a5492e6038e8b282d42", null ],
+    [ "addPartial", "a00111.html#a95526566cbee708e0f6f4794eb760249", null ],
+    [ "addPartials", "a00111.html#aae9d0338259114c335aed991097b08de", null ],
+    [ "markers", "a00111.html#a063158e03d285661eff79c944a96bb04", null ],
+    [ "markers", "a00111.html#a9c4cc952212153400763a0b1a983d8de", null ],
+    [ "midiNoteNumber", "a00111.html#af374bfcc70ac95fd6062e9572c7d6fe9", null ],
+    [ "numChannels", "a00111.html#a0ca082e1b5faeaa04f948f4fb0e75d16", null ],
+    [ "numFrames", "a00111.html#a7d36139a5720b4267640d10077e8a7fe", null ],
+    [ "operator=", "a00111.html#ade92e35b0130199eef089b479940748a", null ],
+    [ "sampleFrames", "a00111.html#a6bb11892dbabb2f1724e135644f5cbca", null ],
+    [ "sampleRate", "a00111.html#a05543e1e62e1c70e575d8212e3e510d8", null ],
+    [ "samples", "a00111.html#a002034161fc78859bf49bbf5aa9e390f", null ],
+    [ "samples", "a00111.html#a12eec2b69cc7212faa9f03c15c275d0f", null ],
+    [ "setMidiNoteNumber", "a00111.html#adc0d68d855d3cbb1254ddfa99425158d", null ],
+    [ "write", "a00111.html#a7ad3688f3eb3a3141d59ba7f13e09bfb", null ]
+];

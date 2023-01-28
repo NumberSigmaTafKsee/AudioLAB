@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['importexception_115',['ImportException',['../a00195.html',1,'Loris']]],
+  ['importlemur_116',['ImportLemur',['../a00191.html',1,'Loris']]],
+  ['initialphase_117',['initialPhase',['../a00239.html#a59b506f54a1e39abc7837f08edc9b3a3',1,'Loris::Partial']]],
+  ['insert_118',['insert',['../a00147.html#a000e3007b02013229b217a77ae05146f',1,'Loris::Dilator::insert()'],['../a00203.html#aae370c57cc2d5d3b5119b4accde1dad2',1,'Loris::LinearEnvelope::insert()'],['../a00239.html#a7041cf03afb34a0abd9cca11dc64ea46',1,'Loris::Partial::insert()']]],
+  ['insertbreakpoint_119',['insertBreakpoint',['../a00203.html#aeaae5836b94c14c5ee2a61b22eac4da9',1,'Loris::LinearEnvelope']]],
+  ['invalidpartial_120',['InvalidPartial',['../a00251.html',1,'Loris::InvalidPartial'],['../a00251.html#afd585073145613e2f89f4ed15dedbce4',1,'Loris::InvalidPartial::InvalidPartial()']]],
+  ['isdurationless_121',['isDurationLess',['../a00291.html',1,'Loris::PartialUtils::isDurationLess'],['../a00291.html#a4d0bef01a55cae937a9ff8cfdb549061',1,'Loris::PartialUtils::isDurationLess::isDurationLess()']]],
+  ['isfrequencybetween_122',['isFrequencyBetween',['../a00123.html',1,'Loris::BreakpointUtils::isFrequencyBetween'],['../a00123.html#a9975996deb83c3a20504cde0ca3246d3',1,'Loris::BreakpointUtils::isFrequencyBetween::isFrequencyBetween()']]],
+  ['islabelequal_123',['isLabelEqual',['../a00295.html',1,'Loris::PartialUtils::isLabelEqual'],['../a00295.html#a45846ce562e29a4937bd766d54e35925',1,'Loris::PartialUtils::isLabelEqual::isLabelEqual()']]],
+  ['islabelgreater_124',['isLabelGreater',['../a00299.html',1,'Loris::PartialUtils::isLabelGreater'],['../a00299.html#a8686a2d74e5ece797e753186cffa1685',1,'Loris::PartialUtils::isLabelGreater::isLabelGreater()']]],
+  ['islabelless_125',['isLabelLess',['../a00303.html',1,'Loris::PartialUtils::isLabelLess'],['../a00303.html#a3e0b3ca41a420adcd5e8002410cb8133',1,'Loris::PartialUtils::isLabelLess::isLabelLess()']]],
+  ['isnameequal_126',['isNameEqual',['../a00219.html',1,'Loris::Marker::isNameEqual'],['../a00219.html#a5a648e1388eb25edd8d8ee553b9326c5',1,'Loris::Marker::isNameEqual::isNameEqual()']]],
+  ['ispeakless_127',['isPeakLess',['../a00307.html',1,'Loris::PartialUtils::isPeakLess'],['../a00307.html#a6d7f4215c9071fd9c21a66ddd4b14baf',1,'Loris::PartialUtils::isPeakLess::isPeakLess()']]],
+  ['isvalidparameters_128',['IsValidParameters',['../a00351.html#a2fae089863824b0e729494cd1ac23dc6',1,'Loris::Synthesizer']]],
+  ['iterator_129',['iterator',['../a00167.html#aa58854207d91f2c5f861c03350d53f70',1,'Loris::FourierTransform::iterator()'],['../a00239.html#a1ddb57cce050ada05d5ac48dc8f8394e',1,'Loris::Partial::iterator()']]],
+  ['iterator_5fcategory_130',['iterator_category',['../a00243.html#acf4adcc8259dbc9b83b105be5142ed37',1,'Loris::Partial_Iterator::iterator_category()'],['../a00247.html#a688c33903ad2b2b8cd24366018d50f4c',1,'Loris::Partial_ConstIterator::iterator_category()']]]
+];

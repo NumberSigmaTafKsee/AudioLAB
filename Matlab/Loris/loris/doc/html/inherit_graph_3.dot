@@ -1,0 +1,26 @@
+digraph "Graphical Class Hierarchy"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node55 [label="binary_function",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node55 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node0 [label="Loris::BreakpointUtils\l::compareAmplitudeGreater",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00131.html",tooltip=" "];
+  Node55 -> Node57 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node57 [label="Loris::BreakpointUtils\l::compareAmplitudeLess",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00135.html",tooltip=" "];
+  Node55 -> Node58 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node58 [label="Loris::BreakpointUtils\l::compareFrequencyLess",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00127.html",tooltip=" "];
+  Node55 -> Node59 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node59 [label="Loris::Marker::compareNameLess",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00211.html",tooltip=" "];
+  Node55 -> Node60 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node60 [label="Loris::Marker::compareTimeLess",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00215.html",tooltip=" "];
+  Node55 -> Node61 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node61 [label="Loris::PartialUtils\l::compareDurationGreater",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00319.html",tooltip=" "];
+  Node55 -> Node62 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node62 [label="Loris::PartialUtils\l::compareDurationLess",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00315.html",tooltip=" "];
+  Node55 -> Node63 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node63 [label="Loris::PartialUtils\l::compareLabelLess",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00311.html",tooltip=" "];
+  Node55 -> Node64 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node64 [label="Loris::PartialUtils\l::compareStartTimeLess",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00323.html",tooltip=" "];
+}

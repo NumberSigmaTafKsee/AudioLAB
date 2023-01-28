@@ -1,0 +1,1730 @@
+Flange
+{
+	names={"Simple Flange","Deep Flange","Warble","Through a Straw","Throaty","How Low"};
+	Simple\ Flange
+	{
+		Delay
+		{
+			scalar=5.000000;
+			value=2.000000;
+		}
+		Dry\ Gain
+		{
+			scalar=1.000000;
+			value=0.750000;
+		}
+		Feedback
+		{
+			value=0.700000;
+		}
+		Flange\ LFO
+		{
+			name="Sin Wave [ 0,1]";
+
+			Frequency
+			{
+				scalar=1.000000;
+				value=0.500000;
+			}
+			LFO\ Depth
+			{
+				scalar=1.000000;
+				value=4.000000;
+			}
+			Phase
+			{
+				value=270.000000;
+			}
+		}
+		Wet\ Gain
+		{
+			scalar=1.000000;
+			value=0.300000;
+		}
+	}
+
+	Deep\ Flange
+	{
+		Delay
+		{
+			scalar=10.000000;
+			value=5.000000;
+		}
+		Dry\ Gain
+		{
+			scalar=1.000000;
+			value=0.50000;
+		}
+		Feedback
+		{
+			value=0.360000;
+		}
+		Flange\ LFO
+		{
+			name="Sin Wave [ 0,1]";
+
+			Frequency
+			{
+				scalar=1.000000;
+				value=0.200000;
+			}
+			LFO\ Depth
+			{
+				scalar=20.000000;
+				value=10.000000;
+			}
+			Phase
+			{
+				value=270.000000;
+			}
+		}
+		Wet\ Gain
+		{
+			scalar=1.000000;
+			value=0.700000;
+		}
+	}
+
+	Warble
+	{
+		Delay
+		{
+			scalar=5.000000;
+			value=2.000000;
+		}
+		Dry\ Gain
+		{
+			scalar=1.000000;
+			value=0.750000;
+		}
+		Feedback
+		{
+			value=0.460000;
+		}
+		Flange\ LFO
+		{
+			name="Sin Wave [ 0,1]";
+
+			Frequency
+			{
+				scalar=9.000000;
+				value=7.200000;
+			}
+			LFO\ Depth
+			{
+				scalar=8.000000;
+				value=4.000000;
+			}
+			Phase
+			{
+				value=270.000000;
+			}
+		}
+		Wet\ Gain
+		{
+			scalar=1.000000;
+			value=0.500000;
+		}
+	}
+
+	Through\ a\ Straw
+	{
+		Delay
+		{
+			scalar=1.000000;
+			value=0.025500;
+		}
+		Dry\ Gain
+		{
+			scalar=1.000000;
+			value=0.480000;
+		}
+		Feedback
+		{
+			value=-0.93000;
+		}
+		Flange\ LFO
+		{
+			name="Sin Wave [ 0,1]";
+
+			Frequency
+			{
+				scalar=1.000000;
+				value=0.350000;
+			}
+			LFO\ Depth
+			{
+				scalar=2.000000;
+				value=0.900000;
+			}
+			Phase
+			{
+				value=270.000000;
+			}
+		}
+		Wet\ Gain
+		{
+			scalar=-1.000000;
+			value=-0.410000;
+		}
+	}
+
+	Throaty
+	{
+		Delay
+		{
+			scalar=2.000000;
+			value=1.000000;
+		}
+		Dry\ Gain
+		{
+			scalar=1.000000;
+			value=0.480000;
+		}
+		Feedback
+		{
+			value=-0.93000;
+		}
+		Flange\ LFO
+		{
+			name="Sin Wave [ 0,1]";
+
+			Frequency
+			{
+				scalar=1.000000;
+				value=0.203000;
+			}
+			LFO\ Depth
+			{
+				scalar=8.000000;
+				value=3.100000;
+			}
+			Phase
+			{
+				value=90.000000;
+			}
+		}
+		Wet\ Gain
+		{
+			scalar=-1.000000;
+			value=-0.310000;
+		}
+	}
+
+	How\ Low
+	{
+		Delay
+		{
+			scalar=6.000000;
+			value=3.000000;
+		}
+		Dry\ Gain
+		{
+			scalar=1.000000;
+			value=0.550000;
+		}
+		Feedback
+		{
+			value=-0.93000;
+		}
+		Flange\ LFO
+		{
+			name="Sin Wave [ 0,1]";
+
+			Frequency
+			{
+				scalar=1.000000;
+				value=0.070000;
+			}
+			LFO\ Depth
+			{
+				scalar=16.000000;
+				value=12.03000;
+			}
+			Phase
+			{
+				value=270.000000;
+			}
+		}
+		Wet\ Gain
+		{
+			scalar=-1.000000;
+			value=-0.355000;
+		}
+	}
+
+}
+
+Quantize
+{
+	names={"17 Values"};
+
+	17\ Values
+	{
+
+		Input\ Gain
+		{
+			scalar="2";
+			value="1";
+		}
+		Output\ Gain
+		{
+			scalar="2";
+			value="0.9";
+		}
+		Quantum\ Count
+		{
+			scalar="16";
+			value="8";
+		}
+	}
+}
+
+Simple\ Delay\ \(Echo\)
+{
+	names={"Simple Echo","Subtle Box","Tunnel","Bucket","Ring","Paging John"};
+	Simple\ Echo
+	{
+		Delay
+		{
+			scalar=600.000;
+			value=250.000;
+		}
+		Gain
+		{
+			scalar=1;
+			value=0.5;
+		}
+		Feedback
+		{
+			scalar=1;
+			value=0.5;
+		}
+	}
+
+	Subtle\ Box
+	{
+		Delay
+		{
+			scalar=20.000;
+			value=10.000;
+		}
+		Gain
+		{
+			scalar=1;
+			value=0.4;
+		}
+		Feedback
+		{
+			scalar=1;
+			value=0.5;
+		}
+	}
+
+	Tunnel
+	{
+		Delay
+		{
+			scalar=20.000;
+			value=15.000;
+		}
+		Gain
+		{
+			scalar=1;
+			value=0.3575;
+		}
+		Feedback
+		{
+			scalar=1;
+			value=0.85;
+		}
+	}
+
+	Bucket
+	{
+		Delay
+		{
+			scalar=10.000;
+			value=3.94;
+		}
+		Gain
+		{
+			scalar=1;
+			value=0.86;
+		}
+		Feedback
+		{
+			scalar=1;
+			value=0.75;
+		}
+	}
+
+	Ring
+	{
+		Delay
+		{
+			scalar=1.000;
+			value=0.1;
+		}
+		Gain
+		{
+			scalar=-2;
+			value=-0.7;
+		}
+		Feedback
+		{
+			scalar=-2;
+			value=-0.98;
+		}
+	}
+
+	Paging\ John
+	{
+		Delay
+		{
+			scalar=75.000;
+			value=50.0;
+		}
+		Gain
+		{
+			scalar=-2;
+			value=-0.45;
+		}
+		Feedback
+		{
+			scalar=-1;
+			value=-0.416;
+		}
+	}
+
+}
+
+Change\ Rate
+{
+	names={"Half","Double"};
+
+	Double
+	{
+		Rate\ Change
+		{
+			value=2;
+			scalar=4;
+		}
+	}
+
+	Half
+	{
+		Rate\ Change
+		{
+			value=0.5;
+			scalar=4;
+		}
+	}
+}
+
+Curved\ Gain
+{
+	Curved\ Fade\ In
+	{
+		Gain\ Curve
+		{
+			node_positions={"0", "0.1", "0.2", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8", "0.9", "1"};
+			node_values={"0", "0.005", "0.02", "0.045", "0.08", "0.125", "0.18", "0.245", "0.32", "0.405", "0.5"};
+			scalar="2";
+		}
+
+	}
+
+	Curved\ Fade\ Out
+	{
+		Gain\ Curve
+		{
+			node_positions={"0", "0.1", "0.2", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8", "0.9", "1"};
+			node_values={"0.5", "0.405", "0.32", "0.245", "0.18", "0.125", "0.08", "0.045", "0.02", "0.005", "0.0"};
+			scalar="2";
+		}
+
+	}
+
+	Linear\ Fade\ In
+	{
+		Gain\ Curve
+		{
+			node_positions={"0", "1"};
+			node_values={"0", "0.5"};
+			scalar="2";
+		}
+
+	}
+
+	Linear\ Fade\ Out
+	{
+		Gain\ Curve
+		{
+			node_positions={"0", "1"};
+			node_values={"0.5", "0"};
+			scalar="2";
+		}
+
+	}
+
+	Mute\ Very\ Edges
+	{
+		Gain\ Curve
+		{
+			node_positions={"0", "0.001", "0.999", "1"};
+			node_values={"0", "0.5", "0.5", "0"};
+			scalar="2";
+		}
+
+	}
+
+	Invert\ Phase
+	{
+		Gain\ Curve
+		{
+			node_positions={"0", "1"};
+			node_values={"0.5", "0.5"};
+			scalar="-2";
+		}
+
+	}
+
+	names={"Curved Fade In", "Curved Fade Out", "Linear Fade In", "Linear Fade Out","Mute Very Edges","Invert Phase"};
+}
+
+Crossfade\ Edges\ Settings
+{
+	names={"Default 1/100 Second", "1/10 Second", "1/4 Second", "1/2 Second", "1 Second", "2 Seconds", "3 Seconds", "4 Seconds", "5 Seconds"};
+	Default\ 1\/100\ Second
+	{
+		Crossfade\ Fade\ Method
+		{
+			index=2;
+		}
+		Crossfade\ Start\ Edge
+		{
+			value="10";
+		}
+
+		Crossfade\ Stop\ Edge
+		{
+			value="10";
+		}
+
+	}
+	1\/10\ Second
+	{
+		Crossfade\ Fade\ Method
+		{
+			index=2;
+		}
+		Crossfade\ Start\ Edge
+		{
+			value="100";
+		}
+
+		Crossfade\ Stop\ Edge
+		{
+			value="100";
+		}
+
+	}
+	1\/4\ Second
+	{
+		Crossfade\ Fade\ Method
+		{
+			index=2;
+		}
+		Crossfade\ Start\ Edge
+		{
+			value="250";
+		}
+
+		Crossfade\ Stop\ Edge
+		{
+			value="250";
+		}
+
+	}
+	1\/2\ Second
+	{
+		Crossfade\ Fade\ Method
+		{
+			index=2;
+		}
+		Crossfade\ Start\ Edge
+		{
+			value="500";
+		}
+
+		Crossfade\ Stop\ Edge
+		{
+			value="500";
+		}
+
+	}
+	1\ Second
+	{
+		Crossfade\ Fade\ Method
+		{
+			index=2;
+		}
+		Crossfade\ Start\ Edge
+		{
+			value="1000";
+		}
+
+		Crossfade\ Stop\ Edge
+		{
+			value="1000";
+		}
+
+	}
+	2\ Seconds
+	{
+		Crossfade\ Fade\ Method
+		{
+			index=2;
+		}
+		Crossfade\ Start\ Edge
+		{
+			value="2000";
+		}
+
+		Crossfade\ Stop\ Edge
+		{
+			value="2000";
+		}
+
+	}
+	3\ Seconds
+	{
+		Crossfade\ Fade\ Method
+		{
+			index=2;
+		}
+		Crossfade\ Start\ Edge
+		{
+			value="3000";
+		}
+
+		Crossfade\ Stop\ Edge
+		{
+			value="3000";
+		}
+
+	}
+	4\ Seconds
+	{
+		Crossfade\ Fade\ Method
+		{
+			index=2;
+		}
+		Crossfade\ Start\ Edge
+		{
+			value="4000";
+		}
+
+		Crossfade\ Stop\ Edge
+		{
+			value="4000";
+		}
+
+	}
+	5\ Seconds
+	{
+		Crossfade\ Fade\ Method
+		{
+			index=2;
+		}
+		Crossfade\ Start\ Edge
+		{
+			value="5000";
+		}
+
+		Crossfade\ Stop\ Edge
+		{
+			value="5000";
+		}
+
+	}
+}
+
+Change\ Volume
+{
+	\+12dB
+	{
+		Volume\ Change
+		{
+			scalar="12";
+			value="12";
+		}
+	}
+	\+3dB
+	{
+		Volume\ Change
+		{
+			scalar="3";
+			value="3";
+		}
+	}
+	\+6dB
+	{
+		Volume\ Change
+		{
+			scalar="6";
+			value="6";
+		}
+	}
+	\-12dB
+	{
+		Volume\ Change
+		{
+			scalar="12";
+			value="-12";
+		}
+	}
+	\-3dB
+	{
+		Volume\ Change
+		{
+			scalar="3";
+			value="-3";
+		}
+	}
+	\-6dB
+	{
+		Volume\ Change
+		{
+			scalar="6";
+			value="-6";
+		}
+	}
+
+	names={"+3dB","-3dB","+6dB","-6dB","+12dB","-12dB"};
+}
+
+Change\ Gain
+{
+	names={"1.5x", "2x", "2.5x", "3x"};
+
+	1\.5x
+	{
+
+		Gain
+		{
+			scalar="3";
+			value="1.5";
+		}
+	}
+	2\.5x
+	{
+
+		Gain
+		{
+			scalar="3";
+			value="2.5";
+		}
+	}
+	2x
+	{
+
+		Gain
+		{
+			scalar="3";
+			value="2";
+		}
+	}
+	3x
+	{
+
+		Gain
+		{
+			scalar="3";
+			value="3";
+		}
+	}
+}
+
+Convolution\ Filter
+{
+	names={"Bright Room 1", "Subtle Room 1", "Large Room 1", "Large Room 2", "Booth", "Hall 1", "Big Hall", "Dark Hall", "Some Distance Away", "Reversed Reverb"};
+
+	Big\ Hall
+	{
+		Filter\ Kernel="$share/impulse_hall1.wav";
+
+		FK\ Gain
+		{
+			scalar="5";
+			value="0.399951";
+		}
+		FK\ Lowpass
+		{
+			scalar="25000";
+			value="25000";
+		}
+		FK\ Rate
+		{
+			scalar="2";
+			value="0.875513";
+		}
+		Input\ Gain
+		{
+			value="4.44089e-15";
+		}
+		Input\ Lowpass
+		{
+			scalar="25000";
+			value="25000";
+		}
+		Output\ Gain
+		{
+			value="-2.67718";
+		}
+		Predelay
+		{
+			scalar="100";
+			value="10";
+		}
+		Reverse
+		{
+			value="false";
+		}
+		Wet\/Dry\ Mix
+		{
+			value="42.14";
+		}
+		Wrap\ Decay\ back\ to\ Beginning
+		{
+			value="false";
+		}
+	}
+	Booth
+	{
+		Filter\ Kernel="$share/impulse_hall1.wav";
+
+		FK\ Gain
+		{
+			scalar="30";
+			value="0.137109";
+		}
+		FK\ Lowpass
+		{
+			scalar="25000";
+			value="8567.5";
+		}
+		FK\ Rate
+		{
+			scalar="8";
+			value="6.93935";
+		}
+		Input\ Gain
+		{
+			value="8.47071";
+		}
+		Input\ Lowpass
+		{
+			scalar="25000";
+			value="6137.5";
+		}
+		Output\ Gain
+		{
+			value="6.42478";
+		}
+		Predelay
+		{
+			scalar="100";
+			value="0";
+		}
+		Reverse
+		{
+			value="false";
+		}
+		Wet\/Dry\ Mix
+		{
+			value="98";
+		}
+	}
+	Bright\ Room\ 1
+	{
+		Filter\ Kernel="$share/impulse_hall1.wav";
+
+		FK\ Gain
+		{
+			scalar="30";
+			value="0.186085";
+		}
+		FK\ Lowpass
+		{
+			scalar="25000";
+			value="25000";
+		}
+		FK\ Rate
+		{
+			scalar="5";
+			value="4.19144";
+		}
+		Input\ Gain
+		{
+			value="2.30118";
+		}
+		Input\ Lowpass
+		{
+			scalar="25000";
+			value="25000";
+		}
+		Output\ Gain
+		{
+			value="5.59131";
+		}
+		Predelay
+		{
+			scalar="100";
+			value="0";
+		}
+		Reverse
+		{
+			value="false";
+		}
+		Wet\/Dry\ Mix
+		{
+			value="50";
+		}
+		Wrap\ Decay\ back\ to\ Beginning
+		{
+			value="false";
+		}
+	}
+	Dark\ Hall
+	{
+		Filter\ Kernel="$share/impulse_hall1.wav";
+
+		FK\ Gain
+		{
+			scalar="5";
+			value="0.613667";
+		}
+		FK\ Lowpass
+		{
+			scalar="25000";
+			value="280";
+		}
+		FK\ Rate
+		{
+			scalar="2";
+			value="1";
+		}
+		Input\ Gain
+		{
+			value="4.44089e-15";
+		}
+		Input\ Lowpass
+		{
+			scalar="25000";
+			value="3907.5";
+		}
+		Output\ Gain
+		{
+			value="4.44089e-15";
+		}
+		Predelay
+		{
+			scalar="100";
+			value="0";
+		}
+		Reverse
+		{
+			value="false";
+		}
+		Wet\/Dry\ Mix
+		{
+			value="42.14";
+		}
+		Wrap\ Decay\ back\ to\ Beginning
+		{
+			value="false";
+		}
+	}
+	Hall\ 1
+	{
+		Filter\ Kernel="$share/impulse_hall1.wav";
+
+		FK\ Gain
+		{
+			scalar="5";
+			value="0.399951";
+		}
+		FK\ Lowpass
+		{
+			scalar="25000";
+			value="6882.5";
+		}
+		FK\ Rate
+		{
+			scalar="2";
+			value="1.26786";
+		}
+		Input\ Gain
+		{
+			value="4.44089e-15";
+		}
+		Input\ Lowpass
+		{
+			scalar="25000";
+			value="25000";
+		}
+		Output\ Gain
+		{
+			value="4.44089e-15";
+		}
+		Predelay
+		{
+			scalar="100";
+			value="0";
+		}
+		Reverse
+		{
+			value="false";
+		}
+		Wet\/Dry\ Mix
+		{
+			value="42.14";
+		}
+		Wrap\ Decay\ back\ to\ Beginning
+		{
+			value="false";
+		}
+	}
+	Large\ Room\ 1
+	{
+		Filter\ Kernel="$share/impulse_hall1.wav";
+
+		FK\ Gain
+		{
+			scalar="30";
+			value="0.0716037";
+		}
+		FK\ Lowpass
+		{
+			scalar="25000";
+			value="1685";
+		}
+		FK\ Rate
+		{
+			scalar="3";
+			value="2.39293";
+		}
+		Input\ Gain
+		{
+			value="6.41945";
+		}
+		Input\ Lowpass
+		{
+			scalar="25000";
+			value="25000";
+		}
+		Output\ Gain
+		{
+			value="6.41945";
+		}
+		Predelay
+		{
+			scalar="100";
+			value="0";
+		}
+		Reverse
+		{
+			value="false";
+		}
+		Wet\/Dry\ Mix
+		{
+			value="67.18";
+		}
+		Wrap\ Decay\ back\ to\ Beginning
+		{
+			value="false";
+		}
+	}
+	Large\ Room\ 2
+	{
+		Filter\ Kernel="$share/impulse_hall1.wav";
+
+		FK\ Gain
+		{
+			scalar="30";
+			value="0.074384";
+		}
+		FK\ Lowpass
+		{
+			scalar="25000";
+			value="1685";
+		}
+		FK\ Rate
+		{
+			scalar="3";
+			value="1.7717";
+		}
+		Input\ Gain
+		{
+			value="6.41945";
+		}
+		Input\ Lowpass
+		{
+			scalar="25000";
+			value="25000";
+		}
+		Output\ Gain
+		{
+			value="6.41945";
+		}
+		Predelay
+		{
+			scalar="100";
+			value="0";
+		}
+		Reverse
+		{
+			value="false";
+		}
+		Wet\/Dry\ Mix
+		{
+			value="67.18";
+		}
+		Wrap\ Decay\ back\ to\ Beginning
+		{
+			value="false";
+		}
+	}
+	Reversed\ Reverb
+	{
+		Filter\ Kernel="$share/impulse_hall1.wav";
+
+		FK\ Gain
+		{
+			scalar="30";
+			value="0.137109";
+		}
+		FK\ Lowpass
+		{
+			scalar="25000";
+			value="16855";
+		}
+		FK\ Rate
+		{
+			scalar="3";
+			value="3";
+		}
+		Input\ Gain
+		{
+			value="4.44089e-15";
+		}
+		Input\ Lowpass
+		{
+			scalar="25000";
+			value="25000";
+		}
+		Output\ Gain
+		{
+			value="9.27075";
+		}
+		Predelay
+		{
+			scalar="100";
+			value="0";
+		}
+		Reverse
+		{
+			value="true";
+		}
+		Wet\/Dry\ Mix
+		{
+			value="100";
+		}
+	}
+	Some\ Distance\ Away
+	{
+		Filter\ Kernel="$share/impulse_hall1.wav";
+
+		FK\ Gain
+		{
+			scalar="30";
+			value="0.074384";
+		}
+		FK\ Lowpass
+		{
+			scalar="25000";
+			value="14887.5";
+		}
+		FK\ Rate
+		{
+			scalar="4";
+			value="2.44122";
+		}
+		Input\ Gain
+		{
+			value="6.42478";
+		}
+		Input\ Lowpass
+		{
+			scalar="25000";
+			value="25000";
+		}
+		Output\ Gain
+		{
+			value="5.16133";
+		}
+		Predelay
+		{
+			scalar="100";
+			value="0";
+		}
+		Reverse
+		{
+			value="false";
+		}
+		Wet\/Dry\ Mix
+		{
+			value="100";
+		}
+	}
+	Subtle\ Room\ 1
+	{
+		Filter\ Kernel="$share/impulse_hall1.wav";
+
+		FK\ Gain
+		{
+			scalar="30";
+			value="0.186085";
+		}
+		FK\ Lowpass
+		{
+			scalar="25000";
+			value="702.5";
+		}
+		FK\ Rate
+		{
+			scalar="5";
+			value="4.19144";
+		}
+		Input\ Gain
+		{
+			value="2.30696";
+		}
+		Input\ Lowpass
+		{
+			scalar="25000";
+			value="25000";
+		}
+		Output\ Gain
+		{
+			value="5.59131";
+		}
+		Predelay
+		{
+			scalar="100";
+			value="0";
+		}
+		Reverse
+		{
+			value="false";
+		}
+		Wet\/Dry\ Mix
+		{
+			value="50";
+		}
+		Wrap\ Decay\ back\ to\ Beginning
+		{
+			value="false";
+		}
+	}
+}
+
+
+Distortion
+{
+	names={"Flat (normal)", "Busted Speaker", "Super Fried", "Splatter 1", "Splatter 2", "Splatter 3", "Splatter 4", "Light Fuzz", "Overdriven 1", "Overdriven 2", "WHAM", "Distortion 1"};
+
+	Busted\ Speaker
+	{
+
+		Curve
+		{
+			node_positions={"0", "0.202405", "0.400802", "0.573146", "0.649299", "0.723447", "1"};
+			node_values={"0", "0.031746", "0.396825", "0.623016", "0.654762", "0.626984", "0.380952"};
+		}
+	}
+	Distortion\ 1
+	{
+
+		Curve
+		{
+			node_positions={"0", "0.00200401", "0.108216", "0.272545", "0.49499", "0.845691", "1"};
+			node_values={"0", "0.0714286", "0.293651", "0.388889", "0.440476", "0.480159", "0.480159"};
+		}
+	}
+	Light\ Fuzz
+	{
+
+		Curve
+		{
+			node_positions={"0", "0.00801603", "1"};
+			node_values={"0.162698", "0", "1"};
+		}
+	}
+	Overdriven\ 1
+	{
+
+		Curve
+		{
+			node_positions={"0", "0.0981964", "0.280561", "1"};
+			node_values={"0", "0.277778", "0.277778", "1"};
+		}
+	}
+	Overdriven\ 2
+	{
+
+		Curve
+		{
+			node_positions={"0", "0.206413", "0.651303", "1"};
+			node_values={"0", "0.460317", "0.460317", "1"};
+		}
+	}
+	Splatter\ 1
+	{
+
+		Curve
+		{
+			node_positions={"0", "0.102204", "0.128257", "0.156313", "0.184369", "0.210421", "0.240481", "0.260521", "0.298597", "0.316633", "0.346693", "0.368737", "0.398798", "0.426854", "0.458918", "0.486974", "0.51503", "0.539078", "0.571142", "0.587174", "0.61523", "0.639279", "0.667335", "0.683367", "0.715431", "0.733467", "0.791583", "1"};
+			node_values={"0", "0.460317", "0", "0.480159", "0", "0.5", "0", "0.511905", "0", "0.527778", "0", "0.555556", "0", "0.563492", "0", "0.571429", "0", "0.531746", "0", "0.444444", "0", "0.353175", "0", "0.289683", "0", "0.214286", "0.634921", "1"};
+		}
+	}
+	Splatter\ 2
+	{
+
+		Curve
+		{
+			node_positions={"0", "0.1002", "0.132265", "0.166333", "0.198397", "0.218437", "0.258517", "0.296593", "0.346693", "0.370741", "0.402806", "0.418838", "0.456914", "0.476954", "0.50501", "0.523046", "0.541082", "0.56513", "0.589178", "0.623246", "0.653307", "0.691383", "0.701403", "0.737475", "1"};
+			node_values={"0", "0.0952381", "0", "0.15873", "0", "0.22619", "0", "0.289683", "0", "0.357143", "0", "0.396825", "0", "0.440476", "0", "0.484127", "0", "0.519841", "0", "0.575397", "0", "0.638889", "0", "0.690476", "1"};
+		}
+	}
+	Splatter\ 3
+	{
+
+		Curve
+		{
+			node_positions={"0", "0.134269", "0.202405", "0.264529", "0.334669", "0.382766", "0.462926", "0.513026", "0.587174", "0.631263", "0.705411", "0.749499", "0.807615", "0.875752", "0.927856", "1"};
+			node_values={"0", "0.126984", "0", "0.257937", "0", "0.373016", "0", "0.5", "0", "0.623016", "0", "0.742063", "0", "0.869048", "0", "1"};
+		}
+	}
+	Splatter\ 4
+	{
+
+		Curve
+		{
+			node_positions={"0", "0.0901804", "0.140281", "0.228457", "0.282565", "0.430862", "0.492986", "0.617234", "0.705411", "0.847695", "1"};
+			node_values={"0", "0.0515873", "0.277778", "0.115079", "0.555556", "0.214286", "0.757937", "0.345238", "0.888889", "0.480159", "1"};
+		}
+	}
+	Super\ Fried
+	{
+
+		Curve
+		{
+			node_positions={"0", "0.0340681", "0.573146", "1"};
+			node_values={"0.206349", "0.0198413", "0.376984", "0.186508"};
+		}
+	}
+	WHAM
+	{
+
+		Curve
+		{
+			node_positions={"0", "0.012024", "0.0360721", "0.0480962", "0.0821643", "0.108216", "0.118236", "0.144289", "0.202405", "0.226453", "0.280561", "0.320641", "0.348697", "0.378758", "0.408818", "0.438878", "0.456914", "0.48497", "0.496994", "0.507014", "0.527054", "0.543086", "0.573146", "0.597194", "0.625251", "0.667335", "0.687375", "0.701403", "0.715431", "0.795591", "0.825651", "0.92986", "0.993988", "1"};
+			node_values={"0", "0.015873", "0.047619", "0.142857", "0.18254", "0.369048", "0.444444", "0.496032", "0.396825", "0.234127", "0.214286", "0.376984", "0.424603", "0.424603", "0.369048", "0.25", "0.25", "0.305556", "0.404762", "0.563492", "0.646825", "0.623016", "0.321429", "0.230159", "0.202381", "0.206349", "0.25", "0.325397", "0.468254", "0.507937", "0.730159", "0.781746", "0.920635", "1"};
+		}
+	}
+	Flat\ \(normal\)
+	{
+
+		Curve
+		{
+			node_positions={"0", "1"};
+			node_values={"0", "1"};
+		}
+	}
+}
+
+Arbitrary\ FIR\ Filter
+{
+	names={"Lowpass", "Highpass", "Bandpass", "Notched", "Very Notched", "Strange"};
+
+	Bandpass
+	{
+
+		Base\ Frequency
+		{
+			value="20";
+		}
+		Frequency\ Response
+		{
+			node_positions={"0", "0.361111", "0.375", "0.381944", "0.393519", "0.446759", "0.460648", "0.462963", "0.469907", "1"};
+			node_values={"0.0963303", "0.0963303", "0.146789", "0.463303", "0.5", "0.5", "0.463303", "0.155963", "0.0963303", "0.0963303"};
+			scalar="20";
+		}
+		Kernel\ Length
+		{
+			value=1024.000000;
+		}
+		Number\ of\ Octaves
+		{
+			value="11";
+		}
+		Undelay
+		{
+			value="true";
+		}
+		Wet\/Dry\ Mix
+		{
+			value=100.000000;
+		}
+	}
+	Highpass
+	{
+
+		Base\ Frequency
+		{
+			value="20";
+		}
+		Frequency\ Response
+		{
+			node_positions={"0", "0.375", "0.405093", "0.421296", "0.430556", "0.439815", "0.462963", "1"};
+			node_values={"0.0504587", "0.0504587", "0.0733945", "0.133028", "0.399083", "0.463303", "0.5", "0.5"};
+			scalar="10";
+		}
+		Kernel\ Length
+		{
+			value=1024.000000;
+		}
+		Number\ of\ Octaves
+		{
+			value="11";
+		}
+		Undelay
+		{
+			value="true";
+		}
+		Wet\/Dry\ Mix
+		{
+			value=100.000000;
+		}
+	}
+	Lowpass
+	{
+
+		Base\ Frequency
+		{
+			value="20";
+		}
+		Frequency\ Response
+		{
+			node_positions={"0", "0.375", "0.405093", "0.421296", "0.430556", "0.439815", "0.462963", "1"};
+			node_values={"0.5", "0.5", "0.477064", "0.422018", "0.119266", "0.0688073", "0.0458716", "0.0458716"};
+			scalar="10";
+		}
+		Kernel\ Length
+		{
+			value=1024.000000;
+		}
+		Number\ of\ Octaves
+		{
+			value="11";
+		}
+		Undelay
+		{
+			value="true";
+		}
+		Wet\/Dry\ Mix
+		{
+			value=100.000000;
+		}
+	}
+	Notched
+	{
+
+		Base\ Frequency
+		{
+			value="20";
+		}
+		Frequency\ Response
+		{
+			node_positions={"0", "0.0439815", "0.0486111", "0.0833333", "0.087963", "0.166667", "0.168981", "0.217593", "0.224537", "0.259259", "0.263889", "0.414352", "0.421296", "0.513889", "0.516204", "0.606481", "0.611111", "0.710648", "0.715278", "0.828704", "0.833333", "0.94213", "0.946759", "0.974537", "0.979167", "1"};
+			node_values={"0.5", "0.5", "0", "0", "0.5", "0.5", "0", "0", "0.5", "0.5", "0", "0", "0.5", "0.5", "0", "0", "0.5", "0.5", "0", "0", "0.5", "0.5", "0", "0", "0.5", "0.5"};
+			scalar="20";
+		}
+		Kernel\ Length
+		{
+			value=4096.000000;
+		}
+		Number\ of\ Octaves
+		{
+			value="11";
+		}
+		Undelay
+		{
+			value="true";
+		}
+		Wet\/Dry\ Mix
+		{
+			value=100.000000;
+		}
+	}
+	Strange
+	{
+
+		Base\ Frequency
+		{
+			value="20";
+		}
+		Frequency\ Response
+		{
+			node_positions={"0", "0.252315", "0.288577", "0.490741", "0.498998", "0.525463", "0.534722", "0.777778", "0.803241", "1"};
+			node_values={"0.5", "0.5", "0.048", "0.0458716", "0.964", "0.964", "0.0504587", "0.0504587", "0.825688", "0.825688"};
+			scalar="14";
+		}
+		Kernel\ Length
+		{
+			value=1024.000000;
+		}
+		Number\ of\ Octaves
+		{
+			value="11";
+		}
+		Undelay
+		{
+			value="true";
+		}
+		Wet\/Dry\ Mix
+		{
+			value=100.000000;
+		}
+	}
+	Very\ Notched
+	{
+
+		Base\ Frequency
+		{
+			value="20";
+		}
+		Frequency\ Response
+		{
+			node_positions={"0", "0.0439815", "0.0486111", "0.0833333", "0.087963", "0.125", "0.12963", "0.155093", "0.162037", "0.180556", "0.185185", "0.217593", "0.219907", "0.259259", "0.263889", "0.293981", "0.296296", "0.326389", "0.328704", "0.358796", "0.361111", "0.388889", "0.391204", "0.414352", "0.421296", "0.449074", "0.451389", "0.476852", "0.481481", "0.513889", "0.516204", "0.543981", "0.548611", "0.578704", "0.585648", "0.606481", "0.611111", "0.641204", "0.645833", "0.675926", "0.680556", "0.710648", "0.715278", "0.747685", "0.75463", "0.787037", "0.791667", "0.828704", "0.833333", "0.877315", "0.87963", "0.909722", "0.912037", "0.94213", "0.946759", "0.974537", "0.979167", "1"};
+			node_values={"0.5", "0.5", "0", "0", "0.5", "0.5", "0", "0", "0.5", "0.5", "0", "0", "0.5", "0.5", "0", "0", "0.5", "0.5", "0", "0", "0.5", "0.5", "0", "0", "0.5", "0.5", "0", "0", "0.5", "0.5", "0", "0", "0.5", "0.5", "0", "0", "0.5", "0.5", "0", "0", "0.5", "0.5", "0", "0", "0.5", "0.5", "0", "0", "0.5", "0.5", "0", "0", "0.5", "0.5", "0", "0", "0.5", "0.5"};
+			scalar="20";
+		}
+		Kernel\ Length
+		{
+			value=4096.000000;
+		}
+		Number\ of\ Octaves
+		{
+			value="11";
+		}
+		Undelay
+		{
+			value="true";
+		}
+		Wet\/Dry\ Mix
+		{
+			value=100.000000;
+		}
+	}
+}
+
+Curved\ Balance\ Change
+{
+	names={"Left to Right", "Right to Left"};
+
+	Left\ to\ Right
+	{
+
+		Balance\ Curve
+		{
+			node_positions={"0", "1"};
+			node_values={"1", "0"};
+		}
+		Balance\ Type
+		{
+			index="1";
+		}
+		Channel\ A
+		{
+			index="0";
+		}
+		Channel\ B
+		{
+			index="1";
+		}
+	}
+	Right\ to\ Left
+	{
+
+		Balance\ Curve
+		{
+			node_positions={"0", "1"};
+			node_values={"0", "1"};
+		}
+		Balance\ Type
+		{
+			index="1";
+		}
+		Channel\ A
+		{
+			index="0";
+		}
+		Channel\ B
+		{
+			index="1";
+		}
+	}
+}
+
+Generate\ Tone
+{
+	names={"60 Hz","440 Hz","1k Hz","2 kHz","4 kHz","8 kHz"};
+
+	\1k\ Hz
+	{
+
+		Frequency
+		{
+			scalar=1000;
+			value=1000.000000;
+		}
+		Length
+		{
+			scalar=1;
+			value=1.000000;
+		}
+		Tone\ Type
+		{
+			index=0;
+		}
+		Volume
+		{
+			value=-6.003245;
+		}
+	}
+	\2\ kHz
+	{
+
+		Frequency
+		{
+			scalar=2000;
+			value=2000.000000;
+		}
+		Length
+		{
+			scalar=1;
+			value=1.000000;
+		}
+		Tone\ Type
+		{
+			index=0;
+		}
+		Volume
+		{
+			value=-6.003245;
+		}
+	}
+	\440\ Hz
+	{
+
+		Frequency
+		{
+			scalar=440;
+			value=440.000000;
+		}
+		Length
+		{
+			scalar=1;
+			value=1.000000;
+		}
+		Tone\ Type
+		{
+			index=0;
+		}
+		Volume
+		{
+			value=-6.001512;
+		}
+	}
+	\4\ kHz
+	{
+
+		Frequency
+		{
+			scalar=4000;
+			value=4000.000000;
+		}
+		Length
+		{
+			scalar=1;
+			value=1.000000;
+		}
+		Tone\ Type
+		{
+			index=0;
+		}
+		Volume
+		{
+			value=-6.003245;
+		}
+	}
+	\60\ Hz
+	{
+
+		Frequency
+		{
+			scalar=60;
+			value=60.000000;
+		}
+		Length
+		{
+			scalar=1;
+			value=1.000000;
+		}
+		Tone\ Type
+		{
+			index=0;
+		}
+		Volume
+		{
+			value=-6.003245;
+		}
+	}
+	\8\ kHz
+	{
+
+		Frequency
+		{
+			scalar=8000;
+			value=8000.000000;
+		}
+		Length
+		{
+			scalar=1;
+			value=1.000000;
+		}
+		Tone\ Type
+		{
+			index=0;
+		}
+		Volume
+		{
+			value=-6.003245;
+		}
+	}
+}
+
