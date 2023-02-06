@@ -1,25 +1,16 @@
-# GobyJIT Audio/MIDI
-* It is luajit for audio/midi
-* It uses portaudio
-* It will use rtaudio with 64-bit soon too
+# AudioLAB
+* New and Improved
 
-# I am not doing anything more with CPU
-* I am working on GPU now
-* Only use cpu optimizations and openmp
+# It's about algorithms
+* They are all reference in c++
+* They must work correctly
+* People make the algorithms
+* I make alot of algorithms too
 
-
-# FaustFX
-* use faust llvm
-
-# CSound
-* Use csound audio/midi
-* Use csound files
-* Differentiable CSound
-
-# VCV Rack
-* Embedded in VCV Rack
-* Control VCV Rack
-* Use Lua AudioDSP with VCV Rack
-* Differentiable Rack
+# Languages
+* LuaJIT
+* Octave
+* Python
+* Faust
 
 
