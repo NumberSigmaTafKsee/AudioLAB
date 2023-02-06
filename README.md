@@ -19,3 +19,8 @@
 * Can use Python from Lua/C++
 * Can use Lua from Octave/C++
 * Can use Lua from Python/C++
+
+# Plot stuff
+* Run an oso oscilloscope
+* Run a spectral analyzer
+* Run a total harmonic distortion analyzer
