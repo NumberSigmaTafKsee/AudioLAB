@@ -24,3 +24,8 @@
 * Run an oso oscilloscope
 * Run a spectral analyzer
 * Run a total harmonic distortion analyzer
+
+# CoreDSP
+* Monte Carlo Casino MKL/IPP
+* Kentucky Kfr/C DSP
+* Neo10 
