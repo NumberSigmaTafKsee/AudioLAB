@@ -7669,6 +7669,7 @@ static int _wrap_PmEvent_message_set(lua_State* L) {
     SWIG_fail_ptr("PmEvent_message_set",1,SWIGTYPE_p_PmEvent);
   }
   
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (PmMessage)lua_tonumber(L, 2);
   if (arg1) (arg1)->message = arg2;
   
@@ -7915,6 +7916,7 @@ static int _wrap_Pm_WriteShort(lua_State* L) {
   if(!lua_isnumber(L,3)) SWIG_fail_arg("Pm_WriteShort",3,"PmMessage");
   arg1=(PortMidiStream *)SWIG_MustGetPtr(L,1,0,0,1,"Pm_WriteShort");
   arg2 = (PmTimestamp)lua_tonumber(L, 2);
+  SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
   arg3 = (PmMessage)lua_tonumber(L, 3);
   result = (PmError)Pm_WriteShort(arg1,arg2,arg3);
   lua_pushnumber(L, (lua_Number)(int)(result)); SWIG_arg++;
@@ -12806,7 +12808,7 @@ static swig_type_info _swigt__p_f_p_q_const__void_p_void_unsigned_long_p_q_const
 static swig_type_info _swigt__p_f_p_void__int = {"_p_f_p_void__int", "PmTimeProcPtr|int (*)(void *)", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_f_p_void__void = {"_p_f_p_void__void", "PaStreamFinishedCallback *|void (*)(void *)", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_float = {"_p_float", "float *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_int = {"_p_int", "PaError *|PmTimestamp *|PtTimestamp *|intptr_t *|int *|int_least32_t *|int_fast32_t *|PaDeviceIndex *|PaHostApiIndex *|int32_t *|PmMessage *|PmDeviceID *|int_fast16_t *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_int = {"_p_int", "PaError *|PmTimestamp *|PtTimestamp *|intptr_t *|int *|int_least32_t *|int_fast32_t *|PaDeviceIndex *|PaHostApiIndex *|int32_t *|PmDeviceID *|int_fast16_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_long_long = {"_p_long_long", "int_least64_t *|int_fast64_t *|int64_t *|long long *|intmax_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_lua_State = {"_p_lua_State", "lua_State *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_midimsg = {"_p_midimsg", "struct midimsg *|midimsg *|MidiMsg *", 0, 0, (void*)&_wrap_class_MidiMsg, 0};
@@ -12816,7 +12818,7 @@ static swig_type_info _swigt__p_pthread_t = {"_p_pthread_t", "pthread_t *", 0, 0
 static swig_type_info _swigt__p_short = {"_p_short", "short *|int_least16_t *|int16_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_signed_char = {"_p_signed_char", "signed char *|int_least8_t *|int_fast8_t *|int8_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_unsigned_char = {"_p_unsigned_char", "unsigned char *|uint_least8_t *|uint_fast8_t *|uint8_t *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_unsigned_int = {"_p_unsigned_int", "uintptr_t *|uint_least32_t *|uint_fast32_t *|uint32_t *|unsigned int *|uint_fast16_t *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_unsigned_int = {"_p_unsigned_int", "uintptr_t *|uint_least32_t *|uint_fast32_t *|uint32_t *|unsigned int *|PmMessage *|uint_fast16_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_unsigned_long = {"_p_unsigned_long", "unsigned long *|PaSampleFormat *|PaStreamFlags *|PaStreamCallbackFlags *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_unsigned_long_long = {"_p_unsigned_long_long", "uint_least64_t *|uint_fast64_t *|uint64_t *|unsigned long long *|uintmax_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_unsigned_short = {"_p_unsigned_short", "unsigned short *|uint_least16_t *|uint16_t *", 0, 0, (void*)0, 0};

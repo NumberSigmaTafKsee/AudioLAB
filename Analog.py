@@ -58,63 +58,6 @@ class _SwigNonDynamicMeta(type):
     __setattr__ = _swig_setattr_nondynamic_class_variable(type.__setattr__)
 
 
-
-def crealf(z):
-    return _Analog.crealf(z)
-
-def cimagf(z):
-    return _Analog.cimagf(z)
-
-def cabsf(z):
-    return _Analog.cabsf(z)
-
-def cargf(z):
-    return _Analog.cargf(z)
-
-def cnormf(z):
-    return _Analog.cnormf(z)
-
-def cprojf(z):
-    return _Analog.cprojf(z)
-
-def cpolarf(*args):
-    return _Analog.cpolarf(*args)
-
-def csinf(z):
-    return _Analog.csinf(z)
-
-def ccosf(z):
-    return _Analog.ccosf(z)
-
-def ctanf(z):
-    return _Analog.ctanf(z)
-
-def casinf(z):
-    return _Analog.casinf(z)
-
-def cacosf(z):
-    return _Analog.cacosf(z)
-
-def catanf(z):
-    return _Analog.catanf(z)
-
-def csinhf(z):
-    return _Analog.csinhf(z)
-
-def ccoshf(z):
-    return _Analog.ccoshf(z)
-
-def ctanhf(z):
-    return _Analog.ctanhf(z)
-
-def casinhf(z):
-    return _Analog.casinhf(z)
-
-def cacoshf(z):
-    return _Analog.cacoshf(z)
-
-def catanhf(z):
-    return _Analog.catanhf(z)
 class float_numeric_limits(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
@@ -477,411 +420,6 @@ def Infinity():
 
 def NaN():
     return _Analog.NaN()
-
-def absf(x):
-    return _Analog.absf(x)
-
-def cubef(x):
-    return _Analog.cubef(x)
-
-def sqrtf(x):
-    return _Analog.sqrtf(x)
-
-def expf(x):
-    return _Analog.expf(x)
-
-def exp2f(x):
-    return _Analog.exp2f(x)
-
-def logf(x):
-    return _Analog.logf(x)
-
-def log10f(x):
-    return _Analog.log10f(x)
-
-def log2f(x):
-    return _Analog.log2f(x)
-
-def logbf(x):
-    return _Analog.logbf(x)
-
-def powf(b, e):
-    return _Analog.powf(b, e)
-
-def floorf(x):
-    return _Analog.floorf(x)
-
-def acosf(x):
-    return _Analog.acosf(x)
-
-def asinf(x):
-    return _Analog.asinf(x)
-
-def atanf(x):
-    return _Analog.atanf(x)
-
-def atan2f(x, y):
-    return _Analog.atan2f(x, y)
-
-def cosf(x):
-    return _Analog.cosf(x)
-
-def sinf(x):
-    return _Analog.sinf(x)
-
-def tanf(x):
-    return _Analog.tanf(x)
-
-def coshf(x):
-    return _Analog.coshf(x)
-
-def sinhf(x):
-    return _Analog.sinhf(x)
-
-def tanhf(x):
-    return _Analog.tanhf(x)
-
-def lgammaf(x):
-    return _Analog.lgammaf(x)
-
-def acoshf(x):
-    return _Analog.acoshf(x)
-
-def asinhf(x):
-    return _Analog.asinhf(x)
-
-def atanhf(x):
-    return _Analog.atanhf(x)
-
-def cbrtf(x):
-    return _Analog.cbrtf(x)
-
-def ceilf(x):
-    return _Analog.ceilf(x)
-
-def copysignf(x, y):
-    return _Analog.copysignf(x, y)
-
-def erff(x):
-    return _Analog.erff(x)
-
-def erfcf(x):
-    return _Analog.erfcf(x)
-
-def expm1f(x):
-    return _Analog.expm1f(x)
-
-def fdimf(x, y):
-    return _Analog.fdimf(x, y)
-
-def fmaf(x, y, z):
-    return _Analog.fmaf(x, y, z)
-
-def fmaxf(x, y):
-    return _Analog.fmaxf(x, y)
-
-def fminf(x, y):
-    return _Analog.fminf(x, y)
-
-def fmodf(x, y):
-    return _Analog.fmodf(x, y)
-
-def fpclassifyf(x):
-    return _Analog.fpclassifyf(x)
-
-def hypotf(x, y):
-    return _Analog.hypotf(x, y)
-
-def ilogbf(x):
-    return _Analog.ilogbf(x)
-
-def isfinitef(x):
-    return _Analog.isfinitef(x)
-
-def isgreaterf(x, y):
-    return _Analog.isgreaterf(x, y)
-
-def isgreaterequalf(x, y):
-    return _Analog.isgreaterequalf(x, y)
-
-def isinff(x):
-    return _Analog.isinff(x)
-
-def islessf(x, y):
-    return _Analog.islessf(x, y)
-
-def islessequalf(x, y):
-    return _Analog.islessequalf(x, y)
-
-def isnanf(x):
-    return _Analog.isnanf(x)
-
-def isnormalf(x):
-    return _Analog.isnormalf(x)
-
-def isunorderedf(x, y):
-    return _Analog.isunorderedf(x, y)
-
-def ldexpf(x, exp):
-    return _Analog.ldexpf(x, exp)
-
-def llrintf(x):
-    return _Analog.llrintf(x)
-
-def llroundf(x):
-    return _Analog.llroundf(x)
-
-def log1pf(x):
-    return _Analog.log1pf(x)
-
-def lrintf(x):
-    return _Analog.lrintf(x)
-
-def lroundf(x):
-    return _Analog.lroundf(x)
-
-def nanf(tagp):
-    return _Analog.nanf(tagp)
-
-def nanff(tagp):
-    return _Analog.nanff(tagp)
-
-def nanlf(tagp):
-    return _Analog.nanlf(tagp)
-
-def nearbyintf(x):
-    return _Analog.nearbyintf(x)
-
-def nextafterf(x, y):
-    return _Analog.nextafterf(x, y)
-
-def nexttowardf(x, y):
-    return _Analog.nexttowardf(x, y)
-
-def remainderf(n, d):
-    return _Analog.remainderf(n, d)
-
-def rintf(x):
-    return _Analog.rintf(x)
-
-def roundf(x):
-    return _Analog.roundf(x)
-
-def scalblnf(x, n):
-    return _Analog.scalblnf(x, n)
-
-def scalbnf(x, n):
-    return _Analog.scalbnf(x, n)
-
-def squaref(x):
-    return _Analog.squaref(x)
-
-def tgammaf(x):
-    return _Analog.tgammaf(x)
-
-def truncf(x):
-    return _Analog.truncf(x)
-
-def absd(x):
-    return _Analog.absd(x)
-
-def sqrtd(x):
-    return _Analog.sqrtd(x)
-
-def expd(x):
-    return _Analog.expd(x)
-
-def exp2d(x):
-    return _Analog.exp2d(x)
-
-def logd(x):
-    return _Analog.logd(x)
-
-def log10d(x):
-    return _Analog.log10d(x)
-
-def log2d(x):
-    return _Analog.log2d(x)
-
-def logbd(x):
-    return _Analog.logbd(x)
-
-def powd(b, e):
-    return _Analog.powd(b, e)
-
-def floord(x):
-    return _Analog.floord(x)
-
-def acosd(x):
-    return _Analog.acosd(x)
-
-def asind(x):
-    return _Analog.asind(x)
-
-def atand(x):
-    return _Analog.atand(x)
-
-def atan2d(x, y):
-    return _Analog.atan2d(x, y)
-
-def cosd(x):
-    return _Analog.cosd(x)
-
-def sind(x):
-    return _Analog.sind(x)
-
-def tand(x):
-    return _Analog.tand(x)
-
-def coshd(x):
-    return _Analog.coshd(x)
-
-def sinhd(x):
-    return _Analog.sinhd(x)
-
-def tanhd(x):
-    return _Analog.tanhd(x)
-
-def lgammad(x):
-    return _Analog.lgammad(x)
-
-def acoshd(x):
-    return _Analog.acoshd(x)
-
-def asinhd(x):
-    return _Analog.asinhd(x)
-
-def atanhd(x):
-    return _Analog.atanhd(x)
-
-def cbrtd(x):
-    return _Analog.cbrtd(x)
-
-def ceild(x):
-    return _Analog.ceild(x)
-
-def copysignd(x, y):
-    return _Analog.copysignd(x, y)
-
-def erfd(x):
-    return _Analog.erfd(x)
-
-def erfcd(x):
-    return _Analog.erfcd(x)
-
-def expm1d(x):
-    return _Analog.expm1d(x)
-
-def fdimd(x, y):
-    return _Analog.fdimd(x, y)
-
-def fmad(x, y, z):
-    return _Analog.fmad(x, y, z)
-
-def fmaxd(x, y):
-    return _Analog.fmaxd(x, y)
-
-def fmind(x, y):
-    return _Analog.fmind(x, y)
-
-def fmodd(x, y):
-    return _Analog.fmodd(x, y)
-
-def fpclassifyd(x):
-    return _Analog.fpclassifyd(x)
-
-def hypotd(x, y):
-    return _Analog.hypotd(x, y)
-
-def ilogbd(x):
-    return _Analog.ilogbd(x)
-
-def isfinited(x):
-    return _Analog.isfinited(x)
-
-def isgreaterd(x, y):
-    return _Analog.isgreaterd(x, y)
-
-def isgreaterequald(x, y):
-    return _Analog.isgreaterequald(x, y)
-
-def isinfd(x):
-    return _Analog.isinfd(x)
-
-def islessd(x, y):
-    return _Analog.islessd(x, y)
-
-def islessequald(x, y):
-    return _Analog.islessequald(x, y)
-
-def isnand(x):
-    return _Analog.isnand(x)
-
-def isnormald(x):
-    return _Analog.isnormald(x)
-
-def isunorderedd(x, y):
-    return _Analog.isunorderedd(x, y)
-
-def ldexpd(x, exp):
-    return _Analog.ldexpd(x, exp)
-
-def llrintd(x):
-    return _Analog.llrintd(x)
-
-def llroundd(x):
-    return _Analog.llroundd(x)
-
-def log1pd(x):
-    return _Analog.log1pd(x)
-
-def lrintd(x):
-    return _Analog.lrintd(x)
-
-def lroundd(x):
-    return _Analog.lroundd(x)
-
-def nand(tagp):
-    return _Analog.nand(tagp)
-
-def nanfd(tagp):
-    return _Analog.nanfd(tagp)
-
-def nanld(tagp):
-    return _Analog.nanld(tagp)
-
-def nearbyintd(x):
-    return _Analog.nearbyintd(x)
-
-def nextafterd(x, y):
-    return _Analog.nextafterd(x, y)
-
-def nexttowardd(x, y):
-    return _Analog.nexttowardd(x, y)
-
-def remainderd(n, d):
-    return _Analog.remainderd(n, d)
-
-def rintd(x):
-    return _Analog.rintd(x)
-
-def roundd(x):
-    return _Analog.roundd(x)
-
-def scalblnd(x, n):
-    return _Analog.scalblnd(x, n)
-
-def scalbnd(x, n):
-    return _Analog.scalbnd(x, n)
-
-def squared(x):
-    return _Analog.squared(x)
-
-def tgammad(x):
-    return _Analog.tgammad(x)
-
-def truncd(x):
-    return _Analog.truncd(x)
 char_bit = _Analog.char_bit
 schar_min = _Analog.schar_min
 schar_max = _Analog.schar_max
@@ -914,6 +452,9 @@ class Random(object):
 
     def frand(self):
         return _Analog.Random_frand(self)
+
+    def rand(self):
+        return _Analog.Random_rand(self)
 
     def randint(self, min, max):
         return _Analog.Random_randint(self, min, max)
@@ -5734,11 +5275,11 @@ class float_vector(object):
     def __setitem__(self, i, val):
         return _Analog.float_vector___setitem__(self, i, val)
 
-    def iter_begin(self):
-        return _Analog.float_vector_iter_begin(self)
+    def ibegin(self):
+        return _Analog.float_vector_ibegin(self)
 
-    def iter_end(self):
-        return _Analog.float_vector_iter_end(self)
+    def iend(self):
+        return _Analog.float_vector_iend(self)
 
     def erase(self, *args):
         return _Analog.float_vector_erase(self, *args)
@@ -5808,11 +5349,11 @@ class double_vector(object):
     def __setitem__(self, i, val):
         return _Analog.double_vector___setitem__(self, i, val)
 
-    def iter_begin(self):
-        return _Analog.double_vector_iter_begin(self)
+    def ibegin(self):
+        return _Analog.double_vector_ibegin(self)
 
-    def iter_end(self):
-        return _Analog.double_vector_iter_end(self)
+    def iend(self):
+        return _Analog.double_vector_iend(self)
 
     def erase(self, *args):
         return _Analog.double_vector_erase(self, *args)
@@ -5882,11 +5423,11 @@ class complex_float_vector(object):
     def __setitem__(self, i, val):
         return _Analog.complex_float_vector___setitem__(self, i, val)
 
-    def iter_begin(self):
-        return _Analog.complex_float_vector_iter_begin(self)
+    def ibegin(self):
+        return _Analog.complex_float_vector_ibegin(self)
 
-    def iter_end(self):
-        return _Analog.complex_float_vector_iter_end(self)
+    def iend(self):
+        return _Analog.complex_float_vector_iend(self)
 
     def erase(self, *args):
         return _Analog.complex_float_vector_erase(self, *args)
@@ -5956,11 +5497,11 @@ class complex_double_vector(object):
     def __setitem__(self, i, val):
         return _Analog.complex_double_vector___setitem__(self, i, val)
 
-    def iter_begin(self):
-        return _Analog.complex_double_vector_iter_begin(self)
+    def ibegin(self):
+        return _Analog.complex_double_vector_ibegin(self)
 
-    def iter_end(self):
-        return _Analog.complex_double_vector_iter_end(self)
+    def iend(self):
+        return _Analog.complex_double_vector_iend(self)
 
     def erase(self, *args):
         return _Analog.complex_double_vector_erase(self, *args)

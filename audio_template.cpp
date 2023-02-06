@@ -19,7 +19,7 @@ typedef float DspFloatType;
 #include "FX/ADSR.hpp"
 #include "FX/PolyBLEP.hpp"
 
-#include "audiodsp_iir_filters.hpp"
+#include "audio_iir_filters.hpp"
 
 #define ITERATE(index,start,end) for(size_t index = start; index < end; index += 1)
 #define STEP(index,start,end,step) for(size_t index = start; index < end; index += step)
@@ -37,8 +37,8 @@ PolyBLEP osc(sampleRate,PolyBLEP::SAWTOOTH);
 ADSR adsr(0.01,0.1,1.0,0.1,sampleRate);
 
 DspFloatType Freq,Kc,Vel,Fcutoff,Fc=100.0,Qn,Q=0.5,Gain;
-BiquadTransposedTypeII  filter;
-BiquadFilterCascade     cascade;
+Filters::BiquadTransposedTypeII  filter;
+Filters::BiquadFilterCascade     cascade;
 
 template<typename Osc>
 Eigen::VectorXf osc_tick(Osc & o, size_t n)
@@ -68,28 +68,73 @@ Eigen::VectorXf filter_tick(Filter & f, Eigen::Map<Eigen::VectorXf>& map, size_t
     for(size_t i = 0; i < n; i++) samples[i] = f.Tick(map[i]);
     return samples;
 }
+
+
+
+Filters::BiquadSection test(DspFloatType wc, DspFloatType Q)
+{
+
+    DspFloatType a0 = tan(M_PI*wc/sampleRate);
+    DspFloatType a1 = a0;
+    DspFloatType b0 = 1 + a0;
+    DspFloatType b1 = -(1 - a0);
     
+    Filters::BiquadSection c;
+    c.z[0] = a0*a0;
+    c.z[1] = 2*(a0*a1);
+    c.z[2] = a1*a1;
+    c.p[0] = b0*b0;
+    c.p[1] = 2*(b0*b1);
+    c.p[2] = b1*b1;
+    c.z[0] /= c.p[0];    
+    c.z[1] /= c.p[0];
+    c.z[2] /= c.p[0];
+    c.p[1] /= c.p[0];
+    c.p[2] /= c.p[0];
+    c.p[0]  = c.p[1];
+    c.p[1]  = c.p[2];
+    
+    return c;
+}
+
+Filters::BiquadSOS series_filter(Filters::BiquadSection & f1, Filters::BiquadSection & f2)
+{
+    Filters::BiquadSOS r;
+    r.push_back(f1);
+    r.push_back(f2);
+    return r;
+}
+Filters::BiquadSOS parallel_filter(Filters::BiquadSection & f1, Filters::BiquadSection & f2)
+{
+    Filters::BiquadSOS r;
+    Filters::BiquadSection c;
+    c.z[0] = f1.z[0] + f2.z[0];
+    c.z[1] = f1.z[1] + f2.z[1];
+    c.z[2] = f1.z[2] + f2.z[2];
+    c.p[0] = f1.p[0] * f2.p[0];
+    c.p[1] = f1.p[1] * f2.p[1];
+    c.p[2] = f1.p[2] * f2.p[2];
+    r.push_back(c);
+    return r;
+}
 int audio_callback( const void *inputBuffer, void *outputBuffer,
                             unsigned long framesPerBuffer,
                             const PaStreamCallbackTimeInfo* timeInfo,
                             PaStreamCallbackFlags statusFlags,
                             void *userData )
 {    
-    //LockMidi();    
+    //LockMidi();
     float * output = (float*)outputBuffer;    
     Eigen::Map<Eigen::VectorXf> ovec(output,framesPerBuffer);    
-    //memcpy(ovec.data(),output,framesPerBuffer*sizeof(float));
-    //BiquadSOS c = oct_butterlp(4,Q);
-    //auto x = AnalogBiquadCascade(c,Fc,sampleRate);    
-    BiquadSection c = butter2(Q);
-    auto x = AnalogBiquadSection(c,Fc,sampleRate);        
-    osc.setFrequency(Kc);
-    filter.setCoefficients(x);    
+    Filters::BiquadSection c1 = test(Fc,Q); //butter2(Q);
+    Filters::BiquadSection c2 = test(Fc,Q); //butter2(Q);
+    Filters::BiquadSOS c  = series_filter(c1,c2);    
+    osc.setFrequency(Kc);    
+    //filter.setCoefficients(c);    
+    cascade.setCoefficients(c);
     ovec = osc_tick(osc,framesPerBuffer);        
     ovec = env_tick(adsr,ovec,framesPerBuffer);
-    //ovec = filter_tick(cascade,ovec,framesPerBuffer);    
-    ovec = filter_tick(filter,ovec,framesPerBuffer);    
-    //memcpy(output,ovec.data(),framesPerBuffer*sizeof(float));
+    ovec = filter_tick(cascade,ovec,framesPerBuffer);        
     //UnlockMidi();
     return 0;
 }            
@@ -166,11 +211,11 @@ int main()
         printf("midi device #%lu: %s\n", i, GetMidiDeviceName(i));
     }
     int num_audio = GetNumAudioDevices();
-    int pulse = 6;
+    int pulse = 0;
     
     ITERATE(i, 0, num_audio)    
     {
-        //if(!strcmp(GetAudioDeviceName(i),"pulse")) { pulse = i; break; }
+        if(!strcmp(GetAudioDeviceName(i),"jack")) { pulse = i; break; }
         printf("audio device #%lu: %s\n", i, GetAudioDeviceName(i));
     }
     

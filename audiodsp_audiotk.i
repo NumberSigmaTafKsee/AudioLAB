@@ -1,5 +1,6 @@
 %module AudioTK
 %{
+#define DSPFLOATDOUBLE
 #include "SoundObject.hpp"
 
 #include <cassert>
@@ -67,6 +68,8 @@
 #include "FX/ATKVariableDelayLine.hpp"
 
 
+using namespace AudioTK;
+
 %}
 %include "stdint.i"
 %include "std_math.i"
@@ -75,6 +78,25 @@
 %include "std_map.i"
 %include "lua_fnptr.i"
 
+// Handle standard exceptions
+%include "exception.i"
+%exception
+{
+  try
+  {
+    $action
+  }
+  catch (const std::invalid_argument& e)
+  {
+    SWIG_exception(SWIG_ValueError, e.what());
+  }
+  catch(const std::runtime_error& e) {
+    SWIG_exception(SWIG_ValueError, e.what());
+  }
+}
+
+
+#define DSPFLOATDOUBLE
 %include "SoundObject.hpp"
 
 %include "FX/ATK.hpp"
@@ -86,6 +108,7 @@
 %include "FX/ATKChamberlinFilter.hpp"
 %include "FX/ATKChebyshev1Filter.hpp"
 %include "FX/ATKChebyshev2Filter.hpp"
+%include "FX/ATKDistortionProcessors.hpp"
 %include "FX/ATKExpander.hpp"
 %include "FX/ATKFeedbackDelayNetwork.hpp"
 %include "FX/ATKFIRFilter.hpp"
@@ -133,10 +156,3 @@
 %template(complex_float_vector) std::vector<std::complex<float>>;
 %template(complex_double_vector) std::vector<std::complex<double>>;
 
-%inline %{
-    const int BufferSize = 256;
-    Default noise;
-    DspFloatType sampleRate = 44100.0f;
-    DspFloatType inverseSampleRate = 1 / 44100.0f;
-    DspFloatType invSampleRate = 1 / 44100.0f;
-%}

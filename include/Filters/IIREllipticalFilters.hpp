@@ -1,7 +1,6 @@
 #pragma once
 
-
-enum Filters::IIR::Elliptical
+namespace Filters::IIR::Elliptical
 {
     void elliptical_order_estimate(DspFloatType omegaPass, DspFloatType omegaStop, DspFloatType maxPassLoss, DspFloatType maxStopLoss,
                                     int & order, DspFloatType& actualMinStopLoss)
@@ -28,7 +27,7 @@ enum Filters::IIR::Elliptical
                         std::vector<DspFloatType> &aa,
                         std::vector<DspFloatType> &bb,
                         std::vector<DspFloatType> &cc,
-                        int& numSecs;
+                        int& numSecs,
                         DspFloatType& hZero,
                         DspFloatType& pZero)
     {

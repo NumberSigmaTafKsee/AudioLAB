@@ -2,7 +2,7 @@
 
 #include "ATK.hpp"
 
-namespace Filters::AudioTK::Delays
+namespace AudioTK
 {
     // Universal Fixed Delay Line
     struct UFDLDelay : public ATKFilter

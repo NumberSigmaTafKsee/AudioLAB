@@ -108,7 +108,7 @@ namespace Oscillators::Functions
             return (output);
         }
 
-        DspFloatType function() {
+        DspFloatType f() {
             switch(type)
             {
             case SINEWAVE: return sinewave();
@@ -123,11 +123,7 @@ namespace Oscillators::Functions
         }
     
         DspFloatType Tick(DspFloatType I=0, DspFloatType A = 1, DspFloatType X = 0, DspFloatType Y = 0) {        
-            //DspFloatType p = phase;
-            //phase = phasor(frequency + 0.5*X*frequency) + Y + phase;
-            //phase = std::fmod(phase,1);
-            DspFloatType r = function();
-            //phase = p;        
+            DspFloatType r = f();
             phaseIncrement();      
             if(polarity == POSITIVE) return r;
             else if(polarity == NEGATIVE) return -r;

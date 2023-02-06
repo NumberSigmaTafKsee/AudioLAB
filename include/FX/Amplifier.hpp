@@ -208,12 +208,18 @@ namespace FX::Distortion::Amplifier
             distortion_morph = noise.frand();
         }
         DspFloatType Integrator(DspFloatType in) {
-            DspFloatType r = in + prv;
+            DspFloatType r = 0.5*(in + prv);
             prv = in;
             return r;
         }
         DspFloatType Differencer(DspFloatType in) {
             DspFloatType r = in - prv;
+            prv = in;
+            return r;
+        }
+        DspFloatType Comparator(DspFloatType in) {
+            DspFloatType r = 1;
+            if( in < prv) r = -1;
             prv = in;
             return r;
         }

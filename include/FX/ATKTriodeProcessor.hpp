@@ -2,7 +2,7 @@
 
 #include "ATK.hpp"
 
-namespace Filters::AudioTK::Preamp
+namespace AudioTK
 {
     struct KorenTriode : public ATKFilter
     {

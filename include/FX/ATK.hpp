@@ -88,8 +88,31 @@
 #include <ATK/Tools/SumFilter.h>
 #include <ATK/Tools/VolumeFilter.h>
 
-namespace Filters::AudioTK
+namespace AudioTK
 {
+
+    template <typename DataType>
+    class ATKMonoInputFilter : public ATK::TypedBaseFilter<DataType> {
+    public:
+        using ATK::TypedBaseFilter<DataType>::outputs;
+
+        explicit ATKMonoInputFilter() : ATK::TypedBaseFilter<DataType>(0, 1){}
+
+        void set_input(DataType * inputs, int size) {
+            mInputs = inputs;
+            mSize = size;
+        }
+
+    protected:
+        DataType * mInputs = nullptr;
+        int mSize = 0;
+        
+        virtual void process_impl(int64_t size) const {
+            for (int64_t i = 0; i < size; ++i) {
+                outputs[0][i] = mInputs[i];
+            }            
+        }
+    };
 
     template <typename DataType>
     class ATKInputFilter : public ATK::TypedBaseFilter<DataType> {
@@ -114,6 +137,30 @@ namespace Filters::AudioTK
                     outputs[c][i] = mInputs[c][i];
                 }
             }
+        }
+    };
+
+    template <typename DataType>
+    class ATKMonoOutputFilter : public ATK::TypedBaseFilter<DataType> {
+    public:
+        using ATK::TypedBaseFilter<DataType>::converted_inputs;
+
+        explicit ATKMonoOutputFilter() : ATK::TypedBaseFilter<DataType>(1,0) {}
+
+        void set_output(DataType* outputs, int size) {
+            mOutputs = outputs;
+            mSize = size;
+        }
+
+    protected:
+        DataType * mOutputs = nullptr;
+        int mSize = 0;
+        
+
+        virtual void process_impl(int64_t size) const {
+            for (int64_t i = 0; i < size; ++i) {
+                mOutputs[i] = converted_inputs[0][i];
+            }            
         }
     };
 
@@ -146,6 +193,8 @@ namespace Filters::AudioTK
     
     using InType = ATKInputFilter<DspFloatType>;
     using OutType = ATKOutputFilter<DspFloatType>;
+    using MonoInType = ATKMonoInputFilter<DspFloatType>;
+    using MonoOutType = ATKMonoOutputFilter<DspFloatType>;
     using BaseFilterType = ATK::TypedBaseFilter<DspFloatType>;
     using SumType = ATK::SumFilter<DspFloatType>;
     using VolumeType = ATK::VolumeFilter<DspFloatType>;
@@ -155,7 +204,7 @@ namespace Filters::AudioTK
     using DownsamplingType = ATK::DecimationFilter<DspFloatType>;
     using LowPassType = ATK::IIRFilter<ATK::ButterworthLowPassCoefficients<DspFloatType>>;
     using ToneStackType = ATK::IIRFilter<ATK::ToneStackCoefficients<DspFloatType>>;
-    using CabType = ATK::ConvolutionFilter<DspFloatType>;
+    //using CabType = ATK::ConvolutionFilter<DspFloatType>;
     
     // process a list/vector of filters
     struct ATKMultiFilterProcessor : public StereoFXProcessor
@@ -225,6 +274,88 @@ namespace Filters::AudioTK
         }
     };
 
+    
+    // process a filter
+    struct ATKMonoFilterProcessor : public MonoFXProcessor
+    {
+    private:
+        std::unique_ptr<MonoInType> mInputs;
+        std::unique_ptr<MonoOutType> mOutputs;
+        ATK::BaseFilter * filter;
+        std::unique_ptr<OversamplingType_2> mOversample;
+        std::unique_ptr<DownsamplingType> mDecimator;
+        DspFloatType sampleRate;
+    public:
+        ATKMonoFilterProcessor(ATK::BaseFilter* f,DspFloatType sampleRate=44100) : MonoFXProcessor()
+        {
+            this->sampleRate = sampleRate;
+            mInputs.reset(new MonoInType());
+            //mInputs->set_input_sampling_rate(sampleRate);
+            mInputs->set_output_sampling_rate(sampleRate);
+
+            mOutputs.reset(new MonoOutType());
+            mOutputs->set_input_sampling_rate(sampleRate);        
+            //mOutputs->set_output_sampling_rate(sampleRate);        
+            
+            mOversample.reset(new OversamplingType_2(1));
+            mOversample->set_input_sampling_rate(sampleRate);
+            mOversample->set_output_sampling_rate(2*sampleRate);
+
+            mDecimator.reset(new DownsamplingType);
+            mDecimator->set_input_sampling_rate(2*sampleRate);
+            mDecimator->set_output_sampling_rate(sampleRate);
+            
+            filter = f;
+            filter->set_input_sampling_rate(sampleRate*2);        
+            //filter->set_output_sampling_rate(sampleRate);        
+            connect();
+        }
+        ~ATKMonoFilterProcessor() {
+
+        }
+
+        void setFilter(ATK::BaseFilter * p)
+        {
+            filter = p;
+        }
+
+        void connect() 
+        {               
+            mOversample->set_input_port(0, mInputs.get(), 0);                        
+            filter->set_input_port(0, mOversample.get(), 0);                    
+            mDecimator->set_input_port(0, filter, 0);                                      
+            mOutputs->set_input_port(0,mDecimator.get(),0);            
+        }
+        void ProcessBlock(size_t nFrames, DspFloatType * inputs, DspFloatType * outputs)
+        {                    
+            mInputs->set_input(inputs, nFrames);
+            mOutputs->set_output(outputs, nFrames);
+            mOutputs->process(nFrames);
+        }
+    };
+
+    struct ATKMonoFilter : public MonoFXProcessor
+    {
+        ATKMonoFilterProcessor * p;
+        ATKMonoFilter() : MonoFXProcessor()
+        {
+            p = NULL;
+        }
+        ~ATKMonoFilter() {
+            if(p) delete p;
+        }
+        void setFilter(ATK::BaseFilter * f) {
+            if(p) delete p;
+            p = new ATKMonoFilterProcessor(f);
+        }
+        void ProcessBlock(size_t nFrames, DspFloatType * inputs, DspFloatType * outputs)
+        {        
+            if(p != NULL)
+                p->ProcessBlock(nFrames,inputs,outputs);
+        }
+    };   
+
+
     // process a filter
     struct ATKFilterProcessor : public StereoFXProcessor
     {
@@ -239,13 +370,15 @@ namespace Filters::AudioTK
         ATKFilterProcessor(ATK::BaseFilter* f,DspFloatType sampleRate=44100) : StereoFXProcessor()
         {
             this->sampleRate = sampleRate;
-            mInputs.reset(new InType(1));
+            mInputs.reset(new InType(2));
+            //mInputs->set_input_sampling_rate(sampleRate);
             mInputs->set_output_sampling_rate(sampleRate);
 
-            mOutputs.reset(new OutType(1));
+            mOutputs.reset(new OutType(2));
             mOutputs->set_input_sampling_rate(sampleRate);        
-
-            mOversample.reset(new OversamplingType_2(1));
+            //mOutputs->set_output_sampling_rate(sampleRate);        
+            
+            mOversample.reset(new OversamplingType_2(2));
             mOversample->set_input_sampling_rate(sampleRate);
             mOversample->set_output_sampling_rate(2*sampleRate);
 
@@ -254,6 +387,8 @@ namespace Filters::AudioTK
             mDecimator->set_output_sampling_rate(sampleRate);
             
             filter = f;
+            filter->set_input_sampling_rate(sampleRate*2);        
+            //filter->set_output_sampling_rate(sampleRate);        
             connect();
         }
         ~ATKFilterProcessor() {
@@ -267,16 +402,16 @@ namespace Filters::AudioTK
 
         void connect() 
         {   
+            
             mOversample->set_input_port(0, mInputs.get(), 0);
             mOversample->set_input_port(1, mInputs.get(), 1);
-
+            
             filter->set_input_port(0, mOversample.get(), 0);
             filter->set_input_port(1, mOversample.get(), 1);
-
+            
             mDecimator->set_input_port(0, filter, 0);
             mDecimator->set_input_port(1, filter, 1);
-                        
-                
+                                      
             mOutputs->set_input_port(0,mDecimator.get(),0);
             mOutputs->set_input_port(1,mDecimator.get(),1);
         }

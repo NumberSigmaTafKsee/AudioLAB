@@ -16,11 +16,12 @@
 #include "Analog/VADinkyFilter.hpp"
 #include "Analog/VADiode.hpp"
 #include "Analog/VADiodeClipper.hpp"
+#include "Analog/VADPWOscillators.hpp"
+
 //#include "Analog/VADiodeLadderFilter.cpp
 //#include "Analog/VADiodeLadderFilter.hpp"
 #include "Analog/VADiodeLadderFilter2.hpp"
 //#include "Analog/VADiodeSimulator.hpp"
-#include "Analog/VADPWOscillators.hpp"
 #include "Analog/VAGenSVF.hpp"
 //#include "Analog/VAHybridCurtisVCF.hpp"
 #include "Analog/VAImprovedMoogFilter.hpp"
@@ -238,16 +239,17 @@
 //%include "Analog/VAStateVariableFilters.hpp"
 //%include "Analog/VAPolygonalOscillator.hpp"
 //%include "Analog/VASVStateVariableFilter.hpp"
-%include "Analog/VAWDFCompressor.hpp"
-%include "Analog/VAWDFDiodeClipper.hpp"
-%include "Analog/VAWDFPassiveLPF.hpp"
-%include "Analog/VAWDFSallenKey.hpp"
+//%include "Analog/VAWDFCompressor.hpp"
+//%include "Analog/VAWDFDiodeClipper.hpp"
+//%include "Analog/VAWDFPassiveLPF.hpp"
+//%include "Analog/VAWDFSallenKey.hpp"
+/*
 %rename Analog::Filters::VirtualAnalogDiodeLadderFilter VADiodeLadderFilter;
 %include "Analog/VirtualAnalogDiodeLadderFilter.hpp"
 %include "Analog/VirtualAnalogStateVariableFilter.hpp"
 %include "Analog/VoltageControlledFilter.hpp"
 %include "Analog/VoltageControlledOscillator.hpp"
-
+*/
 %template(float_vector) std::vector<float>;
 %template(double_vector) std::vector<double>;
 

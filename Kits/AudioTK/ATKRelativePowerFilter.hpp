@@ -2,7 +2,7 @@
 
 #include "ATK.hpp"
 
-namespace Filters::AudioTK::Dynamics
+namespace AudioTK
 {
     struct RelativePowerFilter : public ATKFilter
     {

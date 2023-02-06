@@ -2,7 +2,7 @@
 
 #include "ATK.hpp"
 
-namespace Filters::AudioTK::Delays
+namespace AudioTK
 {
     
     struct FDLDelay : public ATKFilter

@@ -24,12 +24,12 @@ Peak/Notch= GBP + BS
 
 namespace Filters::FIR
 {
-    class FIR_filter
+    class FIRSincFilter
     {
     public:
-        FIR_filter( int taps=0, DspFloatType f1=0, DspFloatType f2=0, char* type="", 
-                    char* window="");
-        ~FIR_filter();
+        FIRSincFilter( int taps=0, DspFloatType f1=0, DspFloatType f2=0, const char* type="", const char* window="");
+                
+        ~FIRSincFilter();
 
         std::vector<DspFloatType> getCoefficients();
 
@@ -53,6 +53,7 @@ namespace Filters::FIR
         int taps;       // Number of taps of the filter
     };
 
+    /*
     static DspFloatType sinc(const DspFloatType x)
     {
         if (x == 0)
@@ -60,9 +61,9 @@ namespace Filters::FIR
 
         return sin(M_PI * x) / (M_PI * x);
     }
-
-    FIR_filter::FIR_filter( int taps, DspFloatType f1, DspFloatType f2, char* type,
-                            char* window): h(taps, 0), samples(taps, 0)
+    */
+    FIRSincFilter::FIRSincFilter( int taps, DspFloatType f1,      DspFloatType f2, const char* type,
+                            const char* window): h(taps, 0), samples(taps, 0)
     {
         this->idx     = 0;
         this->taps    = taps;
@@ -109,17 +110,17 @@ namespace Filters::FIR
         }
     }
 
-    FIR_filter::~FIR_filter()
+    FIRSincFilter::~FIRSincFilter()
     {
 
     }
 
-    std::vector<DspFloatType> FIR_filter::getCoefficients()
+    std::vector<DspFloatType> FIRSincFilter::getCoefficients()
     {
         return this->h;
     }
 
-    std::vector<DspFloatType> FIR_filter::lowPass_coefficient(int taps, DspFloatType f)
+    std::vector<DspFloatType> FIRSincFilter::lowPass_coefficient(int taps, DspFloatType f)
     {
         std::vector<int>    n(taps, 0);
         std::vector<DspFloatType> h(taps, 0);
@@ -135,7 +136,7 @@ namespace Filters::FIR
         return h;
     }
 
-    std::vector<DspFloatType> FIR_filter::highPass_coefficient(int taps, DspFloatType f)
+    std::vector<DspFloatType> FIRSincFilter::highPass_coefficient(int taps, DspFloatType f)
     {
         std::vector<int>    n(taps, 0);
         std::vector<DspFloatType> h(taps, 0);
@@ -151,7 +152,7 @@ namespace Filters::FIR
         return h;
     }
 
-    std::vector<DspFloatType> FIR_filter::bandPass_coefficient(int taps, DspFloatType f1, DspFloatType f2)
+    std::vector<DspFloatType> FIRSincFilter::bandPass_coefficient(int taps, DspFloatType f1, DspFloatType f2)
     {
         std::vector<int>    n(taps, 0);
         std::vector<DspFloatType> h(taps, 0);
@@ -167,7 +168,7 @@ namespace Filters::FIR
         return h;
     }
 
-    std::vector<DspFloatType> FIR_filter::bandStop_coefficient(int taps, DspFloatType f1, DspFloatType f2)
+    std::vector<DspFloatType> FIRSincFilter::bandStop_coefficient(int taps, DspFloatType f1, DspFloatType f2)
     {
         std::vector<int>    n(taps, 0);
         std::vector<DspFloatType> h(taps, 0);
@@ -183,7 +184,7 @@ namespace Filters::FIR
         return h;
     }
 
-    std::vector<DspFloatType> FIR_filter::window_hamming(int taps)
+    std::vector<DspFloatType> FIRSincFilter::window_hamming(int taps)
     {
         std::vector<int>    n(taps, 0);
         std::vector<DspFloatType> w(taps, 0);
@@ -198,7 +199,7 @@ namespace Filters::FIR
         return w;
     }
 
-    std::vector<DspFloatType> FIR_filter::window_hanning(int taps)
+    std::vector<DspFloatType> FIRSincFilter::window_hanning(int taps)
     {
         std::vector<DspFloatType> w(taps, 0);
 
@@ -210,7 +211,7 @@ namespace Filters::FIR
         return w;
     }
 
-    std::vector<DspFloatType> FIR_filter::window_triangle(int taps)
+    std::vector<DspFloatType> FIRSincFilter::window_triangle(int taps)
     {
         std::vector<DspFloatType> w(taps, 0);
 
@@ -223,7 +224,7 @@ namespace Filters::FIR
         return w;
     }
 
-    std::vector<DspFloatType> FIR_filter::window_blackman(int taps)
+    std::vector<DspFloatType> FIRSincFilter::window_blackman(int taps)
     {
         std::vector<DspFloatType> w(taps, 0);
 
@@ -239,7 +240,7 @@ namespace Filters::FIR
         return w;
     }
 
-    DspFloatType FIR_filter::filter(DspFloatType new_sample)
+    DspFloatType FIRSincFilter::filter(DspFloatType new_sample)
     {
         DspFloatType result = 0;
 
@@ -255,3 +256,4 @@ namespace Filters::FIR
 
         return result;
     }
+}

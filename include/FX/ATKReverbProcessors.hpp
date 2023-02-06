@@ -2,7 +2,7 @@
 
 #include "ATK.hpp"
 
-namespace Filters::AudioTK::Reverb
+namespace AudioTK
 {
     struct AllPassReverb : public ATKFilter
     {

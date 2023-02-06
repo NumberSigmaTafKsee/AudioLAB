@@ -83,7 +83,7 @@ struct CauerFilter
 	/**Calculate for normalized transfer functions*/
 	void calculate_coefficients();
 
-	DspFloatType CauerFilter:: getHo();
+	DspFloatType getHo();
 
 	void printNumerator(ofstream*);
 	void printDenominator(ofstream*);

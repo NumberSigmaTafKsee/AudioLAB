@@ -2,7 +2,7 @@
 
 #include "ATK.hpp"
 
-namespace Filters::AudioTK::Delays
+namespace AudioTK
 {
     // Variable Delay Line = this is fixed..
     struct VDLDelay : public ATKFilter

@@ -2,7 +2,7 @@
 
 #include "ATK.hpp"
 
-namespace Filters::AudioTK::Tools
+namespace AudioTK
 {
 
     struct ApplyGainFilter : public ATKFilter

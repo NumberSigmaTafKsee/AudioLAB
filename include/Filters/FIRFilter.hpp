@@ -11,8 +11,8 @@ namespace Filters::FIR
     class FIR_filter
     {
     public:
-        FIR_filter( int taps=0, DspFloatType f1=0, DspFloatType f2=0, char* type="", 
-                    char* window="");
+        FIR_filter( int taps=0, DspFloatType f1=0, DspFloatType f2=0, const char* type="", 
+                    const char* window="");
         ~FIR_filter();
 
         std::vector<DspFloatType> getCoefficients();
@@ -45,8 +45,8 @@ namespace Filters::FIR
         return sin(M_PI * x) / (M_PI * x);
     }
 
-    FIR_filter::FIR_filter( int taps, DspFloatType f1, DspFloatType f2, char* type,
-                            char* window): h(taps, 0), samples(taps, 0)
+    FIR_filter::FIR_filter( int taps, DspFloatType f1, DspFloatType f2, const char* type,
+                            const char* window): h(taps, 0), samples(taps, 0)
     {
         this->idx     = 0;
         this->taps    = taps;
@@ -239,3 +239,4 @@ namespace Filters::FIR
 
         return result;
     }
+}

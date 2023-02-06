@@ -510,13 +510,7 @@ Synth::AMSynth::Distortion distortion;
 Synth::AMSynth::SoftLimiter softlimit;
     
 
-/////////////////////////////////////////////
-// Resamplers
-/////////////////////////////////////////////
 
-/////////////////////////////////////////////
-// Interpolator/Decimator
-/////////////////////////////////////////////
 
 int audio_callback(const void *inputBuffer, void *outputBuffer,
                    unsigned long framesPerBuffer,
@@ -617,17 +611,7 @@ int audio_callback(const void *inputBuffer, void *outputBuffer,
         // temp1[0][i] = ce2L.Tick(temp1[0][i]);
         // temp1[1][i] = ce2R.Tick(temp1[1][i]);
     }
-    
-    // fft.ProcessBuffer(framesPerBuffer,temp1[0]);
-    // fft.ProcessBuffer(framesPerBuffer,temp1[1]);
-    
-    // stereofy.InplaceProcess(framesPerBuffer,temp1);
-    
-    // fftL.ProcessBlock(framesPerBuffer,temp1[0],temp1[0]);
-    // fftR.ProcessBlock(framesPerBuffer,temp1[1],temp1[1]);
-    //distortion.ProcessBlock(framesPerBuffer,temp1[0],temp1[0]);
-    //distortion.ProcessBlock(framesPerBuffer,temp1[1],temp1[1]);
-    p = output;
+        p = output;
     for (size_t i = 0; i < framesPerBuffer; i++)
     {
         *p++ = temp1[0][i];
@@ -688,36 +672,10 @@ void repl()
     lua->DoCmd(cmd);
 }
 
-void testpoly()
-{
-    DspFloatType polynomial[] = {0, 0, 0, 0};
-    std::vector<DspFloatType> points(1024);
-    for (size_t i = 0; i < 4; i++)
-        polynomial[i] = noise.randint(-5, 5);
-
-    for (size_t i = 0; i < 1024; i++)
-    {
-        DspFloatType f = 2 * ((DspFloatType)i / 1024.0f) - 1;
-        points[i] = polynomial[1] * f + polynomial[2] * f * f + polynomial[3] * f * f * f;
-    }
-    DspFloatType max = -9999;
-    for (size_t i = 0; i < 1024; i++)
-        if (fabs(points[i]) > max)
-            max = fabs(points[i]);
-    printf("max=%f\n", max);
-
-    for (size_t i = 0; i < 1024; i++)
-    {
-        DspFloatType f = 2 * ((DspFloatType)i / 1024.0f) - 1;
-        DspFloatType out = polynomial[1] * f + polynomial[2] * f * f + polynomial[3] * f * f * f;
-        printf("%f,", out / max);
-    }
-}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Main
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 int main()
 {   
     Init();
@@ -763,15 +721,13 @@ int main()
     }
 
     int num_audio = GetNumAudioDevices();
-    int pulse = 6;
-    /*
+    int pulse = 6;    
     for (size_t i = 0; i < num_audio; i++)
     {
         if (!strcmp(GetAudioDeviceName(i), "jack"))
             pulse = i;
         printf("audio device #%lu: %s\n", i, GetAudioDeviceName(i));
-    }
-    */
+    }    
     // file = new WaveFile("BabyElephantWalk60.wav");
     // osc.setSlave(oscS.lpO);
 

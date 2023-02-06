@@ -2,7 +2,7 @@
 
 #include "ATK.hpp"
 
-namespace Filters::AudioTK::EQ
+namespace AudioTK
 {  
     struct IIRFilter : public ATKFilter
     {

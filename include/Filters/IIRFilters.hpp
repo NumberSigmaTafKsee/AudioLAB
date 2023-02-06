@@ -1126,9 +1126,7 @@ namespace Filters
         void InplaceProcess(size_t n, float * buffer)
         {
             for(size_t i = 0; i < n; i++) buffer[i] = Tick(buffer[i]);
-        }
-
-        
+        }                
     };
 
 

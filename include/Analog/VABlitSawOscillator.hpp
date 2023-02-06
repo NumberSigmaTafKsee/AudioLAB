@@ -112,9 +112,10 @@ namespace Analog::Oscillators
             phase_ += rate_;
             if ( phase_ >= M_PI ) phase_ -= M_PI;
 
-            DspFloatType out = tmp;
-            y -= block.process(y);
-            return y;
+            //DspFloatType out = tmp;
+            //y -= block.process(out);
+            y = tmp;
+            return 2*y;
         }
 
 

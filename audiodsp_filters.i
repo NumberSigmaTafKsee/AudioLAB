@@ -13,44 +13,28 @@
 
 
 
-//#include "Filters/FIR.hpp"
-//#include "Filters/FIRFilter.hpp"
-//#include "Filters/FIRFilters.hpp"
-//#include "Filters/FIRFrequencySampling.hpp"
-//#include "Filters/FIROctaveFilters.hpp"
-//#include "Filters/FIRpm.hpp"
-//#include "Filters/FIRSincFilter.hpp"
-//#include "Filters/FIRSpuceFilters.hpp"
-
-#include "Filters/IIRFilters.hpp"
+#include "Filters/FIR.hpp"
+#include "Filters/FIRFilter.hpp"
+#include "Filters/FIRFilters.hpp"
+#include "Filters/FIRSincFilter.hpp"
 #include "Filters/IIRAnalog.hpp"
 #include "Filters/IIRAnalogFilter.hpp"
-
-//#include "Filters/IIRBesselFilters.hpp"
-//#include "Filters/IIRBiquadFilters.hpp"
+#include "Filters/IIRBesselFilterProcessor.hpp"
+#include "Filters/IIRBiquadFilters.hpp"
 #include "Filters/IIRButterworth.hpp"
+#include "Filters/IIRButterworthFilterProcessor.hpp"
+#include "Filters/IIRCauerFilter.hpp"
+#include "Filters/IIRChebyshev2FilterProcessors.hpp"
+#include "Filters/IIRChebyshevFilterProcessors.hpp"
 #include "Filters/IIRChebyshevFilters.hpp"
 #include "Filters/IIRDCBlock.hpp"
 #include "Filters/IIRDCFilter.hpp"
-#include "Filters/IIRRBJFilters.hpp"
-#include "Filters/IIRZolzerFilter.hpp"
-
-
-/* these are DspFilters now */
-#include "Filters/IIRBesselFilterProcessor.hpp"
-#include "Filters/IIRButterworthFilterProcessor.hpp"
-#include "Filters/IIRChebyshev2FilterProcessors.hpp"
-#include "Filters/IIRChebyshevFilterProcessors.hpp"
 #include "Filters/IIREllipticalFilterProcessor.hpp"
+#include "Filters/IIRFilters.hpp"
 #include "Filters/IIROptimalLFilterProcessor.hpp"
 #include "Filters/IIRRbjFilterProcessor.hpp"
-
-
-//#include "Filters/IIREllipticalFilters.hpp"
-//#include "Filters/IIRGammaFilters.hpp"
-//#include "Filters/IIROctaveFilters.hpp"
-//#include "Filters/IIRStkFilters.hpp"
-
+#include "Filters/IIRRBJFilters.hpp"
+#include "Filters/IIRZolzerFilter.hpp"
 %}
 
 
@@ -67,45 +51,22 @@
 // Filters
 ///////////////////////////////////////////////
 
-//%include "Filters/FIR.hpp"
-//%include "Filters/FIRFilter.hpp"
-//%include "Filters/FIRFilters.hpp"
-//%include "Filters/FIRFrequencySampling.hpp"
-//%include "Filters/FIROctaveFilters.hpp"
-//%include "Filters/FIRpm.hpp"
-//%include "Filters/FIRSincFilter.hpp"
-
-//%rename Filters::IIR::Biquad::Biquad IIRBiquadFilter;
-//%include "Filters/IIRBiquadFilters.hpp"
-
+%include "Filters/FIR.hpp"
+%include "Filters/FIRFilter.hpp"
+%include "Filters/FIRSincFilter.hpp"
 
 %include "Filters/IIRFilters.hpp"
 %include "Filters/IIRAnalog.hpp"
 %include "Filters/IIRAnalogFilter.hpp"
-//%include "Filters/IIRBesselFilters.hpp"
 %include "Filters/IIRChebyshevFilters.hpp"
 %include "Filters/IIRZolzerFilter.hpp"
 %include "Filters/IIRButterworth.hpp"
-
-// todo
-//%include "Filters/FIRFilter.hpp"
-//%include "Filters/FIRSpuceFilters.hpp"
-//%include "Filters/IIREllipticalFilterProcessor.hpp"
-//%include "Filters/IIREllipticalFilters.hpp"
-//%include "Filters/IIROptimalLFilterProcessor.hpp"
-
-//%include "Filters/IIRGammaFilters.hpp"
-//%include "Filters/IIROctaveFilters.hpp"
-//%include "Filters/IIRStkFilters.hpp"
-
-
 
 /* These are DSPfilters now */
 %rename Filters::IIR::Bessel::LowPassFilter     IIRBesselLowPass;
 %rename Filters::IIR::Bessel::HighPassFilter    IIRBesselHighPass;
 %rename Filters::IIR::Bessel::BandPassFilter    IIRBesselBandPass;
 %rename Filters::IIR::Bessel::BandStopFilter    IIRBesselBandStop;
-
 %include "Filters/IIRBesselFilterProcessor.hpp"
 
 %rename Filters::IIR::Butterworth::LowPassFilter    IIRButterworthLowPass;
@@ -117,7 +78,6 @@
 %rename Filters::IIR::Butterworth::HighShelfFilter  IIRButterworthHighShelf;
 %rename Filters::IIR::Butterworth::LowShelfFilter   IIRButterworthLowShelf;
 %rename Filters::IIR::Butterworth::BandShelfFilter  IIRButterworthBandShelf;
-
 %include "Filters/IIRButterworthFilterProcessor.hpp"
 
 
@@ -130,7 +90,6 @@
 %rename Filters::IIR::ChebyshevII::HighShelfFilter  IIRChebyshevIIHighShelf;
 %rename Filters::IIR::ChebyshevII::LowShelfFilter   IIRChebyshevIILowShelf;
 %rename Filters::IIR::ChebyshevII::BandShelfFilter  IIRChebyshevIIBandShelf;
-
 %include "Filters/IIRChebyshev2FilterProcessors.hpp"
 
 %rename Filters::IIR::ChebyshevI::LowPassFilter     IIRChebyshevILowPass;
@@ -142,7 +101,6 @@
 %rename Filters::IIR::ChebyshevI::HighShelfFilter   IIRChebyshevIHighShelf;
 %rename Filters::IIR::ChebyshevI::LowShelfFilter    IIRChebyshevILowShelf;
 %rename Filters::IIR::ChebyshevI::BandShelfFilter   IIRChebyshevIBandShelf;
-
 %include "Filters/IIRChebyshevFilterProcessors.hpp"
 
 %rename Filters::IIR::Legendre::LowPassFilter   IIRLegendreLowPass;
@@ -154,7 +112,6 @@
 %rename Filters::IIR::Legendre::HighShelfFilter IIRLegendreHighShelf;
 %rename Filters::IIR::Legendre::LowShelfFilter  IIRLegendreLowShelf;
 %rename Filters::IIR::Legendre::BandShelfFilter IIRLegendreBandShelf;
-
 %include "Filters/IIROptimalLFilterProcessor.hpp"
 
 %rename Filters::IIR::RBJ::LowPassFilter    IIRRBJLowPass;
@@ -166,7 +123,6 @@
 %rename Filters::IIR::RBJ::HighShelfFilter  IIRRBJHighShelf;
 %rename Filters::IIR::RBJ::LowShelfFilter   IIRRBJLowShelf;
 %rename Filters::IIR::RBJ::BandShelfFilter  IIRRBJBandShelf;
-
 %include "Filters/IIRRbjFilterProcessor.hpp"
 
 
@@ -179,7 +135,6 @@
 %rename Filters::IIR::RBJFilters::RBJLowShelfFilter IIRRBJLowShelfBiquad;
 %rename Filters::IIR::RBJFilters::RBJHighShelfFilter IIRRBJHighShelfBiquad;
 %rename Filters::IIR::RBJFilters::RBJBandShelfFilter IIRRBJBandShelfBiquad;
-
 %include "Filters/IIRRBJFilters.hpp"
 
 %template(float_vector) std::vector<float>;
@@ -187,11 +142,3 @@
 
 %template(complex_float_vector) std::vector<std::complex<float>>;
 %template(complex_double_vector) std::vector<std::complex<double>>;
-
-%inline %{
-    const int BufferSize = 256;
-    Default noise;
-    DspFloatType sampleRate = 44100.0f;
-    DspFloatType inverseSampleRate = 1 / 44100.0f;
-    DspFloatType invSampleRate = 1 / 44100.0f;
-%}

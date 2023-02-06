@@ -2,7 +2,7 @@
 
 #include "ATK.hpp"
 
-namespace Filters::AudioTK::EQ
+namespace AudioTK
 {  
     struct ButterworthLowPassFilter : public ATKFilter
     {

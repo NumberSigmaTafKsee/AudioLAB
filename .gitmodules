@@ -15506,3 +15506,15 @@
 [submodule "GUI/lua-ffi-bindings"]
 	path = GUI/lua-ffi-bindings
 	url = https://github.com/thenumbernine/lua-ffi-bindings
+[submodule "Synthlab"]
+	path = Synthlab
+	url = https://github.com/mpue/Synthlab
+[submodule "vmodsynth"]
+	path = vmodsynth
+	url = https://github.com/rafalcieslak/vmodsynth
+[submodule "E3Modular"]
+	path = E3Modular
+	url = https://github.com/eriser/E3Modular
+[submodule "AtomSynth"]
+	path = AtomSynth
+	url = https://github.com/TheRealCodeCube/AtomSynth

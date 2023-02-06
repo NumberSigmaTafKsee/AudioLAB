@@ -17,13 +17,13 @@ namespace Analog::Oscillators
         DspFloatType _duty = 0.5;
         DspFloatType sampleRate=44100.0;
 
-        BlitSquare(DspFloatType sampleRate=44100) : OscillatorProcessor()
+        BlitSquare(DspFloatType freq=220,DspFloatType sampleRate=44100) : OscillatorProcessor()
         {
             this->sampleRate = sampleRate;
             block.setFc(10.0f/sampleRate);
             _out = 0;
             _duty = 0.5;
-            setFrequency(440.0f);
+            setFrequency(freq);
             s1.setGain(1);
             s2.setGain(1);
         }
@@ -60,7 +60,7 @@ namespace Analog::Oscillators
             _out = r2-r1;
             DspFloatType x = _out;
             x -= block.process(x);
-            return 4*x;
+            return 0.9*(2*x);
         }
     };
 }

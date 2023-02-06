@@ -1,0 +1,2 @@
+/usr/bin/ar qc libimgui_plot.a CMakeFiles/imgui_plot.dir/src/imgui_plot.o
+/usr/bin/ranlib libimgui_plot.a

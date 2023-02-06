@@ -1,6 +1,0 @@
-ignore/
-tmp/
-*.m
-*.svg
-faust_screamer
-screamer_*.so

@@ -1,4 +1,0 @@
-LIBRARY     FooYC20
-DESCRIPTION 'Foo YC20 organ emulator'
-EXPORTS VSTPluginMain
-main=VSTPluginMain

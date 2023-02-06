@@ -22,11 +22,6 @@ namespace Analog::Oscillators
         return tmp;
     }
 
-
-///////////////////////////////////////////////////////////////////////////////////////
-// blitSaw
-///////////////////////////////////////////////////////////////////////////////////////
-
     struct blitSaw : public OscillatorProcessor
     {
         FX::Filters::OnePole block;
@@ -131,15 +126,8 @@ namespace Analog::Oscillators
             y = clamp(tmp,-1,1);        
             y -= block.process(y);
             return 2*(0.8*y+0.47)-1;
-        }
-        DspFloatType operator()() {
-            return Tick();
         }                
     };
-
-///////////////////////////////////////////////////////////////////////////////////////
-// blitSquare
-///////////////////////////////////////////////////////////////////////////////////////
 
     struct blitSquare : public OscillatorProcessor
     {
@@ -253,14 +241,8 @@ namespace Analog::Oscillators
             y -= block.process(y);
             return 2*((y+D)*0.7+0.15)-1;
         }
-        DspFloatType operator()() {
-            return Tick();
-        }
-    };
 
-///////////////////////////////////////////////////////////////////////////////////////
-// blitTriangle
-///////////////////////////////////////////////////////////////////////////////////////
+    };
 
     struct blitTriangle : public OscillatorProcessor
     {
@@ -314,9 +296,6 @@ namespace Analog::Oscillators
             DspFloatType kaka = b1.process(triangle);
             triangle -= kaka;
             return 4*triangle;
-        }
-        DspFloatType operator()() {
-            return Tick();
         }
     };
 }

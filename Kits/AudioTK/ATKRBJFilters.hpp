@@ -2,7 +2,7 @@
 
 #include "ATK.hpp"
 
-namespace Filters::AudioTK
+namespace AudioTK
 {  
     struct RBJLowPassFilter: public ATKFilter
     {

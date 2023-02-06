@@ -2,7 +2,7 @@
 
 #include "ATK.hpp"
 
-namespace Filters::AudioTK::Adaptive
+namespace AudioTK
 {
 
     struct BlockLMSFilter : public ATKFilter

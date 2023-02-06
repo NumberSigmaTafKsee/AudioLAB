@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cmath>
+#include <functional>
 
 #define TWOPI 2*M_PI
 

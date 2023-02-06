@@ -1,5 +1,7 @@
 %module canalog
 %{
+#define DSPFLOATD
+#include "include/SoundObject.hpp"    
 #include "CAnalog/CDCA.hpp"
 #include "CAnalog/CVAOnePoleFilter.hpp"
 #include "CAnalog/CDiodeLadderFilter.hpp"
@@ -36,12 +38,12 @@
 %template(complex_double_vector) std::vector<std::complex<double>>;
 
 
-
+/*
 %inline %{
     const int BufferSize = 256;
-    Std::RandomMersenne noise;
+    Default noise;
     DspFloatType sampleRate = 44100.0f;
     DspFloatType inverseSampleRate = 1 / 44100.0f;
     DspFloatType invSampleRate = 1 / 44100.0f;
 %}
-
+*/

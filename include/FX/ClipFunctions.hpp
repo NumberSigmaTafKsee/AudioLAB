@@ -73,4 +73,57 @@ namespace FX::Distortion
         if(x >= M_PI && x < 3*M_PI/4) return std::tanh(x*p3);
         return std::tanh(x*p4);
     }
+
+    struct ClipFunction
+    {
+        enum {
+            SERPENT_CURVE,
+            SIGMOIDER,
+            ERFMOIDER,
+            GUNDERBALLS,
+            ALGEBRABALLS,
+            ALGEBRAMOIDER,
+            TANHIFY,
+            TANHBALLS,
+            TANHMOIDER,
+            ATANBALLS,
+            ATANMOIDER,
+        };
+        int Type = SERPENT_CURVE;
+        ClipFunction(int type = SERPENT_CURVE) {
+            Type = type;
+        }
+        DspFloatType Tick(DspFloatType I, DspFloatType A = 1, DspFloatType X = 1, DspFloatType Y = 1)
+        {
+            switch(Type)
+            {
+            case SERPENT_CURVE: return serpent_curve(I,A);
+            case SIGMOIDER: return sigmoider(I,A);
+            case ERFMOIDER: return erfmoider(I,A);
+            case GUNDERBALLS: return gunderballs(I,A);
+            case ALGEBRABALLS: return algebraballs(I,A);
+            case ALGEBRAMOIDER: return alegbramoider(I,A);
+            case TANHIFY: return tanhify(I,A);
+            case TANHBALLS: return tanhballs(I,A);
+            case TANHMOIDER: return tanhmoider(I,A);
+            case ATANBALLS: return atanballs(I,A);
+            case ATANMOIDER: return atanmoider(I,A);
+            }
+            return sigmoider(I,A);
+        }
+    };
+    struct MorphClipper
+    {
+        ClipFunction clip1,clip2;
+
+        MorphClipper(int t1, int t2) : clip1(t1),clip2(t2)
+        {
+
+        }
+        DspFloatType Tick(DspFloatType I, DspFloatType A =1, DspFloatType X = 1, DspFloatType Y = 1)
+        {
+            DspFloatType t = clip1.Tick(I,A) 
+            return t + (X*Y)*(clip2.Tick(I,A)- t);
+        }
+    };
 }

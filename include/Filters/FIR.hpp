@@ -167,19 +167,19 @@ namespace Filters::FIR
         std::complex<DspFloatType> freqResponse(DspFloatType w) {
             std::complex<DspFloatType> r = 0;
             for(size_t i = 0; i < taps.size(); i++)
-                r += taps[i]*exp(0,-w*i);
+                r += taps[i]*exp(std::complex<DspFloatType>(0,-w*i));
             return r;
         }
         DspFloatType magResponse(DspFloatType w) {
             std::complex<DspFloatType> r = 0;
             for(size_t i = 0; i < taps.size(); i++)
-                r += taps[i]*exp(0,-w*i);
+                r += taps[i]*exp(std::complex<DspFloatType>(0,-w*i));
             return abs(r);
         }
         DspFloatType phaseResponse(DspFloatType w) {
             std::complex<DspFloatType> r = 0;
             for(size_t i = 0; i < taps.size(); i++)
-                r += taps[i]*exp(0,-w*i);
+                r += taps[i]*exp(std::complex<DspFloatType>(0,-w*i));
             return arg(r);
         }
         std::vector<DspFloatType> impResponse(size_t len) {

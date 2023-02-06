@@ -251,7 +251,7 @@ namespace Analog::Oscillators::Blit
     if ( phase_ >= M_PI ) phase_ -= M_PI;
       
     y = tmp;
-    return y;
+    return 2*y;
   }
 
 
@@ -432,7 +432,7 @@ namespace Analog::Oscillators::Blit
     phase_ += rate_;
     if ( phase_ >= 2*M_PI ) phase_ -= 2*M_PI;
 
-    return y;
+    return 0.9*y/2.0;
   }
 
 
