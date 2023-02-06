@@ -13,4 +13,9 @@
 * Python
 * Faust
 
-
+# Can use it in VCV Rack
+* Using the Lua prototype board
+* Can use Octave from Lua/C++
+* Can use Python from Lua/C++
+* Can use Lua from Octave/C++
+* Can use Lua from Python/C++
