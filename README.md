@@ -7,25 +7,7 @@
 * People make the algorithms
 * I make alot of algorithms too
 
-# Languages
-* LuaJIT
-* Octave
-* Python
-* Faust
-
-# Can use it in VCV Rack
-* Using the Lua prototype board
-* Can use Octave from Lua/C++
-* Can use Python from Lua/C++
-* Can use Lua from Octave/C++
-* Can use Lua from Python/C++
-
-# Plot stuff
-* Run an oso oscilloscope
-* Run a spectral analyzer
-* Run a total harmonic distortion analyzer
-
-# CoreDSP
-* Monte Carlo Casino MKL/IPP
-* Kentucky Kfr/C DSP
-* Neo10 
+# I am optimizing now the shebang
+* It is using openmp SIMD
+* Polyphonic will use openmp parallel
+* The GPU processors are in cuda and opencl
