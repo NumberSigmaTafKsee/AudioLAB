@@ -18,6 +18,7 @@
 * It is using openmp SIMD
 * Polyphonic will use openmp parallel
 * The GPU processors are in cuda and opencl
+* I am not using OpenACC because i can't it to work in gcc
 
 # Languages
 * I want it to work in a variety of places for the different scientific mind theories
