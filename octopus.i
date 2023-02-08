@@ -14,6 +14,8 @@ using namespace Octopus;
 
 %template(float_vector) std::vector<float>;
 %template(double_vector) std::vector<double>;
+%template(float_complex) std::complex<float>;
+%template(double_complex) std::complex<double>;
 
 // Get the STL typemaps
 //%include "stl.i"

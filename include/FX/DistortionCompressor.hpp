@@ -37,11 +37,7 @@ namespace FX::Distortion::DistortionCompressor
         DspFloatType attackTime, releaseTime;     // in seconds
     };
 
-    
-    class Distortion
-    {
-    public:
-        struct Controls {
+    struct Controls {
             // Distortion mode, 0 = bypass, 1 = soft-clip, 2 = hard-clip
             int mode;
             // Drive, [1., ?), the amount of gain prior to the non-linearity
@@ -50,7 +46,12 @@ namespace FX::Distortion::DistortionCompressor
             DspFloatType threshold;
             // Mix, [0., 1.] ratio between a dry and wet signal
             DspFloatType mix;
-        } controls;
+        };
+
+    class Distortion
+    {
+    public:
+        Controls controls;
         
         Distortion();
         ~Distortion();

@@ -42,7 +42,21 @@ namespace Analog::Filters::Moog
                 output[s] = state[4];
             }
         }
+        void ProcessSIMD(size_t n, DspFloatType * samples, DspFloatType * output)
+        {
+            #pragma omp simd
+            for(size_t s = 0; s < n; s++)
+            {
+                state[0] = std::tanh(drive * (samples[s] - 4 * gRes * (state[4] - gComp * samples[s])));
 
+                for(int i = 0; i < 4; i++)
+                {
+                    state[i+1] = g * (0.3 / 1.3 * state[i] + 1 / 1.3 * delay[i] - state[i + 1]) + state[i + 1];
+                    delay[i] = state[i];
+                }
+                output[s] = state[4];
+            }
+        }
         void Process(size_t n, DspFloatType * samples)
         {
             Process(n,samples,samples);

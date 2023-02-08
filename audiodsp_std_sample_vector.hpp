@@ -49,8 +49,9 @@ namespace AudioDSP
             std::cout << std::endl;
         }
 
-        #ifdef SWIG
+        #ifdef SWIG        
         %extend {
+            T * data() { return $self->data(); }
             T __getitem__(size_t i) { return (*$self)[i-1]; }
             void __setitem(size_t i, const T v) { (*$self)[i-1] = v; }
                                     

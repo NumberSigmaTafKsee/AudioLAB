@@ -1,3 +1,5 @@
+// this is the same exact thing as VAMoogLadderFilters.hpp
+// deprectated
 #pragma once
 
 
@@ -118,6 +120,7 @@ namespace Analog::Filters::MoogLadders
 		{
 			Undenormal denormal;
 			DspFloatType out = 0;
+			#pragma omp simd
 			for (int s = 0; s < n; ++s)
 			{
 				out = bCoef[0] * samples[s] + w[0];

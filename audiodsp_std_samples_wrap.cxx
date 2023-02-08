@@ -3205,6 +3205,7 @@ SWIGINTERN void std_vector_Sl_unsigned_SS_long_Sg__erase__SWIG_0(std::vector< un
 SWIGINTERN void std_vector_Sl_unsigned_SS_long_Sg__erase__SWIG_1(std::vector< unsigned long > *self,size_t i,size_t n){ self->erase(self->begin()+i-1,self->begin()+n-1); }
 SWIGINTERN void AudioDSP_sample_vector_Sl_DspFloatType_Sg__erase_SWIG_0_0(AudioDSP::sample_vector< DspFloatType > *self,size_t i){ self->erase(self->begin()+i-1); }
 SWIGINTERN void AudioDSP_sample_vector_Sl_DspFloatType_Sg__erase_SWIG_0_1(AudioDSP::sample_vector< DspFloatType > *self,size_t i,size_t n){ self->erase(self->begin()+i-1,self->begin()+n-1); }
+SWIGINTERN double *AudioDSP_sample_vector_Sl_DspFloatType_Sg__data__SWIG(AudioDSP::sample_vector< DspFloatType > *self){ return self->data(); }
 SWIGINTERN double AudioDSP_sample_vector_Sl_DspFloatType_Sg____getitem____SWIG(AudioDSP::sample_vector< DspFloatType > *self,size_t i){ return (*self)[i-1]; }
 SWIGINTERN void AudioDSP_sample_vector_Sl_DspFloatType_Sg____setitem__SWIG(AudioDSP::sample_vector< DspFloatType > *self,size_t i,double const v){ (*self)[i-1] = v; }
 SWIGINTERN AudioDSP::sample_vector< double > AudioDSP_sample_vector_Sl_DspFloatType_Sg____add____SWIG_0(AudioDSP::sample_vector< DspFloatType > *self,AudioDSP::sample_vector< double > const &v){
@@ -45385,30 +45386,6 @@ fail:
 }
 
 
-static int _wrap_sample_vector_data(lua_State* L) {
-  int SWIG_arg = 0;
-  AudioDSP::sample_vector< DspFloatType > *arg1 = (AudioDSP::sample_vector< DspFloatType > *) 0 ;
-  double *result = 0 ;
-  
-  SWIG_check_num_args("AudioDSP::sample_vector< DspFloatType >::data",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("AudioDSP::sample_vector< DspFloatType >::data",1,"AudioDSP::sample_vector< DspFloatType > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_AudioDSP__sample_vectorT_double_t,0))){
-    SWIG_fail_ptr("sample_vector_data",1,SWIGTYPE_p_AudioDSP__sample_vectorT_double_t);
-  }
-  
-  result = (double *)(arg1)->data();
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_double,0); SWIG_arg++; 
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
 static int _wrap_sample_vector_assign(lua_State* L) {
   int SWIG_arg = 0;
   AudioDSP::sample_vector< DspFloatType > *arg1 = (AudioDSP::sample_vector< DspFloatType > *) 0 ;
@@ -45733,6 +45710,30 @@ static int _wrap_sample_vector_print(lua_State* L) {
   
   (arg1)->print();
   
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_sample_vector_data(lua_State* L) {
+  int SWIG_arg = 0;
+  AudioDSP::sample_vector< DspFloatType > *arg1 = (AudioDSP::sample_vector< DspFloatType > *) 0 ;
+  double *result = 0 ;
+  
+  SWIG_check_num_args("AudioDSP::sample_vector< DspFloatType >::data",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("AudioDSP::sample_vector< DspFloatType >::data",1,"AudioDSP::sample_vector< DspFloatType > *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_AudioDSP__sample_vectorT_double_t,0))){
+    SWIG_fail_ptr("sample_vector_data",1,SWIGTYPE_p_AudioDSP__sample_vectorT_double_t);
+  }
+  
+  result = (double *)AudioDSP_sample_vector_Sl_DspFloatType_Sg__data__SWIG(arg1);
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_double,0); SWIG_arg++; 
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -46469,7 +46470,6 @@ static swig_lua_method swig_sample_vector_methods[]= {
     { "at", _wrap_sample_vector_at},
     { "front", _wrap_sample_vector_front},
     { "back", _wrap_sample_vector_back},
-    { "data", _wrap_sample_vector_data},
     { "assign", _wrap_sample_vector_assign},
     { "push_back", _wrap_sample_vector_push_back},
     { "pop_back", _wrap_sample_vector_pop_back},
@@ -46479,6 +46479,7 @@ static swig_lua_method swig_sample_vector_methods[]= {
     { "copy", _wrap_sample_vector_copy},
     { "fill", _wrap_sample_vector_fill},
     { "print", _wrap_sample_vector_print},
+    { "data", _wrap_sample_vector_data},
     { "__getitem", _wrap_sample_vector___getitem},
     { "__setitem", _wrap_sample_vector___setitem},
     { "__add", _wrap_sample_vector___add},

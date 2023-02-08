@@ -2986,21 +2986,14 @@ typedef struct{} LANGUAGE_OBJ;
 #include "Analog/VAAnalogSVF.hpp"
 #include "Analog/VABandLimitedOscillators.hpp"
 #include "Analog/VABlitOscillators.hpp"
-#include "Analog/VADinkyFilter.hpp"
 #include "Analog/VADiode.hpp"
 #include "Analog/VADiodeClipper.hpp"
-//#include "Analog/VADiodeLadderFilter.cpp
-//#include "Analog/VADiodeLadderFilter.hpp"
-#include "Analog/VADiodeLadderFilter2.hpp"
-//#include "Analog/VADiodeSimulator.hpp"
 #include "Analog/VADPWOscillators.hpp"
-#include "Analog/VAGenSVF.hpp"
-//#include "Analog/VAHybridCurtisVCF.hpp"
+#include "Analog/VAOscillators.hpp"
+#include "Analog/VAPolyBLEPOscillator.hpp"
+#include "Analog/VAPolyBlepOscillators.hpp"
+
 #include "Analog/VAImprovedMoogFilter.hpp"
-//#include "Analog/VAKorg35HPFFilter.hpp"
-//#include "Analog/VAKorg35HPFilter.cpp
-//#include "Analog/VAKorg35LPFFilter.cpp
-//#include "Analog/VAKorg35LPFFilter.hpp"
 #include "Analog/VAKrajeskiMoogFilter.hpp"
 #include "Analog/VALadderFilter.hpp"
 #include "Analog/VALadderFilter2.hpp"
@@ -3015,10 +3008,6 @@ typedef struct{} LANGUAGE_OBJ;
 #include "Analog/VAMoogFilterI.hpp"
 #include "Analog/VAMoogFilterII.hpp"
 #include "Analog/VAMoogFilters.hpp"
-//#include "Analog/VAMoogHalfLadderFilter.cpp
-//#include "Analog/VAMoogHalfLadderFilter.hpp"
-//#include "Analog/VAMoogLadder.hpp"
-//#include "Analog/VAMoogLadderFilter.cpp
 #include "Analog/VAMoogLadderFilter.hpp"
 #include "Analog/VAMoogLadderFilters.hpp"
 #include "Analog/VAMoogLadders.hpp"
@@ -3027,20 +3016,6 @@ typedef struct{} LANGUAGE_OBJ;
 #include "Analog/VAMoogNonLinearFilter2.hpp"
 #include "Analog/VAMoogRKLadderFilter.hpp"
 #include "Analog/VAMoogVCFFilter.hpp"
-#include "Analog/VAMorphableFilter.hpp"
-#include "Analog/VAMS20Filter.hpp"
-//#include "Analog/VAOberheimFilter.cpp
-//#include "Analog/VAOberheimFilter.hpp"
-#include "Analog/VAOBXDFilter.hpp"
-#include "Analog/VAOscillators.hpp"
-#include "Analog/VAPolyBLEPOscillator.hpp"
-#include "Analog/VAPolyBlepOscillators.hpp"
-//#include "Analog/VAPolygonalOscillator.hpp"
-#include "Analog/VARCFilter.hpp"
-#include "Analog/VARKLadderFilter.hpp"
-#include "Analog/VASlewLimiter.hpp"
-#include "Analog/VASstFilters.hpp"
-//#include "Analog/VAStateVariableCombFilter.hpp"
 #include "Analog/VAStateVariableFilter.hpp"
 #include "Analog/VAStateVariableFilter1.hpp"
 #include "Analog/VAStateVariableFilter2.hpp"
@@ -3053,19 +3028,25 @@ typedef struct{} LANGUAGE_OBJ;
 #include "Analog/VASVFSmoother.hpp"
 #include "Analog/VASVSmoothFilter.hpp"
 #include "Analog/VASVStateVariableFilter.hpp"
+
+
 #include "Analog/VATwoPoleEnvelopes.hpp"
+
+#include "Analog/VADinkyFilter.hpp"
+#include "Analog/VADiodeLadderFilter2.hpp"
+#include "Analog/VAGenSVF.hpp"
+#include "Analog/VAMorphableFilter.hpp"
+#include "Analog/VAMS20Filter.hpp"
+#include "Analog/VAOBXDFilter.hpp"
+#include "Analog/VARCFilter.hpp"
+#include "Analog/VARKLadderFilter.hpp"
+#include "Analog/VASlewLimiter.hpp"
+#include "Analog/VASstFilters.hpp"
 #include "Analog/VAVCS3DiodeFilter.hpp"
 #include "Analog/VAVCS3Filter.hpp"
 #include "Analog/VAVecSVF.hpp"
 #include "Analog/VAVectorSVF.hpp"
 #include "Analog/VAVoltageControlledFilter.hpp"
-//#include "Analog/VAVoltageControlledOscillator.hpp"
-/*
-#include "Analog/VAWDFCompressor.hpp"
-#include "Analog/VAWDFDiodeClipper.hpp"
-#include "Analog/VAWDFPassiveLPF.hpp"
-#include "Analog/VAWDFSallenKey.hpp"
-*/
 #include "Analog/VAXodFilters.hpp"
 #include "Analog/VCA.hpp"
 #include "Analog/VCAProcessor.hpp"
@@ -3076,7 +3057,29 @@ typedef struct{} LANGUAGE_OBJ;
 #include "Analog/VirtualAnalogDiodeLadderFilter.hpp"
 #include "Analog/VirtualAnalogStateVariableFilter.hpp"
 #include "Analog/VoltageControlledFilter.hpp"
-//#include "Analog/VoltageControlledOscillator.hpp"
+/*
+#include "Analog/VADiodeLadderFilter.cpp
+#include "Analog/VADiodeLadderFilter.hpp"
+#include "Analog/VADiodeSimulator.hpp"
+#include "Analog/VAHybridCurtisVCF.hpp"
+#include "Analog/VAKorg35HPFFilter.hpp"
+#include "Analog/VAKorg35HPFilter.cpp
+#include "Analog/VAKorg35LPFFilter.cpp
+#include "Analog/VAKorg35LPFFilter.hpp"
+#include "Analog/VAOberheimFilter.cpp
+#include "Analog/VAOberheimFilter.hpp"
+#include "Analog/VAMoogHalfLadderFilter.cpp
+#include "Analog/VAMoogHalfLadderFilter.hpp"
+#include "Analog/VAMoogLadder.hpp"
+#include "Analog/VAMoogLadderFilter.cpp
+#include "Analog/VAStateVariableCombFilter.hpp"
+#include "Analog/VAVoltageControlledOscillator.hpp"
+#include "Analog/VAWDFCompressor.hpp"
+#include "Analog/VAWDFDiodeClipper.hpp"
+#include "Analog/VAWDFPassiveLPF.hpp"
+#include "Analog/VAWDFSallenKey.hpp"
+#include "Analog/VoltageControlledOscillator.hpp"
+*/
 
 
 #include <stdint.h>		// Use the C99 official header
@@ -17550,6 +17553,40 @@ static int _wrap_BlitSaw_Tick(lua_State* L) {
 }
 
 
+static int _wrap_BlitSaw_ProcessSIMD(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::Oscillators::BlitSaw *arg1 = (Analog::Oscillators::BlitSaw *) 0 ;
+  size_t arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("Analog::Oscillators::BlitSaw::ProcessSIMD",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::BlitSaw::ProcessSIMD",1,"Analog::Oscillators::BlitSaw *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::BlitSaw::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::BlitSaw::ProcessSIMD",3,"DspFloatType *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__BlitSaw,0))){
+    SWIG_fail_ptr("BlitSaw_ProcessSIMD",1,SWIGTYPE_p_Analog__Oscillators__BlitSaw);
+  }
+  
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
+    SWIG_fail_ptr("BlitSaw_ProcessSIMD",3,SWIGTYPE_p_float);
+  }
+  
+  (arg1)->ProcessSIMD(arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static int _wrap_BlitSaw_block_set(lua_State* L) {
   int SWIG_arg = 0;
   Analog::Oscillators::BlitSaw *arg1 = (Analog::Oscillators::BlitSaw *) 0 ;
@@ -18250,6 +18287,7 @@ static swig_lua_method swig_BlitSaw_methods[]= {
     { "setPort", _wrap_BlitSaw_setPort},
     { "lastOut", _wrap_BlitSaw_lastOut},
     { "Tick", _wrap_BlitSaw_Tick},
+    { "ProcessSIMD", _wrap_BlitSaw_ProcessSIMD},
     {0,0}
 };
 static swig_lua_method swig_BlitSaw_meta[] = {
@@ -19098,6 +19136,40 @@ static int _wrap_BlitSquare_Tick(lua_State* L) {
 }
 
 
+static int _wrap_BlitSquare_ProcessSIMD(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::Oscillators::BlitSquare *arg1 = (Analog::Oscillators::BlitSquare *) 0 ;
+  size_t arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("Analog::Oscillators::BlitSquare::ProcessSIMD",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::BlitSquare::ProcessSIMD",1,"Analog::Oscillators::BlitSquare *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::BlitSquare::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::BlitSquare::ProcessSIMD",3,"DspFloatType *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__BlitSquare,0))){
+    SWIG_fail_ptr("BlitSquare_ProcessSIMD",1,SWIGTYPE_p_Analog__Oscillators__BlitSquare);
+  }
+  
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
+    SWIG_fail_ptr("BlitSquare_ProcessSIMD",3,SWIGTYPE_p_float);
+  }
+  
+  (arg1)->ProcessSIMD(arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static void swig_delete_BlitSquare(void *obj) {
 Analog::Oscillators::BlitSquare *arg1 = (Analog::Oscillators::BlitSquare *) obj;
 delete arg1;
@@ -19125,6 +19197,7 @@ static swig_lua_method swig_BlitSquare_methods[]= {
     { "reset", _wrap_BlitSquare_reset},
     { "setPort", _wrap_BlitSquare_setPort},
     { "Tick", _wrap_BlitSquare_Tick},
+    { "ProcessSIMD", _wrap_BlitSquare_ProcessSIMD},
     {0,0}
 };
 static swig_lua_method swig_BlitSquare_meta[] = {
@@ -19927,6 +20000,40 @@ static int _wrap_BlitTriangle_Tick(lua_State* L) {
 }
 
 
+static int _wrap_BlitTriangle_ProcessSIMD(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::Oscillators::BlitTriangle *arg1 = (Analog::Oscillators::BlitTriangle *) 0 ;
+  size_t arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("Analog::Oscillators::BlitTriangle::ProcessSIMD",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::BlitTriangle::ProcessSIMD",1,"Analog::Oscillators::BlitTriangle *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::BlitTriangle::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::BlitTriangle::ProcessSIMD",3,"DspFloatType *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__BlitTriangle,0))){
+    SWIG_fail_ptr("BlitTriangle_ProcessSIMD",1,SWIGTYPE_p_Analog__Oscillators__BlitTriangle);
+  }
+  
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
+    SWIG_fail_ptr("BlitTriangle_ProcessSIMD",3,SWIGTYPE_p_float);
+  }
+  
+  (arg1)->ProcessSIMD(arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static void swig_delete_BlitTriangle(void *obj) {
 Analog::Oscillators::BlitTriangle *arg1 = (Analog::Oscillators::BlitTriangle *) obj;
 delete arg1;
@@ -19953,6 +20060,7 @@ static swig_lua_method swig_BlitTriangle_methods[]= {
     { "reset", _wrap_BlitTriangle_reset},
     { "setPort", _wrap_BlitTriangle_setPort},
     { "Tick", _wrap_BlitTriangle_Tick},
+    { "ProcessSIMD", _wrap_BlitTriangle_ProcessSIMD},
     {0,0}
 };
 static swig_lua_method swig_BlitTriangle_meta[] = {
@@ -21293,6 +21401,40 @@ static int _wrap_blitSaw_Tick(lua_State* L) {
 }
 
 
+static int _wrap_blitSaw_ProcessSIMD(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::Oscillators::blitSaw *arg1 = (Analog::Oscillators::blitSaw *) 0 ;
+  size_t arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("Analog::Oscillators::blitSaw::ProcessSIMD",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::blitSaw::ProcessSIMD",1,"Analog::Oscillators::blitSaw *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::blitSaw::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::blitSaw::ProcessSIMD",3,"DspFloatType *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__blitSaw,0))){
+    SWIG_fail_ptr("blitSaw_ProcessSIMD",1,SWIGTYPE_p_Analog__Oscillators__blitSaw);
+  }
+  
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
+    SWIG_fail_ptr("blitSaw_ProcessSIMD",3,SWIGTYPE_p_float);
+  }
+  
+  (arg1)->ProcessSIMD(arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static void swig_delete_blitSaw(void *obj) {
 Analog::Oscillators::blitSaw *arg1 = (Analog::Oscillators::blitSaw *) obj;
 delete arg1;
@@ -21330,6 +21472,7 @@ static swig_lua_method swig_blitSaw_methods[]= {
     { "setPort", _wrap_blitSaw_setPort},
     { "lastOut", _wrap_blitSaw_lastOut},
     { "Tick", _wrap_blitSaw_Tick},
+    { "ProcessSIMD", _wrap_blitSaw_ProcessSIMD},
     {0,0}
 };
 static swig_lua_method swig_blitSaw_meta[] = {
@@ -22767,6 +22910,40 @@ static int _wrap_blitSquare_Tick(lua_State* L) {
 }
 
 
+static int _wrap_blitSquare_ProcessSIMD(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::Oscillators::blitSquare *arg1 = (Analog::Oscillators::blitSquare *) 0 ;
+  size_t arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("Analog::Oscillators::blitSquare::ProcessSIMD",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::blitSquare::ProcessSIMD",1,"Analog::Oscillators::blitSquare *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::blitSquare::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::blitSquare::ProcessSIMD",3,"DspFloatType *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__blitSquare,0))){
+    SWIG_fail_ptr("blitSquare_ProcessSIMD",1,SWIGTYPE_p_Analog__Oscillators__blitSquare);
+  }
+  
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
+    SWIG_fail_ptr("blitSquare_ProcessSIMD",3,SWIGTYPE_p_float);
+  }
+  
+  (arg1)->ProcessSIMD(arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static void swig_delete_blitSquare(void *obj) {
 Analog::Oscillators::blitSquare *arg1 = (Analog::Oscillators::blitSquare *) obj;
 delete arg1;
@@ -22807,6 +22984,7 @@ static swig_lua_method swig_blitSquare_methods[]= {
     { "setPort", _wrap_blitSquare_setPort},
     { "lastOut", _wrap_blitSquare_lastOut},
     { "Tick", _wrap_blitSquare_Tick},
+    { "ProcessSIMD", _wrap_blitSquare_ProcessSIMD},
     {0,0}
 };
 static swig_lua_method swig_blitSquare_meta[] = {
@@ -23550,6 +23728,40 @@ static int _wrap_blitTriangle_Tick(lua_State* L) {
 }
 
 
+static int _wrap_blitTriangle_ProcessSIMD(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::Oscillators::blitTriangle *arg1 = (Analog::Oscillators::blitTriangle *) 0 ;
+  size_t arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("Analog::Oscillators::blitTriangle::ProcessSIMD",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::blitTriangle::ProcessSIMD",1,"Analog::Oscillators::blitTriangle *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::blitTriangle::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::blitTriangle::ProcessSIMD",3,"DspFloatType *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__blitTriangle,0))){
+    SWIG_fail_ptr("blitTriangle_ProcessSIMD",1,SWIGTYPE_p_Analog__Oscillators__blitTriangle);
+  }
+  
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
+    SWIG_fail_ptr("blitTriangle_ProcessSIMD",3,SWIGTYPE_p_float);
+  }
+  
+  (arg1)->ProcessSIMD(arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static void swig_delete_blitTriangle(void *obj) {
 Analog::Oscillators::blitTriangle *arg1 = (Analog::Oscillators::blitTriangle *) obj;
 delete arg1;
@@ -23575,6 +23787,7 @@ static swig_lua_method swig_blitTriangle_methods[]= {
     { "setFrequency", _wrap_blitTriangle_setFrequency},
     { "setPort", _wrap_blitTriangle_setPort},
     { "Tick", _wrap_blitTriangle_Tick},
+    { "ProcessSIMD", _wrap_blitTriangle_ProcessSIMD},
     {0,0}
 };
 static swig_lua_method swig_blitTriangle_meta[] = {
@@ -24420,6 +24633,47 @@ static int _wrap_DPWSaw_Tick(lua_State* L) {
 }
 
 
+static int _wrap_DPWSaw_ProcessSIMD(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::Oscillators::DPWSaw *arg1 = (Analog::Oscillators::DPWSaw *) 0 ;
+  size_t arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType *arg4 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("Analog::Oscillators::DPWSaw::ProcessSIMD",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::DPWSaw::ProcessSIMD",1,"Analog::Oscillators::DPWSaw *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::DPWSaw::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::DPWSaw::ProcessSIMD",3,"DspFloatType *");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Oscillators::DPWSaw::ProcessSIMD",4,"DspFloatType *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__DPWSaw,0))){
+    SWIG_fail_ptr("DPWSaw_ProcessSIMD",1,SWIGTYPE_p_Analog__Oscillators__DPWSaw);
+  }
+  
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
+    SWIG_fail_ptr("DPWSaw_ProcessSIMD",3,SWIGTYPE_p_float);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
+    SWIG_fail_ptr("DPWSaw_ProcessSIMD",4,SWIGTYPE_p_float);
+  }
+  
+  (arg1)->ProcessSIMD(arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static void swig_delete_DPWSaw(void *obj) {
 Analog::Oscillators::DPWSaw *arg1 = (Analog::Oscillators::DPWSaw *) obj;
 delete arg1;
@@ -24447,6 +24701,7 @@ static swig_lua_method swig_DPWSaw_methods[]= {
     { "setFrequency", _wrap_DPWSaw_setFrequency},
     { "setPort", _wrap_DPWSaw_setPort},
     { "Tick", _wrap_DPWSaw_Tick},
+    { "ProcessSIMD", _wrap_DPWSaw_ProcessSIMD},
     {0,0}
 };
 static swig_lua_method swig_DPWSaw_meta[] = {
@@ -25514,6 +25769,47 @@ static int _wrap_DPWPulse_Tick(lua_State* L) {
 }
 
 
+static int _wrap_DPWPulse_ProcessSIMD(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::Oscillators::DPWPulse *arg1 = (Analog::Oscillators::DPWPulse *) 0 ;
+  size_t arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType *arg4 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("Analog::Oscillators::DPWPulse::ProcessSIMD",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::DPWPulse::ProcessSIMD",1,"Analog::Oscillators::DPWPulse *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::DPWPulse::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::DPWPulse::ProcessSIMD",3,"DspFloatType *");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Oscillators::DPWPulse::ProcessSIMD",4,"DspFloatType *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__DPWPulse,0))){
+    SWIG_fail_ptr("DPWPulse_ProcessSIMD",1,SWIGTYPE_p_Analog__Oscillators__DPWPulse);
+  }
+  
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
+    SWIG_fail_ptr("DPWPulse_ProcessSIMD",3,SWIGTYPE_p_float);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
+    SWIG_fail_ptr("DPWPulse_ProcessSIMD",4,SWIGTYPE_p_float);
+  }
+  
+  (arg1)->ProcessSIMD(arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static void swig_delete_DPWPulse(void *obj) {
 Analog::Oscillators::DPWPulse *arg1 = (Analog::Oscillators::DPWPulse *) obj;
 delete arg1;
@@ -25546,6 +25842,7 @@ static swig_lua_method swig_DPWPulse_methods[]= {
     { "setDuty", _wrap_DPWPulse_setDuty},
     { "setPort", _wrap_DPWPulse_setPort},
     { "Tick", _wrap_DPWPulse_Tick},
+    { "ProcessSIMD", _wrap_DPWPulse_ProcessSIMD},
     {0,0}
 };
 static swig_lua_method swig_DPWPulse_meta[] = {
@@ -26464,6 +26761,47 @@ static int _wrap_DPWTriangle_Tick(lua_State* L) {
 }
 
 
+static int _wrap_DPWTriangle_ProcessSIMD(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::Oscillators::DPWTriangle *arg1 = (Analog::Oscillators::DPWTriangle *) 0 ;
+  size_t arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType *arg4 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("Analog::Oscillators::DPWTriangle::ProcessSIMD",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::DPWTriangle::ProcessSIMD",1,"Analog::Oscillators::DPWTriangle *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::DPWTriangle::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::DPWTriangle::ProcessSIMD",3,"DspFloatType *");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Oscillators::DPWTriangle::ProcessSIMD",4,"DspFloatType *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__DPWTriangle,0))){
+    SWIG_fail_ptr("DPWTriangle_ProcessSIMD",1,SWIGTYPE_p_Analog__Oscillators__DPWTriangle);
+  }
+  
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
+    SWIG_fail_ptr("DPWTriangle_ProcessSIMD",3,SWIGTYPE_p_float);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
+    SWIG_fail_ptr("DPWTriangle_ProcessSIMD",4,SWIGTYPE_p_float);
+  }
+  
+  (arg1)->ProcessSIMD(arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static void swig_delete_DPWTriangle(void *obj) {
 Analog::Oscillators::DPWTriangle *arg1 = (Analog::Oscillators::DPWTriangle *) obj;
 delete arg1;
@@ -26493,6 +26831,7 @@ static swig_lua_method swig_DPWTriangle_methods[]= {
     { "setDuty", _wrap_DPWTriangle_setDuty},
     { "setPort", _wrap_DPWTriangle_setPort},
     { "Tick", _wrap_DPWTriangle_Tick},
+    { "ProcessSIMD", _wrap_DPWTriangle_ProcessSIMD},
     {0,0}
 };
 static swig_lua_method swig_DPWTriangle_meta[] = {
@@ -31877,6 +32216,47 @@ static int _wrap_AnalogSVF_InplaceProcess(lua_State* L) {
 }
 
 
+static int _wrap_AnalogSVF_ProcessSIMD(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::Filters::AnalogSVF::AnalogSVF *arg1 = (Analog::Filters::AnalogSVF::AnalogSVF *) 0 ;
+  size_t arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType *arg4 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("Analog::Filters::AnalogSVF::AnalogSVF::ProcessSIMD",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Filters::AnalogSVF::AnalogSVF::ProcessSIMD",1,"Analog::Filters::AnalogSVF::AnalogSVF *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Filters::AnalogSVF::AnalogSVF::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Filters::AnalogSVF::AnalogSVF::ProcessSIMD",3,"DspFloatType *");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Filters::AnalogSVF::AnalogSVF::ProcessSIMD",4,"DspFloatType *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Filters__AnalogSVF__AnalogSVF,0))){
+    SWIG_fail_ptr("AnalogSVF_ProcessSIMD",1,SWIGTYPE_p_Analog__Filters__AnalogSVF__AnalogSVF);
+  }
+  
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
+    SWIG_fail_ptr("AnalogSVF_ProcessSIMD",3,SWIGTYPE_p_float);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
+    SWIG_fail_ptr("AnalogSVF_ProcessSIMD",4,SWIGTYPE_p_float);
+  }
+  
+  (arg1)->ProcessSIMD(arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static void swig_delete_AnalogSVF(void *obj) {
 Analog::Filters::AnalogSVF::AnalogSVF *arg1 = (Analog::Filters::AnalogSVF::AnalogSVF *) obj;
 delete arg1;
@@ -31917,6 +32297,7 @@ static swig_lua_method swig_AnalogSVF_methods[]= {
     { "Tick", _wrap_AnalogSVF_Tick},
     { "ProcessBlock", _wrap_AnalogSVF_ProcessBlock},
     { "InplaceProcess", _wrap_AnalogSVF_InplaceProcess},
+    { "ProcessSIMD", _wrap_AnalogSVF_ProcessSIMD},
     {0,0}
 };
 static swig_lua_method swig_AnalogSVF_meta[] = {
@@ -42112,36 +42493,36 @@ fail:
 }
 
 
-static int _wrap_KrajeskiMoog_Process__SWIG_0(lua_State* L) {
+static int _wrap_KrajeskiMoog_ProcessBlock(lua_State* L) {
   int SWIG_arg = 0;
   Analog::Filters::Moog::KrajeskiMoog *arg1 = (Analog::Filters::Moog::KrajeskiMoog *) 0 ;
   size_t arg2 ;
-  float *arg3 = (float *) 0 ;
-  float *arg4 = (float *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType *arg4 = (DspFloatType *) 0 ;
   
-  SWIG_check_num_args("Analog::Filters::Moog::KrajeskiMoog::Process",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Filters::Moog::KrajeskiMoog::Process",1,"Analog::Filters::Moog::KrajeskiMoog *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Filters::Moog::KrajeskiMoog::Process",2,"size_t");
-  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Filters::Moog::KrajeskiMoog::Process",3,"float *");
-  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Filters::Moog::KrajeskiMoog::Process",4,"float *");
+  SWIG_check_num_args("Analog::Filters::Moog::KrajeskiMoog::ProcessBlock",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Filters::Moog::KrajeskiMoog::ProcessBlock",1,"Analog::Filters::Moog::KrajeskiMoog *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Filters::Moog::KrajeskiMoog::ProcessBlock",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Filters::Moog::KrajeskiMoog::ProcessBlock",3,"DspFloatType *");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Filters::Moog::KrajeskiMoog::ProcessBlock",4,"DspFloatType *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Filters__Moog__KrajeskiMoog,0))){
-    SWIG_fail_ptr("KrajeskiMoog_Process",1,SWIGTYPE_p_Analog__Filters__Moog__KrajeskiMoog);
+    SWIG_fail_ptr("KrajeskiMoog_ProcessBlock",1,SWIGTYPE_p_Analog__Filters__Moog__KrajeskiMoog);
   }
   
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("KrajeskiMoog_Process",3,SWIGTYPE_p_float);
+    SWIG_fail_ptr("KrajeskiMoog_ProcessBlock",3,SWIGTYPE_p_float);
   }
   
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("KrajeskiMoog_Process",4,SWIGTYPE_p_float);
+    SWIG_fail_ptr("KrajeskiMoog_ProcessBlock",4,SWIGTYPE_p_float);
   }
   
-  (arg1)->Process(arg2,arg3,arg4);
+  (arg1)->ProcessBlock(arg2,arg3,arg4);
   
   return SWIG_arg;
   
@@ -42153,29 +42534,29 @@ fail:
 }
 
 
-static int _wrap_KrajeskiMoog_Process__SWIG_1(lua_State* L) {
+static int _wrap_KrajeskiMoog_ProcessInplace(lua_State* L) {
   int SWIG_arg = 0;
   Analog::Filters::Moog::KrajeskiMoog *arg1 = (Analog::Filters::Moog::KrajeskiMoog *) 0 ;
   size_t arg2 ;
-  float *arg3 = (float *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
   
-  SWIG_check_num_args("Analog::Filters::Moog::KrajeskiMoog::Process",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Filters::Moog::KrajeskiMoog::Process",1,"Analog::Filters::Moog::KrajeskiMoog *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Filters::Moog::KrajeskiMoog::Process",2,"size_t");
-  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Filters::Moog::KrajeskiMoog::Process",3,"float *");
+  SWIG_check_num_args("Analog::Filters::Moog::KrajeskiMoog::ProcessInplace",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Filters::Moog::KrajeskiMoog::ProcessInplace",1,"Analog::Filters::Moog::KrajeskiMoog *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Filters::Moog::KrajeskiMoog::ProcessInplace",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Filters::Moog::KrajeskiMoog::ProcessInplace",3,"DspFloatType *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Filters__Moog__KrajeskiMoog,0))){
-    SWIG_fail_ptr("KrajeskiMoog_Process",1,SWIGTYPE_p_Analog__Filters__Moog__KrajeskiMoog);
+    SWIG_fail_ptr("KrajeskiMoog_ProcessInplace",1,SWIGTYPE_p_Analog__Filters__Moog__KrajeskiMoog);
   }
   
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("KrajeskiMoog_Process",3,SWIGTYPE_p_float);
+    SWIG_fail_ptr("KrajeskiMoog_ProcessInplace",3,SWIGTYPE_p_float);
   }
   
-  (arg1)->Process(arg2,arg3);
+  (arg1)->ProcessInplace(arg2,arg3);
   
   return SWIG_arg;
   
@@ -42184,90 +42565,6 @@ static int _wrap_KrajeskiMoog_Process__SWIG_1(lua_State* L) {
 fail:
   lua_error(L);
   return SWIG_arg;
-}
-
-
-static int _wrap_KrajeskiMoog_Process(lua_State* L) {
-  int argc;
-  int argv[5]={
-    1,2,3,4,5
-  };
-  
-  argc = lua_gettop(L);
-  if (argc == 3) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__Filters__Moog__KrajeskiMoog, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          void *ptr;
-          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_float, 0)) {
-            _v = 0;
-          } else {
-            _v = 1;
-          }
-        }
-        if (_v) {
-          return _wrap_KrajeskiMoog_Process__SWIG_1(L);
-        }
-      }
-    }
-  }
-  if (argc == 4) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__Filters__Moog__KrajeskiMoog, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          void *ptr;
-          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_float, 0)) {
-            _v = 0;
-          } else {
-            _v = 1;
-          }
-        }
-        if (_v) {
-          {
-            void *ptr;
-            if (SWIG_isptrtype(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, 0)) {
-              _v = 0;
-            } else {
-              _v = 1;
-            }
-          }
-          if (_v) {
-            return _wrap_KrajeskiMoog_Process__SWIG_0(L);
-          }
-        }
-      }
-    }
-  }
-  
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'KrajeskiMoog_Process'\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    Analog::Filters::Moog::KrajeskiMoog::Process(size_t,float *,float *)\n"
-    "    Analog::Filters::Moog::KrajeskiMoog::Process(size_t,float *)\n");
-  lua_error(L);return 0;
 }
 
 
@@ -43218,7 +43515,8 @@ static swig_lua_attribute swig_KrajeskiMoog_attributes[] = {
     {0,0,0}
 };
 static swig_lua_method swig_KrajeskiMoog_methods[]= {
-    { "Process", _wrap_KrajeskiMoog_Process},
+    { "ProcessBlock", _wrap_KrajeskiMoog_ProcessBlock},
+    { "ProcessInplace", _wrap_KrajeskiMoog_ProcessInplace},
     { "Tick", _wrap_KrajeskiMoog_Tick},
     { "SetResonance", _wrap_KrajeskiMoog_SetResonance},
     { "SetCutoff", _wrap_KrajeskiMoog_SetCutoff},
@@ -74032,6 +74330,47 @@ static int _wrap_DinkyFilter_Tick(lua_State* L) {
 }
 
 
+static int _wrap_DinkyFilter_ProcessSIMD(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::Filters::DinkFilter::DinkyFilter *arg1 = (Analog::Filters::DinkFilter::DinkyFilter *) 0 ;
+  size_t arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType *arg4 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("Analog::Filters::DinkFilter::DinkyFilter::ProcessSIMD",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Filters::DinkFilter::DinkyFilter::ProcessSIMD",1,"Analog::Filters::DinkFilter::DinkyFilter *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Filters::DinkFilter::DinkyFilter::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Filters::DinkFilter::DinkyFilter::ProcessSIMD",3,"DspFloatType *");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Filters::DinkFilter::DinkyFilter::ProcessSIMD",4,"DspFloatType *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Filters__DinkFilter__DinkyFilter,0))){
+    SWIG_fail_ptr("DinkyFilter_ProcessSIMD",1,SWIGTYPE_p_Analog__Filters__DinkFilter__DinkyFilter);
+  }
+  
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
+    SWIG_fail_ptr("DinkyFilter_ProcessSIMD",3,SWIGTYPE_p_float);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
+    SWIG_fail_ptr("DinkyFilter_ProcessSIMD",4,SWIGTYPE_p_float);
+  }
+  
+  (arg1)->ProcessSIMD(arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static void swig_delete_DinkyFilter(void *obj) {
 Analog::Filters::DinkFilter::DinkyFilter *arg1 = (Analog::Filters::DinkFilter::DinkyFilter *) obj;
 delete arg1;
@@ -74054,6 +74393,7 @@ static swig_lua_method swig_DinkyFilter_methods[]= {
     { "setFilterMode", _wrap_DinkyFilter_setFilterMode},
     { "setPort", _wrap_DinkyFilter_setPort},
     { "Tick", _wrap_DinkyFilter_Tick},
+    { "ProcessSIMD", _wrap_DinkyFilter_ProcessSIMD},
     {0,0}
 };
 static swig_lua_method swig_DinkyFilter_meta[] = {
@@ -74091,333 +74431,6 @@ static swig_lua_namespace swig_DinkyFilter_Sf_SwigStatic = {
 static swig_lua_class *swig_DinkyFilter_bases[] = {0,0};
 static const char *swig_DinkyFilter_base_names[] = {"FilterProcessor *",0};
 static swig_lua_class _wrap_class_DinkyFilter = { "DinkyFilter", "DinkyFilter", &SWIGTYPE_p_Analog__Filters__DinkFilter__DinkyFilter,_proxy__wrap_new_DinkyFilter, swig_delete_DinkyFilter, swig_DinkyFilter_methods, swig_DinkyFilter_attributes, &swig_DinkyFilter_Sf_SwigStatic, swig_DinkyFilter_meta, swig_DinkyFilter_bases, swig_DinkyFilter_base_names };
-
-static int _wrap_Dioder_vt_set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Distortion::Diode::Dioder *arg1 = (Analog::Distortion::Diode::Dioder *) 0 ;
-  Liquid::LiquidPole arg2 ;
-  Liquid::LiquidPole *argp2 ;
-  
-  SWIG_check_num_args("Analog::Distortion::Diode::Dioder::vt",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::vt",1,"Analog::Distortion::Diode::Dioder *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::vt",2,"Liquid::LiquidPole");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder,0))){
-    SWIG_fail_ptr("Dioder_vt_set",1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder);
-  }
-  
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_Liquid__LiquidPole,0))){
-    SWIG_fail_ptr("Dioder_vt_set",2,SWIGTYPE_p_Liquid__LiquidPole);
-  }
-  arg2 = *argp2;
-  
-  if (arg1) (arg1)->vt = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Dioder_vt_get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Distortion::Diode::Dioder *arg1 = (Analog::Distortion::Diode::Dioder *) 0 ;
-  Liquid::LiquidPole result;
-  
-  SWIG_check_num_args("Analog::Distortion::Diode::Dioder::vt",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::vt",1,"Analog::Distortion::Diode::Dioder *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder,0))){
-    SWIG_fail_ptr("Dioder_vt_get",1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder);
-  }
-  
-  result =  ((arg1)->vt);
-  {
-    Liquid::LiquidPole * resultptr = new Liquid::LiquidPole((const Liquid::LiquidPole &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Liquid__LiquidPole,1); SWIG_arg++;
-  }
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Dioder_eta_set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Distortion::Diode::Dioder *arg1 = (Analog::Distortion::Diode::Dioder *) 0 ;
-  Liquid::LiquidPole arg2 ;
-  Liquid::LiquidPole *argp2 ;
-  
-  SWIG_check_num_args("Analog::Distortion::Diode::Dioder::eta",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::eta",1,"Analog::Distortion::Diode::Dioder *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::eta",2,"Liquid::LiquidPole");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder,0))){
-    SWIG_fail_ptr("Dioder_eta_set",1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder);
-  }
-  
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_Liquid__LiquidPole,0))){
-    SWIG_fail_ptr("Dioder_eta_set",2,SWIGTYPE_p_Liquid__LiquidPole);
-  }
-  arg2 = *argp2;
-  
-  if (arg1) (arg1)->eta = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Dioder_eta_get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Distortion::Diode::Dioder *arg1 = (Analog::Distortion::Diode::Dioder *) 0 ;
-  Liquid::LiquidPole result;
-  
-  SWIG_check_num_args("Analog::Distortion::Diode::Dioder::eta",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::eta",1,"Analog::Distortion::Diode::Dioder *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder,0))){
-    SWIG_fail_ptr("Dioder_eta_get",1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder);
-  }
-  
-  result =  ((arg1)->eta);
-  {
-    Liquid::LiquidPole * resultptr = new Liquid::LiquidPole((const Liquid::LiquidPole &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Liquid__LiquidPole,1); SWIG_arg++;
-  }
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Dioder_is_set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Distortion::Diode::Dioder *arg1 = (Analog::Distortion::Diode::Dioder *) 0 ;
-  Liquid::LiquidPole arg2 ;
-  Liquid::LiquidPole *argp2 ;
-  
-  SWIG_check_num_args("Analog::Distortion::Diode::Dioder::is",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::is",1,"Analog::Distortion::Diode::Dioder *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::is",2,"Liquid::LiquidPole");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder,0))){
-    SWIG_fail_ptr("Dioder_is_set",1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder);
-  }
-  
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_Liquid__LiquidPole,0))){
-    SWIG_fail_ptr("Dioder_is_set",2,SWIGTYPE_p_Liquid__LiquidPole);
-  }
-  arg2 = *argp2;
-  
-  if (arg1) (arg1)->is = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Dioder_is_get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Distortion::Diode::Dioder *arg1 = (Analog::Distortion::Diode::Dioder *) 0 ;
-  Liquid::LiquidPole result;
-  
-  SWIG_check_num_args("Analog::Distortion::Diode::Dioder::is",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::is",1,"Analog::Distortion::Diode::Dioder *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder,0))){
-    SWIG_fail_ptr("Dioder_is_get",1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder);
-  }
-  
-  result =  ((arg1)->is);
-  {
-    Liquid::LiquidPole * resultptr = new Liquid::LiquidPole((const Liquid::LiquidPole &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Liquid__LiquidPole,1); SWIG_arg++;
-  }
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Dioder_Vt_set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Distortion::Diode::Dioder *arg1 = (Analog::Distortion::Diode::Dioder *) 0 ;
-  DspFloatType arg2 ;
-  
-  SWIG_check_num_args("Analog::Distortion::Diode::Dioder::Vt",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::Vt",1,"Analog::Distortion::Diode::Dioder *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::Vt",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder,0))){
-    SWIG_fail_ptr("Dioder_Vt_set",1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->Vt = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Dioder_Vt_get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Distortion::Diode::Dioder *arg1 = (Analog::Distortion::Diode::Dioder *) 0 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("Analog::Distortion::Diode::Dioder::Vt",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::Vt",1,"Analog::Distortion::Diode::Dioder *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder,0))){
-    SWIG_fail_ptr("Dioder_Vt_get",1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder);
-  }
-  
-  result = (DspFloatType) ((arg1)->Vt);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Dioder_Eta_set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Distortion::Diode::Dioder *arg1 = (Analog::Distortion::Diode::Dioder *) 0 ;
-  DspFloatType arg2 ;
-  
-  SWIG_check_num_args("Analog::Distortion::Diode::Dioder::Eta",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::Eta",1,"Analog::Distortion::Diode::Dioder *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::Eta",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder,0))){
-    SWIG_fail_ptr("Dioder_Eta_set",1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->Eta = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Dioder_Eta_get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Distortion::Diode::Dioder *arg1 = (Analog::Distortion::Diode::Dioder *) 0 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("Analog::Distortion::Diode::Dioder::Eta",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::Eta",1,"Analog::Distortion::Diode::Dioder *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder,0))){
-    SWIG_fail_ptr("Dioder_Eta_get",1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder);
-  }
-  
-  result = (DspFloatType) ((arg1)->Eta);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Dioder_Is_set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Distortion::Diode::Dioder *arg1 = (Analog::Distortion::Diode::Dioder *) 0 ;
-  DspFloatType arg2 ;
-  
-  SWIG_check_num_args("Analog::Distortion::Diode::Dioder::Is",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::Is",1,"Analog::Distortion::Diode::Dioder *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::Is",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder,0))){
-    SWIG_fail_ptr("Dioder_Is_set",1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->Is = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Dioder_Is_get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Distortion::Diode::Dioder *arg1 = (Analog::Distortion::Diode::Dioder *) 0 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("Analog::Distortion::Diode::Dioder::Is",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::Is",1,"Analog::Distortion::Diode::Dioder *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder,0))){
-    SWIG_fail_ptr("Dioder_Is_get",1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder);
-  }
-  
-  result = (DspFloatType) ((arg1)->Is);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
 
 static int _wrap_Dioder_sampleRate_set(lua_State* L) {
   int SWIG_arg = 0;
@@ -74469,21 +74482,21 @@ fail:
 }
 
 
-static int _wrap_Dioder_ctr_set(lua_State* L) {
+static int _wrap_Dioder_v_set(lua_State* L) {
   int SWIG_arg = 0;
   Analog::Distortion::Diode::Dioder *arg1 = (Analog::Distortion::Diode::Dioder *) 0 ;
-  int arg2 ;
+  DspFloatType arg2 ;
   
-  SWIG_check_num_args("Analog::Distortion::Diode::Dioder::ctr",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::ctr",1,"Analog::Distortion::Diode::Dioder *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::ctr",2,"int");
+  SWIG_check_num_args("Analog::Distortion::Diode::Dioder::v",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::v",1,"Analog::Distortion::Diode::Dioder *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::v",2,"DspFloatType");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder,0))){
-    SWIG_fail_ptr("Dioder_ctr_set",1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder);
+    SWIG_fail_ptr("Dioder_v_set",1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder);
   }
   
-  arg2 = (int)lua_tonumber(L, 2);
-  if (arg1) (arg1)->ctr = arg2;
+  arg2 = (DspFloatType)lua_tonumber(L, 2);
+  if (arg1) (arg1)->v = arg2;
   
   return SWIG_arg;
   
@@ -74495,19 +74508,119 @@ fail:
 }
 
 
-static int _wrap_Dioder_ctr_get(lua_State* L) {
+static int _wrap_Dioder_v_get(lua_State* L) {
   int SWIG_arg = 0;
   Analog::Distortion::Diode::Dioder *arg1 = (Analog::Distortion::Diode::Dioder *) 0 ;
-  int result;
+  DspFloatType result;
   
-  SWIG_check_num_args("Analog::Distortion::Diode::Dioder::ctr",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::ctr",1,"Analog::Distortion::Diode::Dioder *");
+  SWIG_check_num_args("Analog::Distortion::Diode::Dioder::v",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::v",1,"Analog::Distortion::Diode::Dioder *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder,0))){
-    SWIG_fail_ptr("Dioder_ctr_get",1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder);
+    SWIG_fail_ptr("Dioder_v_get",1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder);
   }
   
-  result = (int) ((arg1)->ctr);
+  result = (DspFloatType) ((arg1)->v);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_Dioder_e_set(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::Distortion::Diode::Dioder *arg1 = (Analog::Distortion::Diode::Dioder *) 0 ;
+  DspFloatType arg2 ;
+  
+  SWIG_check_num_args("Analog::Distortion::Diode::Dioder::e",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::e",1,"Analog::Distortion::Diode::Dioder *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::e",2,"DspFloatType");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder,0))){
+    SWIG_fail_ptr("Dioder_e_set",1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder);
+  }
+  
+  arg2 = (DspFloatType)lua_tonumber(L, 2);
+  if (arg1) (arg1)->e = arg2;
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_Dioder_e_get(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::Distortion::Diode::Dioder *arg1 = (Analog::Distortion::Diode::Dioder *) 0 ;
+  DspFloatType result;
+  
+  SWIG_check_num_args("Analog::Distortion::Diode::Dioder::e",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::e",1,"Analog::Distortion::Diode::Dioder *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder,0))){
+    SWIG_fail_ptr("Dioder_e_get",1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder);
+  }
+  
+  result = (DspFloatType) ((arg1)->e);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_Dioder_i_set(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::Distortion::Diode::Dioder *arg1 = (Analog::Distortion::Diode::Dioder *) 0 ;
+  DspFloatType arg2 ;
+  
+  SWIG_check_num_args("Analog::Distortion::Diode::Dioder::i",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::i",1,"Analog::Distortion::Diode::Dioder *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::i",2,"DspFloatType");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder,0))){
+    SWIG_fail_ptr("Dioder_i_set",1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder);
+  }
+  
+  arg2 = (DspFloatType)lua_tonumber(L, 2);
+  if (arg1) (arg1)->i = arg2;
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_Dioder_i_get(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::Distortion::Diode::Dioder *arg1 = (Analog::Distortion::Diode::Dioder *) 0 ;
+  DspFloatType result;
+  
+  SWIG_check_num_args("Analog::Distortion::Diode::Dioder::i",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Distortion::Diode::Dioder::i",1,"Analog::Distortion::Diode::Dioder *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder,0))){
+    SWIG_fail_ptr("Dioder_i_get",1,SWIGTYPE_p_Analog__Distortion__Diode__Dioder);
+  }
+  
+  result = (DspFloatType) ((arg1)->i);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -74847,14 +74960,10 @@ static int _proxy__wrap_new_Dioder(lua_State *L) {
     return 1;
 }
 static swig_lua_attribute swig_Dioder_attributes[] = {
-    { "vt", _wrap_Dioder_vt_get, _wrap_Dioder_vt_set },
-    { "eta", _wrap_Dioder_eta_get, _wrap_Dioder_eta_set },
-    { "is", _wrap_Dioder_is_get, _wrap_Dioder_is_set },
-    { "Vt", _wrap_Dioder_Vt_get, _wrap_Dioder_Vt_set },
-    { "Eta", _wrap_Dioder_Eta_get, _wrap_Dioder_Eta_set },
-    { "Is", _wrap_Dioder_Is_get, _wrap_Dioder_Is_set },
     { "sampleRate", _wrap_Dioder_sampleRate_get, _wrap_Dioder_sampleRate_set },
-    { "ctr", _wrap_Dioder_ctr_get, _wrap_Dioder_ctr_set },
+    { "v", _wrap_Dioder_v_get, _wrap_Dioder_v_set },
+    { "e", _wrap_Dioder_e_get, _wrap_Dioder_e_set },
+    { "i", _wrap_Dioder_i_get, _wrap_Dioder_i_set },
     {0,0,0}
 };
 static swig_lua_method swig_Dioder_methods[]= {
@@ -77076,6 +77185,47 @@ static int _wrap_VirtualAnalogDiodeLadderFilter_ProcessBlock(lua_State* L) {
 }
 
 
+static int _wrap_VirtualAnalogDiodeLadderFilter_ProcessSIMD(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::Filters::DiodeLadderFilter2::VirtualAnalogDiodeLadderFilter *arg1 = (Analog::Filters::DiodeLadderFilter2::VirtualAnalogDiodeLadderFilter *) 0 ;
+  size_t arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType *arg4 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("Analog::Filters::DiodeLadderFilter2::VirtualAnalogDiodeLadderFilter::ProcessSIMD",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Filters::DiodeLadderFilter2::VirtualAnalogDiodeLadderFilter::ProcessSIMD",1,"Analog::Filters::DiodeLadderFilter2::VirtualAnalogDiodeLadderFilter *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Filters::DiodeLadderFilter2::VirtualAnalogDiodeLadderFilter::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Filters::DiodeLadderFilter2::VirtualAnalogDiodeLadderFilter::ProcessSIMD",3,"DspFloatType *");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Filters::DiodeLadderFilter2::VirtualAnalogDiodeLadderFilter::ProcessSIMD",4,"DspFloatType *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Filters__DiodeLadderFilter2__VirtualAnalogDiodeLadderFilter,0))){
+    SWIG_fail_ptr("VirtualAnalogDiodeLadderFilter_ProcessSIMD",1,SWIGTYPE_p_Analog__Filters__DiodeLadderFilter2__VirtualAnalogDiodeLadderFilter);
+  }
+  
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
+    SWIG_fail_ptr("VirtualAnalogDiodeLadderFilter_ProcessSIMD",3,SWIGTYPE_p_float);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
+    SWIG_fail_ptr("VirtualAnalogDiodeLadderFilter_ProcessSIMD",4,SWIGTYPE_p_float);
+  }
+  
+  (arg1)->ProcessSIMD(arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static void swig_delete_VirtualAnalogDiodeLadderFilter(void *obj) {
 Analog::Filters::DiodeLadderFilter2::VirtualAnalogDiodeLadderFilter *arg1 = (Analog::Filters::DiodeLadderFilter2::VirtualAnalogDiodeLadderFilter *) obj;
 delete arg1;
@@ -77124,6 +77274,7 @@ static swig_lua_method swig_VirtualAnalogDiodeLadderFilter_methods[]= {
     { "setPort", _wrap_VirtualAnalogDiodeLadderFilter_setPort},
     { "Tick", _wrap_VirtualAnalogDiodeLadderFilter_Tick},
     { "ProcessBlock", _wrap_VirtualAnalogDiodeLadderFilter_ProcessBlock},
+    { "ProcessSIMD", _wrap_VirtualAnalogDiodeLadderFilter_ProcessSIMD},
     {0,0}
 };
 static swig_lua_method swig_VirtualAnalogDiodeLadderFilter_meta[] = {

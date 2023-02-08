@@ -20,7 +20,13 @@ namespace Analog::Filters::SVF
         */
         DspFloatType x,L,B,H,N,F1,Q1,D1,D2;
         DspFloatType Fc,Fs,R;
-
+        enum {
+            LP,
+            HP,
+            BP,
+            NOTCH,
+        };
+        int Type = LP;
         ChamberlinSVF(DspFloatType sr, DspFloatType fc, DspFloatType q) : FilterProcessor() {        
             Fc = fc;
             Fs = sr;
@@ -60,6 +66,34 @@ namespace Analog::Filters::SVF
             // outputs
             //L,H,B,N
             return L;
+        }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * output) {
+            Undenormal denormal;
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
+                x = in[i];
+                // algorithm
+                // loop
+                L = D2 + F1 * D1;
+                H = I - L - Q1*D1;
+                B = F1 * H + D1;
+                N = H + L;
+
+                // store delays
+                D1 = B;
+                D2 = L;
+
+                // outputs
+                //L,H,B,N
+                DspFloatType out = L;
+                switch(Type) {
+                    case LP: 
+                    default: out = L; break;
+                    case HP: out = H; break;
+                    case BP: out = B; break;
+                    case NOTCH: out = N; break;
+                }
+                output[i] = out;
         }
     };
 }

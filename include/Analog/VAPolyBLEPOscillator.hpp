@@ -201,7 +201,6 @@ namespace Analog::Oscillators::PolyBLEPOsc
         DspFloatType sin() {
             return amplitude * std::sin(2.0*M_PI * t);
         }
-
         DspFloatType cos() {
             return amplitude * std::cos(2.0*M_PI * t);
         }

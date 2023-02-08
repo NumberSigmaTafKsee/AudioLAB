@@ -402,12 +402,13 @@ void StateVariableFilter::calcFilter()
 
 DspFloatType StateVariableFilter::processAudioSample(const DspFloatType& input, const int& channelIndex)
 {
+    
     if (active) {
 
         // Do the cutoff parameter smoothing per sample.
         //cutoffFreq = cutoffLinSmooth.getNextValue();
         //calcFilter();
-
+        
         // Filter processing:
         const DspFloatType HP = (input - (2.0f * RCoeff + gCoeff) * z1_A[channelIndex] - z2_A[channelIndex])
             / (1.0f + (2.0f * RCoeff * gCoeff) + gCoeff * gCoeff);
@@ -472,6 +473,7 @@ void StateVariableFilter::processAudioBlock(DspFloatType* const samples,  const 
     if (active) {
 
         // Loop through the sample block and process it
+        #pragma omp simd
         for (int i = 0; i < numSamples; ++i) {
             
             // Do the cutoff parameter smoothing per sample.

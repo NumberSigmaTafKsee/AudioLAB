@@ -107,17 +107,34 @@ namespace Analog::Oscillators
             }
 
             tmp += state_ - C2_;
-            state_ = tmp * 0.995;
-            //phase_   = x;
+            state_ = tmp * 0.995;            
             phase_ += rate_;
             if ( phase_ >= M_PI ) phase_ -= M_PI;
-
-            //DspFloatType out = tmp;
-            //y -= block.process(out);
             y = tmp;
-            return 2*y;
+            return 1.9*y;
         }
 
+        void ProcessSIMD(size_t n, DspFloatType * out)
+        {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++)
+            {
+                DspFloatType tmp, denominator = sin( phase_ );
+                if ( fabs(denominator) <= std::numeric_limits<DspFloatType>::epsilon() )
+                    tmp = a_;
+                else {
+                    tmp =  sin( m_ * phase_ );
+                    tmp /= p_ * denominator;
+                }
+
+                tmp += state_ - C2_;
+                state_ = tmp * 0.995;            
+                phase_ += rate_;
+                if ( phase_ >= M_PI ) phase_ -= M_PI;
+                y = tmp;
+                out[i] = 2*y;
+            }
+        }
 
         FX::Filters::OnePole     block;    
         unsigned int nHarmonics_;

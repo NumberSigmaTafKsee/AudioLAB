@@ -281,57 +281,66 @@ struct GA
 	}
 };
 
-
-template<typename T>
-struct Parameter : public GA
+struct ImpulseResponse
 {
-	
-	Parameter(unsigned int max_gen,
-			size_t chrom_len,
-			size_t initial, size_t normal,
-			float pcrossover, float pmutation,
-			enum ga_selection_strategies selection_strategy,
-			enum ga_crossover_strategies crossover_strategy,
-			objective_fn obj_fn) 
-		: GA(max_gen,chrom_len,initial,normal,pcrossover,pmutation,selection_strategy,crossover_strategy,obj_fn)
-	{		
-		
-	}		
-	Parameter(const std::vector<T*> & p, unsigned int max_gen,
-			size_t chrom_len,
-			size_t initial, size_t normal,
-			float pcrossover, float pmutation,
-			enum ga_selection_strategies selection_strategy,
-			enum ga_crossover_strategies crossover_strategy,
-			objective_fn obj_fn) 
-		: GA(max_gen,chrom_len,initial,normal,pcrossover,pmutation,selection_strategy,crossover_strategy,obj_fn)
-	{		
-		for(size_t i = 0; i < pop().size(); i++)
-		{
-			pop()[i].chromosome().encode_parameters(p[i]);
-		}
-	}		
-
-	T* operator[](size_t i) {
-		return pop()[i].chromosome().decode_parameters<T>();
-	}
-	
-	T* decode_best() {
-		GAFittest fit = get_best_ever();
-		return fit.individual().chromosome().decode_parameters<T>();
-	}
+	std::vector<double> ir;
 };
 
-template<typename T>
-using Sequence = std::vector<std::shared_ptr<Parameter<T>>>;
-
-
-template<typename T>
-struct Sequencer : public GA
+struct FrequencyResponse
 {
-	std::vector<Sequence<T>> sequences;
+	std::vector<std::complex<double>> fr;
+};
 
-	
+enum {
+	IMPULSE_RESPONSE,
+	FREQUENCY_RESPONSE,
+};
+
+struct Target
+{
+	virtul int getType() const = 0;	
+};
+
+struct ImpulseTarget : public Target
+{
+	ImpulseResponse ir;
+
+	int getType() const { return IMPULSE_RESPONSE; }
+};
+
+struct FrequencyTarget : public Target
+{
+	FrequencyResponse fr;
+
+	int getType() const { return FREQUENCY_RESPONSE; }	
+};
+
+enum {
+	NO_MODULE,
+	FILTER,	
+	AMPLIFIER,
+	END_MODULES,
+};
+
+struct Module {
+	int 	 type;	
+	double   parameters[10];
+};
+
+struct SignalChain 
+{
+	GA genetic;
+	Target target;
+	std::vector<SoundProcessor*> processors;
+
+	static double signal_objective(struct individual * i) {
+		Module * m = (Module*)i->allele;
+	}
+	SignalChain(int max_modules) : 
+	genetic(100,max_modules*sizeof(Module), 150, 50, 0.9,1e-4,GA_S_ROULETTE_WHEEL, GA_X_SINGLE_POINT, signal_objective)
+	{
+		
+	}
 };
 
 ///////////////////////////////////////////////////////////////

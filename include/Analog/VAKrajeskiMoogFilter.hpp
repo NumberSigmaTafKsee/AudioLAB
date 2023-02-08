@@ -26,13 +26,13 @@ namespace Analog::Filters::Moog
 
         virtual ~KrajeskiMoog() { }
 
-        void Process(size_t n, float * samples, float * output)
+        void ProcessBlock(size_t n, DspFloatType * samples, DspFloatType * output)
         {
             Undenormal denormal;
+            #pragma omp simd
             for (uint32_t s = 0; s < n; ++s)
             {
-                state[0] = std::tanh(drive * (samples[s] - 4 * gRes * (state[4] - gComp * samples[s])));
-
+                state[0] = std::tanh(drive * (samples[s] - 4 * gRes * (state[4] - gComp * samples[s])));                                
                 for(int i = 0; i < 4; i++)
                 {
                     state[i+1] = g * (0.3 / 1.3 * state[i] + 1 / 1.3 * delay[i] - state[i + 1]) + state[i + 1];
@@ -42,9 +42,9 @@ namespace Analog::Filters::Moog
             }
         }
 
-        void Process(size_t n, float * samples)
+        void ProcessInplace(size_t n, DspFloatType * samples)
         {
-            Process(n,samples,samples);
+            ProcessBlock(n,samples,samples);
         }
         
         DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {
@@ -54,6 +54,7 @@ namespace Analog::Filters::Moog
             SetCutoff(c * fabs(X));
             SetResonance(r * fabs(Y));
             state[0] = std::tanh(drive * (I - 4 * gRes * (state[4] - gComp * I)));
+            #pragma omp simd
             for(int i = 0; i < 4; i++)
             {
                 state[i+1] = g * (0.3 / 1.3 * state[i] + 1 / 1.3 * delay[i] - state[i + 1]) + state[i + 1];

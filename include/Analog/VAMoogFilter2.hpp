@@ -67,5 +67,23 @@ namespace Analog::MoogFilters::MoogFilter2
             b0 = in;
             return b4;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            Undenormal denormals;
+            calc();
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++ ) {                        
+                DspFloatType input = in[i] - q*b4;       
+                t1 = b1; //std::tanh(b1);  
+                b1 = (input + b0) * p - b1 * f;
+                t2 = b2; //std::tanh(b2);  
+                b2 = (b1 + t1) * p - b2 * f;
+                t1 = b3; //std::tanh(b3); 
+                b3 = (b2 + t2) * p - b3 * f;
+                b4 = (b3 + t1) * p - b4 * f;
+                b4 = b4 - b4 * b4 * b4 * 0.166667f;
+                b0 = input;
+                out[i] = input;
+            }
+        }
     };
 }

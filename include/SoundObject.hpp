@@ -363,6 +363,7 @@ struct GeneratorProcessor : public MonoProcessor
     }
     virtual void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
     {
+        #pragma omp simd
         for(size_t i = 0; i < n; i++) in[i] = Tick(out[i]);
     }
 };
@@ -400,6 +401,7 @@ struct FunctionProcessor : public MonoProcessor
     virtual DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0) = 0;
 
     void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+        #pragma omp simd
         for(size_t i = 0; i < n; i++)
             output[i] = Tick(input[i]);
     }
@@ -419,6 +421,7 @@ struct Parameter2Processor : public SoundProcessor
     virtual DspFloatType Tick(DspFloatType a, DspFloatType b) = 0;
 
     void ProcessBlock(size_t n, DspFloatType * x, DspFloatType * y, DspFloatType * output) {
+        #pragma omp simd
         for(size_t i = 0; i < n; i++)
             output[i] = Tick(x[i],y[i]);
     }
@@ -438,6 +441,7 @@ struct StereoSplitterProcessor : public SoundProcessor
     virtual DspFloatType Tick(DspFloatType in, DspFloatType &a, DspFloatType &b) = 0;
 
     void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * a, DspFloatType * b) {
+        #pragma omp simd
         for(size_t i = 0; i < n; i++)
         {   
             DspFloatType x = a[i];
@@ -448,26 +452,7 @@ struct StereoSplitterProcessor : public SoundProcessor
 };
 
 struct OscillatorProcessor : public MonoProcessor
-{
-    std::vector<OscillatorProcessor*> slaves;
-    
-    int    m_waveform = 0;
-    DspFloatType m_morph = 0;
-    DspFloatType m_freq  = 440.0f;
-    DspFloatType m_phase = 0;
-    DspFloatType m_index = 1;
-    DspFloatType m_gain = 1;
-    DspFloatType m_fm = 0;
-    DspFloatType m_pm = 0;
-    DspFloatType m_fenv = 1;
-    DspFloatType m_penv = 1;  
-    DspFloatType m_drift = 0;  
-    DspFloatType m_mod = 1;
-    DspFloatType m_cmod = 1;
-    DspFloatType m_env = 1;
-    DspFloatType m_lfo = 1;
-    DspFloatType m_pwm = 0.5;
-
+{    
     OscillatorProcessor() : MonoProcessor() 
     {
         
@@ -476,33 +461,11 @@ struct OscillatorProcessor : public MonoProcessor
         return MONO_OSCILLATOR_PROCESSOR;
     }
 
-    /*
-    virtual void  setWaveform(int waveform) { m_waveform = waveform; }
-    virtual void  setFrequency(DspFloatType f) { m_freq = f; }
-    virtual void  setFrequencyCV(DspFloatType f) { m_freq = cv2freq(f); }
-    virtual void  setPWM(DspFloatType p) { m_pwm = p; }
-    virtual void  setPhase(DspFloatType p) { m_phase =p; }
-    virtual void  setGain(DspFloatType a) { m_gain = a; }
-    virtual void  setIndex(DspFloatType i) { m_index = i; }
-    virtual void  setFM(DspFloatType f) { m_fm = f; }
-    virtual void  setPM(DspFloatType p) { m_pm = p; }
-    virtual void  setFreqEnv(DspFloatType e) { m_fenv = e; }
-    virtual void  setPhaseEnv(DspFloatType e) { m_penv = e; }
-    virtual void  setLFO(DspFloatType r) { m_lfo = r; }    
-    virtual void  setModulator(DspFloatType r) { m_mod = r; }
-    virtual void  setCModulator(DspFloatType r) { m_cmod = r; }
-    virtual void  setEnvelope(DspFloatType e) { m_env = e; }
-    virtual void  setDrift(DspFloatType d) { m_drift = d; }
-    virtual void  sync() { m_phase = 0; }
-
-    virtual void  randomize() {
-
-    }
-    */
     virtual DspFloatType Tick(DspFloatType I=0, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0) = 0;    
 
     virtual void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
     {
+        #pragma omp simd
         for(size_t i = 0; i < n; i++) in[i] = Tick(out[i]);
     }
 };
@@ -515,80 +478,7 @@ struct FilterProcessor : public MonoProcessor
     ObjectType getType() const {
         return MONO_FILTER_PROCESSOR;
     }
-    /*
-    DspFloatType m_cutoff = 1.0f;
-    DspFloatType m_resonance = 0.5f;
-    DspFloatType m_q = 0.5;
-    DspFloatType m_bw = 1;
-    DspFloatType m_gain = 1;
-    DspFloatType m_slope = 1;
-    DspFloatType m_A = 1;
-    DspFloatType m_X = 0;
-    DspFloatType m_Y = 0;
-    DspFloatType m_cMin = -1.0f;
-    DspFloatType m_cMax = 1.0f;
-    DspFloatType m_dc   = 0.0f;
-    DspFloatType m_distDB = 0.0f;
-    DspFloatType m_pre = 1.0f;
-    DspFloatType m_post = 1.0f;
-
-    virtual void updateTick(DspFloatType A = 1, DspFloatType X = 0, DspFloatType Y = 0) {
-        m_A = A;
-        m_X = X;
-        m_Y = Y;
-    }
-    virtual void setA(DspFloatType A) {
-        m_A = A;
-    }
-    virtual void setX(DspFloatType X) {
-        m_X = X;        
-    }
-    virtual void setY(DspFloatType Y) {
-        m_Y = Y;
-    }
-    virtual void setDC(DspFloatType dc) {
-        m_dc = dc;
-    }
-    virtual void setMin(DspFloatType min) {
-        m_cMin = min;
-    }
-    virtual void setMax(DspFloatType max) {
-        m_cMax = max;
-    }
-    virtual void setDistDB(DspFloatType db) {
-        m_distDB = db;
-    }
-    virtual void setPre(DspFloatType p) {
-        m_pre = p;
-    }
-    virtual void setPost(DspFloatType p) {
-        m_post = p;
-    }
-    virtual void setCutoff(DspFloatType c) {
-        m_cutoff = c;
-    }
-    virtual void setResonance(DspFloatType r) {
-        m_resonance = r;
-    }
-    virtual void setCutoffCV(DspFloatType f) {
-        m_cutoff = cv2freq(f);
-    }
-    virtual void setResonanceCV(DspFloatType r) {
-        m_resonance  = r/10.0;
-    }
-    virtual void setQ(DspFloatType q) {
-        m_q = q;
-    }
-    virtual void setBW(DspFloatType bw) {
-        m_bw = bw;
-    }
-    virtual void setSlope(DspFloatType s) {
-        m_slope = s;
-    }
-    virtual void setGain(DspFloatType g) {
-        m_gain = g;
-    }
-    */
+    
     virtual DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X =0, DspFloatType Y=0)=0;
 
     // cascade
@@ -600,6 +490,7 @@ struct FilterProcessor : public MonoProcessor
     // cascade
     void ProcessBlock(size_t numSamples, DspFloatType * inputs, DspFloatType * outputs)
     {
+        #pragma omp simd
         for(size_t i = 0; i < numSamples; i++)
         {
             outputs[i] = Run(inputs[i]);
@@ -651,6 +542,7 @@ struct StereoOscillatorProcessor : public StereoProcessor
     void ProcessBlock(size_t n, DspFloatType ** out)
     {
         DspFloatType tick;
+        #pragma omp simd
         for(size_t i = 0; i < n; i++)
         {
             tick = osc->Tick();
@@ -692,6 +584,7 @@ struct StereoGeneratorProcessor : public StereoProcessor
     void ProcessBlock(size_t n, DspFloatType ** out)
     {
         DspFloatType tick;
+        #pragma omp simd
         for(size_t i = 0; i < n; i++)
         {
             tick = osc->Tick();
@@ -1175,6 +1068,7 @@ struct MonoBlendOperatorProcessor : public MonoOperatorProcessor
         for(i++; i != list.end(); i++)
         {
             GetSamples(*i,n,temp.data(),temp.data());
+            #pragma omp simd
             for(size_t j = 0; j < n; j++)
                 outputs[j] = outputs[j] + blend*(temp[j]-outputs[j]);
         }

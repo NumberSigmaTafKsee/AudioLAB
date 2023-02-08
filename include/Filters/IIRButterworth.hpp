@@ -721,7 +721,7 @@ namespace Filters::IIR::ButterworthFilters
         {
             Q = q;
         }        
-        void setCutoff(float fc)
+        void setCutoff(DspFloatType fc)
         {
             Fc = fc;
 
@@ -768,7 +768,7 @@ namespace Filters::IIR::ButterworthFilters
             R = r;
             setCutoff(Fc);
         }        
-        void setCutoff(float fc)
+        void setCutoff(DspFloatType fc)
         {
             Fc = fc;
 
@@ -819,7 +819,7 @@ namespace Filters::IIR::ButterworthFilters
             Q = q;
             setCutoff(Fc);
         }        
-        void setCutoff(float fc)
+        void setCutoff(DspFloatType fc)
         {
             Fc = fc;
 
@@ -873,7 +873,7 @@ namespace Filters::IIR::ButterworthFilters
                 Q *= q;
         }
         
-        void setCutoff(float fc)
+        void setCutoff(DspFloatType fc)
         {
             Fc = fc;
 
@@ -925,7 +925,7 @@ namespace Filters::IIR::ButterworthFilters
             setCutoff(Fc);
         }
         
-        void setCutoff(float fc)
+        void setCutoff(DspFloatType fc)
         {
             Fc = fc;
 
@@ -979,7 +979,7 @@ namespace Filters::IIR::ButterworthFilters
             for(size_t i = 0; i < order; i++)
                 Q *= q;
         }        
-        void setCutoff(float fc)
+        void setCutoff(DspFloatType fc)
         {
             Fc = fc;
 
@@ -1031,7 +1031,7 @@ namespace Filters::IIR::ButterworthFilters
         {
             Q = q;
         }        
-        void setCutoff(float fc)
+        void setCutoff(DspFloatType fc)
         {
             Fc = fc;
 
@@ -1082,7 +1082,7 @@ namespace Filters::IIR::ButterworthFilters
         {
             Q = q;            
         }
-        void setCutoff(float fc)
+        void setCutoff(DspFloatType fc)
         {
             Fc = fc;
 
@@ -1130,7 +1130,7 @@ namespace Filters::IIR::ButterworthFilters
         void setQ(DspFloatType q) {
             Q = q;
         }
-        void setCutoff(float fc)
+        void setCutoff(DspFloatType fc)
         {
             Fc = fc;
 
@@ -1189,10 +1189,10 @@ namespace Filters::IIR::ButterworthFilters
             for(size_t i = 0; i < order; i++)
                 Q *= q;
         }
-        void setBandWidth(float BW) {
+        void setBandWidth(DspFloatType BW) {
             bw = BW;
         }
-        void setCutoff(float fc)
+        void setCutoff(DspFloatType fc)
         {
             Fc = fc;
 
@@ -1247,10 +1247,10 @@ namespace Filters::IIR::ButterworthFilters
         void setQ(DspFloatType q) {
             Q = q;
         }
-        void setBandWidth(float BW) {
+        void setBandWidth(DspFloatType BW) {
             bw = BW;
         }
-        void setCutoff(float fc)
+        void setCutoff(DspFloatType fc)
         {
             Fc = fc;
 
@@ -1313,10 +1313,10 @@ namespace Filters::IIR::ButterworthFilters
             for(size_t i = 0; i < order; i++)
                 Q *= q;
         }
-        void setBandWidth(float BW) {
+        void setBandWidth(DspFloatType BW) {
             bw = BW;
         }
-        void setCutoff(float fc)
+        void setCutoff(DspFloatType fc)
         {
             Fc = fc;
 

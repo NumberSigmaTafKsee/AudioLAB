@@ -83,6 +83,8 @@ namespace Analog::Filters::Moog::MoogVCF
         {
             return A*process(I);
         }
+
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out);
     };
 
 
@@ -138,6 +140,7 @@ namespace Analog::Filters::Moog::MoogVCF
         DspFloatType summing_junction = 0.0f;
 
         // Use filter_type to index into the two dimensional array
+        #pragma omp simd
         for (unsigned int i = 0; i < filters.size(); ++i) {
             if (i == 0) {
                 summing_junction += nonlinearity * filter_weights[filter_t][i];
@@ -157,5 +160,39 @@ namespace Analog::Filters::Moog::MoogVCF
 
         return summing_junction;
     }
-    
+    void MoogVCF::ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+    {
+        Undenormal denormals;
+        #pragma omp simd
+        for(size)
+        for(size_t s = 0; s < n; s++) {
+            DspFloatType feedback_loop = in - ( (delayed_filter_output - (in[s] * gComp)) * gRes * 4.0f );
+
+            // Use the hyperbolic tangent function to approximate the nonlinearity of an analog circuit
+            DspFloatType nonlinearity = tanhf (feedback_loop);
+
+            DspFloatType filter_out = 0.0f;
+            DspFloatType summing_junction = 0.0f;
+
+            // Use filter_type to index into the two dimensional array            
+            for (unsigned int i = 0; i < filters.size(); ++i) {
+                if (i == 0) {
+                    summing_junction += nonlinearity * filter_weights[filter_t][i];
+                    filter_out = filters[i].process(nonlinearity);
+                }
+                else {
+                    summing_junction += filter_out * filter_weights[filter_t][i];
+                    filter_out = filters[i].process(filter_out);
+                }
+            }
+
+            // This happens just before the multiplication by the coefficient E
+            delayed_filter_output = filter_out;
+
+            // Add the final weighting of the output outside of the for loop
+            summing_junction += filter_out * filter_weights[filter_t][4];
+
+            out[s] = summing_junction;
+        }
+    }   
 }

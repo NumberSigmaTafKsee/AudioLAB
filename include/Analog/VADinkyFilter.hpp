@@ -47,7 +47,31 @@ namespace Analog::Filters::DinkFilter
             return A*process(in); 
         }
         
-        
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++)
+            {
+                DspFloatType inputValue = in[i];
+                buf0 += cutoff * (inputValue - buf0 + (buf0-buf1)*feedbackAmount);
+                buf1 += cutoff * (buf0 - buf1);
+                buf2 += cutoff * (buf1 - buf2);
+                buf3 += cutoff * (buf2 - buf3);
+                switch (mode) {
+                    case FILTER_MODE_LOWPASS:
+                        out[i] =  buf3;
+                        break;
+                    case FILTER_MODE_HIGHPASS:
+                        out[i] =  inputValue - buf0;
+                        break;
+                    case FILTER_MODE_BANDPASS:
+                        out[i] =  buf0 - buf3;
+                        break;
+                    default:
+                        out[i] = buf3;
+                }
+            }
+        }
+
     private:
         DspFloatType cutoff;
         DspFloatType resonance;

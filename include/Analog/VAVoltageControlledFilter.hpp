@@ -44,18 +44,22 @@ namespace Analog::Filters::VoltageControlledFilter
 			DspFloatType deriv1[4], deriv2[4], deriv3[4], deriv4[4], tempState[4];
 
 			calculateDerivatives(input, deriv1, state);
+			#pragma omp simd
 			for (int i = 0; i < 4; i++)
 				tempState[i] = state[i] + 0.5f * dt * deriv1[i];
 
 			calculateDerivatives(input, deriv2, tempState);
+			#pragma omp simd
 			for (int i = 0; i < 4; i++)
 				tempState[i] = state[i] + 0.5f * dt * deriv2[i];
 
 			calculateDerivatives(input, deriv3, tempState);
+			#pragma omp simd
 			for (int i = 0; i < 4; i++)
 				tempState[i] = state[i] + dt * deriv3[i];
 
 			calculateDerivatives(input, deriv4, tempState);
+			#pragma omp simd
 			for (int i = 0; i < 4; i++)
 				state[i] += (1.0f / 6.0f) * dt * (deriv1[i] + 2.0f * deriv2[i] + 2.0f * deriv3[i] + deriv4[i]);
 		}

@@ -1,8 +1,8 @@
 #pragma once 
 
-#include "resampler.cc"   // define struct PluginLV2
-#include "resampler-table.cc"   // define struct PluginLV2
-#include "resampler.h"
+#include "DSP/resampler.cc"   // define struct PluginLV2
+#include "DSP/resampler-table.cc"   // define struct PluginLV2
+#include "DSP/resampler.h"
 
 class SimpleResampler {
  private:

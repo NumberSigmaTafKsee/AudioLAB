@@ -68,5 +68,27 @@ namespace Analog::Oscillators
 
             return out;        
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * output) {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
+                positionB += phase - lastPhase;
+                lastPhase = phase;
+
+                positionA = fmod(positionA, 1.0f);
+                positionB = fmod(positionB, 1.0f);
+
+                DspFloatType valueA = positionA * 2.0f - 1.0f;
+                DspFloatType valueB = positionB * 2.0f - 1.0f;
+                valueA = valueA * valueA;
+                valueB = valueB * valueB;
+                DspFloatType out = ((valueA - lastValueA) -(valueB - lastValueB)) * scaleFactor;
+                lastValueA = valueA;
+                lastValueB = valueB;
+
+                positionA += freq * invSampleRate;
+                positionB += freq * invSampleRate;
+                output[i] = out;
+            }
+        }
     };
 }

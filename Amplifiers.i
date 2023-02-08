@@ -1,5 +1,6 @@
 %module Amplifiers
 %{
+#define DSPFLOATDOUBLE    
 #include "SoundObject.hpp"
 
 #include <cassert>
@@ -37,8 +38,9 @@
 %include "std_vector.i"
 %include "std_list.i"
 %include "std_map.i"
-%include "lua_fnptr.i"
+//%include "lua_fnptr.i"
 
+#define DSPFLOATDOUBLE
 %include "SoundObject.hpp"
 
 %include "FX/Amplifier.hpp"

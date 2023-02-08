@@ -149,12 +149,14 @@ namespace Filters::FIR
             DspFloatType result;
             Undenormal denormals;
 
+            #pragma omp simd
             for(i = taps.size() - 1; i >= 1; i--){
                 sr[i] = sr[i-1];
             }	
             sr[0] = data_sample;
 
             result = 0;
+            #pragma omp simd
             for(i = 0; i < taps.size(); i++) result += sr[i] * taps[i];
 
             return result;

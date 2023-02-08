@@ -155,9 +155,65 @@ namespace Analog::Distortion::Diode
 			return A*process(I);
 		}
 
-		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {			
+			#pragma omp simd			
 			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
 		}
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+		{
+			#pragma omp simd
+			for(size_t i = 0; i < n; i++)
+			{
+				iter = 0;
+				const temp p = x + in[i];		
+				y = Ni * Vt * asinh(p / (2 * Is * R));
+				temp res = func(y, p);
+				temp J = dfunc(y);
+				temp step = res / J;
+				temp cond = fabsf(step);
+
+				while ((cond > tol) && (iter < maxIters))
+				{
+					// Cap step size if necessary
+					if (step > cap)
+					{
+						step = cap;
+					}
+					if (step < -1.0f * cap)
+					{
+						step = -1.0f * cap;
+					}
+
+					// Newton step
+					y -= step;
+					
+					// Check argument
+					temp arg = y / (Ni * Vt);
+
+					// Compute residual and jacobian
+					if (fabsf(arg) < 5)
+					{
+						res = fastFunc(y, p);
+						J = fastDfunc(y);
+					}
+					else
+					{
+						res = func(y, p);
+						J = dfunc(y);
+					}
+
+					// Calculate step
+					step = res / J;
+
+					iter++;
+					cond = fabsf(step);
+				}
+				// update state variable
+				x =  4.0f * fs * y * R * C - x;
+				out[i] = y;
+			}
+		}
+
 	private:
 
 		// Sample Rate

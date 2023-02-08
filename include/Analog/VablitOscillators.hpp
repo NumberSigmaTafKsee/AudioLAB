@@ -125,8 +125,24 @@ namespace Analog::Oscillators
             if ( phase_ >= M_PI ) phase_ -= M_PI;
             y = clamp(tmp,-1,1);        
             y -= block.process(y);
-            return 2*(0.8*y+0.47)-1;
+            return 1.9*y;
         }                
+
+        void ProcessSIMD(size_t n, DspFloatType * out)
+        {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++)
+            {
+                DspFloatType tmp = BlitDSF(phase_,m_,p_,a_);        
+                tmp += state_ - C2_;
+                state_ = tmp * 0.995;        
+                phase_ += rate_;
+                if ( phase_ >= M_PI ) phase_ -= M_PI;
+                y = clamp(tmp,-1,1);        
+                y -= block.process(y);
+                out[i] = 1.9*y;
+            }
+        }
     };
 
     struct blitSquare : public OscillatorProcessor
@@ -239,9 +255,26 @@ namespace Analog::Oscillators
             if ( phase_ >= 2*M_PI ) phase_ -= 2*M_PI;
             y = state_;
             y -= block.process(y);
-            return 2*((y+D)*0.7+0.15)-1;
+            return y;
         }
 
+        void ProcessSIMD(size_t n, DspFloatType * out)
+        {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++)
+            {
+                DspFloatType tmp = BlitDSF(phase_,m_,p_,a_);        
+                DspFloatType tmp2= BlitDSF(phase_+D*M_PI,m_,p_,a_);
+                tmp      = tmp - tmp2;
+                //tmp     += state_ - C2_;        
+                state_ += tmp * 0.995;
+                phase_ += rate_;
+                if ( phase_ >= 2*M_PI ) phase_ -= 2*M_PI;
+                y = state_;
+                y -= block.process(y);
+                out[i] = y;
+            }
+        }
     };
 
     struct blitTriangle : public OscillatorProcessor
@@ -296,6 +329,20 @@ namespace Analog::Oscillators
             DspFloatType kaka = b1.process(triangle);
             triangle -= kaka;
             return 4*triangle;
+        }
+
+        void ProcessSIMD(size_t n, DspFloatType * out)
+        {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++)
+            {
+                DspFloatType x = sqr.Tick();
+                DspFloatType a = 1.0 - 0.1*std::fmin(1,sqr.f/1000.0);
+                triangle = a*triangle + x/sqr.p_;
+                DspFloatType kaka = b1.process(triangle);
+                triangle -= kaka;                
+                out[i] = 4*triangle;
+            }
         }
     };
 }

@@ -236,7 +236,7 @@ namespace IIRFilters::Butterworth
                 DspFloatType x1 = abs(poles[0]*poles[1]);
                 c.z[0] = gain*abs(zeros[0]*zeros[1])/x1;
                 c.z[1] = gain*abs(-zeros[0]-zeros[1])/x1;
-                c.z[2] = 1.0/x1;
+                c.z[2] = gain/x1;
                 c.p[0] = 1.0;
                 c.p[1] = (1.0/Q)*abs(-poles[0]-poles[1])/x1;
                 c.p[2] = 1.0/x1;
@@ -268,7 +268,7 @@ namespace IIRFilters::Butterworth
                 DspFloatType x1 = abs(poles[0]*poles[1]);
                 c.z[0] = gain*abs(zeros[0]*zeros[1])/x1;
                 c.z[1] = gain*abs(-zeros[0]-zeros[1])/x1;
-                c.z[2] = 1.0/x1;
+                c.z[2] = gain/x1;
                 c.p[0] = 1.0;
                 c.p[1] = (1.0/Q)*abs(-poles[0]-poles[1])/x1;
                 c.p[2] = 1.0/x1;

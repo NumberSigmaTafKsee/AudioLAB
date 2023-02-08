@@ -60,5 +60,16 @@ namespace Analog::Oscillators
             _out = r1-r2;            
             return _out;
         }
+        void ProcessSIMD(size_t n, DspFloatType * out) {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++)
+            {
+                DspFloatType r1 = s1.Tick();                    
+                DspFloatType r2 = s2.Tick();                
+                _out = r1-r2;            
+                out[i] = _out;
+            }
+        }
+        
     };
 }

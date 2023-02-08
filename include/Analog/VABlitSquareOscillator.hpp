@@ -60,7 +60,22 @@ namespace Analog::Oscillators
             _out = r2-r1;
             DspFloatType x = _out;
             x -= block.process(x);
-            return 0.9*(2*x);
+            return x;
+        }
+
+        void ProcessSIMD(size_t n, DspFloatType * out)
+        {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++)
+            {
+                DspFloatType r1 = s1.Tick();        
+                s2.setPhaseOffset(s1.getPhase() + _duty*M_PI);
+                DspFloatType r2 = s2.Tick();                
+                _out = r2-r1;
+                DspFloatType x = _out;
+                x -= block.process(x);
+                out[i] = x;
+            }
         }
     };
 }

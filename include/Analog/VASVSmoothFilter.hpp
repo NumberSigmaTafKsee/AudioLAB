@@ -90,6 +90,6 @@ namespace Analog::Filters::SmoothSVF
             }
             
             return A/scale*lpSmooth.process(low);
-        }
+        }        
     };
 }

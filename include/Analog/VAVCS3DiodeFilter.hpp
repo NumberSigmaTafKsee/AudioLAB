@@ -75,7 +75,7 @@ struct VCS3DiodeFilter : public MonoFXProcessor
         
         auto I0 = 8 * C * VT * 2 * Fs * tan((M_PI * biasParameter) / Fs);
         DspFloatType K = gainParameter;
-
+        #pragma omp simd
         for (auto n = 0; n < numSamples; n++)
         {
             Vin = InputChannel[n];
@@ -105,5 +105,11 @@ struct VCS3DiodeFilter : public MonoFXProcessor
             s4 = 1 / (2 * Fs) * u4 + VC4;
             OutputChannel[n] = DspFloatType(Vout);        
         }    
+    }
+    void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+        ProcessBlock(n,in,out);
+    }
+    void ProcessInplace(size_t n, DspFloatType * buffer) {
+        ProcessBlock(n,buffer,buffer);
     }
 };

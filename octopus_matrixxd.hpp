@@ -12,6 +12,10 @@ namespace Octopus
 
         double& operator[](size_t i);
         double  operator[](size_t i) const;
+
+        double __getitem__(size_t i);
+        void __setitem__(size_t i, const double & v);
+
     };
     struct OctopusMatrixXd : public Matrix
     {
@@ -137,7 +141,7 @@ namespace Octopus
         #ifdef SWIG
         %extend
         {
-            MatrixViewXd __getitem__(size_t i) { return MatrixViewXd($self,i); }            
+            MatrixViewXd __getitem__(size_t i) { return MatrixViewXd($self,i-1); }            
 
             size_t rows() { return $self->rows(); }
             size_t cols() { return $self->cols(); }
@@ -238,4 +242,6 @@ namespace Octopus
     inline double MatrixViewXd::operator[](size_t i) const {
         return (*matrix)(row,i);
     }
+    inline double MatrixViewXd::__getitem__(size_t i) { return (*this)[i-1]; }
+    inline void MatrixViewXd::__setitem__(size_t i, const double & v) { (*this)[i-1] = v; }
 }

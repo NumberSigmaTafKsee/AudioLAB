@@ -28,6 +28,7 @@ namespace Analog::Filters::Moog::MoogFilterII
 		void init(DspFloatType sampleRate);
 		void set(DspFloatType cutoff, DspFloatType resonance);
 		DspFloatType processSample(DspFloatType in);
+		
 		void  ProcessBlock(size_t n, DspFloatType * inputs, DspFloatType * outputs);
 
 		enum
@@ -85,35 +86,8 @@ namespace Analog::Filters::Moog::MoogFilterII
 	// Filter (in [-1.0...+1.0])
 	DspFloatType MoogFilterII::processSample(DspFloatType input)
 	{
-		DspFloatType in = input;
-		DspFloatType f = cutoff * 1.16;
-		DspFloatType fb = resonance * (1.0 - 0.15 * f * f);
-		in -= out4 * fb;
-		in *= 0.35013 * (f * f) * (f * f);
-		out1 = in + 0.3 * in1 + (1 - f) * out1; // Pole 1
-		in1 = in;
-		out2 = out1 + 0.3 * in2 + (1 - f) * out2;  // Pole 2
-		in2 = out1;
-		out3 = out2 + 0.3 * in3 + (1 - f) * out3;  // Pole 3
-		in3 = out2;
-		out4 = out3 + 0.3 * in4 + (1 - f) * out4;  // Pole 4
-		in4 = out3;
-
-		switch (passMode)
-		{
-		case LOWPASS:
-			return out4;
-			break;
-		case HIGHPASS:
-			return input - out4 - out1;
-			break;
-		case BANDPASS:
-			return out4 - out1;
-			break;
-		default:
-			return out4;
-		}
-
+		Undenormal denormal;
+		
 		// Lowpass = out4
 		// Highpass = input - out4 - out1
 		// Bandpass = out4 - out1
@@ -121,9 +95,38 @@ namespace Analog::Filters::Moog::MoogFilterII
 
 	void MoogFilterII::ProcessBlock(size_t numSamples, DspFloatType * inputs, DspFloatType * outputs)
 	{
+		Undenormal denormal;
+		#pragma omp simd
 		for (int s = 0; s < numSamples; s++)
 		{
-			outputs[s] =  processSample(inputs[s]);
+			const DspFloatType in = inputs[i];
+			DspFloatType f = cutoff * 1.16;
+			DspFloatType fb = resonance * (1.0 - 0.15 * f * f);
+			in -= out4 * fb;
+			in *= 0.35013 * (f * f) * (f * f);
+			out1 = in + 0.3 * in1 + (1 - f) * out1; // Pole 1
+			in1 = in;
+			out2 = out1 + 0.3 * in2 + (1 - f) * out2;  // Pole 2
+			in2 = out1;
+			out3 = out2 + 0.3 * in3 + (1 - f) * out3;  // Pole 3
+			in3 = out2;
+			out4 = out3 + 0.3 * in4 + (1 - f) * out4;  // Pole 4
+			in4 = out3;
+
+			switch (passMode)
+			{
+			case LOWPASS:
+				outputs[s] = out4;
+				break;
+			case HIGHPASS:
+				outputs[s] = input - out4 - out1;
+				break;
+			case BANDPASS:
+				outputs[s] = out4 - out1;
+				break;
+			default:
+				outputs[s] =  out4;
+			}			
 		}
 	}
 }

@@ -1,5 +1,6 @@
 %module analog_krajeski_moog
 %{
+#define DSPFLOATDOUBLE    
 #include "SoundObject.hpp"
 #include <cassert>
 #include <random>
@@ -20,6 +21,7 @@
 %include "std_map.i"
 %include "lua_fnptr.i"
 
+#define DSPFLOATDOUBLE
 %include "SoundObject.hpp"
 
 %include "analog_krajeski_moog_ladder_filter.hpp"

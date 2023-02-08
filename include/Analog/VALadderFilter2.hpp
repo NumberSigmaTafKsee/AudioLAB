@@ -80,6 +80,7 @@ namespace Analog::Filters::LadderFilter2
         DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {
 			return A*process(I);
 		}
+
     private:
         
         // variables
@@ -154,6 +155,7 @@ namespace Analog::Filters::LadderFilter2
     {
         for(int i = 0; i < mOversampleFactor; ++i) // repeat sample processing per oversampling factor
         {
+            #pragma omp simd
             for(int filterIndex = 0; filterIndex < NUMBER_OF_FILTERS; ++filterIndex) // go through filter stages
             {
                 // compute voltage differential at current time step

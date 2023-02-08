@@ -1,10 +1,19 @@
 require('stk')
 require('AudioTK')
-stk.setRawwavePath("Data/rawwaves")
-stk.setSampleRate(44100)
+require('Amplifiers')
+require('audio_lfo')
+
+lfo = audio_lfo.LFO(44100)
+lfo:setRate(0.00005)
+stk.Stk.setRawwavePath("Data/rawwaves")
+stk.Stk.setSampleRate(44100)
 adsr = stk.ADSR()
+chorus = stk.Chorus()
+chorus:setModFrequency(12)
 diode = AudioTK.MonoHalfTanhShaper()
 delay = AudioTK.MonoFDNDelay(44100)
+-- it needs to be oversampled to reduce the aliasing
+clip  = Amplifiers.MorphClipper(Amplifiers.ClipFunction.SERPENT_CURVE,Amplifiers.ClipFunction.ERFMOIDER)
 diode:setPort(AudioTK.MonoHalfTanhShaper.PORT_COEFF,10)
 delay:setPort(AudioTK.MonoFDNDelay.PORT_INGAIN,1)
 delay:setPort(AudioTK.MonoFDNDelay.PORT_OUTGAIN,1)
@@ -32,7 +41,6 @@ end
 
 fc = 440.0
 q  = 0.5
-
 
 function freq_to_midi(f)
     return 12.0*math.log(f/440.0)/math.log(2) + 69
@@ -69,7 +77,9 @@ function noise(input,output,frames)
     end
     ]]
     for i=0,frames-1 do        
-        outbuf[i] = voicer:tick()
+        local t = lfo:tick()
+        chorus:setModDepth(t)
+        outbuf[i] = chorus:tick(clip:Tick(voicer:tick(),1.1,t))
     end
     
     for i=0,frames-1 do

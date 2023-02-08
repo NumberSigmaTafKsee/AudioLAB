@@ -10,6 +10,23 @@
 
 namespace Analog
 {
+    // Amplifier = rtspice, wavy/rt-wdf, smartguitar, wavenet
+    // Waveshapers
+    // Clippers
+    enum {
+        RTSPICE,        
+        RTWDF,          
+        FXWDF,          // Will Pirkins FXObjects
+        SMARTGUITAR,    // Neutron Network https://github.com/GuitarML/SmartGuitarAmp
+        SMARTPEDAL,     // https://github.com/GuitarML/SmartGuitarPedal
+        PEDALNET,       // https://github.com/GuitarML/pedalnet
+        PEDALNETRT,     // https://github.com/GuitarML/PedalNetRT
+        GUITARAMP,      // AudioTK        
+        TOOBAMP,        // Neutron Network https://github.com/rerdavies/ToobAmp
+        WAVENET,        // https://github.com/damskaggep/WaveNetVA
+        WAVESHAPER,     // y = function<foo> 
+    };
+
     struct VCA : AmplifierProcessor
     {
     private:
@@ -22,18 +39,18 @@ namespace Analog
         DspFloatType Eta = 1.68;
         DspFloatType Is = .105;    
         DspFloatType dcBias = 0.0;
-        
+        uint32_t     oversample=4;
         
 
         VCA(DspFloatType g = 1.0, DspFloatType sampleRate=44100.0) 
         :   AmplifierProcessor(),
-            gainSmooth(sampleRate,1/0.1),
-            vtSmooth(sampleRate,1/0.1),
-            etaSmooth(sampleRate,1/0.1),
-            isSmooth(sampleRate,1/0.1) 
+            gainSmooth(sampleRate*oversample,1/0.1),
+            vtSmooth(sampleRate*oversample,1/0.1),
+            etaSmooth(sampleRate*oversample,1/0.1),
+            isSmooth(sampleRate*oversample,1/0.1) 
         {
             gain = pow(10,g/20.0);
-            clip.prepare(sampleRate);
+            clip.prepare(sampleRate*oversample);
             clip.setCircuitParams(1000.0f);
         }
 
@@ -86,18 +103,29 @@ namespace Analog
             
         }
         DspFloatType Tick(DspFloatType I, DspFloatType A = 1, DspFloatType X = -1, DspFloatType Y = 1)
-        {        
-            DspFloatType r = gainSmooth.process(gain)*(I+dcBias);                
+        {       
+            DspFloatType r = gain*(I+dcBias);                 
             if(r < X) r = X;
             if(r > Y) r = Y;
-            r = std::tanh(FX::Distortion::Diode::Diode(A*r,vtSmooth.process(Vt), etaSmooth.process(Eta), isSmooth.process(Is)));            
+            r = std::tanh(FX::Distortion::Diode::Diode(A*r,Vt, Eta, Is));            
             clip.processSample(A*r);
             r -= dcBias;                            
             return r;
         }
 
         void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
-            for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
+                DspFloatType I = in[i];
+                DspFloatType r = gain*(I+dcBias);                 
+                r = std::tanh(FX::Distortion::Diode::Diode(r,Vt, Eta, Is));            
+                clip.processSample(r);
+                r -= dcBias;                            
+                out[i] = r;
+            }
+        }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessBlock(n,in,out);
         }
     };
 }

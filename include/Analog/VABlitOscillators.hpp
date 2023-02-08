@@ -201,6 +201,7 @@ namespace Analog::Oscillators::Blit
         return tick();
       }
 
+    void ProcessSIMD(size_t n, DspFloatType * out);
     enum {
         PORT_FREQ,
         PORT_PHASE,
@@ -254,6 +255,29 @@ namespace Analog::Oscillators::Blit
     return 2*y;
   }
 
+  void BlitSaw::ProcessSIMD(size_t n, DspFloatType * out)
+  {
+    #pragma omp simd
+    for(size_t i = 0; i < n; i++)
+    {
+      DspFloatType tmp, denominator = sin( phase_ );
+      if ( fabs(denominator) <= std::numeric_limits<DspFloatType>::epsilon() )
+        tmp = a_;
+      else {
+        tmp =  sin( m_ * phase_ );
+        tmp /= p_ * denominator;
+      }
+
+      tmp += state_ - C2_;
+      state_ = tmp * 0.995;
+      //phase_   = x;
+      phase_ += rate_;
+      if ( phase_ >= M_PI ) phase_ -= M_PI;
+        
+      y = tmp;
+      out[i] = 2*y;      
+    }
+  }
 
   inline BlitSaw:: BlitSaw( DspFloatType frequency, DspFloatType sampleRate ) : OscillatorProcessor()
   {
@@ -381,6 +405,8 @@ namespace Analog::Oscillators::Blit
         return tick();
       }
 
+    void ProcessSIMD(size_t n, DspFloatType * out);
+
     void updateHarmonics( void );
 
     unsigned int nHarmonics_;
@@ -435,7 +461,49 @@ namespace Analog::Oscillators::Blit
     return 0.9*y/2.0;
   }
 
+  void BlitSquare::ProcessSIMD(size_t n, DspFloatType * out)
+  {
+    #pragma omp simd
+    for(size_t i = 0; i < n; i++)
+    {
+      DspFloatType temp = lastBlitOutput_;
 
+      // A fully  optimized version of this would replace the two sin calls
+      // with a pair of fast sin oscillators, for which stable fast 
+      // two-multiply algorithms are well known. In the spirit of STK,
+      // which favors clarity over performance, the optimization has 
+      // not been made here.
+
+      // Avoid a divide by zero, or use of a denomralized divisor
+      // at the sinc peak, which has a limiting value of 1.0.
+      DspFloatType denominator = sin( phase_ );
+      
+      if ( fabs( denominator )  < std::numeric_limits<DspFloatType>::epsilon()) {
+        // Inexact comparison safely distinguishes betwen *close to zero*, and *close to M_PI*.
+        if ( phase_ < 0.1f || phase_ > 2*M_PI - 0.1f )
+          lastBlitOutput_ = a_;
+        else
+          lastBlitOutput_ = -a_;
+      }
+      else {
+        lastBlitOutput_ =  sin( m_ * phase_ );        
+        lastBlitOutput_ /= (p_ * denominator);
+        
+      }
+      
+      lastBlitOutput_ += temp;
+      
+      // Now apply DC blocker.
+      y = lastBlitOutput_ - dcbState_ + 0.999 * y;
+      dcbState_ = lastBlitOutput_;
+
+      phase_ += rate_;
+      if ( phase_ >= 2*M_PI ) phase_ -= 2*M_PI;
+
+      out[i] = 0.9*y/2.0;
+    }
+  }
+  
   BlitSquare:: BlitSquare( DspFloatType frequency,DspFloatType sampleRate ) : OscillatorProcessor()
   {
     this->sampleRate = sampleRate;

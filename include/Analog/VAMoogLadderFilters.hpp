@@ -114,10 +114,11 @@ public:
 
 	}	
 	// DF-II impl	
-	void Process(uint32_t n, DspFloatType * samples)
+	void ProcessBlock(uint32_t n, DspFloatType * samples)
 	{
         Undenormal denormal;
 		DspFloatType out = 0;
+		#pragma omp simd
 		for (int s = 0; s < n; ++s)
 		{
 			out = bCoef[0] * samples[s] + w[0];
@@ -598,6 +599,22 @@ public:
 		b6 = s * 0.115926;
 		return pink;
 	}
+	void ProcessSIMD(size_t n, DspFloatType * out)
+	{
+		#pragma omp simd
+		for(size_t i = 0; i < n; i++) 
+		{
+			b0 = 0.99886 * b0 + s * 0.0555179;
+			b1 = 0.99332 * b1 + s * 0.0750759;
+			b2 = 0.96900 * b2 + s * 0.1538520;
+			b3 = 0.86650 * b3 + s * 0.3104856;
+			b4 = 0.55000 * b4 + s * 0.5329522;
+			b5 = -0.7616 * b5 - s * 0.0168980;
+			const DspFloatType pink = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + (s * 0.5362)) * 0.11;
+			b6 = s * 0.115926;
+			out[i] = pink;
+		}
+	}
 };
 
 class BrowningFilter
@@ -611,6 +628,16 @@ public:
 		DspFloatType brown = (l + (0.02f * s)) / 1.02f;
 		l = brown;
 		return brown * 3.5f; // compensate for gain
+	}
+	void ProcessSIMD(size_t n, DspFloatType * out)
+	{
+		#pragma omp simd
+		for(size_t i = 0; i < n; i++) 
+		{
+			DspFloatType brown = (l + (0.02f * s)) / 1.02f;
+			l = brown;
+			out[i] =  brown * 3.5f; // compensate for gain
+		}
 	}
 };
 
@@ -700,10 +727,12 @@ struct NoiseGenerator
 		default: throw std::runtime_error("Invalid noise type");
 		}
 	}
-	void Process(size_t n, DspFloatType * input, DspFloatType * output) {
+	void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+		#pragma omp simd
 		for(size_t i = 0; i < n; i++) output[i] = input[i]*Tick();
 	}
-	void Process(DspFloatType * samples,size_t n) {
+	void ProcessBlock(DspFloatType * samples,size_t n) {
+		#pragma omp simd
 		for(size_t i = 0; i < n; i++) samples[i] = samples[i]*Tick();
 	}
 };
@@ -755,9 +784,10 @@ public:
 
 	}
 
-	void Process(uint32_t n, DspFloatType * _input, DspFloatType * _output)
+	void ProcessBlock(uint32_t n, DspFloatType * _input, DspFloatType * _output)
 	{
         Undenormal denormal;
+		#pragma omp simd
 		for (uint32_t s = 0; s < n; ++s)
 		{
 			// Oversample
@@ -779,9 +809,10 @@ public:
 		}
 	}
 
-	void Process(size_t n, DspFloatType * _input)
+	void ProcessInplace(size_t n, DspFloatType * _input)
 	{
         Undenormal denormal;
+		#pragma omp simd
 		for (uint32_t s = 0; s < n; ++s)
 		{
 			// Oversample
@@ -804,10 +835,24 @@ public:
 	}
 
 	
-	DspFloatType Tick(DspFloatType input) {
-		DspFloatType r = 0.0;
-		Process(1,&input,&r);
-		return r;
+	DspFloatType Tick(DspFloatType input) {		
+		// Oversample
+		#pragma omp simd
+		for (int j = 0; j < 2; j++)
+		{
+			DspFloatType input = _input[s] - resQuad * delay[5];
+			delay[0] = stage[0] = delay[0] + tune * (tanh(input * thermal) - stageTanh[0]);
+			for (int k = 1; k < 4; k++)
+			{
+				input = stage[k-1];
+				stage[k] = delay[k] + tune * ((stageTanh[k-1] = tanh(input * thermal)) - (k != 3 ? stageTanh[k] : tanh(delay[k] * thermal)));
+				delay[k] = stage[k];
+			}
+			// 0.5 sample delay for phase compensation
+			delay[5] = (stage[3] + delay[4]) * 0.5;
+			delay[4] = stage[3];
+		}		
+		return delay[5];
 	}
 
 	virtual void SetResonance(DspFloatType r) override
@@ -870,11 +915,11 @@ public:
 
 	virtual ~ImprovedMoog() { }
 
-	void Process(size_t n, DspFloatType * samples)
+	void ProcesInplace(size_t n, DspFloatType * samples)
 	{
         Undenormal denormal;
 		DspFloatType dV0, dV1, dV2, dV3;
-
+		#pragma omp simd
 		for (int i = 0; i < n; i++)
 		{
 			dV0 = -g * (tanh((drive * samples[i] + resonance * V[3]) / (2.0 * VT)) + tV[0]);
@@ -901,11 +946,11 @@ public:
 		}
 	}
 
-	void Process(uint32_t n,DspFloatType * samples, DspFloatType * output)
+	void ProcessBlock(uint32_t n,DspFloatType * samples, DspFloatType * output)
 	{
         Undenormal denormal;
 		DspFloatType dV0, dV1, dV2, dV3;
-
+		#pragma omp simd
 		for (uint32_t i = 0; i < n; i++)
 		{
 			dV0 = -g * (tanh((drive * samples[i] + resonance * V[3]) / (2.0 * VT)) + tV[0]);
@@ -930,9 +975,7 @@ public:
 
 			output[i] = V[3];
 		}
-	}
-
-	
+	}	
 	virtual void SetResonance(DspFloatType r) override
 	{
 		resonance = r;
@@ -946,9 +989,33 @@ public:
 	}
 
 	DspFloatType Tick(DspFloatType input) {
-		DspFloatType r = input;
-		Process(1,&input,&r);
-		return r;
+		Undenormal denormal;
+		DspFloatType dV0, dV1, dV2, dV3;
+
+		#pragma omp simd 
+		{
+			dV0 = -g * (tanh((drive * samples[i] + resonance * V[3]) / (2.0 * VT)) + tV[0]);
+			V[0] += (dV0 + dV[0]) / (2.0 * sampleRate);
+			dV[0] = dV0;
+			tV[0] = tanh(V[0] / (2.0 * VT));
+
+			dV1 = g * (tV[0] - tV[1]);
+			V[1] += (dV1 + dV[1]) / (2.0 * sampleRate);
+			dV[1] = dV1;
+			tV[1] = tanh(V[1] / (2.0 * VT));
+
+			dV2 = g * (tV[1] - tV[2]);
+			V[2] += (dV2 + dV[2]) / (2.0 * sampleRate);
+			dV[2] = dV2;
+			tV[2] = tanh(V[2] / (2.0 * VT));
+
+			dV3 = g * (tV[2] - tV[3]);
+			V[3] += (dV3 + dV[3]) / (2.0 * sampleRate);
+			dV[3] = dV3;
+			tV[3] = tanh(V[3] / (2.0 * VT));
+		}
+		return V[3];
+
 	}
 private:
 
@@ -984,9 +1051,10 @@ public:
 
 	virtual ~KrajeskiMoog() { }
 
-	void Process(size_t n, DspFloatType * samples, DspFloatType * output)
+	void ProcessBlock(size_t n, DspFloatType * samples, DspFloatType * output)
 	{
         Undenormal denormal;
+		#pragma omp simd
 		for (uint32_t s = 0; s < n; ++s)
 		{
 			state[0] = tanh(drive * (samples[s] - 4 * gRes * (state[4] - gComp * samples[s])));
@@ -1000,9 +1068,10 @@ public:
 		}
 	}
 
-	void Process(size_t n, DspFloatType * samples)
+	void ProcessInplace(size_t n, DspFloatType * samples)
 	{
         Undenormal denormal;
+		#pragma omp simd
 		for (uint32_t s = 0; s < n; ++s)
 		{
 			state[0] = tanh(drive * (samples[s] - 4 * gRes * (state[4] - gComp * samples[s])));
@@ -1017,11 +1086,17 @@ public:
 	}
 	
 	DspFloatType Tick(DspFloatType input) {
-		DspFloatType r = 0.0;
-		Process(1,&input,&r);
-		return r;
-
+		Undenormal denormal;
+		state[0] = tanh(drive * (input - 4 * gRes * (state[4] - gComp * samples[s])));
+		#pragma omp simd
+		for(int i = 0; i < 4; i++)
+		{
+			state[i+1] = g * (0.3 / 1.3 * state[i] + 1 / 1.3 * delay[i] - state[i + 1]) + state[i + 1];
+			delay[i] = state[i];
+		}
+		return state[4];	
 	}
+
 	virtual void SetResonance(DspFloatType r) override
 	{
 		resonance = r;
@@ -1065,10 +1140,11 @@ public:
 
 	virtual ~MicrotrackerMoog() {}
 
-	void Process(size_t n, DspFloatType * samples, DspFloatType * output)
+	void ProcessBlock(size_t n, DspFloatType * samples, DspFloatType * output)
 	{
         Undenormal denormal;
 		DspFloatType k = resonance * 4;
+		#pragma omp simd
 		for (uint32_t s = 0; s < n; ++s)
 		{
 			// Coefficients optimized using differential evolution
@@ -1089,10 +1165,11 @@ public:
 		}
 	}
 
-	void Process(size_t n, DspFloatType * samples)
+	void ProcessInplace(size_t n, DspFloatType * samples)
 	{
         Undenormal denormal;
 		DspFloatType k = resonance * 4;
+		#pragma omp simd
 		for (uint32_t s = 0; s < n; ++s)
 		{
 			// Coefficients optimized using differential evolution
@@ -1139,17 +1216,28 @@ public:
 	}
 
 	DspFloatType Tick(DspFloatType input) {
-		DspFloatType r = 0.0;
-		Process(1,&input,&r);
-		return r;
-
+		Undenormal denormal;
+		DspFloatType k = resonance * 4;
+		#pragma omp simd
+		{
+			// Coefficients optimized using differential evolution
+			// to make feedback gain 4.0 correspond closely to the
+			// border of instability, for all values of omega.
+			DspFloatType out = p3 * 0.360891 + p32 * 0.417290 + p33 * 0.177896 + p34 * 0.0439725;
+			p34 = p33;
+			p33 = p32;
+			p32 = p3;
+			p0 += (fast_tanh(input - k * out) - fast_tanh(p0)) * cutoff;
+			p1 += (fast_tanh(p0) - fast_tanh(p1)) * cutoff;
+			p2 += (fast_tanh(p1) - fast_tanh(p2)) * cutoff;
+			p3 += (fast_tanh(p2) - fast_tanh(p3)) * cutoff;
+			return out;
+		}
 	}
-
 	virtual void SetResonance(DspFloatType r) override
 	{
 		resonance = r;
 	}
-
 	virtual void SetCutoff(DspFloatType c) override
 	{
 		cutoff = c * 2 * MOOG_PI / sampleRate;
@@ -1183,15 +1271,15 @@ public:
 		SetCutoff(1000.0f);
 		SetResonance(0.10f);
 	}
-
 	virtual ~MusicDSPMoog()
 	{
 
 	}
 
-	void Process(size_t n, DspFloatType * samples, DspFloatType * output)
+	void ProcessBlock(size_t n, DspFloatType * samples, DspFloatType * output)
 	{
         Undenormal denormal;
+		#pragma omp simd
 		for (uint32_t s = 0; s < n; ++s)
 		{
 			DspFloatType x = samples[s] - resonance * stage[3];
@@ -1214,9 +1302,10 @@ public:
 		}
 	}
 
-	void Process(size_t n, DspFloatType * samples)
+	void ProcessInplace(size_t n, DspFloatType * samples)
 	{
         Undenormal denormal;
+		#pragma omp simd
 		for (uint32_t s = 0; s < n; ++s)
 		{
 			DspFloatType x = samples[s] - resonance * stage[3];
@@ -1239,11 +1328,28 @@ public:
 		}
 	}
 
-    
 	DspFloatType Tick(DspFloatType input) {
-		DspFloatType r = 0.0;
-		Process(1,&input,&r);
-		return r;
+      	Undenormal denormal;
+		#pragma omp simd		
+		{
+			DspFloatType x = input - resonance * stage[3];
+
+			// Four cascaded one-pole filters (bilinear transform)
+			stage[0] = x * p + delay[0]  * p - k * stage[0];
+			stage[1] = stage[0] * p + delay[1] * p - k * stage[1];
+			stage[2] = stage[1] * p + delay[2] * p - k * stage[2];
+			stage[3] = stage[2] * p + delay[3] * p - k * stage[3];
+
+			// Clipping band-limited sigmoid
+			stage[3] -= (stage[3] * stage[3] * stage[3]) / 6.0;
+
+			delay[0] = x;
+			delay[1] = stage[0];
+			delay[2] = stage[1];
+			delay[3] = stage[2];
+
+			samples[s] = stage[3];
+		}
 	}
 
 	virtual void SetResonance(DspFloatType r) override
@@ -1302,14 +1408,24 @@ public:
 
 	DspFloatType Tick(DspFloatType s)
 	{
-        Undenormal denormal;
+        Undenormal denormal;				
 		s = s * gamma + feedback + epsilon * GetFeedbackOutput();
 		DspFloatType vn = (a0 * s - z1) * alpha;
 		DspFloatType out = vn + z1;
-		z1 = vn + out;
+		z1 = vn + out;		
 		return out;
 	}
-
+	void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * output) {
+		Undenormal denormal;
+		#pragma omp simd
+		for(size_t i = 0; i < n; i++) {
+			s = in * gamma + feedback + epsilon * GetFeedbackOutput();
+			DspFloatType vn = (a0 * s - z1) * alpha;
+			DspFloatType out = vn + z1;
+			z1 = vn + out;
+			output[i] = out;
+		}
+	}
 	void SetFeedback(DspFloatType fb) { feedback = fb; }
 	DspFloatType GetFeedbackOutput(){ return beta * (z1 + feedback * delta); }
 	void SetAlpha(DspFloatType a) { alpha = a; };
@@ -1355,9 +1471,10 @@ public:
 		delete LPF4;
 	}
 
-	void Process(size_t n, DspFloatType * samples, DspFloatType * output)
+	void ProcessBlock(size_t n, DspFloatType * samples, DspFloatType * output)
 	{
         Undenormal denormal;
+		#pragma omp simd
 		for (uint32_t s = 0; s < n; ++s)
 		{
 			DspFloatType input = samples[s];
@@ -1389,9 +1506,10 @@ public:
 				oberheimCoefs[4] * stage4;
 		}
 	}
-	void Process(size_t n, DspFloatType * samples)
+	void ProcessInplace(size_t n, DspFloatType * samples)
 	{
         Undenormal denormal;
+		#pragma omp simd
 		for (uint32_t s = 0; s < n; ++s)
 		{
 			DspFloatType input = samples[s];
@@ -1424,9 +1542,35 @@ public:
 		}
 	}
 	DspFloatType Tick(DspFloatType input) {
-		DspFloatType r;
-		Process(1,&input,&r);
-		return r;
+		Undenormal denormal;
+		#pragma omp simd		
+		{		
+			DspFloatType sigma =
+				LPF1->GetFeedbackOutput() +
+				LPF2->GetFeedbackOutput() +
+				LPF3->GetFeedbackOutput() +
+				LPF4->GetFeedbackOutput();
+
+			input *= 1.0 + K;
+
+			// calculate input to first filter
+			DspFloatType u = (input - K * sigma) * alpha0;
+
+			u = tanh(saturation * u);
+
+			DspFloatType stage1 = LPF1->Tick(u);
+			DspFloatType stage2 = LPF2->Tick(stage1);
+			DspFloatType stage3 = LPF3->Tick(stage2);
+			DspFloatType stage4 = LPF4->Tick(stage3);
+
+			// Oberheim variations
+			return
+				oberheimCoefs[0] * u +
+				oberheimCoefs[1] * stage1 +
+				oberheimCoefs[2] * stage2 +
+				oberheimCoefs[3] * stage3 +
+				oberheimCoefs[4] * stage4;
+		}
 	}
 	virtual void SetResonance(DspFloatType r) override
     {
@@ -1511,9 +1655,10 @@ public:
 	{
 	}
 
-	void Process(size_t n, DspFloatType * samples, DspFloatType * output)
+	void ProcessBlock(size_t n, DspFloatType * samples, DspFloatType * output)
 	{
         Undenormal denormal;
+		#pragma omp simd
 		for (uint32_t s = 0; s < n; ++s)
 		{
 			for (int j = 0; j < oversampleFactor; j++)
@@ -1557,14 +1702,17 @@ private:
 
 	void calculateDerivatives(DspFloatType input, DspFloatType * dstate, DspFloatType * state)
 	{
-		DspFloatType satstate0 = clip(state[0], saturation, saturationInv);
-		DspFloatType satstate1 = clip(state[1], saturation, saturationInv);
-		DspFloatType satstate2 = clip(state[2], saturation, saturationInv);
+		#pragma omp simd
+		{
+			DspFloatType satstate0 = clip(state[0], saturation, saturationInv);
+			DspFloatType satstate1 = clip(state[1], saturation, saturationInv);
+			DspFloatType satstate2 = clip(state[2], saturation, saturationInv);
 
-		dstate[0] = cutoff * (clip(input - resonance * state[3], saturation, saturationInv) - satstate0);
-		dstate[1] = cutoff * (satstate0 - satstate1);
-		dstate[2] = cutoff * (satstate1 - satstate2);
-		dstate[3] = cutoff * (satstate2 - clip(state[3], saturation, saturationInv));
+			dstate[0] = cutoff * (clip(input - resonance * state[3], saturation, saturationInv) - satstate0);
+			dstate[1] = cutoff * (satstate0 - satstate1);
+			dstate[2] = cutoff * (satstate1 - satstate2);
+			dstate[3] = cutoff * (satstate2 - clip(state[3], saturation, saturationInv));
+		}
 	}
 
 	void rungekutteSolver(DspFloatType input, DspFloatType * state)
@@ -1573,22 +1721,22 @@ private:
 		DspFloatType deriv1[4], deriv2[4], deriv3[4], deriv4[4], tempState[4];
 
 		calculateDerivatives(input, deriv1, state);
-
+		#pragma omp simd
 		for (i = 0; i < 4; i++)
 			tempState[i] = state[i] + 0.5 * stepSize * deriv1[i];
 
 		calculateDerivatives(input, deriv2, tempState);
-
+		#pragma omp simd
 		for (i = 0; i < 4; i++)
 			tempState[i] = state[i] + 0.5 * stepSize * deriv2[i];
 
 		calculateDerivatives(input, deriv3, tempState);
-
+		#pragma omp simd
 		for (i = 0; i < 4; i++)
 			tempState[i] = state[i] + stepSize * deriv3[i];
 
 		calculateDerivatives(input, deriv4, tempState);
-
+		#pragma omp simd
 		for (i = 0; i < 4; i++)
 			state[i] += (1.0 / 6.0) * stepSize * (deriv1[i] + 2.0 * deriv2[i] + 2.0 * deriv3[i] + deriv4[i]);
 	}
@@ -1634,10 +1782,11 @@ public:
 	// The cheap solution is to zero-stuff the incoming sample buffer.
 	// With resampling, numSamples should be 2x the frame size of the existing sample rate.
 	// The output of this filter needs to be run through a decimator to return to the original samplerate.
-	void Process(size_t n, DspFloatType * samples, DspFloatType * _output)
+	void ProcessBlock(size_t n, DspFloatType * samples, DspFloatType * _output)
 	{
         Undenormal denormal;
 		// Processing still happens at sample rate...
+		#pragma omp simd
 		for (size_t s = 0; s < n; ++s)
 		{
 			for (int stageIdx = 0; stageIdx < 4; ++stageIdx)
@@ -1663,10 +1812,11 @@ public:
 		}
 	}
 
-	void Process(size_t n, DspFloatType * samples)
+	void ProcessInplce(size_t n, DspFloatType * samples)
 	{
         Undenormal denormal;
 		// Processing still happens at sample rate...
+		#pragma omp simd
 		for (int s = 0; s < n; ++s)
 		{
 			for (int stageIdx = 0; stageIdx < 4; ++stageIdx)
@@ -1693,9 +1843,28 @@ public:
 	}
 
 	DspFloatType Tick(DspFloatType input) {
-		DspFloatType r;
-		Process(1,&input,&r);
-		return r;
+		Undenormal denormal;
+		// Processing still happens at sample rate...				
+		#pragma omp simd		
+		for (int stageIdx = 0; stageIdx < 4; ++stageIdx)
+		{
+			if (stageIdx)
+			{
+				input = stage[stageIdx-1];
+				stageTanh[stageIdx-1] = tanh(input);
+				stage[stageIdx] = (h * stageZ1[stageIdx] + h0 * stageTanh[stageIdx-1]) + (1.0 - g) * (stageIdx != 3 ? stageTanh[stageIdx] : tanh(stageZ1[stageIdx]));
+			}
+			else
+			{
+				input = samples[s] - ((4.0 * resonance) * (output - gainCompensation * samples[s]));
+				stage[stageIdx] = (h * tanh(input) + h0 * stageZ1[stageIdx]) + (1.0 - g) * stageTanh[stageIdx];
+			}
+
+			stageZ1[stageIdx] = stage[stageIdx];
+		}
+		output = stage[3];
+		SNAP_TO_ZERO(output);
+		return output;		
 	}
 	virtual void SetResonance(DspFloatType r) override
 	{
@@ -1770,16 +1939,15 @@ public:
 		SetCutoff(1000.0f);
 		SetResonance(0.10f);
 	}
-
 	virtual ~StilsonMoog()
 	{
 
 	}
-
-	void Process(size_t n, DspFloatType * samples, DspFloatType * _output)
+	void ProcessBlock(size_t n, DspFloatType * samples, DspFloatType * _output)
 	{
+		Undenormal denormal;
 		DspFloatType localState;
-
+		#pragma omp simd
 		for (int s = 0; s < n; ++s)
 		{
 			// Scale by arbitrary value on account of our saturation function
@@ -1802,10 +1970,11 @@ public:
 		}
 	}
 
-	void Process(size_t n, DspFloatType * samples)
+	void ProcessInplace(size_t n, DspFloatType * samples)
 	{
+		Undenormal denormal;
 		DspFloatType localState;
-
+		#pragma omp simd
 		for (int s = 0; s < n; ++s)
 		{
 			// Scale by arbitrary value on account of our saturation function
@@ -1827,11 +1996,11 @@ public:
 			output *= Q; // Scale stateful output by Q
 		}
 	}
-
 	void Process(DspFloatType * samples, DspFloatType *modulation, uint32_t n)
 	{
+		Undenormal denormal;
 		DspFloatType localState;
-
+		#pragma omp simd
 		for (int s = 0; s < n; ++s)
 		{
 			// Scale by arbitrary value on account of our saturation function
@@ -1855,8 +2024,24 @@ public:
 	}
 
 	DspFloatType Tick(DspFloatType input) {
-		DspFloatType r;
-		Process(1,&input,&r);
+		Undenormal denormal;
+		DspFloatType localState;		
+		// Scale by arbitrary value on account of our saturation function
+		const DspFloatType input = samples[s] * 0.65f;
+		SetCutoff(modulation[s]);
+		// Negative Feedback
+		output = 0.25 * (input - output);
+		#pragma omp simd
+		for (int pole = 0; pole < 4; ++pole)
+		{
+			localState = state[pole];
+			output = moog_saturate(output + p * (output - localState));
+			state[pole] = output;
+			output = moog_saturate(output + localState);
+		}
+		SNAP_TO_ZERO(output);
+		DspFloatType r = output;
+		output *= Q; // Scale stateful output by Q
 		return r;
 	}
 
@@ -1982,6 +2167,34 @@ struct MoogFilter1 : public FilterProcessor
 
         return A*y4;
     }
+	void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+		Undenormal denormal;
+		#pragma omp simd
+		for(size_t i = 0; i < n; i++) {
+			DspFloatType c = cutoff;
+			DspFloatType res = Q;
+			coefficients(fs,c + 0.5*X*c,Q + 0.5*Y*Q);
+			//Loop
+			//--Inverted feed back for corner peaking
+			x = in[i] - r*y4;                
+			
+			//Four cascaded onepole filters (bilinear transform)
+			y1=x*p + oldx*p - k*y1;        
+			y2=y1*p+oldy1*p - k*y2;        
+			y3=y2*p+oldy2*p - k*y3;        
+			y4=y3*p+oldy3*p - k*y4;        
+
+			coefficients(fs,c,res);
+
+			//Clipper band limited sigmoid
+			y4 = y4 - (y4*y4*y4)/6;        
+			oldx  = x;
+			oldy1 = y1;
+			oldy2 = y2;
+			oldy3 = y3;
+			out[i] = y3;
+		}
+	}
 };
 
 struct MoogFilter2 : public FilterProcessor
@@ -2040,7 +2253,25 @@ struct MoogFilter2 : public FilterProcessor
         b0 = in;
         return b4;
     }
-};
+	void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * out) {
+		Undenormal denormal;
+		#pragma omp simd
+		for(size_t i = 0; i < n; i++) {			
+			calc();
+			DspFloatType in = input[i] - q*b4;       
+			t1 = b1; //std::tanh(b1);  
+			b1 = (in + b0) * p - b1 * f;
+			t2 = b2; //std::tanh(b2);  
+			b2 = (b1 + t1) * p - b2 * f;
+			t1 = b3; //std::tanh(b3); 
+			b3 = (b2 + t2) * p - b3 * f;
+			b4 = (b3 + t1) * p - b4 * f;
+			b4 = b4 - b4 * b4 * b4 * 0.166667f;
+			b0 = in;
+			out[i] = b4;
+		}
+	}
+};	
 
 struct MoogVCF : public FilterProcessor
 {
@@ -2088,6 +2319,26 @@ struct MoogVCF : public FilterProcessor
         in4  = out3;
         return out4;
     }
+	void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+		Undenormal denormal;
+		#pragma omp simd
+		for(size_t i = 0; i < n; i++) {			
+			DspFloatType f = fc * 1.16;
+			DspFloatType fb = res * (1.0 - 0.15 * f * f);
+			DspFloatType input = in[i];
+			input -= out4 * fb;
+			input *= 0.35013 * (f*f)*(f*f);
+			out1 = input + 0.3 * in1 + (1 - f) * out1; // Pole 1
+			in1  = input;
+			out2 = out1 + 0.3 * in2 + (1 - f) * out2;  // Pole 2
+			in2  = out1;
+			out3 = out2 + 0.3 * in3 + (1 - f) * out3;  // Pole 3
+			in3  = out2;
+			out4 = out3 + 0.3 * in4 + (1 - f) * out4;  // Pole 4
+			in4  = out3;
+			out[i] =  out4;
+		}
+	}
 };
 
 
@@ -2173,6 +2424,31 @@ struct StilsonMoog2 : public FilterProcessor
         lastX = I;
         return std::tanh(post_gain*output);
     }
+	void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+		Undenormal denormal;
+		int i,pole;
+		DspFloatType temp, input;			
+		#pragma omp simd
+		for(size_t i = 0; i < n; i++) {						
+			input  = std::tanh(pre_gain*in[i]);
+			output = 0.25 * ( input - output ); //negative feedback
+			output = clamp(output,-1,1);
+			for( pole = 0; pole < 4; pole++) {
+					temp = state[pole];
+					output = output + p * (output - temp);
+					state[pole] = output;
+					output = output + temp;
+					//if(std::fabs(output) < 1e-6) output=0;
+			}        
+			lowpass = output;
+			highpass = input - output;
+			bandpass = 3 * state[2] - lowpass; //got this one from paul kellet
+			output = lowpass;
+			output *= Q;  //scale the feedback
+			lastX = I;
+			out[i] = std::tanh(post_gain*output);
+		}
+	}
 };
 
 struct MoogLike : public FilterProcessor
@@ -2289,6 +2565,20 @@ struct MoogLike : public FilterProcessor
         d[3]=coef[4]*_in+coef[8]*_out;
         return _out;
     }
+	void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+		Undenormal denormal;		
+		#pragma omp simd
+		for(size_t i = 0; i < n; i++) {						
+			_in = in[i];
+			// per sample:
+			_out=coef[0]*_in+d[0];
+			d[0]=coef[1]*_in+coef[5]*_out+d[1];
+			d[1]=coef[2]*_in+coef[6]*_out+d[2];
+			d[2]=coef[3]*_in+coef[7]*_out+d[3];
+			d[3]=coef[4]*_in+coef[8]*_out;
+			out[i] = _out;
+		}
+	}
 };
 
 

@@ -65,6 +65,19 @@ namespace Analog::MoogFilters::MoogFilter4
             y_d = y_d + g * (tanhf(y_c) - tanhf(y_d));
             return A*y_d;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            Undenormal denormals;
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
+                DspFloatType samples = tanh(in[i] * drive);
+                y_a = y_a + g * (tanh(samples - resonance * ((y_d_1 + y_d)/2) - tanhf(y_a)));
+                y_b = y_b + g * (tanh(y_a) - tanhf(y_b));
+                y_c = y_c + g * (tanh(y_b) - tanhf(y_c));
+                y_d_1 = y_d;
+                y_d = y_d + g * (tanh(y_c) - tanhf(y_d));
+                out[i] = y_d;
+            }
+        }
     };
 
     MoogFilter::MoogFilter() : FilterProcessor() {

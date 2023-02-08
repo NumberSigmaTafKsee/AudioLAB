@@ -48,6 +48,25 @@ namespace Analog::Oscillators::DPW
             phase = fmod(phase + inc,1.0f);
             return A*out;
         }   
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * output)  {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++)
+            {
+                position += phase - lastPhase;
+                lastPhase = phase;
+
+                position = fmod(position, 1.0f);
+
+                DspFloatType value = position * 2 - 1;
+                value = value * value;
+                
+                DspFloatType out = scaleFactor * (value - lastValue);
+                lastValue = value;
+
+                phase = fmod(phase + inc,1.0f);
+                output[i] = out;            
+            }
+        }
     };
 
     struct DPWPulse : public OscillatorProcessor

@@ -12,6 +12,10 @@ namespace Octopus
 
         std::complex<float>& operator[](size_t i);
         std::complex<float>  operator[](size_t i) const;
+
+        std::complex<float> __getitem__(size_t i);
+        void __setitem__(size_t i, const std::complex<float> & v);
+
     };
     struct OctopusMatrixXcf : public FloatComplexMatrix
     {
@@ -127,7 +131,7 @@ namespace Octopus
         #ifdef SWIG
         %extend
         {
-            MatrixViewXcf __getitem__(size_t i) { return MatrixViewXcf($self,i); }            
+            MatrixViewXcf __getitem__(size_t i) { return MatrixViewXcf($self,i-1); }            
             
             size_t rows() { return $self->rows(); }
             size_t cols() { return $self->cols(); }
@@ -219,4 +223,6 @@ namespace Octopus
     inline std::complex<float> MatrixViewXcf::operator[](size_t i) const {
         return (*matrix)(row,i);
     }
+    inline std::complex<float> MatrixViewXcf::__getitem__(size_t i) { return (*this)[i-1]; }
+    inline void MatrixViewXcf::__setitem__(size_t i, const std::complex<float> & v) { (*this)[i-1] = v; }
 }

@@ -24,22 +24,25 @@ namespace Analog::Filters::Moog::RKLadder
 		DspFloatType yi[len];
 
 		f(t, x, k1);
-
+		#pragma omp simd
 		for (int i = 0; i < len; i++) {
 			yi[i] = x[i] + k1[i] * dt / DspFloatType(2);
 		}
 		f(t + dt / DspFloatType(2), yi, k2);
 
+		#pragma omp simd
 		for (int i = 0; i < len; i++) {
 			yi[i] = x[i] + k2[i] * dt / DspFloatType(2);
 		}
 		f(t + dt / DspFloatType(2), yi, k3);
 
+		#pragma omp simd
 		for (int i = 0; i < len; i++) {
 			yi[i] = x[i] + k3[i] * dt;
 		}
 		f(t + dt, yi, k4);
 
+		#pragma omp simd
 		for (int i = 0; i < len; i++) {
 			x[i] += dt * (k1[i] + DspFloatType(2) * k2[i] + DspFloatType(2) * k3[i] + k4[i]) / DspFloatType(6);
 		}
@@ -108,6 +111,26 @@ namespace Analog::Filters::Moog::RKLadder
 			});
 
 			this->input = input;
+		}
+		void ProcessSIMD(size_t n, DspFloatType *in, DspFloatType * out) {
+			#pragma omp simd
+			for(size_t i = 0; i < n; i++) {
+				stepRK4(0, dt, state, 4, [&](DspFloatType t, const DspFloatType x[], DspFloatType dxdt[]) {
+					DspFloatType inputt = crossfade(this->input, in[i], t / dt);
+					DspFloatType inputc = clip(inputt - resonance * x[3]);
+					DspFloatType yc0 = clip(x[0]);
+					DspFloatType yc1 = clip(x[1]);
+					DspFloatType yc2 = clip(x[2]);
+					DspFloatType yc3 = clip(x[3]);
+
+					dxdt[0] = omega0 * (inputc - yc0);
+					dxdt[1] = omega0 * (yc0 - yc1);
+					dxdt[2] = omega0 * (yc1 - yc2);
+					dxdt[3] = omega0 * (yc2 - yc3);
+				});
+				this->input = in[i];
+				out[i] = state[3];
+			}
 		}
 
 		DspFloatType lowpass() {

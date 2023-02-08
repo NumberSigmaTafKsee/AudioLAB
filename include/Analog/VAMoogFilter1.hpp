@@ -92,5 +92,29 @@ namespace Analog::MoogFilters::MoogFilter1
 
             return A*y4;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            Undenormal denormal;
+            for(size_t i = 0; i < n; i++) {            
+                const DspFloatType input = in[i];
+                //Loop
+                //--Inverted feed back for corner peaking
+                x = input - r*y4;                
+                
+                //Four cascaded onepole filters (bilinear transform)
+                y1 = x * p + oldx*p - k * y1;        
+                y2 = y1 * p + oldy1*p - k * y2;        
+                y3 = y2 * p + oldy2*p - k * y3;        
+                y4 = y3 * p + oldy3*p - k * y4;        
+
+                //Clipper band limited sigmoid
+                y4 = y4 - (y4*y4*y4)/6;        
+                oldx  = x;
+                oldy1 = y1;
+                oldy2 = y2;
+                oldy3 = y3;
+
+                out[i] =y4;
+            }
+        }
     };
 }

@@ -195,65 +195,9 @@ namespace IIRFilters
         }
     };
 
-// convert analog setion to biquad type I
-    BiquadSection AnalogBiquadSection(const BiquadSection &section, DspFloatType fc, DspFloatType fs)
-    {
-        BiquadSection ns = section;
-        prewarp(&ns.z[0], &ns.z[1], &ns.z[2], fc, fs);
-        prewarp(&ns.p[0], &ns.p[1], &ns.p[2], fc, fs);
-        
-        //std::vector<DspFloatType> coeffs(4);
-        DspFloatType coeffs[4] = {0,0,0,0};
-        DspFloatType k =1;
-        
-        bilinear(ns.z[0], ns.z[1], ns.z[2], ns.p[0], ns.p[1], ns.p[2], &k, fs, coeffs);
-        ns.z[0] = k;
-        ns.z[1] = k*coeffs[0];
-        ns.z[2] = k*coeffs[1];
-        ns.p[0] = coeffs[2];
-        ns.p[1] = coeffs[3];
-        ns.p[2] = 0;    
-        return ns;
-    }
-    // H(s) => Bilinear/Z => H(z)
-    // convert analog sos to biquad cascade type I
-    BiquadSOS AnalogBiquadCascade(const BiquadSOS &sos, DspFloatType fc, DspFloatType fs)
-    {
-        BiquadSOS nsos = sos;
-        for (size_t i = 0; i < sos.size(); i++)
-        {
-            BiquadSection b = AnalogBiquadSection(sos[i], fc, fs);
-            nsos[i] = b;
-        }
-        return nsos;
-    }
+    
 
-    // Type I
-    struct Biquad
-    {
-        DspFloatType z[3];
-        DspFloatType p[3];
-        DspFloatType x[2];
-        DspFloatType y[2];
 
-        Biquad() {
-            x[0] = x[1] = 0;
-            y[0] = y[1] = 0;
-        }
-        void setCoefficients(DspFloatType _z[3], DspFloatType _p[3]) {
-            memcpy(z,_z,3*sizeof(DspFloatType));
-            memcpy(p,_p,3*sizeof(DspFloatType));
-        }
-        DspFloatType Tick(DspFloatType I) {
-            DspFloatType out = z[0]*I + z[1]*x[0] + z[2] * z[1];
-            out = out - p[0]*y[0] - p[1]*y[1];
-            x[1] = x[0];
-            x[0] = I;
-            y[1] = y[0];
-            y[1] = out;
-            return out;
-        }
-    };     
 
     void prewarp(DspFloatType *a0, DspFloatType *a1, DspFloatType *a2, DspFloatType fc, DspFloatType fs)
     {
@@ -449,5 +393,39 @@ namespace IIRFilters
             poles[index++] = *i;
         }
     } 
-    
+
+      // convert analog setion to biquad type I
+    BiquadSection AnalogBiquadSection(const BiquadSection &section, DspFloatType fc, DspFloatType fs)
+    {
+        BiquadSection ns = section;
+        prewarp(&ns.z[0], &ns.z[1], &ns.z[2], fc, fs);
+        prewarp(&ns.p[0], &ns.p[1], &ns.p[2], fc, fs);
+        
+        //std::vector<DspFloatType> coeffs(4);
+        DspFloatType coeffs[4] = {0,0,0,0};
+        DspFloatType k =1;
+        
+        bilinear(ns.z[0], ns.z[1], ns.z[2], ns.p[0], ns.p[1], ns.p[2], &k, fs, coeffs);
+        ns.z[0] = k;
+        ns.z[1] = k*coeffs[0];
+        ns.z[2] = k*coeffs[1];
+        ns.p[0] = coeffs[2];
+        ns.p[1] = coeffs[3];
+        ns.p[2] = 0;    
+        return ns;
+    }
+    // H(s) => Bilinear/Z => H(z)
+    // convert analog sos to biquad cascade type I
+    BiquadSOS AnalogBiquadCascade(const BiquadSOS &sos, DspFloatType fc, DspFloatType fs)
+    {
+        BiquadSOS nsos = sos;
+        for (size_t i = 0; i < sos.size(); i++)
+        {
+            BiquadSection b = AnalogBiquadSection(sos[i], fc, fs);
+            nsos[i] = b;
+        }
+        return nsos;
+    }
+
+  
 };

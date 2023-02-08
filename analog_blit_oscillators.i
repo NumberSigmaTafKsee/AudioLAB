@@ -1,5 +1,6 @@
 %module analog_blit_oscillators
 %{
+#define DSPFLOATDOUBLE    
 #include "SoundObject.hpp"
 #include <cassert>
 #include <random>
@@ -20,6 +21,7 @@
 %include "std_map.i"
 %include "lua_fnptr.i"
 
+#define DSPFLOATDOUBLE    
 %include "SoundObject.hpp"
 %include "analog_blit_oscillators.hpp"
 

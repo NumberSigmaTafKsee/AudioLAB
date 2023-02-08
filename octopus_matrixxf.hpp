@@ -13,6 +13,10 @@ namespace Octopus
 
         float& operator[](size_t i);
         float  operator[](size_t i) const;
+
+        float __getitem__(size_t i);
+        void __setitem__(size_t i, const float & v);
+
     };
         
 
@@ -207,7 +211,7 @@ namespace Octopus
         #ifdef SWIG
         %extend
         {
-            MatrixViewXf __getitem__(size_t i) { return MatrixViewXf($self,i); }            
+            MatrixViewXf __getitem__(size_t i) { return MatrixViewXf($self,i-1); }            
 
             size_t rows() { return $self->rows(); }
             size_t cols() { return $self->cols(); }
@@ -297,4 +301,6 @@ namespace Octopus
     inline float MatrixViewXf::operator[](size_t i) const {
         return (*matrix)(row,i);
     }
+    inline float MatrixViewXf::__getitem__(size_t i) { return (*this)[i-1]; }
+    inline void MatrixViewXf::__setitem__(size_t i, const float & v) { (*this)[i-1] = v; }
 }

@@ -1,3 +1,10 @@
 {
-    "cmake.sourceDirectory": "${workspaceFolder}/DSP/Stk/Stk/Stk-Projects/demo"
+    "cmake.sourceDirectory": "${workspaceFolder}/DSP/Stk/Stk/Stk-Projects/demo",
+    "files.associations": {
+        "complex": "c",
+        "cmath": "cpp",
+        "chrono": "cpp",
+        "adolcforward": "cpp",
+        "vca.hpp": "c"
+    }
 }

@@ -226,6 +226,7 @@ namespace Analog::Filters::XOD
 			res = r;
 			setFcAndRes(fc,res,sampleRate);
 		}
+		// this is a kaka child
 		DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {
 			DspFloatType out = I;
 			DspFloatType f   = fc;
@@ -236,7 +237,7 @@ namespace Analog::Filters::XOD
 			setCutoff(f);
 			setResonance(r);
 			return A*out;
-		}
+		}		
 	};
 
 	// *--------------------------------------------------------* //

@@ -61,6 +61,27 @@ namespace Analog::Filters::StateVariableFilters
             //L,H,B,N
             return L;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            Undenormal denormal;
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
+                x = in[i];
+                // algorithm
+                // loop
+                L = D2 + F1 * D1;
+                H = I - L - Q1*D1;
+                B = F1 * H + D1;
+                N = H + L;
+
+                // store delays
+                D1 = B;
+                D2 = L;
+
+                // outputs
+                //L,H,B,N
+                out[i] =  L;
+            }
+        }
     };
 
     // it should be oversampled

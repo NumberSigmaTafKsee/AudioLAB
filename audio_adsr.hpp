@@ -126,6 +126,7 @@ namespace Envelopes
 
         template<typename T>
         void ProcessBlock(size_t n, T * input, T* output) {
+            #pragma omp simd
             for(size_t i = 0; i < n; i++)
             {
                 output[i] = process()*input[i];
@@ -134,10 +135,12 @@ namespace Envelopes
         
         template<typename T>
         void InplaceProcess(size_t n, T * samples) {
+            #pragma omp simd
             for(size_t i = 0; i < n ; i++)
                 samples[i] = process();
         }
-        
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * output);
+
         enum envState {
             env_idle = 0,
             env_attack,
@@ -146,6 +149,7 @@ namespace Envelopes
             env_release
         };
 
+        
     protected:    
         int state;
         DspFloatType output;
@@ -194,6 +198,41 @@ namespace Envelopes
                 }
         }
         return output*(max-min) + min;    
+    }
+    void ADSR::ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+    {
+        #pragma omp simd
+        for(size_t i = 0; i < n; i++) {
+            switch (state) {
+                case env_idle:
+                    break;
+                case env_attack:
+                    output = attackBase + output * attackCoef;            
+                    if (output >= 1.0) {
+                        output = 1.0;
+                        state = env_decay;
+                    }
+                    break;
+                case env_decay:
+                    output = decayBase + output * decayCoef;
+                    if (output <= sustainLevel) {
+                        output = sustainLevel;
+                        state = env_sustain;
+                    }
+                    break;
+                case env_sustain:
+                    break;
+                case env_release:
+                    output = releaseBase + output * releaseCoef;
+                    if (output <= 0.0) {
+                        output = 0.0;
+                        state = env_idle;
+                    }
+            }
+            out[i] = (output*(max-min) + min);    
+            if(in != nullptr)
+                out[i] *= in[i];                
+        }
     }
 
     inline void ADSR::gate(int gate) {

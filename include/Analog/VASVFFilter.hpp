@@ -78,5 +78,27 @@ namespace Analog::Filters::SVF
             }
             return out;
         }
+        void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output) {
+            Undenormal denormal;
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
+                DspFloatType f = 2 * std::sin(2 * M_PI * cutoff/fs);        
+                DspFloatType I = input[i];   
+                //--beginloop
+                //I = Distortion::tanhify(I);
+                low = low + f * band;
+                high = scale * I - low - scale*band;
+                band = f * high + band;
+                notch = high + low;
+                DspFloatType out;
+                switch(type) {
+                    case LP: out = low; break;
+                    case HP: out = high; break;
+                    case BP: out = band; break;
+                    case NOTCH: out = notch; break;
+                }
+                output[i] = out;
+            }
+        }
     };
 }

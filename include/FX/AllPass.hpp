@@ -84,6 +84,22 @@ namespace FX::Delays
             setDelayTimeMS(sampleRate,ms);
             return A*out;
         }
+        void ProcessSIMD(size_t n, DspFloatType *input, DspFloatType * output)
+        {
+            // it probably does not optimize anything but it might.
+            // will have to test it to find out.
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
+                DspFloatType G = getGain();
+                DspFloatType ms = getDelayTimeMS();
+                setGain(G * X);
+                setDelayTimeMS(sampleRate,ms * Y);
+                DspFloatType out = next(input[i]);
+                setGain(G);
+                setDelayTimeMS(sampleRate,ms);
+                output[i] = out;
+            }
+        }
         void resetDelay() { delay->resetDelay(); }
         
     private:

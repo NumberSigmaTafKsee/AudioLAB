@@ -105,7 +105,7 @@ namespace Filters::IIR::ChebyshevFilters
         {
             Q = q;
         }        
-        void setCutoff(float fc)
+        void setCutoff(DspFloatType fc)
         {
             Fc = fc;
 
@@ -238,7 +238,7 @@ namespace Filters::IIR::ChebyshevFilters
         {
             Q = q;
         }        
-        void setCutoff(float fc)
+        void setCutoff(DspFloatType fc)
         {
             Fc = fc;
 

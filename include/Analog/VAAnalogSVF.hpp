@@ -26,6 +26,11 @@ namespace Analog::Filters::AnalogSVF
         int type = LP;
 
         AnalogSVF(DspFloatType Fs, DspFloatType Fc, DspFloatType Q) : FilterProcessor() {
+            init(Fs,Fc,Q);
+        }
+        AnalogSVF() = default;
+        void init(DspFloatType Fs, DspFloatType Fc, DspFloatType Q)
+        {
             fc = Fc;
             fs = Fs;
             q = Q;
@@ -114,11 +119,69 @@ namespace Analog::Filters::AnalogSVF
             return tanh(out);
         }
         void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output, DspFloatType *A=NULL,DspFloatType *X=NULL,DspFloatType *Y=NULL) {
+            #pragma omp simd
             for(size_t i = 0; i < n; i++) output[i] = Tick(input[i], A != NULL? A[i]:1.0, X != NULL? X[i]:1.0, Y != NULL? Y[i]:1.0);
         }
         
         void InplaceProcess(size_t n, DspFloatType * input, DspFloatType *A=NULL,DspFloatType *X=NULL,DspFloatType *Y=NULL) {
             ProcessBlock(n,input,input,A,X,Y);
+        }
+
+        void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output)
+        {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++)
+            {
+                DspFloatType wd = 2*M_PI*fc;
+                DspFloatType T  = 1/fs;
+                DspFloatType temp = wd*T/2;
+                DspFloatType wa;
+
+                if(fabs(temp) != M_PI/2)
+                    wa = (2/T)*tan(temp);
+                else
+                    wa = (2/T)*tan(temp*0.995);
+                                
+                DspFloatType I  = input[i];
+                DspFloatType g  = wa*T/2;
+                DspFloatType xn = I;
+                DspFloatType qt = q;
+                if(qt < 0.5) qt = 0.5;
+                DspFloatType  R  = 1.0/(2*qt);
+                
+                
+                if(xn < minC) xn = minC;
+                if(xn > maxC) xn = maxC;
+
+                hp = (xn - (2*R+g)*z1 - z2) / (1.0 + 2*R*g + g*g);
+                bp = g*hp + z1;
+                lp = g*bp + z2;        
+                // not sure these work right yet
+                ubp = 2 * R * bp;
+                // K is Gain
+                shelf = xn + 2*K*R*bp;
+                notch = xn - 2*R*bp;
+                apf   = xn - 4*R*bp;
+                peak  = lp - hp;
+
+                // delay feedback
+                z1 = g*hp + bp;
+                z2 = g*bp + lp;
+                        
+                
+                DspFloatType out;
+                switch(type) {
+                    case LP: out = lp; break;
+                    case HP: out = hp; break;
+                    case BP: out = bp; break;
+                    case UBP: out = ubp; break;
+                    case SHELF: out = shelf; break;
+                    case NOTCH: out = notch; break;
+                    case APF: out = apf; break;
+                    case PEAK: out = peak; break;                
+                }   
+                output[i] = out;
+            }
         }
     };
 

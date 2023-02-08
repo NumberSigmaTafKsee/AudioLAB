@@ -55,5 +55,16 @@ namespace Analog::Oscillators
             _out -= b1.process(_out);
             return 3*_out;
         }
+        void ProcessSIMD(size_t n, DspFloatType * out) {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++)
+            {
+                DspFloatType x = sqr.Tick();
+                DspFloatType a = 1.0 - 0.01*std::fmin(1,sqr.s1.f/1000.0);
+                _out = a*_out + x/sqr.s1.p_;            
+                _out -= b1.process(_out);
+                out[i] =  3*_out;
+            }
+        } 
     };
 }

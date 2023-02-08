@@ -108,10 +108,12 @@ namespace Filters::FIR
         std::vector<int>    n(taps, 0);
         std::vector<DspFloatType> h(taps, 0);
 
+        #pragma omp simd
         for(int i = 0; i < taps; i++) {
             n[i] = i - int(taps/2);
         }
 
+        #pragma omp simd
         for(int i = 0; i < taps; i++) {
             h[i] = 2.0*f*sinc(2.0*f*n[i]);
         }
@@ -124,10 +126,12 @@ namespace Filters::FIR
         std::vector<int>    n(taps, 0);
         std::vector<DspFloatType> h(taps, 0);
 
+        #pragma omp simd
         for(int i = 0; i < taps; i++) {
             n[i] = i - int(taps/2);
         }
 
+        #pragma omp simd
         for(int i = 0; i < taps; i++) {
             h[i] = sinc(n[i]) - 2.0*f*sinc(2.0*f*n[i]);
         }
@@ -140,10 +144,12 @@ namespace Filters::FIR
         std::vector<int>    n(taps, 0);
         std::vector<DspFloatType> h(taps, 0);
 
+        #pragma omp simd
         for(int i = 0; i < taps; i++) {
             n[i] = i - int(taps/2);
         }
 
+        #pragma omp simd
         for(int i = 0; i < taps; i++) {
             h[i] = 2.0*f1*sinc(2.0*f1*n[i]) - 2.0*f2*sinc(2.0*f2*n[i]);
         }
@@ -156,10 +162,12 @@ namespace Filters::FIR
         std::vector<int>    n(taps, 0);
         std::vector<DspFloatType> h(taps, 0);
 
+        #pragma omp simd
         for(int i = 0; i < taps; i++) {
             n[i] = i - int(taps/2);
         }
 
+        #pragma omp simd
         for(int i = 0; i < taps; i++) {
             h[i] = 2.0*f1*sinc(2.0*f1*n[i]) - 2.0*f2*sinc(2.0*f2*n[i]) + sinc(n[i]);
         }
@@ -175,6 +183,7 @@ namespace Filters::FIR
         DspFloatType alpha   = 0.54;
         DspFloatType beta    = 0.46;
 
+        #pragma omp simd
         for(int i = 0; i < taps; i++) {
             w[i] = alpha - beta * cos(2.0 * M_PI * i / (taps - 1));
         }
@@ -186,6 +195,7 @@ namespace Filters::FIR
     {
         std::vector<DspFloatType> w(taps, 0);
 
+        #pragma omp simd
         for(int i = 0; i < taps; i++) {
             w[i] =  sin(((DspFloatType) M_PI * i) / (taps - 1)) *
                     sin(((DspFloatType) M_PI * i) / (taps - 1));
@@ -200,6 +210,7 @@ namespace Filters::FIR
 
         DspFloatType l = taps;
 
+        #pragma omp simd
         for(int i = 0; i < taps; i++) {
             w[i] = 1 - abs((i - (((DspFloatType)(taps-1)) / 2.0)) / (((DspFloatType)l) / 2.0));
         }
@@ -215,6 +226,7 @@ namespace Filters::FIR
         DspFloatType alpha1 = 0.5;
         DspFloatType alpha2 = 0.08;
 
+        #pragma omp simd
         for(int i = 0; i < taps; i++) {
             w[i] = alpha0 - alpha1 * cos(2.0 * M_PI * i / (taps - 1))
                         - alpha2 * cos(4.0 * M_PI * i / (taps - 1));
@@ -231,6 +243,7 @@ namespace Filters::FIR
         this->samples[this->idx] = new_sample;
 
         // Calculate the output
+        #pragma omp simd
         for(int n = 0; n < this->taps; n++)
             result += this->samples[(this->idx + n) % this->taps] * this->h[n];
 

@@ -132,6 +132,20 @@ namespace Analog::Oscillators
             //y -= block.process(y);
             return 2*y;
         }
+
+        void ProcessSIMD(size_t n, DspFloatType * out) {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++)
+            {
+                DspFloatType tmp = BlitDSF(phase_,m_,p_,a_);        
+                tmp += state_ - C2_;
+                state_ = tmp * 0.995;        
+                phase_ += rate_;
+                if ( phase_ >= M_PI ) phase_ -= M_PI;
+                y = clamp(tmp,-1,1);                    
+                out[i] = 2*y;
+            }
+        }
         DspFloatType operator()() {
             return Tick();
         }                
@@ -253,6 +267,23 @@ namespace Analog::Oscillators
             y = clamp(y,-1,1);
             return y;
         }
+        void ProcessSIMD(size_t n, DspFloatType * out)
+        {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++)
+            {
+                DspFloatType tmp = BlitDSF(phase_,m_,p_,a_);        
+                DspFloatType tmp2= BlitDSF(phase_+D*M_PI,m_,p_,a_);
+                tmp      = tmp - tmp2;
+                //tmp     += state_ - C2_;        
+                state_ += tmp * 0.995;
+                phase_ += rate_;
+                if ( phase_ >= 2*M_PI ) phase_ -= 2*M_PI;
+                y = state_;            
+                y = clamp(y,-1,1);
+                out[i] = y;
+            }
+        }
         DspFloatType operator()() {
             return Tick();
         }
@@ -314,6 +345,18 @@ namespace Analog::Oscillators
             triangle -= b1.process(triangle);
             return 4*triangle;
         }
+        void ProcessSIMD(size_t n, DspFloatType * out)
+        {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++)
+            {
+                DspFloatType x = sqr.Tick();
+                DspFloatType a = 1.0 - 0.01*std::fmin(1,sqr.f/1000.0);
+                triangle = a*triangle + x/sqr.p_;            
+                triangle -= b1.process(triangle);
+                out[i] = 4*triangle;
+            }
+        }    
         DspFloatType operator()() {
             return Tick();
         }

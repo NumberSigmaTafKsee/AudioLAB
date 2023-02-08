@@ -125,17 +125,74 @@ namespace Envelopes
         }
 
         template<typename T>
-        void ProcessBlock(size_t n, T * input, T* output) {
+        void ProcessBlock(size_t n, T * in, T* out) {
+            #pragma omp simd
             for(size_t i = 0; i < n; i++)
             {
-                output[i] = process()*input[i];
+                switch (state) {
+                    case env_idle:
+                        break;
+                    case env_attack:
+                        output = attackBase + output * attackCoef;            
+                        if (output >= 1.0) {
+                            output = 1.0;
+                            state = env_decay;
+                        }
+                        break;
+                    case env_decay:
+                        output = decayBase + output * decayCoef;
+                        if (output <= sustainLevel) {
+                            output = sustainLevel;
+                            state = env_sustain;
+                        }
+                        break;
+                    case env_sustain:
+                        break;
+                    case env_release:
+                        output = releaseBase + output * releaseCoef;
+                        if (output <= 0.0) {
+                            output = 0.0;
+                            state = env_idle;
+                        }
+                }
+                out[i] =  output*(max-min) + min;                    
+                if(in) out[i] *= in[i];
             }
         }
         
         template<typename T>
         void InplaceProcess(size_t n, T * samples) {
-            for(size_t i = 0; i < n ; i++)
-                samples[i] = process();
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++)
+            {
+                switch (state) {
+                    case env_idle:
+                        break;
+                    case env_attack:
+                        output = attackBase + output * attackCoef;            
+                        if (output >= 1.0) {
+                            output = 1.0;
+                            state = env_decay;
+                        }
+                        break;
+                    case env_decay:
+                        output = decayBase + output * decayCoef;
+                        if (output <= sustainLevel) {
+                            output = sustainLevel;
+                            state = env_sustain;
+                        }
+                        break;
+                    case env_sustain:
+                        break;
+                    case env_release:
+                        output = releaseBase + output * releaseCoef;
+                        if (output <= 0.0) {
+                            output = 0.0;
+                            state = env_idle;
+                        }
+                }
+                samples[i] =  output*(max-min) + min;                                    
+            }
         }
         
         enum envState {

@@ -95,7 +95,32 @@ namespace Oscillators
             y -= block.process(y);
             return y;
         }
+        void ProcessSIMD(size_t n, DspFloatType * out) {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++)
+            {
+                // I = index
+                // X = FM
+                // Y = PM
+                DspFloatType tmp, denominator = sin( phase_ );
+                if ( fabs(denominator) <= std::numeric_limits<DspFloatType>::epsilon() )
+                    tmp = a_;
+                else {
+                    tmp =  sin( m_ * phase_ );
+                    tmp /= p_ * denominator;
+                }
 
+                tmp += state_ - C2_;
+                state_ = tmp * 0.995;
+                //phase_   = x;
+                phase_ += rate_;
+                if ( phase_ >= M_PI ) phase_ -= M_PI;
+
+                DspFloatType out = tmp;
+                y -= block.process(y);
+                out[i] = y;
+            }
+        }
         DspFloatType getPhase() { return phase_; }
 
         void setPhaseOffset(DspFloatType o) {
@@ -298,7 +323,21 @@ namespace Oscillators
             if ( phase_ >= M_PI ) phase_ -= M_PI;
             y = clamp(tmp,-1,1);        
             y -= block.process(y);
-            return 2*(0.8*y+0.47)-1;
+            return 2*y-1;
+        }
+        void ProcessSIMD(size_t n, DspFloatType * out) {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++)
+            {
+                DspFloatType tmp = BlitDSF(phase_,m_,p_,a_);        
+                tmp += state_ - C2_;
+                state_ = tmp * 0.995;        
+                phase_ += rate_;
+                if ( phase_ >= M_PI ) phase_ -= M_PI;
+                y = clamp(tmp,-1,1);        
+                y -= block.process(y);
+                out[i] = 2*y-1;
+            }
         }
 
         DspFloatType getPhase() { 
@@ -395,9 +434,24 @@ namespace Oscillators
             if ( phase_ >= 2*M_PI ) phase_ -= 2*M_PI;
             y = state_;
             y -= block.process(y);
-            return 2*((y+D)*0.7+0.15)-1;
+            return y;
         }
-
+        void ProcessSIMD(size_t n, DspFloatType * out) {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++)
+            {
+                DspFloatType tmp = BlitDSF(phase_,m_,p_,a_);        
+                DspFloatType tmp2= BlitDSF(phase_+D*M_PI,m_,p_,a_);
+                tmp      = tmp - tmp2;
+                //tmp     += state_ - C2_;        
+                state_ += tmp * 0.995;
+                phase_ += rate_;
+                if ( phase_ >= 2*M_PI ) phase_ -= 2*M_PI;
+                y = state_;
+                y -= block.process(y);
+                out[i] = y;
+            }
+        }
         DspFloatType getPhase() { 
             return phase_; 
         }

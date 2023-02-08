@@ -43,6 +43,8 @@ namespace Analog::Filters::MoogFilters
             return A*process(I);
         }
 
+        void ProcessSIMD(size_t in, DspFloatType * in, DspFloatType * out);
+
         T cutoff;
         T res;
         T fs;
@@ -106,6 +108,31 @@ namespace Analog::Filters::MoogFilters
 
         oldx = x; oldy1 = y1; oldy2 = y2; oldy3 = y3;
         return y4;
+    }
+
+    template<typename T>
+    void TMoogFilter<T>::ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+    {
+        Undenormal denormal;
+        #pragma omp simd
+        for(size_t i = 0; i < n; i++) {
+            // process input
+            x = bpsigmoid(in[i]) - r*y4;
+
+            //T q = p;
+            //p = p+p;
+            //Four cascaded onepole filters (bilinear transform)
+            y1= x*p +  oldx*p - k*y1;    
+            y2=y1*p + oldy1*p - k*y2;    
+            y3=y2*p + oldy2*p - k*y3;    
+            y4=y3*p + oldy3*p - k*y4;
+            //p = q;
+            //Clipper band limited sigmoid
+            y4-=((y4*y4*y4)/6.f);
+
+            oldx = x; oldy1 = y1; oldy2 = y2; oldy3 = y3;
+            out[i] = y4;
+        }
     }
 
     template<typename T>

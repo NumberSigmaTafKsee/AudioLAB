@@ -58,5 +58,18 @@ namespace Analog::Oscillators
             _out += 0.8*(r1/s1.s1.m_);                            
             return 2*(_out-b2.process(_out));
         }
+        void ProcessSIMD(size_t n, DspFloatType * out)
+        {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++)
+            {
+                DspFloatType r1 = s1.Tick();                        
+                // there's a tremendous amount of weird dc noise in this thing
+                r1   -= b1.process(r1);
+                // not really sure why it works but it does I think m_ = harmonic * harmonic like the fourier expansion
+                _out += 0.8*(r1/s1.s1.m_);                            
+                out[i] =  2*(_out-b2.process(_out));
+            }
+        }
     };
 }

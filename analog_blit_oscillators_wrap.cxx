@@ -2746,7 +2746,7 @@ SWIG_Lua_dostring(lua_State *L, const char *str) {
 #define SWIGTYPE_p_p_AmplifierProcessor swig_types[46]
 #define SWIGTYPE_p_p_FilterProcessor swig_types[47]
 #define SWIGTYPE_p_p_FunctionProcessor swig_types[48]
-#define SWIGTYPE_p_p_float swig_types[49]
+#define SWIGTYPE_p_p_double swig_types[49]
 #define SWIGTYPE_p_short swig_types[50]
 #define SWIGTYPE_p_signed_char swig_types[51]
 #define SWIGTYPE_p_std__complexT_double_t swig_types[52]
@@ -2804,6 +2804,7 @@ typedef struct{} LANGUAGE_OBJ;
 }
 
 
+#define DSPFLOATDOUBLE    
 #include "SoundObject.hpp"
 #include <cassert>
 #include <random>
@@ -6260,8 +6261,8 @@ static int _wrap_SoundProcessor_setPortV(lua_State* L) {
   
   arg2 = (int)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t,0))){
-    SWIG_fail_ptr("SoundProcessor_setPortV",3,SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t,0))){
+    SWIG_fail_ptr("SoundProcessor_setPortV",3,SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t);
   }
   
   (arg1)->setPortV(arg2,(std::vector< DspFloatType,std::allocator< DspFloatType > > const &)*arg3);
@@ -6350,8 +6351,8 @@ static int _wrap_SoundProcessor_getPortV(lua_State* L) {
   
   arg2 = (int)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t,0))){
-    SWIG_fail_ptr("SoundProcessor_getPortV",3,SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t,0))){
+    SWIG_fail_ptr("SoundProcessor_getPortV",3,SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t);
   }
   
   (arg1)->getPortV(arg2,*arg3);
@@ -6993,8 +6994,8 @@ static int _wrap_MonoProcessor_InplaceProcess(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("MonoProcessor_InplaceProcess",3,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("MonoProcessor_InplaceProcess",3,SWIGTYPE_p_double);
   }
   
   (arg1)->InplaceProcess(arg2,arg3);
@@ -7318,13 +7319,13 @@ static int _wrap_MonoProcessor_ProcessBlock(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("MonoProcessor_ProcessBlock",3,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("MonoProcessor_ProcessBlock",3,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("MonoProcessor_ProcessBlock",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("MonoProcessor_ProcessBlock",4,SWIGTYPE_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4);
@@ -7496,13 +7497,13 @@ static int _wrap_MonoCascadeProcessor_ProcessBlock(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("MonoCascadeProcessor_ProcessBlock",3,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("MonoCascadeProcessor_ProcessBlock",3,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("MonoCascadeProcessor_ProcessBlock",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("MonoCascadeProcessor_ProcessBlock",4,SWIGTYPE_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4);
@@ -7637,13 +7638,13 @@ static int _wrap_StereoProcessor_ProcessBlock(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_p_float,0))){
-    SWIG_fail_ptr("StereoProcessor_ProcessBlock",3,SWIGTYPE_p_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_p_double,0))){
+    SWIG_fail_ptr("StereoProcessor_ProcessBlock",3,SWIGTYPE_p_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_p_float,0))){
-    SWIG_fail_ptr("StereoProcessor_ProcessBlock",4,SWIGTYPE_p_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_p_double,0))){
+    SWIG_fail_ptr("StereoProcessor_ProcessBlock",4,SWIGTYPE_p_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4);
@@ -7687,13 +7688,13 @@ static int _wrap_StereoProcessor_Tick__SWIG_0(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoProcessor_Tick",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoProcessor_Tick",5,SWIGTYPE_p_double);
   }
   
   arg6 = (DspFloatType)lua_tonumber(L, 6);
@@ -7738,13 +7739,13 @@ static int _wrap_StereoProcessor_Tick__SWIG_1(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoProcessor_Tick",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoProcessor_Tick",5,SWIGTYPE_p_double);
   }
   
   arg6 = (DspFloatType)lua_tonumber(L, 6);
@@ -7786,13 +7787,13 @@ static int _wrap_StereoProcessor_Tick__SWIG_2(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoProcessor_Tick",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoProcessor_Tick",5,SWIGTYPE_p_double);
   }
   
   arg6 = (DspFloatType)lua_tonumber(L, 6);
@@ -7831,13 +7832,13 @@ static int _wrap_StereoProcessor_Tick__SWIG_3(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoProcessor_Tick",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoProcessor_Tick",5,SWIGTYPE_p_double);
   }
   
   result = (DspFloatType)(arg1)->Tick(arg2,arg3,*arg4,*arg5);
@@ -7880,7 +7881,7 @@ static int _wrap_StereoProcessor_Tick(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
               _v = 0;
             } else {
               _v = 1;
@@ -7889,7 +7890,7 @@ static int _wrap_StereoProcessor_Tick(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -7924,7 +7925,7 @@ static int _wrap_StereoProcessor_Tick(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
               _v = 0;
             } else {
               _v = 1;
@@ -7933,7 +7934,7 @@ static int _wrap_StereoProcessor_Tick(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -7973,7 +7974,7 @@ static int _wrap_StereoProcessor_Tick(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
               _v = 0;
             } else {
               _v = 1;
@@ -7982,7 +7983,7 @@ static int _wrap_StereoProcessor_Tick(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -8027,7 +8028,7 @@ static int _wrap_StereoProcessor_Tick(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
               _v = 0;
             } else {
               _v = 1;
@@ -8036,7 +8037,7 @@ static int _wrap_StereoProcessor_Tick(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -8094,8 +8095,8 @@ static int _wrap_StereoProcessor_InplaceProcess(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_p_float,0))){
-    SWIG_fail_ptr("StereoProcessor_InplaceProcess",3,SWIGTYPE_p_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_p_double,0))){
+    SWIG_fail_ptr("StereoProcessor_InplaceProcess",3,SWIGTYPE_p_p_double);
   }
   
   (arg1)->InplaceProcess(arg2,arg3);
@@ -8130,13 +8131,13 @@ static int _wrap_StereoProcessor_Run(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_p_float,0))){
-    SWIG_fail_ptr("StereoProcessor_Run",3,SWIGTYPE_p_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_p_double,0))){
+    SWIG_fail_ptr("StereoProcessor_Run",3,SWIGTYPE_p_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_p_float,0))){
-    SWIG_fail_ptr("StereoProcessor_Run",4,SWIGTYPE_p_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_p_double,0))){
+    SWIG_fail_ptr("StereoProcessor_Run",4,SWIGTYPE_p_p_double);
   }
   
   (arg1)->Run(arg2,arg3,arg4);
@@ -8310,13 +8311,13 @@ static int _wrap_StereoCascadeProcessor_ProcessBlock(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_p_float,0))){
-    SWIG_fail_ptr("StereoCascadeProcessor_ProcessBlock",3,SWIGTYPE_p_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_p_double,0))){
+    SWIG_fail_ptr("StereoCascadeProcessor_ProcessBlock",3,SWIGTYPE_p_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_p_float,0))){
-    SWIG_fail_ptr("StereoCascadeProcessor_ProcessBlock",4,SWIGTYPE_p_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_p_double,0))){
+    SWIG_fail_ptr("StereoCascadeProcessor_ProcessBlock",4,SWIGTYPE_p_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4);
@@ -8425,13 +8426,13 @@ static int _wrap_MonoFXProcessor_ProcessBlock(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("MonoFXProcessor_ProcessBlock",3,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("MonoFXProcessor_ProcessBlock",3,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("MonoFXProcessor_ProcessBlock",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("MonoFXProcessor_ProcessBlock",4,SWIGTYPE_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4);
@@ -8531,13 +8532,13 @@ static int _wrap_StereoFXProcessor_ProcessBlock(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_p_float,0))){
-    SWIG_fail_ptr("StereoFXProcessor_ProcessBlock",3,SWIGTYPE_p_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_p_double,0))){
+    SWIG_fail_ptr("StereoFXProcessor_ProcessBlock",3,SWIGTYPE_p_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_p_float,0))){
-    SWIG_fail_ptr("StereoFXProcessor_ProcessBlock",4,SWIGTYPE_p_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_p_double,0))){
+    SWIG_fail_ptr("StereoFXProcessor_ProcessBlock",4,SWIGTYPE_p_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4);
@@ -8924,8 +8925,8 @@ static int _wrap_GeneratorProcessor_Generate(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("GeneratorProcessor_Generate",3,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("GeneratorProcessor_Generate",3,SWIGTYPE_p_double);
   }
   
   (arg1)->Generate(arg2,arg3);
@@ -8960,13 +8961,13 @@ static int _wrap_GeneratorProcessor_ProcessBlock(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("GeneratorProcessor_ProcessBlock",3,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("GeneratorProcessor_ProcessBlock",3,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("GeneratorProcessor_ProcessBlock",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("GeneratorProcessor_ProcessBlock",4,SWIGTYPE_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4);
@@ -9089,13 +9090,13 @@ static int _wrap_MixerProcessor_ProcessBlock__SWIG_0(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
   arg3 = (size_t)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_p_float,0))){
-    SWIG_fail_ptr("MixerProcessor_ProcessBlock",4,SWIGTYPE_p_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_p_double,0))){
+    SWIG_fail_ptr("MixerProcessor_ProcessBlock",4,SWIGTYPE_p_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("MixerProcessor_ProcessBlock",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("MixerProcessor_ProcessBlock",5,SWIGTYPE_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4,arg5);
@@ -9134,13 +9135,13 @@ static int _wrap_MixerProcessor_ProcessBlock__SWIG_1(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
   arg3 = (size_t)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_p_float,0))){
-    SWIG_fail_ptr("MixerProcessor_ProcessBlock",4,SWIGTYPE_p_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_p_double,0))){
+    SWIG_fail_ptr("MixerProcessor_ProcessBlock",4,SWIGTYPE_p_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_p_float,0))){
-    SWIG_fail_ptr("MixerProcessor_ProcessBlock",5,SWIGTYPE_p_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_p_double,0))){
+    SWIG_fail_ptr("MixerProcessor_ProcessBlock",5,SWIGTYPE_p_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4,arg5);
@@ -9183,7 +9184,7 @@ static int _wrap_MixerProcessor_ProcessBlock(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (SWIG_isptrtype(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_p_float, 0)) {
+            if (SWIG_isptrtype(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_p_double, 0)) {
               _v = 0;
             } else {
               _v = 1;
@@ -9192,7 +9193,7 @@ static int _wrap_MixerProcessor_ProcessBlock(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (SWIG_isptrtype(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, 0)) {
+              if (SWIG_isptrtype(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, 0)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -9227,7 +9228,7 @@ static int _wrap_MixerProcessor_ProcessBlock(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (SWIG_isptrtype(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_p_float, 0)) {
+            if (SWIG_isptrtype(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_p_double, 0)) {
               _v = 0;
             } else {
               _v = 1;
@@ -9236,7 +9237,7 @@ static int _wrap_MixerProcessor_ProcessBlock(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (SWIG_isptrtype(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_p_float, 0)) {
+              if (SWIG_isptrtype(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_p_double, 0)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -9602,13 +9603,13 @@ static int _wrap_FunctionProcessor_ProcessBlock(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("FunctionProcessor_ProcessBlock",3,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("FunctionProcessor_ProcessBlock",3,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("FunctionProcessor_ProcessBlock",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("FunctionProcessor_ProcessBlock",4,SWIGTYPE_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4);
@@ -9741,18 +9742,18 @@ static int _wrap_Parameter2Processor_ProcessBlock(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("Parameter2Processor_ProcessBlock",3,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("Parameter2Processor_ProcessBlock",3,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("Parameter2Processor_ProcessBlock",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("Parameter2Processor_ProcessBlock",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("Parameter2Processor_ProcessBlock",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("Parameter2Processor_ProcessBlock",5,SWIGTYPE_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4,arg5);
@@ -9853,13 +9854,13 @@ static int _wrap_StereoSplitterProcessor_Tick(lua_State* L) {
   
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoSplitterProcessor_Tick",3,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoSplitterProcessor_Tick",3,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoSplitterProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoSplitterProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   result = (DspFloatType)(arg1)->Tick(arg2,*arg3,*arg4);
@@ -9896,18 +9897,18 @@ static int _wrap_StereoSplitterProcessor_ProcessBlock(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoSplitterProcessor_ProcessBlock",3,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoSplitterProcessor_ProcessBlock",3,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoSplitterProcessor_ProcessBlock",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoSplitterProcessor_ProcessBlock",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoSplitterProcessor_ProcessBlock",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoSplitterProcessor_ProcessBlock",5,SWIGTYPE_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4,arg5);
@@ -11151,13 +11152,13 @@ static int _wrap_OscillatorProcessor_ProcessBlock(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("OscillatorProcessor_ProcessBlock",3,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("OscillatorProcessor_ProcessBlock",3,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("OscillatorProcessor_ProcessBlock",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("OscillatorProcessor_ProcessBlock",4,SWIGTYPE_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4);
@@ -11775,13 +11776,13 @@ static int _wrap_FilterProcessor_ProcessBlock(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("FilterProcessor_ProcessBlock",3,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("FilterProcessor_ProcessBlock",3,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("FilterProcessor_ProcessBlock",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("FilterProcessor_ProcessBlock",4,SWIGTYPE_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4);
@@ -12133,13 +12134,13 @@ static int _wrap_AmplifierProcessor_ProcessBlock(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("AmplifierProcessor_ProcessBlock",3,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("AmplifierProcessor_ProcessBlock",3,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("AmplifierProcessor_ProcessBlock",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("AmplifierProcessor_ProcessBlock",4,SWIGTYPE_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4);
@@ -12342,8 +12343,8 @@ static int _wrap_StereoOscillatorProcessor_ProcessBlock(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_p_float,0))){
-    SWIG_fail_ptr("StereoOscillatorProcessor_ProcessBlock",3,SWIGTYPE_p_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_p_double,0))){
+    SWIG_fail_ptr("StereoOscillatorProcessor_ProcessBlock",3,SWIGTYPE_p_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3);
@@ -12387,13 +12388,13 @@ static int _wrap_StereoOscillatorProcessor_Tick__SWIG_0(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoOscillatorProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoOscillatorProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoOscillatorProcessor_Tick",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoOscillatorProcessor_Tick",5,SWIGTYPE_p_double);
   }
   
   arg6 = (DspFloatType)lua_tonumber(L, 6);
@@ -12438,13 +12439,13 @@ static int _wrap_StereoOscillatorProcessor_Tick__SWIG_1(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoOscillatorProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoOscillatorProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoOscillatorProcessor_Tick",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoOscillatorProcessor_Tick",5,SWIGTYPE_p_double);
   }
   
   arg6 = (DspFloatType)lua_tonumber(L, 6);
@@ -12486,13 +12487,13 @@ static int _wrap_StereoOscillatorProcessor_Tick__SWIG_2(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoOscillatorProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoOscillatorProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoOscillatorProcessor_Tick",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoOscillatorProcessor_Tick",5,SWIGTYPE_p_double);
   }
   
   arg6 = (DspFloatType)lua_tonumber(L, 6);
@@ -12531,13 +12532,13 @@ static int _wrap_StereoOscillatorProcessor_Tick__SWIG_3(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoOscillatorProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoOscillatorProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoOscillatorProcessor_Tick",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoOscillatorProcessor_Tick",5,SWIGTYPE_p_double);
   }
   
   result = (DspFloatType)(arg1)->Tick(arg2,arg3,*arg4,*arg5);
@@ -12580,7 +12581,7 @@ static int _wrap_StereoOscillatorProcessor_Tick(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
               _v = 0;
             } else {
               _v = 1;
@@ -12589,7 +12590,7 @@ static int _wrap_StereoOscillatorProcessor_Tick(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -12624,7 +12625,7 @@ static int _wrap_StereoOscillatorProcessor_Tick(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
               _v = 0;
             } else {
               _v = 1;
@@ -12633,7 +12634,7 @@ static int _wrap_StereoOscillatorProcessor_Tick(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -12673,7 +12674,7 @@ static int _wrap_StereoOscillatorProcessor_Tick(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
               _v = 0;
             } else {
               _v = 1;
@@ -12682,7 +12683,7 @@ static int _wrap_StereoOscillatorProcessor_Tick(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -12727,7 +12728,7 @@ static int _wrap_StereoOscillatorProcessor_Tick(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
               _v = 0;
             } else {
               _v = 1;
@@ -12736,7 +12737,7 @@ static int _wrap_StereoOscillatorProcessor_Tick(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -12985,13 +12986,13 @@ static int _wrap_StereoGeneratorProcessor_Tick__SWIG_0(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoGeneratorProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoGeneratorProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoGeneratorProcessor_Tick",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoGeneratorProcessor_Tick",5,SWIGTYPE_p_double);
   }
   
   arg6 = (DspFloatType)lua_tonumber(L, 6);
@@ -13036,13 +13037,13 @@ static int _wrap_StereoGeneratorProcessor_Tick__SWIG_1(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoGeneratorProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoGeneratorProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoGeneratorProcessor_Tick",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoGeneratorProcessor_Tick",5,SWIGTYPE_p_double);
   }
   
   arg6 = (DspFloatType)lua_tonumber(L, 6);
@@ -13084,13 +13085,13 @@ static int _wrap_StereoGeneratorProcessor_Tick__SWIG_2(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoGeneratorProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoGeneratorProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoGeneratorProcessor_Tick",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoGeneratorProcessor_Tick",5,SWIGTYPE_p_double);
   }
   
   arg6 = (DspFloatType)lua_tonumber(L, 6);
@@ -13129,13 +13130,13 @@ static int _wrap_StereoGeneratorProcessor_Tick__SWIG_3(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoGeneratorProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoGeneratorProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoGeneratorProcessor_Tick",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoGeneratorProcessor_Tick",5,SWIGTYPE_p_double);
   }
   
   result = (DspFloatType)(arg1)->Tick(arg2,arg3,*arg4,*arg5);
@@ -13178,7 +13179,7 @@ static int _wrap_StereoGeneratorProcessor_Tick(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
               _v = 0;
             } else {
               _v = 1;
@@ -13187,7 +13188,7 @@ static int _wrap_StereoGeneratorProcessor_Tick(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -13222,7 +13223,7 @@ static int _wrap_StereoGeneratorProcessor_Tick(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
               _v = 0;
             } else {
               _v = 1;
@@ -13231,7 +13232,7 @@ static int _wrap_StereoGeneratorProcessor_Tick(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -13271,7 +13272,7 @@ static int _wrap_StereoGeneratorProcessor_Tick(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
               _v = 0;
             } else {
               _v = 1;
@@ -13280,7 +13281,7 @@ static int _wrap_StereoGeneratorProcessor_Tick(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -13325,7 +13326,7 @@ static int _wrap_StereoGeneratorProcessor_Tick(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
               _v = 0;
             } else {
               _v = 1;
@@ -13334,7 +13335,7 @@ static int _wrap_StereoGeneratorProcessor_Tick(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -13392,8 +13393,8 @@ static int _wrap_StereoGeneratorProcessor_ProcessBlock(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_p_float,0))){
-    SWIG_fail_ptr("StereoGeneratorProcessor_ProcessBlock",3,SWIGTYPE_p_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_p_double,0))){
+    SWIG_fail_ptr("StereoGeneratorProcessor_ProcessBlock",3,SWIGTYPE_p_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3);
@@ -13593,13 +13594,13 @@ static int _wrap_StereoFunctionProcessor_ProcessBlock(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_p_float,0))){
-    SWIG_fail_ptr("StereoFunctionProcessor_ProcessBlock",3,SWIGTYPE_p_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_p_double,0))){
+    SWIG_fail_ptr("StereoFunctionProcessor_ProcessBlock",3,SWIGTYPE_p_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_p_float,0))){
-    SWIG_fail_ptr("StereoFunctionProcessor_ProcessBlock",4,SWIGTYPE_p_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_p_double,0))){
+    SWIG_fail_ptr("StereoFunctionProcessor_ProcessBlock",4,SWIGTYPE_p_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4);
@@ -13643,13 +13644,13 @@ static int _wrap_StereoFunctionProcessor_Tick__SWIG_0(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoFunctionProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoFunctionProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoFunctionProcessor_Tick",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoFunctionProcessor_Tick",5,SWIGTYPE_p_double);
   }
   
   arg6 = (DspFloatType)lua_tonumber(L, 6);
@@ -13694,13 +13695,13 @@ static int _wrap_StereoFunctionProcessor_Tick__SWIG_1(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoFunctionProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoFunctionProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoFunctionProcessor_Tick",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoFunctionProcessor_Tick",5,SWIGTYPE_p_double);
   }
   
   arg6 = (DspFloatType)lua_tonumber(L, 6);
@@ -13742,13 +13743,13 @@ static int _wrap_StereoFunctionProcessor_Tick__SWIG_2(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoFunctionProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoFunctionProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoFunctionProcessor_Tick",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoFunctionProcessor_Tick",5,SWIGTYPE_p_double);
   }
   
   arg6 = (DspFloatType)lua_tonumber(L, 6);
@@ -13787,13 +13788,13 @@ static int _wrap_StereoFunctionProcessor_Tick__SWIG_3(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoFunctionProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoFunctionProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoFunctionProcessor_Tick",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoFunctionProcessor_Tick",5,SWIGTYPE_p_double);
   }
   
   result = (DspFloatType)(arg1)->Tick(arg2,arg3,*arg4,*arg5);
@@ -13836,7 +13837,7 @@ static int _wrap_StereoFunctionProcessor_Tick(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
               _v = 0;
             } else {
               _v = 1;
@@ -13845,7 +13846,7 @@ static int _wrap_StereoFunctionProcessor_Tick(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -13880,7 +13881,7 @@ static int _wrap_StereoFunctionProcessor_Tick(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
               _v = 0;
             } else {
               _v = 1;
@@ -13889,7 +13890,7 @@ static int _wrap_StereoFunctionProcessor_Tick(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -13929,7 +13930,7 @@ static int _wrap_StereoFunctionProcessor_Tick(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
               _v = 0;
             } else {
               _v = 1;
@@ -13938,7 +13939,7 @@ static int _wrap_StereoFunctionProcessor_Tick(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -13983,7 +13984,7 @@ static int _wrap_StereoFunctionProcessor_Tick(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
               _v = 0;
             } else {
               _v = 1;
@@ -13992,7 +13993,7 @@ static int _wrap_StereoFunctionProcessor_Tick(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -14216,13 +14217,13 @@ static int _wrap_StereoFilterProcessor_ProcessBlock(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_p_float,0))){
-    SWIG_fail_ptr("StereoFilterProcessor_ProcessBlock",3,SWIGTYPE_p_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_p_double,0))){
+    SWIG_fail_ptr("StereoFilterProcessor_ProcessBlock",3,SWIGTYPE_p_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_p_float,0))){
-    SWIG_fail_ptr("StereoFilterProcessor_ProcessBlock",4,SWIGTYPE_p_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_p_double,0))){
+    SWIG_fail_ptr("StereoFilterProcessor_ProcessBlock",4,SWIGTYPE_p_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4);
@@ -14266,13 +14267,13 @@ static int _wrap_StereoFilterProcessor_Tick__SWIG_0(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoFilterProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoFilterProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoFilterProcessor_Tick",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoFilterProcessor_Tick",5,SWIGTYPE_p_double);
   }
   
   arg6 = (DspFloatType)lua_tonumber(L, 6);
@@ -14317,13 +14318,13 @@ static int _wrap_StereoFilterProcessor_Tick__SWIG_1(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoFilterProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoFilterProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoFilterProcessor_Tick",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoFilterProcessor_Tick",5,SWIGTYPE_p_double);
   }
   
   arg6 = (DspFloatType)lua_tonumber(L, 6);
@@ -14365,13 +14366,13 @@ static int _wrap_StereoFilterProcessor_Tick__SWIG_2(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoFilterProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoFilterProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoFilterProcessor_Tick",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoFilterProcessor_Tick",5,SWIGTYPE_p_double);
   }
   
   arg6 = (DspFloatType)lua_tonumber(L, 6);
@@ -14410,13 +14411,13 @@ static int _wrap_StereoFilterProcessor_Tick__SWIG_3(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoFilterProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoFilterProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoFilterProcessor_Tick",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoFilterProcessor_Tick",5,SWIGTYPE_p_double);
   }
   
   result = (DspFloatType)(arg1)->Tick(arg2,arg3,*arg4,*arg5);
@@ -14459,7 +14460,7 @@ static int _wrap_StereoFilterProcessor_Tick(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
               _v = 0;
             } else {
               _v = 1;
@@ -14468,7 +14469,7 @@ static int _wrap_StereoFilterProcessor_Tick(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -14503,7 +14504,7 @@ static int _wrap_StereoFilterProcessor_Tick(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
               _v = 0;
             } else {
               _v = 1;
@@ -14512,7 +14513,7 @@ static int _wrap_StereoFilterProcessor_Tick(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -14552,7 +14553,7 @@ static int _wrap_StereoFilterProcessor_Tick(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
               _v = 0;
             } else {
               _v = 1;
@@ -14561,7 +14562,7 @@ static int _wrap_StereoFilterProcessor_Tick(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -14606,7 +14607,7 @@ static int _wrap_StereoFilterProcessor_Tick(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
               _v = 0;
             } else {
               _v = 1;
@@ -14615,7 +14616,7 @@ static int _wrap_StereoFilterProcessor_Tick(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -14839,13 +14840,13 @@ static int _wrap_StereoAmplifierProcessor_ProcessBlock(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_p_float,0))){
-    SWIG_fail_ptr("StereoAmplifierProcessor_ProcessBlock",3,SWIGTYPE_p_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_p_double,0))){
+    SWIG_fail_ptr("StereoAmplifierProcessor_ProcessBlock",3,SWIGTYPE_p_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_p_float,0))){
-    SWIG_fail_ptr("StereoAmplifierProcessor_ProcessBlock",4,SWIGTYPE_p_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_p_double,0))){
+    SWIG_fail_ptr("StereoAmplifierProcessor_ProcessBlock",4,SWIGTYPE_p_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4);
@@ -14889,13 +14890,13 @@ static int _wrap_StereoAmplifierProcessor_Tick__SWIG_0(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoAmplifierProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoAmplifierProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoAmplifierProcessor_Tick",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoAmplifierProcessor_Tick",5,SWIGTYPE_p_double);
   }
   
   arg6 = (DspFloatType)lua_tonumber(L, 6);
@@ -14940,13 +14941,13 @@ static int _wrap_StereoAmplifierProcessor_Tick__SWIG_1(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoAmplifierProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoAmplifierProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoAmplifierProcessor_Tick",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoAmplifierProcessor_Tick",5,SWIGTYPE_p_double);
   }
   
   arg6 = (DspFloatType)lua_tonumber(L, 6);
@@ -14988,13 +14989,13 @@ static int _wrap_StereoAmplifierProcessor_Tick__SWIG_2(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoAmplifierProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoAmplifierProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoAmplifierProcessor_Tick",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoAmplifierProcessor_Tick",5,SWIGTYPE_p_double);
   }
   
   arg6 = (DspFloatType)lua_tonumber(L, 6);
@@ -15033,13 +15034,13 @@ static int _wrap_StereoAmplifierProcessor_Tick__SWIG_3(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoAmplifierProcessor_Tick",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoAmplifierProcessor_Tick",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("StereoAmplifierProcessor_Tick",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("StereoAmplifierProcessor_Tick",5,SWIGTYPE_p_double);
   }
   
   result = (DspFloatType)(arg1)->Tick(arg2,arg3,*arg4,*arg5);
@@ -15082,7 +15083,7 @@ static int _wrap_StereoAmplifierProcessor_Tick(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
               _v = 0;
             } else {
               _v = 1;
@@ -15091,7 +15092,7 @@ static int _wrap_StereoAmplifierProcessor_Tick(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -15126,7 +15127,7 @@ static int _wrap_StereoAmplifierProcessor_Tick(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
               _v = 0;
             } else {
               _v = 1;
@@ -15135,7 +15136,7 @@ static int _wrap_StereoAmplifierProcessor_Tick(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -15175,7 +15176,7 @@ static int _wrap_StereoAmplifierProcessor_Tick(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
               _v = 0;
             } else {
               _v = 1;
@@ -15184,7 +15185,7 @@ static int _wrap_StereoAmplifierProcessor_Tick(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -15229,7 +15230,7 @@ static int _wrap_StereoAmplifierProcessor_Tick(lua_State* L) {
         if (_v) {
           {
             void *ptr;
-            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
               _v = 0;
             } else {
               _v = 1;
@@ -15238,7 +15239,7 @@ static int _wrap_StereoAmplifierProcessor_Tick(lua_State* L) {
           if (_v) {
             {
               void *ptr;
-              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_float, SWIG_POINTER_NO_NULL)) {
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_double, SWIG_POINTER_NO_NULL)) {
                 _v = 0;
               } else {
                 _v = 1;
@@ -15924,13 +15925,13 @@ static int _wrap_MonoOperatorProcessor_GetSamples(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
   arg3 = (size_t)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("MonoOperatorProcessor_GetSamples",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("MonoOperatorProcessor_GetSamples",4,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("MonoOperatorProcessor_GetSamples",5,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("MonoOperatorProcessor_GetSamples",5,SWIGTYPE_p_double);
   }
   
   (arg1)->GetSamples(arg2,arg3,arg4,arg5);
@@ -16032,13 +16033,13 @@ static int _wrap_MonoCascadeOperatorProcessor_ProcessBlock(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("MonoCascadeOperatorProcessor_ProcessBlock",3,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("MonoCascadeOperatorProcessor_ProcessBlock",3,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("MonoCascadeOperatorProcessor_ProcessBlock",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("MonoCascadeOperatorProcessor_ProcessBlock",4,SWIGTYPE_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4);
@@ -16138,13 +16139,13 @@ static int _wrap_MonoMultiplierOperatorProcessor_ProcessBlock(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("MonoMultiplierOperatorProcessor_ProcessBlock",3,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("MonoMultiplierOperatorProcessor_ProcessBlock",3,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("MonoMultiplierOperatorProcessor_ProcessBlock",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("MonoMultiplierOperatorProcessor_ProcessBlock",4,SWIGTYPE_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4);
@@ -16244,13 +16245,13 @@ static int _wrap_MonoAdderOperatorProcessor_ProcessBlock(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("MonoAdderOperatorProcessor_ProcessBlock",3,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("MonoAdderOperatorProcessor_ProcessBlock",3,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("MonoAdderOperatorProcessor_ProcessBlock",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("MonoAdderOperatorProcessor_ProcessBlock",4,SWIGTYPE_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4);
@@ -16350,13 +16351,13 @@ static int _wrap_MonoSubtractorOperatorProcessor_ProcessBlock(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("MonoSubtractorOperatorProcessor_ProcessBlock",3,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("MonoSubtractorOperatorProcessor_ProcessBlock",3,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("MonoSubtractorOperatorProcessor_ProcessBlock",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("MonoSubtractorOperatorProcessor_ProcessBlock",4,SWIGTYPE_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4);
@@ -16456,13 +16457,13 @@ static int _wrap_MonoModulatorOperatorProcessor_ProcessBlock(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("MonoModulatorOperatorProcessor_ProcessBlock",3,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("MonoModulatorOperatorProcessor_ProcessBlock",3,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("MonoModulatorOperatorProcessor_ProcessBlock",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("MonoModulatorOperatorProcessor_ProcessBlock",4,SWIGTYPE_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4);
@@ -16612,13 +16613,13 @@ static int _wrap_MonoBlendOperatorProcessor_ProcessBlock(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("MonoBlendOperatorProcessor_ProcessBlock",3,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("MonoBlendOperatorProcessor_ProcessBlock",3,SWIGTYPE_p_double);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("MonoBlendOperatorProcessor_ProcessBlock",4,SWIGTYPE_p_float);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("MonoBlendOperatorProcessor_ProcessBlock",4,SWIGTYPE_p_double);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4);
@@ -17988,6 +17989,40 @@ static int _wrap_blitSaw_Tick(lua_State* L) {
 }
 
 
+static int _wrap_blitSaw_ProcessSIMD(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::Oscillators::blitSaw *arg1 = (Analog::Oscillators::blitSaw *) 0 ;
+  size_t arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("Analog::Oscillators::blitSaw::ProcessSIMD",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::blitSaw::ProcessSIMD",1,"Analog::Oscillators::blitSaw *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::blitSaw::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::blitSaw::ProcessSIMD",3,"DspFloatType *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__blitSaw,0))){
+    SWIG_fail_ptr("blitSaw_ProcessSIMD",1,SWIGTYPE_p_Analog__Oscillators__blitSaw);
+  }
+  
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("blitSaw_ProcessSIMD",3,SWIGTYPE_p_double);
+  }
+  
+  (arg1)->ProcessSIMD(arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static int _wrap_blitSaw___call(lua_State* L) {
   int SWIG_arg = 0;
   Analog::Oscillators::blitSaw *arg1 = (Analog::Oscillators::blitSaw *) 0 ;
@@ -18049,6 +18084,7 @@ static swig_lua_method swig_blitSaw_methods[]= {
     { "setPort", _wrap_blitSaw_setPort},
     { "lastOut", _wrap_blitSaw_lastOut},
     { "Tick", _wrap_blitSaw_Tick},
+    { "ProcessSIMD", _wrap_blitSaw_ProcessSIMD},
     { "__call", _wrap_blitSaw___call},
     {0,0}
 };
@@ -19488,6 +19524,40 @@ static int _wrap_blitSquare_Tick(lua_State* L) {
 }
 
 
+static int _wrap_blitSquare_ProcessSIMD(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::Oscillators::blitSquare *arg1 = (Analog::Oscillators::blitSquare *) 0 ;
+  size_t arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("Analog::Oscillators::blitSquare::ProcessSIMD",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::blitSquare::ProcessSIMD",1,"Analog::Oscillators::blitSquare *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::blitSquare::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::blitSquare::ProcessSIMD",3,"DspFloatType *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__blitSquare,0))){
+    SWIG_fail_ptr("blitSquare_ProcessSIMD",1,SWIGTYPE_p_Analog__Oscillators__blitSquare);
+  }
+  
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("blitSquare_ProcessSIMD",3,SWIGTYPE_p_double);
+  }
+  
+  (arg1)->ProcessSIMD(arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static int _wrap_blitSquare___call(lua_State* L) {
   int SWIG_arg = 0;
   Analog::Oscillators::blitSquare *arg1 = (Analog::Oscillators::blitSquare *) 0 ;
@@ -19552,6 +19622,7 @@ static swig_lua_method swig_blitSquare_methods[]= {
     { "setPort", _wrap_blitSquare_setPort},
     { "lastOut", _wrap_blitSquare_lastOut},
     { "Tick", _wrap_blitSquare_Tick},
+    { "ProcessSIMD", _wrap_blitSquare_ProcessSIMD},
     { "__call", _wrap_blitSquare___call},
     {0,0}
 };
@@ -20297,6 +20368,40 @@ static int _wrap_blitTriangle_Tick(lua_State* L) {
 }
 
 
+static int _wrap_blitTriangle_ProcessSIMD(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::Oscillators::blitTriangle *arg1 = (Analog::Oscillators::blitTriangle *) 0 ;
+  size_t arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("Analog::Oscillators::blitTriangle::ProcessSIMD",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::blitTriangle::ProcessSIMD",1,"Analog::Oscillators::blitTriangle *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::blitTriangle::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::blitTriangle::ProcessSIMD",3,"DspFloatType *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__blitTriangle,0))){
+    SWIG_fail_ptr("blitTriangle_ProcessSIMD",1,SWIGTYPE_p_Analog__Oscillators__blitTriangle);
+  }
+  
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("blitTriangle_ProcessSIMD",3,SWIGTYPE_p_double);
+  }
+  
+  (arg1)->ProcessSIMD(arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static int _wrap_blitTriangle___call(lua_State* L) {
   int SWIG_arg = 0;
   Analog::Oscillators::blitTriangle *arg1 = (Analog::Oscillators::blitTriangle *) 0 ;
@@ -20346,6 +20451,7 @@ static swig_lua_method swig_blitTriangle_methods[]= {
     { "setFrequency", _wrap_blitTriangle_setFrequency},
     { "setPort", _wrap_blitTriangle_setPort},
     { "Tick", _wrap_blitTriangle_Tick},
+    { "ProcessSIMD", _wrap_blitTriangle_ProcessSIMD},
     { "__call", _wrap_blitTriangle___call},
     {0,0}
 };
@@ -24217,14 +24323,14 @@ static swig_type_info _swigt__p_StereoGeneratorProcessor = {"_p_StereoGeneratorP
 static swig_type_info _swigt__p_StereoOscillatorProcessor = {"_p_StereoOscillatorProcessor", "StereoOscillatorProcessor *", 0, 0, (void*)&_wrap_class_StereoOscillatorProcessor, 0};
 static swig_type_info _swigt__p_StereoProcessor = {"_p_StereoProcessor", "StereoProcessor *", 0, 0, (void*)&_wrap_class_StereoProcessor, 0};
 static swig_type_info _swigt__p_StereoSplitterProcessor = {"_p_StereoSplitterProcessor", "StereoSplitterProcessor *", 0, 0, (void*)&_wrap_class_StereoSplitterProcessor, 0};
-static swig_type_info _swigt__p_double = {"_p_double", "double *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_float = {"_p_float", "DspFloatType *|float *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_double = {"_p_double", "DspFloatType *|double *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_float = {"_p_float", "float *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_int = {"_p_int", "intptr_t *|int *|int_least32_t *|int_fast32_t *|int32_t *|int_fast16_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_long_long = {"_p_long_long", "int_least64_t *|int_fast64_t *|int64_t *|long long *|intmax_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_AmplifierProcessor = {"_p_p_AmplifierProcessor", "AmplifierProcessor **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_FilterProcessor = {"_p_p_FilterProcessor", "FilterProcessor **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_FunctionProcessor = {"_p_p_FunctionProcessor", "FunctionProcessor **", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_p_float = {"_p_p_float", "float **|DspFloatType **", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_p_double = {"_p_p_double", "double **|DspFloatType **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_short = {"_p_short", "short *|int_least16_t *|int16_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_signed_char = {"_p_signed_char", "signed char *|int_least8_t *|int_fast8_t *|int8_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__complexT_double_t = {"_p_std__complexT_double_t", "std::complex< double > *", 0, 0, (void*)0, 0};
@@ -24252,8 +24358,8 @@ static swig_type_info _swigt__p_std__vectorT_MonoProcessor_p_std__allocatorT_Mon
 static swig_type_info _swigt__p_std__vectorT_OscillatorProcessor_p_std__allocatorT_OscillatorProcessor_p_t_t = {"_p_std__vectorT_OscillatorProcessor_p_std__allocatorT_OscillatorProcessor_p_t_t", "std::vector< OscillatorProcessor *,std::allocator< OscillatorProcessor * > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_SoundProcessor_p_std__allocatorT_SoundProcessor_p_t_t = {"_p_std__vectorT_SoundProcessor_p_std__allocatorT_SoundProcessor_p_t_t", "std::vector< SoundProcessor *,std::allocator< SoundProcessor * > > *|SoundProcessorVector *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_StereoProcessor_p_std__allocatorT_StereoProcessor_p_t_t = {"_p_std__vectorT_StereoProcessor_p_std__allocatorT_StereoProcessor_p_t_t", "std::vector< StereoProcessor *,std::allocator< StereoProcessor * > > *|StereoProcessorVector *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_std__vectorT_double_std__allocatorT_double_t_t = {"_p_std__vectorT_double_std__allocatorT_double_t_t", "std::vector< double,std::allocator< double > > *|std::vector< double > *", 0, 0, (void*)&_wrap_class_double_vector, 0};
-static swig_type_info _swigt__p_std__vectorT_float_std__allocatorT_float_t_t = {"_p_std__vectorT_float_std__allocatorT_float_t_t", "std::vector< float,std::allocator< float > > *|std::vector< float > *|std::vector< DspFloatType,std::allocator< DspFloatType > > *", 0, 0, (void*)&_wrap_class_float_vector, 0};
+static swig_type_info _swigt__p_std__vectorT_double_std__allocatorT_double_t_t = {"_p_std__vectorT_double_std__allocatorT_double_t_t", "std::vector< double,std::allocator< double > > *|std::vector< DspFloatType,std::allocator< DspFloatType > > *|std::vector< double > *", 0, 0, (void*)&_wrap_class_double_vector, 0};
+static swig_type_info _swigt__p_std__vectorT_float_std__allocatorT_float_t_t = {"_p_std__vectorT_float_std__allocatorT_float_t_t", "std::vector< float > *|std::vector< float,std::allocator< float > > *", 0, 0, (void*)&_wrap_class_float_vector, 0};
 static swig_type_info _swigt__p_std__vectorT_std__complexT_double_t_std__allocatorT_std__complexT_double_t_t_t = {"_p_std__vectorT_std__complexT_double_t_std__allocatorT_std__complexT_double_t_t_t", "std::vector< std::complex< double > > *|std::vector< std::complex< double >,std::allocator< std::complex< double > > > *", 0, 0, (void*)&_wrap_class_complex_double_vector, 0};
 static swig_type_info _swigt__p_std__vectorT_std__complexT_float_t_std__allocatorT_std__complexT_float_t_t_t = {"_p_std__vectorT_std__complexT_float_t_std__allocatorT_std__complexT_float_t_t_t", "std::vector< std::complex< float > > *|std::vector< std::complex< float >,std::allocator< std::complex< float > > > *", 0, 0, (void*)&_wrap_class_complex_float_vector, 0};
 static swig_type_info _swigt__p_std__vector_iteratorT_double_std__allocatorT_double_t_t = {"_p_std__vector_iteratorT_double_std__allocatorT_double_t_t", "std::vector_iterator< double,std::allocator< double > > *", 0, 0, (void*)0, 0};
@@ -24315,7 +24421,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_p_AmplifierProcessor,
   &_swigt__p_p_FilterProcessor,
   &_swigt__p_p_FunctionProcessor,
-  &_swigt__p_p_float,
+  &_swigt__p_p_double,
   &_swigt__p_short,
   &_swigt__p_signed_char,
   &_swigt__p_std__complexT_double_t,
@@ -24406,7 +24512,7 @@ static swig_cast_info _swigc__p_long_long[] = {  {&_swigt__p_long_long, 0, 0, 0}
 static swig_cast_info _swigc__p_p_AmplifierProcessor[] = {  {&_swigt__p_p_AmplifierProcessor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_FilterProcessor[] = {  {&_swigt__p_p_FilterProcessor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_FunctionProcessor[] = {  {&_swigt__p_p_FunctionProcessor, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_p_float[] = {  {&_swigt__p_p_float, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_p_double[] = {  {&_swigt__p_p_double, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_short[] = {  {&_swigt__p_short, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_signed_char[] = {  {&_swigt__p_signed_char, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__complexT_double_t[] = {  {&_swigt__p_std__complexT_double_t, 0, 0, 0},{0, 0, 0, 0}};
@@ -24497,7 +24603,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_p_AmplifierProcessor,
   _swigc__p_p_FilterProcessor,
   _swigc__p_p_FunctionProcessor,
-  _swigc__p_p_float,
+  _swigc__p_p_double,
   _swigc__p_short,
   _swigc__p_signed_char,
   _swigc__p_std__complexT_double_t,

@@ -30,20 +30,20 @@ public:
 
 
   /**  @param samplerate the samplerate in Hz */
-  LFO(float samplerate);
+  LFO(DspFloatType samplerate);
   virtual ~LFO() {}
 
   /** increments the phase and outputs the new LFO value.
       @return the new LFO value between [-1;+1] */ 
-  float tick();
+  DspFloatType tick();
 
   /** change the current rate
       @param rate new rate in Hz */
-  void setRate(const float rate);
+  void setRate(const DspFloatType rate);
 
   /** change the current samplerate
       @param samplerate new samplerate in Hz */
-  void setSampleRate(const float samplerate_) {samplerate = (samplerate_>0.0) ? samplerate : 44100.0f;}
+  void setSampleRate(const DspFloatType samplerate_) {samplerate = (samplerate_>0.0) ? samplerate : 44100.0f;}
 
   /** select the desired waveform for the LFO
       @param index tag of the waveform
@@ -60,7 +60,7 @@ private:
   /** names of the waveforms for display purpose*/
   static const std::string waveNames[kNumWave];
 
-  float samplerate;
+  DspFloatType samplerate;
   
   /** phase and phase increment
       the 8 Most Significant Bits represent the integer part,
@@ -76,13 +76,13 @@ private:
       \f[ val = (1-frac)*u[n] + frac*u[n+1] \f]
       even with n = 255.
       For n higher than 255, n is automatically  wrapped to 0-255*/
-  float table[257]; 
+  DspFloatType table[257]; 
 };
 
 
 const std::string LFO::waveNames[] = {"triangle", "sinus", "sawtooth", "square", "exponent"};
 
-inline LFO::LFO(float samplerate)
+inline LFO::LFO(DspFloatType samplerate)
   : samplerate(samplerate),
     phase(0),
     inc(0)
@@ -91,15 +91,15 @@ inline LFO::LFO(float samplerate)
   setRate(1.0f); //1Hz
 }
 
-const float k1Div24lowerBits = 1.0f/(float)(1<<24);
+const DspFloatType k1Div24lowerBits = 1.0f/(DspFloatType)(1<<24);
 
-inline float LFO::tick()
+inline DspFloatType LFO::tick()
 {
   // the 8 MSB are the index in the table in the range 0-255 
   int i = phase >> 24; 
   
   // and the 24 LSB are the fractionnal part
-  float frac = (phase & 0x00FFFFFF) * k1Div24lowerBits;
+  DspFloatType frac = (phase & 0x00FFFFFF) * k1Div24lowerBits;
 
   // increment the phase for the next tick
   phase += inc; // the phase overflow itself
@@ -107,11 +107,11 @@ inline float LFO::tick()
   return table[i]*(1.0f-frac) + table[i+1]*frac; // linear interpolation
 }
 
-inline void LFO::setRate(float rate)
+inline void LFO::setRate(DspFloatType rate)
 {
   /** the rate in Hz is converted to a phase increment with the following formula
       \f[ inc = (256*rate/samplerate) * 2^24 \f] */
-  inc =  (unsigned int)((256.0f * rate / samplerate) * (float)(1<<24));
+  inc =  (unsigned int)((256.0f * rate / samplerate) * (DspFloatType)(1<<24));
 }
 
 inline void LFO::setWaveform(waveform_t index)
@@ -166,7 +166,7 @@ inline void LFO::setWaveform(waveform_t index)
       {
 	/* symetric exponent similar to triangle */
 	int i;
-	float e = (float)exp(1.0f);
+	DspFloatType e = (DspFloatType)exp(1.0f);
 	for(i=0;i<128;i++)
 	  {
 	    table[i] = 2.0f * ((exp(i/128.0f) - 1.0f) / (e - 1.0f)) - 1.0f  ;

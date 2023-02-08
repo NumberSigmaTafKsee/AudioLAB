@@ -103,7 +103,43 @@ namespace Analog::Filters::DiodeLadderFilter2
         }    
         void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out, DspFloatType * A=NULL, DspFloatType * X=NULL, DspFloatType * Y=NULL)
         {
+            #pragma omp simd
             for(size_t i = 0; i < n; i++) out[i] = Tick(in[i],A != NULL? A[i]:1, X != NULL? X[i]:1, Y != NULL? Y[i]:1);
+        }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            Undenormal noDenormals;                        
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++)
+            {                
+                auto I0 = 8 * C * VT * 2 * Fs * tan((M_PI * biasParameter)/ Fs);
+                DspFloatType K = gainParameter;
+                Vin = in[i];
+                iteration = 0;
+                while (1) {
+                    u1 = tanh((Vin - VoutPrev) / (2 * VT));
+                    VC1 = (I0 / (4.0 * C * Fs)) * (u2 + u1) + s1;
+                    u2 = tanh((VC2 - VC1) / (2 * gamma));
+                    VC2 = (I0 / (4.0 * C * Fs) * (u3 - u2)) + s2;
+                    u3 = tanh((VC3 - VC2) / (2 * gamma));
+                    VC3 = (I0 / (4.0 * C * Fs) * (u4 - u3)) + s3;
+                    u4 = tanh((VC4 - VC3) / (2 * gamma));
+                    VC4 = (I0 / (4.0 * C * Fs) * (-u5 - u4)) + s4;
+                    u5 = tanh(VC4 / (6.0f * gamma));
+                    Vout = (K + 0.5f) * FX::Distortion::Diode::Diode(VC4);
+                    if (fabs(Vout - VoutPrev) >= Mp * fabs(VoutPrev) || iteration > maxNrIterations)
+                    {
+                        VoutPrev = Vout;
+                        break;
+                    }
+                    VoutPrev = Vout;
+                    iteration++;
+                }
+                s1 = 1 / (2 * Fs) * u1 + VC1;
+                s2 = 1 / (2 * Fs) * u2 + VC2;
+                s3 = 1 / (2 * Fs) * u3 + VC3;
+                s4 = 1 / (2 * Fs) * u4 + VC4;
+                out[i] = Vout;                
+            }
         }
     };
 }

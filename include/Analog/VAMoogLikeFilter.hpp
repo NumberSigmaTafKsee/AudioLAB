@@ -101,5 +101,19 @@ namespace Analog::Filters::MoogLike
             d[3]=coef[4]*_in+coef[8]*_out;
             return _out;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            Undenormal denormal;
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++)  {
+                _in = in[i];
+                // per sample:
+                _out=coef[0]*_in+d[0];
+                d[0]=coef[1]*_in+coef[5]*_out+d[1];
+                d[1]=coef[2]*_in+coef[6]*_out+d[2];
+                d[2]=coef[3]*_in+coef[7]*_out+d[3];
+                d[3]=coef[4]*_in+coef[8]*_out;
+                out[i] = _out;
+            }
+        }
     };
 }

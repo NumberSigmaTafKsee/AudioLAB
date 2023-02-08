@@ -107,5 +107,37 @@ namespace Analog::Filters::Moog::StilsonMoog
             lastX = I;            
             return std::tanh(post_gain*output);
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            int i,pole;
+            DspFloatType temp, input;
+            Undenormal denormal;
+            
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {            
+                DspFloatType I = in[i];
+                input  = std::tanh(pre_gain*I);
+                output = 0.25 * ( input - output ); //negative feedback
+                output = clamp(output,-1,1);
+
+                for( pole = 0; pole < 4; pole++) {
+                        temp = state[pole];
+                        output = output + p * (output - temp);
+                        state[pole] = output;
+                        output = output + temp;
+                        //if(std::fabs(output) < 1e-6) output=0;
+                }        
+                lowpass = output;
+                highpass = input - output;
+                bandpass = 3 * state[2] - lowpass; //got this one from paul kellet
+                switch(type) {
+                case LP: output = lowpass; break;
+                case HP: output = highpass; break;
+                case BP: output = bandpass; break;
+                }
+                output *= Q;  //scale the feedback
+                lastX = I;            
+                out[i] = std::tanh(post_gain*output);
+            }
+        }
     };
 }

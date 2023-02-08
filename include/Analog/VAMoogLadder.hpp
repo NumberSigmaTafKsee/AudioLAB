@@ -66,6 +66,7 @@ namespace Analog::Flters::Moog::MoogLadder
 		// state as needed
 		DspFloatType process(DspFloatType input); 
 		
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out);
 		// Destructor
 		~MoogLadder();
 
@@ -164,7 +165,28 @@ namespace Analog::Flters::Moog::MoogLadder
 		
 		return output;
 	}
-
+	void MoogLadder::ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+	{
+		Undenormal denormal;
+		#pragma omp simd
+		for(size_t i = 0; i < n; i++)
+		{
+			//Next input to the filter is a combination of the last output and current sample, 
+			// scaled by the resonance, filter drive and compensation value
+			state[0] = tanh(drive_ * (in[i] - 4 * gRes * (state[4] - gComp_ * input)));
+			
+			// Loop through each pole of the ladder filter
+			for(int i = 0; i < 4; i++)
+			{
+				// Equation implementing the Huovilainen (2006) one pole circuit diagram
+				state[i+1] = g * (0.3 / 1.3 * state[i] + 1 / 1.3 * delay[i] - state[i + 1]) + state[i + 1];
+				
+				// Add output to feedback loop
+				delay[i] = state[i];
+			}					
+			out[i] = state[4];
+		}
+	}
 	// Reset the filter poles and feedback state
 	void MoogLadder::reset()
 	{

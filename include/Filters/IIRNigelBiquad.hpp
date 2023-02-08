@@ -44,8 +44,9 @@ namespace Filters
         }
 
         void setBiquad(int type, DspFloatType Fc, DspFloatType Q, DspFloatType peakGain);
-        float process(float in);
+        DspFloatType process(DspFloatType in);
         
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out);
     protected:
         void calcBiquad(void);
 
@@ -55,13 +56,23 @@ namespace Filters
         DspFloatType z1, z2;
     };
 
-    inline float NigelBiquad::process(float in) {
+    inline DspFloatType NigelBiquad::process(DspFloatType in) {
         DspFloatType out = in * a0 + z1;
         z1 = in * a1 + z2 - b1 * out;
         z2 = in * a2 - b2 * out;
         return out;
     }
-
+    void NigelBiquad::ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * output)
+    {
+        Undenormal denormals;
+        #pragma omp simd
+        for(size_t i = 0; i < n; i++) {
+            DspFloatType out = in[i] * a0 + z1;
+            z1 = in * a1 + z2 - b1 * out;
+            z2 = in * a2 - b2 * out;
+            output[i] = out;
+        }
+    }
     NigelBiquad::NigelBiquad() {
         type = bq_type_lowpass;
         a0 = 1.0;

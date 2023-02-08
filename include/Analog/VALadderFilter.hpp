@@ -87,6 +87,36 @@ namespace Analog::Filters::LadderFilter
 		DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {
 			return A*process(I);
 		}
+		void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output) {
+			#pragma omp simd
+			for(size_t x = 0; x < n; x++) {
+				DspFloatType inputSample = input[x];
+				for(int i = 0; i < mOversampleFactor; ++i) // repeat sample processing per oversampling factor
+				{			
+					for(int filterIndex = 0; filterIndex < NUMBER_OF_FILTERS; ++filterIndex) // go through filter stages			
+					{
+						// compute voltage differential at current time step
+						if(filterIndex == 0) // for the first filter
+						{
+							mvDiffVolt[filterIndex] = -mBiasControl * (tanh(mvVolt_1[filterIndex] * OVER_TWO_THERMAL_VOLT) + tanh((mGain * inputSample + mResonance * mvVolt_1[NUMBER_OF_FILTERS-1]) * OVER_TWO_THERMAL_VOLT));
+						}
+						else // for the rest of the filters
+						{
+							mvDiffVolt[filterIndex] = mBiasControl * (tanh(mvVolt[filterIndex-1] * OVER_TWO_THERMAL_VOLT) - tanh(mvVolt_1[filterIndex] * OVER_TWO_THERMAL_VOLT));
+						}
+						
+						// compute voltage output for current filter at current time step
+						mvVolt[filterIndex] += (mvDiffVolt[filterIndex] +  mvDiffVolt_1[filterIndex])/(2*mSampleRate);
+						
+						// update voltages from previous time step
+						mvVolt_1[filterIndex] = mvVolt[filterIndex];
+						mvDiffVolt_1[filterIndex] = mvDiffVolt[filterIndex];
+					}
+				}
+				output[x] = mvVolt[NUMBER_OF_FILTERS-1];
+			}
+		}
+		
 	private:
 		
 		// variables
@@ -159,9 +189,10 @@ namespace Analog::Filters::LadderFilter
 	template <class T>
 	T LadderFilter<T>::process(T inputSample)
 	{
+		#pragma omp simd
 		for(int i = 0; i < mOversampleFactor; ++i) // repeat sample processing per oversampling factor
-		{
-			for(int filterIndex = 0; filterIndex < NUMBER_OF_FILTERS; ++filterIndex) // go through filter stages
+		{			
+			for(int filterIndex = 0; filterIndex < NUMBER_OF_FILTERS; ++filterIndex) // go through filter stages			
 			{
 				// compute voltage differential at current time step
 				if(filterIndex == 0) // for the first filter

@@ -54,5 +54,16 @@ namespace Analog::Oscillators
             position += freq * invSampleRate;        
             return out;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * output) {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
+                position += phase - lastPhase;
+                lastPhase = phase;
+                position = fmod(position, 1.0f);                
+                DspFloatType out = std::abs(position - 0.5) * 4 - 1;                
+                position += freq * invSampleRate;        
+                output[i] = out;
+            }
+        }
     };
 }

@@ -79,6 +79,6 @@ namespace Analog::Filters::SVFSmoother
             case BAND: return band;            
             }
             return notch;
-        }
+        }     
     };
 }

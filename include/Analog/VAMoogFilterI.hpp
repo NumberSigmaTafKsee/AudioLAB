@@ -50,6 +50,7 @@ namespace Analog::Filters::Moog::MoogFilterI
 			return A*process(I);
 		}
 
+
 		enum
         {
             PORT_CUTOFF,
@@ -121,9 +122,42 @@ namespace Analog::Filters::Moog::MoogFilterI
 
 	void MoogFilterI::ProcessBlock(size_t n, DspFloatType * inputs, DspFloatType * outputs)
 	{
+		Undenormal denormals;
+		#pragma omp simd
 		for (int s = 0; s < n; s++)
 		{
-			outputs[s] =  process(inputs[s]);
+			// process input
+			input = saturate(inputs[s]);
+			input -= r * out4;
+
+			//Four cascaded onepole filters (bilinear transform)
+			out1 = input * p + in1 * p - k * out1;
+			out2 =  out1 * p + in2 * p - k * out2;
+			out3 =  out2 * p + in1 * p - k * out3;
+			out4 =  out3 * p + in4 * p - k * out4;
+
+			in1 = input;
+			in2 = out1;
+			in3 = out2;
+			in4 = out3;
+
+			//Clipper band limited sigmoid
+			out4 -= (out4 * out4 * out4) / 6.f;
+
+			switch (passMode)
+			{
+			case LOWPASS:
+				outputs[s] = out4;
+				break;
+			case HIGHPASS:
+				outputs[s] = input - out4 - out1;
+				break;
+			case BANDPASS:
+				outputs[s] = out4 - out1;
+				break;
+			default:
+				outputs[s] = out4;
+			}
 		}
 	}
 
@@ -140,6 +174,7 @@ namespace Analog::Filters::Moog::MoogFilterI
 
 	DspFloatType MoogFilterI::process(DspFloatType input)
 	{
+		Undenormal denormals;
 		// process input
 		input = saturate(input);
 		input -= r * out4;

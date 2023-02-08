@@ -18,7 +18,7 @@ namespace Analog::Filters::Moog::NonLinear2
     public:
         MoogFilter();
         ~MoogFilter();
-        void processSamples(DspFloatType *samples, int numSamples);
+        void ProcessBlock(size_t n, DspFloatType *input, DspFloatType * output);
         
         DspFloatType getFrequency();
         DspFloatType getResonance();
@@ -58,7 +58,8 @@ namespace Analog::Filters::Moog::NonLinear2
     MoogFilter::~MoogFilter() {
         
     }
-    void MoogFilter::processSamples(DspFloatType *samples, int numSamples){
+    void MoogFilter::ProcessBlock(size_t n, DspFloatType *input, DspFloatType * output) {
+        #pragma omp simd
         for (int i = 0; i < 2 * numSamples; i++) {
             samples[i/2] = tanhf(samples[i/2] * drive);
             y_a = y_a + g * (tanhf(samples[i/2] - resonance * ((y_d_1 + y_d)/2) - tanhf(y_a)));

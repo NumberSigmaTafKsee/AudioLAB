@@ -39,6 +39,8 @@ namespace Analog::Filters::Moog
             DspFloatType c,r;
             c = cutoff;
             r = resonance;
+            
+            #pragma omp simd
             for (uint32_t i = 0; i < n; i++)
             {
                 

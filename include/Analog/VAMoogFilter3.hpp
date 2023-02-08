@@ -57,5 +57,25 @@ namespace Analog::MoogFilters::MoogFilter3
             in4  = out3;
             return out4;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            Undenormal denormals;
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
+                DspFloatType f = fc * 1.16;
+                DspFloatType fb = res * (1.0 - 0.15 * f * f);
+                DspFloatType input = in[i];
+                input -= out4 * fb;
+                input *= 0.35013 * (f*f)*(f*f);
+                out1 = input + 0.3 * in1 + (1 - f) * out1; // Pole 1
+                in1  = input;
+                out2 = out1 + 0.3 * in2 + (1 - f) * out2;  // Pole 2
+                in2  = out1;
+                out3 = out2 + 0.3 * in3 + (1 - f) * out3;  // Pole 3
+                in3  = out2;
+                out4 = out3 + 0.3 * in4 + (1 - f) * out4;  // Pole 4
+                in4  = out3;
+                out[i] = out4;
+            }
+        }
     };
 }

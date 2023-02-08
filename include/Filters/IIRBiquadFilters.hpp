@@ -6,14 +6,12 @@
 #include <cmath>
 #include <iostream>
 
-
-
 namespace Filters
 {
 
-//////////////////////////////////////////////////////////////////////////////////////////
-// RBJ
-//////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////
+    // RBJ
+    //////////////////////////////////////////////////////////////////////////////////////////
 
     enum class FilterType
     {
@@ -26,7 +24,7 @@ namespace Filters
         LowShelf,
         HighShelf,
         OnePoleZeroLP,
-        OnePoleZeroHP,        
+        OnePoleZeroHP,
     };
 
     struct Parameters
@@ -42,7 +40,7 @@ namespace Filters
     {
     private:
         FilterType mfilterType;
-        
+
         Parameters mparams;
 
         // coefficients
@@ -53,66 +51,92 @@ namespace Filters
         // prev x,y delayline
         // delayline x_prev;
         // delayline y_prev;
-        
+
         void calculateCoeffs();
-        
+
     public:
         RBJBiquadFilter(){};
         ~RBJBiquadFilter(){};
-        void setParams(const Parameters& params);
+        void setParams(const Parameters &params);
         Parameters getParams();
         DspFloatType process(DspFloatType x);
-        void setFilterType(FilterType type) {
+        void setFilterType(FilterType type)
+        {
             mparams.filterType = type;
             setParams(mparams);
         }
-        void setCutoff(DspFloatType f) {
+        void setCutoff(DspFloatType f)
+        {
             mparams.f0 = f;
             setParams(mparams);
         }
-        void setQ(DspFloatType q) {
+        void setQ(DspFloatType q)
+        {
             mparams.Q = q;
             setParams(mparams);
         }
-        void setGain(DspFloatType g) {
+        void setGain(DspFloatType g)
+        {
             mparams.dBGain = g;
             setParams(mparams);
         }
-        enum {
+        enum
+        {
             PORT_TYPE,
             PORT_CUTOFF,
             PORT_Q,
             PORT_GAIN,
         };
-        void setPort(int port, DspFloatType v) {
-            switch(port)
+        void setPort(int port, DspFloatType v)
+        {
+            switch (port)
             {
-                case PORT_TYPE: setFilterType((FilterType)v); break;
-                case PORT_CUTOFF: setCutoff(v); break;
-                case PORT_Q: setQ(v); break;
-                case PORT_GAIN: setGain(v); break;
+            case PORT_TYPE:
+                setFilterType((FilterType)v);
+                break;
+            case PORT_CUTOFF:
+                setCutoff(v);
+                break;
+            case PORT_Q:
+                setQ(v);
+                break;
+            case PORT_GAIN:
+                setGain(v);
+                break;
             }
         }
-        DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0) {
+        DspFloatType Tick(DspFloatType I, DspFloatType A = 1, DspFloatType X = 0, DspFloatType Y = 0)
+        {
             return process(I);
         }
-        void morph(RBJBiquadFilter & other, float f = 0.5)
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            Undenormal denormal;
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
+                DspFloatType x = in[i];
+                DspFloatType y = (mb0 / ma0) * x + (mb1 / ma0) * mx_z1 + (mb2 / ma0) * mx_z2 - (ma1 / ma0) * my_z1 - (ma2 / ma0) * my_z2;
+                mx_z2 = mx_z1;
+                mx_z1 = x;
+                my_z2 = my_z1;
+                my_z1 = y;
+                out[i] = y;
+            }            
+        }
+        void morph(RBJBiquadFilter &other, DspFloatType f = 0.5)
         {
-            ma0 = ma0 + f*(other.ma0 - ma0);
-            ma1 = ma1 + f*(other.ma1 - ma1);
-            ma2 = ma2 + f*(other.ma2 - ma2);
-            mb0 = mb0 + f*(other.mb0 - mb0);
-            mb1 = mb1 + f*(other.mb1 - mb1);
-            mb2 = mb2 + f*(other.mb2 - mb2);
-            mparams.f0 = mparams.f0 + f*(other.mparams.f0 - mparams.f0);
-            mparams.Q = mparams.Q + f*(other.mparams.Q - mparams.Q);
-            mparams.dBGain = mparams.dBGain + f*(other.mparams.dBGain - mparams.dBGain);
+            ma0 = ma0 + f * (other.ma0 - ma0);
+            ma1 = ma1 + f * (other.ma1 - ma1);
+            ma2 = ma2 + f * (other.ma2 - ma2);
+            mb0 = mb0 + f * (other.mb0 - mb0);
+            mb1 = mb1 + f * (other.mb1 - mb1);
+            mb2 = mb2 + f * (other.mb2 - mb2);
+            mparams.f0 = mparams.f0 + f * (other.mparams.f0 - mparams.f0);
+            mparams.Q = mparams.Q + f * (other.mparams.Q - mparams.Q);
+            mparams.dBGain = mparams.dBGain + f * (other.mparams.dBGain - mparams.dBGain);
         }
     };
 
-
-
-    inline void RBJBiquadFilter::setParams(const Parameters& params)
+    inline void RBJBiquadFilter::setParams(const Parameters &params)
     {
         mparams = params;
         calculateCoeffs();
@@ -216,7 +240,7 @@ namespace Filters
     }
 
     inline DspFloatType RBJBiquadFilter::process(DspFloatType x)
-    {    
+    {
         Undenormal denormal;
         DspFloatType y = (mb0 / ma0) * x + (mb1 / ma0) * mx_z1 + (mb2 / ma0) * mx_z2 - (ma1 / ma0) * my_z1 - (ma2 / ma0) * my_z2;
 
@@ -227,7 +251,6 @@ namespace Filters
         my_z1 = y;
 
         return y;
-    }    
-
+    }
 
 }
