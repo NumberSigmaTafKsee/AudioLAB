@@ -305,7 +305,7 @@ namespace AudioDSP
     }
 
     template<typename T>
-    void sample_vector_adapt_thres(const size_t n, T * vec, T * tmp,
+    void adapt_thres(const size_t n, T * vec, T * tmp,
         size_t post, size_t pre) {
         size_t length = n, j;  
         for (j=0;j<length;j++) {

@@ -11,7 +11,7 @@ public:
     void prepare(DspFloatType newFs);
     
     DspFloatType processSample(DspFloatType Vi);
-    
+    void ProcessSIMD(size_t n, DspFloatType * out);
     void setKnobs(DspFloatType toneKnob, DspFloatType outputKnob);
     
 private:
@@ -97,6 +97,22 @@ DspFloatType TSTone::processSample(DspFloatType Vi)
     return Vo;
 }
 
+void TSTone::ProcessSIMD(size_t n, DspFloatType * out)
+{
+    #pragma omp simd
+    for(size_t i = 0; i < n; i++) {
+        DspFloatType Vi = out[i];
+        DspFloatType Vo = b0*Vi + b1*x1 + b2*x2 + b3*x3 + b4*x4;
+        DspFloatType Vx = Vi/(R6*Gz) + x1/Gz + x2*R2/(G2*Gz*P1);
+        
+        x1 = (2.f/R1)*(Vx) - x1;
+        x2 = (2.f/R2)*(Vx/Gr + x2*(P1+R5)/Gr) - x2;
+        x3 = (2.f/R3)*(Vx/Gs + x3*(P2+R8)/Gs) - x3;
+        x4 = 2*Vo/R11 + x4;
+            
+        out[i] = Vo;
+    }
+}
 void TSTone::setKnobs(DspFloatType toneKnob, DspFloatType outputKnob)
 {
     bool updateFlag = false;

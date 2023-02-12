@@ -443,6 +443,15 @@ namespace Casino::MKL
 
         #ifdef SWIG
         %extend {
+            size_t size() const { return $self->size(); }
+            void resize(size_t i) { $self->resize(i); }
+            T* data() { return $self->data(); }
+            void push_back(const T v) { $self->push_back(v); }
+            void pop_back() { $self->pop_back(); }
+            T front() { return $self->front(); }
+            T back() { return $self->back(); }
+            T at(size_t i) { return $self->at(i); }
+            
             MatrixView<T> __getitem__(size_t i) { return MatrixView<T>(*$self,i); }
             T* data() { return $self->data(); }
             Matrix<T> __add__(const Matrix<T> & m) {

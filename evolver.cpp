@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <complex>
 #include <vector>
 #include <climits>
@@ -11,8 +12,10 @@
 #include <memory>
 #include "StdNoise.hpp"
 #include "ga.h"
-
+#include "Plot.hpp"
 Default noise;
+
+Plot<float> plot;
 
 bool coin(double p)
 {
@@ -266,9 +269,11 @@ struct GA
 	void reset() {
 		p->current = 0;
 	}
+	/*
 	void step() {
 		ga_step(p);
 	}
+	*/
 	GAFittest get_best_ever() { return GAFittest(ga_get_best_ever(p)); }
 
 	void save(const char * filename)
@@ -281,67 +286,32 @@ struct GA
 	}
 };
 
-struct ImpulseResponse
+typedef float floatType;
+std::vector<floatType> examples;
+std::vector<floatType> training;
+
+floatType chebyshev(floatType x, unsigned int A[], int order)
 {
-	std::vector<double> ir;
-};
+	// To = 1
+	// T1 = x
+	// Tn = 2.x.Tn-1 - Tn-2
+	// out = sum(Ai*Ti(x)) , i C {1,..,order}
+	floatType Tn_2 = 1.0f;
+	floatType gibs = (floatType)A[0]/(floatType)UINT_MAX;
+	floatType Tn_1 = x*gibs;
+	floatType Tn;
+	floatType out = Tn_1;
 
-struct FrequencyResponse
-{
-	std::vector<std::complex<double>> fr;
-};
-
-enum {
-	IMPULSE_RESPONSE,
-	FREQUENCY_RESPONSE,
-};
-
-struct Target
-{
-	virtul int getType() const = 0;	
-};
-
-struct ImpulseTarget : public Target
-{
-	ImpulseResponse ir;
-
-	int getType() const { return IMPULSE_RESPONSE; }
-};
-
-struct FrequencyTarget : public Target
-{
-	FrequencyResponse fr;
-
-	int getType() const { return FREQUENCY_RESPONSE; }	
-};
-
-enum {
-	NO_MODULE,
-	FILTER,	
-	AMPLIFIER,
-	END_MODULES,
-};
-
-struct Module {
-	int 	 type;	
-	double   parameters[10];
-};
-
-struct SignalChain 
-{
-	GA genetic;
-	Target target;
-	std::vector<SoundProcessor*> processors;
-
-	static double signal_objective(struct individual * i) {
-		Module * m = (Module*)i->allele;
-	}
-	SignalChain(int max_modules) : 
-	genetic(100,max_modules*sizeof(Module), 150, 50, 0.9,1e-4,GA_S_ROULETTE_WHEEL, GA_X_SINGLE_POINT, signal_objective)
+	for(int n=2;n<=order;n++)
 	{
-		
+		Tn    	=   2.0*x*Tn_1 - Tn_2;
+		out    +=   Tn;
+		Tn_2 	=   Tn_1;
+		Tn_1 	=   (floatType)A[n-1]/(floatType)UINT_MAX;
 	}
-};
+	return out;
+}
+
 
 ///////////////////////////////////////////////////////////////
 // Test area
@@ -351,50 +321,92 @@ static void objective(struct individual *i);
 static double chromosome_to_double(struct chromosome *c);
 int check_bits(struct chromosome * c, const char * msg);
 
-struct Test
+#define CHEBYS 8
+struct Cheby
 {
-	double x[2];
+	unsigned int A[CHEBYS];
 };
 
-void objective2(struct individual *i)
+int compf(const void * a, const void * b) {
+	return *(unsigned int*)a - *(unsigned int*)b;
+}
+void objective(struct individual *i)
 {
 	double value=0;
-	struct chromosome *c;
-	Test * p;
+	struct chromosome *c;	
 	assert(i);	
 	c = individual_get_chromosome(i);
-	assert(c);	
-	//value = extract_double(c->allele,0,64,-5,5);			
-	p = (Test*)c->allele;
-	value = p->x[0]*p->x[0] - p->x[1]*p->x[1];
-	if(std::isinf(value)) value = 0;
-	individual_set_fitness(i, value);
+	assert(c);		
+	Cheby *p = (Cheby*)c->allele;
+	std::vector<float> out(128);		
+	//qsort(p->A,CHEBYS,sizeof(unsigned int),compf);
+	for(size_t i = 1; i < CHEBYS; i++)
+		if( ((floatType)p->A[i]/(floatType)UINT_MAX) < sqrt((floatType)p->A[i-1]/(floatType)UINT_MAX)) value += i * 10;
+ 	for(size_t i = 0; i < 128; i++) {
+		auto bobo = chebyshev(examples[i],p->A,CHEBYS) - chebyshev(0,p->A,CHEBYS);
+		auto x = std::clamp(bobo,-1.0f,1.0f);
+		out[i] = x;
+	}	
+	
+	for(size_t i = 0; i < 128; i++) {
+		auto x = fabs(out[i] - training[i]) < 1e-2;
+		value += x;
+	}	
+ 	individual_set_fitness(i, value);
 }
 
-void test_ga2()
+
+inline float udo1(float x, float g = 1.0)
 {
-	Parameter<Test> p(100, 8*sizeof(Test), 500, 100, 0.995, 1e-6, 
-			GA_S_ROULETTE_WHEEL, GA_X_SINGLE_POINT, objective2);
-	p.set_report_strategy(GA_R_HUMAN_READABLE);
-	p.evolve(10);
-	//double james = extract_double(p.get_best_ever().individual().chromosome().p->allele,0,64,-5,5);
-	printf("best %d=%f\n",p.p->best.generation,p.p->best.i->fitness);
-	Test * x = p.decode_best();
-	std::cout << x->x[0]*x->x[0] + x->x[1]*x->x[1] << std::endl;
-	std::cout << p.get_best_ever().individual().chromosome().asString() << std::endl;
+    float ax = fabs(x*g);
+    if(ax == 0) return 0;
+    return std::clamp(((x/ax)*(1-exp(g*(x*x)/ax))),-1.0,1.0);
 }
+
+void test_cheby()
+{
+	
+    for(int i = 0; i < 128; i++) {
+		auto sample = std::sin(2*M_PI*(double)i/128.0);
+        examples.push_back(sample);
+        training.push_back(std::clamp(2*sample,-1.0,1.0)/2.0);
+    }
+	plot.setstyle("lines");
+    plot.plot_x(examples.data(),examples.size(),"examples");
+	plot.plot_x(training.data(),training.size(),"training");
+	GA ga(500, sizeof(Cheby)*8, 50, 50, 0.9, 1e-3,GA_S_ROULETTE_WHEEL, GA_X_SINGLE_POINT, objective);
+	ga.set_report_strategy(GA_R_HUMAN_READABLE);
+	ga.evolve(100);
+	Cheby * p = (Cheby*)(ga.p->best.i->chrom->allele);
+	std::vector<float> out(128);
+	for(size_t i = 0; i < CHEBYS; i++) std::cout << (floatType)p->A[i]/(floatType)UINT_MAX << ",";
+	std::cout << std::endl;
+	
+	for(size_t i = 0; i < 128; i++)
+	{
+		auto bobo = chebyshev(examples[i],p->A,CHEBYS) - chebyshev(0,p->A,CHEBYS);
+		out[i] = std::clamp(bobo,-1.0f,1.0f)/2.0f;
+	}
+		
+	plot.plot_x(out.data(),out.size(),"output");
+	
+	sleep(1000);
+}
+
 
 int
 main(int argc, char *argv[])
 {
 	srand(time(NULL));
-	test_ga2();
-
+	test_cheby();
+	
 	exit(EXIT_SUCCESS);
 }
-
-
-
+/*
+struct Test
+{
+	double x[2];
+};
 
 void test_ga(void)
 {
@@ -472,3 +484,32 @@ double chromosome_to_double(struct chromosome *c)
 
 	return val;
 }
+void objective2(struct individual *i)
+{
+	double value=0;
+	struct chromosome *c;
+	Test * p;
+	assert(i);	
+	c = individual_get_chromosome(i);
+	assert(c);	
+	//value = extract_double(c->allele,0,64,-5,5);			
+	p = (Test*)c->allele;
+	value = p->x[0]*p->x[0] - p->x[1]*p->x[1];
+	if(std::isinf(value)) value = 0;
+	individual_set_fitness(i, value);
+}
+
+void test_ga2()
+{
+	Parameter<Test> p(100, 8*sizeof(Test), 500, 100, 0.995, 1e-6, 
+			GA_S_ROULETTE_WHEEL, GA_X_SINGLE_POINT, objective2);
+	p.set_report_strategy(GA_R_HUMAN_READABLE);
+	p.evolve(10);
+	//double james = extract_double(p.get_best_ever().individual().chromosome().p->allele,0,64,-5,5);
+	printf("best %d=%f\n",p.p->best.generation,p.p->best.i->fitness);
+	Test * x = p.decode_best();
+	std::cout << x->x[0]*x->x[0] + x->x[1]*x->x[1] << std::endl;
+	std::cout << p.get_best_ever().individual().chromosome().asString() << std::endl;
+}
+
+*/

@@ -24,7 +24,8 @@
 #include "FX/ChebyDistortion.hpp"
 #include "FX/DistortionCompressor.hpp"
 #include "FX/DistortionFunctions.hpp"
-#include "FX/MDFM-1000.hpp"
+// MDFM is in Amplifier.hpp now
+//#include "FX/MDFM-1000.hpp"
 #include "FX/WaveShaperATanSoftClip.hpp"
 #include "FX/Waveshapers.hpp"
 #include "FX/Waveshaping.hpp"
@@ -54,7 +55,7 @@
 %include "FX/ChebyDistortion.hpp"
 %include "FX/DistortionCompressor.hpp"
 %include "FX/DistortionFunctions.hpp"
-%include "FX/MDFM-1000.hpp"
+//%include "FX/MDFM-1000.hpp"
 %include "FX/WaveShaperATanSoftClip.hpp"
 %include "FX/Waveshapers.hpp"
 %include "FX/Waveshaping.hpp"

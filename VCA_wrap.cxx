@@ -2699,93 +2699,95 @@ SWIG_Lua_dostring(lua_State *L, const char *str) {
 
 #define SWIGTYPE_p_AmplifierProcessor swig_types[0]
 #define SWIGTYPE_p_Analog__VCA swig_types[1]
-#define SWIGTYPE_p_FX__Filters__Smoothers__CSmoothFilter swig_types[2]
-#define SWIGTYPE_p_FilterProcessor swig_types[3]
-#define SWIGTYPE_p_FunctionProcessor swig_types[4]
-#define SWIGTYPE_p_GeneratorProcessor swig_types[5]
-#define SWIGTYPE_p_MixerProcessor swig_types[6]
-#define SWIGTYPE_p_MonoAdderOperatorProcessor swig_types[7]
-#define SWIGTYPE_p_MonoBlendOperatorProcessor swig_types[8]
-#define SWIGTYPE_p_MonoCascadeOperatorProcessor swig_types[9]
-#define SWIGTYPE_p_MonoCascadeProcessor swig_types[10]
-#define SWIGTYPE_p_MonoDownsampleProcessor swig_types[11]
-#define SWIGTYPE_p_MonoFXProcessor swig_types[12]
-#define SWIGTYPE_p_MonoModulatorOperatorProcessor swig_types[13]
-#define SWIGTYPE_p_MonoMultiplierOperatorProcessor swig_types[14]
-#define SWIGTYPE_p_MonoOperatorProcessor swig_types[15]
-#define SWIGTYPE_p_MonoOversampleProcessor swig_types[16]
-#define SWIGTYPE_p_MonoProcessor swig_types[17]
-#define SWIGTYPE_p_MonoSubtractorOperatorProcessor swig_types[18]
-#define SWIGTYPE_p_MonoUpsampleProcessor swig_types[19]
-#define SWIGTYPE_p_OperatorProcessor swig_types[20]
-#define SWIGTYPE_p_OscillatorProcessor swig_types[21]
-#define SWIGTYPE_p_Parameter2Processor swig_types[22]
-#define SWIGTYPE_p_Port swig_types[23]
-#define SWIGTYPE_p_PortMap swig_types[24]
-#define SWIGTYPE_p_Ports swig_types[25]
-#define SWIGTYPE_p_Random swig_types[26]
-#define SWIGTYPE_p_SignalSinkProcessor swig_types[27]
-#define SWIGTYPE_p_SignalSourceProcessor swig_types[28]
-#define SWIGTYPE_p_SoundProcessor swig_types[29]
-#define SWIGTYPE_p_SpectrumProcessor swig_types[30]
-#define SWIGTYPE_p_StereoAmplifierProcessor swig_types[31]
-#define SWIGTYPE_p_StereoCascadeProcessor swig_types[32]
-#define SWIGTYPE_p_StereoFXProcessor swig_types[33]
-#define SWIGTYPE_p_StereoFilterProcessor swig_types[34]
-#define SWIGTYPE_p_StereoFunctionProcessor swig_types[35]
-#define SWIGTYPE_p_StereoGeneratorProcessor swig_types[36]
-#define SWIGTYPE_p_StereoOscillatorProcessor swig_types[37]
-#define SWIGTYPE_p_StereoProcessor swig_types[38]
-#define SWIGTYPE_p_StereoSplitterProcessor swig_types[39]
-#define SWIGTYPE_p_double swig_types[40]
-#define SWIGTYPE_p_float swig_types[41]
-#define SWIGTYPE_p_int swig_types[42]
-#define SWIGTYPE_p_long_long swig_types[43]
-#define SWIGTYPE_p_p_AmplifierProcessor swig_types[44]
-#define SWIGTYPE_p_p_Analog__VCA swig_types[45]
-#define SWIGTYPE_p_p_FilterProcessor swig_types[46]
-#define SWIGTYPE_p_p_FunctionProcessor swig_types[47]
-#define SWIGTYPE_p_p_double swig_types[48]
-#define SWIGTYPE_p_short swig_types[49]
-#define SWIGTYPE_p_signed_char swig_types[50]
-#define SWIGTYPE_p_std__complexT_double_t swig_types[51]
-#define SWIGTYPE_p_std__complexT_float_t swig_types[52]
-#define SWIGTYPE_p_std__listT_MonoProcessor_p_t swig_types[53]
-#define SWIGTYPE_p_std__listT_SoundProcessor_p_t swig_types[54]
-#define SWIGTYPE_p_std__listT_StereoProcessor_p_t swig_types[55]
-#define SWIGTYPE_p_std__listT_std__shared_ptrT_Port_t_t swig_types[56]
-#define SWIGTYPE_p_std__mapT_std__string_MonoProcessor_p_t swig_types[57]
-#define SWIGTYPE_p_std__mapT_std__string_Port_p_t swig_types[58]
-#define SWIGTYPE_p_std__mapT_std__string_SoundProcessor_p_t swig_types[59]
-#define SWIGTYPE_p_std__mapT_std__string_StereoProcessor_p_t swig_types[60]
-#define SWIGTYPE_p_std__numeric_limitsT_double_t swig_types[61]
-#define SWIGTYPE_p_std__numeric_limitsT_float_t swig_types[62]
-#define SWIGTYPE_p_std__numeric_limitsT_int_t swig_types[63]
-#define SWIGTYPE_p_std__numeric_limitsT_long_long_t swig_types[64]
-#define SWIGTYPE_p_std__numeric_limitsT_long_t swig_types[65]
-#define SWIGTYPE_p_std__numeric_limitsT_short_t swig_types[66]
-#define SWIGTYPE_p_std__numeric_limitsT_unsigned_int_t swig_types[67]
-#define SWIGTYPE_p_std__numeric_limitsT_unsigned_long_long_t swig_types[68]
-#define SWIGTYPE_p_std__numeric_limitsT_unsigned_long_t swig_types[69]
-#define SWIGTYPE_p_std__numeric_limitsT_unsigned_short_t swig_types[70]
-#define SWIGTYPE_p_std__string swig_types[71]
-#define SWIGTYPE_p_std__vectorT_MonoProcessor_p_std__allocatorT_MonoProcessor_p_t_t swig_types[72]
-#define SWIGTYPE_p_std__vectorT_SoundProcessor_p_std__allocatorT_SoundProcessor_p_t_t swig_types[73]
-#define SWIGTYPE_p_std__vectorT_StereoProcessor_p_std__allocatorT_StereoProcessor_p_t_t swig_types[74]
-#define SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t swig_types[75]
-#define SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t swig_types[76]
-#define SWIGTYPE_p_std__vectorT_std__complexT_double_t_std__allocatorT_std__complexT_double_t_t_t swig_types[77]
-#define SWIGTYPE_p_std__vectorT_std__complexT_float_t_std__allocatorT_std__complexT_float_t_t_t swig_types[78]
-#define SWIGTYPE_p_std__vector_iteratorT_double_std__allocatorT_double_t_t swig_types[79]
-#define SWIGTYPE_p_std__vector_iteratorT_float_std__allocatorT_float_t_t swig_types[80]
-#define SWIGTYPE_p_std__vector_iteratorT_std__complexT_double_t_std__allocatorT_std__complexT_double_t_t_t swig_types[81]
-#define SWIGTYPE_p_std__vector_iteratorT_std__complexT_float_t_std__allocatorT_std__complexT_float_t_t_t swig_types[82]
-#define SWIGTYPE_p_unsigned_char swig_types[83]
-#define SWIGTYPE_p_unsigned_int swig_types[84]
-#define SWIGTYPE_p_unsigned_long_long swig_types[85]
-#define SWIGTYPE_p_unsigned_short swig_types[86]
-static swig_type_info *swig_types[88];
-static swig_module_info swig_module = {swig_types, 87, 0, 0, 0, 0};
+#define SWIGTYPE_p_Analog__VCA1 swig_types[2]
+#define SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier swig_types[3]
+#define SWIGTYPE_p_FX__Filters__Smoothers__CSmoothFilter swig_types[4]
+#define SWIGTYPE_p_FilterProcessor swig_types[5]
+#define SWIGTYPE_p_FunctionProcessor swig_types[6]
+#define SWIGTYPE_p_GeneratorProcessor swig_types[7]
+#define SWIGTYPE_p_MixerProcessor swig_types[8]
+#define SWIGTYPE_p_MonoAdderOperatorProcessor swig_types[9]
+#define SWIGTYPE_p_MonoBlendOperatorProcessor swig_types[10]
+#define SWIGTYPE_p_MonoCascadeOperatorProcessor swig_types[11]
+#define SWIGTYPE_p_MonoCascadeProcessor swig_types[12]
+#define SWIGTYPE_p_MonoDownsampleProcessor swig_types[13]
+#define SWIGTYPE_p_MonoFXProcessor swig_types[14]
+#define SWIGTYPE_p_MonoModulatorOperatorProcessor swig_types[15]
+#define SWIGTYPE_p_MonoMultiplierOperatorProcessor swig_types[16]
+#define SWIGTYPE_p_MonoOperatorProcessor swig_types[17]
+#define SWIGTYPE_p_MonoOversampleProcessor swig_types[18]
+#define SWIGTYPE_p_MonoProcessor swig_types[19]
+#define SWIGTYPE_p_MonoSubtractorOperatorProcessor swig_types[20]
+#define SWIGTYPE_p_MonoUpsampleProcessor swig_types[21]
+#define SWIGTYPE_p_OperatorProcessor swig_types[22]
+#define SWIGTYPE_p_OscillatorProcessor swig_types[23]
+#define SWIGTYPE_p_Parameter2Processor swig_types[24]
+#define SWIGTYPE_p_Port swig_types[25]
+#define SWIGTYPE_p_PortMap swig_types[26]
+#define SWIGTYPE_p_Ports swig_types[27]
+#define SWIGTYPE_p_Random swig_types[28]
+#define SWIGTYPE_p_SignalSinkProcessor swig_types[29]
+#define SWIGTYPE_p_SignalSourceProcessor swig_types[30]
+#define SWIGTYPE_p_SoundProcessor swig_types[31]
+#define SWIGTYPE_p_SpectrumProcessor swig_types[32]
+#define SWIGTYPE_p_StereoAmplifierProcessor swig_types[33]
+#define SWIGTYPE_p_StereoCascadeProcessor swig_types[34]
+#define SWIGTYPE_p_StereoFXProcessor swig_types[35]
+#define SWIGTYPE_p_StereoFilterProcessor swig_types[36]
+#define SWIGTYPE_p_StereoFunctionProcessor swig_types[37]
+#define SWIGTYPE_p_StereoGeneratorProcessor swig_types[38]
+#define SWIGTYPE_p_StereoOscillatorProcessor swig_types[39]
+#define SWIGTYPE_p_StereoProcessor swig_types[40]
+#define SWIGTYPE_p_StereoSplitterProcessor swig_types[41]
+#define SWIGTYPE_p_double swig_types[42]
+#define SWIGTYPE_p_float swig_types[43]
+#define SWIGTYPE_p_int swig_types[44]
+#define SWIGTYPE_p_long_long swig_types[45]
+#define SWIGTYPE_p_p_AmplifierProcessor swig_types[46]
+#define SWIGTYPE_p_p_Analog__VCA1 swig_types[47]
+#define SWIGTYPE_p_p_FilterProcessor swig_types[48]
+#define SWIGTYPE_p_p_FunctionProcessor swig_types[49]
+#define SWIGTYPE_p_p_double swig_types[50]
+#define SWIGTYPE_p_short swig_types[51]
+#define SWIGTYPE_p_signed_char swig_types[52]
+#define SWIGTYPE_p_std__complexT_double_t swig_types[53]
+#define SWIGTYPE_p_std__complexT_float_t swig_types[54]
+#define SWIGTYPE_p_std__listT_MonoProcessor_p_t swig_types[55]
+#define SWIGTYPE_p_std__listT_SoundProcessor_p_t swig_types[56]
+#define SWIGTYPE_p_std__listT_StereoProcessor_p_t swig_types[57]
+#define SWIGTYPE_p_std__listT_std__shared_ptrT_Port_t_t swig_types[58]
+#define SWIGTYPE_p_std__mapT_std__string_MonoProcessor_p_t swig_types[59]
+#define SWIGTYPE_p_std__mapT_std__string_Port_p_t swig_types[60]
+#define SWIGTYPE_p_std__mapT_std__string_SoundProcessor_p_t swig_types[61]
+#define SWIGTYPE_p_std__mapT_std__string_StereoProcessor_p_t swig_types[62]
+#define SWIGTYPE_p_std__numeric_limitsT_double_t swig_types[63]
+#define SWIGTYPE_p_std__numeric_limitsT_float_t swig_types[64]
+#define SWIGTYPE_p_std__numeric_limitsT_int_t swig_types[65]
+#define SWIGTYPE_p_std__numeric_limitsT_long_long_t swig_types[66]
+#define SWIGTYPE_p_std__numeric_limitsT_long_t swig_types[67]
+#define SWIGTYPE_p_std__numeric_limitsT_short_t swig_types[68]
+#define SWIGTYPE_p_std__numeric_limitsT_unsigned_int_t swig_types[69]
+#define SWIGTYPE_p_std__numeric_limitsT_unsigned_long_long_t swig_types[70]
+#define SWIGTYPE_p_std__numeric_limitsT_unsigned_long_t swig_types[71]
+#define SWIGTYPE_p_std__numeric_limitsT_unsigned_short_t swig_types[72]
+#define SWIGTYPE_p_std__string swig_types[73]
+#define SWIGTYPE_p_std__vectorT_MonoProcessor_p_std__allocatorT_MonoProcessor_p_t_t swig_types[74]
+#define SWIGTYPE_p_std__vectorT_SoundProcessor_p_std__allocatorT_SoundProcessor_p_t_t swig_types[75]
+#define SWIGTYPE_p_std__vectorT_StereoProcessor_p_std__allocatorT_StereoProcessor_p_t_t swig_types[76]
+#define SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t swig_types[77]
+#define SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t swig_types[78]
+#define SWIGTYPE_p_std__vectorT_std__complexT_double_t_std__allocatorT_std__complexT_double_t_t_t swig_types[79]
+#define SWIGTYPE_p_std__vectorT_std__complexT_float_t_std__allocatorT_std__complexT_float_t_t_t swig_types[80]
+#define SWIGTYPE_p_std__vector_iteratorT_double_std__allocatorT_double_t_t swig_types[81]
+#define SWIGTYPE_p_std__vector_iteratorT_float_std__allocatorT_float_t_t swig_types[82]
+#define SWIGTYPE_p_std__vector_iteratorT_std__complexT_double_t_std__allocatorT_std__complexT_double_t_t_t swig_types[83]
+#define SWIGTYPE_p_std__vector_iteratorT_std__complexT_float_t_std__allocatorT_std__complexT_float_t_t_t swig_types[84]
+#define SWIGTYPE_p_unsigned_char swig_types[85]
+#define SWIGTYPE_p_unsigned_int swig_types[86]
+#define SWIGTYPE_p_unsigned_long_long swig_types[87]
+#define SWIGTYPE_p_unsigned_short swig_types[88]
+static swig_type_info *swig_types[90];
+static swig_module_info swig_module = {swig_types, 89, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -15810,17 +15812,17 @@ static swig_lua_class *swig_MonoBlendOperatorProcessor_bases[] = {0,0};
 static const char *swig_MonoBlendOperatorProcessor_base_names[] = {"MonoOperatorProcessor *",0};
 static swig_lua_class _wrap_class_MonoBlendOperatorProcessor = { "MonoBlendOperatorProcessor", "MonoBlendOperatorProcessor", &SWIGTYPE_p_MonoBlendOperatorProcessor,_proxy__wrap_new_MonoBlendOperatorProcessor, swig_delete_MonoBlendOperatorProcessor, swig_MonoBlendOperatorProcessor_methods, swig_MonoBlendOperatorProcessor_attributes, &swig_MonoBlendOperatorProcessor_Sf_SwigStatic, swig_MonoBlendOperatorProcessor_meta, swig_MonoBlendOperatorProcessor_bases, swig_MonoBlendOperatorProcessor_base_names };
 
-static int _wrap_VCA_gain_set(lua_State* L) {
+static int _wrap_VCA1_gain_set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
   DspFloatType arg2 ;
   
-  SWIG_check_num_args("Analog::VCA::gain",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::gain",1,"Analog::VCA *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA::gain",2,"DspFloatType");
+  SWIG_check_num_args("Analog::VCA1::gain",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::gain",1,"Analog::VCA1 *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA1::gain",2,"DspFloatType");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
-    SWIG_fail_ptr("VCA_gain_set",1,SWIGTYPE_p_Analog__VCA);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_gain_set",1,SWIGTYPE_p_Analog__VCA1);
   }
   
   arg2 = (DspFloatType)lua_tonumber(L, 2);
@@ -15836,16 +15838,16 @@ fail:
 }
 
 
-static int _wrap_VCA_gain_get(lua_State* L) {
+static int _wrap_VCA1_gain_get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
   DspFloatType result;
   
-  SWIG_check_num_args("Analog::VCA::gain",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::gain",1,"Analog::VCA *");
+  SWIG_check_num_args("Analog::VCA1::gain",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::gain",1,"Analog::VCA1 *");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
-    SWIG_fail_ptr("VCA_gain_get",1,SWIGTYPE_p_Analog__VCA);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_gain_get",1,SWIGTYPE_p_Analog__VCA1);
   }
   
   result = (DspFloatType) ((arg1)->gain);
@@ -15860,23 +15862,23 @@ fail:
 }
 
 
-static int _wrap_VCA_gainSmooth_set(lua_State* L) {
+static int _wrap_VCA1_gainSmooth_set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
   FX::Filters::Smoothers::CSmoothFilter arg2 ;
   FX::Filters::Smoothers::CSmoothFilter *argp2 ;
   
-  SWIG_check_num_args("Analog::VCA::gainSmooth",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::gainSmooth",1,"Analog::VCA *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Analog::VCA::gainSmooth",2,"FX::Filters::Smoothers::CSmoothFilter");
+  SWIG_check_num_args("Analog::VCA1::gainSmooth",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::gainSmooth",1,"Analog::VCA1 *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Analog::VCA1::gainSmooth",2,"FX::Filters::Smoothers::CSmoothFilter");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
-    SWIG_fail_ptr("VCA_gainSmooth_set",1,SWIGTYPE_p_Analog__VCA);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_gainSmooth_set",1,SWIGTYPE_p_Analog__VCA1);
   }
   
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_FX__Filters__Smoothers__CSmoothFilter,0))){
-    SWIG_fail_ptr("VCA_gainSmooth_set",2,SWIGTYPE_p_FX__Filters__Smoothers__CSmoothFilter);
+    SWIG_fail_ptr("VCA1_gainSmooth_set",2,SWIGTYPE_p_FX__Filters__Smoothers__CSmoothFilter);
   }
   arg2 = *argp2;
   
@@ -15892,16 +15894,16 @@ fail:
 }
 
 
-static int _wrap_VCA_gainSmooth_get(lua_State* L) {
+static int _wrap_VCA1_gainSmooth_get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
   FX::Filters::Smoothers::CSmoothFilter result;
   
-  SWIG_check_num_args("Analog::VCA::gainSmooth",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::gainSmooth",1,"Analog::VCA *");
+  SWIG_check_num_args("Analog::VCA1::gainSmooth",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::gainSmooth",1,"Analog::VCA1 *");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
-    SWIG_fail_ptr("VCA_gainSmooth_get",1,SWIGTYPE_p_Analog__VCA);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_gainSmooth_get",1,SWIGTYPE_p_Analog__VCA1);
   }
   
   result =  ((arg1)->gainSmooth);
@@ -15919,23 +15921,23 @@ fail:
 }
 
 
-static int _wrap_VCA_vtSmooth_set(lua_State* L) {
+static int _wrap_VCA1_vtSmooth_set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
   FX::Filters::Smoothers::CSmoothFilter arg2 ;
   FX::Filters::Smoothers::CSmoothFilter *argp2 ;
   
-  SWIG_check_num_args("Analog::VCA::vtSmooth",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::vtSmooth",1,"Analog::VCA *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Analog::VCA::vtSmooth",2,"FX::Filters::Smoothers::CSmoothFilter");
+  SWIG_check_num_args("Analog::VCA1::vtSmooth",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::vtSmooth",1,"Analog::VCA1 *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Analog::VCA1::vtSmooth",2,"FX::Filters::Smoothers::CSmoothFilter");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
-    SWIG_fail_ptr("VCA_vtSmooth_set",1,SWIGTYPE_p_Analog__VCA);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_vtSmooth_set",1,SWIGTYPE_p_Analog__VCA1);
   }
   
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_FX__Filters__Smoothers__CSmoothFilter,0))){
-    SWIG_fail_ptr("VCA_vtSmooth_set",2,SWIGTYPE_p_FX__Filters__Smoothers__CSmoothFilter);
+    SWIG_fail_ptr("VCA1_vtSmooth_set",2,SWIGTYPE_p_FX__Filters__Smoothers__CSmoothFilter);
   }
   arg2 = *argp2;
   
@@ -15951,16 +15953,16 @@ fail:
 }
 
 
-static int _wrap_VCA_vtSmooth_get(lua_State* L) {
+static int _wrap_VCA1_vtSmooth_get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
   FX::Filters::Smoothers::CSmoothFilter result;
   
-  SWIG_check_num_args("Analog::VCA::vtSmooth",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::vtSmooth",1,"Analog::VCA *");
+  SWIG_check_num_args("Analog::VCA1::vtSmooth",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::vtSmooth",1,"Analog::VCA1 *");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
-    SWIG_fail_ptr("VCA_vtSmooth_get",1,SWIGTYPE_p_Analog__VCA);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_vtSmooth_get",1,SWIGTYPE_p_Analog__VCA1);
   }
   
   result =  ((arg1)->vtSmooth);
@@ -15978,23 +15980,23 @@ fail:
 }
 
 
-static int _wrap_VCA_etaSmooth_set(lua_State* L) {
+static int _wrap_VCA1_etaSmooth_set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
   FX::Filters::Smoothers::CSmoothFilter arg2 ;
   FX::Filters::Smoothers::CSmoothFilter *argp2 ;
   
-  SWIG_check_num_args("Analog::VCA::etaSmooth",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::etaSmooth",1,"Analog::VCA *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Analog::VCA::etaSmooth",2,"FX::Filters::Smoothers::CSmoothFilter");
+  SWIG_check_num_args("Analog::VCA1::etaSmooth",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::etaSmooth",1,"Analog::VCA1 *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Analog::VCA1::etaSmooth",2,"FX::Filters::Smoothers::CSmoothFilter");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
-    SWIG_fail_ptr("VCA_etaSmooth_set",1,SWIGTYPE_p_Analog__VCA);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_etaSmooth_set",1,SWIGTYPE_p_Analog__VCA1);
   }
   
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_FX__Filters__Smoothers__CSmoothFilter,0))){
-    SWIG_fail_ptr("VCA_etaSmooth_set",2,SWIGTYPE_p_FX__Filters__Smoothers__CSmoothFilter);
+    SWIG_fail_ptr("VCA1_etaSmooth_set",2,SWIGTYPE_p_FX__Filters__Smoothers__CSmoothFilter);
   }
   arg2 = *argp2;
   
@@ -16010,16 +16012,16 @@ fail:
 }
 
 
-static int _wrap_VCA_etaSmooth_get(lua_State* L) {
+static int _wrap_VCA1_etaSmooth_get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
   FX::Filters::Smoothers::CSmoothFilter result;
   
-  SWIG_check_num_args("Analog::VCA::etaSmooth",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::etaSmooth",1,"Analog::VCA *");
+  SWIG_check_num_args("Analog::VCA1::etaSmooth",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::etaSmooth",1,"Analog::VCA1 *");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
-    SWIG_fail_ptr("VCA_etaSmooth_get",1,SWIGTYPE_p_Analog__VCA);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_etaSmooth_get",1,SWIGTYPE_p_Analog__VCA1);
   }
   
   result =  ((arg1)->etaSmooth);
@@ -16037,23 +16039,23 @@ fail:
 }
 
 
-static int _wrap_VCA_isSmooth_set(lua_State* L) {
+static int _wrap_VCA1_isSmooth_set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
   FX::Filters::Smoothers::CSmoothFilter arg2 ;
   FX::Filters::Smoothers::CSmoothFilter *argp2 ;
   
-  SWIG_check_num_args("Analog::VCA::isSmooth",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::isSmooth",1,"Analog::VCA *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Analog::VCA::isSmooth",2,"FX::Filters::Smoothers::CSmoothFilter");
+  SWIG_check_num_args("Analog::VCA1::isSmooth",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::isSmooth",1,"Analog::VCA1 *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Analog::VCA1::isSmooth",2,"FX::Filters::Smoothers::CSmoothFilter");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
-    SWIG_fail_ptr("VCA_isSmooth_set",1,SWIGTYPE_p_Analog__VCA);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_isSmooth_set",1,SWIGTYPE_p_Analog__VCA1);
   }
   
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_FX__Filters__Smoothers__CSmoothFilter,0))){
-    SWIG_fail_ptr("VCA_isSmooth_set",2,SWIGTYPE_p_FX__Filters__Smoothers__CSmoothFilter);
+    SWIG_fail_ptr("VCA1_isSmooth_set",2,SWIGTYPE_p_FX__Filters__Smoothers__CSmoothFilter);
   }
   arg2 = *argp2;
   
@@ -16069,16 +16071,16 @@ fail:
 }
 
 
-static int _wrap_VCA_isSmooth_get(lua_State* L) {
+static int _wrap_VCA1_isSmooth_get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
   FX::Filters::Smoothers::CSmoothFilter result;
   
-  SWIG_check_num_args("Analog::VCA::isSmooth",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::isSmooth",1,"Analog::VCA *");
+  SWIG_check_num_args("Analog::VCA1::isSmooth",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::isSmooth",1,"Analog::VCA1 *");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
-    SWIG_fail_ptr("VCA_isSmooth_get",1,SWIGTYPE_p_Analog__VCA);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_isSmooth_get",1,SWIGTYPE_p_Analog__VCA1);
   }
   
   result =  ((arg1)->isSmooth);
@@ -16096,17 +16098,17 @@ fail:
 }
 
 
-static int _wrap_VCA_Vt_set(lua_State* L) {
+static int _wrap_VCA1_Vt_set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
   DspFloatType arg2 ;
   
-  SWIG_check_num_args("Analog::VCA::Vt",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::Vt",1,"Analog::VCA *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA::Vt",2,"DspFloatType");
+  SWIG_check_num_args("Analog::VCA1::Vt",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::Vt",1,"Analog::VCA1 *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA1::Vt",2,"DspFloatType");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
-    SWIG_fail_ptr("VCA_Vt_set",1,SWIGTYPE_p_Analog__VCA);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_Vt_set",1,SWIGTYPE_p_Analog__VCA1);
   }
   
   arg2 = (DspFloatType)lua_tonumber(L, 2);
@@ -16122,16 +16124,16 @@ fail:
 }
 
 
-static int _wrap_VCA_Vt_get(lua_State* L) {
+static int _wrap_VCA1_Vt_get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
   DspFloatType result;
   
-  SWIG_check_num_args("Analog::VCA::Vt",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::Vt",1,"Analog::VCA *");
+  SWIG_check_num_args("Analog::VCA1::Vt",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::Vt",1,"Analog::VCA1 *");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
-    SWIG_fail_ptr("VCA_Vt_get",1,SWIGTYPE_p_Analog__VCA);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_Vt_get",1,SWIGTYPE_p_Analog__VCA1);
   }
   
   result = (DspFloatType) ((arg1)->Vt);
@@ -16146,17 +16148,17 @@ fail:
 }
 
 
-static int _wrap_VCA_Eta_set(lua_State* L) {
+static int _wrap_VCA1_Eta_set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
   DspFloatType arg2 ;
   
-  SWIG_check_num_args("Analog::VCA::Eta",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::Eta",1,"Analog::VCA *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA::Eta",2,"DspFloatType");
+  SWIG_check_num_args("Analog::VCA1::Eta",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::Eta",1,"Analog::VCA1 *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA1::Eta",2,"DspFloatType");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
-    SWIG_fail_ptr("VCA_Eta_set",1,SWIGTYPE_p_Analog__VCA);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_Eta_set",1,SWIGTYPE_p_Analog__VCA1);
   }
   
   arg2 = (DspFloatType)lua_tonumber(L, 2);
@@ -16172,16 +16174,16 @@ fail:
 }
 
 
-static int _wrap_VCA_Eta_get(lua_State* L) {
+static int _wrap_VCA1_Eta_get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
   DspFloatType result;
   
-  SWIG_check_num_args("Analog::VCA::Eta",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::Eta",1,"Analog::VCA *");
+  SWIG_check_num_args("Analog::VCA1::Eta",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::Eta",1,"Analog::VCA1 *");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
-    SWIG_fail_ptr("VCA_Eta_get",1,SWIGTYPE_p_Analog__VCA);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_Eta_get",1,SWIGTYPE_p_Analog__VCA1);
   }
   
   result = (DspFloatType) ((arg1)->Eta);
@@ -16196,17 +16198,17 @@ fail:
 }
 
 
-static int _wrap_VCA_Is_set(lua_State* L) {
+static int _wrap_VCA1_Is_set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
   DspFloatType arg2 ;
   
-  SWIG_check_num_args("Analog::VCA::Is",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::Is",1,"Analog::VCA *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA::Is",2,"DspFloatType");
+  SWIG_check_num_args("Analog::VCA1::Is",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::Is",1,"Analog::VCA1 *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA1::Is",2,"DspFloatType");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
-    SWIG_fail_ptr("VCA_Is_set",1,SWIGTYPE_p_Analog__VCA);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_Is_set",1,SWIGTYPE_p_Analog__VCA1);
   }
   
   arg2 = (DspFloatType)lua_tonumber(L, 2);
@@ -16222,16 +16224,16 @@ fail:
 }
 
 
-static int _wrap_VCA_Is_get(lua_State* L) {
+static int _wrap_VCA1_Is_get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
   DspFloatType result;
   
-  SWIG_check_num_args("Analog::VCA::Is",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::Is",1,"Analog::VCA *");
+  SWIG_check_num_args("Analog::VCA1::Is",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::Is",1,"Analog::VCA1 *");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
-    SWIG_fail_ptr("VCA_Is_get",1,SWIGTYPE_p_Analog__VCA);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_Is_get",1,SWIGTYPE_p_Analog__VCA1);
   }
   
   result = (DspFloatType) ((arg1)->Is);
@@ -16246,17 +16248,117 @@ fail:
 }
 
 
-static int _wrap_VCA_dcBias_set(lua_State* L) {
+static int _wrap_VCA1_clipMin_set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
   DspFloatType arg2 ;
   
-  SWIG_check_num_args("Analog::VCA::dcBias",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::dcBias",1,"Analog::VCA *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA::dcBias",2,"DspFloatType");
+  SWIG_check_num_args("Analog::VCA1::clipMin",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::clipMin",1,"Analog::VCA1 *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA1::clipMin",2,"DspFloatType");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
-    SWIG_fail_ptr("VCA_dcBias_set",1,SWIGTYPE_p_Analog__VCA);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_clipMin_set",1,SWIGTYPE_p_Analog__VCA1);
+  }
+  
+  arg2 = (DspFloatType)lua_tonumber(L, 2);
+  if (arg1) (arg1)->clipMin = arg2;
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_VCA1_clipMin_get(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
+  DspFloatType result;
+  
+  SWIG_check_num_args("Analog::VCA1::clipMin",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::clipMin",1,"Analog::VCA1 *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_clipMin_get",1,SWIGTYPE_p_Analog__VCA1);
+  }
+  
+  result = (DspFloatType) ((arg1)->clipMin);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_VCA1_clipMax_set(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
+  DspFloatType arg2 ;
+  
+  SWIG_check_num_args("Analog::VCA1::clipMax",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::clipMax",1,"Analog::VCA1 *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA1::clipMax",2,"DspFloatType");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_clipMax_set",1,SWIGTYPE_p_Analog__VCA1);
+  }
+  
+  arg2 = (DspFloatType)lua_tonumber(L, 2);
+  if (arg1) (arg1)->clipMax = arg2;
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_VCA1_clipMax_get(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
+  DspFloatType result;
+  
+  SWIG_check_num_args("Analog::VCA1::clipMax",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::clipMax",1,"Analog::VCA1 *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_clipMax_get",1,SWIGTYPE_p_Analog__VCA1);
+  }
+  
+  result = (DspFloatType) ((arg1)->clipMax);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_VCA1_dcBias_set(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
+  DspFloatType arg2 ;
+  
+  SWIG_check_num_args("Analog::VCA1::dcBias",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::dcBias",1,"Analog::VCA1 *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA1::dcBias",2,"DspFloatType");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_dcBias_set",1,SWIGTYPE_p_Analog__VCA1);
   }
   
   arg2 = (DspFloatType)lua_tonumber(L, 2);
@@ -16272,16 +16374,16 @@ fail:
 }
 
 
-static int _wrap_VCA_dcBias_get(lua_State* L) {
+static int _wrap_VCA1_dcBias_get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
   DspFloatType result;
   
-  SWIG_check_num_args("Analog::VCA::dcBias",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::dcBias",1,"Analog::VCA *");
+  SWIG_check_num_args("Analog::VCA1::dcBias",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::dcBias",1,"Analog::VCA1 *");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
-    SWIG_fail_ptr("VCA_dcBias_get",1,SWIGTYPE_p_Analog__VCA);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_dcBias_get",1,SWIGTYPE_p_Analog__VCA1);
   }
   
   result = (DspFloatType) ((arg1)->dcBias);
@@ -16296,17 +16398,17 @@ fail:
 }
 
 
-static int _wrap_VCA_oversample_set(lua_State* L) {
+static int _wrap_VCA1_oversample_set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
   uint32_t arg2 ;
   
-  SWIG_check_num_args("Analog::VCA::oversample",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::oversample",1,"Analog::VCA *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA::oversample",2,"uint32_t");
+  SWIG_check_num_args("Analog::VCA1::oversample",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::oversample",1,"Analog::VCA1 *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA1::oversample",2,"uint32_t");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
-    SWIG_fail_ptr("VCA_oversample_set",1,SWIGTYPE_p_Analog__VCA);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_oversample_set",1,SWIGTYPE_p_Analog__VCA1);
   }
   
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
@@ -16323,16 +16425,16 @@ fail:
 }
 
 
-static int _wrap_VCA_oversample_get(lua_State* L) {
+static int _wrap_VCA1_oversample_get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
   uint32_t result;
   
-  SWIG_check_num_args("Analog::VCA::oversample",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::oversample",1,"Analog::VCA *");
+  SWIG_check_num_args("Analog::VCA1::oversample",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::oversample",1,"Analog::VCA1 *");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
-    SWIG_fail_ptr("VCA_oversample_get",1,SWIGTYPE_p_Analog__VCA);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_oversample_get",1,SWIGTYPE_p_Analog__VCA1);
   }
   
   result = (uint32_t) ((arg1)->oversample);
@@ -16347,17 +16449,868 @@ fail:
 }
 
 
-static int _wrap_new_VCA__SWIG_0(lua_State* L) {
+static int _wrap_new_VCA1__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
   DspFloatType arg2 ;
+  Analog::VCA1 *result = 0 ;
+  
+  SWIG_check_num_args("Analog::VCA1::VCA1",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Analog::VCA1::VCA1",1,"DspFloatType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA1::VCA1",2,"DspFloatType");
+  arg1 = (DspFloatType)lua_tonumber(L, 1);
+  arg2 = (DspFloatType)lua_tonumber(L, 2);
+  result = (Analog::VCA1 *)new Analog::VCA1(arg1,arg2);
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_Analog__VCA1,1); SWIG_arg++; 
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_new_VCA1__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  DspFloatType arg1 ;
+  Analog::VCA1 *result = 0 ;
+  
+  SWIG_check_num_args("Analog::VCA1::VCA1",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Analog::VCA1::VCA1",1,"DspFloatType");
+  arg1 = (DspFloatType)lua_tonumber(L, 1);
+  result = (Analog::VCA1 *)new Analog::VCA1(arg1);
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_Analog__VCA1,1); SWIG_arg++; 
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_new_VCA1__SWIG_2(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA1 *result = 0 ;
+  
+  SWIG_check_num_args("Analog::VCA1::VCA1",0,0)
+  result = (Analog::VCA1 *)new Analog::VCA1();
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_Analog__VCA1,1); SWIG_arg++; 
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_new_VCA1(lua_State* L) {
+  int argc;
+  int argv[3]={
+    1,2,3
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 0) {
+    return _wrap_new_VCA1__SWIG_2(L);
+  }
+  if (argc == 1) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      return _wrap_new_VCA1__SWIG_1(L);
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        _v = lua_isnumber(L,argv[1]);
+      }
+      if (_v) {
+        return _wrap_new_VCA1__SWIG_0(L);
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'new_VCA1'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    Analog::VCA1::VCA1(DspFloatType,DspFloatType)\n"
+    "    Analog::VCA1::VCA1(DspFloatType)\n"
+    "    Analog::VCA1::VCA1()\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_VCA1_setPort(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
+  int arg2 ;
+  DspFloatType arg3 ;
+  
+  SWIG_check_num_args("Analog::VCA1::setPort",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::setPort",1,"Analog::VCA1 *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA1::setPort",2,"int");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::VCA1::setPort",3,"DspFloatType");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_setPort",1,SWIGTYPE_p_Analog__VCA1);
+  }
+  
+  arg2 = (int)lua_tonumber(L, 2);
+  arg3 = (DspFloatType)lua_tonumber(L, 3);
+  (arg1)->setPort(arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_VCA1_Reset(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
+  
+  SWIG_check_num_args("Analog::VCA1::Reset",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::Reset",1,"Analog::VCA1 *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_Reset",1,SWIGTYPE_p_Analog__VCA1);
+  }
+  
+  (arg1)->Reset();
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_VCA1_Randomize(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
+  
+  SWIG_check_num_args("Analog::VCA1::Randomize",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::Randomize",1,"Analog::VCA1 *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_Randomize",1,SWIGTYPE_p_Analog__VCA1);
+  }
+  
+  (arg1)->Randomize();
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_VCA1_Tick__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
+  DspFloatType arg2 ;
+  DspFloatType arg3 ;
+  DspFloatType arg4 ;
+  DspFloatType arg5 ;
+  DspFloatType result;
+  
+  SWIG_check_num_args("Analog::VCA1::Tick",5,5)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::Tick",1,"Analog::VCA1 *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA1::Tick",2,"DspFloatType");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::VCA1::Tick",3,"DspFloatType");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("Analog::VCA1::Tick",4,"DspFloatType");
+  if(!lua_isnumber(L,5)) SWIG_fail_arg("Analog::VCA1::Tick",5,"DspFloatType");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_Tick",1,SWIGTYPE_p_Analog__VCA1);
+  }
+  
+  arg2 = (DspFloatType)lua_tonumber(L, 2);
+  arg3 = (DspFloatType)lua_tonumber(L, 3);
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  arg5 = (DspFloatType)lua_tonumber(L, 5);
+  result = (DspFloatType)(arg1)->Tick(arg2,arg3,arg4,arg5);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_VCA1_Tick__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
+  DspFloatType arg2 ;
+  DspFloatType arg3 ;
+  DspFloatType arg4 ;
+  DspFloatType result;
+  
+  SWIG_check_num_args("Analog::VCA1::Tick",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::Tick",1,"Analog::VCA1 *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA1::Tick",2,"DspFloatType");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::VCA1::Tick",3,"DspFloatType");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("Analog::VCA1::Tick",4,"DspFloatType");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_Tick",1,SWIGTYPE_p_Analog__VCA1);
+  }
+  
+  arg2 = (DspFloatType)lua_tonumber(L, 2);
+  arg3 = (DspFloatType)lua_tonumber(L, 3);
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  result = (DspFloatType)(arg1)->Tick(arg2,arg3,arg4);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_VCA1_Tick__SWIG_2(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
+  DspFloatType arg2 ;
+  DspFloatType arg3 ;
+  DspFloatType result;
+  
+  SWIG_check_num_args("Analog::VCA1::Tick",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::Tick",1,"Analog::VCA1 *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA1::Tick",2,"DspFloatType");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::VCA1::Tick",3,"DspFloatType");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_Tick",1,SWIGTYPE_p_Analog__VCA1);
+  }
+  
+  arg2 = (DspFloatType)lua_tonumber(L, 2);
+  arg3 = (DspFloatType)lua_tonumber(L, 3);
+  result = (DspFloatType)(arg1)->Tick(arg2,arg3);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_VCA1_Tick__SWIG_3(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
+  DspFloatType arg2 ;
+  DspFloatType result;
+  
+  SWIG_check_num_args("Analog::VCA1::Tick",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::Tick",1,"Analog::VCA1 *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA1::Tick",2,"DspFloatType");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_Tick",1,SWIGTYPE_p_Analog__VCA1);
+  }
+  
+  arg2 = (DspFloatType)lua_tonumber(L, 2);
+  result = (DspFloatType)(arg1)->Tick(arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_VCA1_Tick(lua_State* L) {
+  int argc;
+  int argv[6]={
+    1,2,3,4,5,6
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 2) {
+    int _v = 0;
+    {
+      void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__VCA1, 0)) {
+        _v = 0;
+      } else {
+        _v = 1;
+      }
+    }
+    if (_v) {
+      {
+        _v = lua_isnumber(L,argv[1]);
+      }
+      if (_v) {
+        return _wrap_VCA1_Tick__SWIG_3(L);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v = 0;
+    {
+      void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__VCA1, 0)) {
+        _v = 0;
+      } else {
+        _v = 1;
+      }
+    }
+    if (_v) {
+      {
+        _v = lua_isnumber(L,argv[1]);
+      }
+      if (_v) {
+        {
+          _v = lua_isnumber(L,argv[2]);
+        }
+        if (_v) {
+          return _wrap_VCA1_Tick__SWIG_2(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__VCA1, 0)) {
+        _v = 0;
+      } else {
+        _v = 1;
+      }
+    }
+    if (_v) {
+      {
+        _v = lua_isnumber(L,argv[1]);
+      }
+      if (_v) {
+        {
+          _v = lua_isnumber(L,argv[2]);
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_VCA1_Tick__SWIG_1(L);
+          }
+        }
+      }
+    }
+  }
+  if (argc == 5) {
+    int _v = 0;
+    {
+      void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__VCA1, 0)) {
+        _v = 0;
+      } else {
+        _v = 1;
+      }
+    }
+    if (_v) {
+      {
+        _v = lua_isnumber(L,argv[1]);
+      }
+      if (_v) {
+        {
+          _v = lua_isnumber(L,argv[2]);
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            {
+              _v = lua_isnumber(L,argv[4]);
+            }
+            if (_v) {
+              return _wrap_VCA1_Tick__SWIG_0(L);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'VCA1_Tick'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    Analog::VCA1::Tick(DspFloatType,DspFloatType,DspFloatType,DspFloatType)\n"
+    "    Analog::VCA1::Tick(DspFloatType,DspFloatType,DspFloatType)\n"
+    "    Analog::VCA1::Tick(DspFloatType,DspFloatType)\n"
+    "    Analog::VCA1::Tick(DspFloatType)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_VCA1_ProcessBlock(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
+  size_t arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType *arg4 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("Analog::VCA1::ProcessBlock",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::ProcessBlock",1,"Analog::VCA1 *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA1::ProcessBlock",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::VCA1::ProcessBlock",3,"DspFloatType *");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::VCA1::ProcessBlock",4,"DspFloatType *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_ProcessBlock",1,SWIGTYPE_p_Analog__VCA1);
+  }
+  
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("VCA1_ProcessBlock",3,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("VCA1_ProcessBlock",4,SWIGTYPE_p_double);
+  }
+  
+  (arg1)->ProcessBlock(arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_VCA1_ProcessSIMD(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA1 *arg1 = (Analog::VCA1 *) 0 ;
+  size_t arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType *arg4 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("Analog::VCA1::ProcessSIMD",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA1::ProcessSIMD",1,"Analog::VCA1 *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA1::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::VCA1::ProcessSIMD",3,"DspFloatType *");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::VCA1::ProcessSIMD",4,"DspFloatType *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA1,0))){
+    SWIG_fail_ptr("VCA1_ProcessSIMD",1,SWIGTYPE_p_Analog__VCA1);
+  }
+  
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("VCA1_ProcessSIMD",3,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("VCA1_ProcessSIMD",4,SWIGTYPE_p_double);
+  }
+  
+  (arg1)->ProcessSIMD(arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static void swig_delete_VCA1(void *obj) {
+Analog::VCA1 *arg1 = (Analog::VCA1 *) obj;
+delete arg1;
+}
+static int _proxy__wrap_new_VCA1(lua_State *L) {
+    assert(lua_istable(L,1));
+    lua_pushcfunction(L,_wrap_new_VCA1);
+    assert(!lua_isnil(L,-1));
+    lua_replace(L,1); /* replace our table with real constructor */
+    lua_call(L,lua_gettop(L)-1,1);
+    return 1;
+}
+static swig_lua_attribute swig_VCA1_attributes[] = {
+    { "gain", _wrap_VCA1_gain_get, _wrap_VCA1_gain_set },
+    { "gainSmooth", _wrap_VCA1_gainSmooth_get, _wrap_VCA1_gainSmooth_set },
+    { "vtSmooth", _wrap_VCA1_vtSmooth_get, _wrap_VCA1_vtSmooth_set },
+    { "etaSmooth", _wrap_VCA1_etaSmooth_get, _wrap_VCA1_etaSmooth_set },
+    { "isSmooth", _wrap_VCA1_isSmooth_get, _wrap_VCA1_isSmooth_set },
+    { "Vt", _wrap_VCA1_Vt_get, _wrap_VCA1_Vt_set },
+    { "Eta", _wrap_VCA1_Eta_get, _wrap_VCA1_Eta_set },
+    { "Is", _wrap_VCA1_Is_get, _wrap_VCA1_Is_set },
+    { "clipMin", _wrap_VCA1_clipMin_get, _wrap_VCA1_clipMin_set },
+    { "clipMax", _wrap_VCA1_clipMax_get, _wrap_VCA1_clipMax_set },
+    { "dcBias", _wrap_VCA1_dcBias_get, _wrap_VCA1_dcBias_set },
+    { "oversample", _wrap_VCA1_oversample_get, _wrap_VCA1_oversample_set },
+    {0,0,0}
+};
+static swig_lua_method swig_VCA1_methods[]= {
+    { "setPort", _wrap_VCA1_setPort},
+    { "Reset", _wrap_VCA1_Reset},
+    { "Randomize", _wrap_VCA1_Randomize},
+    { "Tick", _wrap_VCA1_Tick},
+    { "ProcessBlock", _wrap_VCA1_ProcessBlock},
+    { "ProcessSIMD", _wrap_VCA1_ProcessSIMD},
+    {0,0}
+};
+static swig_lua_method swig_VCA1_meta[] = {
+    {0,0}
+};
+
+static swig_lua_attribute swig_VCA1_Sf_SwigStatic_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_const_info swig_VCA1_Sf_SwigStatic_constants[]= {
+    {SWIG_LUA_CONSTTAB_INT("PORT_GAIN", Analog::VCA1::PORT_GAIN)},
+    {SWIG_LUA_CONSTTAB_INT("PORT_VT", Analog::VCA1::PORT_VT)},
+    {SWIG_LUA_CONSTTAB_INT("PORT_ETA", Analog::VCA1::PORT_ETA)},
+    {SWIG_LUA_CONSTTAB_INT("PORT_IS", Analog::VCA1::PORT_IS)},
+    {SWIG_LUA_CONSTTAB_INT("PORT_DCBIAS", Analog::VCA1::PORT_DCBIAS)},
+    {SWIG_LUA_CONSTTAB_INT("PORT_RESET", Analog::VCA1::PORT_RESET)},
+    {SWIG_LUA_CONSTTAB_INT("PORT_CIRCUIT", Analog::VCA1::PORT_CIRCUIT)},
+    {SWIG_LUA_CONSTTAB_INT("PORT_RANDOMIZE", Analog::VCA1::PORT_RANDOMIZE)},
+    {0,0,0,0,0,0}
+};
+static swig_lua_method swig_VCA1_Sf_SwigStatic_methods[]= {
+    {0,0}
+};
+static swig_lua_class* swig_VCA1_Sf_SwigStatic_classes[]= {
+    0
+};
+
+static swig_lua_namespace swig_VCA1_Sf_SwigStatic = {
+    "VCA1",
+    swig_VCA1_Sf_SwigStatic_methods,
+    swig_VCA1_Sf_SwigStatic_attributes,
+    swig_VCA1_Sf_SwigStatic_constants,
+    swig_VCA1_Sf_SwigStatic_classes,
+    0
+};
+static swig_lua_class *swig_VCA1_bases[] = {0,0};
+static const char *swig_VCA1_base_names[] = {"AmplifierProcessor *",0};
+static swig_lua_class _wrap_class_VCA1 = { "VCA1", "VCA1", &SWIGTYPE_p_Analog__VCA1,_proxy__wrap_new_VCA1, swig_delete_VCA1, swig_VCA1_methods, swig_VCA1_attributes, &swig_VCA1_Sf_SwigStatic, swig_VCA1_meta, swig_VCA1_bases, swig_VCA1_base_names };
+
+static int _wrap_VCA_A_set(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  FX::Distortion::Amplifier::Amplifier arg2 ;
+  FX::Distortion::Amplifier::Amplifier *argp2 ;
+  
+  SWIG_check_num_args("Analog::VCA::A",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::A",1,"Analog::VCA *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Analog::VCA::A",2,"FX::Distortion::Amplifier::Amplifier");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
+    SWIG_fail_ptr("VCA_A_set",1,SWIGTYPE_p_Analog__VCA);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier,0))){
+    SWIG_fail_ptr("VCA_A_set",2,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier);
+  }
+  arg2 = *argp2;
+  
+  if (arg1) (arg1)->A = arg2;
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_VCA_A_get(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  FX::Distortion::Amplifier::Amplifier result;
+  
+  SWIG_check_num_args("Analog::VCA::A",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::A",1,"Analog::VCA *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
+    SWIG_fail_ptr("VCA_A_get",1,SWIGTYPE_p_Analog__VCA);
+  }
+  
+  result =  ((arg1)->A);
+  {
+    FX::Distortion::Amplifier::Amplifier * resultptr = new FX::Distortion::Amplifier::Amplifier((const FX::Distortion::Amplifier::Amplifier &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier,1); SWIG_arg++;
+  }
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_VCA_B_set(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  FX::Distortion::Amplifier::Amplifier arg2 ;
+  FX::Distortion::Amplifier::Amplifier *argp2 ;
+  
+  SWIG_check_num_args("Analog::VCA::B",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::B",1,"Analog::VCA *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Analog::VCA::B",2,"FX::Distortion::Amplifier::Amplifier");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
+    SWIG_fail_ptr("VCA_B_set",1,SWIGTYPE_p_Analog__VCA);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier,0))){
+    SWIG_fail_ptr("VCA_B_set",2,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier);
+  }
+  arg2 = *argp2;
+  
+  if (arg1) (arg1)->B = arg2;
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_VCA_B_get(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  FX::Distortion::Amplifier::Amplifier result;
+  
+  SWIG_check_num_args("Analog::VCA::B",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::B",1,"Analog::VCA *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
+    SWIG_fail_ptr("VCA_B_get",1,SWIGTYPE_p_Analog__VCA);
+  }
+  
+  result =  ((arg1)->B);
+  {
+    FX::Distortion::Amplifier::Amplifier * resultptr = new FX::Distortion::Amplifier::Amplifier((const FX::Distortion::Amplifier::Amplifier &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier,1); SWIG_arg++;
+  }
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_VCA_morph_set(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  double arg2 ;
+  
+  SWIG_check_num_args("Analog::VCA::morph",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::morph",1,"Analog::VCA *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA::morph",2,"double");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
+    SWIG_fail_ptr("VCA_morph_set",1,SWIGTYPE_p_Analog__VCA);
+  }
+  
+  arg2 = (double)lua_tonumber(L, 2);
+  if (arg1) (arg1)->morph = arg2;
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_VCA_morph_get(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  double result;
+  
+  SWIG_check_num_args("Analog::VCA::morph",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::morph",1,"Analog::VCA *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
+    SWIG_fail_ptr("VCA_morph_get",1,SWIGTYPE_p_Analog__VCA);
+  }
+  
+  result = (double) ((arg1)->morph);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_VCA_gain_set(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  double arg2 ;
+  
+  SWIG_check_num_args("Analog::VCA::gain",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::gain",1,"Analog::VCA *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA::gain",2,"double");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
+    SWIG_fail_ptr("VCA_gain_set",1,SWIGTYPE_p_Analog__VCA);
+  }
+  
+  arg2 = (double)lua_tonumber(L, 2);
+  if (arg1) (arg1)->gain = arg2;
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_VCA_gain_get(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  double result;
+  
+  SWIG_check_num_args("Analog::VCA::gain",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::gain",1,"Analog::VCA *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
+    SWIG_fail_ptr("VCA_gain_get",1,SWIGTYPE_p_Analog__VCA);
+  }
+  
+  result = (double) ((arg1)->gain);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_VCA_pregain_set(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  double arg2 ;
+  
+  SWIG_check_num_args("Analog::VCA::pregain",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::pregain",1,"Analog::VCA *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA::pregain",2,"double");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
+    SWIG_fail_ptr("VCA_pregain_set",1,SWIGTYPE_p_Analog__VCA);
+  }
+  
+  arg2 = (double)lua_tonumber(L, 2);
+  if (arg1) (arg1)->pregain = arg2;
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_VCA_pregain_get(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  double result;
+  
+  SWIG_check_num_args("Analog::VCA::pregain",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::pregain",1,"Analog::VCA *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
+    SWIG_fail_ptr("VCA_pregain_get",1,SWIGTYPE_p_Analog__VCA);
+  }
+  
+  result = (double) ((arg1)->pregain);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_new_VCA__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  double arg1 ;
+  double arg2 ;
   Analog::VCA *result = 0 ;
   
   SWIG_check_num_args("Analog::VCA::VCA",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Analog::VCA::VCA",1,"DspFloatType");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA::VCA",2,"DspFloatType");
-  arg1 = (DspFloatType)lua_tonumber(L, 1);
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Analog::VCA::VCA",1,"double");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA::VCA",2,"double");
+  arg1 = (double)lua_tonumber(L, 1);
+  arg2 = (double)lua_tonumber(L, 2);
   result = (Analog::VCA *)new Analog::VCA(arg1,arg2);
   SWIG_NewPointerObj(L,result,SWIGTYPE_p_Analog__VCA,1); SWIG_arg++; 
   return SWIG_arg;
@@ -16372,12 +17325,12 @@ fail:
 
 static int _wrap_new_VCA__SWIG_1(lua_State* L) {
   int SWIG_arg = 0;
-  DspFloatType arg1 ;
+  double arg1 ;
   Analog::VCA *result = 0 ;
   
   SWIG_check_num_args("Analog::VCA::VCA",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Analog::VCA::VCA",1,"DspFloatType");
-  arg1 = (DspFloatType)lua_tonumber(L, 1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Analog::VCA::VCA",1,"double");
+  arg1 = (double)lua_tonumber(L, 1);
   result = (Analog::VCA *)new Analog::VCA(arg1);
   SWIG_NewPointerObj(L,result,SWIGTYPE_p_Analog__VCA,1); SWIG_arg++; 
   return SWIG_arg;
@@ -16443,31 +17396,28 @@ static int _wrap_new_VCA(lua_State* L) {
   
   SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'new_VCA'\n"
     "  Possible C/C++ prototypes are:\n"
-    "    Analog::VCA::VCA(DspFloatType,DspFloatType)\n"
-    "    Analog::VCA::VCA(DspFloatType)\n"
+    "    Analog::VCA::VCA(double,double)\n"
+    "    Analog::VCA::VCA(double)\n"
     "    Analog::VCA::VCA()\n");
   lua_error(L);return 0;
 }
 
 
-static int _wrap_VCA_setPort(lua_State* L) {
+static int _wrap_VCA_setGain(lua_State* L) {
   int SWIG_arg = 0;
   Analog::VCA *arg1 = (Analog::VCA *) 0 ;
-  int arg2 ;
-  DspFloatType arg3 ;
+  double arg2 ;
   
-  SWIG_check_num_args("Analog::VCA::setPort",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::setPort",1,"Analog::VCA *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA::setPort",2,"int");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::VCA::setPort",3,"DspFloatType");
+  SWIG_check_num_args("Analog::VCA::setGain",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::setGain",1,"Analog::VCA *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA::setGain",2,"double");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
-    SWIG_fail_ptr("VCA_setPort",1,SWIGTYPE_p_Analog__VCA);
+    SWIG_fail_ptr("VCA_setGain",1,SWIGTYPE_p_Analog__VCA);
   }
   
-  arg2 = (int)lua_tonumber(L, 2);
-  arg3 = (DspFloatType)lua_tonumber(L, 3);
-  (arg1)->setPort(arg2,arg3);
+  arg2 = (double)lua_tonumber(L, 2);
+  (arg1)->setGain(arg2);
   
   return SWIG_arg;
   
@@ -16479,41 +17429,21 @@ fail:
 }
 
 
-static int _wrap_VCA_Reset(lua_State* L) {
+static int _wrap_VCA_setPreGain(lua_State* L) {
   int SWIG_arg = 0;
   Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  double arg2 ;
   
-  SWIG_check_num_args("Analog::VCA::Reset",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::Reset",1,"Analog::VCA *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
-    SWIG_fail_ptr("VCA_Reset",1,SWIGTYPE_p_Analog__VCA);
-  }
-  
-  (arg1)->Reset();
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_VCA_Randomize(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
-  
-  SWIG_check_num_args("Analog::VCA::Randomize",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::Randomize",1,"Analog::VCA *");
+  SWIG_check_num_args("Analog::VCA::setPreGain",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::setPreGain",1,"Analog::VCA *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA::setPreGain",2,"double");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
-    SWIG_fail_ptr("VCA_Randomize",1,SWIGTYPE_p_Analog__VCA);
+    SWIG_fail_ptr("VCA_setPreGain",1,SWIGTYPE_p_Analog__VCA);
   }
   
-  (arg1)->Randomize();
+  arg2 = (double)lua_tonumber(L, 2);
+  (arg1)->setPreGain(arg2);
   
   return SWIG_arg;
   
@@ -16775,6 +17705,29 @@ static int _wrap_VCA_Tick(lua_State* L) {
 }
 
 
+static int _wrap_VCA_Randomize(lua_State* L) {
+  int SWIG_arg = 0;
+  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
+  
+  SWIG_check_num_args("Analog::VCA::Randomize",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::Randomize",1,"Analog::VCA *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
+    SWIG_fail_ptr("VCA_Randomize",1,SWIGTYPE_p_Analog__VCA);
+  }
+  
+  (arg1)->Randomize();
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static int _wrap_VCA_ProcessBlock(lua_State* L) {
   int SWIG_arg = 0;
   Analog::VCA *arg1 = (Analog::VCA *) 0 ;
@@ -16816,47 +17769,6 @@ fail:
 }
 
 
-static int _wrap_VCA_ProcessSIMD(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::VCA *arg1 = (Analog::VCA *) 0 ;
-  size_t arg2 ;
-  DspFloatType *arg3 = (DspFloatType *) 0 ;
-  DspFloatType *arg4 = (DspFloatType *) 0 ;
-  
-  SWIG_check_num_args("Analog::VCA::ProcessSIMD",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::VCA::ProcessSIMD",1,"Analog::VCA *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::VCA::ProcessSIMD",2,"size_t");
-  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::VCA::ProcessSIMD",3,"DspFloatType *");
-  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::VCA::ProcessSIMD",4,"DspFloatType *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__VCA,0))){
-    SWIG_fail_ptr("VCA_ProcessSIMD",1,SWIGTYPE_p_Analog__VCA);
-  }
-  
-  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-  arg2 = (size_t)lua_tonumber(L, 2);
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
-    SWIG_fail_ptr("VCA_ProcessSIMD",3,SWIGTYPE_p_double);
-  }
-  
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
-    SWIG_fail_ptr("VCA_ProcessSIMD",4,SWIGTYPE_p_double);
-  }
-  
-  (arg1)->ProcessSIMD(arg2,arg3,arg4);
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
 static void swig_delete_VCA(void *obj) {
 Analog::VCA *arg1 = (Analog::VCA *) obj;
 delete arg1;
@@ -16870,25 +17782,19 @@ static int _proxy__wrap_new_VCA(lua_State *L) {
     return 1;
 }
 static swig_lua_attribute swig_VCA_attributes[] = {
+    { "A", _wrap_VCA_A_get, _wrap_VCA_A_set },
+    { "B", _wrap_VCA_B_get, _wrap_VCA_B_set },
+    { "morph", _wrap_VCA_morph_get, _wrap_VCA_morph_set },
     { "gain", _wrap_VCA_gain_get, _wrap_VCA_gain_set },
-    { "gainSmooth", _wrap_VCA_gainSmooth_get, _wrap_VCA_gainSmooth_set },
-    { "vtSmooth", _wrap_VCA_vtSmooth_get, _wrap_VCA_vtSmooth_set },
-    { "etaSmooth", _wrap_VCA_etaSmooth_get, _wrap_VCA_etaSmooth_set },
-    { "isSmooth", _wrap_VCA_isSmooth_get, _wrap_VCA_isSmooth_set },
-    { "Vt", _wrap_VCA_Vt_get, _wrap_VCA_Vt_set },
-    { "Eta", _wrap_VCA_Eta_get, _wrap_VCA_Eta_set },
-    { "Is", _wrap_VCA_Is_get, _wrap_VCA_Is_set },
-    { "dcBias", _wrap_VCA_dcBias_get, _wrap_VCA_dcBias_set },
-    { "oversample", _wrap_VCA_oversample_get, _wrap_VCA_oversample_set },
+    { "pregain", _wrap_VCA_pregain_get, _wrap_VCA_pregain_set },
     {0,0,0}
 };
 static swig_lua_method swig_VCA_methods[]= {
-    { "setPort", _wrap_VCA_setPort},
-    { "Reset", _wrap_VCA_Reset},
-    { "Randomize", _wrap_VCA_Randomize},
+    { "setGain", _wrap_VCA_setGain},
+    { "setPreGain", _wrap_VCA_setPreGain},
     { "Tick", _wrap_VCA_Tick},
+    { "Randomize", _wrap_VCA_Randomize},
     { "ProcessBlock", _wrap_VCA_ProcessBlock},
-    { "ProcessSIMD", _wrap_VCA_ProcessSIMD},
     {0,0}
 };
 static swig_lua_method swig_VCA_meta[] = {
@@ -16899,14 +17805,6 @@ static swig_lua_attribute swig_VCA_Sf_SwigStatic_attributes[] = {
     {0,0,0}
 };
 static swig_lua_const_info swig_VCA_Sf_SwigStatic_constants[]= {
-    {SWIG_LUA_CONSTTAB_INT("PORT_GAIN", Analog::VCA::PORT_GAIN)},
-    {SWIG_LUA_CONSTTAB_INT("PORT_VT", Analog::VCA::PORT_VT)},
-    {SWIG_LUA_CONSTTAB_INT("PORT_ETA", Analog::VCA::PORT_ETA)},
-    {SWIG_LUA_CONSTTAB_INT("PORT_IS", Analog::VCA::PORT_IS)},
-    {SWIG_LUA_CONSTTAB_INT("PORT_DCBIAS", Analog::VCA::PORT_DCBIAS)},
-    {SWIG_LUA_CONSTTAB_INT("PORT_RESET", Analog::VCA::PORT_RESET)},
-    {SWIG_LUA_CONSTTAB_INT("PORT_CIRCUIT", Analog::VCA::PORT_CIRCUIT)},
-    {SWIG_LUA_CONSTTAB_INT("PORT_RANDOMIZE", Analog::VCA::PORT_RANDOMIZE)},
     {0,0,0,0,0,0}
 };
 static swig_lua_method swig_VCA_Sf_SwigStatic_methods[]= {
@@ -16924,8 +17822,8 @@ static swig_lua_namespace swig_VCA_Sf_SwigStatic = {
     swig_VCA_Sf_SwigStatic_classes,
     0
 };
-static swig_lua_class *swig_VCA_bases[] = {0,0};
-static const char *swig_VCA_base_names[] = {"AmplifierProcessor *",0};
+static swig_lua_class *swig_VCA_bases[] = {0};
+static const char *swig_VCA_base_names[] = {0};
 static swig_lua_class _wrap_class_VCA = { "VCA", "VCA", &SWIGTYPE_p_Analog__VCA,_proxy__wrap_new_VCA, swig_delete_VCA, swig_VCA_methods, swig_VCA_attributes, &swig_VCA_Sf_SwigStatic, swig_VCA_meta, swig_VCA_bases, swig_VCA_base_names };
 
 static int _wrap_new_float_vector__SWIG_0(lua_State* L) {
@@ -20447,14 +21345,14 @@ static swig_lua_const_info swig_SwigModule_constants[]= {
     {SWIG_LUA_CONSTTAB_INT("TOOBAMP", Analog::TOOBAMP)},
     {SWIG_LUA_CONSTTAB_INT("WAVENET", Analog::WAVENET)},
     {SWIG_LUA_CONSTTAB_INT("WAVESHAPER", Analog::WAVESHAPER)},
-    {SWIG_LUA_CONSTTAB_INT("VCA_PORT_GAIN", Analog::VCA::PORT_GAIN)},
-    {SWIG_LUA_CONSTTAB_INT("VCA_PORT_VT", Analog::VCA::PORT_VT)},
-    {SWIG_LUA_CONSTTAB_INT("VCA_PORT_ETA", Analog::VCA::PORT_ETA)},
-    {SWIG_LUA_CONSTTAB_INT("VCA_PORT_IS", Analog::VCA::PORT_IS)},
-    {SWIG_LUA_CONSTTAB_INT("VCA_PORT_DCBIAS", Analog::VCA::PORT_DCBIAS)},
-    {SWIG_LUA_CONSTTAB_INT("VCA_PORT_RESET", Analog::VCA::PORT_RESET)},
-    {SWIG_LUA_CONSTTAB_INT("VCA_PORT_CIRCUIT", Analog::VCA::PORT_CIRCUIT)},
-    {SWIG_LUA_CONSTTAB_INT("VCA_PORT_RANDOMIZE", Analog::VCA::PORT_RANDOMIZE)},
+    {SWIG_LUA_CONSTTAB_INT("VCA1_PORT_GAIN", Analog::VCA1::PORT_GAIN)},
+    {SWIG_LUA_CONSTTAB_INT("VCA1_PORT_VT", Analog::VCA1::PORT_VT)},
+    {SWIG_LUA_CONSTTAB_INT("VCA1_PORT_ETA", Analog::VCA1::PORT_ETA)},
+    {SWIG_LUA_CONSTTAB_INT("VCA1_PORT_IS", Analog::VCA1::PORT_IS)},
+    {SWIG_LUA_CONSTTAB_INT("VCA1_PORT_DCBIAS", Analog::VCA1::PORT_DCBIAS)},
+    {SWIG_LUA_CONSTTAB_INT("VCA1_PORT_RESET", Analog::VCA1::PORT_RESET)},
+    {SWIG_LUA_CONSTTAB_INT("VCA1_PORT_CIRCUIT", Analog::VCA1::PORT_CIRCUIT)},
+    {SWIG_LUA_CONSTTAB_INT("VCA1_PORT_RANDOMIZE", Analog::VCA1::PORT_RANDOMIZE)},
     {0,0,0,0,0,0}
 };
 static swig_lua_method swig_SwigModule_methods[]= {
@@ -20513,6 +21411,7 @@ static swig_lua_class* swig_SwigModule_classes[]= {
 &_wrap_class_MonoSubtractorOperatorProcessor,
 &_wrap_class_MonoModulatorOperatorProcessor,
 &_wrap_class_MonoBlendOperatorProcessor,
+&_wrap_class_VCA1,
 &_wrap_class_VCA,
 &_wrap_class_float_vector,
 &_wrap_class_double_vector,
@@ -20538,11 +21437,11 @@ static swig_lua_namespace swig_SwigModule = {
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
 
-static void *_p_p_Analog__VCATo_p_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((AmplifierProcessor **)  ((Analog::VCA **) x));
+static void *_p_p_Analog__VCA1To_p_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((AmplifierProcessor **)  ((Analog::VCA1 **) x));
 }
-static void *_p_Analog__VCATo_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((AmplifierProcessor *)  ((Analog::VCA *) x));
+static void *_p_Analog__VCA1To_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((AmplifierProcessor *)  ((Analog::VCA1 *) x));
 }
 static void *_p_MonoCascadeOperatorProcessorTo_p_MonoOperatorProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((MonoOperatorProcessor *)  ((MonoCascadeOperatorProcessor *) x));
@@ -20583,6 +21482,9 @@ static void *_p_StereoFilterProcessorTo_p_StereoProcessor(void *x, int *SWIGUNUS
 static void *_p_StereoAmplifierProcessorTo_p_StereoProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((StereoProcessor *)  ((StereoAmplifierProcessor *) x));
 }
+static void *_p_Analog__VCA1To_p_MonoProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((MonoProcessor *) (AmplifierProcessor *) ((Analog::VCA1 *) x));
+}
 static void *_p_MonoCascadeProcessorTo_p_MonoProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((MonoProcessor *)  ((MonoCascadeProcessor *) x));
 }
@@ -20604,11 +21506,8 @@ static void *_p_FilterProcessorTo_p_MonoProcessor(void *x, int *SWIGUNUSEDPARM(n
 static void *_p_AmplifierProcessorTo_p_MonoProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((MonoProcessor *)  ((AmplifierProcessor *) x));
 }
-static void *_p_Analog__VCATo_p_MonoProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((MonoProcessor *) (AmplifierProcessor *) ((Analog::VCA *) x));
-}
-static void *_p_Analog__VCATo_p_SoundProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((SoundProcessor *) (MonoProcessor *)(AmplifierProcessor *) ((Analog::VCA *) x));
+static void *_p_Analog__VCA1To_p_SoundProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((SoundProcessor *) (MonoProcessor *)(AmplifierProcessor *) ((Analog::VCA1 *) x));
 }
 static void *_p_MonoBlendOperatorProcessorTo_p_SoundProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((SoundProcessor *) (MonoOperatorProcessor *) ((MonoBlendOperatorProcessor *) x));
@@ -20711,6 +21610,8 @@ static void *_p_AmplifierProcessorTo_p_SoundProcessor(void *x, int *SWIGUNUSEDPA
 }
 static swig_type_info _swigt__p_AmplifierProcessor = {"_p_AmplifierProcessor", "AmplifierProcessor *", 0, 0, (void*)&_wrap_class_AmplifierProcessor, 0};
 static swig_type_info _swigt__p_Analog__VCA = {"_p_Analog__VCA", "Analog::VCA *", 0, 0, (void*)&_wrap_class_VCA, 0};
+static swig_type_info _swigt__p_Analog__VCA1 = {"_p_Analog__VCA1", "Analog::VCA1 *", 0, 0, (void*)&_wrap_class_VCA1, 0};
+static swig_type_info _swigt__p_FX__Distortion__Amplifier__Amplifier = {"_p_FX__Distortion__Amplifier__Amplifier", "FX::Distortion::Amplifier::Amplifier *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FX__Filters__Smoothers__CSmoothFilter = {"_p_FX__Filters__Smoothers__CSmoothFilter", "FX::Filters::Smoothers::CSmoothFilter *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FilterProcessor = {"_p_FilterProcessor", "FilterProcessor *", 0, 0, (void*)&_wrap_class_FilterProcessor, 0};
 static swig_type_info _swigt__p_FunctionProcessor = {"_p_FunctionProcessor", "FunctionProcessor *", 0, 0, (void*)&_wrap_class_FunctionProcessor, 0};
@@ -20754,7 +21655,7 @@ static swig_type_info _swigt__p_float = {"_p_float", "float *", 0, 0, (void*)0, 
 static swig_type_info _swigt__p_int = {"_p_int", "intptr_t *|int *|int_least32_t *|int_fast32_t *|int32_t *|int_fast16_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_long_long = {"_p_long_long", "int_least64_t *|int_fast64_t *|int64_t *|long long *|intmax_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_AmplifierProcessor = {"_p_p_AmplifierProcessor", "AmplifierProcessor **", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_p_Analog__VCA = {"_p_p_Analog__VCA", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_p_Analog__VCA1 = {"_p_p_Analog__VCA1", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_p_FilterProcessor = {"_p_p_FilterProcessor", "FilterProcessor **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_FunctionProcessor = {"_p_p_FunctionProcessor", "FunctionProcessor **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_double = {"_p_p_double", "double **|DspFloatType **", 0, 0, (void*)0, 0};
@@ -20800,6 +21701,8 @@ static swig_type_info _swigt__p_unsigned_short = {"_p_unsigned_short", "unsigned
 static swig_type_info *swig_type_initial[] = {
   &_swigt__p_AmplifierProcessor,
   &_swigt__p_Analog__VCA,
+  &_swigt__p_Analog__VCA1,
+  &_swigt__p_FX__Distortion__Amplifier__Amplifier,
   &_swigt__p_FX__Filters__Smoothers__CSmoothFilter,
   &_swigt__p_FilterProcessor,
   &_swigt__p_FunctionProcessor,
@@ -20843,7 +21746,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_int,
   &_swigt__p_long_long,
   &_swigt__p_p_AmplifierProcessor,
-  &_swigt__p_p_Analog__VCA,
+  &_swigt__p_p_Analog__VCA1,
   &_swigt__p_p_FilterProcessor,
   &_swigt__p_p_FunctionProcessor,
   &_swigt__p_p_double,
@@ -20887,8 +21790,10 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_unsigned_short,
 };
 
-static swig_cast_info _swigc__p_AmplifierProcessor[] = {  {&_swigt__p_Analog__VCA, _p_Analog__VCATo_p_AmplifierProcessor, 0, 0},  {&_swigt__p_AmplifierProcessor, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_AmplifierProcessor[] = {  {&_swigt__p_AmplifierProcessor, 0, 0, 0},  {&_swigt__p_Analog__VCA1, _p_Analog__VCA1To_p_AmplifierProcessor, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Analog__VCA[] = {  {&_swigt__p_Analog__VCA, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_Analog__VCA1[] = {  {&_swigt__p_Analog__VCA1, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FX__Distortion__Amplifier__Amplifier[] = {  {&_swigt__p_FX__Distortion__Amplifier__Amplifier, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FX__Filters__Smoothers__CSmoothFilter[] = {  {&_swigt__p_FX__Filters__Smoothers__CSmoothFilter, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FilterProcessor[] = {  {&_swigt__p_FilterProcessor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FunctionProcessor[] = {  {&_swigt__p_FunctionProcessor, 0, 0, 0},{0, 0, 0, 0}};
@@ -20904,7 +21809,7 @@ static swig_cast_info _swigc__p_MonoModulatorOperatorProcessor[] = {  {&_swigt__
 static swig_cast_info _swigc__p_MonoMultiplierOperatorProcessor[] = {  {&_swigt__p_MonoMultiplierOperatorProcessor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_MonoOperatorProcessor[] = {  {&_swigt__p_MonoOperatorProcessor, 0, 0, 0},  {&_swigt__p_MonoCascadeOperatorProcessor, _p_MonoCascadeOperatorProcessorTo_p_MonoOperatorProcessor, 0, 0},  {&_swigt__p_MonoMultiplierOperatorProcessor, _p_MonoMultiplierOperatorProcessorTo_p_MonoOperatorProcessor, 0, 0},  {&_swigt__p_MonoAdderOperatorProcessor, _p_MonoAdderOperatorProcessorTo_p_MonoOperatorProcessor, 0, 0},  {&_swigt__p_MonoSubtractorOperatorProcessor, _p_MonoSubtractorOperatorProcessorTo_p_MonoOperatorProcessor, 0, 0},  {&_swigt__p_MonoModulatorOperatorProcessor, _p_MonoModulatorOperatorProcessorTo_p_MonoOperatorProcessor, 0, 0},  {&_swigt__p_MonoBlendOperatorProcessor, _p_MonoBlendOperatorProcessorTo_p_MonoOperatorProcessor, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_MonoOversampleProcessor[] = {  {&_swigt__p_MonoOversampleProcessor, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_MonoProcessor[] = {  {&_swigt__p_Analog__VCA, _p_Analog__VCATo_p_MonoProcessor, 0, 0},  {&_swigt__p_MonoProcessor, 0, 0, 0},  {&_swigt__p_MonoCascadeProcessor, _p_MonoCascadeProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_MonoFXProcessor, _p_MonoFXProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_GeneratorProcessor, _p_GeneratorProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FunctionProcessor, _p_FunctionProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_OscillatorProcessor, _p_OscillatorProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FilterProcessor, _p_FilterProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_AmplifierProcessor, _p_AmplifierProcessorTo_p_MonoProcessor, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_MonoProcessor[] = {  {&_swigt__p_MonoProcessor, 0, 0, 0},  {&_swigt__p_Analog__VCA1, _p_Analog__VCA1To_p_MonoProcessor, 0, 0},  {&_swigt__p_MonoCascadeProcessor, _p_MonoCascadeProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_MonoFXProcessor, _p_MonoFXProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_GeneratorProcessor, _p_GeneratorProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FunctionProcessor, _p_FunctionProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_OscillatorProcessor, _p_OscillatorProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FilterProcessor, _p_FilterProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_AmplifierProcessor, _p_AmplifierProcessorTo_p_MonoProcessor, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_MonoSubtractorOperatorProcessor[] = {  {&_swigt__p_MonoSubtractorOperatorProcessor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_MonoUpsampleProcessor[] = {  {&_swigt__p_MonoUpsampleProcessor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OperatorProcessor[] = {  {&_swigt__p_OperatorProcessor, 0, 0, 0},{0, 0, 0, 0}};
@@ -20916,7 +21821,7 @@ static swig_cast_info _swigc__p_Ports[] = {  {&_swigt__p_Ports, 0, 0, 0},{0, 0, 
 static swig_cast_info _swigc__p_Random[] = {  {&_swigt__p_Random, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_SignalSinkProcessor[] = {  {&_swigt__p_SignalSinkProcessor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_SignalSourceProcessor[] = {  {&_swigt__p_SignalSourceProcessor, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_SoundProcessor[] = {  {&_swigt__p_Analog__VCA, _p_Analog__VCATo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoOversampleProcessor, _p_MonoOversampleProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoUpsampleProcessor, _p_MonoUpsampleProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoDownsampleProcessor, _p_MonoDownsampleProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_OperatorProcessor, _p_OperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoOperatorProcessor, _p_MonoOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoCascadeOperatorProcessor, _p_MonoCascadeOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoMultiplierOperatorProcessor, _p_MonoMultiplierOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoAdderOperatorProcessor, _p_MonoAdderOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoSubtractorOperatorProcessor, _p_MonoSubtractorOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoModulatorOperatorProcessor, _p_MonoModulatorOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoBlendOperatorProcessor, _p_MonoBlendOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_SignalSourceProcessor, _p_SignalSourceProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_SpectrumProcessor, _p_SpectrumProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_AmplifierProcessor, _p_AmplifierProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoProcessor, _p_MonoProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoCascadeProcessor, _p_MonoCascadeProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoAmplifierProcessor, _p_StereoAmplifierProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoFilterProcessor, _p_StereoFilterProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoFunctionProcessor, _p_StereoFunctionProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoGeneratorProcessor, _p_StereoGeneratorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_SoundProcessor, 0, 0, 0},  {&_swigt__p_FilterProcessor, _p_FilterProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_OscillatorProcessor, _p_OscillatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoSplitterProcessor, _p_StereoSplitterProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_Parameter2Processor, _p_Parameter2ProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FunctionProcessor, _p_FunctionProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MixerProcessor, _p_MixerProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_GeneratorProcessor, _p_GeneratorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoFXProcessor, _p_StereoFXProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoFXProcessor, _p_MonoFXProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoCascadeProcessor, _p_StereoCascadeProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoProcessor, _p_StereoProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoOscillatorProcessor, _p_StereoOscillatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_SignalSinkProcessor, _p_SignalSinkProcessorTo_p_SoundProcessor, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_SoundProcessor[] = {  {&_swigt__p_Analog__VCA1, _p_Analog__VCA1To_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoOversampleProcessor, _p_MonoOversampleProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoUpsampleProcessor, _p_MonoUpsampleProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoDownsampleProcessor, _p_MonoDownsampleProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_OperatorProcessor, _p_OperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoOperatorProcessor, _p_MonoOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoCascadeOperatorProcessor, _p_MonoCascadeOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoMultiplierOperatorProcessor, _p_MonoMultiplierOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoAdderOperatorProcessor, _p_MonoAdderOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoSubtractorOperatorProcessor, _p_MonoSubtractorOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoModulatorOperatorProcessor, _p_MonoModulatorOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoBlendOperatorProcessor, _p_MonoBlendOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_SignalSourceProcessor, _p_SignalSourceProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_SpectrumProcessor, _p_SpectrumProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_AmplifierProcessor, _p_AmplifierProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoProcessor, _p_MonoProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoCascadeProcessor, _p_MonoCascadeProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoAmplifierProcessor, _p_StereoAmplifierProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoFilterProcessor, _p_StereoFilterProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoFunctionProcessor, _p_StereoFunctionProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoGeneratorProcessor, _p_StereoGeneratorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_SoundProcessor, 0, 0, 0},  {&_swigt__p_FilterProcessor, _p_FilterProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_OscillatorProcessor, _p_OscillatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoSplitterProcessor, _p_StereoSplitterProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_Parameter2Processor, _p_Parameter2ProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FunctionProcessor, _p_FunctionProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MixerProcessor, _p_MixerProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_GeneratorProcessor, _p_GeneratorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoFXProcessor, _p_StereoFXProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoFXProcessor, _p_MonoFXProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoCascadeProcessor, _p_StereoCascadeProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoProcessor, _p_StereoProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoOscillatorProcessor, _p_StereoOscillatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_SignalSinkProcessor, _p_SignalSinkProcessorTo_p_SoundProcessor, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_SpectrumProcessor[] = {  {&_swigt__p_SpectrumProcessor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_StereoAmplifierProcessor[] = {  {&_swigt__p_StereoAmplifierProcessor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_StereoCascadeProcessor[] = {  {&_swigt__p_StereoCascadeProcessor, 0, 0, 0},{0, 0, 0, 0}};
@@ -20931,8 +21836,8 @@ static swig_cast_info _swigc__p_double[] = {  {&_swigt__p_double, 0, 0, 0},{0, 0
 static swig_cast_info _swigc__p_float[] = {  {&_swigt__p_float, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_long_long[] = {  {&_swigt__p_long_long, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_p_Analog__VCA[] = {{&_swigt__p_p_Analog__VCA, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_p_AmplifierProcessor[] = {  {&_swigt__p_p_Analog__VCA, _p_p_Analog__VCATo_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_AmplifierProcessor, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_p_Analog__VCA1[] = {{&_swigt__p_p_Analog__VCA1, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_p_AmplifierProcessor[] = {  {&_swigt__p_p_AmplifierProcessor, 0, 0, 0},  {&_swigt__p_p_Analog__VCA1, _p_p_Analog__VCA1To_p_p_AmplifierProcessor, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_FilterProcessor[] = {  {&_swigt__p_p_FilterProcessor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_FunctionProcessor[] = {  {&_swigt__p_p_FunctionProcessor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_double[] = {  {&_swigt__p_p_double, 0, 0, 0},{0, 0, 0, 0}};
@@ -20978,6 +21883,8 @@ static swig_cast_info _swigc__p_unsigned_short[] = {  {&_swigt__p_unsigned_short
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_AmplifierProcessor,
   _swigc__p_Analog__VCA,
+  _swigc__p_Analog__VCA1,
+  _swigc__p_FX__Distortion__Amplifier__Amplifier,
   _swigc__p_FX__Filters__Smoothers__CSmoothFilter,
   _swigc__p_FilterProcessor,
   _swigc__p_FunctionProcessor,
@@ -21021,7 +21928,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_int,
   _swigc__p_long_long,
   _swigc__p_p_AmplifierProcessor,
-  _swigc__p_p_Analog__VCA,
+  _swigc__p_p_Analog__VCA1,
   _swigc__p_p_FilterProcessor,
   _swigc__p_p_FunctionProcessor,
   _swigc__p_p_double,

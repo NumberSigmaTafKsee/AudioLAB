@@ -1,6 +1,6 @@
 #pragma once
 
-#include "SoundObject.hpp"
+#include "GenericSoundObject.hpp"
 #include "FX/OnePole.hpp"
 #include "FX/Filters.h"
 
@@ -10,10 +10,11 @@ namespace Analog::Oscillators
     //////////////////////////////////////////////
     // Old Blit it works
     //////////////////////////////////////////////
-    struct BlitSaw : public OscillatorProcessor
+    template<typename T>
+    struct BlitSaw : public GSSoundProcessor<T>
     {
         //! Class constructor.
-        BlitSaw( DspFloatType frequency = 220.0, DspFloatType sampleRate=44100 ) : OscillatorProcessor()
+        BlitSaw( T frequency = 220.0, T sampleRate=44100 ) : GSSoundProcessor<T>()
         {
             nHarmonics_ = 0;
             offset = 0;
@@ -36,7 +37,7 @@ namespace Analog::Oscillators
         }
 
         //! Set the sawtooth oscillator rate in terms of a frequency in Hz.
-        void setFrequency( DspFloatType frequency )
+        void setFrequency( T frequency )
         {
             f = frequency;
             p_ = sampleRate / frequency;
@@ -51,13 +52,13 @@ namespace Analog::Oscillators
             this->updateHarmonics();        
             state_ = -0.5 * a_;
         }
-        void setGain(DspFloatType g) {
+        void setGain(T g) {
             gain = g;
         }
-        void setPhaseOffset(DspFloatType o) {
+        void setPhaseOffset(T o) {
             phase_ = o;    
         }
-        DspFloatType getPhase() { return phase_; }
+        T getPhase() { return phase_; }
         void updateHarmonics( void )
         {            
             nHarmonics_ = (unsigned int) floor(  0.5 * p_ );
@@ -71,7 +72,7 @@ namespace Analog::Oscillators
             PORT_GAIN,
             PORT_PHASE
         };
-        void setPort(int port, DspFloatType v) {
+        void setPort(int port, T v) {
             switch(port) {
                 case PORT_FREQ: setFrequency(v); break;
                 case PORT_HARMONICS: setHarmonics(v); break;
@@ -82,20 +83,20 @@ namespace Analog::Oscillators
         }
 
         //! Return the last computed output value.
-        DspFloatType lastOut( void ) const { return y; };
+        T lastOut( void ) const { return y; };
 
         
         //! Compute and return one output sample.
         
         // blit = sin(m * phase) / (p * sin(phase));
 
-        DspFloatType Tick( DspFloatType I=1, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0 )
+        T Tick( T I=1, T A=1, T X=0, T Y=0 )
         {     
             // I = index
             // X = FM
             // Y = PM
-            DspFloatType tmp, denominator = sin( phase_ );
-            if ( fabs(denominator) <= std::numeric_limits<DspFloatType>::epsilon() )
+            T tmp, denominator = sin( phase_ );
+            if ( fabs(denominator) <= std::numeric_limits<T>::epsilon() )
                 tmp = a_;
             else {
                 tmp =  sin( m_ * phase_ );
@@ -110,15 +111,15 @@ namespace Analog::Oscillators
             return 2*y;
         }
 
-        void ProcessSIMD(size_t n, DspFloatType * out) {
+        void ProcessSIMD(size_t n, T * out) {
             #pragma omp simd
             for(size_t i = 0; i < n; i++)
             {
                 // I = index
                 // X = FM
                 // Y = PM
-                DspFloatType tmp, denominator = sin( phase_ );
-                if ( fabs(denominator) <= std::numeric_limits<DspFloatType>::epsilon() )
+                T tmp, denominator = sin( phase_ );
+                if ( fabs(denominator) <= std::numeric_limits<T>::epsilon() )
                     tmp = a_;
                 else {
                     tmp =  sin( m_ * phase_ );
@@ -136,16 +137,16 @@ namespace Analog::Oscillators
         FX::Filters::OnePole     block;    
         unsigned int nHarmonics_;
         unsigned int m_;
-        DspFloatType f;
-        DspFloatType rate_;
-        DspFloatType phase_;
-        DspFloatType offset;
-        DspFloatType p_;
-        DspFloatType C2_;
-        DspFloatType a_;
-        DspFloatType state_;
-        DspFloatType y;
-        DspFloatType gain;
-        DspFloatType sampleRate=44100;
+        T f;
+        T rate_;
+        T phase_;
+        T offset;
+        T p_;
+        T C2_;
+        T a_;
+        T state_;
+        T y;
+        T gain;
+        T sampleRate=44100;
     };
 }

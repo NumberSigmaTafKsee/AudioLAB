@@ -65,6 +65,31 @@ public:
     // wave table specific
     virtual void setSampleRate(DspFloatType dFs);
     virtual void update();
+
+    DspFloatType Tick(DspFloatType I=0, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0)
+    {
+        DspFloatType f = m_dFo;
+        DspFloatType p = m_dPulseWidth;
+        DspFloatType x = m_dPitchBendMod;
+        /*
+        m_dPitchBendMod = I;
+        m_dFo = abs(X);
+        m_dPulseWidth = abs(Y);
+        */
+        DspFloatType out = doOscillate();
+        /*
+        m_dFo = f;
+        m_dPulseWidth = p;
+        m_dPitchBendMod = x;
+        */
+        return A*out;
+    }
+    void ProcessSIMD(size_t n, DspFloatType * out) {
+		#pragma omp simd
+		for(size_t i = 0; i < n; i++) {
+            out[i] = doOscillate();
+        }
+    }
 };
 
 

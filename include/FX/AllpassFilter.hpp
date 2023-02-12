@@ -96,6 +96,7 @@ namespace Filters::Allpass
         }
 
         void ProcessBlock(size_t blockSize, T* inputBuffer, T* outputBuffer) {
+            #pragma omp simd
             for (uint64_t i = 0; i < blockSize; ++i) {
                 buffer[w] = inputBuffer[i];
                 int64_t r = w - t;
@@ -206,6 +207,7 @@ namespace Filters::Allpass
         }
 
         void ProcessBlock(size_t blockSize,T* inputBuffer, T* outputBuffer) {
+            #pragma omp simd
             for (uint64_t i = 0; i < blockSize; ++i) {
                 _inSum = inputBuffer[i] + delay.output * gain;
                 output = delay.output + _inSum * gain * -1;
@@ -263,7 +265,18 @@ namespace Filters::Allpass
             delay2.process();
             return output;
         }
-
+        void ProcessBlock(size_t blockSize,T* inputBuffer, T* outputBuffer) {
+            #pragma omp simd
+            for (uint64_t i = 0; i < blockSize; ++i) {
+                _inSum1 = input + delay1.output * gain1;
+                _inSum2 = _inSum1 + delay2.output * gain2;
+                delay2.input = _inSum2;
+                delay1.input = delay2.output * decay2 + _inSum2 * -gain2;
+                output = delay1.output * decay1 + _inSum1 * -gain1;
+                delay1.process();
+                delay2.process();
+                outputBuffer[i] = output;
+            }
         void clear() {
             input = 0;
             output = 0;

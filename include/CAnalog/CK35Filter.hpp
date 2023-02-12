@@ -22,6 +22,11 @@ public:
 	virtual void update();
 	virtual DspFloatType doFilter(DspFloatType xn);
 
+	DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {
+		return A * doFilter(I);
+	}
+	void ProcessSIMD(size_t n, DspFloatType *in, DspFloatType *out);
+
 	// variables
 	DspFloatType m_dAlpha0;   // our u scalar value
 	DspFloatType m_dK;		// K, set with Q
@@ -162,4 +167,71 @@ DspFloatType CKThreeFiveFilter::doFilter(DspFloatType xn)
 		y *= 1/m_dK;
 
 	return y;
+}
+
+void CKThreeFiveFilter::ProcessSIMD(size_t n, DspFloatType *in, DspFloatType *out)
+{
+	#pragma omp simd
+	for(size_t i = 0; i < n; i++) {
+		DspFloatType xn = in[i];
+		// return xn if filter not supported
+		if(m_uFilterType != LPF2 && m_uFilterType != HPF2)
+			out[i] = xn;
+		else {
+			DspFloatType y = 0.0;
+
+			// two filters to implement
+			if(m_uFilterType == LPF2)
+			{
+				// process input through LPF1
+				DspFloatType y1 = m_LPF1.doFilter(xn);
+
+				// form S35
+				DspFloatType S35 = m_HPF1.getFeedbackOutput() + m_LPF2.getFeedbackOutput(); 
+				
+				// calculate u
+				DspFloatType u = m_dAlpha0*(y1 + S35);
+				
+				// NAIVE NLP
+				if(m_uNLP == ON)
+				{
+					// Regular Version
+					u = fasttanh(m_dSaturation*u);
+				}
+
+				// feed it to LPF2
+				y = m_dK*m_LPF2.doFilter(u);
+					
+				// feed y to HPF
+				m_HPF1.doFilter(y);
+			}
+			else // HPF
+			{
+				// process input through HPF1
+				DspFloatType y1 = m_HPF1.doFilter(xn);
+
+				// then: form feedback and feed forward values (read before write)
+				DspFloatType S35 = m_HPF2.getFeedbackOutput() + m_LPF1.getFeedbackOutput();
+
+				// calculate u
+				DspFloatType u = m_dAlpha0*y1 + S35;
+
+				// form output
+				y = m_dK*u;
+
+				// NAIVE NLP
+				if(m_uNLP == ON)
+					y = fasttanh(m_dSaturation*y);
+
+				// process y through feedback BPF
+				m_LPF1.doFilter(m_HPF2.doFilter(y));
+			}
+
+			// auto-normalize
+			if(m_dK > 0)
+				y *= 1/m_dK;
+
+			out[i] = y;
+		}
+	}
 }

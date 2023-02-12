@@ -22,6 +22,7 @@ public:
 	virtual void update();
 	virtual DspFloatType doFilter(DspFloatType xn);
 
+	
 	// variables
 	DspFloatType m_dAlpha0;   // our u scalar value
 	DspFloatType m_dK;		// K, set with Q

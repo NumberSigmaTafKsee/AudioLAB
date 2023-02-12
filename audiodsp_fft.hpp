@@ -21,6 +21,21 @@ namespace AudioDSP
         virtual void backward() = 0;
     };
 
+    template<typename T>
+    struct FFTQueue
+    {
+        std::vector<T> queue;
+
+        FFTQueue(size_t n) { 
+            queue.resize(n);
+        }
+        void push(const T & x) {
+            memcpy(queue.data()+1,queue.data(),(queue.size()-1)*sizeof(T));
+            queue[0] = x;
+        }        
+    };
+
+
     void fft(FFTPlan& plan, const std::complex<DspFloatType> * in, std::complex<DspFloatType>* out)
     {
         plan.set_complex_input(in);

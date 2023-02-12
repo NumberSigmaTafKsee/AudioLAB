@@ -18,6 +18,60 @@ public:
     virtual void update();
     virtual DspFloatType doFilter(DspFloatType xn);
 
+    DspFloatType Tick(DspFloatType I=0, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0)
+    {
+        return A*doFilter(I);
+    }
+    void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+		#pragma omp simd
+		for(size_t i = 0; i < n; i++) {
+            DspFloatType xn = in[i];
+            // return xn if filter not supported
+            if(m_uFilterType != LPF2 && m_uFilterType != HPF2 && 
+            m_uFilterType != BPF2 && m_uFilterType != BSF2)
+                out[i] = xn;
+            else {
+                // form the HP output first 
+                DspFloatType hpf = m_dAlpha0*(xn - m_dRho*m_dZ11 - m_dZ12);
+
+                // BPF Out
+                DspFloatType bpf = m_dAlpha*hpf + m_dZ11;
+
+                // for nonlinear proc
+                if(m_uNLP == ON)
+                    bpf = fasttanh(m_dSaturation*bpf);
+
+                // LPF Out
+                DspFloatType lpf = m_dAlpha*bpf + m_dZ12;
+
+                // note R is the traditional analog damping factor
+                DspFloatType R = 1.0/(2.0*m_dQ);
+
+                // BSF Out
+                DspFloatType bsf = xn - 2.0*R*bpf;
+
+                // SEM BPF Output
+                // using m_dAuxControl for this one-off control
+                DspFloatType semBSF = m_dAuxControl*hpf + (1.0 - m_dAuxControl)*lpf;
+
+                // update memory
+                m_dZ11 = m_dAlpha*hpf + bpf;
+                m_dZ12 = m_dAlpha*bpf + lpf;
+
+                // return our selected type
+                if(m_uFilterType == LPF2)
+                    out[i] = lpf;
+                else if(m_uFilterType == HPF2)
+                    out[i] = hpf;
+                else if(m_uFilterType == BPF2)
+                    out[i] = bpf; 
+                else if(m_uFilterType == BSF2)
+                    out[i] = semBSF;
+
+            }
+        }
+    }
+
 protected:
     DspFloatType m_dZ11;		// our z-1 storage location
     DspFloatType m_dZ12;		// our z-1 storage location # 2

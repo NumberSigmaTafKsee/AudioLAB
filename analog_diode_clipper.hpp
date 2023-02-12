@@ -156,6 +156,7 @@ namespace Analog::Distortion::Diode
 		}
 
 		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+			#pragma omp target teams distribue parallel for
 			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
 		}
 	private:

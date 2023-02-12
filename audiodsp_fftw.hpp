@@ -519,8 +519,7 @@ namespace AudioDSP
         }
     };
 
-
-
+    
     void fft(FFTPlanComplexDouble & plan, const std::complex<double> * in, std::complex<double> * out, bool norm=true)
     {
         plan.set_complex_input(in);

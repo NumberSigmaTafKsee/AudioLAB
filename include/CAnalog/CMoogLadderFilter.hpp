@@ -126,6 +126,45 @@ public:
         // --- Oberheim variations
         return m_dA*dU + m_dB*dLP1 + m_dC*dLP2 + m_dD*dLP3 +  m_dE*dLP4;
     }
+ 	DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {
+		return A * doFilter(I);
+	}
+
+    void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+		#pragma omp simd
+		for(size_t i = 0; i < n; i++) {
+            DspFloatType xn = in[i];
+            // --- return xn if filter not supported
+            if(m_uFilterType == BSF2 || m_uFilterType == LPF1 || m_uFilterType == HPF1)
+                out[i] = xn;
+            else {
+                DspFloatType dSigma = m_LPF1.getFeedbackOutput() +
+                                m_LPF2.getFeedbackOutput() +
+                                m_LPF3.getFeedbackOutput() +
+                                m_LPF4.getFeedbackOutput();
+
+                // --- for passband gain compensation
+                //     you can connect this to a GUI control
+                //     and let user choose instead
+                xn *= 1.0 + m_dAuxControl*m_dK;
+
+                // calculate input to first filter
+                DspFloatType dU = (xn - m_dK*dSigma)*m_dAlpha_0;
+
+                if(m_uNLP == ON)
+                    dU = tanh(m_dSaturation*dU);
+
+                // --- cascade of 4 filters
+                DspFloatType dLP1 = m_LPF1.doFilter(dU);
+                DspFloatType dLP2 = m_LPF2.doFilter(dLP1);
+                DspFloatType dLP3 = m_LPF3.doFilter(dLP2);
+                DspFloatType dLP4 = m_LPF4.doFilter(dLP3);
+
+                // --- Oberheim variations
+                out[i] = m_dA*dU + m_dB*dLP1 + m_dC*dLP2 + m_dD*dLP3 +  m_dE*dLP4;
+            }
+        }
+    }
 };
 
 CMoogLadderFilter::CMoogLadderFilter(void)

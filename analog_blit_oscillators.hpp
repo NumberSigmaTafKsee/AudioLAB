@@ -1,22 +1,22 @@
 #pragma once
 
-#include "SoundObject.hpp"
+#include "GenericSoundObject.hpp"
 #include "FX/OnePole.hpp"
 #include "FX/Filters.h"
-
 
 namespace Analog::Oscillators
 {
     ///////////////////////////////////////////////////////////////////////////////////////
     // The new blit
     ///////////////////////////////////////////////////////////////////////////////////////
-    DspFloatType BlitDSF(DspFloatType phase,DspFloatType m,DspFloatType p, DspFloatType a) 
+
+    double BlitDSF(double phase, double m, double p, double a) 
     {
-        DspFloatType tmp, denominator = sin( phase );
-        if ( fabs(denominator) <= std::numeric_limits<DspFloatType>::epsilon() )
+        double tmp, denominator = sin( phase );
+        if ( std::fabs(denominator) <= std::numeric_limits<double>::epsilon() )
             tmp = a;
         else {
-            tmp =  sin( m * phase );
+            tmp =  std::sin( m * phase );
             tmp /= p * denominator;
         }
         return tmp;
@@ -27,24 +27,25 @@ namespace Analog::Oscillators
 // blitSaw
 ///////////////////////////////////////////////////////////////////////////////////////
 
-    struct blitSaw : public OscillatorProcessor
+    template<typename T>
+    struct Blit2SawOscillator : public GSSoundProcessor<T>
     {
         FX::Filters::OnePole block;
         unsigned int nHarmonics_;
         unsigned int m_;
         
-        DspFloatType rate_;
-        DspFloatType phase_;
-        DspFloatType offset;
-        DspFloatType p_;
-        DspFloatType C2_;
-        DspFloatType a_;
-        DspFloatType state_;
-        DspFloatType y;
-        DspFloatType sampleRate=44100;
+        T rate_;
+        T phase_;
+        T offset;
+        T p_;
+        T C2_;
+        T a_;
+        T state_;
+        T y;
+        T sampleRate=44100;
         
-        blitSaw(DspFloatType sampleRate=44100.0f, DspFloatType frequency=440.0f)
-        : OscillatorProcessor()
+        Blit2SawOscillator(T sampleRate=44100.0f, T frequency=440.0f)
+        : GSSoundProcessor<T>()
         {
             this->sampleRate = sampleRate;
             nHarmonics_ = 0;
@@ -63,7 +64,7 @@ namespace Analog::Oscillators
         }
 
         //! Set the sawtooth oscillator rate in terms of a frequency in Hz.
-        void setFrequency( DspFloatType frequency )
+        void setFrequency( T frequency )
         {
             p_      = (sampleRate) / frequency;
             C2_     = 1 / p_;
@@ -78,11 +79,11 @@ namespace Analog::Oscillators
             state_ = -0.5 * a_;
         }
 
-        DspFloatType getPhase() { 
+        T getPhase() { 
             return phase_; 
         }
 
-        void setPhaseOffset(DspFloatType o) {
+        void setPhaseOffset(T o) {
             phase_ = o;    
         }
 
@@ -104,7 +105,7 @@ namespace Analog::Oscillators
             //PORT_GAIN,
             PORT_PHASE
         };
-        void setPort(int port, DspFloatType v) {
+        void setPort(int port, T v) {
             switch(port) {
                 case PORT_FREQ: setFrequency(v); break;
                 case PORT_HARMONICS: setHarmonics(v); break;
@@ -115,15 +116,15 @@ namespace Analog::Oscillators
         }
 
         //! Return the last computed output value.
-        DspFloatType lastOut( void ) const  { 
+        T lastOut( void ) const  { 
             return y; 
         };
         
         
         // blit = sin(m * phase) / (p * sin(phase));
-        DspFloatType Tick( DspFloatType I=1, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0 )
+        T Tick( T I=1, T A=1, T X=0, T Y=0 )
         {    
-            DspFloatType tmp = BlitDSF(phase_,m_,p_,a_);        
+            T tmp = BlitDSF(phase_,m_,p_,a_);        
             tmp += state_ - C2_;
             state_ = tmp * 0.995;        
             phase_ += rate_;
@@ -133,11 +134,17 @@ namespace Analog::Oscillators
             return 2*y;
         }
 
-        void ProcessSIMD(size_t n, DspFloatType * out) {
+        
+        void ProcessSIMD(size_t n, T * out) {
+            
+            #ifdef USE_GPU
+            #pragma omp target teams distribute parallel for
+            #else
             #pragma omp simd
+            #endif
             for(size_t i = 0; i < n; i++)
             {
-                DspFloatType tmp = BlitDSF(phase_,m_,p_,a_);        
+                T tmp = BlitDSF(phase_,m_,p_,a_);        
                 tmp += state_ - C2_;
                 state_ = tmp * 0.995;        
                 phase_ += rate_;
@@ -146,7 +153,7 @@ namespace Analog::Oscillators
                 out[i] = 2*y;
             }
         }
-        DspFloatType operator()() {
+        T operator()() {
             return Tick();
         }                
     };
@@ -155,25 +162,26 @@ namespace Analog::Oscillators
 // blitSquare
 ///////////////////////////////////////////////////////////////////////////////////////
 
-    struct blitSquare : public OscillatorProcessor
+    template<typename T>
+    struct Blit2SquareOscillator : public GSSoundProcessor<T>
     {
         FX::Filters::OnePole block;
         unsigned int nHarmonics_;
         unsigned int m_;
-        DspFloatType f;
-        DspFloatType rate_;
-        DspFloatType phase_;
-        DspFloatType offset;
-        DspFloatType p_;
-        DspFloatType C2_;
-        DspFloatType a_;
-        DspFloatType state_;
-        DspFloatType y;
-        DspFloatType D;
-        DspFloatType sampleRate=44100;
+        T f;
+        T rate_;
+        T phase_;
+        T offset;
+        T p_;
+        T C2_;
+        T a_;
+        T state_;
+        T y;
+        T D;
+        T sampleRate=44100;
         
-        blitSquare(DspFloatType sampleRate=44100.0f, DspFloatType frequency=440.0f)
-        : OscillatorProcessor()
+        Blit2SquareOscillator(T sampleRate=44100.0f, T frequency=440.0f)
+        : GSSoundProcessor<T>()
         {
             this->sampleRate = sampleRate;
             nHarmonics_ = 0;
@@ -193,7 +201,7 @@ namespace Analog::Oscillators
         }
 
         //! Set the sawtooth oscillator rate in terms of a frequency in Hz.
-        void setFrequency( DspFloatType frequency )
+        void setFrequency( T frequency )
         {
             f       = frequency;
             p_      = (sampleRate) / frequency;
@@ -208,14 +216,14 @@ namespace Analog::Oscillators
             this->updateHarmonics();        
             state_ = -0.5 * a_;
         }
-        void setDuty( DspFloatType d) {
+        void setDuty( T d) {
             D = d;
         }
-        DspFloatType getPhase() { 
+        T getPhase() { 
             return phase_; 
         }
 
-        void setPhaseOffset(DspFloatType o) {
+        void setPhaseOffset(T o) {
             phase_ = o;    
         }
 
@@ -237,7 +245,7 @@ namespace Analog::Oscillators
             //PORT_GAIN,
             PORT_PHASE
         };
-        void setPort(int port, DspFloatType v) {
+        void setPort(int port, T v) {
             switch(port) {
                 case PORT_FREQ: setFrequency(v); break;
                 case PORT_HARMONICS: setHarmonics(v); break;
@@ -248,16 +256,16 @@ namespace Analog::Oscillators
         }
 
         //! Return the last computed output value.
-        DspFloatType lastOut( void ) const  { 
+        T lastOut( void ) const  { 
             return y; 
         };
         
         
         // blit = sin(m * phase) / (p * sin(phase));
-        DspFloatType Tick( DspFloatType I=1, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0 )
+        T Tick( T I=1, T A=1, T X=0, T Y=0 )
         {    
-            DspFloatType tmp = BlitDSF(phase_,m_,p_,a_);        
-            DspFloatType tmp2= BlitDSF(phase_+D*M_PI,m_,p_,a_);
+            T tmp = BlitDSF(phase_,m_,p_,a_);        
+            T tmp2= BlitDSF(phase_+D*M_PI,m_,p_,a_);
             tmp      = tmp - tmp2;
             //tmp     += state_ - C2_;        
             state_ += tmp * 0.995;
@@ -267,13 +275,17 @@ namespace Analog::Oscillators
             y = clamp(y,-1,1);
             return y;
         }
-        void ProcessSIMD(size_t n, DspFloatType * out)
+        void ProcessSIMD(size_t n, T * out)
         {
+            #ifdef USE_GPU
+            #pragma omp target teams distribute parallel for
+            #else
             #pragma omp simd
+            #endif
             for(size_t i = 0; i < n; i++)
             {
-                DspFloatType tmp = BlitDSF(phase_,m_,p_,a_);        
-                DspFloatType tmp2= BlitDSF(phase_+D*M_PI,m_,p_,a_);
+                T tmp = BlitDSF(phase_,m_,p_,a_);        
+                T tmp2= BlitDSF(phase_+D*M_PI,m_,p_,a_);
                 tmp      = tmp - tmp2;
                 //tmp     += state_ - C2_;        
                 state_ += tmp * 0.995;
@@ -284,7 +296,7 @@ namespace Analog::Oscillators
                 out[i] = y;
             }
         }
-        DspFloatType operator()() {
+        T operator()() {
             return Tick();
         }
     };
@@ -293,15 +305,16 @@ namespace Analog::Oscillators
 // blitTriangle
 ///////////////////////////////////////////////////////////////////////////////////////
 
-    struct blitTriangle : public OscillatorProcessor
+    template<typename T>
+    struct Blit2TriangleOscillator : public GSSoundProcessor<T>
     {
-        blitSquare sqr;
+        Blit2SquareOscillator<T> sqr;
         FX::Filters::OnePole b1;
-        DspFloatType sampleRate=44100;
+        T sampleRate=44100;
 
-        DspFloatType triangle;
-        blitTriangle(DspFloatType sampleRate=44100.0f, DspFloatType frequency=440.0f) : 
-        OscillatorProcessor(),
+        T triangle;
+        Blit2TriangleOscillator(T sampleRate=44100.0f, T frequency=440.0f) : 
+        GSSoundProcessor<T>(),
         sqr(sampleRate,frequency)
         {
             this->sampleRate = sampleRate;
@@ -311,10 +324,10 @@ namespace Analog::Oscillators
         void reset() {
             triangle = 0;
         }
-        void setDuty(DspFloatType d) {
+        void setDuty(T d) {
             sqr.setDuty(d);
         }
-        void setFrequency(DspFloatType f) {
+        void setFrequency(T f) {
             sqr.setFrequency(f);
         }
         enum {
@@ -325,7 +338,7 @@ namespace Analog::Oscillators
             //PORT_GAIN,
             PORT_PHASE
         };
-        void setPort(int port, DspFloatType v) {
+        void setPort(int port, T v) {
             switch(port) {
                 case PORT_FREQ: setFrequency(v); break;
                 case PORT_DUTY: setDuty(v); break;
@@ -337,27 +350,31 @@ namespace Analog::Oscillators
             }
         }
 
-        DspFloatType Tick(DspFloatType I=1, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1)
+        T Tick(T I=1, T A=1, T X=1, T Y=1)
         {
-            DspFloatType x = sqr.Tick();
-            DspFloatType a = 1.0 - 0.01*std::fmin(1,sqr.f/1000.0);
+            T x = sqr.Tick();
+            T a = 1.0 - 0.01*std::fmin(1,sqr.f/1000.0);
             triangle = a*triangle + x/sqr.p_;            
             triangle -= b1.process(triangle);
             return 4*triangle;
         }
-        void ProcessSIMD(size_t n, DspFloatType * out)
+        void ProcessSIMD(size_t n, T * out)
         {
+            #ifdef USE_GPU
+            #pragma omp target teams distribue parallel for
+            #else
             #pragma omp simd
+            #endif
             for(size_t i = 0; i < n; i++)
             {
-                DspFloatType x = sqr.Tick();
-                DspFloatType a = 1.0 - 0.01*std::fmin(1,sqr.f/1000.0);
+                T x = sqr.Tick();
+                T a = 1.0 - 0.01*std::fmin(1,sqr.f/1000.0);
                 triangle = a*triangle + x/sqr.p_;            
                 triangle -= b1.process(triangle);
                 out[i] = 4*triangle;
             }
         }    
-        DspFloatType operator()() {
+        T operator()() {
             return Tick();
         }
     };

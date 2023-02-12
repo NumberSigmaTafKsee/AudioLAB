@@ -25,11 +25,30 @@ enum LayerType {
     HIDDEN=3,
 };
 
+enum {
+    GD_OPTIMIZER,
+    ADAM_OPTIMIZER,
+    RMSPROP_OPTIMIZER,
+};
+
 enum LossFunctionType {
     CROSS_ENTROPY_LOSS=1,
     MEAN_SQUARED_ERROR=2,
 };
 
+enum ActivationType {
+    LINEAR=0,
+    SIGMOID=1,
+    RELU=2,
+    TANH=3,
+    SOFTMAX=4,
+    ATAN=5,
+    BALLS=6,
+    ALGEBRA=7,
+    SINWAVE=8,
+    FULLWAVE_SIGMOID=9,
+    FULLWAVE_RELU=10,    
+};
 
 typedef void (*activation)(Matrix & m);
 typedef void (*activation_grad)(Matrix & m);
@@ -166,6 +185,18 @@ inline void sinwave(Matrix & m)
     m = (sin(2*M_PI*m.array()));    
 }
 
+// random already exists somewhere.
+inline floatType randr(floatType min = 0.0f, floatType max = 1.0f) {
+    typedef std::chrono::high_resolution_clock myclock;
+    myclock::time_point beginning = myclock::now();
+    myclock::duration d = myclock::now() - beginning;
+    unsigned seed = d.count();
+    std::default_random_engine generator(seed);
+    std::uniform_real_distribution<double> distribution(min,max);
+    return distribution(generator);
+}
+
+
 struct RandomNumbers
 {
     typedef std::chrono::high_resolution_clock myclock;
@@ -191,18 +222,6 @@ struct RandomNumbers
         return distribution(generator);
     }
 };
-
-// random already exists somewhere.
-inline floatType randr(floatType min = 0.0f, floatType max = 1.0f) {
-    typedef std::chrono::high_resolution_clock myclock;
-    myclock::time_point beginning = myclock::now();
-    myclock::duration d = myclock::now() - beginning;
-    unsigned seed = d.count();
-    std::default_random_engine generator(seed);
-    std::uniform_real_distribution<double> distribution(min,max);
-    return distribution(generator);
-}
-
 
 struct BoxMuller {
     floatType z0,z1;
@@ -233,32 +252,19 @@ struct BoxMuller {
     }
 };
 
-enum ActivationType {
-    LINEAR=0,
-    SIGMOID=1,
-    RELU=2,
-    TANH=3,
-    SOFTMAX=4,
-    ATAN=5,
-    BALLS=6,
-    ALGEBRA=7,
-    SINWAVE=8,
-    FULLWAVE_SIGMOID=9,
-    FULLWAVE_RELU=10,    
-};
 
 struct Connection;
 
-struct Layer {
-    LayerType        type;
-    size_t           size;
-    ActivationType   atype;
-    Matrix        input;
+struct Activator
+{
     activation       activate_f;
     activation_grad  activate_grad_f;        
-    bool useAutoDiff=true;
-    
+    bool             useAutoDiff=true;
 
+    Activator() = default;
+    Activator(activation af, activation_grad grad, bool ad) : activate_f(af),activate_grad_f(grad),useAutoDiff(ad) {
+
+    }
     void autodiff(Matrix & m)
     {        
         using namespace boost::math::differentiation;
@@ -277,7 +283,27 @@ struct Layer {
         }                    
     } 
 
-    Layer(LayerType t, size_t s, ActivationType a) {
+    void Activate(Matrix& tmp) {                
+        activate_f(tmp);                        
+    }
+    void Grad(Matrix & tmp) {
+        if(!useAutoDiff) activate_grad_f(tmp);        
+        else autodiff(tmp);
+    }
+};
+
+struct Layer {
+    LayerType        type;
+    size_t           size;
+    ActivationType   atype;
+    Matrix           input;    
+    Activator        activate;
+    
+
+
+    Layer(LayerType t, size_t s, ActivationType a, bool useAutoDiff = true) {
+        activation       activate_f;
+        activation_grad  activate_grad_f;        
         type = t;
         size = s;
         atype = a;
@@ -319,24 +345,22 @@ struct Layer {
                         break;
         }
         input = Matrix(1,size);
+        activator.activate_f = activate_f;
+        activator.activate_grad_f = activate_grad_f;
+        activator.useAutoDiff = useAutoDiff;
+
     }
     ~Layer() {
 
     }
-    void setActivation(activation a) {
-        activate_f = a;
-    }
-    void setGradient(activation_grad a) {
-        activate_grad_f = a;
-    }
     void Activate(Matrix& tmp) {        
         input = tmp.eval();
-        activate_f(input);                        
+        activator.Activate(input);                        
     }
     void Grad(Matrix & tmp) {
-        if(!useAutoDiff) activate_grad_f(tmp);        
-        else autodiff(tmp);
+        activator.Grad(tmp);
     }
+    
 };
 
 
@@ -375,11 +399,6 @@ std::string stringify(Matrix & m)
     return ss.str();
 }
 
-enum {
-    GD_OPTIMIZER,
-    ADAM_OPTIMIZER,
-    RMSPROP_OPTIMIZER,
-};
 
 struct ParameterSet {
     Matrix data;

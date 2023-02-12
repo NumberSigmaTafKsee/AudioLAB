@@ -5,8 +5,6 @@
 
 namespace DSP::BogAudio
 {
-
-
     struct CrossFader : public Parameter2Processor {
 		double _mix = 2.0f;
 		double _curve = 1.0f;

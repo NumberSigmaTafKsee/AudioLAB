@@ -57,7 +57,8 @@ namespace Analog::Oscillators::Blit
       DspFloatType Tick(DspFloatType I=1, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0) {
         return tick();
       }
-
+      void ProcessSIMD(size_t n, DspFloatType * buffer);
+      
       enum {
           PORT_FREQ,
           PORT_PHASE,
@@ -104,7 +105,7 @@ namespace Analog::Oscillators::Blit
       if ( denominator <= std::numeric_limits<DspFloatType>::epsilon() )
         tmp = 1.0;
       else {
-        tmp =  sin( m_ * phase_ );
+        tmp =  std::sin( m_ * phase_ );
         tmp /= m_ * denominator;
       }
 
@@ -114,7 +115,22 @@ namespace Analog::Oscillators::Blit
       y = tmp;
       return y;
     }
-
+    void Blit::ProcessSIMD(size_t n, DspFloatType * buffer)
+    {
+      #pragma omp simd
+      for(size_t i = 0; i < n; i++) {
+        DspFloatType tmp, denominator = sin( phase_ );
+        if ( denominator <= std::numeric_limits<DspFloatType>::epsilon() )
+          tmp = 1.0;
+        else {
+          tmp =  std::sin( m_ * phase_ );
+          tmp /= m_ * denominator;
+        }
+        phase_ += rate_;
+        if ( phase_ >= M_PI ) phase_ -= M_PI;        
+        buffer[i] = tmp;
+      }
+    }
 
     inline Blit:: Blit( DspFloatType frequency, DspFloatType sampleRate ) : OscillatorProcessor()
     {
@@ -202,6 +218,7 @@ namespace Analog::Oscillators::Blit
       }
 
     void ProcessSIMD(size_t n, DspFloatType * out);
+    
     enum {
         PORT_FREQ,
         PORT_PHASE,

@@ -5,16 +5,24 @@ require('audio_adsr')
 require('stdsamples')
 require('Amplifiers')
 require('audio_simple_resampler')
-
+require('audio_lfo')
 adsr = audio_adsr.ADSR(0.1,0.2,0.8,0.2)
 vco  = VCO.VCO(44100)
-vcf  = VCF.VCF(44100.0,1000.0,0.5)
-vca  = VCA.VCA(-6)
+vcf  = VCF.VCF1(44100.0,1000.0,0.5)
+vca  = VCA.VCA(3,-3)
 v    = stdsamples.sample_vector(256)
 o    = stdsamples.sample_vector(512)
 resmp= audio_simple_resampler.SimpleResampler()
 resmp:setup(44100,2)
-
+resmp2= audio_simple_resampler.SimpleResampler()
+resmp2:setup(44100,2)
+tone = Amplifiers.ToneAmp(44100)
+tone:setDrive(0.5)
+tone:setTone(0.5)
+tone:setDrive(0.5)
+lfo = audio_lfo.LFO()
+lfo:setRate(1.0)
+lfo:setSampleRate(44100*2)
 freq = 440
 fc = 1.0
 q  = 0.5
@@ -43,16 +51,25 @@ function noise(input,output,frames)
     local outbuf = new_buffer(output)             
     vco:setFrequency(freq)    
     vco:ProcessSIMD(frames,v:data())        
-    --[[
+
     resmp:up(frames,v:data(),o:data())    
-    Amplifiers.udo1_simd(2*frames,o:data())
+    --Amplifiers.udo1_simd(2*frames,o:data())
+    for i=1,512 do
+        o[i] = Amplifiers.distortion_function(o[i])        
+    end
     Amplifiers.clamp_vector(2*frames,o:data(),o:data(),-1,1)
     resmp:down(frames,o:data(),v:data())        
-    ]]
+
     vcf:setCutoff(fc*22050+fc*freq)
     vcf:setResonance(q)    
     vcf:ProcessSIMD(frames,v:data(),v:data())        
-    vca:ProcessBlock(frames,v:data(),v:data())
+    resmp2:up(frames,v:data(),o:data())  
+    --vca:setA(A)  
+    --vca:setX(X)
+    --vca:setY(Y)
+    vca:ProcessBlock(frames*2,o:data(),o:data())
+    resmp2:down(frames,o:data(),v:data())        
+    --tone:ProcessSIMD(frames,v:data())
     adsr:ProcessSIMD(frames,v:data(),v:data())
     for i=0,frames-1 do
         outbuf[i] = v[i+1]

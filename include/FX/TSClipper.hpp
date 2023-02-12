@@ -11,6 +11,7 @@ public:
     void prepare(DspFloatType newFs);
 
     DspFloatType processSample(DspFloatType Vi);
+    void ProcessSIMD(size_t n, DspFloatType * out);
     
     void setKnob(DspFloatType newDrive);
     
@@ -90,7 +91,41 @@ DspFloatType TSClipper::processSample(DspFloatType Vi)
     
     return Vo;
 }
-
+void TSClipper::ProcessSIMD(size_t n, DspFloatType * out)
+{
+    #pragma omp simd
+    for(size_t i = 0; i < n; i++) {
+        DspFloatType Vi = out[i];
+        DspFloatType p = -Vi/(G4*R4) + R1/(G4*R4)*x1 - x2;
+        int iter = 1;
+        DspFloatType b = 1.f;
+        DspFloatType fd = p + Vd/R2 + Vd/R3 + 2.f*Is * sinh(Vd/(eta*Vt));
+        
+        while (iter < 50 && abs(fd) > thr)
+        {
+            DspFloatType den = 2.f*Is/(eta*Vt) * cosh(Vd/(eta*Vt)) + 1.f/R2 + 1.f/R3;
+            DspFloatType Vnew = Vd - b*fd/den;
+            DspFloatType fn = p + Vnew/R2 + Vnew/R3 + 2.f*Is * sinh(Vnew/(eta*Vt));
+            
+            if (abs(fn) < abs(fd))
+            {
+                Vd = Vnew;
+                b = 1.f;
+            }
+            else
+                b *= 0.5f;
+        
+            fd = p + Vd/R2 + Vd/R3 + 2.f*Is * sinh(Vd/(eta*Vt));
+            iter++;
+        }
+        
+        DspFloatType Vo = Vd + Vi;
+        x1 = (2.f/R1)*(Vi/G1 + x1*R4/G1) - x1;
+        x2 = (2.f/R2)*(Vd) - x2;
+        
+        out[i] = Vo;
+    }
+}
 void TSClipper::setKnob(DspFloatType newDrive)
 {
     if (drivePot != newDrive)

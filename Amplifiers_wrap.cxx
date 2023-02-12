@@ -2705,152 +2705,138 @@ SWIG_Lua_dostring(lua_State *L, const char *str) {
 #define SWIGTYPE_p_FX__Distortion__AmplifierFunction3 swig_types[5]
 #define SWIGTYPE_p_FX__Distortion__AmplifierFunction4 swig_types[6]
 #define SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier swig_types[7]
-#define SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8 swig_types[8]
-#define SWIGTYPE_p_FX__Distortion__Amplifier__BipolarAmplifier swig_types[9]
-#define SWIGTYPE_p_FX__Distortion__Amplifier__BipolarAmplifier2 swig_types[10]
-#define SWIGTYPE_p_FX__Distortion__Amplifier__DiodAmplifier swig_types[11]
-#define SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier swig_types[12]
-#define SWIGTYPE_p_FX__Distortion__Amplifier__DiodeSimAmplifier swig_types[13]
-#define SWIGTYPE_p_FX__Distortion__Amplifier__QuadAmplifier swig_types[14]
-#define SWIGTYPE_p_FX__Distortion__Amplifier__Range4Amplifier swig_types[15]
-#define SWIGTYPE_p_FX__Distortion__Amplifier__RangeAmplifier swig_types[16]
-#define SWIGTYPE_p_FX__Distortion__Amplifier__TwinAmplifier swig_types[17]
-#define SWIGTYPE_p_FX__Distortion__Amplifier__ValveAmplifier swig_types[18]
-#define SWIGTYPE_p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifier swig_types[19]
-#define SWIGTYPE_p_FX__Distortion__ClipFunction swig_types[20]
-#define SWIGTYPE_p_FX__Distortion__Clip__SerpentCurve swig_types[21]
-#define SWIGTYPE_p_FX__Distortion__Diode__DiodeClipperFP swig_types[22]
-#define SWIGTYPE_p_FX__Distortion__Diode__DiodeClipperNR swig_types[23]
-#define SWIGTYPE_p_FX__Distortion__DistortionCompressor__Controls swig_types[24]
-#define SWIGTYPE_p_FX__Distortion__DistortionCompressor__Distortion swig_types[25]
-#define SWIGTYPE_p_FX__Distortion__DistortionCompressor__GainDynamics swig_types[26]
-#define SWIGTYPE_p_FX__Distortion__DistortionCompressor__PeakLevelDetector swig_types[27]
-#define SWIGTYPE_p_FX__Distortion__FoldAmp swig_types[28]
-#define SWIGTYPE_p_FX__Distortion__MorphClipper swig_types[29]
-#define SWIGTYPE_p_FX__Distortion__Udo1 swig_types[30]
-#define SWIGTYPE_p_FX__Distortion__table1d swig_types[31]
-#define SWIGTYPE_p_FX__Distortion__table1d_impT_200_t swig_types[32]
-#define SWIGTYPE_p_FX__SstWaveShaper__SstWaveshaper swig_types[33]
-#define SWIGTYPE_p_FX__WaveShaping__ATanSoftClipper swig_types[34]
-#define SWIGTYPE_p_FilterProcessor swig_types[35]
-#define SWIGTYPE_p_FunctionProcessor swig_types[36]
-#define SWIGTYPE_p_GeneratorProcessor swig_types[37]
-#define SWIGTYPE_p_HardClipper swig_types[38]
-#define SWIGTYPE_p_MixerProcessor swig_types[39]
-#define SWIGTYPE_p_MonoAdderOperatorProcessor swig_types[40]
-#define SWIGTYPE_p_MonoBlendOperatorProcessor swig_types[41]
-#define SWIGTYPE_p_MonoCascadeOperatorProcessor swig_types[42]
-#define SWIGTYPE_p_MonoCascadeProcessor swig_types[43]
-#define SWIGTYPE_p_MonoDownsampleProcessor swig_types[44]
-#define SWIGTYPE_p_MonoFXProcessor swig_types[45]
-#define SWIGTYPE_p_MonoModulatorOperatorProcessor swig_types[46]
-#define SWIGTYPE_p_MonoMultiplierOperatorProcessor swig_types[47]
-#define SWIGTYPE_p_MonoOperatorProcessor swig_types[48]
-#define SWIGTYPE_p_MonoOversampleProcessor swig_types[49]
-#define SWIGTYPE_p_MonoProcessor swig_types[50]
-#define SWIGTYPE_p_MonoSubtractorOperatorProcessor swig_types[51]
-#define SWIGTYPE_p_MonoUpsampleProcessor swig_types[52]
-#define SWIGTYPE_p_OperatorProcessor swig_types[53]
-#define SWIGTYPE_p_OscillatorProcessor swig_types[54]
-#define SWIGTYPE_p_Parameter2Processor swig_types[55]
-#define SWIGTYPE_p_Port swig_types[56]
-#define SWIGTYPE_p_PortMap swig_types[57]
-#define SWIGTYPE_p_Ports swig_types[58]
-#define SWIGTYPE_p_Random swig_types[59]
-#define SWIGTYPE_p_SignalSinkProcessor swig_types[60]
-#define SWIGTYPE_p_SignalSourceProcessor swig_types[61]
-#define SWIGTYPE_p_SoftClipper swig_types[62]
-#define SWIGTYPE_p_SoundProcessor swig_types[63]
-#define SWIGTYPE_p_SpectrumProcessor swig_types[64]
-#define SWIGTYPE_p_StereoAmplifierProcessor swig_types[65]
-#define SWIGTYPE_p_StereoCascadeProcessor swig_types[66]
-#define SWIGTYPE_p_StereoFXProcessor swig_types[67]
-#define SWIGTYPE_p_StereoFilterProcessor swig_types[68]
-#define SWIGTYPE_p_StereoFunctionProcessor swig_types[69]
-#define SWIGTYPE_p_StereoGeneratorProcessor swig_types[70]
-#define SWIGTYPE_p_StereoOscillatorProcessor swig_types[71]
-#define SWIGTYPE_p_StereoProcessor swig_types[72]
-#define SWIGTYPE_p_StereoSplitterProcessor swig_types[73]
-#define SWIGTYPE_p_Wavefolder swig_types[74]
-#define SWIGTYPE_p_double swig_types[75]
-#define SWIGTYPE_p_float swig_types[76]
-#define SWIGTYPE_p_int swig_types[77]
-#define SWIGTYPE_p_long_long swig_types[78]
-#define SWIGTYPE_p_p_AmplifierProcessor swig_types[79]
-#define SWIGTYPE_p_p_FX__Distortion__AmplifierFunction1 swig_types[80]
-#define SWIGTYPE_p_p_FX__Distortion__AmplifierFunction2 swig_types[81]
-#define SWIGTYPE_p_p_FX__Distortion__AmplifierFunction3 swig_types[82]
-#define SWIGTYPE_p_p_FX__Distortion__AmplifierFunction4 swig_types[83]
-#define SWIGTYPE_p_p_FX__Distortion__Amplifier__Amplifier swig_types[84]
-#define SWIGTYPE_p_p_FX__Distortion__Amplifier__Amplifier8 swig_types[85]
-#define SWIGTYPE_p_p_FX__Distortion__Amplifier__BipolarAmplifier swig_types[86]
-#define SWIGTYPE_p_p_FX__Distortion__Amplifier__BipolarAmplifier2 swig_types[87]
-#define SWIGTYPE_p_p_FX__Distortion__Amplifier__DiodAmplifier swig_types[88]
-#define SWIGTYPE_p_p_FX__Distortion__Amplifier__DiodeClipperAmplifier swig_types[89]
-#define SWIGTYPE_p_p_FX__Distortion__Amplifier__DiodeSimAmplifier swig_types[90]
-#define SWIGTYPE_p_p_FX__Distortion__Amplifier__QuadAmplifier swig_types[91]
-#define SWIGTYPE_p_p_FX__Distortion__Amplifier__Range4Amplifier swig_types[92]
-#define SWIGTYPE_p_p_FX__Distortion__Amplifier__RangeAmplifier swig_types[93]
-#define SWIGTYPE_p_p_FX__Distortion__Amplifier__TwinAmplifier swig_types[94]
-#define SWIGTYPE_p_p_FX__Distortion__Amplifier__ValveAmplifier swig_types[95]
-#define SWIGTYPE_p_p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifier swig_types[96]
-#define SWIGTYPE_p_p_FX__Distortion__Clip__SerpentCurve swig_types[97]
-#define SWIGTYPE_p_p_FX__Distortion__Diode__DiodeClipperFP swig_types[98]
-#define SWIGTYPE_p_p_FX__Distortion__Diode__DiodeClipperNR swig_types[99]
-#define SWIGTYPE_p_p_FX__Distortion__FoldAmp swig_types[100]
-#define SWIGTYPE_p_p_FX__Distortion__Udo1 swig_types[101]
-#define SWIGTYPE_p_p_FX__WaveShaping__ATanSoftClipper swig_types[102]
-#define SWIGTYPE_p_p_FilterProcessor swig_types[103]
-#define SWIGTYPE_p_p_FunctionProcessor swig_types[104]
-#define SWIGTYPE_p_p_double swig_types[105]
-#define SWIGTYPE_p_p_float swig_types[106]
-#define SWIGTYPE_p_short swig_types[107]
-#define SWIGTYPE_p_signed_char swig_types[108]
-#define SWIGTYPE_p_sst__waveshapers__QuadWaveshaperPtr swig_types[109]
-#define SWIGTYPE_p_sst__waveshapers__QuadWaveshaperState swig_types[110]
-#define SWIGTYPE_p_std__complexT_double_t swig_types[111]
-#define SWIGTYPE_p_std__complexT_float_t swig_types[112]
-#define SWIGTYPE_p_std__functionT_double_fdoubleF_t swig_types[113]
-#define SWIGTYPE_p_std__functionT_double_fdouble_doubleF_t swig_types[114]
-#define SWIGTYPE_p_std__functionT_double_fdouble_double_doubleF_t swig_types[115]
-#define SWIGTYPE_p_std__functionT_double_fdouble_double_double_doubleF_t swig_types[116]
-#define SWIGTYPE_p_std__listT_MonoProcessor_p_t swig_types[117]
-#define SWIGTYPE_p_std__listT_SoundProcessor_p_t swig_types[118]
-#define SWIGTYPE_p_std__listT_StereoProcessor_p_t swig_types[119]
-#define SWIGTYPE_p_std__listT_std__shared_ptrT_Port_t_t swig_types[120]
-#define SWIGTYPE_p_std__mapT_std__string_MonoProcessor_p_t swig_types[121]
-#define SWIGTYPE_p_std__mapT_std__string_Port_p_t swig_types[122]
-#define SWIGTYPE_p_std__mapT_std__string_SoundProcessor_p_t swig_types[123]
-#define SWIGTYPE_p_std__mapT_std__string_StereoProcessor_p_t swig_types[124]
-#define SWIGTYPE_p_std__numeric_limitsT_double_t swig_types[125]
-#define SWIGTYPE_p_std__numeric_limitsT_float_t swig_types[126]
-#define SWIGTYPE_p_std__numeric_limitsT_int_t swig_types[127]
-#define SWIGTYPE_p_std__numeric_limitsT_long_long_t swig_types[128]
-#define SWIGTYPE_p_std__numeric_limitsT_long_t swig_types[129]
-#define SWIGTYPE_p_std__numeric_limitsT_short_t swig_types[130]
-#define SWIGTYPE_p_std__numeric_limitsT_unsigned_int_t swig_types[131]
-#define SWIGTYPE_p_std__numeric_limitsT_unsigned_long_long_t swig_types[132]
-#define SWIGTYPE_p_std__numeric_limitsT_unsigned_long_t swig_types[133]
-#define SWIGTYPE_p_std__numeric_limitsT_unsigned_short_t swig_types[134]
-#define SWIGTYPE_p_std__string swig_types[135]
-#define SWIGTYPE_p_std__vectorT_MonoProcessor_p_std__allocatorT_MonoProcessor_p_t_t swig_types[136]
-#define SWIGTYPE_p_std__vectorT_OscillatorProcessor_p_std__allocatorT_OscillatorProcessor_p_t_t swig_types[137]
-#define SWIGTYPE_p_std__vectorT_SoundProcessor_p_std__allocatorT_SoundProcessor_p_t_t swig_types[138]
-#define SWIGTYPE_p_std__vectorT_StereoProcessor_p_std__allocatorT_StereoProcessor_p_t_t swig_types[139]
-#define SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t swig_types[140]
-#define SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t swig_types[141]
-#define SWIGTYPE_p_std__vectorT_std__complexT_double_t_std__allocatorT_std__complexT_double_t_t_t swig_types[142]
-#define SWIGTYPE_p_std__vectorT_std__complexT_float_t_std__allocatorT_std__complexT_float_t_t_t swig_types[143]
-#define SWIGTYPE_p_std__vector_iteratorT_double_std__allocatorT_double_t_t swig_types[144]
-#define SWIGTYPE_p_std__vector_iteratorT_float_std__allocatorT_float_t_t swig_types[145]
-#define SWIGTYPE_p_std__vector_iteratorT_std__complexT_double_t_std__allocatorT_std__complexT_double_t_t_t swig_types[146]
-#define SWIGTYPE_p_std__vector_iteratorT_std__complexT_float_t_std__allocatorT_std__complexT_float_t_t_t swig_types[147]
-#define SWIGTYPE_p_unsigned_char swig_types[148]
-#define SWIGTYPE_p_unsigned_int swig_types[149]
-#define SWIGTYPE_p_unsigned_long_long swig_types[150]
-#define SWIGTYPE_p_unsigned_short swig_types[151]
-static swig_type_info *swig_types[153];
-static swig_module_info swig_module = {swig_types, 152, 0, 0, 0, 0};
+#define SWIGTYPE_p_FX__Distortion__Amplifier__BipolarAmplifier swig_types[8]
+#define SWIGTYPE_p_FX__Distortion__Amplifier__BipolarAmplifier2 swig_types[9]
+#define SWIGTYPE_p_FX__Distortion__Amplifier__QuadAmplifier swig_types[10]
+#define SWIGTYPE_p_FX__Distortion__Amplifier__Range4Amplifier swig_types[11]
+#define SWIGTYPE_p_FX__Distortion__Amplifier__RangeAmplifier swig_types[12]
+#define SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp swig_types[13]
+#define SWIGTYPE_p_FX__Distortion__Amplifier__TwinAmplifier swig_types[14]
+#define SWIGTYPE_p_FX__Distortion__ClipFunction swig_types[15]
+#define SWIGTYPE_p_FX__Distortion__Clip__SerpentCurve swig_types[16]
+#define SWIGTYPE_p_FX__Distortion__Diode__DiodeClipperFP swig_types[17]
+#define SWIGTYPE_p_FX__Distortion__Diode__DiodeClipperNR swig_types[18]
+#define SWIGTYPE_p_FX__Distortion__DistortionCompressor__Controls swig_types[19]
+#define SWIGTYPE_p_FX__Distortion__DistortionCompressor__Distortion swig_types[20]
+#define SWIGTYPE_p_FX__Distortion__DistortionCompressor__GainDynamics swig_types[21]
+#define SWIGTYPE_p_FX__Distortion__DistortionCompressor__PeakLevelDetector swig_types[22]
+#define SWIGTYPE_p_FX__Distortion__FoldAmp swig_types[23]
+#define SWIGTYPE_p_FX__Distortion__MorphClipper swig_types[24]
+#define SWIGTYPE_p_FX__Distortion__Udo1 swig_types[25]
+#define SWIGTYPE_p_FX__SstWaveShaper__SstWaveshaper swig_types[26]
+#define SWIGTYPE_p_FX__WaveShaping__ATanSoftClipper swig_types[27]
+#define SWIGTYPE_p_FilterProcessor swig_types[28]
+#define SWIGTYPE_p_FunctionProcessor swig_types[29]
+#define SWIGTYPE_p_GeneratorProcessor swig_types[30]
+#define SWIGTYPE_p_HardClipper swig_types[31]
+#define SWIGTYPE_p_MixerProcessor swig_types[32]
+#define SWIGTYPE_p_MonoAdderOperatorProcessor swig_types[33]
+#define SWIGTYPE_p_MonoBlendOperatorProcessor swig_types[34]
+#define SWIGTYPE_p_MonoCascadeOperatorProcessor swig_types[35]
+#define SWIGTYPE_p_MonoCascadeProcessor swig_types[36]
+#define SWIGTYPE_p_MonoDownsampleProcessor swig_types[37]
+#define SWIGTYPE_p_MonoFXProcessor swig_types[38]
+#define SWIGTYPE_p_MonoModulatorOperatorProcessor swig_types[39]
+#define SWIGTYPE_p_MonoMultiplierOperatorProcessor swig_types[40]
+#define SWIGTYPE_p_MonoOperatorProcessor swig_types[41]
+#define SWIGTYPE_p_MonoOversampleProcessor swig_types[42]
+#define SWIGTYPE_p_MonoProcessor swig_types[43]
+#define SWIGTYPE_p_MonoSubtractorOperatorProcessor swig_types[44]
+#define SWIGTYPE_p_MonoUpsampleProcessor swig_types[45]
+#define SWIGTYPE_p_OperatorProcessor swig_types[46]
+#define SWIGTYPE_p_OscillatorProcessor swig_types[47]
+#define SWIGTYPE_p_Parameter2Processor swig_types[48]
+#define SWIGTYPE_p_Port swig_types[49]
+#define SWIGTYPE_p_PortMap swig_types[50]
+#define SWIGTYPE_p_Ports swig_types[51]
+#define SWIGTYPE_p_Random swig_types[52]
+#define SWIGTYPE_p_SignalSinkProcessor swig_types[53]
+#define SWIGTYPE_p_SignalSourceProcessor swig_types[54]
+#define SWIGTYPE_p_SoftClipper swig_types[55]
+#define SWIGTYPE_p_SoundProcessor swig_types[56]
+#define SWIGTYPE_p_SpectrumProcessor swig_types[57]
+#define SWIGTYPE_p_StereoAmplifierProcessor swig_types[58]
+#define SWIGTYPE_p_StereoCascadeProcessor swig_types[59]
+#define SWIGTYPE_p_StereoFXProcessor swig_types[60]
+#define SWIGTYPE_p_StereoFilterProcessor swig_types[61]
+#define SWIGTYPE_p_StereoFunctionProcessor swig_types[62]
+#define SWIGTYPE_p_StereoGeneratorProcessor swig_types[63]
+#define SWIGTYPE_p_StereoOscillatorProcessor swig_types[64]
+#define SWIGTYPE_p_StereoProcessor swig_types[65]
+#define SWIGTYPE_p_StereoSplitterProcessor swig_types[66]
+#define SWIGTYPE_p_Wavefolder swig_types[67]
+#define SWIGTYPE_p_double swig_types[68]
+#define SWIGTYPE_p_float swig_types[69]
+#define SWIGTYPE_p_int swig_types[70]
+#define SWIGTYPE_p_long_long swig_types[71]
+#define SWIGTYPE_p_p_AmplifierProcessor swig_types[72]
+#define SWIGTYPE_p_p_FX__Distortion__AmplifierFunction1 swig_types[73]
+#define SWIGTYPE_p_p_FX__Distortion__AmplifierFunction2 swig_types[74]
+#define SWIGTYPE_p_p_FX__Distortion__AmplifierFunction3 swig_types[75]
+#define SWIGTYPE_p_p_FX__Distortion__AmplifierFunction4 swig_types[76]
+#define SWIGTYPE_p_p_FX__Distortion__Amplifier__Amplifier swig_types[77]
+#define SWIGTYPE_p_p_FX__Distortion__Amplifier__BipolarAmplifier swig_types[78]
+#define SWIGTYPE_p_p_FX__Distortion__Amplifier__BipolarAmplifier2 swig_types[79]
+#define SWIGTYPE_p_p_FX__Distortion__Amplifier__QuadAmplifier swig_types[80]
+#define SWIGTYPE_p_p_FX__Distortion__Amplifier__Range4Amplifier swig_types[81]
+#define SWIGTYPE_p_p_FX__Distortion__Amplifier__RangeAmplifier swig_types[82]
+#define SWIGTYPE_p_p_FX__Distortion__Amplifier__TwinAmplifier swig_types[83]
+#define SWIGTYPE_p_p_FX__Distortion__Clip__SerpentCurve swig_types[84]
+#define SWIGTYPE_p_p_FX__Distortion__Diode__DiodeClipperFP swig_types[85]
+#define SWIGTYPE_p_p_FX__Distortion__Diode__DiodeClipperNR swig_types[86]
+#define SWIGTYPE_p_p_FX__Distortion__FoldAmp swig_types[87]
+#define SWIGTYPE_p_p_FX__Distortion__Udo1 swig_types[88]
+#define SWIGTYPE_p_p_FX__WaveShaping__ATanSoftClipper swig_types[89]
+#define SWIGTYPE_p_p_FilterProcessor swig_types[90]
+#define SWIGTYPE_p_p_FunctionProcessor swig_types[91]
+#define SWIGTYPE_p_p_double swig_types[92]
+#define SWIGTYPE_p_p_float swig_types[93]
+#define SWIGTYPE_p_short swig_types[94]
+#define SWIGTYPE_p_signed_char swig_types[95]
+#define SWIGTYPE_p_sst__waveshapers__QuadWaveshaperPtr swig_types[96]
+#define SWIGTYPE_p_sst__waveshapers__QuadWaveshaperState swig_types[97]
+#define SWIGTYPE_p_std__complexT_double_t swig_types[98]
+#define SWIGTYPE_p_std__complexT_float_t swig_types[99]
+#define SWIGTYPE_p_std__functionT_double_fdoubleF_t swig_types[100]
+#define SWIGTYPE_p_std__functionT_double_fdouble_doubleF_t swig_types[101]
+#define SWIGTYPE_p_std__functionT_double_fdouble_double_doubleF_t swig_types[102]
+#define SWIGTYPE_p_std__functionT_double_fdouble_double_double_doubleF_t swig_types[103]
+#define SWIGTYPE_p_std__listT_MonoProcessor_p_t swig_types[104]
+#define SWIGTYPE_p_std__listT_SoundProcessor_p_t swig_types[105]
+#define SWIGTYPE_p_std__listT_StereoProcessor_p_t swig_types[106]
+#define SWIGTYPE_p_std__listT_std__shared_ptrT_Port_t_t swig_types[107]
+#define SWIGTYPE_p_std__mapT_std__string_MonoProcessor_p_t swig_types[108]
+#define SWIGTYPE_p_std__mapT_std__string_Port_p_t swig_types[109]
+#define SWIGTYPE_p_std__mapT_std__string_SoundProcessor_p_t swig_types[110]
+#define SWIGTYPE_p_std__mapT_std__string_StereoProcessor_p_t swig_types[111]
+#define SWIGTYPE_p_std__numeric_limitsT_double_t swig_types[112]
+#define SWIGTYPE_p_std__numeric_limitsT_float_t swig_types[113]
+#define SWIGTYPE_p_std__numeric_limitsT_int_t swig_types[114]
+#define SWIGTYPE_p_std__numeric_limitsT_long_long_t swig_types[115]
+#define SWIGTYPE_p_std__numeric_limitsT_long_t swig_types[116]
+#define SWIGTYPE_p_std__numeric_limitsT_short_t swig_types[117]
+#define SWIGTYPE_p_std__numeric_limitsT_unsigned_int_t swig_types[118]
+#define SWIGTYPE_p_std__numeric_limitsT_unsigned_long_long_t swig_types[119]
+#define SWIGTYPE_p_std__numeric_limitsT_unsigned_long_t swig_types[120]
+#define SWIGTYPE_p_std__numeric_limitsT_unsigned_short_t swig_types[121]
+#define SWIGTYPE_p_std__string swig_types[122]
+#define SWIGTYPE_p_std__vectorT_MonoProcessor_p_std__allocatorT_MonoProcessor_p_t_t swig_types[123]
+#define SWIGTYPE_p_std__vectorT_SoundProcessor_p_std__allocatorT_SoundProcessor_p_t_t swig_types[124]
+#define SWIGTYPE_p_std__vectorT_StereoProcessor_p_std__allocatorT_StereoProcessor_p_t_t swig_types[125]
+#define SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t swig_types[126]
+#define SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t swig_types[127]
+#define SWIGTYPE_p_std__vectorT_std__complexT_double_t_std__allocatorT_std__complexT_double_t_t_t swig_types[128]
+#define SWIGTYPE_p_std__vectorT_std__complexT_float_t_std__allocatorT_std__complexT_float_t_t_t swig_types[129]
+#define SWIGTYPE_p_std__vector_iteratorT_double_std__allocatorT_double_t_t swig_types[130]
+#define SWIGTYPE_p_std__vector_iteratorT_float_std__allocatorT_float_t_t swig_types[131]
+#define SWIGTYPE_p_std__vector_iteratorT_std__complexT_double_t_std__allocatorT_std__complexT_double_t_t_t swig_types[132]
+#define SWIGTYPE_p_std__vector_iteratorT_std__complexT_float_t_std__allocatorT_std__complexT_float_t_t_t swig_types[133]
+#define SWIGTYPE_p_unsigned_char swig_types[134]
+#define SWIGTYPE_p_unsigned_int swig_types[135]
+#define SWIGTYPE_p_unsigned_long_long swig_types[136]
+#define SWIGTYPE_p_unsigned_short swig_types[137]
+static swig_type_info *swig_types[139];
+static swig_module_info swig_module = {swig_types, 138, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -10013,860 +9999,6 @@ static swig_lua_class *swig_StereoSplitterProcessor_bases[] = {0,0};
 static const char *swig_StereoSplitterProcessor_base_names[] = {"SoundProcessor *",0};
 static swig_lua_class _wrap_class_StereoSplitterProcessor = { "StereoSplitterProcessor", "StereoSplitterProcessor", &SWIGTYPE_p_StereoSplitterProcessor,0, swig_delete_StereoSplitterProcessor, swig_StereoSplitterProcessor_methods, swig_StereoSplitterProcessor_attributes, &swig_StereoSplitterProcessor_Sf_SwigStatic, swig_StereoSplitterProcessor_meta, swig_StereoSplitterProcessor_bases, swig_StereoSplitterProcessor_base_names };
 
-static int _wrap_OscillatorProcessor_slaves_set(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  std::vector< OscillatorProcessor *,std::allocator< OscillatorProcessor * > > *arg2 = (std::vector< OscillatorProcessor *,std::allocator< OscillatorProcessor * > > *) 0 ;
-  
-  SWIG_check_num_args("OscillatorProcessor::slaves",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::slaves",1,"OscillatorProcessor *");
-  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("OscillatorProcessor::slaves",2,"std::vector< OscillatorProcessor *,std::allocator< OscillatorProcessor * > > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_slaves_set",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_OscillatorProcessor_p_std__allocatorT_OscillatorProcessor_p_t_t,0))){
-    SWIG_fail_ptr("OscillatorProcessor_slaves_set",2,SWIGTYPE_p_std__vectorT_OscillatorProcessor_p_std__allocatorT_OscillatorProcessor_p_t_t);
-  }
-  
-  if (arg1) (arg1)->slaves = *arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_slaves_get(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  std::vector< OscillatorProcessor *,std::allocator< OscillatorProcessor * > > *result = 0 ;
-  
-  SWIG_check_num_args("OscillatorProcessor::slaves",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::slaves",1,"OscillatorProcessor *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_slaves_get",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  result = (std::vector< OscillatorProcessor *,std::allocator< OscillatorProcessor * > > *)& ((arg1)->slaves);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_OscillatorProcessor_p_std__allocatorT_OscillatorProcessor_p_t_t,0); SWIG_arg++; 
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_waveform_set(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  int arg2 ;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_waveform",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_waveform",1,"OscillatorProcessor *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("OscillatorProcessor::m_waveform",2,"int");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_waveform_set",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  arg2 = (int)lua_tonumber(L, 2);
-  if (arg1) (arg1)->m_waveform = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_waveform_get(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  int result;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_waveform",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_waveform",1,"OscillatorProcessor *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_waveform_get",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  result = (int) ((arg1)->m_waveform);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_morph_set(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType arg2 ;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_morph",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_morph",1,"OscillatorProcessor *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("OscillatorProcessor::m_morph",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_morph_set",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->m_morph = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_morph_get(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_morph",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_morph",1,"OscillatorProcessor *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_morph_get",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  result = (DspFloatType) ((arg1)->m_morph);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_freq_set(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType arg2 ;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_freq",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_freq",1,"OscillatorProcessor *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("OscillatorProcessor::m_freq",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_freq_set",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->m_freq = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_freq_get(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_freq",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_freq",1,"OscillatorProcessor *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_freq_get",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  result = (DspFloatType) ((arg1)->m_freq);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_phase_set(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType arg2 ;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_phase",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_phase",1,"OscillatorProcessor *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("OscillatorProcessor::m_phase",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_phase_set",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->m_phase = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_phase_get(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_phase",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_phase",1,"OscillatorProcessor *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_phase_get",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  result = (DspFloatType) ((arg1)->m_phase);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_index_set(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType arg2 ;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_index",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_index",1,"OscillatorProcessor *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("OscillatorProcessor::m_index",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_index_set",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->m_index = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_index_get(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_index",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_index",1,"OscillatorProcessor *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_index_get",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  result = (DspFloatType) ((arg1)->m_index);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_gain_set(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType arg2 ;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_gain",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_gain",1,"OscillatorProcessor *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("OscillatorProcessor::m_gain",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_gain_set",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->m_gain = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_gain_get(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_gain",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_gain",1,"OscillatorProcessor *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_gain_get",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  result = (DspFloatType) ((arg1)->m_gain);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_fm_set(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType arg2 ;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_fm",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_fm",1,"OscillatorProcessor *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("OscillatorProcessor::m_fm",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_fm_set",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->m_fm = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_fm_get(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_fm",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_fm",1,"OscillatorProcessor *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_fm_get",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  result = (DspFloatType) ((arg1)->m_fm);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_pm_set(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType arg2 ;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_pm",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_pm",1,"OscillatorProcessor *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("OscillatorProcessor::m_pm",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_pm_set",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->m_pm = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_pm_get(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_pm",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_pm",1,"OscillatorProcessor *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_pm_get",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  result = (DspFloatType) ((arg1)->m_pm);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_fenv_set(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType arg2 ;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_fenv",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_fenv",1,"OscillatorProcessor *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("OscillatorProcessor::m_fenv",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_fenv_set",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->m_fenv = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_fenv_get(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_fenv",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_fenv",1,"OscillatorProcessor *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_fenv_get",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  result = (DspFloatType) ((arg1)->m_fenv);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_penv_set(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType arg2 ;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_penv",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_penv",1,"OscillatorProcessor *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("OscillatorProcessor::m_penv",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_penv_set",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->m_penv = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_penv_get(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_penv",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_penv",1,"OscillatorProcessor *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_penv_get",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  result = (DspFloatType) ((arg1)->m_penv);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_drift_set(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType arg2 ;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_drift",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_drift",1,"OscillatorProcessor *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("OscillatorProcessor::m_drift",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_drift_set",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->m_drift = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_drift_get(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_drift",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_drift",1,"OscillatorProcessor *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_drift_get",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  result = (DspFloatType) ((arg1)->m_drift);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_mod_set(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType arg2 ;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_mod",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_mod",1,"OscillatorProcessor *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("OscillatorProcessor::m_mod",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_mod_set",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->m_mod = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_mod_get(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_mod",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_mod",1,"OscillatorProcessor *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_mod_get",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  result = (DspFloatType) ((arg1)->m_mod);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_cmod_set(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType arg2 ;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_cmod",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_cmod",1,"OscillatorProcessor *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("OscillatorProcessor::m_cmod",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_cmod_set",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->m_cmod = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_cmod_get(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_cmod",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_cmod",1,"OscillatorProcessor *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_cmod_get",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  result = (DspFloatType) ((arg1)->m_cmod);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_env_set(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType arg2 ;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_env",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_env",1,"OscillatorProcessor *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("OscillatorProcessor::m_env",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_env_set",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->m_env = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_env_get(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_env",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_env",1,"OscillatorProcessor *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_env_get",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  result = (DspFloatType) ((arg1)->m_env);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_lfo_set(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType arg2 ;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_lfo",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_lfo",1,"OscillatorProcessor *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("OscillatorProcessor::m_lfo",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_lfo_set",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->m_lfo = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_lfo_get(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_lfo",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_lfo",1,"OscillatorProcessor *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_lfo_get",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  result = (DspFloatType) ((arg1)->m_lfo);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_pwm_set(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType arg2 ;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_pwm",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_pwm",1,"OscillatorProcessor *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("OscillatorProcessor::m_pwm",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_pwm_set",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->m_pwm = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_OscillatorProcessor_m_pwm_get(lua_State* L) {
-  int SWIG_arg = 0;
-  OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("OscillatorProcessor::m_pwm",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("OscillatorProcessor::m_pwm",1,"OscillatorProcessor *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_OscillatorProcessor,0))){
-    SWIG_fail_ptr("OscillatorProcessor_m_pwm_get",1,SWIGTYPE_p_OscillatorProcessor);
-  }
-  
-  result = (DspFloatType) ((arg1)->m_pwm);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
 static int _wrap_OscillatorProcessor_getType(lua_State* L) {
   int SWIG_arg = 0;
   OscillatorProcessor *arg1 = (OscillatorProcessor *) 0 ;
@@ -11226,23 +10358,6 @@ OscillatorProcessor *arg1 = (OscillatorProcessor *) obj;
 delete arg1;
 }
 static swig_lua_attribute swig_OscillatorProcessor_attributes[] = {
-    { "slaves", _wrap_OscillatorProcessor_slaves_get, _wrap_OscillatorProcessor_slaves_set },
-    { "m_waveform", _wrap_OscillatorProcessor_m_waveform_get, _wrap_OscillatorProcessor_m_waveform_set },
-    { "m_morph", _wrap_OscillatorProcessor_m_morph_get, _wrap_OscillatorProcessor_m_morph_set },
-    { "m_freq", _wrap_OscillatorProcessor_m_freq_get, _wrap_OscillatorProcessor_m_freq_set },
-    { "m_phase", _wrap_OscillatorProcessor_m_phase_get, _wrap_OscillatorProcessor_m_phase_set },
-    { "m_index", _wrap_OscillatorProcessor_m_index_get, _wrap_OscillatorProcessor_m_index_set },
-    { "m_gain", _wrap_OscillatorProcessor_m_gain_get, _wrap_OscillatorProcessor_m_gain_set },
-    { "m_fm", _wrap_OscillatorProcessor_m_fm_get, _wrap_OscillatorProcessor_m_fm_set },
-    { "m_pm", _wrap_OscillatorProcessor_m_pm_get, _wrap_OscillatorProcessor_m_pm_set },
-    { "m_fenv", _wrap_OscillatorProcessor_m_fenv_get, _wrap_OscillatorProcessor_m_fenv_set },
-    { "m_penv", _wrap_OscillatorProcessor_m_penv_get, _wrap_OscillatorProcessor_m_penv_set },
-    { "m_drift", _wrap_OscillatorProcessor_m_drift_get, _wrap_OscillatorProcessor_m_drift_set },
-    { "m_mod", _wrap_OscillatorProcessor_m_mod_get, _wrap_OscillatorProcessor_m_mod_set },
-    { "m_cmod", _wrap_OscillatorProcessor_m_cmod_get, _wrap_OscillatorProcessor_m_cmod_set },
-    { "m_env", _wrap_OscillatorProcessor_m_env_get, _wrap_OscillatorProcessor_m_env_set },
-    { "m_lfo", _wrap_OscillatorProcessor_m_lfo_get, _wrap_OscillatorProcessor_m_lfo_set },
-    { "m_pwm", _wrap_OscillatorProcessor_m_pwm_get, _wrap_OscillatorProcessor_m_pwm_set },
     {0,0,0}
 };
 static swig_lua_method swig_OscillatorProcessor_methods[]= {
@@ -18097,6 +17212,47 @@ static int _wrap_Amplifier_Tick(lua_State* L) {
 }
 
 
+static int _wrap_Amplifier_ProcessSIMD(lua_State* L) {
+  int SWIG_arg = 0;
+  FX::Distortion::Amplifier::Amplifier *arg1 = (FX::Distortion::Amplifier::Amplifier *) 0 ;
+  size_t arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType *arg4 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::Amplifier::Amplifier::ProcessSIMD",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier::ProcessSIMD",1,"FX::Distortion::Amplifier::Amplifier *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier::ProcessSIMD",3,"DspFloatType *");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier::ProcessSIMD",4,"DspFloatType *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier,0))){
+    SWIG_fail_ptr("Amplifier_ProcessSIMD",1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier);
+  }
+  
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("Amplifier_ProcessSIMD",3,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("Amplifier_ProcessSIMD",4,SWIGTYPE_p_double);
+  }
+  
+  (arg1)->ProcessSIMD(arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static void swig_delete_Amplifier(void *obj) {
 FX::Distortion::Amplifier::Amplifier *arg1 = (FX::Distortion::Amplifier::Amplifier *) obj;
 delete arg1;
@@ -18136,6 +17292,7 @@ static swig_lua_method swig_Amplifier_methods[]= {
     { "SetBias", _wrap_Amplifier_SetBias},
     { "distortionClip", _wrap_Amplifier_distortionClip},
     { "Tick", _wrap_Amplifier_Tick},
+    { "ProcessSIMD", _wrap_Amplifier_ProcessSIMD},
     {0,0}
 };
 static swig_lua_method swig_Amplifier_meta[] = {
@@ -18236,6 +17393,56 @@ fail:
 }
 
 
+static int _wrap_TwinAmplifier_morph_set(lua_State* L) {
+  int SWIG_arg = 0;
+  FX::Distortion::Amplifier::TwinAmplifier *arg1 = (FX::Distortion::Amplifier::TwinAmplifier *) 0 ;
+  double arg2 ;
+  
+  SWIG_check_num_args("FX::Distortion::Amplifier::TwinAmplifier::morph",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::TwinAmplifier::morph",1,"FX::Distortion::Amplifier::TwinAmplifier *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::TwinAmplifier::morph",2,"double");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__TwinAmplifier,0))){
+    SWIG_fail_ptr("TwinAmplifier_morph_set",1,SWIGTYPE_p_FX__Distortion__Amplifier__TwinAmplifier);
+  }
+  
+  arg2 = (double)lua_tonumber(L, 2);
+  if (arg1) (arg1)->morph = arg2;
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_TwinAmplifier_morph_get(lua_State* L) {
+  int SWIG_arg = 0;
+  FX::Distortion::Amplifier::TwinAmplifier *arg1 = (FX::Distortion::Amplifier::TwinAmplifier *) 0 ;
+  double result;
+  
+  SWIG_check_num_args("FX::Distortion::Amplifier::TwinAmplifier::morph",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::TwinAmplifier::morph",1,"FX::Distortion::Amplifier::TwinAmplifier *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__TwinAmplifier,0))){
+    SWIG_fail_ptr("TwinAmplifier_morph_get",1,SWIGTYPE_p_FX__Distortion__Amplifier__TwinAmplifier);
+  }
+  
+  result = (double) ((arg1)->morph);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static int _wrap_new_TwinAmplifier(lua_State* L) {
   int SWIG_arg = 0;
   FX::Distortion::Amplifier::TwinAmplifier *result = 0 ;
@@ -18243,6 +17450,29 @@ static int _wrap_new_TwinAmplifier(lua_State* L) {
   SWIG_check_num_args("FX::Distortion::Amplifier::TwinAmplifier::TwinAmplifier",0,0)
   result = (FX::Distortion::Amplifier::TwinAmplifier *)new FX::Distortion::Amplifier::TwinAmplifier();
   SWIG_NewPointerObj(L,result,SWIGTYPE_p_FX__Distortion__Amplifier__TwinAmplifier,1); SWIG_arg++; 
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_TwinAmplifier_Randomize(lua_State* L) {
+  int SWIG_arg = 0;
+  FX::Distortion::Amplifier::TwinAmplifier *arg1 = (FX::Distortion::Amplifier::TwinAmplifier *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::Amplifier::TwinAmplifier::Randomize",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::TwinAmplifier::Randomize",1,"FX::Distortion::Amplifier::TwinAmplifier *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__TwinAmplifier,0))){
+    SWIG_fail_ptr("TwinAmplifier_Randomize",1,SWIGTYPE_p_FX__Distortion__Amplifier__TwinAmplifier);
+  }
+  
+  (arg1)->Randomize();
+  
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -18582,6 +17812,47 @@ static int _wrap_TwinAmplifier_Tick(lua_State* L) {
 }
 
 
+static int _wrap_TwinAmplifier_ProcessSIMD(lua_State* L) {
+  int SWIG_arg = 0;
+  FX::Distortion::Amplifier::TwinAmplifier *arg1 = (FX::Distortion::Amplifier::TwinAmplifier *) 0 ;
+  size_t arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType *arg4 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::Amplifier::TwinAmplifier::ProcessSIMD",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::TwinAmplifier::ProcessSIMD",1,"FX::Distortion::Amplifier::TwinAmplifier *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::TwinAmplifier::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::TwinAmplifier::ProcessSIMD",3,"DspFloatType *");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("FX::Distortion::Amplifier::TwinAmplifier::ProcessSIMD",4,"DspFloatType *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__TwinAmplifier,0))){
+    SWIG_fail_ptr("TwinAmplifier_ProcessSIMD",1,SWIGTYPE_p_FX__Distortion__Amplifier__TwinAmplifier);
+  }
+  
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("TwinAmplifier_ProcessSIMD",3,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("TwinAmplifier_ProcessSIMD",4,SWIGTYPE_p_double);
+  }
+  
+  (arg1)->ProcessSIMD(arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static void swig_delete_TwinAmplifier(void *obj) {
 FX::Distortion::Amplifier::TwinAmplifier *arg1 = (FX::Distortion::Amplifier::TwinAmplifier *) obj;
 delete arg1;
@@ -18596,10 +17867,13 @@ static int _proxy__wrap_new_TwinAmplifier(lua_State *L) {
 }
 static swig_lua_attribute swig_TwinAmplifier_attributes[] = {
     { "amp", _wrap_TwinAmplifier_amp_get, _wrap_TwinAmplifier_amp_set },
+    { "morph", _wrap_TwinAmplifier_morph_get, _wrap_TwinAmplifier_morph_set },
     {0,0,0}
 };
 static swig_lua_method swig_TwinAmplifier_methods[]= {
+    { "Randomize", _wrap_TwinAmplifier_Randomize},
     { "Tick", _wrap_TwinAmplifier_Tick},
+    { "ProcessSIMD", _wrap_TwinAmplifier_ProcessSIMD},
     {0,0}
 };
 static swig_lua_method swig_TwinAmplifier_meta[] = {
@@ -18977,6 +18251,47 @@ static int _wrap_RangeAmplifier_Tick(lua_State* L) {
 }
 
 
+static int _wrap_RangeAmplifier_ProcessSIMD(lua_State* L) {
+  int SWIG_arg = 0;
+  FX::Distortion::Amplifier::RangeAmplifier *arg1 = (FX::Distortion::Amplifier::RangeAmplifier *) 0 ;
+  size_t arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType *arg4 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::Amplifier::RangeAmplifier::ProcessSIMD",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::RangeAmplifier::ProcessSIMD",1,"FX::Distortion::Amplifier::RangeAmplifier *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::RangeAmplifier::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::RangeAmplifier::ProcessSIMD",3,"DspFloatType *");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("FX::Distortion::Amplifier::RangeAmplifier::ProcessSIMD",4,"DspFloatType *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__RangeAmplifier,0))){
+    SWIG_fail_ptr("RangeAmplifier_ProcessSIMD",1,SWIGTYPE_p_FX__Distortion__Amplifier__RangeAmplifier);
+  }
+  
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("RangeAmplifier_ProcessSIMD",3,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("RangeAmplifier_ProcessSIMD",4,SWIGTYPE_p_double);
+  }
+  
+  (arg1)->ProcessSIMD(arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static void swig_delete_RangeAmplifier(void *obj) {
 FX::Distortion::Amplifier::RangeAmplifier *arg1 = (FX::Distortion::Amplifier::RangeAmplifier *) obj;
 delete arg1;
@@ -18994,6 +18309,7 @@ static swig_lua_attribute swig_RangeAmplifier_attributes[] = {
 };
 static swig_lua_method swig_RangeAmplifier_methods[]= {
     { "Tick", _wrap_RangeAmplifier_Tick},
+    { "ProcessSIMD", _wrap_RangeAmplifier_ProcessSIMD},
     {0,0}
 };
 static swig_lua_method swig_RangeAmplifier_meta[] = {
@@ -19494,6 +18810,47 @@ static int _wrap_Range4Amplifier_Tick(lua_State* L) {
 }
 
 
+static int _wrap_Range4Amplifier_ProcessSIMD(lua_State* L) {
+  int SWIG_arg = 0;
+  FX::Distortion::Amplifier::Range4Amplifier *arg1 = (FX::Distortion::Amplifier::Range4Amplifier *) 0 ;
+  size_t arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType *arg4 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::Amplifier::Range4Amplifier::ProcessSIMD",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::Range4Amplifier::ProcessSIMD",1,"FX::Distortion::Amplifier::Range4Amplifier *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::Range4Amplifier::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::Range4Amplifier::ProcessSIMD",3,"DspFloatType *");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("FX::Distortion::Amplifier::Range4Amplifier::ProcessSIMD",4,"DspFloatType *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__Range4Amplifier,0))){
+    SWIG_fail_ptr("Range4Amplifier_ProcessSIMD",1,SWIGTYPE_p_FX__Distortion__Amplifier__Range4Amplifier);
+  }
+  
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("Range4Amplifier_ProcessSIMD",3,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("Range4Amplifier_ProcessSIMD",4,SWIGTYPE_p_double);
+  }
+  
+  (arg1)->ProcessSIMD(arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static void swig_delete_Range4Amplifier(void *obj) {
 FX::Distortion::Amplifier::Range4Amplifier *arg1 = (FX::Distortion::Amplifier::Range4Amplifier *) obj;
 delete arg1;
@@ -19514,6 +18871,7 @@ static swig_lua_attribute swig_Range4Amplifier_attributes[] = {
 static swig_lua_method swig_Range4Amplifier_methods[]= {
     { "RandomClip", _wrap_Range4Amplifier_RandomClip},
     { "Tick", _wrap_Range4Amplifier_Tick},
+    { "ProcessSIMD", _wrap_Range4Amplifier_ProcessSIMD},
     {0,0}
 };
 static swig_lua_method swig_Range4Amplifier_meta[] = {
@@ -20411,6 +19769,47 @@ static int _wrap_BipolarAmplifier_Tick(lua_State* L) {
 }
 
 
+static int _wrap_BipolarAmplifier_ProcessSIMD(lua_State* L) {
+  int SWIG_arg = 0;
+  FX::Distortion::Amplifier::BipolarAmplifier *arg1 = (FX::Distortion::Amplifier::BipolarAmplifier *) 0 ;
+  size_t arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType *arg4 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::Amplifier::BipolarAmplifier::ProcessSIMD",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::BipolarAmplifier::ProcessSIMD",1,"FX::Distortion::Amplifier::BipolarAmplifier *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::BipolarAmplifier::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::BipolarAmplifier::ProcessSIMD",3,"DspFloatType *");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("FX::Distortion::Amplifier::BipolarAmplifier::ProcessSIMD",4,"DspFloatType *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__BipolarAmplifier,0))){
+    SWIG_fail_ptr("BipolarAmplifier_ProcessSIMD",1,SWIGTYPE_p_FX__Distortion__Amplifier__BipolarAmplifier);
+  }
+  
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("BipolarAmplifier_ProcessSIMD",3,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("BipolarAmplifier_ProcessSIMD",4,SWIGTYPE_p_double);
+  }
+  
+  (arg1)->ProcessSIMD(arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static void swig_delete_BipolarAmplifier(void *obj) {
 FX::Distortion::Amplifier::BipolarAmplifier *arg1 = (FX::Distortion::Amplifier::BipolarAmplifier *) obj;
 delete arg1;
@@ -20428,6 +19827,7 @@ static swig_lua_attribute swig_BipolarAmplifier_attributes[] = {
 };
 static swig_lua_method swig_BipolarAmplifier_methods[]= {
     { "Tick", _wrap_BipolarAmplifier_Tick},
+    { "ProcessSIMD", _wrap_BipolarAmplifier_ProcessSIMD},
     {0,0}
 };
 static swig_lua_method swig_BipolarAmplifier_meta[] = {
@@ -20979,21 +20379,21 @@ static swig_lua_class *swig_BipolarAmplifier2_bases[] = {0,0};
 static const char *swig_BipolarAmplifier2_base_names[] = {"FX::Distortion::Amplifier::Amplifier *",0};
 static swig_lua_class _wrap_class_BipolarAmplifier2 = { "BipolarAmplifier2", "BipolarAmplifier2", &SWIGTYPE_p_FX__Distortion__Amplifier__BipolarAmplifier2,_proxy__wrap_new_BipolarAmplifier2, swig_delete_BipolarAmplifier2, swig_BipolarAmplifier2_methods, swig_BipolarAmplifier2_attributes, &swig_BipolarAmplifier2_Sf_SwigStatic, swig_BipolarAmplifier2_meta, swig_BipolarAmplifier2_bases, swig_BipolarAmplifier2_base_names };
 
-static int _wrap_DiodeClipperAmplifier_bias_set(lua_State* L) {
+static int _wrap_ToneAmp_Drive_set(lua_State* L) {
   int SWIG_arg = 0;
-  FX::Distortion::Amplifier::DiodeClipperAmplifier *arg1 = (FX::Distortion::Amplifier::DiodeClipperAmplifier *) 0 ;
+  FX::Distortion::Amplifier::ToneAmp *arg1 = (FX::Distortion::Amplifier::ToneAmp *) 0 ;
   DspFloatType arg2 ;
   
-  SWIG_check_num_args("FX::Distortion::Amplifier::DiodeClipperAmplifier::bias",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::bias",1,"FX::Distortion::Amplifier::DiodeClipperAmplifier *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::bias",2,"DspFloatType");
+  SWIG_check_num_args("FX::Distortion::Amplifier::ToneAmp::Drive",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::Drive",1,"FX::Distortion::Amplifier::ToneAmp *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::Drive",2,"DspFloatType");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier,0))){
-    SWIG_fail_ptr("DiodeClipperAmplifier_bias_set",1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp,0))){
+    SWIG_fail_ptr("ToneAmp_Drive_set",1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp);
   }
   
   arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->bias = arg2;
+  if (arg1) (arg1)->Drive = arg2;
   
   return SWIG_arg;
   
@@ -21005,19 +20405,19 @@ fail:
 }
 
 
-static int _wrap_DiodeClipperAmplifier_bias_get(lua_State* L) {
+static int _wrap_ToneAmp_Drive_get(lua_State* L) {
   int SWIG_arg = 0;
-  FX::Distortion::Amplifier::DiodeClipperAmplifier *arg1 = (FX::Distortion::Amplifier::DiodeClipperAmplifier *) 0 ;
+  FX::Distortion::Amplifier::ToneAmp *arg1 = (FX::Distortion::Amplifier::ToneAmp *) 0 ;
   DspFloatType result;
   
-  SWIG_check_num_args("FX::Distortion::Amplifier::DiodeClipperAmplifier::bias",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::bias",1,"FX::Distortion::Amplifier::DiodeClipperAmplifier *");
+  SWIG_check_num_args("FX::Distortion::Amplifier::ToneAmp::Drive",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::Drive",1,"FX::Distortion::Amplifier::ToneAmp *");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier,0))){
-    SWIG_fail_ptr("DiodeClipperAmplifier_bias_get",1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp,0))){
+    SWIG_fail_ptr("ToneAmp_Drive_get",1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp);
   }
   
-  result = (DspFloatType) ((arg1)->bias);
+  result = (DspFloatType) ((arg1)->Drive);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -21029,21 +20429,21 @@ fail:
 }
 
 
-static int _wrap_DiodeClipperAmplifier_preG_set(lua_State* L) {
+static int _wrap_ToneAmp_Tone_set(lua_State* L) {
   int SWIG_arg = 0;
-  FX::Distortion::Amplifier::DiodeClipperAmplifier *arg1 = (FX::Distortion::Amplifier::DiodeClipperAmplifier *) 0 ;
+  FX::Distortion::Amplifier::ToneAmp *arg1 = (FX::Distortion::Amplifier::ToneAmp *) 0 ;
   DspFloatType arg2 ;
   
-  SWIG_check_num_args("FX::Distortion::Amplifier::DiodeClipperAmplifier::preG",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::preG",1,"FX::Distortion::Amplifier::DiodeClipperAmplifier *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::preG",2,"DspFloatType");
+  SWIG_check_num_args("FX::Distortion::Amplifier::ToneAmp::Tone",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::Tone",1,"FX::Distortion::Amplifier::ToneAmp *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::Tone",2,"DspFloatType");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier,0))){
-    SWIG_fail_ptr("DiodeClipperAmplifier_preG_set",1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp,0))){
+    SWIG_fail_ptr("ToneAmp_Tone_set",1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp);
   }
   
   arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->preG = arg2;
+  if (arg1) (arg1)->Tone = arg2;
   
   return SWIG_arg;
   
@@ -21055,19 +20455,19 @@ fail:
 }
 
 
-static int _wrap_DiodeClipperAmplifier_preG_get(lua_State* L) {
+static int _wrap_ToneAmp_Tone_get(lua_State* L) {
   int SWIG_arg = 0;
-  FX::Distortion::Amplifier::DiodeClipperAmplifier *arg1 = (FX::Distortion::Amplifier::DiodeClipperAmplifier *) 0 ;
+  FX::Distortion::Amplifier::ToneAmp *arg1 = (FX::Distortion::Amplifier::ToneAmp *) 0 ;
   DspFloatType result;
   
-  SWIG_check_num_args("FX::Distortion::Amplifier::DiodeClipperAmplifier::preG",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::preG",1,"FX::Distortion::Amplifier::DiodeClipperAmplifier *");
+  SWIG_check_num_args("FX::Distortion::Amplifier::ToneAmp::Tone",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::Tone",1,"FX::Distortion::Amplifier::ToneAmp *");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier,0))){
-    SWIG_fail_ptr("DiodeClipperAmplifier_preG_get",1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp,0))){
+    SWIG_fail_ptr("ToneAmp_Tone_get",1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp);
   }
   
-  result = (DspFloatType) ((arg1)->preG);
+  result = (DspFloatType) ((arg1)->Tone);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -21079,21 +20479,21 @@ fail:
 }
 
 
-static int _wrap_DiodeClipperAmplifier_postG_set(lua_State* L) {
+static int _wrap_ToneAmp_Output_set(lua_State* L) {
   int SWIG_arg = 0;
-  FX::Distortion::Amplifier::DiodeClipperAmplifier *arg1 = (FX::Distortion::Amplifier::DiodeClipperAmplifier *) 0 ;
+  FX::Distortion::Amplifier::ToneAmp *arg1 = (FX::Distortion::Amplifier::ToneAmp *) 0 ;
   DspFloatType arg2 ;
   
-  SWIG_check_num_args("FX::Distortion::Amplifier::DiodeClipperAmplifier::postG",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::postG",1,"FX::Distortion::Amplifier::DiodeClipperAmplifier *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::postG",2,"DspFloatType");
+  SWIG_check_num_args("FX::Distortion::Amplifier::ToneAmp::Output",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::Output",1,"FX::Distortion::Amplifier::ToneAmp *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::Output",2,"DspFloatType");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier,0))){
-    SWIG_fail_ptr("DiodeClipperAmplifier_postG_set",1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp,0))){
+    SWIG_fail_ptr("ToneAmp_Output_set",1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp);
   }
   
   arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->postG = arg2;
+  if (arg1) (arg1)->Output = arg2;
   
   return SWIG_arg;
   
@@ -21105,19 +20505,19 @@ fail:
 }
 
 
-static int _wrap_DiodeClipperAmplifier_postG_get(lua_State* L) {
+static int _wrap_ToneAmp_Output_get(lua_State* L) {
   int SWIG_arg = 0;
-  FX::Distortion::Amplifier::DiodeClipperAmplifier *arg1 = (FX::Distortion::Amplifier::DiodeClipperAmplifier *) 0 ;
+  FX::Distortion::Amplifier::ToneAmp *arg1 = (FX::Distortion::Amplifier::ToneAmp *) 0 ;
   DspFloatType result;
   
-  SWIG_check_num_args("FX::Distortion::Amplifier::DiodeClipperAmplifier::postG",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::postG",1,"FX::Distortion::Amplifier::DiodeClipperAmplifier *");
+  SWIG_check_num_args("FX::Distortion::Amplifier::ToneAmp::Output",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::Output",1,"FX::Distortion::Amplifier::ToneAmp *");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier,0))){
-    SWIG_fail_ptr("DiodeClipperAmplifier_postG_get",1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp,0))){
+    SWIG_fail_ptr("ToneAmp_Output_get",1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp);
   }
   
-  result = (DspFloatType) ((arg1)->postG);
+  result = (DspFloatType) ((arg1)->Output);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -21129,21 +20529,41 @@ fail:
 }
 
 
-static int _wrap_DiodeClipperAmplifier_cmin_set(lua_State* L) {
+static int _wrap_new_ToneAmp(lua_State* L) {
   int SWIG_arg = 0;
-  FX::Distortion::Amplifier::DiodeClipperAmplifier *arg1 = (FX::Distortion::Amplifier::DiodeClipperAmplifier *) 0 ;
+  DspFloatType arg1 ;
+  FX::Distortion::Amplifier::ToneAmp *result = 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::Amplifier::ToneAmp::ToneAmp",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::ToneAmp",1,"DspFloatType");
+  arg1 = (DspFloatType)lua_tonumber(L, 1);
+  result = (FX::Distortion::Amplifier::ToneAmp *)new FX::Distortion::Amplifier::ToneAmp(arg1);
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp,1); SWIG_arg++; 
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_ToneAmp_setDrive(lua_State* L) {
+  int SWIG_arg = 0;
+  FX::Distortion::Amplifier::ToneAmp *arg1 = (FX::Distortion::Amplifier::ToneAmp *) 0 ;
   DspFloatType arg2 ;
   
-  SWIG_check_num_args("FX::Distortion::Amplifier::DiodeClipperAmplifier::cmin",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::cmin",1,"FX::Distortion::Amplifier::DiodeClipperAmplifier *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::cmin",2,"DspFloatType");
+  SWIG_check_num_args("FX::Distortion::Amplifier::ToneAmp::setDrive",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::setDrive",1,"FX::Distortion::Amplifier::ToneAmp *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::setDrive",2,"DspFloatType");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier,0))){
-    SWIG_fail_ptr("DiodeClipperAmplifier_cmin_set",1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp,0))){
+    SWIG_fail_ptr("ToneAmp_setDrive",1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp);
   }
   
   arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->cmin = arg2;
+  (arg1)->setDrive(arg2);
   
   return SWIG_arg;
   
@@ -21155,45 +20575,21 @@ fail:
 }
 
 
-static int _wrap_DiodeClipperAmplifier_cmin_get(lua_State* L) {
+static int _wrap_ToneAmp_setTone(lua_State* L) {
   int SWIG_arg = 0;
-  FX::Distortion::Amplifier::DiodeClipperAmplifier *arg1 = (FX::Distortion::Amplifier::DiodeClipperAmplifier *) 0 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::DiodeClipperAmplifier::cmin",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::cmin",1,"FX::Distortion::Amplifier::DiodeClipperAmplifier *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier,0))){
-    SWIG_fail_ptr("DiodeClipperAmplifier_cmin_get",1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier);
-  }
-  
-  result = (DspFloatType) ((arg1)->cmin);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_DiodeClipperAmplifier_cmax_set(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::DiodeClipperAmplifier *arg1 = (FX::Distortion::Amplifier::DiodeClipperAmplifier *) 0 ;
+  FX::Distortion::Amplifier::ToneAmp *arg1 = (FX::Distortion::Amplifier::ToneAmp *) 0 ;
   DspFloatType arg2 ;
   
-  SWIG_check_num_args("FX::Distortion::Amplifier::DiodeClipperAmplifier::cmax",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::cmax",1,"FX::Distortion::Amplifier::DiodeClipperAmplifier *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::cmax",2,"DspFloatType");
+  SWIG_check_num_args("FX::Distortion::Amplifier::ToneAmp::setTone",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::setTone",1,"FX::Distortion::Amplifier::ToneAmp *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::setTone",2,"DspFloatType");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier,0))){
-    SWIG_fail_ptr("DiodeClipperAmplifier_cmax_set",1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp,0))){
+    SWIG_fail_ptr("ToneAmp_setTone",1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp);
   }
   
   arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->cmax = arg2;
+  (arg1)->setTone(arg2);
   
   return SWIG_arg;
   
@@ -21205,76 +20601,22 @@ fail:
 }
 
 
-static int _wrap_DiodeClipperAmplifier_cmax_get(lua_State* L) {
+static int _wrap_ToneAmp_setOutput(lua_State* L) {
   int SWIG_arg = 0;
-  FX::Distortion::Amplifier::DiodeClipperAmplifier *arg1 = (FX::Distortion::Amplifier::DiodeClipperAmplifier *) 0 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::DiodeClipperAmplifier::cmax",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::cmax",1,"FX::Distortion::Amplifier::DiodeClipperAmplifier *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier,0))){
-    SWIG_fail_ptr("DiodeClipperAmplifier_cmax_get",1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier);
-  }
-  
-  result = (DspFloatType) ((arg1)->cmax);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_new_DiodeClipperAmplifier(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::DiodeClipperAmplifier *result = 0 ;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::DiodeClipperAmplifier::DiodeClipperAmplifier",0,0)
-  result = (FX::Distortion::Amplifier::DiodeClipperAmplifier *)new FX::Distortion::Amplifier::DiodeClipperAmplifier();
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier,1); SWIG_arg++; 
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_DiodeClipperAmplifier_Tick__SWIG_0(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::DiodeClipperAmplifier *arg1 = (FX::Distortion::Amplifier::DiodeClipperAmplifier *) 0 ;
+  FX::Distortion::Amplifier::ToneAmp *arg1 = (FX::Distortion::Amplifier::ToneAmp *) 0 ;
   DspFloatType arg2 ;
-  DspFloatType arg3 ;
-  DspFloatType arg4 ;
-  DspFloatType arg5 ;
-  DspFloatType arg6 ;
-  DspFloatType result;
   
-  SWIG_check_num_args("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",6,6)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",1,"FX::Distortion::Amplifier::DiodeClipperAmplifier *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",2,"DspFloatType");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",3,"DspFloatType");
-  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",4,"DspFloatType");
-  if(!lua_isnumber(L,5)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",5,"DspFloatType");
-  if(!lua_isnumber(L,6)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",6,"DspFloatType");
+  SWIG_check_num_args("FX::Distortion::Amplifier::ToneAmp::setOutput",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::setOutput",1,"FX::Distortion::Amplifier::ToneAmp *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::setOutput",2,"DspFloatType");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier,0))){
-    SWIG_fail_ptr("DiodeClipperAmplifier_Tick",1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp,0))){
+    SWIG_fail_ptr("ToneAmp_setOutput",1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp);
   }
   
   arg2 = (DspFloatType)lua_tonumber(L, 2);
-  arg3 = (DspFloatType)lua_tonumber(L, 3);
-  arg4 = (DspFloatType)lua_tonumber(L, 4);
-  arg5 = (DspFloatType)lua_tonumber(L, 5);
-  arg6 = (DspFloatType)lua_tonumber(L, 6);
-  result = (DspFloatType)(arg1)->Tick(arg2,arg3,arg4,arg5,arg6);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  (arg1)->setOutput(arg2);
+  
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -21285,24 +20627,24 @@ fail:
 }
 
 
-static int _wrap_DiodeClipperAmplifier_Tick__SWIG_1(lua_State* L) {
+static int _wrap_ToneAmp_Tick__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
-  FX::Distortion::Amplifier::DiodeClipperAmplifier *arg1 = (FX::Distortion::Amplifier::DiodeClipperAmplifier *) 0 ;
+  FX::Distortion::Amplifier::ToneAmp *arg1 = (FX::Distortion::Amplifier::ToneAmp *) 0 ;
   DspFloatType arg2 ;
   DspFloatType arg3 ;
   DspFloatType arg4 ;
   DspFloatType arg5 ;
   DspFloatType result;
   
-  SWIG_check_num_args("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",5,5)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",1,"FX::Distortion::Amplifier::DiodeClipperAmplifier *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",2,"DspFloatType");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",3,"DspFloatType");
-  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",4,"DspFloatType");
-  if(!lua_isnumber(L,5)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",5,"DspFloatType");
+  SWIG_check_num_args("FX::Distortion::Amplifier::ToneAmp::Tick",5,5)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::Tick",1,"FX::Distortion::Amplifier::ToneAmp *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::Tick",2,"DspFloatType");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::Tick",3,"DspFloatType");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::Tick",4,"DspFloatType");
+  if(!lua_isnumber(L,5)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::Tick",5,"DspFloatType");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier,0))){
-    SWIG_fail_ptr("DiodeClipperAmplifier_Tick",1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp,0))){
+    SWIG_fail_ptr("ToneAmp_Tick",1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp);
   }
   
   arg2 = (DspFloatType)lua_tonumber(L, 2);
@@ -21321,22 +20663,22 @@ fail:
 }
 
 
-static int _wrap_DiodeClipperAmplifier_Tick__SWIG_2(lua_State* L) {
+static int _wrap_ToneAmp_Tick__SWIG_1(lua_State* L) {
   int SWIG_arg = 0;
-  FX::Distortion::Amplifier::DiodeClipperAmplifier *arg1 = (FX::Distortion::Amplifier::DiodeClipperAmplifier *) 0 ;
+  FX::Distortion::Amplifier::ToneAmp *arg1 = (FX::Distortion::Amplifier::ToneAmp *) 0 ;
   DspFloatType arg2 ;
   DspFloatType arg3 ;
   DspFloatType arg4 ;
   DspFloatType result;
   
-  SWIG_check_num_args("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",1,"FX::Distortion::Amplifier::DiodeClipperAmplifier *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",2,"DspFloatType");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",3,"DspFloatType");
-  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",4,"DspFloatType");
+  SWIG_check_num_args("FX::Distortion::Amplifier::ToneAmp::Tick",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::Tick",1,"FX::Distortion::Amplifier::ToneAmp *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::Tick",2,"DspFloatType");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::Tick",3,"DspFloatType");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::Tick",4,"DspFloatType");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier,0))){
-    SWIG_fail_ptr("DiodeClipperAmplifier_Tick",1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp,0))){
+    SWIG_fail_ptr("ToneAmp_Tick",1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp);
   }
   
   arg2 = (DspFloatType)lua_tonumber(L, 2);
@@ -21354,20 +20696,20 @@ fail:
 }
 
 
-static int _wrap_DiodeClipperAmplifier_Tick__SWIG_3(lua_State* L) {
+static int _wrap_ToneAmp_Tick__SWIG_2(lua_State* L) {
   int SWIG_arg = 0;
-  FX::Distortion::Amplifier::DiodeClipperAmplifier *arg1 = (FX::Distortion::Amplifier::DiodeClipperAmplifier *) 0 ;
+  FX::Distortion::Amplifier::ToneAmp *arg1 = (FX::Distortion::Amplifier::ToneAmp *) 0 ;
   DspFloatType arg2 ;
   DspFloatType arg3 ;
   DspFloatType result;
   
-  SWIG_check_num_args("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",1,"FX::Distortion::Amplifier::DiodeClipperAmplifier *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",2,"DspFloatType");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",3,"DspFloatType");
+  SWIG_check_num_args("FX::Distortion::Amplifier::ToneAmp::Tick",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::Tick",1,"FX::Distortion::Amplifier::ToneAmp *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::Tick",2,"DspFloatType");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::Tick",3,"DspFloatType");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier,0))){
-    SWIG_fail_ptr("DiodeClipperAmplifier_Tick",1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp,0))){
+    SWIG_fail_ptr("ToneAmp_Tick",1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp);
   }
   
   arg2 = (DspFloatType)lua_tonumber(L, 2);
@@ -21384,18 +20726,18 @@ fail:
 }
 
 
-static int _wrap_DiodeClipperAmplifier_Tick__SWIG_4(lua_State* L) {
+static int _wrap_ToneAmp_Tick__SWIG_3(lua_State* L) {
   int SWIG_arg = 0;
-  FX::Distortion::Amplifier::DiodeClipperAmplifier *arg1 = (FX::Distortion::Amplifier::DiodeClipperAmplifier *) 0 ;
+  FX::Distortion::Amplifier::ToneAmp *arg1 = (FX::Distortion::Amplifier::ToneAmp *) 0 ;
   DspFloatType arg2 ;
   DspFloatType result;
   
-  SWIG_check_num_args("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",1,"FX::Distortion::Amplifier::DiodeClipperAmplifier *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick",2,"DspFloatType");
+  SWIG_check_num_args("FX::Distortion::Amplifier::ToneAmp::Tick",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::Tick",1,"FX::Distortion::Amplifier::ToneAmp *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::Tick",2,"DspFloatType");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier,0))){
-    SWIG_fail_ptr("DiodeClipperAmplifier_Tick",1,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp,0))){
+    SWIG_fail_ptr("ToneAmp_Tick",1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp);
   }
   
   arg2 = (DspFloatType)lua_tonumber(L, 2);
@@ -21411,681 +20753,7 @@ fail:
 }
 
 
-static int _wrap_DiodeClipperAmplifier_Tick(lua_State* L) {
-  int argc;
-  int argv[7]={
-    1,2,3,4,5,6,7
-  };
-  
-  argc = lua_gettop(L);
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        return _wrap_DiodeClipperAmplifier_Tick__SWIG_4(L);
-      }
-    }
-  }
-  if (argc == 3) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          return _wrap_DiodeClipperAmplifier_Tick__SWIG_3(L);
-        }
-      }
-    }
-  }
-  if (argc == 4) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          {
-            _v = lua_isnumber(L,argv[3]);
-          }
-          if (_v) {
-            return _wrap_DiodeClipperAmplifier_Tick__SWIG_2(L);
-          }
-        }
-      }
-    }
-  }
-  if (argc == 5) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          {
-            _v = lua_isnumber(L,argv[3]);
-          }
-          if (_v) {
-            {
-              _v = lua_isnumber(L,argv[4]);
-            }
-            if (_v) {
-              return _wrap_DiodeClipperAmplifier_Tick__SWIG_1(L);
-            }
-          }
-        }
-      }
-    }
-  }
-  if (argc == 6) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          {
-            _v = lua_isnumber(L,argv[3]);
-          }
-          if (_v) {
-            {
-              _v = lua_isnumber(L,argv[4]);
-            }
-            if (_v) {
-              {
-                _v = lua_isnumber(L,argv[5]);
-              }
-              if (_v) {
-                return _wrap_DiodeClipperAmplifier_Tick__SWIG_0(L);
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'DiodeClipperAmplifier_Tick'\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick(DspFloatType,DspFloatType,DspFloatType,DspFloatType,DspFloatType)\n"
-    "    FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick(DspFloatType,DspFloatType,DspFloatType,DspFloatType)\n"
-    "    FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick(DspFloatType,DspFloatType,DspFloatType)\n"
-    "    FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick(DspFloatType,DspFloatType)\n"
-    "    FX::Distortion::Amplifier::DiodeClipperAmplifier::Tick(DspFloatType)\n");
-  lua_error(L);return 0;
-}
-
-
-static void swig_delete_DiodeClipperAmplifier(void *obj) {
-FX::Distortion::Amplifier::DiodeClipperAmplifier *arg1 = (FX::Distortion::Amplifier::DiodeClipperAmplifier *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_DiodeClipperAmplifier(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_DiodeClipperAmplifier);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_DiodeClipperAmplifier_attributes[] = {
-    { "bias", _wrap_DiodeClipperAmplifier_bias_get, _wrap_DiodeClipperAmplifier_bias_set },
-    { "preG", _wrap_DiodeClipperAmplifier_preG_get, _wrap_DiodeClipperAmplifier_preG_set },
-    { "postG", _wrap_DiodeClipperAmplifier_postG_get, _wrap_DiodeClipperAmplifier_postG_set },
-    { "cmin", _wrap_DiodeClipperAmplifier_cmin_get, _wrap_DiodeClipperAmplifier_cmin_set },
-    { "cmax", _wrap_DiodeClipperAmplifier_cmax_get, _wrap_DiodeClipperAmplifier_cmax_set },
-    {0,0,0}
-};
-static swig_lua_method swig_DiodeClipperAmplifier_methods[]= {
-    { "Tick", _wrap_DiodeClipperAmplifier_Tick},
-    {0,0}
-};
-static swig_lua_method swig_DiodeClipperAmplifier_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_DiodeClipperAmplifier_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_DiodeClipperAmplifier_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_DiodeClipperAmplifier_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_DiodeClipperAmplifier_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_DiodeClipperAmplifier_Sf_SwigStatic = {
-    "DiodeClipperAmplifier",
-    swig_DiodeClipperAmplifier_Sf_SwigStatic_methods,
-    swig_DiodeClipperAmplifier_Sf_SwigStatic_attributes,
-    swig_DiodeClipperAmplifier_Sf_SwigStatic_constants,
-    swig_DiodeClipperAmplifier_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_DiodeClipperAmplifier_bases[] = {0,0};
-static const char *swig_DiodeClipperAmplifier_base_names[] = {"FX::Distortion::Amplifier::Amplifier *",0};
-static swig_lua_class _wrap_class_DiodeClipperAmplifier = { "DiodeClipperAmplifier", "DiodeClipperAmplifier", &SWIGTYPE_p_FX__Distortion__Amplifier__DiodeClipperAmplifier,_proxy__wrap_new_DiodeClipperAmplifier, swig_delete_DiodeClipperAmplifier, swig_DiodeClipperAmplifier_methods, swig_DiodeClipperAmplifier_attributes, &swig_DiodeClipperAmplifier_Sf_SwigStatic, swig_DiodeClipperAmplifier_meta, swig_DiodeClipperAmplifier_bases, swig_DiodeClipperAmplifier_base_names };
-
-static int _wrap_new_DiodeSimAmplifier(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::DiodeSimAmplifier *result = 0 ;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::DiodeSimAmplifier::DiodeSimAmplifier",0,0)
-  result = (FX::Distortion::Amplifier::DiodeSimAmplifier *)new FX::Distortion::Amplifier::DiodeSimAmplifier();
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_FX__Distortion__Amplifier__DiodeSimAmplifier,1); SWIG_arg++; 
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static void swig_delete_DiodeSimAmplifier(void *obj) {
-FX::Distortion::Amplifier::DiodeSimAmplifier *arg1 = (FX::Distortion::Amplifier::DiodeSimAmplifier *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_DiodeSimAmplifier(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_DiodeSimAmplifier);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_DiodeSimAmplifier_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_method swig_DiodeSimAmplifier_methods[]= {
-    {0,0}
-};
-static swig_lua_method swig_DiodeSimAmplifier_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_DiodeSimAmplifier_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_DiodeSimAmplifier_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_DiodeSimAmplifier_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_DiodeSimAmplifier_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_DiodeSimAmplifier_Sf_SwigStatic = {
-    "DiodeSimAmplifier",
-    swig_DiodeSimAmplifier_Sf_SwigStatic_methods,
-    swig_DiodeSimAmplifier_Sf_SwigStatic_attributes,
-    swig_DiodeSimAmplifier_Sf_SwigStatic_constants,
-    swig_DiodeSimAmplifier_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_DiodeSimAmplifier_bases[] = {0,0};
-static const char *swig_DiodeSimAmplifier_base_names[] = {"FX::Distortion::Amplifier::Amplifier *",0};
-static swig_lua_class _wrap_class_DiodeSimAmplifier = { "DiodeSimAmplifier", "DiodeSimAmplifier", &SWIGTYPE_p_FX__Distortion__Amplifier__DiodeSimAmplifier,_proxy__wrap_new_DiodeSimAmplifier, swig_delete_DiodeSimAmplifier, swig_DiodeSimAmplifier_methods, swig_DiodeSimAmplifier_attributes, &swig_DiodeSimAmplifier_Sf_SwigStatic, swig_DiodeSimAmplifier_meta, swig_DiodeSimAmplifier_bases, swig_DiodeSimAmplifier_base_names };
-
-static int _wrap_new_DiodAmplifier(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::DiodAmplifier *result = 0 ;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::DiodAmplifier::DiodAmplifier",0,0)
-  result = (FX::Distortion::Amplifier::DiodAmplifier *)new FX::Distortion::Amplifier::DiodAmplifier();
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_FX__Distortion__Amplifier__DiodAmplifier,1); SWIG_arg++; 
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static void swig_delete_DiodAmplifier(void *obj) {
-FX::Distortion::Amplifier::DiodAmplifier *arg1 = (FX::Distortion::Amplifier::DiodAmplifier *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_DiodAmplifier(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_DiodAmplifier);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_DiodAmplifier_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_method swig_DiodAmplifier_methods[]= {
-    {0,0}
-};
-static swig_lua_method swig_DiodAmplifier_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_DiodAmplifier_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_DiodAmplifier_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_DiodAmplifier_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_DiodAmplifier_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_DiodAmplifier_Sf_SwigStatic = {
-    "DiodAmplifier",
-    swig_DiodAmplifier_Sf_SwigStatic_methods,
-    swig_DiodAmplifier_Sf_SwigStatic_attributes,
-    swig_DiodAmplifier_Sf_SwigStatic_constants,
-    swig_DiodAmplifier_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_DiodAmplifier_bases[] = {0,0};
-static const char *swig_DiodAmplifier_base_names[] = {"FX::Distortion::Amplifier::Amplifier *",0};
-static swig_lua_class _wrap_class_DiodAmplifier = { "DiodAmplifier", "DiodAmplifier", &SWIGTYPE_p_FX__Distortion__Amplifier__DiodAmplifier,_proxy__wrap_new_DiodAmplifier, swig_delete_DiodAmplifier, swig_DiodAmplifier_methods, swig_DiodAmplifier_attributes, &swig_DiodAmplifier_Sf_SwigStatic, swig_DiodAmplifier_meta, swig_DiodAmplifier_bases, swig_DiodAmplifier_base_names };
-
-static int _wrap_new_WDFDiodeClipperAmplifier(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::WDFDiodeClipperAmplifier *result = 0 ;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::WDFDiodeClipperAmplifier::WDFDiodeClipperAmplifier",0,0)
-  result = (FX::Distortion::Amplifier::WDFDiodeClipperAmplifier *)new FX::Distortion::Amplifier::WDFDiodeClipperAmplifier();
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifier,1); SWIG_arg++; 
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static void swig_delete_WDFDiodeClipperAmplifier(void *obj) {
-FX::Distortion::Amplifier::WDFDiodeClipperAmplifier *arg1 = (FX::Distortion::Amplifier::WDFDiodeClipperAmplifier *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_WDFDiodeClipperAmplifier(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_WDFDiodeClipperAmplifier);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_WDFDiodeClipperAmplifier_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_method swig_WDFDiodeClipperAmplifier_methods[]= {
-    {0,0}
-};
-static swig_lua_method swig_WDFDiodeClipperAmplifier_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_WDFDiodeClipperAmplifier_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_WDFDiodeClipperAmplifier_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_WDFDiodeClipperAmplifier_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_WDFDiodeClipperAmplifier_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_WDFDiodeClipperAmplifier_Sf_SwigStatic = {
-    "WDFDiodeClipperAmplifier",
-    swig_WDFDiodeClipperAmplifier_Sf_SwigStatic_methods,
-    swig_WDFDiodeClipperAmplifier_Sf_SwigStatic_attributes,
-    swig_WDFDiodeClipperAmplifier_Sf_SwigStatic_constants,
-    swig_WDFDiodeClipperAmplifier_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_WDFDiodeClipperAmplifier_bases[] = {0,0};
-static const char *swig_WDFDiodeClipperAmplifier_base_names[] = {"FX::Distortion::Amplifier::Amplifier *",0};
-static swig_lua_class _wrap_class_WDFDiodeClipperAmplifier = { "WDFDiodeClipperAmplifier", "WDFDiodeClipperAmplifier", &SWIGTYPE_p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifier,_proxy__wrap_new_WDFDiodeClipperAmplifier, swig_delete_WDFDiodeClipperAmplifier, swig_WDFDiodeClipperAmplifier_methods, swig_WDFDiodeClipperAmplifier_attributes, &swig_WDFDiodeClipperAmplifier_Sf_SwigStatic, swig_WDFDiodeClipperAmplifier_meta, swig_WDFDiodeClipperAmplifier_bases, swig_WDFDiodeClipperAmplifier_base_names };
-
-static int _wrap_new_ValveAmplifier(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::ValveAmplifier *result = 0 ;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::ValveAmplifier::ValveAmplifier",0,0)
-  result = (FX::Distortion::Amplifier::ValveAmplifier *)new FX::Distortion::Amplifier::ValveAmplifier();
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_FX__Distortion__Amplifier__ValveAmplifier,1); SWIG_arg++; 
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static void swig_delete_ValveAmplifier(void *obj) {
-FX::Distortion::Amplifier::ValveAmplifier *arg1 = (FX::Distortion::Amplifier::ValveAmplifier *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_ValveAmplifier(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_ValveAmplifier);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_ValveAmplifier_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_method swig_ValveAmplifier_methods[]= {
-    {0,0}
-};
-static swig_lua_method swig_ValveAmplifier_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_ValveAmplifier_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_ValveAmplifier_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_ValveAmplifier_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_ValveAmplifier_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_ValveAmplifier_Sf_SwigStatic = {
-    "ValveAmplifier",
-    swig_ValveAmplifier_Sf_SwigStatic_methods,
-    swig_ValveAmplifier_Sf_SwigStatic_attributes,
-    swig_ValveAmplifier_Sf_SwigStatic_constants,
-    swig_ValveAmplifier_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_ValveAmplifier_bases[] = {0,0};
-static const char *swig_ValveAmplifier_base_names[] = {"FX::Distortion::Amplifier::Amplifier *",0};
-static swig_lua_class _wrap_class_ValveAmplifier = { "ValveAmplifier", "ValveAmplifier", &SWIGTYPE_p_FX__Distortion__Amplifier__ValveAmplifier,_proxy__wrap_new_ValveAmplifier, swig_delete_ValveAmplifier, swig_ValveAmplifier_methods, swig_ValveAmplifier_attributes, &swig_ValveAmplifier_Sf_SwigStatic, swig_ValveAmplifier_meta, swig_ValveAmplifier_bases, swig_ValveAmplifier_base_names };
-
-static int _wrap_Amplifier8_amps_set(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::Amplifier8 *arg1 = (FX::Distortion::Amplifier::Amplifier8 *) 0 ;
-  FX::Distortion::Amplifier::Amplifier *arg2 ;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::Amplifier8::amps",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::amps",1,"FX::Distortion::Amplifier::Amplifier8 *");
-  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::amps",2,"FX::Distortion::Amplifier::Amplifier [4]");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8,0))){
-    SWIG_fail_ptr("Amplifier8_amps_set",1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8);
-  }
-  
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier,0))){
-    SWIG_fail_ptr("Amplifier8_amps_set",2,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier);
-  }
-  
-  {
-    size_t ii;
-    FX::Distortion::Amplifier::Amplifier *b = (FX::Distortion::Amplifier::Amplifier *) arg1->amps;
-    for (ii = 0; ii < (size_t)4; ii++) b[ii] = *((FX::Distortion::Amplifier::Amplifier *) arg2 + ii);
-  }
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Amplifier8_amps_get(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::Amplifier8 *arg1 = (FX::Distortion::Amplifier::Amplifier8 *) 0 ;
-  FX::Distortion::Amplifier::Amplifier *result = 0 ;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::Amplifier8::amps",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::amps",1,"FX::Distortion::Amplifier::Amplifier8 *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8,0))){
-    SWIG_fail_ptr("Amplifier8_amps_get",1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8);
-  }
-  
-  result = (FX::Distortion::Amplifier::Amplifier *)(FX::Distortion::Amplifier::Amplifier *) ((arg1)->amps);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier,0); SWIG_arg++; 
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_new_Amplifier8(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::Amplifier8 *result = 0 ;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::Amplifier8::Amplifier8",0,0)
-  result = (FX::Distortion::Amplifier::Amplifier8 *)new FX::Distortion::Amplifier::Amplifier8();
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8,1); SWIG_arg++; 
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Amplifier8_Tick__SWIG_0(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::Amplifier8 *arg1 = (FX::Distortion::Amplifier::Amplifier8 *) 0 ;
-  DspFloatType arg2 ;
-  DspFloatType arg3 ;
-  DspFloatType arg4 ;
-  DspFloatType arg5 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::Amplifier8::Tick",5,5)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Tick",1,"FX::Distortion::Amplifier::Amplifier8 *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Tick",2,"DspFloatType");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Tick",3,"DspFloatType");
-  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Tick",4,"DspFloatType");
-  if(!lua_isnumber(L,5)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Tick",5,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8,0))){
-    SWIG_fail_ptr("Amplifier8_Tick",1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  arg3 = (DspFloatType)lua_tonumber(L, 3);
-  arg4 = (DspFloatType)lua_tonumber(L, 4);
-  arg5 = (DspFloatType)lua_tonumber(L, 5);
-  result = (DspFloatType)(arg1)->Tick(arg2,arg3,arg4,arg5);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Amplifier8_Tick__SWIG_1(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::Amplifier8 *arg1 = (FX::Distortion::Amplifier::Amplifier8 *) 0 ;
-  DspFloatType arg2 ;
-  DspFloatType arg3 ;
-  DspFloatType arg4 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::Amplifier8::Tick",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Tick",1,"FX::Distortion::Amplifier::Amplifier8 *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Tick",2,"DspFloatType");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Tick",3,"DspFloatType");
-  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Tick",4,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8,0))){
-    SWIG_fail_ptr("Amplifier8_Tick",1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  arg3 = (DspFloatType)lua_tonumber(L, 3);
-  arg4 = (DspFloatType)lua_tonumber(L, 4);
-  result = (DspFloatType)(arg1)->Tick(arg2,arg3,arg4);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Amplifier8_Tick__SWIG_2(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::Amplifier8 *arg1 = (FX::Distortion::Amplifier::Amplifier8 *) 0 ;
-  DspFloatType arg2 ;
-  DspFloatType arg3 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::Amplifier8::Tick",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Tick",1,"FX::Distortion::Amplifier::Amplifier8 *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Tick",2,"DspFloatType");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Tick",3,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8,0))){
-    SWIG_fail_ptr("Amplifier8_Tick",1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  arg3 = (DspFloatType)lua_tonumber(L, 3);
-  result = (DspFloatType)(arg1)->Tick(arg2,arg3);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Amplifier8_Tick__SWIG_3(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::Amplifier8 *arg1 = (FX::Distortion::Amplifier::Amplifier8 *) 0 ;
-  DspFloatType arg2 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::Amplifier8::Tick",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Tick",1,"FX::Distortion::Amplifier::Amplifier8 *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Tick",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8,0))){
-    SWIG_fail_ptr("Amplifier8_Tick",1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  result = (DspFloatType)(arg1)->Tick(arg2);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Amplifier8_Tick(lua_State* L) {
+static int _wrap_ToneAmp_Tick(lua_State* L) {
   int argc;
   int argv[6]={
     1,2,3,4,5,6
@@ -22096,7 +20764,7 @@ static int _wrap_Amplifier8_Tick(lua_State* L) {
     int _v = 0;
     {
       void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8, 0)) {
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp, 0)) {
         _v = 0;
       } else {
         _v = 1;
@@ -22107,7 +20775,7 @@ static int _wrap_Amplifier8_Tick(lua_State* L) {
         _v = lua_isnumber(L,argv[1]);
       }
       if (_v) {
-        return _wrap_Amplifier8_Tick__SWIG_3(L);
+        return _wrap_ToneAmp_Tick__SWIG_3(L);
       }
     }
   }
@@ -22115,7 +20783,7 @@ static int _wrap_Amplifier8_Tick(lua_State* L) {
     int _v = 0;
     {
       void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8, 0)) {
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp, 0)) {
         _v = 0;
       } else {
         _v = 1;
@@ -22130,7 +20798,7 @@ static int _wrap_Amplifier8_Tick(lua_State* L) {
           _v = lua_isnumber(L,argv[2]);
         }
         if (_v) {
-          return _wrap_Amplifier8_Tick__SWIG_2(L);
+          return _wrap_ToneAmp_Tick__SWIG_2(L);
         }
       }
     }
@@ -22139,7 +20807,7 @@ static int _wrap_Amplifier8_Tick(lua_State* L) {
     int _v = 0;
     {
       void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8, 0)) {
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp, 0)) {
         _v = 0;
       } else {
         _v = 1;
@@ -22158,7 +20826,7 @@ static int _wrap_Amplifier8_Tick(lua_State* L) {
             _v = lua_isnumber(L,argv[3]);
           }
           if (_v) {
-            return _wrap_Amplifier8_Tick__SWIG_1(L);
+            return _wrap_ToneAmp_Tick__SWIG_1(L);
           }
         }
       }
@@ -22168,7 +20836,7 @@ static int _wrap_Amplifier8_Tick(lua_State* L) {
     int _v = 0;
     {
       void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8, 0)) {
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp, 0)) {
         _v = 0;
       } else {
         _v = 1;
@@ -22191,7 +20859,7 @@ static int _wrap_Amplifier8_Tick(lua_State* L) {
               _v = lua_isnumber(L,argv[4]);
             }
             if (_v) {
-              return _wrap_Amplifier8_Tick__SWIG_0(L);
+              return _wrap_ToneAmp_Tick__SWIG_0(L);
             }
           }
         }
@@ -22199,778 +20867,39 @@ static int _wrap_Amplifier8_Tick(lua_State* L) {
     }
   }
   
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'Amplifier8_Tick'\n"
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'ToneAmp_Tick'\n"
     "  Possible C/C++ prototypes are:\n"
-    "    FX::Distortion::Amplifier::Amplifier8::Tick(DspFloatType,DspFloatType,DspFloatType,DspFloatType)\n"
-    "    FX::Distortion::Amplifier::Amplifier8::Tick(DspFloatType,DspFloatType,DspFloatType)\n"
-    "    FX::Distortion::Amplifier::Amplifier8::Tick(DspFloatType,DspFloatType)\n"
-    "    FX::Distortion::Amplifier::Amplifier8::Tick(DspFloatType)\n");
+    "    FX::Distortion::Amplifier::ToneAmp::Tick(DspFloatType,DspFloatType,DspFloatType,DspFloatType)\n"
+    "    FX::Distortion::Amplifier::ToneAmp::Tick(DspFloatType,DspFloatType,DspFloatType)\n"
+    "    FX::Distortion::Amplifier::ToneAmp::Tick(DspFloatType,DspFloatType)\n"
+    "    FX::Distortion::Amplifier::ToneAmp::Tick(DspFloatType)\n");
   lua_error(L);return 0;
 }
 
 
-static int _wrap_Amplifier8_Serial__SWIG_0(lua_State* L) {
+static int _wrap_ToneAmp_ProcessSIMD(lua_State* L) {
   int SWIG_arg = 0;
-  FX::Distortion::Amplifier::Amplifier8 *arg1 = (FX::Distortion::Amplifier::Amplifier8 *) 0 ;
-  DspFloatType arg2 ;
-  DspFloatType arg3 ;
-  DspFloatType arg4 ;
-  DspFloatType arg5 ;
-  DspFloatType result;
+  FX::Distortion::Amplifier::ToneAmp *arg1 = (FX::Distortion::Amplifier::ToneAmp *) 0 ;
+  size_t arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
   
-  SWIG_check_num_args("FX::Distortion::Amplifier::Amplifier8::Serial",5,5)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Serial",1,"FX::Distortion::Amplifier::Amplifier8 *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Serial",2,"DspFloatType");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Serial",3,"DspFloatType");
-  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Serial",4,"DspFloatType");
-  if(!lua_isnumber(L,5)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Serial",5,"DspFloatType");
+  SWIG_check_num_args("FX::Distortion::Amplifier::ToneAmp::ProcessSIMD",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::ProcessSIMD",1,"FX::Distortion::Amplifier::ToneAmp *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::ToneAmp::ProcessSIMD",3,"DspFloatType *");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8,0))){
-    SWIG_fail_ptr("Amplifier8_Serial",1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp,0))){
+    SWIG_fail_ptr("ToneAmp_ProcessSIMD",1,SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp);
   }
   
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  arg3 = (DspFloatType)lua_tonumber(L, 3);
-  arg4 = (DspFloatType)lua_tonumber(L, 4);
-  arg5 = (DspFloatType)lua_tonumber(L, 5);
-  result = (DspFloatType)(arg1)->Serial(arg2,arg3,arg4,arg5);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
   
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Amplifier8_Serial__SWIG_1(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::Amplifier8 *arg1 = (FX::Distortion::Amplifier::Amplifier8 *) 0 ;
-  DspFloatType arg2 ;
-  DspFloatType arg3 ;
-  DspFloatType arg4 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::Amplifier8::Serial",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Serial",1,"FX::Distortion::Amplifier::Amplifier8 *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Serial",2,"DspFloatType");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Serial",3,"DspFloatType");
-  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Serial",4,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8,0))){
-    SWIG_fail_ptr("Amplifier8_Serial",1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("ToneAmp_ProcessSIMD",3,SWIGTYPE_p_double);
   }
   
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  arg3 = (DspFloatType)lua_tonumber(L, 3);
-  arg4 = (DspFloatType)lua_tonumber(L, 4);
-  result = (DspFloatType)(arg1)->Serial(arg2,arg3,arg4);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Amplifier8_Serial__SWIG_2(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::Amplifier8 *arg1 = (FX::Distortion::Amplifier::Amplifier8 *) 0 ;
-  DspFloatType arg2 ;
-  DspFloatType arg3 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::Amplifier8::Serial",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Serial",1,"FX::Distortion::Amplifier::Amplifier8 *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Serial",2,"DspFloatType");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Serial",3,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8,0))){
-    SWIG_fail_ptr("Amplifier8_Serial",1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  arg3 = (DspFloatType)lua_tonumber(L, 3);
-  result = (DspFloatType)(arg1)->Serial(arg2,arg3);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Amplifier8_Serial__SWIG_3(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::Amplifier8 *arg1 = (FX::Distortion::Amplifier::Amplifier8 *) 0 ;
-  DspFloatType arg2 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::Amplifier8::Serial",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Serial",1,"FX::Distortion::Amplifier::Amplifier8 *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Serial",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8,0))){
-    SWIG_fail_ptr("Amplifier8_Serial",1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  result = (DspFloatType)(arg1)->Serial(arg2);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Amplifier8_Serial(lua_State* L) {
-  int argc;
-  int argv[6]={
-    1,2,3,4,5,6
-  };
-  
-  argc = lua_gettop(L);
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        return _wrap_Amplifier8_Serial__SWIG_3(L);
-      }
-    }
-  }
-  if (argc == 3) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          return _wrap_Amplifier8_Serial__SWIG_2(L);
-        }
-      }
-    }
-  }
-  if (argc == 4) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          {
-            _v = lua_isnumber(L,argv[3]);
-          }
-          if (_v) {
-            return _wrap_Amplifier8_Serial__SWIG_1(L);
-          }
-        }
-      }
-    }
-  }
-  if (argc == 5) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          {
-            _v = lua_isnumber(L,argv[3]);
-          }
-          if (_v) {
-            {
-              _v = lua_isnumber(L,argv[4]);
-            }
-            if (_v) {
-              return _wrap_Amplifier8_Serial__SWIG_0(L);
-            }
-          }
-        }
-      }
-    }
-  }
-  
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'Amplifier8_Serial'\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    FX::Distortion::Amplifier::Amplifier8::Serial(DspFloatType,DspFloatType,DspFloatType,DspFloatType)\n"
-    "    FX::Distortion::Amplifier::Amplifier8::Serial(DspFloatType,DspFloatType,DspFloatType)\n"
-    "    FX::Distortion::Amplifier::Amplifier8::Serial(DspFloatType,DspFloatType)\n"
-    "    FX::Distortion::Amplifier::Amplifier8::Serial(DspFloatType)\n");
-  lua_error(L);return 0;
-}
-
-
-static int _wrap_Amplifier8_Parallel__SWIG_0(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::Amplifier8 *arg1 = (FX::Distortion::Amplifier::Amplifier8 *) 0 ;
-  DspFloatType arg2 ;
-  DspFloatType arg3 ;
-  DspFloatType arg4 ;
-  DspFloatType arg5 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::Amplifier8::Parallel",5,5)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Parallel",1,"FX::Distortion::Amplifier::Amplifier8 *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Parallel",2,"DspFloatType");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Parallel",3,"DspFloatType");
-  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Parallel",4,"DspFloatType");
-  if(!lua_isnumber(L,5)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Parallel",5,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8,0))){
-    SWIG_fail_ptr("Amplifier8_Parallel",1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  arg3 = (DspFloatType)lua_tonumber(L, 3);
-  arg4 = (DspFloatType)lua_tonumber(L, 4);
-  arg5 = (DspFloatType)lua_tonumber(L, 5);
-  result = (DspFloatType)(arg1)->Parallel(arg2,arg3,arg4,arg5);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Amplifier8_Parallel__SWIG_1(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::Amplifier8 *arg1 = (FX::Distortion::Amplifier::Amplifier8 *) 0 ;
-  DspFloatType arg2 ;
-  DspFloatType arg3 ;
-  DspFloatType arg4 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::Amplifier8::Parallel",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Parallel",1,"FX::Distortion::Amplifier::Amplifier8 *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Parallel",2,"DspFloatType");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Parallel",3,"DspFloatType");
-  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Parallel",4,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8,0))){
-    SWIG_fail_ptr("Amplifier8_Parallel",1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  arg3 = (DspFloatType)lua_tonumber(L, 3);
-  arg4 = (DspFloatType)lua_tonumber(L, 4);
-  result = (DspFloatType)(arg1)->Parallel(arg2,arg3,arg4);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Amplifier8_Parallel__SWIG_2(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::Amplifier8 *arg1 = (FX::Distortion::Amplifier::Amplifier8 *) 0 ;
-  DspFloatType arg2 ;
-  DspFloatType arg3 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::Amplifier8::Parallel",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Parallel",1,"FX::Distortion::Amplifier::Amplifier8 *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Parallel",2,"DspFloatType");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Parallel",3,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8,0))){
-    SWIG_fail_ptr("Amplifier8_Parallel",1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  arg3 = (DspFloatType)lua_tonumber(L, 3);
-  result = (DspFloatType)(arg1)->Parallel(arg2,arg3);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Amplifier8_Parallel__SWIG_3(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::Amplifier8 *arg1 = (FX::Distortion::Amplifier::Amplifier8 *) 0 ;
-  DspFloatType arg2 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::Amplifier8::Parallel",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Parallel",1,"FX::Distortion::Amplifier::Amplifier8 *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Parallel",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8,0))){
-    SWIG_fail_ptr("Amplifier8_Parallel",1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  result = (DspFloatType)(arg1)->Parallel(arg2);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Amplifier8_Parallel(lua_State* L) {
-  int argc;
-  int argv[6]={
-    1,2,3,4,5,6
-  };
-  
-  argc = lua_gettop(L);
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        return _wrap_Amplifier8_Parallel__SWIG_3(L);
-      }
-    }
-  }
-  if (argc == 3) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          return _wrap_Amplifier8_Parallel__SWIG_2(L);
-        }
-      }
-    }
-  }
-  if (argc == 4) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          {
-            _v = lua_isnumber(L,argv[3]);
-          }
-          if (_v) {
-            return _wrap_Amplifier8_Parallel__SWIG_1(L);
-          }
-        }
-      }
-    }
-  }
-  if (argc == 5) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          {
-            _v = lua_isnumber(L,argv[3]);
-          }
-          if (_v) {
-            {
-              _v = lua_isnumber(L,argv[4]);
-            }
-            if (_v) {
-              return _wrap_Amplifier8_Parallel__SWIG_0(L);
-            }
-          }
-        }
-      }
-    }
-  }
-  
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'Amplifier8_Parallel'\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    FX::Distortion::Amplifier::Amplifier8::Parallel(DspFloatType,DspFloatType,DspFloatType,DspFloatType)\n"
-    "    FX::Distortion::Amplifier::Amplifier8::Parallel(DspFloatType,DspFloatType,DspFloatType)\n"
-    "    FX::Distortion::Amplifier::Amplifier8::Parallel(DspFloatType,DspFloatType)\n"
-    "    FX::Distortion::Amplifier::Amplifier8::Parallel(DspFloatType)\n");
-  lua_error(L);return 0;
-}
-
-
-static int _wrap_Amplifier8_Modulus__SWIG_0(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::Amplifier8 *arg1 = (FX::Distortion::Amplifier::Amplifier8 *) 0 ;
-  DspFloatType arg2 ;
-  DspFloatType arg3 ;
-  DspFloatType arg4 ;
-  DspFloatType arg5 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::Amplifier8::Modulus",5,5)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Modulus",1,"FX::Distortion::Amplifier::Amplifier8 *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Modulus",2,"DspFloatType");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Modulus",3,"DspFloatType");
-  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Modulus",4,"DspFloatType");
-  if(!lua_isnumber(L,5)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Modulus",5,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8,0))){
-    SWIG_fail_ptr("Amplifier8_Modulus",1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  arg3 = (DspFloatType)lua_tonumber(L, 3);
-  arg4 = (DspFloatType)lua_tonumber(L, 4);
-  arg5 = (DspFloatType)lua_tonumber(L, 5);
-  result = (DspFloatType)(arg1)->Modulus(arg2,arg3,arg4,arg5);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Amplifier8_Modulus__SWIG_1(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::Amplifier8 *arg1 = (FX::Distortion::Amplifier::Amplifier8 *) 0 ;
-  DspFloatType arg2 ;
-  DspFloatType arg3 ;
-  DspFloatType arg4 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::Amplifier8::Modulus",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Modulus",1,"FX::Distortion::Amplifier::Amplifier8 *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Modulus",2,"DspFloatType");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Modulus",3,"DspFloatType");
-  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Modulus",4,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8,0))){
-    SWIG_fail_ptr("Amplifier8_Modulus",1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  arg3 = (DspFloatType)lua_tonumber(L, 3);
-  arg4 = (DspFloatType)lua_tonumber(L, 4);
-  result = (DspFloatType)(arg1)->Modulus(arg2,arg3,arg4);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Amplifier8_Modulus__SWIG_2(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::Amplifier8 *arg1 = (FX::Distortion::Amplifier::Amplifier8 *) 0 ;
-  DspFloatType arg2 ;
-  DspFloatType arg3 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::Amplifier8::Modulus",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Modulus",1,"FX::Distortion::Amplifier::Amplifier8 *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Modulus",2,"DspFloatType");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Modulus",3,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8,0))){
-    SWIG_fail_ptr("Amplifier8_Modulus",1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  arg3 = (DspFloatType)lua_tonumber(L, 3);
-  result = (DspFloatType)(arg1)->Modulus(arg2,arg3);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Amplifier8_Modulus__SWIG_3(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::Amplifier8 *arg1 = (FX::Distortion::Amplifier::Amplifier8 *) 0 ;
-  DspFloatType arg2 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::Amplifier8::Modulus",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Modulus",1,"FX::Distortion::Amplifier::Amplifier8 *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::Modulus",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8,0))){
-    SWIG_fail_ptr("Amplifier8_Modulus",1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  result = (DspFloatType)(arg1)->Modulus(arg2);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Amplifier8_Modulus(lua_State* L) {
-  int argc;
-  int argv[6]={
-    1,2,3,4,5,6
-  };
-  
-  argc = lua_gettop(L);
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        return _wrap_Amplifier8_Modulus__SWIG_3(L);
-      }
-    }
-  }
-  if (argc == 3) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          return _wrap_Amplifier8_Modulus__SWIG_2(L);
-        }
-      }
-    }
-  }
-  if (argc == 4) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          {
-            _v = lua_isnumber(L,argv[3]);
-          }
-          if (_v) {
-            return _wrap_Amplifier8_Modulus__SWIG_1(L);
-          }
-        }
-      }
-    }
-  }
-  if (argc == 5) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          {
-            _v = lua_isnumber(L,argv[3]);
-          }
-          if (_v) {
-            {
-              _v = lua_isnumber(L,argv[4]);
-            }
-            if (_v) {
-              return _wrap_Amplifier8_Modulus__SWIG_0(L);
-            }
-          }
-        }
-      }
-    }
-  }
-  
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'Amplifier8_Modulus'\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    FX::Distortion::Amplifier::Amplifier8::Modulus(DspFloatType,DspFloatType,DspFloatType,DspFloatType)\n"
-    "    FX::Distortion::Amplifier::Amplifier8::Modulus(DspFloatType,DspFloatType,DspFloatType)\n"
-    "    FX::Distortion::Amplifier::Amplifier8::Modulus(DspFloatType,DspFloatType)\n"
-    "    FX::Distortion::Amplifier::Amplifier8::Modulus(DspFloatType)\n");
-  lua_error(L);return 0;
-}
-
-
-static int _wrap_Amplifier8_RandomClip(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::Amplifier::Amplifier8 *arg1 = (FX::Distortion::Amplifier::Amplifier8 *) 0 ;
-  
-  SWIG_check_num_args("FX::Distortion::Amplifier::Amplifier8::RandomClip",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::Amplifier::Amplifier8::RandomClip",1,"FX::Distortion::Amplifier::Amplifier8 *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8,0))){
-    SWIG_fail_ptr("Amplifier8_RandomClip",1,SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8);
-  }
-  
-  (arg1)->RandomClip();
+  (arg1)->ProcessSIMD(arg2,arg3);
   
   return SWIG_arg;
   
@@ -22982,58 +20911,60 @@ fail:
 }
 
 
-static void swig_delete_Amplifier8(void *obj) {
-FX::Distortion::Amplifier::Amplifier8 *arg1 = (FX::Distortion::Amplifier::Amplifier8 *) obj;
+static void swig_delete_ToneAmp(void *obj) {
+FX::Distortion::Amplifier::ToneAmp *arg1 = (FX::Distortion::Amplifier::ToneAmp *) obj;
 delete arg1;
 }
-static int _proxy__wrap_new_Amplifier8(lua_State *L) {
+static int _proxy__wrap_new_ToneAmp(lua_State *L) {
     assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_Amplifier8);
+    lua_pushcfunction(L,_wrap_new_ToneAmp);
     assert(!lua_isnil(L,-1));
     lua_replace(L,1); /* replace our table with real constructor */
     lua_call(L,lua_gettop(L)-1,1);
     return 1;
 }
-static swig_lua_attribute swig_Amplifier8_attributes[] = {
-    { "amps", _wrap_Amplifier8_amps_get, _wrap_Amplifier8_amps_set },
+static swig_lua_attribute swig_ToneAmp_attributes[] = {
+    { "Drive", _wrap_ToneAmp_Drive_get, _wrap_ToneAmp_Drive_set },
+    { "Tone", _wrap_ToneAmp_Tone_get, _wrap_ToneAmp_Tone_set },
+    { "Output", _wrap_ToneAmp_Output_get, _wrap_ToneAmp_Output_set },
     {0,0,0}
 };
-static swig_lua_method swig_Amplifier8_methods[]= {
-    { "Tick", _wrap_Amplifier8_Tick},
-    { "Serial", _wrap_Amplifier8_Serial},
-    { "Parallel", _wrap_Amplifier8_Parallel},
-    { "Modulus", _wrap_Amplifier8_Modulus},
-    { "RandomClip", _wrap_Amplifier8_RandomClip},
+static swig_lua_method swig_ToneAmp_methods[]= {
+    { "setDrive", _wrap_ToneAmp_setDrive},
+    { "setTone", _wrap_ToneAmp_setTone},
+    { "setOutput", _wrap_ToneAmp_setOutput},
+    { "Tick", _wrap_ToneAmp_Tick},
+    { "ProcessSIMD", _wrap_ToneAmp_ProcessSIMD},
     {0,0}
 };
-static swig_lua_method swig_Amplifier8_meta[] = {
+static swig_lua_method swig_ToneAmp_meta[] = {
     {0,0}
 };
 
-static swig_lua_attribute swig_Amplifier8_Sf_SwigStatic_attributes[] = {
+static swig_lua_attribute swig_ToneAmp_SwigStatic_attributes[] = {
     {0,0,0}
 };
-static swig_lua_const_info swig_Amplifier8_Sf_SwigStatic_constants[]= {
+static swig_lua_const_info swig_ToneAmp_SwigStatic_constants[]= {
     {0,0,0,0,0,0}
 };
-static swig_lua_method swig_Amplifier8_Sf_SwigStatic_methods[]= {
+static swig_lua_method swig_ToneAmp_SwigStatic_methods[]= {
     {0,0}
 };
-static swig_lua_class* swig_Amplifier8_Sf_SwigStatic_classes[]= {
+static swig_lua_class* swig_ToneAmp_SwigStatic_classes[]= {
     0
 };
 
-static swig_lua_namespace swig_Amplifier8_Sf_SwigStatic = {
-    "Amplifier8",
-    swig_Amplifier8_Sf_SwigStatic_methods,
-    swig_Amplifier8_Sf_SwigStatic_attributes,
-    swig_Amplifier8_Sf_SwigStatic_constants,
-    swig_Amplifier8_Sf_SwigStatic_classes,
+static swig_lua_namespace swig_ToneAmp_SwigStatic = {
+    "ToneAmp",
+    swig_ToneAmp_SwigStatic_methods,
+    swig_ToneAmp_SwigStatic_attributes,
+    swig_ToneAmp_SwigStatic_constants,
+    swig_ToneAmp_SwigStatic_classes,
     0
 };
-static swig_lua_class *swig_Amplifier8_bases[] = {0,0};
-static const char *swig_Amplifier8_base_names[] = {"FX::Distortion::Amplifier::Amplifier *",0};
-static swig_lua_class _wrap_class_Amplifier8 = { "Amplifier8", "Amplifier8", &SWIGTYPE_p_FX__Distortion__Amplifier__Amplifier8,_proxy__wrap_new_Amplifier8, swig_delete_Amplifier8, swig_Amplifier8_methods, swig_Amplifier8_attributes, &swig_Amplifier8_Sf_SwigStatic, swig_Amplifier8_meta, swig_Amplifier8_bases, swig_Amplifier8_base_names };
+static swig_lua_class *swig_ToneAmp_bases[] = {0};
+static const char *swig_ToneAmp_base_names[] = {0};
+static swig_lua_class _wrap_class_ToneAmp = { "ToneAmp", "ToneAmp", &SWIGTYPE_p_FX__Distortion__Amplifier__ToneAmp,_proxy__wrap_new_ToneAmp, swig_delete_ToneAmp, swig_ToneAmp_methods, swig_ToneAmp_attributes, &swig_ToneAmp_SwigStatic, swig_ToneAmp_meta, swig_ToneAmp_bases, swig_ToneAmp_base_names };
 
 static int _wrap_new_FoldAmp(lua_State* L) {
   int SWIG_arg = 0;
@@ -25376,6 +23307,33 @@ fail:
 }
 
 
+static int _wrap_fold_vector(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::fold_vector",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::fold_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::fold_vector",2,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("fold_vector",2,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::fold_vector(arg1,arg2);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static int _wrap_Wrap(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -25396,6 +23354,33 @@ fail:
 }
 
 
+static int _wrap_wrap_vector(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::wrap_vector",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::wrap_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::wrap_vector",2,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("wrap_vector",2,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::wrap_vector(arg1,arg2);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static int _wrap_SinFold(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -25406,6 +23391,33 @@ static int _wrap_SinFold(lua_State* L) {
   arg1 = (DspFloatType)lua_tonumber(L, 1);
   result = (DspFloatType)FX::Distortion::SinFold(arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_sinfold_vector(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::sinfold_vector",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::sinfold_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::sinfold_vector",2,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("sinfold_vector",2,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::sinfold_vector(arg1,arg2);
+  
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -25439,6 +23451,36 @@ fail:
 }
 
 
+static int _wrap_cheby_vector(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  int arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::cheby_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::cheby_vector",1,"size_t");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::cheby_vector",2,"int");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::cheby_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  arg2 = (int)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("cheby_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::cheby_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static int _wrap_cheby_polynomial(lua_State* L) {
   int SWIG_arg = 0;
   int arg1 ;
@@ -25452,6 +23494,36 @@ static int _wrap_cheby_polynomial(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   result = (DspFloatType)FX::Distortion::cheby_polynomial(arg1,arg2);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_cheby_polynomial_vector(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  int arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::cheby_polynomial_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::cheby_polynomial_vector",1,"size_t");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::cheby_polynomial_vector",2,"int");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::cheby_polynomial_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  arg2 = (int)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("cheby_polynomial_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::cheby_polynomial_vector(arg1,arg2,arg3);
+  
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -25488,7 +23560,7 @@ fail:
 }
 
 
-static int _wrap_clamp_vector(lua_State* L) {
+static int _wrap_clamp_vector__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   size_t arg1 ;
   DspFloatType *arg2 = (DspFloatType *) 0 ;
@@ -25525,6 +23597,153 @@ static int _wrap_clamp_vector(lua_State* L) {
 fail:
   lua_error(L);
   return SWIG_arg;
+}
+
+
+static int _wrap_bias_vector(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::bias_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::bias_vector",1,"size_t");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::bias_vector",2,"DspFloatType");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::bias_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  arg2 = (DspFloatType)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("bias_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::bias_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_clamp_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType arg3 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::clamp_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::clamp_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::clamp_vector",2,"DspFloatType *");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::clamp_vector",3,"DspFloatType");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::clamp_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("clamp_vector",2,SWIGTYPE_p_double);
+  }
+  
+  arg3 = (DspFloatType)lua_tonumber(L, 3);
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::clamp_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_clamp_vector(lua_State* L) {
+  int argc;
+  int argv[6]={
+    1,2,3,4,5,6
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          _v = lua_isnumber(L,argv[2]);
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_clamp_vector__SWIG_1(L);
+          }
+        }
+      }
+    }
+  }
+  if (argc == 5) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            {
+              _v = lua_isnumber(L,argv[4]);
+            }
+            if (_v) {
+              return _wrap_clamp_vector__SWIG_0(L);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'clamp_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::clamp_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType,DspFloatType)\n"
+    "    FX::Distortion::clamp_vector(size_t,DspFloatType *,DspFloatType,DspFloatType)\n");
+  lua_error(L);return 0;
 }
 
 
@@ -25579,6 +23798,147 @@ static int _wrap_preamp_vector(lua_State* L) {
 fail:
   lua_error(L);
   return SWIG_arg;
+}
+
+
+static int _wrap_amp_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::amp_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::amp_vector",1,"size_t");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::amp_vector",2,"DspFloatType");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::amp_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  arg2 = (DspFloatType)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("amp_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::amp_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_amp_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType *arg4 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::amp_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::amp_vector",1,"size_t");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::amp_vector",2,"DspFloatType");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::amp_vector",3,"DspFloatType *");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("FX::Distortion::amp_vector",4,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  arg2 = (DspFloatType)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("amp_vector",3,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("amp_vector",4,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::amp_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_amp_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        _v = lua_isnumber(L,argv[1]);
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_amp_vector__SWIG_0(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        _v = lua_isnumber(L,argv[1]);
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            void *ptr;
+            if (SWIG_isptrtype(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+              _v = 0;
+            } else {
+              _v = 1;
+            }
+          }
+          if (_v) {
+            return _wrap_amp_vector__SWIG_1(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'amp_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::amp_vector(size_t,DspFloatType,DspFloatType *)\n"
+    "    FX::Distortion::amp_vector(size_t,DspFloatType,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
 }
 
 
@@ -26348,6 +24708,156 @@ static int _wrap_sigmoid_minus(lua_State* L) {
 }
 
 
+static int _wrap_sigmoid_minus_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::sigmoid_minus_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::sigmoid_minus_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::sigmoid_minus_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::sigmoid_minus_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::sigmoid_minus_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("sigmoid_minus_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("sigmoid_minus_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::sigmoid_minus_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_sigmoid_minus_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::sigmoid_minus_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::sigmoid_minus_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::sigmoid_minus_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::sigmoid_minus_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("sigmoid_minus_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("sigmoid_minus_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::sigmoid_minus_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_sigmoid_minus_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_sigmoid_minus_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_sigmoid_minus_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'sigmoid_minus_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::sigmoid_minus_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::sigmoid_minus_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
 static int _wrap_bpsigmoid__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -26430,6 +24940,156 @@ static int _wrap_bpsigmoid(lua_State* L) {
 }
 
 
+static int _wrap_bpsigmoid_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::bpsigmoid_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::bpsigmoid_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::bpsigmoid_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::bpsigmoid_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::bpsigmoid_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("bpsigmoid_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("bpsigmoid_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::bpsigmoid_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_bpsigmoid_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::bpsigmoid_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::bpsigmoid_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::bpsigmoid_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::bpsigmoid_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("bpsigmoid_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("bpsigmoid_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::bpsigmoid_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_bpsigmoid_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_bpsigmoid_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_bpsigmoid_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'bpsigmoid_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::bpsigmoid_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::bpsigmoid_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
 static int _wrap_full_rectify(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -26450,6 +25110,33 @@ fail:
 }
 
 
+static int _wrap_full_rectify_vector(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::full_rectify_vector",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::full_rectify_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::full_rectify_vector",2,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("full_rectify_vector",2,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::full_rectify_vector(arg1,arg2);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static int _wrap_half_rectify(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -26460,6 +25147,33 @@ static int _wrap_half_rectify(lua_State* L) {
   arg1 = (DspFloatType)lua_tonumber(L, 1);
   result = (DspFloatType)FX::Distortion::half_rectify(arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_half_rectify_vector(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::half_rectify_vector",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::half_rectify_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::half_rectify_vector",2,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("half_rectify_vector",2,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::half_rectify_vector(arg1,arg2);
+  
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -26581,6 +25295,49 @@ static int _wrap_sigmoidDistortionFunction(lua_State* L) {
   arg4 = (DspFloatType)lua_tonumber(L, 4);
   result = (DspFloatType)FX::Distortion::sigmoidDistortionFunction(arg1,arg2,arg3,arg4);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_sigmoid_distortion_functionvector(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  DspFloatType arg5 ;
+  DspFloatType arg6 ;
+  
+  SWIG_check_num_args("FX::Distortion::sigmoid_distortion_functionvector",6,6)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::sigmoid_distortion_functionvector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::sigmoid_distortion_functionvector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::sigmoid_distortion_functionvector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::sigmoid_distortion_functionvector",4,"DspFloatType");
+  if(!lua_isnumber(L,5)) SWIG_fail_arg("FX::Distortion::sigmoid_distortion_functionvector",5,"DspFloatType");
+  if(!lua_isnumber(L,6)) SWIG_fail_arg("FX::Distortion::sigmoid_distortion_functionvector",6,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("sigmoid_distortion_functionvector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("sigmoid_distortion_functionvector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  arg5 = (DspFloatType)lua_tonumber(L, 5);
+  arg6 = (DspFloatType)lua_tonumber(L, 6);
+  FX::Distortion::sigmoid_distortion_functionvector(arg1,arg2,arg3,arg4,arg5,arg6);
+  
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -26793,6 +25550,40 @@ static int _wrap_assymetric_sigmoid(lua_State* L) {
 }
 
 
+static int _wrap_assymetric_sigmoid_vector(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::assymetric_sigmoid_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::assymetric_sigmoid_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::assymetric_sigmoid_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::assymetric_sigmoid_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("assymetric_sigmoid_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("assymetric_sigmoid_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::assymetric_sigmoid_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static int _wrap_asymmetricSigmoidDistortionFunction2(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -26992,6 +25783,40 @@ static int _wrap_assymetric_sigmoid2(lua_State* L) {
     "    FX::Distortion::assymetric_sigmoid2(DspFloatType,DspFloatType)\n"
     "    FX::Distortion::assymetric_sigmoid2(DspFloatType)\n");
   lua_error(L);return 0;
+}
+
+
+static int _wrap_assymetric_sigmoid2_vector(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::assymetric_sigmoid2_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::assymetric_sigmoid2_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::assymetric_sigmoid2_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::assymetric_sigmoid2_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("assymetric_sigmoid2_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("assymetric_sigmoid2_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::assymetric_sigmoid2_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
 }
 
 
@@ -27197,6 +26022,40 @@ static int _wrap_distortion_function(lua_State* L) {
 }
 
 
+static int _wrap_distortion_function_vector(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::distortion_function_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::distortion_function_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::distortion_function_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::distortion_function_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("distortion_function_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("distortion_function_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::distortion_function_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static int _wrap_cubic_distortion__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -27375,6 +26234,156 @@ static int _wrap_cubic_distortion(lua_State* L) {
     "    FX::Distortion::cubic_distortion(DspFloatType,DspFloatType,DspFloatType)\n"
     "    FX::Distortion::cubic_distortion(DspFloatType,DspFloatType)\n"
     "    FX::Distortion::cubic_distortion(DspFloatType)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_cubic_distortion_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::cubic_distortion_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::cubic_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::cubic_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::cubic_distortion_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::cubic_distortion_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("cubic_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("cubic_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::cubic_distortion_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_cubic_distortion_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::cubic_distortion_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::cubic_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::cubic_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::cubic_distortion_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("cubic_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("cubic_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::cubic_distortion_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_cubic_distortion_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_cubic_distortion_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_cubic_distortion_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'cubic_distortion_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::cubic_distortion_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::cubic_distortion_vector(size_t,DspFloatType *,DspFloatType *)\n");
   lua_error(L);return 0;
 }
 
@@ -27561,6 +26570,156 @@ static int _wrap_asin_distortion(lua_State* L) {
 }
 
 
+static int _wrap_asin_distortion_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::asin_distortion_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::asin_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::asin_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::asin_distortion_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::asin_distortion_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("asin_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("asin_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::asin_distortion_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_asin_distortion_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::asin_distortion_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::asin_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::asin_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::asin_distortion_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("asin_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("asin_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::asin_distortion_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_asin_distortion_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_asin_distortion_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_asin_distortion_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'asin_distortion_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::asin_distortion_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::asin_distortion_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
 static int _wrap_acos_distortion__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -27739,6 +26898,156 @@ static int _wrap_acos_distortion(lua_State* L) {
     "    FX::Distortion::acos_distortion(DspFloatType,DspFloatType,DspFloatType)\n"
     "    FX::Distortion::acos_distortion(DspFloatType,DspFloatType)\n"
     "    FX::Distortion::acos_distortion(DspFloatType)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_acos_distortion_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::acos_distortion_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::acos_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::acos_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::acos_distortion_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::acos_distortion_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("acos_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("acos_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::acos_distortion_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_acos_distortion_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::acos_distortion_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::acos_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::acos_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::acos_distortion_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("acos_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("acos_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::acos_distortion_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_acos_distortion_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_acos_distortion_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_acos_distortion_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'acos_distortion_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::acos_distortion_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::acos_distortion_vector(size_t,DspFloatType *,DspFloatType *)\n");
   lua_error(L);return 0;
 }
 
@@ -27925,6 +27234,156 @@ static int _wrap_atan_distortion(lua_State* L) {
 }
 
 
+static int _wrap_atan_distortion_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::atan_distortion_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::atan_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::atan_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::atan_distortion_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::atan_distortion_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("atan_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("atan_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::atan_distortion_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_atan_distortion_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::atan_distortion_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::atan_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::atan_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::atan_distortion_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("atan_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("atan_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::atan_distortion_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_atan_distortion_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_atan_distortion_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_atan_distortion_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'atan_distortion_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::atan_distortion_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::atan_distortion_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
 static int _wrap_asinh_distortion__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -28103,6 +27562,156 @@ static int _wrap_asinh_distortion(lua_State* L) {
     "    FX::Distortion::asinh_distortion(DspFloatType,DspFloatType,DspFloatType)\n"
     "    FX::Distortion::asinh_distortion(DspFloatType,DspFloatType)\n"
     "    FX::Distortion::asinh_distortion(DspFloatType)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_asinh_distortion_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::asinh_distortion_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::asinh_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::asinh_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::asinh_distortion_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::asinh_distortion_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("asinh_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("asinh_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::asinh_distortion_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_asinh_distortion_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::asinh_distortion_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::asinh_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::asinh_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::asinh_distortion_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("asinh_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("asinh_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::asinh_distortion_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_asinh_distortion_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_asinh_distortion_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_asinh_distortion_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'asinh_distortion_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::asinh_distortion_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::asinh_distortion_vector(size_t,DspFloatType *,DspFloatType *)\n");
   lua_error(L);return 0;
 }
 
@@ -28289,6 +27898,156 @@ static int _wrap_acosh_distortion(lua_State* L) {
 }
 
 
+static int _wrap_acosh_distortion_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::acosh_distortion_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::acosh_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::acosh_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::acosh_distortion_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::acosh_distortion_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("acosh_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("acosh_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::acosh_distortion_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_acosh_distortion_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::acosh_distortion_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::acosh_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::acosh_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::acosh_distortion_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("acosh_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("acosh_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::acosh_distortion_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_acosh_distortion_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_acosh_distortion_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_acosh_distortion_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'acosh_distortion_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::acosh_distortion_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::acosh_distortion_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
 static int _wrap_atanh_distortion__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -28467,6 +28226,156 @@ static int _wrap_atanh_distortion(lua_State* L) {
     "    FX::Distortion::atanh_distortion(DspFloatType,DspFloatType,DspFloatType)\n"
     "    FX::Distortion::atanh_distortion(DspFloatType,DspFloatType)\n"
     "    FX::Distortion::atanh_distortion(DspFloatType)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_atanh_distortion_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::atanh_distortion_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::atanh_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::atanh_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::atanh_distortion_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::atanh_distortion_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("atanh_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("atanh_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::atanh_distortion_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_atanh_distortion_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::atanh_distortion_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::atanh_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::atanh_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::atanh_distortion_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("atanh_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("atanh_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::atanh_distortion_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_atanh_distortion_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_atanh_distortion_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_atanh_distortion_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'atanh_distortion_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::atanh_distortion_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::atanh_distortion_vector(size_t,DspFloatType *,DspFloatType *)\n");
   lua_error(L);return 0;
 }
 
@@ -28653,6 +28562,156 @@ static int _wrap_exp_distortion(lua_State* L) {
 }
 
 
+static int _wrap_exp_distortion_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::exp_distortion_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::exp_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::exp_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::exp_distortion_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::exp_distortion_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("exp_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("exp_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::exp_distortion_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_exp_distortion_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::exp_distortion_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::exp_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::exp_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::exp_distortion_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("exp_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("exp_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::exp_distortion_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_exp_distortion_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_exp_distortion_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_exp_distortion_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'exp_distortion_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::exp_distortion_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::exp_distortion_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
 static int _wrap_dc_distortion__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -28831,6 +28890,156 @@ static int _wrap_dc_distortion(lua_State* L) {
     "    FX::Distortion::dc_distortion(DspFloatType,DspFloatType,DspFloatType)\n"
     "    FX::Distortion::dc_distortion(DspFloatType,DspFloatType)\n"
     "    FX::Distortion::dc_distortion(DspFloatType)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_dc_distortion_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::dc_distortion_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::dc_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::dc_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::dc_distortion_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::dc_distortion_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("dc_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("dc_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::dc_distortion_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_dc_distortion_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::dc_distortion_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::dc_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::dc_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::dc_distortion_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("dc_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("dc_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::dc_distortion_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_dc_distortion_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_dc_distortion_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_dc_distortion_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'dc_distortion_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::dc_distortion_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::dc_distortion_vector(size_t,DspFloatType *,DspFloatType *)\n");
   lua_error(L);return 0;
 }
 
@@ -29017,6 +29226,156 @@ static int _wrap_bipolar_distortion(lua_State* L) {
 }
 
 
+static int _wrap_bipolar_distortion_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::bipolar_distortion_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::bipolar_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::bipolar_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::bipolar_distortion_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::bipolar_distortion_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("bipolar_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("bipolar_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::bipolar_distortion_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_bipolar_distortion_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::bipolar_distortion_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::bipolar_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::bipolar_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::bipolar_distortion_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("bipolar_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("bipolar_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::bipolar_distortion_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_bipolar_distortion_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_bipolar_distortion_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_bipolar_distortion_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'bipolar_distortion_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::bipolar_distortion_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::bipolar_distortion_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
 static int _wrap_quadratic_distortion__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -29195,6 +29554,156 @@ static int _wrap_quadratic_distortion(lua_State* L) {
     "    FX::Distortion::quadratic_distortion(DspFloatType,DspFloatType,DspFloatType)\n"
     "    FX::Distortion::quadratic_distortion(DspFloatType,DspFloatType)\n"
     "    FX::Distortion::quadratic_distortion(DspFloatType)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_quadratic_distortion_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::quadratic_distortion_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::quadratic_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::quadratic_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::quadratic_distortion_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::quadratic_distortion_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("quadratic_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("quadratic_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::quadratic_distortion_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_quadratic_distortion_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::quadratic_distortion_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::quadratic_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::quadratic_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::quadratic_distortion_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("quadratic_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("quadratic_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::quadratic_distortion_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_quadratic_distortion_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_quadratic_distortion_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_quadratic_distortion_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'quadratic_distortion_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::quadratic_distortion_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::quadratic_distortion_vector(size_t,DspFloatType *,DspFloatType *)\n");
   lua_error(L);return 0;
 }
 
@@ -29381,6 +29890,156 @@ static int _wrap_quadratic2_distortion(lua_State* L) {
 }
 
 
+static int _wrap_quadratic2_distortion_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::quadratic2_distortion_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::quadratic2_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::quadratic2_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::quadratic2_distortion_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::quadratic2_distortion_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("quadratic2_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("quadratic2_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::quadratic2_distortion_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_quadratic2_distortion_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::quadratic2_distortion_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::quadratic2_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::quadratic2_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::quadratic2_distortion_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("quadratic2_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("quadratic2_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::quadratic2_distortion_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_quadratic2_distortion_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_quadratic2_distortion_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_quadratic2_distortion_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'quadratic2_distortion_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::quadratic2_distortion_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::quadratic2_distortion_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
 static int _wrap_quadratic3_distortion__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -29559,6 +30218,156 @@ static int _wrap_quadratic3_distortion(lua_State* L) {
     "    FX::Distortion::quadratic3_distortion(DspFloatType,DspFloatType,DspFloatType)\n"
     "    FX::Distortion::quadratic3_distortion(DspFloatType,DspFloatType)\n"
     "    FX::Distortion::quadratic3_distortion(DspFloatType)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_quadratic3_distortion_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::quadratic3_distortion_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::quadratic3_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::quadratic3_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::quadratic3_distortion_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::quadratic3_distortion_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("quadratic3_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("quadratic3_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::quadratic3_distortion_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_quadratic3_distortion_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::quadratic3_distortion_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::quadratic3_distortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::quadratic3_distortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::quadratic3_distortion_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("quadratic3_distortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("quadratic3_distortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::quadratic3_distortion_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_quadratic3_distortion_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_quadratic3_distortion_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_quadratic3_distortion_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'quadratic3_distortion_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::quadratic3_distortion_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::quadratic3_distortion_vector(size_t,DspFloatType *,DspFloatType *)\n");
   lua_error(L);return 0;
 }
 
@@ -29745,6 +30554,156 @@ static int _wrap_parametric_clip(lua_State* L) {
 }
 
 
+static int _wrap_parametric_clip_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::parametric_clip_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::parametric_clip_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::parametric_clip_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::parametric_clip_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::parametric_clip_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("parametric_clip_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("parametric_clip_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::parametric_clip_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_parametric_clip_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::parametric_clip_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::parametric_clip_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::parametric_clip_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::parametric_clip_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("parametric_clip_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("parametric_clip_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::parametric_clip_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_parametric_clip_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_parametric_clip_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_parametric_clip_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'parametric_clip_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::parametric_clip_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::parametric_clip_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
 static int _wrap_arcTanDistortion__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -29923,6 +30882,156 @@ static int _wrap_arcTanDistortion(lua_State* L) {
     "    FX::Distortion::arcTanDistortion(DspFloatType,DspFloatType,DspFloatType)\n"
     "    FX::Distortion::arcTanDistortion(DspFloatType,DspFloatType)\n"
     "    FX::Distortion::arcTanDistortion(DspFloatType)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_arctandistortion_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::arctandistortion_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::arctandistortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::arctandistortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::arctandistortion_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::arctandistortion_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("arctandistortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("arctandistortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::arctandistortion_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_arctandistortion_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::arctandistortion_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::arctandistortion_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::arctandistortion_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::arctandistortion_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("arctandistortion_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("arctandistortion_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::arctandistortion_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_arctandistortion_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_arctandistortion_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_arctandistortion_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'arctandistortion_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::arctandistortion_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::arctandistortion_vector(size_t,DspFloatType *,DspFloatType *)\n");
   lua_error(L);return 0;
 }
 
@@ -30109,6 +31218,156 @@ static int _wrap_softClipper(lua_State* L) {
 }
 
 
+static int _wrap_softclipper_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::softclipper_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::softclipper_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::softclipper_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::softclipper_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::softclipper_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("softclipper_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("softclipper_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::softclipper_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_softclipper_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::softclipper_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::softclipper_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::softclipper_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::softclipper_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("softclipper_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("softclipper_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::softclipper_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_softclipper_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_softclipper_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_softclipper_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'softclipper_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::softclipper_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::softclipper_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
 static int _wrap_errorf__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -30287,6 +31546,156 @@ static int _wrap_errorf(lua_State* L) {
     "    FX::Distortion::errorf(DspFloatType,DspFloatType,DspFloatType)\n"
     "    FX::Distortion::errorf(DspFloatType,DspFloatType)\n"
     "    FX::Distortion::errorf(DspFloatType)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_errorf_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::errorf_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::errorf_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::errorf_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::errorf_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::errorf_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("errorf_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("errorf_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::errorf_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_errorf_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::errorf_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::errorf_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::errorf_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::errorf_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("errorf_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("errorf_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::errorf_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_errorf_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_errorf_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_errorf_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'errorf_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::errorf_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::errorf_vector(size_t,DspFloatType *,DspFloatType *)\n");
   lua_error(L);return 0;
 }
 
@@ -31019,6 +32428,156 @@ static int _wrap_diodeClipping(lua_State* L) {
 }
 
 
+static int _wrap_diode_clipping_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::diode_clipping_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::diode_clipping_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::diode_clipping_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::diode_clipping_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::diode_clipping_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("diode_clipping_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("diode_clipping_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::diode_clipping_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_diode_clipping_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::diode_clipping_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::diode_clipping_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::diode_clipping_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::diode_clipping_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("diode_clipping_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("diode_clipping_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::diode_clipping_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_diode_clipping_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_diode_clipping_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_diode_clipping_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'diode_clipping_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::diode_clipping_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::diode_clipping_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
 static int _wrap_fuzzExponential__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -31201,6 +32760,156 @@ static int _wrap_fuzzExponential(lua_State* L) {
 }
 
 
+static int _wrap_fuzz_exponential_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::fuzz_exponential_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::fuzz_exponential_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::fuzz_exponential_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::fuzz_exponential_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::fuzz_exponential_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("fuzz_exponential_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("fuzz_exponential_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::fuzz_exponential_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_fuzz_exponential_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::fuzz_exponential_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::fuzz_exponential_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::fuzz_exponential_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::fuzz_exponential_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("fuzz_exponential_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("fuzz_exponential_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::fuzz_exponential_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_fuzz_exponential_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_fuzz_exponential_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_fuzz_exponential_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'fuzz_exponential_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::fuzz_exponential_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::fuzz_exponential_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
 static int _wrap_pieceWiseOverdrive__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -31349,6 +33058,156 @@ static int _wrap_pieceWiseOverdrive(lua_State* L) {
     "    FX::Distortion::pieceWiseOverdrive(DspFloatType,DspFloatType,DspFloatType,DspFloatType)\n"
     "    FX::Distortion::pieceWiseOverdrive(DspFloatType,DspFloatType,DspFloatType)\n"
     "    FX::Distortion::pieceWiseOverdrive(DspFloatType,DspFloatType)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_piecewise_overdrive_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::piecewise_overdrive_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::piecewise_overdrive_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::piecewise_overdrive_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::piecewise_overdrive_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::piecewise_overdrive_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("piecewise_overdrive_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("piecewise_overdrive_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::piecewise_overdrive_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_piecewise_overdrive_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::piecewise_overdrive_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::piecewise_overdrive_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::piecewise_overdrive_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::piecewise_overdrive_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("piecewise_overdrive_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("piecewise_overdrive_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::piecewise_overdrive_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_piecewise_overdrive_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_piecewise_overdrive_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_piecewise_overdrive_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'piecewise_overdrive_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::piecewise_overdrive_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::piecewise_overdrive_vector(size_t,DspFloatType *,DspFloatType *)\n");
   lua_error(L);return 0;
 }
 
@@ -31505,6 +33364,156 @@ static int _wrap_tube(lua_State* L) {
 }
 
 
+static int _wrap_tube_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::tube_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::tube_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::tube_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::tube_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::tube_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("tube_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("tube_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::tube_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_tube_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::tube_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::tube_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::tube_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::tube_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("tube_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("tube_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::tube_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_tube_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_tube_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_tube_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'tube_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::tube_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::tube_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
 static int _wrap_arraya__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -31653,6 +33662,156 @@ static int _wrap_arraya(lua_State* L) {
     "    FX::Distortion::arraya(DspFloatType,DspFloatType,DspFloatType,DspFloatType)\n"
     "    FX::Distortion::arraya(DspFloatType,DspFloatType,DspFloatType)\n"
     "    FX::Distortion::arraya(DspFloatType,DspFloatType)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_arraya_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::arraya_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::arraya_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::arraya_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::arraya_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::arraya_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("arraya_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("arraya_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::arraya_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_arraya_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::arraya_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::arraya_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::arraya_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::arraya_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("arraya_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("arraya_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::arraya_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_arraya_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_arraya_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_arraya_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'arraya_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::arraya_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::arraya_vector(size_t,DspFloatType *,DspFloatType *)\n");
   lua_error(L);return 0;
 }
 
@@ -31809,6 +33968,156 @@ static int _wrap_gallo(lua_State* L) {
 }
 
 
+static int _wrap_gallo_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::gallo_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::gallo_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::gallo_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::gallo_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::gallo_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("gallo_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("gallo_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::gallo_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_gallo_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::gallo_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::gallo_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::gallo_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::gallo_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("gallo_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("gallo_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::gallo_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_gallo_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_gallo_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_gallo_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'gallo_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::gallo_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::gallo_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
 static int _wrap_doubleSoftClipper__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -31957,6 +34266,156 @@ static int _wrap_doubleSoftClipper(lua_State* L) {
     "    FX::Distortion::doubleSoftClipper(DspFloatType,DspFloatType,DspFloatType,DspFloatType)\n"
     "    FX::Distortion::doubleSoftClipper(DspFloatType,DspFloatType,DspFloatType)\n"
     "    FX::Distortion::doubleSoftClipper(DspFloatType,DspFloatType)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_double_soft_clipper_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::double_soft_clipper_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::double_soft_clipper_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::double_soft_clipper_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::double_soft_clipper_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::double_soft_clipper_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("double_soft_clipper_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("double_soft_clipper_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::double_soft_clipper_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_double_soft_clipper_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::double_soft_clipper_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::double_soft_clipper_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::double_soft_clipper_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::double_soft_clipper_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("double_soft_clipper_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("double_soft_clipper_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::double_soft_clipper_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_double_soft_clipper_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_double_soft_clipper_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_double_soft_clipper_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'double_soft_clipper_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::double_soft_clipper_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::double_soft_clipper_vector(size_t,DspFloatType *,DspFloatType *)\n");
   lua_error(L);return 0;
 }
 
@@ -32113,6 +34572,156 @@ static int _wrap_crush(lua_State* L) {
 }
 
 
+static int _wrap_crush_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::crush_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::crush_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::crush_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::crush_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::crush_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("crush_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("crush_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::crush_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_crush_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::crush_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::crush_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::crush_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::crush_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("crush_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("crush_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::crush_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_crush_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_crush_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_crush_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'crush_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::crush_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::crush_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
 static int _wrap_tuboid__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -32265,7 +34874,157 @@ static int _wrap_tuboid(lua_State* L) {
 }
 
 
-static int _wrap_pakarinen_Yeh__SWIG_0(lua_State* L) {
+static int _wrap_tuboid_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::tuboid_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::tuboid_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::tuboid_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::tuboid_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::tuboid_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("tuboid_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("tuboid_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::tuboid_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_tuboid_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::tuboid_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::tuboid_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::tuboid_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::tuboid_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("tuboid_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("tuboid_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::tuboid_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_tuboid_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_tuboid_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_tuboid_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'tuboid_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::tuboid_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::tuboid_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_pakarinen_yeh__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
   DspFloatType arg2 ;
@@ -32273,16 +35032,16 @@ static int _wrap_pakarinen_Yeh__SWIG_0(lua_State* L) {
   DspFloatType arg4 ;
   DspFloatType result;
   
-  SWIG_check_num_args("FX::Distortion::pakarinen_Yeh",4,4)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::pakarinen_Yeh",1,"DspFloatType");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::pakarinen_Yeh",2,"DspFloatType");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::pakarinen_Yeh",3,"DspFloatType");
-  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::pakarinen_Yeh",4,"DspFloatType");
+  SWIG_check_num_args("FX::Distortion::pakarinen_yeh",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::pakarinen_yeh",1,"DspFloatType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::pakarinen_yeh",2,"DspFloatType");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::pakarinen_yeh",3,"DspFloatType");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::pakarinen_yeh",4,"DspFloatType");
   arg1 = (DspFloatType)lua_tonumber(L, 1);
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
   arg4 = (DspFloatType)lua_tonumber(L, 4);
-  result = (DspFloatType)FX::Distortion::pakarinen_Yeh(arg1,arg2,arg3,arg4);
+  result = (DspFloatType)FX::Distortion::pakarinen_yeh(arg1,arg2,arg3,arg4);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -32294,21 +35053,21 @@ fail:
 }
 
 
-static int _wrap_pakarinen_Yeh__SWIG_1(lua_State* L) {
+static int _wrap_pakarinen_yeh__SWIG_1(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
   DspFloatType arg2 ;
   DspFloatType arg3 ;
   DspFloatType result;
   
-  SWIG_check_num_args("FX::Distortion::pakarinen_Yeh",3,3)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::pakarinen_Yeh",1,"DspFloatType");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::pakarinen_Yeh",2,"DspFloatType");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::pakarinen_Yeh",3,"DspFloatType");
+  SWIG_check_num_args("FX::Distortion::pakarinen_yeh",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::pakarinen_yeh",1,"DspFloatType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::pakarinen_yeh",2,"DspFloatType");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::pakarinen_yeh",3,"DspFloatType");
   arg1 = (DspFloatType)lua_tonumber(L, 1);
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   arg3 = (DspFloatType)lua_tonumber(L, 3);
-  result = (DspFloatType)FX::Distortion::pakarinen_Yeh(arg1,arg2,arg3);
+  result = (DspFloatType)FX::Distortion::pakarinen_yeh(arg1,arg2,arg3);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -32320,18 +35079,18 @@ fail:
 }
 
 
-static int _wrap_pakarinen_Yeh__SWIG_2(lua_State* L) {
+static int _wrap_pakarinen_yeh__SWIG_2(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
   DspFloatType arg2 ;
   DspFloatType result;
   
-  SWIG_check_num_args("FX::Distortion::pakarinen_Yeh",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::pakarinen_Yeh",1,"DspFloatType");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::pakarinen_Yeh",2,"DspFloatType");
+  SWIG_check_num_args("FX::Distortion::pakarinen_yeh",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::pakarinen_yeh",1,"DspFloatType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::pakarinen_yeh",2,"DspFloatType");
   arg1 = (DspFloatType)lua_tonumber(L, 1);
   arg2 = (DspFloatType)lua_tonumber(L, 2);
-  result = (DspFloatType)FX::Distortion::pakarinen_Yeh(arg1,arg2);
+  result = (DspFloatType)FX::Distortion::pakarinen_yeh(arg1,arg2);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -32343,7 +35102,7 @@ fail:
 }
 
 
-static int _wrap_pakarinen_Yeh(lua_State* L) {
+static int _wrap_pakarinen_yeh(lua_State* L) {
   int argc;
   int argv[5]={
     1,2,3,4,5
@@ -32360,7 +35119,7 @@ static int _wrap_pakarinen_Yeh(lua_State* L) {
         _v = lua_isnumber(L,argv[1]);
       }
       if (_v) {
-        return _wrap_pakarinen_Yeh__SWIG_2(L);
+        return _wrap_pakarinen_yeh__SWIG_2(L);
       }
     }
   }
@@ -32378,7 +35137,7 @@ static int _wrap_pakarinen_Yeh(lua_State* L) {
           _v = lua_isnumber(L,argv[2]);
         }
         if (_v) {
-          return _wrap_pakarinen_Yeh__SWIG_1(L);
+          return _wrap_pakarinen_yeh__SWIG_1(L);
         }
       }
     }
@@ -32401,18 +35160,1368 @@ static int _wrap_pakarinen_Yeh(lua_State* L) {
             _v = lua_isnumber(L,argv[3]);
           }
           if (_v) {
-            return _wrap_pakarinen_Yeh__SWIG_0(L);
+            return _wrap_pakarinen_yeh__SWIG_0(L);
           }
         }
       }
     }
   }
   
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'pakarinen_Yeh'\n"
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'pakarinen_yeh'\n"
     "  Possible C/C++ prototypes are:\n"
-    "    FX::Distortion::pakarinen_Yeh(DspFloatType,DspFloatType,DspFloatType,DspFloatType)\n"
-    "    FX::Distortion::pakarinen_Yeh(DspFloatType,DspFloatType,DspFloatType)\n"
-    "    FX::Distortion::pakarinen_Yeh(DspFloatType,DspFloatType)\n");
+    "    FX::Distortion::pakarinen_yeh(DspFloatType,DspFloatType,DspFloatType,DspFloatType)\n"
+    "    FX::Distortion::pakarinen_yeh(DspFloatType,DspFloatType,DspFloatType)\n"
+    "    FX::Distortion::pakarinen_yeh(DspFloatType,DspFloatType)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_pakarinen_yeh_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::pakarinen_yeh_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::pakarinen_yeh_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::pakarinen_yeh_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::pakarinen_yeh_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::pakarinen_yeh_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("pakarinen_yeh_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("pakarinen_yeh_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::pakarinen_yeh_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_pakarinen_yeh_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::pakarinen_yeh_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::pakarinen_yeh_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::pakarinen_yeh_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::pakarinen_yeh_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("pakarinen_yeh_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("pakarinen_yeh_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::pakarinen_yeh_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_pakarinen_yeh_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_pakarinen_yeh_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_pakarinen_yeh_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'pakarinen_yeh_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::pakarinen_yeh_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::pakarinen_yeh_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_logiclip_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::logiclip_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::logiclip_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::logiclip_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::logiclip_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::logiclip_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("logiclip_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("logiclip_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::logiclip_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_logiclip_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::logiclip_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::logiclip_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::logiclip_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::logiclip_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("logiclip_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("logiclip_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::logiclip_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_logiclip_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_logiclip_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_logiclip_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'logiclip_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::logiclip_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::logiclip_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_hardclip_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::hardclip_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::hardclip_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::hardclip_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::hardclip_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::hardclip_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("hardclip_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("hardclip_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::hardclip_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_hardclip_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::hardclip_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::hardclip_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::hardclip_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::hardclip_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("hardclip_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("hardclip_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::hardclip_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_hardclip_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_hardclip_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_hardclip_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'hardclip_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::hardclip_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::hardclip_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_tanhclip_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::tanhclip_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::tanhclip_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::tanhclip_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::tanhclip_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::tanhclip_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("tanhclip_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("tanhclip_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::tanhclip_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_tanhclip_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::tanhclip_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::tanhclip_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::tanhclip_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::tanhclip_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("tanhclip_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("tanhclip_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::tanhclip_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_tanhclip_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_tanhclip_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_tanhclip_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'tanhclip_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::tanhclip_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::tanhclip_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_quintic_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::quintic_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::quintic_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::quintic_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::quintic_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::quintic_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("quintic_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("quintic_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::quintic_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_quintic_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::quintic_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::quintic_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::quintic_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::quintic_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("quintic_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("quintic_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::quintic_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_quintic_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_quintic_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_quintic_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'quintic_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::quintic_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::quintic_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_basic_cubic_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::basic_cubic_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::basic_cubic_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::basic_cubic_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::basic_cubic_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::basic_cubic_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("basic_cubic_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("basic_cubic_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::basic_cubic_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_basic_cubic_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::basic_cubic_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::basic_cubic_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::basic_cubic_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::basic_cubic_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("basic_cubic_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("basic_cubic_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::basic_cubic_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_basic_cubic_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_basic_cubic_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_basic_cubic_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'basic_cubic_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::basic_cubic_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::basic_cubic_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_algclip_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::algclip_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::algclip_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::algclip_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::algclip_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::algclip_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("algclip_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("algclip_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::algclip_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_algclip_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::algclip_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::algclip_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::algclip_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::algclip_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("algclip_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("algclip_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::algclip_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_algclip_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_algclip_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_algclip_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'algclip_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::algclip_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::algclip_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_arcclip_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::arcclip_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::arcclip_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::arcclip_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::arcclip_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::arcclip_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("arcclip_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("arcclip_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::arcclip_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_arcclip_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::arcclip_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::arcclip_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::arcclip_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::arcclip_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("arcclip_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("arcclip_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::arcclip_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_arcclip_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_arcclip_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_arcclip_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'arcclip_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::arcclip_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::arcclip_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_sinclip_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::sinclip_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::sinclip_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::sinclip_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::sinclip_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::sinclip_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("sinclip_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("sinclip_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::sinclip_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_sinclip_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::sinclip_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::sinclip_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::sinclip_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::sinclip_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("sinclip_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("sinclip_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::sinclip_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_sinclip_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_sinclip_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_sinclip_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'sinclip_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::sinclip_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::sinclip_vector(size_t,DspFloatType *,DspFloatType *)\n");
   lua_error(L);return 0;
 }
 
@@ -32434,6 +36543,306 @@ static int _wrap_FuzzCtrTable(lua_State* L) {
 fail:
   lua_error(L);
   return SWIG_arg;
+}
+
+
+static int _wrap_fuzzctrtable_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::fuzzctrtable_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::fuzzctrtable_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::fuzzctrtable_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::fuzzctrtable_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::fuzzctrtable_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("fuzzctrtable_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("fuzzctrtable_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::fuzzctrtable_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_fuzzctrtable_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::fuzzctrtable_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::fuzzctrtable_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::fuzzctrtable_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::fuzzctrtable_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("fuzzctrtable_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("fuzzctrtable_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::fuzzctrtable_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_fuzzctrtable_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_fuzzctrtable_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_fuzzctrtable_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'fuzzctrtable_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::fuzzctrtable_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::fuzzctrtable_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_fuzztable_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::fuzztable_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::fuzztable_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::fuzztable_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::fuzztable_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::fuzztable_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("fuzztable_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("fuzztable_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::fuzztable_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_fuzztable_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::fuzztable_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::fuzztable_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::fuzztable_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::fuzztable_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("fuzztable_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("fuzztable_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::fuzztable_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_fuzztable_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_fuzztable_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_fuzztable_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'fuzztable_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::fuzztable_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::fuzztable_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
 }
 
 
@@ -32559,6 +36968,156 @@ static int _wrap_Rectify(lua_State* L) {
 }
 
 
+static int _wrap_rectify_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::rectify_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::rectify_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::rectify_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::rectify_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::rectify_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("rectify_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("rectify_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::rectify_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_rectify_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::rectify_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::rectify_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::rectify_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::rectify_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("rectify_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("rectify_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::rectify_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_rectify_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_rectify_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_rectify_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'rectify_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::rectify_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::rectify_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
 static int _wrap_HardClip(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -32582,7 +37141,157 @@ fail:
 }
 
 
-static int _wrap_SoftCubicClip(lua_State* L) {
+static int _wrap_hardclip2_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::hardclip2_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::hardclip2_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::hardclip2_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::hardclip2_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::hardclip2_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("hardclip2_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("hardclip2_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::hardclip2_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_hardclip2_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::hardclip2_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::hardclip2_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::hardclip2_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::hardclip2_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("hardclip2_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("hardclip2_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::hardclip2_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_hardclip2_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_hardclip2_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_hardclip2_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'hardclip2_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::hardclip2_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::hardclip2_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_SoftCubicClip__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
   DspFloatType arg2 ;
@@ -32602,6 +37311,215 @@ static int _wrap_SoftCubicClip(lua_State* L) {
 fail:
   lua_error(L);
   return SWIG_arg;
+}
+
+
+static int _wrap_SoftCubicClip__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  DspFloatType arg1 ;
+  DspFloatType result;
+  
+  SWIG_check_num_args("FX::Distortion::SoftCubicClip",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::SoftCubicClip",1,"DspFloatType");
+  arg1 = (DspFloatType)lua_tonumber(L, 1);
+  result = (DspFloatType)FX::Distortion::SoftCubicClip(arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_SoftCubicClip(lua_State* L) {
+  int argc;
+  int argv[3]={
+    1,2,3
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 1) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      return _wrap_SoftCubicClip__SWIG_1(L);
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        _v = lua_isnumber(L,argv[1]);
+      }
+      if (_v) {
+        return _wrap_SoftCubicClip__SWIG_0(L);
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'SoftCubicClip'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::SoftCubicClip(DspFloatType,DspFloatType)\n"
+    "    FX::Distortion::SoftCubicClip(DspFloatType)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_soft_cubic_clip_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::soft_cubic_clip_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::soft_cubic_clip_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::soft_cubic_clip_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::soft_cubic_clip_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::soft_cubic_clip_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("soft_cubic_clip_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("soft_cubic_clip_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::soft_cubic_clip_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_soft_cubic_clip_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::soft_cubic_clip_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::soft_cubic_clip_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::soft_cubic_clip_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::soft_cubic_clip_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("soft_cubic_clip_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("soft_cubic_clip_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::soft_cubic_clip_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_soft_cubic_clip_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_soft_cubic_clip_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_soft_cubic_clip_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'soft_cubic_clip_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::soft_cubic_clip_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::soft_cubic_clip_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
 }
 
 
@@ -32733,6 +37651,236 @@ static int _wrap_SoftCubic(lua_State* L) {
 }
 
 
+static int _wrap_soft_cubic_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  DspFloatType arg5 ;
+  
+  SWIG_check_num_args("FX::Distortion::soft_cubic_vector",5,5)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::soft_cubic_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::soft_cubic_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::soft_cubic_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::soft_cubic_vector",4,"DspFloatType");
+  if(!lua_isnumber(L,5)) SWIG_fail_arg("FX::Distortion::soft_cubic_vector",5,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("soft_cubic_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("soft_cubic_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  arg5 = (DspFloatType)lua_tonumber(L, 5);
+  FX::Distortion::soft_cubic_vector(arg1,arg2,arg3,arg4,arg5);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_soft_cubic_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::soft_cubic_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::soft_cubic_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::soft_cubic_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::soft_cubic_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::soft_cubic_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("soft_cubic_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("soft_cubic_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::soft_cubic_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_soft_cubic_vector__SWIG_2(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::soft_cubic_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::soft_cubic_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::soft_cubic_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::soft_cubic_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("soft_cubic_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("soft_cubic_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::soft_cubic_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_soft_cubic_vector(lua_State* L) {
+  int argc;
+  int argv[6]={
+    1,2,3,4,5,6
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_soft_cubic_vector__SWIG_2(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_soft_cubic_vector__SWIG_1(L);
+          }
+        }
+      }
+    }
+  }
+  if (argc == 5) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            {
+              _v = lua_isnumber(L,argv[4]);
+            }
+            if (_v) {
+              return _wrap_soft_cubic_vector__SWIG_0(L);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'soft_cubic_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::soft_cubic_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType,DspFloatType)\n"
+    "    FX::Distortion::soft_cubic_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::soft_cubic_vector(size_t,DspFloatType *,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
 static int _wrap_SKClip(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -32834,6 +37982,156 @@ static int _wrap_SoftKnee(lua_State* L) {
     "  Possible C/C++ prototypes are:\n"
     "    FX::Distortion::SoftKnee(DspFloatType,DspFloatType)\n"
     "    FX::Distortion::SoftKnee(DspFloatType)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_soft_knee_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::soft_knee_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::soft_knee_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::soft_knee_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::soft_knee_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::soft_knee_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("soft_knee_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("soft_knee_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::soft_knee_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_soft_knee_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::soft_knee_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::soft_knee_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::soft_knee_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::soft_knee_vector",3,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("soft_knee_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("soft_knee_vector",3,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::soft_knee_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_soft_knee_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_soft_knee_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_soft_knee_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'soft_knee_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::soft_knee_vector(size_t,DspFloatType *,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::soft_knee_vector(size_t,DspFloatType *,DspFloatType *)\n");
   lua_error(L);return 0;
 }
 
@@ -33143,6 +38441,43 @@ fail:
 }
 
 
+static int _wrap_exposhape_vector(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::exposhape_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::exposhape_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::exposhape_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::exposhape_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::exposhape_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("exposhape_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("exposhape_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::exposhape_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static int _wrap_softClipShape(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -33166,6 +38501,43 @@ fail:
 }
 
 
+static int _wrap_softclipshape_vector(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::softclipshape_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::softclipshape_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::softclipshape_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::softclipshape_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::softclipshape_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("softclipshape_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("softclipshape_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::softclipshape_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static int _wrap_sineShape(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -33179,6 +38551,43 @@ static int _wrap_sineShape(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   result = (DspFloatType)FX::Distortion::sineShape(arg1,arg2);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_sineshape_vector(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::sineshape_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::sineshape_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::sineshape_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::sineshape_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::sineshape_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("sineshape_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("sineshape_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::sineshape_vector(arg1,arg2,arg3,arg4);
+  
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -33366,6 +38775,43 @@ static int _wrap_squareLaw(lua_State* L) {
   arg2 = (DspFloatType)lua_tonumber(L, 2);
   result = (DspFloatType)FX::Distortion::squareLaw(arg1,arg2);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_squarelaw_vector(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::squarelaw_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::squarelaw_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::squarelaw_vector",2,"DspFloatType *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::squarelaw_vector",3,"DspFloatType *");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::squarelaw_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("squarelaw_vector",2,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("squarelaw_vector",3,SWIGTYPE_p_double);
+  }
+  
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::squarelaw_vector(arg1,arg2,arg3,arg4);
+  
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -33607,389 +39053,6 @@ fail:
 }
 
 
-static int _wrap_table1d_low_set(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::table1d *arg1 = (FX::Distortion::table1d *) 0 ;
-  DspFloatType arg2 ;
-  
-  SWIG_check_num_args("FX::Distortion::table1d::low",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::table1d::low",1,"FX::Distortion::table1d *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::table1d::low",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__table1d,0))){
-    SWIG_fail_ptr("table1d_low_set",1,SWIGTYPE_p_FX__Distortion__table1d);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->low = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_table1d_low_get(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::table1d *arg1 = (FX::Distortion::table1d *) 0 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("FX::Distortion::table1d::low",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::table1d::low",1,"FX::Distortion::table1d *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__table1d,0))){
-    SWIG_fail_ptr("table1d_low_get",1,SWIGTYPE_p_FX__Distortion__table1d);
-  }
-  
-  result = (DspFloatType) ((arg1)->low);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_table1d_high_set(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::table1d *arg1 = (FX::Distortion::table1d *) 0 ;
-  DspFloatType arg2 ;
-  
-  SWIG_check_num_args("FX::Distortion::table1d::high",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::table1d::high",1,"FX::Distortion::table1d *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::table1d::high",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__table1d,0))){
-    SWIG_fail_ptr("table1d_high_set",1,SWIGTYPE_p_FX__Distortion__table1d);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->high = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_table1d_high_get(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::table1d *arg1 = (FX::Distortion::table1d *) 0 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("FX::Distortion::table1d::high",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::table1d::high",1,"FX::Distortion::table1d *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__table1d,0))){
-    SWIG_fail_ptr("table1d_high_get",1,SWIGTYPE_p_FX__Distortion__table1d);
-  }
-  
-  result = (DspFloatType) ((arg1)->high);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_table1d_istep_set(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::table1d *arg1 = (FX::Distortion::table1d *) 0 ;
-  DspFloatType arg2 ;
-  
-  SWIG_check_num_args("FX::Distortion::table1d::istep",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::table1d::istep",1,"FX::Distortion::table1d *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::table1d::istep",2,"DspFloatType");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__table1d,0))){
-    SWIG_fail_ptr("table1d_istep_set",1,SWIGTYPE_p_FX__Distortion__table1d);
-  }
-  
-  arg2 = (DspFloatType)lua_tonumber(L, 2);
-  if (arg1) (arg1)->istep = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_table1d_istep_get(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::table1d *arg1 = (FX::Distortion::table1d *) 0 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("FX::Distortion::table1d::istep",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::table1d::istep",1,"FX::Distortion::table1d *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__table1d,0))){
-    SWIG_fail_ptr("table1d_istep_get",1,SWIGTYPE_p_FX__Distortion__table1d);
-  }
-  
-  result = (DspFloatType) ((arg1)->istep);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_table1d_size_set(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::table1d *arg1 = (FX::Distortion::table1d *) 0 ;
-  int arg2 ;
-  
-  SWIG_check_num_args("FX::Distortion::table1d::size",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::table1d::size",1,"FX::Distortion::table1d *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::table1d::size",2,"int");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__table1d,0))){
-    SWIG_fail_ptr("table1d_size_set",1,SWIGTYPE_p_FX__Distortion__table1d);
-  }
-  
-  arg2 = (int)lua_tonumber(L, 2);
-  if (arg1) (arg1)->size = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_table1d_size_get(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::table1d *arg1 = (FX::Distortion::table1d *) 0 ;
-  int result;
-  
-  SWIG_check_num_args("FX::Distortion::table1d::size",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::table1d::size",1,"FX::Distortion::table1d *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__table1d,0))){
-    SWIG_fail_ptr("table1d_size_get",1,SWIGTYPE_p_FX__Distortion__table1d);
-  }
-  
-  result = (int) ((arg1)->size);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_table1d_data_set(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::table1d *arg1 = (FX::Distortion::table1d *) 0 ;
-  DspFloatType *arg2 = (DspFloatType *) 0 ;
-  
-  SWIG_check_num_args("FX::Distortion::table1d::data",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::table1d::data",1,"FX::Distortion::table1d *");
-  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::table1d::data",2,"DspFloatType *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__table1d,0))){
-    SWIG_fail_ptr("table1d_data_set",1,SWIGTYPE_p_FX__Distortion__table1d);
-  }
-  
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,SWIG_POINTER_DISOWN))){
-    SWIG_fail_ptr("table1d_data_set",2,SWIGTYPE_p_double);
-  }
-  
-  if (arg1) (arg1)->data = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_table1d_data_get(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::table1d *arg1 = (FX::Distortion::table1d *) 0 ;
-  DspFloatType *result = 0 ;
-  
-  SWIG_check_num_args("FX::Distortion::table1d::data",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::table1d::data",1,"FX::Distortion::table1d *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__table1d,0))){
-    SWIG_fail_ptr("table1d_data_get",1,SWIGTYPE_p_FX__Distortion__table1d);
-  }
-  
-  result = (DspFloatType *) ((arg1)->data);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_double,0); SWIG_arg++; 
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_new_table1d(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::table1d *result = 0 ;
-  
-  SWIG_check_num_args("FX::Distortion::table1d::table1d",0,0)
-  result = (FX::Distortion::table1d *)new FX::Distortion::table1d();
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_FX__Distortion__table1d,1); SWIG_arg++; 
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static void swig_delete_table1d(void *obj) {
-FX::Distortion::table1d *arg1 = (FX::Distortion::table1d *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_table1d(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_table1d);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_table1d_attributes[] = {
-    { "low", _wrap_table1d_low_get, _wrap_table1d_low_set },
-    { "high", _wrap_table1d_high_get, _wrap_table1d_high_set },
-    { "istep", _wrap_table1d_istep_get, _wrap_table1d_istep_set },
-    { "size", _wrap_table1d_size_get, _wrap_table1d_size_set },
-    { "data", _wrap_table1d_data_get, _wrap_table1d_data_set },
-    {0,0,0}
-};
-static swig_lua_method swig_table1d_methods[]= {
-    {0,0}
-};
-static swig_lua_method swig_table1d_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_table1d_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_table1d_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_table1d_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_table1d_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_table1d_Sf_SwigStatic = {
-    "table1d",
-    swig_table1d_Sf_SwigStatic_methods,
-    swig_table1d_Sf_SwigStatic_attributes,
-    swig_table1d_Sf_SwigStatic_constants,
-    swig_table1d_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_table1d_bases[] = {0};
-static const char *swig_table1d_base_names[] = {0};
-static swig_lua_class _wrap_class_table1d = { "table1d", "table1d", &SWIGTYPE_p_FX__Distortion__table1d,_proxy__wrap_new_table1d, swig_delete_table1d, swig_table1d_methods, swig_table1d_attributes, &swig_table1d_Sf_SwigStatic, swig_table1d_meta, swig_table1d_bases, swig_table1d_base_names };
-
-static int _wrap_tube_table_set(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::table1d_imp< 200 > *arg1 = (FX::Distortion::table1d_imp< 200 > *) 0 ;
-  
-  SWIG_check_num_args("FX::Distortion::tube_table",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::tube_table",1,"FX::Distortion::table1d_imp< 200 > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__table1d_impT_200_t,0))){
-    SWIG_fail_ptr("tube_table_set",1,SWIGTYPE_p_FX__Distortion__table1d_impT_200_t);
-  }
-  
-  FX::Distortion::tube_table = *arg1;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_tube_table_get(lua_State* L) {
-  int SWIG_arg = 0;
-  FX::Distortion::table1d_imp< 200 > *result = 0 ;
-  
-  SWIG_check_num_args("FX::Distortion::tube_table",0,0)
-  result = (FX::Distortion::table1d_imp< 200 > *)&FX::Distortion::tube_table;
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_FX__Distortion__table1d_impT_200_t,0); SWIG_arg++; 
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_tubeclip(lua_State* L) {
-  int SWIG_arg = 0;
-  DspFloatType arg1 ;
-  DspFloatType result;
-  
-  SWIG_check_num_args("FX::Distortion::tubeclip",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::tubeclip",1,"DspFloatType");
-  arg1 = (DspFloatType)lua_tonumber(L, 1);
-  result = (DspFloatType)FX::Distortion::tubeclip(arg1);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
 static int _wrap_hardClipping(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType *arg1 = 0 ;
@@ -34148,6 +39211,22 @@ static int _wrap_doidicAssymetric(lua_State* L) {
   temp1=(DspFloatType)lua_tonumber(L,1); arg1=&temp1;
   result = (DspFloatType)FX::Distortion::doidicAssymetric((double const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_InitRandom(lua_State* L) {
+  int SWIG_arg = 0;
+  
+  SWIG_check_num_args("FX::Distortion::InitRandom",0,0)
+  FX::Distortion::InitRandom();
+  
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -37738,6 +42817,122 @@ static int _wrap_serpent_curve(lua_State* L) {
 }
 
 
+static int _wrap_serpent_curve_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType arg3 ;
+  
+  SWIG_check_num_args("FX::Distortion::serpent_curve_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::serpent_curve_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::serpent_curve_vector",2,"DspFloatType *");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::serpent_curve_vector",3,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("serpent_curve_vector",2,SWIGTYPE_p_double);
+  }
+  
+  arg3 = (DspFloatType)lua_tonumber(L, 3);
+  FX::Distortion::serpent_curve_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_serpent_curve_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::serpent_curve_vector",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::serpent_curve_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::serpent_curve_vector",2,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("serpent_curve_vector",2,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::serpent_curve_vector(arg1,arg2);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_serpent_curve_vector(lua_State* L) {
+  int argc;
+  int argv[4]={
+    1,2,3,4
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 2) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_serpent_curve_vector__SWIG_1(L);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          _v = lua_isnumber(L,argv[2]);
+        }
+        if (_v) {
+          return _wrap_serpent_curve_vector__SWIG_0(L);
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'serpent_curve_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::serpent_curve_vector(size_t,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::serpent_curve_vector(size_t,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
 static int _wrap_sigmoider__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -37816,6 +43011,122 @@ static int _wrap_sigmoider(lua_State* L) {
     "  Possible C/C++ prototypes are:\n"
     "    FX::Distortion::sigmoider(DspFloatType,DspFloatType)\n"
     "    FX::Distortion::sigmoider(DspFloatType)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_sigmoider_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType arg3 ;
+  
+  SWIG_check_num_args("FX::Distortion::sigmoider_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::sigmoider_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::sigmoider_vector",2,"DspFloatType *");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::sigmoider_vector",3,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("sigmoider_vector",2,SWIGTYPE_p_double);
+  }
+  
+  arg3 = (DspFloatType)lua_tonumber(L, 3);
+  FX::Distortion::sigmoider_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_sigmoider_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::sigmoider_vector",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::sigmoider_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::sigmoider_vector",2,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("sigmoider_vector",2,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::sigmoider_vector(arg1,arg2);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_sigmoider_vector(lua_State* L) {
+  int argc;
+  int argv[4]={
+    1,2,3,4
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 2) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_sigmoider_vector__SWIG_1(L);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          _v = lua_isnumber(L,argv[2]);
+        }
+        if (_v) {
+          return _wrap_sigmoider_vector__SWIG_0(L);
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'sigmoider_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::sigmoider_vector(size_t,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::sigmoider_vector(size_t,DspFloatType *)\n");
   lua_error(L);return 0;
 }
 
@@ -37902,6 +43213,122 @@ static int _wrap_erfmoider(lua_State* L) {
 }
 
 
+static int _wrap_erfmoider_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType arg3 ;
+  
+  SWIG_check_num_args("FX::Distortion::erfmoider_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::erfmoider_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::erfmoider_vector",2,"DspFloatType *");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::erfmoider_vector",3,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("erfmoider_vector",2,SWIGTYPE_p_double);
+  }
+  
+  arg3 = (DspFloatType)lua_tonumber(L, 3);
+  FX::Distortion::erfmoider_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_erfmoider_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::erfmoider_vector",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::erfmoider_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::erfmoider_vector",2,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("erfmoider_vector",2,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::erfmoider_vector(arg1,arg2);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_erfmoider_vector(lua_State* L) {
+  int argc;
+  int argv[4]={
+    1,2,3,4
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 2) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_erfmoider_vector__SWIG_1(L);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          _v = lua_isnumber(L,argv[2]);
+        }
+        if (_v) {
+          return _wrap_erfmoider_vector__SWIG_0(L);
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'erfmoider_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::erfmoider_vector(size_t,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::erfmoider_vector(size_t,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
 static int _wrap_gunderballs__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -37980,6 +43407,122 @@ static int _wrap_gunderballs(lua_State* L) {
     "  Possible C/C++ prototypes are:\n"
     "    FX::Distortion::gunderballs(DspFloatType,DspFloatType)\n"
     "    FX::Distortion::gunderballs(DspFloatType)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_gunderballs_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType arg3 ;
+  
+  SWIG_check_num_args("FX::Distortion::gunderballs_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::gunderballs_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::gunderballs_vector",2,"DspFloatType *");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::gunderballs_vector",3,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("gunderballs_vector",2,SWIGTYPE_p_double);
+  }
+  
+  arg3 = (DspFloatType)lua_tonumber(L, 3);
+  FX::Distortion::gunderballs_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_gunderballs_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::gunderballs_vector",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::gunderballs_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::gunderballs_vector",2,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("gunderballs_vector",2,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::gunderballs_vector(arg1,arg2);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_gunderballs_vector(lua_State* L) {
+  int argc;
+  int argv[4]={
+    1,2,3,4
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 2) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_gunderballs_vector__SWIG_1(L);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          _v = lua_isnumber(L,argv[2]);
+        }
+        if (_v) {
+          return _wrap_gunderballs_vector__SWIG_0(L);
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'gunderballs_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::gunderballs_vector(size_t,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::gunderballs_vector(size_t,DspFloatType *)\n");
   lua_error(L);return 0;
 }
 
@@ -38066,6 +43609,122 @@ static int _wrap_algebraballs(lua_State* L) {
 }
 
 
+static int _wrap_algebraballs_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType arg3 ;
+  
+  SWIG_check_num_args("FX::Distortion::algebraballs_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::algebraballs_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::algebraballs_vector",2,"DspFloatType *");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::algebraballs_vector",3,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("algebraballs_vector",2,SWIGTYPE_p_double);
+  }
+  
+  arg3 = (DspFloatType)lua_tonumber(L, 3);
+  FX::Distortion::algebraballs_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_algebraballs_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::algebraballs_vector",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::algebraballs_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::algebraballs_vector",2,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("algebraballs_vector",2,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::algebraballs_vector(arg1,arg2);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_algebraballs_vector(lua_State* L) {
+  int argc;
+  int argv[4]={
+    1,2,3,4
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 2) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_algebraballs_vector__SWIG_1(L);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          _v = lua_isnumber(L,argv[2]);
+        }
+        if (_v) {
+          return _wrap_algebraballs_vector__SWIG_0(L);
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'algebraballs_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::algebraballs_vector(size_t,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::algebraballs_vector(size_t,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
 static int _wrap_algebramoider__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -38144,6 +43803,122 @@ static int _wrap_algebramoider(lua_State* L) {
     "  Possible C/C++ prototypes are:\n"
     "    FX::Distortion::algebramoider(DspFloatType,DspFloatType)\n"
     "    FX::Distortion::algebramoider(DspFloatType)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_algebramoider_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType arg3 ;
+  
+  SWIG_check_num_args("FX::Distortion::algebramoider_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::algebramoider_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::algebramoider_vector",2,"DspFloatType *");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::algebramoider_vector",3,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("algebramoider_vector",2,SWIGTYPE_p_double);
+  }
+  
+  arg3 = (DspFloatType)lua_tonumber(L, 3);
+  FX::Distortion::algebramoider_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_algebramoider_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::algebramoider_vector",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::algebramoider_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::algebramoider_vector",2,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("algebramoider_vector",2,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::algebramoider_vector(arg1,arg2);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_algebramoider_vector(lua_State* L) {
+  int argc;
+  int argv[4]={
+    1,2,3,4
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 2) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_algebramoider_vector__SWIG_1(L);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          _v = lua_isnumber(L,argv[2]);
+        }
+        if (_v) {
+          return _wrap_algebramoider_vector__SWIG_0(L);
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'algebramoider_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::algebramoider_vector(size_t,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::algebramoider_vector(size_t,DspFloatType *)\n");
   lua_error(L);return 0;
 }
 
@@ -38230,6 +44005,122 @@ static int _wrap_tanhify(lua_State* L) {
 }
 
 
+static int _wrap_tanhify_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType arg3 ;
+  
+  SWIG_check_num_args("FX::Distortion::tanhify_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::tanhify_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::tanhify_vector",2,"DspFloatType *");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::tanhify_vector",3,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("tanhify_vector",2,SWIGTYPE_p_double);
+  }
+  
+  arg3 = (DspFloatType)lua_tonumber(L, 3);
+  FX::Distortion::tanhify_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_tanhify_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::tanhify_vector",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::tanhify_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::tanhify_vector",2,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("tanhify_vector",2,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::tanhify_vector(arg1,arg2);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_tanhify_vector(lua_State* L) {
+  int argc;
+  int argv[4]={
+    1,2,3,4
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 2) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_tanhify_vector__SWIG_1(L);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          _v = lua_isnumber(L,argv[2]);
+        }
+        if (_v) {
+          return _wrap_tanhify_vector__SWIG_0(L);
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'tanhify_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::tanhify_vector(size_t,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::tanhify_vector(size_t,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
 static int _wrap_tanhballs__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -38308,6 +44199,122 @@ static int _wrap_tanhballs(lua_State* L) {
     "  Possible C/C++ prototypes are:\n"
     "    FX::Distortion::tanhballs(DspFloatType,DspFloatType)\n"
     "    FX::Distortion::tanhballs(DspFloatType)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_tanhballs_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType arg3 ;
+  
+  SWIG_check_num_args("FX::Distortion::tanhballs_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::tanhballs_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::tanhballs_vector",2,"DspFloatType *");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::tanhballs_vector",3,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("tanhballs_vector",2,SWIGTYPE_p_double);
+  }
+  
+  arg3 = (DspFloatType)lua_tonumber(L, 3);
+  FX::Distortion::tanhballs_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_tanhballs_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::tanhballs_vector",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::tanhballs_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::tanhballs_vector",2,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("tanhballs_vector",2,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::tanhballs_vector(arg1,arg2);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_tanhballs_vector(lua_State* L) {
+  int argc;
+  int argv[4]={
+    1,2,3,4
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 2) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_tanhballs_vector__SWIG_1(L);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          _v = lua_isnumber(L,argv[2]);
+        }
+        if (_v) {
+          return _wrap_tanhballs_vector__SWIG_0(L);
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'tanhballs_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::tanhballs_vector(size_t,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::tanhballs_vector(size_t,DspFloatType *)\n");
   lua_error(L);return 0;
 }
 
@@ -38394,6 +44401,122 @@ static int _wrap_tanhmoider(lua_State* L) {
 }
 
 
+static int _wrap_tanhmoider_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType arg3 ;
+  
+  SWIG_check_num_args("FX::Distortion::tanhmoider_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::tanhmoider_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::tanhmoider_vector",2,"DspFloatType *");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::tanhmoider_vector",3,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("tanhmoider_vector",2,SWIGTYPE_p_double);
+  }
+  
+  arg3 = (DspFloatType)lua_tonumber(L, 3);
+  FX::Distortion::tanhmoider_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_tanhmoider_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::tanhmoider_vector",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::tanhmoider_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::tanhmoider_vector",2,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("tanhmoider_vector",2,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::tanhmoider_vector(arg1,arg2);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_tanhmoider_vector(lua_State* L) {
+  int argc;
+  int argv[4]={
+    1,2,3,4
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 2) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_tanhmoider_vector__SWIG_1(L);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          _v = lua_isnumber(L,argv[2]);
+        }
+        if (_v) {
+          return _wrap_tanhmoider_vector__SWIG_0(L);
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'tanhmoider_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::tanhmoider_vector(size_t,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::tanhmoider_vector(size_t,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
 static int _wrap_atanballs__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -38476,6 +44599,122 @@ static int _wrap_atanballs(lua_State* L) {
 }
 
 
+static int _wrap_atanballs_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType arg3 ;
+  
+  SWIG_check_num_args("FX::Distortion::atanballs_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::atanballs_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::atanballs_vector",2,"DspFloatType *");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::atanballs_vector",3,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("atanballs_vector",2,SWIGTYPE_p_double);
+  }
+  
+  arg3 = (DspFloatType)lua_tonumber(L, 3);
+  FX::Distortion::atanballs_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_atanballs_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::atanballs_vector",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::atanballs_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::atanballs_vector",2,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("atanballs_vector",2,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::atanballs_vector(arg1,arg2);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_atanballs_vector(lua_State* L) {
+  int argc;
+  int argv[4]={
+    1,2,3,4
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 2) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_atanballs_vector__SWIG_1(L);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          _v = lua_isnumber(L,argv[2]);
+        }
+        if (_v) {
+          return _wrap_atanballs_vector__SWIG_0(L);
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'atanballs_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::atanballs_vector(size_t,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::atanballs_vector(size_t,DspFloatType *)\n");
+  lua_error(L);return 0;
+}
+
+
 static int _wrap_atanmoider__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   DspFloatType arg1 ;
@@ -38554,6 +44793,122 @@ static int _wrap_atanmoider(lua_State* L) {
     "  Possible C/C++ prototypes are:\n"
     "    FX::Distortion::atanmoider(DspFloatType,DspFloatType)\n"
     "    FX::Distortion::atanmoider(DspFloatType)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_atanmoider_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType arg3 ;
+  
+  SWIG_check_num_args("FX::Distortion::atanmoider_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::atanmoider_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::atanmoider_vector",2,"DspFloatType *");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::atanmoider_vector",3,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("atanmoider_vector",2,SWIGTYPE_p_double);
+  }
+  
+  arg3 = (DspFloatType)lua_tonumber(L, 3);
+  FX::Distortion::atanmoider_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_atanmoider_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::atanmoider_vector",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::atanmoider_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::atanmoider_vector",2,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("atanmoider_vector",2,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::atanmoider_vector(arg1,arg2);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_atanmoider_vector(lua_State* L) {
+  int argc;
+  int argv[4]={
+    1,2,3,4
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 2) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_atanmoider_vector__SWIG_1(L);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          _v = lua_isnumber(L,argv[2]);
+        }
+        if (_v) {
+          return _wrap_atanmoider_vector__SWIG_0(L);
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'atanmoider_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::atanmoider_vector(size_t,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::atanmoider_vector(size_t,DspFloatType *)\n");
   lua_error(L);return 0;
 }
 
@@ -38682,6 +45037,185 @@ static int _wrap_bipolar_tanh(lua_State* L) {
     "    FX::Distortion::bipolar_tanh(DspFloatType,DspFloatType,DspFloatType)\n"
     "    FX::Distortion::bipolar_tanh(DspFloatType,DspFloatType)\n"
     "    FX::Distortion::bipolar_tanh(DspFloatType)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_bipolar_tanh_vector__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType arg3 ;
+  DspFloatType arg4 ;
+  
+  SWIG_check_num_args("FX::Distortion::bipolar_tanh_vector",4,4)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::bipolar_tanh_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::bipolar_tanh_vector",2,"DspFloatType *");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::bipolar_tanh_vector",3,"DspFloatType");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("FX::Distortion::bipolar_tanh_vector",4,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("bipolar_tanh_vector",2,SWIGTYPE_p_double);
+  }
+  
+  arg3 = (DspFloatType)lua_tonumber(L, 3);
+  arg4 = (DspFloatType)lua_tonumber(L, 4);
+  FX::Distortion::bipolar_tanh_vector(arg1,arg2,arg3,arg4);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_bipolar_tanh_vector__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  DspFloatType arg3 ;
+  
+  SWIG_check_num_args("FX::Distortion::bipolar_tanh_vector",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::bipolar_tanh_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::bipolar_tanh_vector",2,"DspFloatType *");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("FX::Distortion::bipolar_tanh_vector",3,"DspFloatType");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("bipolar_tanh_vector",2,SWIGTYPE_p_double);
+  }
+  
+  arg3 = (DspFloatType)lua_tonumber(L, 3);
+  FX::Distortion::bipolar_tanh_vector(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_bipolar_tanh_vector__SWIG_2(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType *arg2 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::bipolar_tanh_vector",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::bipolar_tanh_vector",1,"size_t");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FX::Distortion::bipolar_tanh_vector",2,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("bipolar_tanh_vector",2,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::bipolar_tanh_vector(arg1,arg2);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_bipolar_tanh_vector(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 2) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_bipolar_tanh_vector__SWIG_2(L);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          _v = lua_isnumber(L,argv[2]);
+        }
+        if (_v) {
+          return _wrap_bipolar_tanh_vector__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_double, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          _v = lua_isnumber(L,argv[2]);
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_bipolar_tanh_vector__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'bipolar_tanh_vector'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    FX::Distortion::bipolar_tanh_vector(size_t,DspFloatType *,DspFloatType,DspFloatType)\n"
+    "    FX::Distortion::bipolar_tanh_vector(size_t,DspFloatType *,DspFloatType)\n"
+    "    FX::Distortion::bipolar_tanh_vector(size_t,DspFloatType *)\n");
   lua_error(L);return 0;
 }
 
@@ -38927,6 +45461,50 @@ static int _wrap_quadrant_tanh(lua_State* L) {
     "    FX::Distortion::quadrant_tanh(DspFloatType,DspFloatType)\n"
     "    FX::Distortion::quadrant_tanh(DspFloatType)\n");
   lua_error(L);return 0;
+}
+
+
+static int _wrap_morph_vector(lua_State* L) {
+  int SWIG_arg = 0;
+  size_t arg1 ;
+  DspFloatType arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  DspFloatType *arg4 = (DspFloatType *) 0 ;
+  DspFloatType *arg5 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::morph_vector",5,5)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("FX::Distortion::morph_vector",1,"size_t");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::morph_vector",2,"DspFloatType");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::morph_vector",3,"DspFloatType *");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("FX::Distortion::morph_vector",4,"DspFloatType *");
+  if(!SWIG_isptrtype(L,5)) SWIG_fail_arg("FX::Distortion::morph_vector",5,"DspFloatType *");
+  SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+  arg1 = (size_t)lua_tonumber(L, 1);
+  arg2 = (DspFloatType)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("morph_vector",3,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("morph_vector",4,SWIGTYPE_p_double);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("morph_vector",5,SWIGTYPE_p_double);
+  }
+  
+  FX::Distortion::morph_vector(arg1,arg2,arg3,arg4,arg5);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
 }
 
 
@@ -39295,6 +45873,40 @@ static int _wrap_ClipFunction_Tick(lua_State* L) {
 }
 
 
+static int _wrap_ClipFunction_ProcessSIMD(lua_State* L) {
+  int SWIG_arg = 0;
+  FX::Distortion::ClipFunction *arg1 = (FX::Distortion::ClipFunction *) 0 ;
+  size_t arg2 ;
+  DspFloatType *arg3 = (DspFloatType *) 0 ;
+  
+  SWIG_check_num_args("FX::Distortion::ClipFunction::ProcessSIMD",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FX::Distortion::ClipFunction::ProcessSIMD",1,"FX::Distortion::ClipFunction *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("FX::Distortion::ClipFunction::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("FX::Distortion::ClipFunction::ProcessSIMD",3,"DspFloatType *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FX__Distortion__ClipFunction,0))){
+    SWIG_fail_ptr("ClipFunction_ProcessSIMD",1,SWIGTYPE_p_FX__Distortion__ClipFunction);
+  }
+  
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
+    SWIG_fail_ptr("ClipFunction_ProcessSIMD",3,SWIGTYPE_p_double);
+  }
+  
+  (arg1)->ProcessSIMD(arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static void swig_delete_ClipFunction(void *obj) {
 FX::Distortion::ClipFunction *arg1 = (FX::Distortion::ClipFunction *) obj;
 delete arg1;
@@ -39313,6 +45925,7 @@ static swig_lua_attribute swig_ClipFunction_attributes[] = {
 };
 static swig_lua_method swig_ClipFunction_methods[]= {
     { "Tick", _wrap_ClipFunction_Tick},
+    { "ProcessSIMD", _wrap_ClipFunction_ProcessSIMD},
     {0,0}
 };
 static swig_lua_method swig_ClipFunction_meta[] = {
@@ -50675,7 +57288,6 @@ static swig_lua_class _wrap_class_complex_double_vector = { "complex_double_vect
 static swig_lua_attribute swig_SwigModule_attributes[] = {
     { "pre_gain", _wrap_pre_gain_get, _wrap_pre_gain_set },
     { "post_gain", _wrap_post_gain_get, _wrap_post_gain_set },
-    { "tube_table", _wrap_tube_table_get, _wrap_tube_table_set },
     {0,0,0}
 };
 static swig_lua_const_info swig_SwigModule_constants[]= {
@@ -50810,7 +57422,6 @@ static swig_lua_const_info swig_SwigModule_constants[]= {
     {SWIG_LUA_CONSTTAB_INT("DISTORTION_SIGMOID", FX::Distortion::Amplifier::DISTORTION_SIGMOID)},
     {SWIG_LUA_CONSTTAB_INT("DISTORTION_SIGMOID_MINUS", FX::Distortion::Amplifier::DISTORTION_SIGMOID_MINUS)},
     {SWIG_LUA_CONSTTAB_INT("DISTORTION_BPSIGMOID", FX::Distortion::Amplifier::DISTORTION_BPSIGMOID)},
-    {SWIG_LUA_CONSTTAB_INT("DISTORTION_LAST", FX::Distortion::Amplifier::DISTORTION_LAST)},
     {SWIG_LUA_CONSTTAB_INT("DISTORTION_ASIN", FX::Distortion::Amplifier::DISTORTION_ASIN)},
     {SWIG_LUA_CONSTTAB_INT("DISTORTION_ASINH", FX::Distortion::Amplifier::DISTORTION_ASINH)},
     {SWIG_LUA_CONSTTAB_INT("DISTORTION_ACOS", FX::Distortion::Amplifier::DISTORTION_ACOS)},
@@ -50821,6 +57432,7 @@ static swig_lua_const_info swig_SwigModule_constants[]= {
     {SWIG_LUA_CONSTTAB_INT("DISTORTION_ASINH2", FX::Distortion::Amplifier::DISTORTION_ASINH2)},
     {SWIG_LUA_CONSTTAB_INT("DISTORTION_ACOSH", FX::Distortion::Amplifier::DISTORTION_ACOSH)},
     {SWIG_LUA_CONSTTAB_INT("DISTORTION_ATANH", FX::Distortion::Amplifier::DISTORTION_ATANH)},
+    {SWIG_LUA_CONSTTAB_INT("DISTORTION_LAST", FX::Distortion::Amplifier::DISTORTION_LAST)},
     {SWIG_LUA_CONSTTAB_INT("Amplifier_PORT_G", FX::Distortion::Amplifier::Amplifier::PORT_G)},
     {SWIG_LUA_CONSTTAB_INT("Amplifier_PORT_BIAS", FX::Distortion::Amplifier::Amplifier::PORT_BIAS)},
     {SWIG_LUA_CONSTTAB_INT("Amplifier_PORT_MIN", FX::Distortion::Amplifier::Amplifier::PORT_MIN)},
@@ -50903,14 +57515,21 @@ static swig_lua_method swig_SwigModule_methods[]= {
     { "udo1", _wrap_udo1},
     { "udo1_simd", _wrap_udo1_simd},
     { "Fold", _wrap_Fold},
+    { "fold_vector", _wrap_fold_vector},
     { "Wrap", _wrap_Wrap},
+    { "wrap_vector", _wrap_wrap_vector},
     { "SinFold", _wrap_SinFold},
+    { "sinfold_vector", _wrap_sinfold_vector},
     { "cheby", _wrap_cheby},
+    { "cheby_vector", _wrap_cheby_vector},
     { "cheby_polynomial", _wrap_cheby_polynomial},
+    { "cheby_polynomial_vector", _wrap_cheby_polynomial_vector},
     { "amp_clamp", _wrap_amp_clamp},
+    { "bias_vector", _wrap_bias_vector},
     { "clamp_vector", _wrap_clamp_vector},
     { "preamp", _wrap_preamp},
     { "preamp_vector", _wrap_preamp_vector},
+    { "amp_vector", _wrap_amp_vector},
     { "postamp", _wrap_postamp},
     { "postamp_vector", _wrap_postamp_vector},
     { "tanh_normal", _wrap_tanh_normal},
@@ -50920,59 +57539,109 @@ static swig_lua_method swig_SwigModule_methods[]= {
     { "sigmoid_function", _wrap_sigmoid_function},
     { "sigmoid_vector", _wrap_sigmoid_vector},
     { "sigmoid_minus", _wrap_sigmoid_minus},
+    { "sigmoid_minus_vector", _wrap_sigmoid_minus_vector},
     { "bpsigmoid", _wrap_bpsigmoid},
+    { "bpsigmoid_vector", _wrap_bpsigmoid_vector},
     { "full_rectify", _wrap_full_rectify},
+    { "full_rectify_vector", _wrap_full_rectify_vector},
     { "half_rectify", _wrap_half_rectify},
+    { "half_rectify_vector", _wrap_half_rectify_vector},
     { "modulated_signals", _wrap_modulated_signals},
     { "circular_modulated_signals", _wrap_circular_modulated_signals},
     { "positive_modulated_signals", _wrap_positive_modulated_signals},
     { "negative_modulated_signals", _wrap_negative_modulated_signals},
     { "sigmoidDistortionFunction", _wrap_sigmoidDistortionFunction},
+    { "sigmoid_distortion_functionvector", _wrap_sigmoid_distortion_functionvector},
     { "asymmetricSigmoidDistortionFunction", _wrap_asymmetricSigmoidDistortionFunction},
     { "assymetric_sigmoid", _wrap_assymetric_sigmoid},
+    { "assymetric_sigmoid_vector", _wrap_assymetric_sigmoid_vector},
     { "asymmetricSigmoidDistortionFunction2", _wrap_asymmetricSigmoidDistortionFunction2},
     { "assymetric_sigmoid2", _wrap_assymetric_sigmoid2},
+    { "assymetric_sigmoid2_vector", _wrap_assymetric_sigmoid2_vector},
     { "distortionFunction", _wrap_distortionFunction},
     { "distortion_function", _wrap_distortion_function},
+    { "distortion_function_vector", _wrap_distortion_function_vector},
     { "cubic_distortion", _wrap_cubic_distortion},
+    { "cubic_distortion_vector", _wrap_cubic_distortion_vector},
     { "asin_distortion", _wrap_asin_distortion},
+    { "asin_distortion_vector", _wrap_asin_distortion_vector},
     { "acos_distortion", _wrap_acos_distortion},
+    { "acos_distortion_vector", _wrap_acos_distortion_vector},
     { "atan_distortion", _wrap_atan_distortion},
+    { "atan_distortion_vector", _wrap_atan_distortion_vector},
     { "asinh_distortion", _wrap_asinh_distortion},
+    { "asinh_distortion_vector", _wrap_asinh_distortion_vector},
     { "acosh_distortion", _wrap_acosh_distortion},
+    { "acosh_distortion_vector", _wrap_acosh_distortion_vector},
     { "atanh_distortion", _wrap_atanh_distortion},
+    { "atanh_distortion_vector", _wrap_atanh_distortion_vector},
     { "exp_distortion", _wrap_exp_distortion},
+    { "exp_distortion_vector", _wrap_exp_distortion_vector},
     { "dc_distortion", _wrap_dc_distortion},
+    { "dc_distortion_vector", _wrap_dc_distortion_vector},
     { "bipolar_distortion", _wrap_bipolar_distortion},
+    { "bipolar_distortion_vector", _wrap_bipolar_distortion_vector},
     { "quadratic_distortion", _wrap_quadratic_distortion},
+    { "quadratic_distortion_vector", _wrap_quadratic_distortion_vector},
     { "quadratic2_distortion", _wrap_quadratic2_distortion},
+    { "quadratic2_distortion_vector", _wrap_quadratic2_distortion_vector},
     { "quadratic3_distortion", _wrap_quadratic3_distortion},
+    { "quadratic3_distortion_vector", _wrap_quadratic3_distortion_vector},
     { "parametric_clip", _wrap_parametric_clip},
+    { "parametric_clip_vector", _wrap_parametric_clip_vector},
     { "arcTanDistortion", _wrap_arcTanDistortion},
+    { "arctandistortion_vector", _wrap_arctandistortion_vector},
     { "softClipper", _wrap_softClipper},
+    { "softclipper_vector", _wrap_softclipper_vector},
     { "errorf", _wrap_errorf},
+    { "errorf_vector", _wrap_errorf_vector},
     { "sigmoided", _wrap_sigmoided},
     { "hardclip", _wrap_hardclip},
     { "hyperbolicTangent", _wrap_hyperbolicTangent},
     { "diodeClipping", _wrap_diodeClipping},
+    { "diode_clipping_vector", _wrap_diode_clipping_vector},
     { "fuzzExponential", _wrap_fuzzExponential},
+    { "fuzz_exponential_vector", _wrap_fuzz_exponential_vector},
     { "pieceWiseOverdrive", _wrap_pieceWiseOverdrive},
+    { "piecewise_overdrive_vector", _wrap_piecewise_overdrive_vector},
     { "tube", _wrap_tube},
+    { "tube_vector", _wrap_tube_vector},
     { "arraya", _wrap_arraya},
+    { "arraya_vector", _wrap_arraya_vector},
     { "gallo", _wrap_gallo},
+    { "gallo_vector", _wrap_gallo_vector},
     { "doubleSoftClipper", _wrap_doubleSoftClipper},
+    { "double_soft_clipper_vector", _wrap_double_soft_clipper_vector},
     { "crush", _wrap_crush},
+    { "crush_vector", _wrap_crush_vector},
     { "tuboid", _wrap_tuboid},
-    { "pakarinen_Yeh", _wrap_pakarinen_Yeh},
+    { "tuboid_vector", _wrap_tuboid_vector},
+    { "pakarinen_yeh", _wrap_pakarinen_yeh},
+    { "pakarinen_yeh_vector", _wrap_pakarinen_yeh_vector},
+    { "logiclip_vector", _wrap_logiclip_vector},
+    { "hardclip_vector", _wrap_hardclip_vector},
+    { "tanhclip_vector", _wrap_tanhclip_vector},
+    { "quintic_vector", _wrap_quintic_vector},
+    { "basic_cubic_vector", _wrap_basic_cubic_vector},
+    { "algclip_vector", _wrap_algclip_vector},
+    { "arcclip_vector", _wrap_arcclip_vector},
+    { "sinclip_vector", _wrap_sinclip_vector},
     { "FuzzCtrTable", _wrap_FuzzCtrTable},
+    { "fuzzctrtable_vector", _wrap_fuzzctrtable_vector},
+    { "fuzztable_vector", _wrap_fuzztable_vector},
     { "absfunc", _wrap_absfunc},
     { "cubefunc", _wrap_cubefunc},
     { "Rectify", _wrap_Rectify},
+    { "rectify_vector", _wrap_rectify_vector},
     { "HardClip", _wrap_HardClip},
+    { "hardclip2_vector", _wrap_hardclip2_vector},
     { "SoftCubicClip", _wrap_SoftCubicClip},
+    { "soft_cubic_clip_vector", _wrap_soft_cubic_clip_vector},
     { "SoftCubic", _wrap_SoftCubic},
+    { "soft_cubic_vector", _wrap_soft_cubic_vector},
     { "SKClip", _wrap_SKClip},
     { "SoftKnee", _wrap_SoftKnee},
+    { "soft_knee_vector", _wrap_soft_knee_vector},
     { "LeakyInt", _wrap_LeakyInt},
     { "linearScale", _wrap_linearScale},
     { "linearDescale", _wrap_linearDescale},
@@ -50980,13 +57649,17 @@ static swig_lua_method swig_SwigModule_methods[]= {
     { "expoDescale", _wrap_expoDescale},
     { "floorScale", _wrap_floorScale},
     { "expoShape", _wrap_expoShape},
+    { "exposhape_vector", _wrap_exposhape_vector},
     { "softClipShape", _wrap_softClipShape},
+    { "softclipshape_vector", _wrap_softclipshape_vector},
     { "sineShape", _wrap_sineShape},
+    { "sineshape_vector", _wrap_sineshape_vector},
     { "chebyshevRec", _wrap_chebyshevRec},
     { "chebyshevShape", _wrap_chebyshevShape},
     { "arctangent", _wrap_arctangent},
     { "hardClip", _wrap_hardClip},
     { "squareLaw", _wrap_squareLaw},
+    { "squarelaw_vector", _wrap_squarelaw_vector},
     { "cubicWaveShaper", _wrap_cubicWaveShaper},
     { "foldback", _wrap_foldback},
     { "waveShaper1", _wrap_waveShaper1},
@@ -50995,7 +57668,6 @@ static swig_lua_method swig_SwigModule_methods[]= {
     { "gloubiBoulga", _wrap_gloubiBoulga},
     { "gloubiApprox", _wrap_gloubiApprox},
     { "FuzzEdgeTable", _wrap_FuzzEdgeTable},
-    { "tubeclip", _wrap_tubeclip},
     { "hardClipping", _wrap_hardClipping},
     { "softClipping", _wrap_softClipping},
     { "exponential", _wrap_exponential},
@@ -51004,22 +57676,36 @@ static swig_lua_method swig_SwigModule_methods[]= {
     { "ArayaAndSuyama", _wrap_ArayaAndSuyama},
     { "doidicSymmetric", _wrap_doidicSymmetric},
     { "doidicAssymetric", _wrap_doidicAssymetric},
+    { "InitRandom", _wrap_InitRandom},
     { "Diode", _wrap_Diode},
     { "signum", _wrap_signum},
     { "clamp", _wrap_clamp},
     { "serpent_curve", _wrap_serpent_curve},
+    { "serpent_curve_vector", _wrap_serpent_curve_vector},
     { "sigmoider", _wrap_sigmoider},
+    { "sigmoider_vector", _wrap_sigmoider_vector},
     { "erfmoider", _wrap_erfmoider},
+    { "erfmoider_vector", _wrap_erfmoider_vector},
     { "gunderballs", _wrap_gunderballs},
+    { "gunderballs_vector", _wrap_gunderballs_vector},
     { "algebraballs", _wrap_algebraballs},
+    { "algebraballs_vector", _wrap_algebraballs_vector},
     { "algebramoider", _wrap_algebramoider},
+    { "algebramoider_vector", _wrap_algebramoider_vector},
     { "tanhify", _wrap_tanhify},
+    { "tanhify_vector", _wrap_tanhify_vector},
     { "tanhballs", _wrap_tanhballs},
+    { "tanhballs_vector", _wrap_tanhballs_vector},
     { "tanhmoider", _wrap_tanhmoider},
+    { "tanhmoider_vector", _wrap_tanhmoider_vector},
     { "atanballs", _wrap_atanballs},
+    { "atanballs_vector", _wrap_atanballs_vector},
     { "atanmoider", _wrap_atanmoider},
+    { "atanmoider_vector", _wrap_atanmoider_vector},
     { "bipolar_tanh", _wrap_bipolar_tanh},
+    { "bipolar_tanh_vector", _wrap_bipolar_tanh_vector},
     { "quadrant_tanh", _wrap_quadrant_tanh},
+    { "morph_vector", _wrap_morph_vector},
     { "distortionOne", _wrap_distortionOne},
     { "distortionTwo", _wrap_distortionTwo},
     { "softSaturation", _wrap_softSaturation},
@@ -51134,18 +57820,12 @@ static swig_lua_class* swig_SwigModule_classes[]= {
 &_wrap_class_QuadAmplifier,
 &_wrap_class_BipolarAmplifier,
 &_wrap_class_BipolarAmplifier2,
-&_wrap_class_DiodeClipperAmplifier,
-&_wrap_class_DiodeSimAmplifier,
-&_wrap_class_DiodAmplifier,
-&_wrap_class_WDFDiodeClipperAmplifier,
-&_wrap_class_ValveAmplifier,
-&_wrap_class_Amplifier8,
+&_wrap_class_ToneAmp,
 &_wrap_class_FoldAmp,
 &_wrap_class_AmplifierFunction1,
 &_wrap_class_AmplifierFunction2,
 &_wrap_class_AmplifierFunction3,
 &_wrap_class_AmplifierFunction4,
-&_wrap_class_table1d,
 &_wrap_class_Udo1,
 &_wrap_class_DiodeClipperNR,
 &_wrap_class_DiodeClipperFP,
@@ -51186,14 +57866,11 @@ static swig_lua_namespace swig_SwigModule = {
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
 
-static void *_p_p_FX__Distortion__AmplifierFunction2To_p_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((AmplifierProcessor **)  ((FX::Distortion::AmplifierFunction2 **) x));
-}
 static void *_p_p_FX__Distortion__Clip__SerpentCurveTo_p_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((AmplifierProcessor **)  ((FX::Distortion::Clip::SerpentCurve **) x));
 }
-static void *_p_p_FX__Distortion__Amplifier__Amplifier8To_p_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((AmplifierProcessor **) (FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::Amplifier8 **) x));
+static void *_p_p_FX__Distortion__AmplifierFunction2To_p_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((AmplifierProcessor **)  ((FX::Distortion::AmplifierFunction2 **) x));
 }
 static void *_p_p_FX__Distortion__AmplifierFunction3To_p_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((AmplifierProcessor **)  ((FX::Distortion::AmplifierFunction3 **) x));
@@ -51203,18 +57880,6 @@ static void *_p_p_FX__Distortion__AmplifierFunction4To_p_p_AmplifierProcessor(vo
 }
 static void *_p_p_FX__Distortion__FoldAmpTo_p_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((AmplifierProcessor **)  ((FX::Distortion::FoldAmp **) x));
-}
-static void *_p_p_FX__Distortion__Amplifier__ValveAmplifierTo_p_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((AmplifierProcessor **) (FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::ValveAmplifier **) x));
-}
-static void *_p_p_FX__Distortion__Amplifier__DiodAmplifierTo_p_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((AmplifierProcessor **) (FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::DiodAmplifier **) x));
-}
-static void *_p_p_FX__Distortion__Amplifier__DiodeSimAmplifierTo_p_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((AmplifierProcessor **) (FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::DiodeSimAmplifier **) x));
-}
-static void *_p_p_FX__Distortion__Amplifier__DiodeClipperAmplifierTo_p_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((AmplifierProcessor **) (FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::DiodeClipperAmplifier **) x));
 }
 static void *_p_p_FX__Distortion__Amplifier__BipolarAmplifierTo_p_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((AmplifierProcessor **) (FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::BipolarAmplifier **) x));
@@ -51233,9 +57898,6 @@ static void *_p_p_FX__Distortion__Amplifier__TwinAmplifierTo_p_p_AmplifierProces
 }
 static void *_p_p_FX__Distortion__Amplifier__AmplifierTo_p_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((AmplifierProcessor **)  ((FX::Distortion::Amplifier::Amplifier **) x));
-}
-static void *_p_p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifierTo_p_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((AmplifierProcessor **) (FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::WDFDiodeClipperAmplifier **) x));
 }
 static void *_p_p_FX__Distortion__Amplifier__BipolarAmplifier2To_p_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((AmplifierProcessor **) (FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::BipolarAmplifier2 **) x));
@@ -51261,14 +57923,11 @@ static void *_p_FX__Distortion__Diode__DiodeClipperFPTo_p_FunctionProcessor(void
 static void *_p_FX__Distortion__Diode__DiodeClipperNRTo_p_FunctionProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FunctionProcessor *)  ((FX::Distortion::Diode::DiodeClipperNR *) x));
 }
-static void *_p_FX__Distortion__AmplifierFunction2To_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((AmplifierProcessor *)  ((FX::Distortion::AmplifierFunction2 *) x));
-}
 static void *_p_FX__Distortion__Clip__SerpentCurveTo_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((AmplifierProcessor *)  ((FX::Distortion::Clip::SerpentCurve *) x));
 }
-static void *_p_FX__Distortion__Amplifier__Amplifier8To_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((AmplifierProcessor *) (FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::Amplifier8 *) x));
+static void *_p_FX__Distortion__AmplifierFunction2To_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((AmplifierProcessor *)  ((FX::Distortion::AmplifierFunction2 *) x));
 }
 static void *_p_FX__Distortion__AmplifierFunction3To_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((AmplifierProcessor *)  ((FX::Distortion::AmplifierFunction3 *) x));
@@ -51278,18 +57937,6 @@ static void *_p_FX__Distortion__AmplifierFunction4To_p_AmplifierProcessor(void *
 }
 static void *_p_FX__Distortion__FoldAmpTo_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((AmplifierProcessor *)  ((FX::Distortion::FoldAmp *) x));
-}
-static void *_p_FX__Distortion__Amplifier__ValveAmplifierTo_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((AmplifierProcessor *) (FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::ValveAmplifier *) x));
-}
-static void *_p_FX__Distortion__Amplifier__DiodAmplifierTo_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((AmplifierProcessor *) (FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::DiodAmplifier *) x));
-}
-static void *_p_FX__Distortion__Amplifier__DiodeSimAmplifierTo_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((AmplifierProcessor *) (FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::DiodeSimAmplifier *) x));
-}
-static void *_p_FX__Distortion__Amplifier__DiodeClipperAmplifierTo_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((AmplifierProcessor *) (FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::DiodeClipperAmplifier *) x));
 }
 static void *_p_FX__Distortion__Amplifier__BipolarAmplifierTo_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((AmplifierProcessor *) (FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::BipolarAmplifier *) x));
@@ -51308,9 +57955,6 @@ static void *_p_FX__Distortion__Amplifier__TwinAmplifierTo_p_AmplifierProcessor(
 }
 static void *_p_FX__Distortion__Amplifier__AmplifierTo_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((AmplifierProcessor *)  ((FX::Distortion::Amplifier::Amplifier *) x));
-}
-static void *_p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifierTo_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((AmplifierProcessor *) (FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::WDFDiodeClipperAmplifier *) x));
 }
 static void *_p_FX__Distortion__Amplifier__BipolarAmplifier2To_p_AmplifierProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((AmplifierProcessor *) (FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::BipolarAmplifier2 *) x));
@@ -51390,9 +58034,6 @@ static void *_p_FX__Distortion__AmplifierFunction2To_p_MonoProcessor(void *x, in
 static void *_p_FX__Distortion__Clip__SerpentCurveTo_p_MonoProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((MonoProcessor *) (AmplifierProcessor *) ((FX::Distortion::Clip::SerpentCurve *) x));
 }
-static void *_p_FX__Distortion__Amplifier__Amplifier8To_p_MonoProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((MonoProcessor *) (AmplifierProcessor *)(FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::Amplifier8 *) x));
-}
 static void *_p_FX__Distortion__AmplifierFunction3To_p_MonoProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((MonoProcessor *) (AmplifierProcessor *) ((FX::Distortion::AmplifierFunction3 *) x));
 }
@@ -51426,23 +58067,8 @@ static void *_p_FX__Distortion__Amplifier__TwinAmplifierTo_p_MonoProcessor(void 
 static void *_p_FX__Distortion__Amplifier__AmplifierTo_p_MonoProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((MonoProcessor *) (AmplifierProcessor *) ((FX::Distortion::Amplifier::Amplifier *) x));
 }
-static void *_p_FX__Distortion__Amplifier__DiodeClipperAmplifierTo_p_MonoProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((MonoProcessor *) (AmplifierProcessor *)(FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::DiodeClipperAmplifier *) x));
-}
-static void *_p_FX__Distortion__Amplifier__DiodeSimAmplifierTo_p_MonoProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((MonoProcessor *) (AmplifierProcessor *)(FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::DiodeSimAmplifier *) x));
-}
-static void *_p_FX__Distortion__Amplifier__DiodAmplifierTo_p_MonoProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((MonoProcessor *) (AmplifierProcessor *)(FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::DiodAmplifier *) x));
-}
-static void *_p_FX__Distortion__Amplifier__ValveAmplifierTo_p_MonoProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((MonoProcessor *) (AmplifierProcessor *)(FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::ValveAmplifier *) x));
-}
 static void *_p_FX__Distortion__Amplifier__BipolarAmplifier2To_p_MonoProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((MonoProcessor *) (AmplifierProcessor *)(FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::BipolarAmplifier2 *) x));
-}
-static void *_p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifierTo_p_MonoProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((MonoProcessor *) (AmplifierProcessor *)(FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::WDFDiodeClipperAmplifier *) x));
 }
 static void *_p_FX__WaveShaping__ATanSoftClipperTo_p_MonoProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((MonoProcessor *) (AmplifierProcessor *) ((FX::WaveShaping::ATanSoftClipper *) x));
@@ -51492,29 +58118,11 @@ static void *_p_FX__Distortion__Amplifier__QuadAmplifierTo_p_SoundProcessor(void
 static void *_p_FX__Distortion__Amplifier__BipolarAmplifierTo_p_SoundProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((SoundProcessor *) (MonoProcessor *)(AmplifierProcessor *)(FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::BipolarAmplifier *) x));
 }
-static void *_p_FX__Distortion__Amplifier__DiodeClipperAmplifierTo_p_SoundProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((SoundProcessor *) (MonoProcessor *)(AmplifierProcessor *)(FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::DiodeClipperAmplifier *) x));
-}
-static void *_p_FX__Distortion__Amplifier__DiodeSimAmplifierTo_p_SoundProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((SoundProcessor *) (MonoProcessor *)(AmplifierProcessor *)(FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::DiodeSimAmplifier *) x));
-}
-static void *_p_FX__Distortion__Amplifier__DiodAmplifierTo_p_SoundProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((SoundProcessor *) (MonoProcessor *)(AmplifierProcessor *)(FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::DiodAmplifier *) x));
-}
-static void *_p_FX__Distortion__Amplifier__ValveAmplifierTo_p_SoundProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((SoundProcessor *) (MonoProcessor *)(AmplifierProcessor *)(FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::ValveAmplifier *) x));
-}
 static void *_p_FX__Distortion__Clip__SerpentCurveTo_p_SoundProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((SoundProcessor *) (MonoProcessor *)(AmplifierProcessor *) ((FX::Distortion::Clip::SerpentCurve *) x));
 }
 static void *_p_FX__Distortion__Amplifier__BipolarAmplifier2To_p_SoundProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((SoundProcessor *) (MonoProcessor *)(AmplifierProcessor *)(FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::BipolarAmplifier2 *) x));
-}
-static void *_p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifierTo_p_SoundProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((SoundProcessor *) (MonoProcessor *)(AmplifierProcessor *)(FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::WDFDiodeClipperAmplifier *) x));
-}
-static void *_p_FX__Distortion__Amplifier__Amplifier8To_p_SoundProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((SoundProcessor *) (MonoProcessor *)(AmplifierProcessor *)(FX::Distortion::Amplifier::Amplifier *) ((FX::Distortion::Amplifier::Amplifier8 *) x));
 }
 static void *_p_FX__Distortion__Udo1To_p_SoundProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((SoundProcessor *) (MonoProcessor *)(AmplifierProcessor *) ((FX::Distortion::Udo1 *) x));
@@ -51621,9 +58229,6 @@ static void *_p_FilterProcessorTo_p_SoundProcessor(void *x, int *SWIGUNUSEDPARM(
 static void *_p_AmplifierProcessorTo_p_SoundProcessor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((SoundProcessor *) (MonoProcessor *) ((AmplifierProcessor *) x));
 }
-static void *_p_FX__Distortion__Amplifier__Amplifier8To_p_FX__Distortion__Amplifier__Amplifier(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((FX::Distortion::Amplifier::Amplifier *)  ((FX::Distortion::Amplifier::Amplifier8 *) x));
-}
 static void *_p_FX__Distortion__Amplifier__TwinAmplifierTo_p_FX__Distortion__Amplifier__Amplifier(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FX::Distortion::Amplifier::Amplifier *)  ((FX::Distortion::Amplifier::TwinAmplifier *) x));
 }
@@ -51642,21 +58247,6 @@ static void *_p_FX__Distortion__Amplifier__BipolarAmplifierTo_p_FX__Distortion__
 static void *_p_FX__Distortion__Amplifier__BipolarAmplifier2To_p_FX__Distortion__Amplifier__Amplifier(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FX::Distortion::Amplifier::Amplifier *)  ((FX::Distortion::Amplifier::BipolarAmplifier2 *) x));
 }
-static void *_p_FX__Distortion__Amplifier__DiodeClipperAmplifierTo_p_FX__Distortion__Amplifier__Amplifier(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((FX::Distortion::Amplifier::Amplifier *)  ((FX::Distortion::Amplifier::DiodeClipperAmplifier *) x));
-}
-static void *_p_FX__Distortion__Amplifier__DiodeSimAmplifierTo_p_FX__Distortion__Amplifier__Amplifier(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((FX::Distortion::Amplifier::Amplifier *)  ((FX::Distortion::Amplifier::DiodeSimAmplifier *) x));
-}
-static void *_p_FX__Distortion__Amplifier__DiodAmplifierTo_p_FX__Distortion__Amplifier__Amplifier(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((FX::Distortion::Amplifier::Amplifier *)  ((FX::Distortion::Amplifier::DiodAmplifier *) x));
-}
-static void *_p_FX__Distortion__Amplifier__ValveAmplifierTo_p_FX__Distortion__Amplifier__Amplifier(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((FX::Distortion::Amplifier::Amplifier *)  ((FX::Distortion::Amplifier::ValveAmplifier *) x));
-}
-static void *_p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifierTo_p_FX__Distortion__Amplifier__Amplifier(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((FX::Distortion::Amplifier::Amplifier *)  ((FX::Distortion::Amplifier::WDFDiodeClipperAmplifier *) x));
-}
 static swig_type_info _swigt__p_AmplifierProcessor = {"_p_AmplifierProcessor", "AmplifierProcessor *", 0, 0, (void*)&_wrap_class_AmplifierProcessor, 0};
 static swig_type_info _swigt__p_Analog__BezierDistortion = {"_p_Analog__BezierDistortion", "Analog::BezierDistortion *", 0, 0, (void*)&_wrap_class_BezierDistortion, 0};
 static swig_type_info _swigt__p_Bezier__BezierT_3_t = {"_p_Bezier__BezierT_3_t", "Bezier::Bezier< 3 > *", 0, 0, (void*)0, 0};
@@ -51665,18 +58255,13 @@ static swig_type_info _swigt__p_FX__Distortion__AmplifierFunction2 = {"_p_FX__Di
 static swig_type_info _swigt__p_FX__Distortion__AmplifierFunction3 = {"_p_FX__Distortion__AmplifierFunction3", "FX::Distortion::AmplifierFunction3 *", 0, 0, (void*)&_wrap_class_AmplifierFunction3, 0};
 static swig_type_info _swigt__p_FX__Distortion__AmplifierFunction4 = {"_p_FX__Distortion__AmplifierFunction4", "FX::Distortion::AmplifierFunction4 *", 0, 0, (void*)&_wrap_class_AmplifierFunction4, 0};
 static swig_type_info _swigt__p_FX__Distortion__Amplifier__Amplifier = {"_p_FX__Distortion__Amplifier__Amplifier", "FX::Distortion::Amplifier::Amplifier *", 0, 0, (void*)&_wrap_class_Amplifier, 0};
-static swig_type_info _swigt__p_FX__Distortion__Amplifier__Amplifier8 = {"_p_FX__Distortion__Amplifier__Amplifier8", "FX::Distortion::Amplifier::Amplifier8 *", 0, 0, (void*)&_wrap_class_Amplifier8, 0};
 static swig_type_info _swigt__p_FX__Distortion__Amplifier__BipolarAmplifier = {"_p_FX__Distortion__Amplifier__BipolarAmplifier", "FX::Distortion::Amplifier::BipolarAmplifier *", 0, 0, (void*)&_wrap_class_BipolarAmplifier, 0};
 static swig_type_info _swigt__p_FX__Distortion__Amplifier__BipolarAmplifier2 = {"_p_FX__Distortion__Amplifier__BipolarAmplifier2", "FX::Distortion::Amplifier::BipolarAmplifier2 *", 0, 0, (void*)&_wrap_class_BipolarAmplifier2, 0};
-static swig_type_info _swigt__p_FX__Distortion__Amplifier__DiodAmplifier = {"_p_FX__Distortion__Amplifier__DiodAmplifier", "FX::Distortion::Amplifier::DiodAmplifier *", 0, 0, (void*)&_wrap_class_DiodAmplifier, 0};
-static swig_type_info _swigt__p_FX__Distortion__Amplifier__DiodeClipperAmplifier = {"_p_FX__Distortion__Amplifier__DiodeClipperAmplifier", "FX::Distortion::Amplifier::DiodeClipperAmplifier *", 0, 0, (void*)&_wrap_class_DiodeClipperAmplifier, 0};
-static swig_type_info _swigt__p_FX__Distortion__Amplifier__DiodeSimAmplifier = {"_p_FX__Distortion__Amplifier__DiodeSimAmplifier", "FX::Distortion::Amplifier::DiodeSimAmplifier *", 0, 0, (void*)&_wrap_class_DiodeSimAmplifier, 0};
 static swig_type_info _swigt__p_FX__Distortion__Amplifier__QuadAmplifier = {"_p_FX__Distortion__Amplifier__QuadAmplifier", "FX::Distortion::Amplifier::QuadAmplifier *", 0, 0, (void*)&_wrap_class_QuadAmplifier, 0};
 static swig_type_info _swigt__p_FX__Distortion__Amplifier__Range4Amplifier = {"_p_FX__Distortion__Amplifier__Range4Amplifier", "FX::Distortion::Amplifier::Range4Amplifier *", 0, 0, (void*)&_wrap_class_Range4Amplifier, 0};
 static swig_type_info _swigt__p_FX__Distortion__Amplifier__RangeAmplifier = {"_p_FX__Distortion__Amplifier__RangeAmplifier", "FX::Distortion::Amplifier::RangeAmplifier *", 0, 0, (void*)&_wrap_class_RangeAmplifier, 0};
+static swig_type_info _swigt__p_FX__Distortion__Amplifier__ToneAmp = {"_p_FX__Distortion__Amplifier__ToneAmp", "FX::Distortion::Amplifier::ToneAmp *", 0, 0, (void*)&_wrap_class_ToneAmp, 0};
 static swig_type_info _swigt__p_FX__Distortion__Amplifier__TwinAmplifier = {"_p_FX__Distortion__Amplifier__TwinAmplifier", "FX::Distortion::Amplifier::TwinAmplifier *", 0, 0, (void*)&_wrap_class_TwinAmplifier, 0};
-static swig_type_info _swigt__p_FX__Distortion__Amplifier__ValveAmplifier = {"_p_FX__Distortion__Amplifier__ValveAmplifier", "FX::Distortion::Amplifier::ValveAmplifier *", 0, 0, (void*)&_wrap_class_ValveAmplifier, 0};
-static swig_type_info _swigt__p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifier = {"_p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifier", "FX::Distortion::Amplifier::WDFDiodeClipperAmplifier *", 0, 0, (void*)&_wrap_class_WDFDiodeClipperAmplifier, 0};
 static swig_type_info _swigt__p_FX__Distortion__ClipFunction = {"_p_FX__Distortion__ClipFunction", "FX::Distortion::ClipFunction *", 0, 0, (void*)&_wrap_class_ClipFunction, 0};
 static swig_type_info _swigt__p_FX__Distortion__Clip__SerpentCurve = {"_p_FX__Distortion__Clip__SerpentCurve", "FX::Distortion::Clip::SerpentCurve *", 0, 0, (void*)&_wrap_class_SerpentCurve, 0};
 static swig_type_info _swigt__p_FX__Distortion__Diode__DiodeClipperFP = {"_p_FX__Distortion__Diode__DiodeClipperFP", "FX::Distortion::Diode::DiodeClipperFP *", 0, 0, (void*)&_wrap_class_DiodeClipperFP, 0};
@@ -51688,8 +58273,6 @@ static swig_type_info _swigt__p_FX__Distortion__DistortionCompressor__PeakLevelD
 static swig_type_info _swigt__p_FX__Distortion__FoldAmp = {"_p_FX__Distortion__FoldAmp", "FX::Distortion::FoldAmp *", 0, 0, (void*)&_wrap_class_FoldAmp, 0};
 static swig_type_info _swigt__p_FX__Distortion__MorphClipper = {"_p_FX__Distortion__MorphClipper", "FX::Distortion::MorphClipper *", 0, 0, (void*)&_wrap_class_MorphClipper, 0};
 static swig_type_info _swigt__p_FX__Distortion__Udo1 = {"_p_FX__Distortion__Udo1", "FX::Distortion::Udo1 *", 0, 0, (void*)&_wrap_class_Udo1, 0};
-static swig_type_info _swigt__p_FX__Distortion__table1d = {"_p_FX__Distortion__table1d", "FX::Distortion::table1d *", 0, 0, (void*)&_wrap_class_table1d, 0};
-static swig_type_info _swigt__p_FX__Distortion__table1d_impT_200_t = {"_p_FX__Distortion__table1d_impT_200_t", "FX::Distortion::table1d_imp< 200 > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FX__SstWaveShaper__SstWaveshaper = {"_p_FX__SstWaveShaper__SstWaveshaper", "FX::SstWaveShaper::SstWaveshaper *", 0, 0, (void*)&_wrap_class_SstWaveshaper, 0};
 static swig_type_info _swigt__p_FX__WaveShaping__ATanSoftClipper = {"_p_FX__WaveShaping__ATanSoftClipper", "FX::WaveShaping::ATanSoftClipper *", 0, 0, (void*)&_wrap_class_ATanSoftClipper, 0};
 static swig_type_info _swigt__p_FilterProcessor = {"_p_FilterProcessor", "FilterProcessor *", 0, 0, (void*)&_wrap_class_FilterProcessor, 0};
@@ -51740,23 +58323,17 @@ static swig_type_info _swigt__p_p_AmplifierProcessor = {"_p_p_AmplifierProcessor
 static swig_type_info _swigt__p_p_FX__Distortion__Clip__SerpentCurve = {"_p_p_FX__Distortion__Clip__SerpentCurve", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_p_FX__Distortion__AmplifierFunction2 = {"_p_p_FX__Distortion__AmplifierFunction2", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_p_FX__Distortion__AmplifierFunction3 = {"_p_p_FX__Distortion__AmplifierFunction3", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_p_FX__Distortion__Amplifier__Amplifier8 = {"_p_p_FX__Distortion__Amplifier__Amplifier8", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_p_FX__Distortion__Amplifier__DiodeClipperAmplifier = {"_p_p_FX__Distortion__Amplifier__DiodeClipperAmplifier", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifier = {"_p_p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifier", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_p_FX__Distortion__AmplifierFunction4 = {"_p_p_FX__Distortion__AmplifierFunction4", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_p_FX__Distortion__FoldAmp = {"_p_p_FX__Distortion__FoldAmp", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_p_FX__Distortion__Udo1 = {"_p_p_FX__Distortion__Udo1", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_p_FX__Distortion__Amplifier__DiodeSimAmplifier = {"_p_p_FX__Distortion__Amplifier__DiodeSimAmplifier", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_p_FX__Distortion__Amplifier__BipolarAmplifier = {"_p_p_FX__Distortion__Amplifier__BipolarAmplifier", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_p_FX__Distortion__Amplifier__QuadAmplifier = {"_p_p_FX__Distortion__Amplifier__QuadAmplifier", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_p_FX__Distortion__Amplifier__Range4Amplifier = {"_p_p_FX__Distortion__Amplifier__Range4Amplifier", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_p_FX__Distortion__Amplifier__DiodAmplifier = {"_p_p_FX__Distortion__Amplifier__DiodAmplifier", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_p_FX__Distortion__Amplifier__ValveAmplifier = {"_p_p_FX__Distortion__Amplifier__ValveAmplifier", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_p_FX__Distortion__Amplifier__RangeAmplifier = {"_p_p_FX__Distortion__Amplifier__RangeAmplifier", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_p_FX__Distortion__Amplifier__TwinAmplifier = {"_p_p_FX__Distortion__Amplifier__TwinAmplifier", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_p_FX__Distortion__Amplifier__Amplifier = {"_p_p_FX__Distortion__Amplifier__Amplifier", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_p_FX__Distortion__Amplifier__BipolarAmplifier2 = {"_p_p_FX__Distortion__Amplifier__BipolarAmplifier2", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_p_FX__WaveShaping__ATanSoftClipper = {"_p_p_FX__WaveShaping__ATanSoftClipper", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_p_FX__Distortion__Amplifier__BipolarAmplifier2 = {"_p_p_FX__Distortion__Amplifier__BipolarAmplifier2", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_p_FX__Distortion__AmplifierFunction1 = {"_p_p_FX__Distortion__AmplifierFunction1", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_p_FilterProcessor = {"_p_p_FilterProcessor", "FilterProcessor **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_FunctionProcessor = {"_p_p_FunctionProcessor", "FunctionProcessor **", 0, 0, (void*)0, 0};
@@ -51794,7 +58371,6 @@ static swig_type_info _swigt__p_std__numeric_limitsT_unsigned_long_t = {"_p_std_
 static swig_type_info _swigt__p_std__numeric_limitsT_unsigned_short_t = {"_p_std__numeric_limitsT_unsigned_short_t", "std::numeric_limits< unsigned short > *", 0, 0, (void*)&_wrap_class_ushort_numeric_limits, 0};
 static swig_type_info _swigt__p_std__string = {"_p_std__string", "std::string *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_MonoProcessor_p_std__allocatorT_MonoProcessor_p_t_t = {"_p_std__vectorT_MonoProcessor_p_std__allocatorT_MonoProcessor_p_t_t", "std::vector< MonoProcessor *,std::allocator< MonoProcessor * > > *|MonoProcessorVector *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_std__vectorT_OscillatorProcessor_p_std__allocatorT_OscillatorProcessor_p_t_t = {"_p_std__vectorT_OscillatorProcessor_p_std__allocatorT_OscillatorProcessor_p_t_t", "std::vector< OscillatorProcessor *,std::allocator< OscillatorProcessor * > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_SoundProcessor_p_std__allocatorT_SoundProcessor_p_t_t = {"_p_std__vectorT_SoundProcessor_p_std__allocatorT_SoundProcessor_p_t_t", "std::vector< SoundProcessor *,std::allocator< SoundProcessor * > > *|SoundProcessorVector *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_StereoProcessor_p_std__allocatorT_StereoProcessor_p_t_t = {"_p_std__vectorT_StereoProcessor_p_std__allocatorT_StereoProcessor_p_t_t", "std::vector< StereoProcessor *,std::allocator< StereoProcessor * > > *|StereoProcessorVector *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_double_std__allocatorT_double_t_t = {"_p_std__vectorT_double_std__allocatorT_double_t_t", "std::vector< double,std::allocator< double > > *|std::vector< DspFloatType,std::allocator< DspFloatType > > *|std::vector< double > *", 0, 0, (void*)&_wrap_class_double_vector, 0};
@@ -51819,18 +58395,13 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_FX__Distortion__AmplifierFunction3,
   &_swigt__p_FX__Distortion__AmplifierFunction4,
   &_swigt__p_FX__Distortion__Amplifier__Amplifier,
-  &_swigt__p_FX__Distortion__Amplifier__Amplifier8,
   &_swigt__p_FX__Distortion__Amplifier__BipolarAmplifier,
   &_swigt__p_FX__Distortion__Amplifier__BipolarAmplifier2,
-  &_swigt__p_FX__Distortion__Amplifier__DiodAmplifier,
-  &_swigt__p_FX__Distortion__Amplifier__DiodeClipperAmplifier,
-  &_swigt__p_FX__Distortion__Amplifier__DiodeSimAmplifier,
   &_swigt__p_FX__Distortion__Amplifier__QuadAmplifier,
   &_swigt__p_FX__Distortion__Amplifier__Range4Amplifier,
   &_swigt__p_FX__Distortion__Amplifier__RangeAmplifier,
+  &_swigt__p_FX__Distortion__Amplifier__ToneAmp,
   &_swigt__p_FX__Distortion__Amplifier__TwinAmplifier,
-  &_swigt__p_FX__Distortion__Amplifier__ValveAmplifier,
-  &_swigt__p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifier,
   &_swigt__p_FX__Distortion__ClipFunction,
   &_swigt__p_FX__Distortion__Clip__SerpentCurve,
   &_swigt__p_FX__Distortion__Diode__DiodeClipperFP,
@@ -51842,8 +58413,6 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_FX__Distortion__FoldAmp,
   &_swigt__p_FX__Distortion__MorphClipper,
   &_swigt__p_FX__Distortion__Udo1,
-  &_swigt__p_FX__Distortion__table1d,
-  &_swigt__p_FX__Distortion__table1d_impT_200_t,
   &_swigt__p_FX__SstWaveShaper__SstWaveshaper,
   &_swigt__p_FX__WaveShaping__ATanSoftClipper,
   &_swigt__p_FilterProcessor,
@@ -51896,18 +58465,12 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_p_FX__Distortion__AmplifierFunction3,
   &_swigt__p_p_FX__Distortion__AmplifierFunction4,
   &_swigt__p_p_FX__Distortion__Amplifier__Amplifier,
-  &_swigt__p_p_FX__Distortion__Amplifier__Amplifier8,
   &_swigt__p_p_FX__Distortion__Amplifier__BipolarAmplifier,
   &_swigt__p_p_FX__Distortion__Amplifier__BipolarAmplifier2,
-  &_swigt__p_p_FX__Distortion__Amplifier__DiodAmplifier,
-  &_swigt__p_p_FX__Distortion__Amplifier__DiodeClipperAmplifier,
-  &_swigt__p_p_FX__Distortion__Amplifier__DiodeSimAmplifier,
   &_swigt__p_p_FX__Distortion__Amplifier__QuadAmplifier,
   &_swigt__p_p_FX__Distortion__Amplifier__Range4Amplifier,
   &_swigt__p_p_FX__Distortion__Amplifier__RangeAmplifier,
   &_swigt__p_p_FX__Distortion__Amplifier__TwinAmplifier,
-  &_swigt__p_p_FX__Distortion__Amplifier__ValveAmplifier,
-  &_swigt__p_p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifier,
   &_swigt__p_p_FX__Distortion__Clip__SerpentCurve,
   &_swigt__p_p_FX__Distortion__Diode__DiodeClipperFP,
   &_swigt__p_p_FX__Distortion__Diode__DiodeClipperNR,
@@ -51948,7 +58511,6 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_std__numeric_limitsT_unsigned_short_t,
   &_swigt__p_std__string,
   &_swigt__p_std__vectorT_MonoProcessor_p_std__allocatorT_MonoProcessor_p_t_t,
-  &_swigt__p_std__vectorT_OscillatorProcessor_p_std__allocatorT_OscillatorProcessor_p_t_t,
   &_swigt__p_std__vectorT_SoundProcessor_p_std__allocatorT_SoundProcessor_p_t_t,
   &_swigt__p_std__vectorT_StereoProcessor_p_std__allocatorT_StereoProcessor_p_t_t,
   &_swigt__p_std__vectorT_double_std__allocatorT_double_t_t,
@@ -51965,26 +58527,21 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_unsigned_short,
 };
 
-static swig_cast_info _swigc__p_AmplifierProcessor[] = {  {&_swigt__p_AmplifierProcessor, 0, 0, 0},  {&_swigt__p_FX__Distortion__Clip__SerpentCurve, _p_FX__Distortion__Clip__SerpentCurveTo_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__AmplifierFunction2, _p_FX__Distortion__AmplifierFunction2To_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__AmplifierFunction3, _p_FX__Distortion__AmplifierFunction3To_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__Amplifier8, _p_FX__Distortion__Amplifier__Amplifier8To_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__AmplifierFunction4, _p_FX__Distortion__AmplifierFunction4To_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__FoldAmp, _p_FX__Distortion__FoldAmpTo_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Udo1, _p_FX__Distortion__Udo1To_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__ValveAmplifier, _p_FX__Distortion__Amplifier__ValveAmplifierTo_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__DiodAmplifier, _p_FX__Distortion__Amplifier__DiodAmplifierTo_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__DiodeSimAmplifier, _p_FX__Distortion__Amplifier__DiodeSimAmplifierTo_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__BipolarAmplifier, _p_FX__Distortion__Amplifier__BipolarAmplifierTo_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__QuadAmplifier, _p_FX__Distortion__Amplifier__QuadAmplifierTo_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__Range4Amplifier, _p_FX__Distortion__Amplifier__Range4AmplifierTo_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__RangeAmplifier, _p_FX__Distortion__Amplifier__RangeAmplifierTo_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__TwinAmplifier, _p_FX__Distortion__Amplifier__TwinAmplifierTo_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__Amplifier, _p_FX__Distortion__Amplifier__AmplifierTo_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__BipolarAmplifier2, _p_FX__Distortion__Amplifier__BipolarAmplifier2To_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__DiodeClipperAmplifier, _p_FX__Distortion__Amplifier__DiodeClipperAmplifierTo_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__WaveShaping__ATanSoftClipper, _p_FX__WaveShaping__ATanSoftClipperTo_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifier, _p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifierTo_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__AmplifierFunction1, _p_FX__Distortion__AmplifierFunction1To_p_AmplifierProcessor, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_AmplifierProcessor[] = {  {&_swigt__p_AmplifierProcessor, 0, 0, 0},  {&_swigt__p_FX__Distortion__Clip__SerpentCurve, _p_FX__Distortion__Clip__SerpentCurveTo_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__AmplifierFunction2, _p_FX__Distortion__AmplifierFunction2To_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__AmplifierFunction3, _p_FX__Distortion__AmplifierFunction3To_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__AmplifierFunction4, _p_FX__Distortion__AmplifierFunction4To_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__FoldAmp, _p_FX__Distortion__FoldAmpTo_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Udo1, _p_FX__Distortion__Udo1To_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__BipolarAmplifier, _p_FX__Distortion__Amplifier__BipolarAmplifierTo_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__QuadAmplifier, _p_FX__Distortion__Amplifier__QuadAmplifierTo_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__Range4Amplifier, _p_FX__Distortion__Amplifier__Range4AmplifierTo_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__RangeAmplifier, _p_FX__Distortion__Amplifier__RangeAmplifierTo_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__TwinAmplifier, _p_FX__Distortion__Amplifier__TwinAmplifierTo_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__Amplifier, _p_FX__Distortion__Amplifier__AmplifierTo_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__BipolarAmplifier2, _p_FX__Distortion__Amplifier__BipolarAmplifier2To_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__WaveShaping__ATanSoftClipper, _p_FX__WaveShaping__ATanSoftClipperTo_p_AmplifierProcessor, 0, 0},  {&_swigt__p_FX__Distortion__AmplifierFunction1, _p_FX__Distortion__AmplifierFunction1To_p_AmplifierProcessor, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Analog__BezierDistortion[] = {  {&_swigt__p_Analog__BezierDistortion, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Bezier__BezierT_3_t[] = {  {&_swigt__p_Bezier__BezierT_3_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FX__Distortion__AmplifierFunction1[] = {  {&_swigt__p_FX__Distortion__AmplifierFunction1, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FX__Distortion__AmplifierFunction2[] = {  {&_swigt__p_FX__Distortion__AmplifierFunction2, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FX__Distortion__AmplifierFunction3[] = {  {&_swigt__p_FX__Distortion__AmplifierFunction3, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FX__Distortion__AmplifierFunction4[] = {  {&_swigt__p_FX__Distortion__AmplifierFunction4, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FX__Distortion__Amplifier__Amplifier[] = {  {&_swigt__p_FX__Distortion__Amplifier__Amplifier8, _p_FX__Distortion__Amplifier__Amplifier8To_p_FX__Distortion__Amplifier__Amplifier, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__Amplifier, 0, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__TwinAmplifier, _p_FX__Distortion__Amplifier__TwinAmplifierTo_p_FX__Distortion__Amplifier__Amplifier, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__RangeAmplifier, _p_FX__Distortion__Amplifier__RangeAmplifierTo_p_FX__Distortion__Amplifier__Amplifier, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__Range4Amplifier, _p_FX__Distortion__Amplifier__Range4AmplifierTo_p_FX__Distortion__Amplifier__Amplifier, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__QuadAmplifier, _p_FX__Distortion__Amplifier__QuadAmplifierTo_p_FX__Distortion__Amplifier__Amplifier, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__BipolarAmplifier, _p_FX__Distortion__Amplifier__BipolarAmplifierTo_p_FX__Distortion__Amplifier__Amplifier, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__BipolarAmplifier2, _p_FX__Distortion__Amplifier__BipolarAmplifier2To_p_FX__Distortion__Amplifier__Amplifier, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__DiodeSimAmplifier, _p_FX__Distortion__Amplifier__DiodeSimAmplifierTo_p_FX__Distortion__Amplifier__Amplifier, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__DiodAmplifier, _p_FX__Distortion__Amplifier__DiodAmplifierTo_p_FX__Distortion__Amplifier__Amplifier, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__ValveAmplifier, _p_FX__Distortion__Amplifier__ValveAmplifierTo_p_FX__Distortion__Amplifier__Amplifier, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifier, _p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifierTo_p_FX__Distortion__Amplifier__Amplifier, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__DiodeClipperAmplifier, _p_FX__Distortion__Amplifier__DiodeClipperAmplifierTo_p_FX__Distortion__Amplifier__Amplifier, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FX__Distortion__Amplifier__Amplifier8[] = {  {&_swigt__p_FX__Distortion__Amplifier__Amplifier8, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FX__Distortion__Amplifier__Amplifier[] = {  {&_swigt__p_FX__Distortion__Amplifier__Amplifier, 0, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__TwinAmplifier, _p_FX__Distortion__Amplifier__TwinAmplifierTo_p_FX__Distortion__Amplifier__Amplifier, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__RangeAmplifier, _p_FX__Distortion__Amplifier__RangeAmplifierTo_p_FX__Distortion__Amplifier__Amplifier, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__Range4Amplifier, _p_FX__Distortion__Amplifier__Range4AmplifierTo_p_FX__Distortion__Amplifier__Amplifier, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__QuadAmplifier, _p_FX__Distortion__Amplifier__QuadAmplifierTo_p_FX__Distortion__Amplifier__Amplifier, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__BipolarAmplifier, _p_FX__Distortion__Amplifier__BipolarAmplifierTo_p_FX__Distortion__Amplifier__Amplifier, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__BipolarAmplifier2, _p_FX__Distortion__Amplifier__BipolarAmplifier2To_p_FX__Distortion__Amplifier__Amplifier, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FX__Distortion__Amplifier__BipolarAmplifier[] = {  {&_swigt__p_FX__Distortion__Amplifier__BipolarAmplifier, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FX__Distortion__Amplifier__BipolarAmplifier2[] = {  {&_swigt__p_FX__Distortion__Amplifier__BipolarAmplifier2, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FX__Distortion__Amplifier__DiodAmplifier[] = {  {&_swigt__p_FX__Distortion__Amplifier__DiodAmplifier, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FX__Distortion__Amplifier__DiodeClipperAmplifier[] = {  {&_swigt__p_FX__Distortion__Amplifier__DiodeClipperAmplifier, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FX__Distortion__Amplifier__DiodeSimAmplifier[] = {  {&_swigt__p_FX__Distortion__Amplifier__DiodeSimAmplifier, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FX__Distortion__Amplifier__QuadAmplifier[] = {  {&_swigt__p_FX__Distortion__Amplifier__QuadAmplifier, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FX__Distortion__Amplifier__Range4Amplifier[] = {  {&_swigt__p_FX__Distortion__Amplifier__Range4Amplifier, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FX__Distortion__Amplifier__RangeAmplifier[] = {  {&_swigt__p_FX__Distortion__Amplifier__RangeAmplifier, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FX__Distortion__Amplifier__ToneAmp[] = {  {&_swigt__p_FX__Distortion__Amplifier__ToneAmp, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FX__Distortion__Amplifier__TwinAmplifier[] = {  {&_swigt__p_FX__Distortion__Amplifier__TwinAmplifier, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FX__Distortion__Amplifier__ValveAmplifier[] = {  {&_swigt__p_FX__Distortion__Amplifier__ValveAmplifier, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifier[] = {  {&_swigt__p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifier, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FX__Distortion__ClipFunction[] = {  {&_swigt__p_FX__Distortion__ClipFunction, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FX__Distortion__Clip__SerpentCurve[] = {  {&_swigt__p_FX__Distortion__Clip__SerpentCurve, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FX__Distortion__Diode__DiodeClipperFP[] = {  {&_swigt__p_FX__Distortion__Diode__DiodeClipperFP, 0, 0, 0},{0, 0, 0, 0}};
@@ -51996,8 +58553,6 @@ static swig_cast_info _swigc__p_FX__Distortion__DistortionCompressor__PeakLevelD
 static swig_cast_info _swigc__p_FX__Distortion__FoldAmp[] = {  {&_swigt__p_FX__Distortion__FoldAmp, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FX__Distortion__MorphClipper[] = {  {&_swigt__p_FX__Distortion__MorphClipper, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FX__Distortion__Udo1[] = {  {&_swigt__p_FX__Distortion__Udo1, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FX__Distortion__table1d[] = {  {&_swigt__p_FX__Distortion__table1d, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FX__Distortion__table1d_impT_200_t[] = {  {&_swigt__p_FX__Distortion__table1d_impT_200_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FX__SstWaveShaper__SstWaveshaper[] = {  {&_swigt__p_FX__SstWaveShaper__SstWaveshaper, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FX__WaveShaping__ATanSoftClipper[] = {  {&_swigt__p_FX__WaveShaping__ATanSoftClipper, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FilterProcessor[] = {  {&_swigt__p_FilterProcessor, 0, 0, 0},{0, 0, 0, 0}};
@@ -52015,7 +58570,7 @@ static swig_cast_info _swigc__p_MonoModulatorOperatorProcessor[] = {  {&_swigt__
 static swig_cast_info _swigc__p_MonoMultiplierOperatorProcessor[] = {  {&_swigt__p_MonoMultiplierOperatorProcessor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_MonoOperatorProcessor[] = {  {&_swigt__p_MonoOperatorProcessor, 0, 0, 0},  {&_swigt__p_MonoCascadeOperatorProcessor, _p_MonoCascadeOperatorProcessorTo_p_MonoOperatorProcessor, 0, 0},  {&_swigt__p_MonoMultiplierOperatorProcessor, _p_MonoMultiplierOperatorProcessorTo_p_MonoOperatorProcessor, 0, 0},  {&_swigt__p_MonoAdderOperatorProcessor, _p_MonoAdderOperatorProcessorTo_p_MonoOperatorProcessor, 0, 0},  {&_swigt__p_MonoSubtractorOperatorProcessor, _p_MonoSubtractorOperatorProcessorTo_p_MonoOperatorProcessor, 0, 0},  {&_swigt__p_MonoModulatorOperatorProcessor, _p_MonoModulatorOperatorProcessorTo_p_MonoOperatorProcessor, 0, 0},  {&_swigt__p_MonoBlendOperatorProcessor, _p_MonoBlendOperatorProcessorTo_p_MonoOperatorProcessor, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_MonoOversampleProcessor[] = {  {&_swigt__p_MonoOversampleProcessor, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_MonoProcessor[] = {  {&_swigt__p_AmplifierProcessor, _p_AmplifierProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FilterProcessor, _p_FilterProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_OscillatorProcessor, _p_OscillatorProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FunctionProcessor, _p_FunctionProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_GeneratorProcessor, _p_GeneratorProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_MonoFXProcessor, _p_MonoFXProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_MonoCascadeProcessor, _p_MonoCascadeProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_MonoProcessor, 0, 0, 0},  {&_swigt__p_FX__Distortion__Clip__SerpentCurve, _p_FX__Distortion__Clip__SerpentCurveTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__AmplifierFunction2, _p_FX__Distortion__AmplifierFunction2To_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__AmplifierFunction3, _p_FX__Distortion__AmplifierFunction3To_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__Amplifier8, _p_FX__Distortion__Amplifier__Amplifier8To_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Diode__DiodeClipperFP, _p_FX__Distortion__Diode__DiodeClipperFPTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__AmplifierFunction4, _p_FX__Distortion__AmplifierFunction4To_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__FoldAmp, _p_FX__Distortion__FoldAmpTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Diode__DiodeClipperNR, _p_FX__Distortion__Diode__DiodeClipperNRTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Udo1, _p_FX__Distortion__Udo1To_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__Range4Amplifier, _p_FX__Distortion__Amplifier__Range4AmplifierTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__QuadAmplifier, _p_FX__Distortion__Amplifier__QuadAmplifierTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__BipolarAmplifier, _p_FX__Distortion__Amplifier__BipolarAmplifierTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__DiodeSimAmplifier, _p_FX__Distortion__Amplifier__DiodeSimAmplifierTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__DiodAmplifier, _p_FX__Distortion__Amplifier__DiodAmplifierTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__ValveAmplifier, _p_FX__Distortion__Amplifier__ValveAmplifierTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__RangeAmplifier, _p_FX__Distortion__Amplifier__RangeAmplifierTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__TwinAmplifier, _p_FX__Distortion__Amplifier__TwinAmplifierTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__Amplifier, _p_FX__Distortion__Amplifier__AmplifierTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__BipolarAmplifier2, _p_FX__Distortion__Amplifier__BipolarAmplifier2To_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__DiodeClipperAmplifier, _p_FX__Distortion__Amplifier__DiodeClipperAmplifierTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__WaveShaping__ATanSoftClipper, _p_FX__WaveShaping__ATanSoftClipperTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifier, _p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifierTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__AmplifierFunction1, _p_FX__Distortion__AmplifierFunction1To_p_MonoProcessor, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_MonoProcessor[] = {  {&_swigt__p_AmplifierProcessor, _p_AmplifierProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FilterProcessor, _p_FilterProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_OscillatorProcessor, _p_OscillatorProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FunctionProcessor, _p_FunctionProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_GeneratorProcessor, _p_GeneratorProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_MonoFXProcessor, _p_MonoFXProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_MonoCascadeProcessor, _p_MonoCascadeProcessorTo_p_MonoProcessor, 0, 0},  {&_swigt__p_MonoProcessor, 0, 0, 0},  {&_swigt__p_FX__Distortion__Clip__SerpentCurve, _p_FX__Distortion__Clip__SerpentCurveTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__AmplifierFunction2, _p_FX__Distortion__AmplifierFunction2To_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__AmplifierFunction3, _p_FX__Distortion__AmplifierFunction3To_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Diode__DiodeClipperFP, _p_FX__Distortion__Diode__DiodeClipperFPTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__AmplifierFunction4, _p_FX__Distortion__AmplifierFunction4To_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__FoldAmp, _p_FX__Distortion__FoldAmpTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Diode__DiodeClipperNR, _p_FX__Distortion__Diode__DiodeClipperNRTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Udo1, _p_FX__Distortion__Udo1To_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__Amplifier, _p_FX__Distortion__Amplifier__AmplifierTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__TwinAmplifier, _p_FX__Distortion__Amplifier__TwinAmplifierTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__RangeAmplifier, _p_FX__Distortion__Amplifier__RangeAmplifierTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__Range4Amplifier, _p_FX__Distortion__Amplifier__Range4AmplifierTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__QuadAmplifier, _p_FX__Distortion__Amplifier__QuadAmplifierTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__BipolarAmplifier, _p_FX__Distortion__Amplifier__BipolarAmplifierTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__BipolarAmplifier2, _p_FX__Distortion__Amplifier__BipolarAmplifier2To_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__WaveShaping__ATanSoftClipper, _p_FX__WaveShaping__ATanSoftClipperTo_p_MonoProcessor, 0, 0},  {&_swigt__p_FX__Distortion__AmplifierFunction1, _p_FX__Distortion__AmplifierFunction1To_p_MonoProcessor, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_MonoSubtractorOperatorProcessor[] = {  {&_swigt__p_MonoSubtractorOperatorProcessor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_MonoUpsampleProcessor[] = {  {&_swigt__p_MonoUpsampleProcessor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OperatorProcessor[] = {  {&_swigt__p_OperatorProcessor, 0, 0, 0},{0, 0, 0, 0}};
@@ -52028,7 +58583,7 @@ static swig_cast_info _swigc__p_Random[] = {  {&_swigt__p_Random, 0, 0, 0},{0, 0
 static swig_cast_info _swigc__p_SignalSinkProcessor[] = {  {&_swigt__p_SignalSinkProcessor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_SignalSourceProcessor[] = {  {&_swigt__p_SignalSourceProcessor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_SoftClipper[] = {  {&_swigt__p_SoftClipper, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_SoundProcessor[] = {  {&_swigt__p_FX__Distortion__Diode__DiodeClipperNR, _p_FX__Distortion__Diode__DiodeClipperNRTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Diode__DiodeClipperFP, _p_FX__Distortion__Diode__DiodeClipperFPTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__AmplifierFunction1, _p_FX__Distortion__AmplifierFunction1To_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__FoldAmp, _p_FX__Distortion__FoldAmpTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__AmplifierFunction2, _p_FX__Distortion__AmplifierFunction2To_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__AmplifierFunction3, _p_FX__Distortion__AmplifierFunction3To_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__AmplifierFunction4, _p_FX__Distortion__AmplifierFunction4To_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__BipolarAmplifier, _p_FX__Distortion__Amplifier__BipolarAmplifierTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__QuadAmplifier, _p_FX__Distortion__Amplifier__QuadAmplifierTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__Range4Amplifier, _p_FX__Distortion__Amplifier__Range4AmplifierTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__RangeAmplifier, _p_FX__Distortion__Amplifier__RangeAmplifierTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__ValveAmplifier, _p_FX__Distortion__Amplifier__ValveAmplifierTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__DiodAmplifier, _p_FX__Distortion__Amplifier__DiodAmplifierTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__DiodeSimAmplifier, _p_FX__Distortion__Amplifier__DiodeSimAmplifierTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__Amplifier, _p_FX__Distortion__Amplifier__AmplifierTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__TwinAmplifier, _p_FX__Distortion__Amplifier__TwinAmplifierTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Udo1, _p_FX__Distortion__Udo1To_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifier, _p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifierTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Clip__SerpentCurve, _p_FX__Distortion__Clip__SerpentCurveTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__BipolarAmplifier2, _p_FX__Distortion__Amplifier__BipolarAmplifier2To_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__DiodeClipperAmplifier, _p_FX__Distortion__Amplifier__DiodeClipperAmplifierTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__Amplifier8, _p_FX__Distortion__Amplifier__Amplifier8To_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__WaveShaping__ATanSoftClipper, _p_FX__WaveShaping__ATanSoftClipperTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoBlendOperatorProcessor, _p_MonoBlendOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoModulatorOperatorProcessor, _p_MonoModulatorOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoSubtractorOperatorProcessor, _p_MonoSubtractorOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoAdderOperatorProcessor, _p_MonoAdderOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoMultiplierOperatorProcessor, _p_MonoMultiplierOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoCascadeOperatorProcessor, _p_MonoCascadeOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoOperatorProcessor, _p_MonoOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_OperatorProcessor, _p_OperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoDownsampleProcessor, _p_MonoDownsampleProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoUpsampleProcessor, _p_MonoUpsampleProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_SoundProcessor, 0, 0, 0},  {&_swigt__p_MonoOversampleProcessor, _p_MonoOversampleProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_SignalSinkProcessor, _p_SignalSinkProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_SignalSourceProcessor, _p_SignalSourceProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_SpectrumProcessor, _p_SpectrumProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoAmplifierProcessor, _p_StereoAmplifierProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoFilterProcessor, _p_StereoFilterProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoFunctionProcessor, _p_StereoFunctionProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoGeneratorProcessor, _p_StereoGeneratorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoOscillatorProcessor, _p_StereoOscillatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoProcessor, _p_MonoProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoCascadeProcessor, _p_MonoCascadeProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoFXProcessor, _p_MonoFXProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_GeneratorProcessor, _p_GeneratorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FunctionProcessor, _p_FunctionProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_OscillatorProcessor, _p_OscillatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FilterProcessor, _p_FilterProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_AmplifierProcessor, _p_AmplifierProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoProcessor, _p_StereoProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoCascadeProcessor, _p_StereoCascadeProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoFXProcessor, _p_StereoFXProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MixerProcessor, _p_MixerProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_Parameter2Processor, _p_Parameter2ProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoSplitterProcessor, _p_StereoSplitterProcessorTo_p_SoundProcessor, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_SoundProcessor[] = {  {&_swigt__p_FX__Distortion__Diode__DiodeClipperNR, _p_FX__Distortion__Diode__DiodeClipperNRTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Diode__DiodeClipperFP, _p_FX__Distortion__Diode__DiodeClipperFPTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__AmplifierFunction1, _p_FX__Distortion__AmplifierFunction1To_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__FoldAmp, _p_FX__Distortion__FoldAmpTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__AmplifierFunction2, _p_FX__Distortion__AmplifierFunction2To_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__AmplifierFunction3, _p_FX__Distortion__AmplifierFunction3To_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__AmplifierFunction4, _p_FX__Distortion__AmplifierFunction4To_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__Amplifier, _p_FX__Distortion__Amplifier__AmplifierTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__TwinAmplifier, _p_FX__Distortion__Amplifier__TwinAmplifierTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__RangeAmplifier, _p_FX__Distortion__Amplifier__RangeAmplifierTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__Range4Amplifier, _p_FX__Distortion__Amplifier__Range4AmplifierTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__QuadAmplifier, _p_FX__Distortion__Amplifier__QuadAmplifierTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__BipolarAmplifier, _p_FX__Distortion__Amplifier__BipolarAmplifierTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Udo1, _p_FX__Distortion__Udo1To_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Clip__SerpentCurve, _p_FX__Distortion__Clip__SerpentCurveTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__Distortion__Amplifier__BipolarAmplifier2, _p_FX__Distortion__Amplifier__BipolarAmplifier2To_p_SoundProcessor, 0, 0},  {&_swigt__p_FX__WaveShaping__ATanSoftClipper, _p_FX__WaveShaping__ATanSoftClipperTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoBlendOperatorProcessor, _p_MonoBlendOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoModulatorOperatorProcessor, _p_MonoModulatorOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoSubtractorOperatorProcessor, _p_MonoSubtractorOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoAdderOperatorProcessor, _p_MonoAdderOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoMultiplierOperatorProcessor, _p_MonoMultiplierOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoCascadeOperatorProcessor, _p_MonoCascadeOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoOperatorProcessor, _p_MonoOperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_OperatorProcessor, _p_OperatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoDownsampleProcessor, _p_MonoDownsampleProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoUpsampleProcessor, _p_MonoUpsampleProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoOversampleProcessor, _p_MonoOversampleProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_SignalSinkProcessor, _p_SignalSinkProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_SignalSourceProcessor, _p_SignalSourceProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_SpectrumProcessor, _p_SpectrumProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoAmplifierProcessor, _p_StereoAmplifierProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoFilterProcessor, _p_StereoFilterProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_SoundProcessor, 0, 0, 0},  {&_swigt__p_StereoFunctionProcessor, _p_StereoFunctionProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoGeneratorProcessor, _p_StereoGeneratorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoOscillatorProcessor, _p_StereoOscillatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoProcessor, _p_MonoProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoCascadeProcessor, _p_MonoCascadeProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MonoFXProcessor, _p_MonoFXProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_GeneratorProcessor, _p_GeneratorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FunctionProcessor, _p_FunctionProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_OscillatorProcessor, _p_OscillatorProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_FilterProcessor, _p_FilterProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_AmplifierProcessor, _p_AmplifierProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoProcessor, _p_StereoProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoCascadeProcessor, _p_StereoCascadeProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoFXProcessor, _p_StereoFXProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_MixerProcessor, _p_MixerProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_Parameter2Processor, _p_Parameter2ProcessorTo_p_SoundProcessor, 0, 0},  {&_swigt__p_StereoSplitterProcessor, _p_StereoSplitterProcessorTo_p_SoundProcessor, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_SpectrumProcessor[] = {  {&_swigt__p_SpectrumProcessor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_StereoAmplifierProcessor[] = {  {&_swigt__p_StereoAmplifierProcessor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_StereoCascadeProcessor[] = {  {&_swigt__p_StereoCascadeProcessor, 0, 0, 0},{0, 0, 0, 0}};
@@ -52047,25 +58602,19 @@ static swig_cast_info _swigc__p_long_long[] = {  {&_swigt__p_long_long, 0, 0, 0}
 static swig_cast_info _swigc__p_p_FX__Distortion__Clip__SerpentCurve[] = {{&_swigt__p_p_FX__Distortion__Clip__SerpentCurve, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_FX__Distortion__AmplifierFunction2[] = {{&_swigt__p_p_FX__Distortion__AmplifierFunction2, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_FX__Distortion__AmplifierFunction3[] = {{&_swigt__p_p_FX__Distortion__AmplifierFunction3, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_p_FX__Distortion__Amplifier__Amplifier8[] = {{&_swigt__p_p_FX__Distortion__Amplifier__Amplifier8, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_p_FX__Distortion__Amplifier__DiodeClipperAmplifier[] = {{&_swigt__p_p_FX__Distortion__Amplifier__DiodeClipperAmplifier, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifier[] = {{&_swigt__p_p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifier, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_FX__Distortion__AmplifierFunction4[] = {{&_swigt__p_p_FX__Distortion__AmplifierFunction4, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_FX__Distortion__FoldAmp[] = {{&_swigt__p_p_FX__Distortion__FoldAmp, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_FX__Distortion__Udo1[] = {{&_swigt__p_p_FX__Distortion__Udo1, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_p_FX__Distortion__Amplifier__DiodeSimAmplifier[] = {{&_swigt__p_p_FX__Distortion__Amplifier__DiodeSimAmplifier, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_FX__Distortion__Amplifier__BipolarAmplifier[] = {{&_swigt__p_p_FX__Distortion__Amplifier__BipolarAmplifier, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_FX__Distortion__Amplifier__QuadAmplifier[] = {{&_swigt__p_p_FX__Distortion__Amplifier__QuadAmplifier, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_FX__Distortion__Amplifier__Range4Amplifier[] = {{&_swigt__p_p_FX__Distortion__Amplifier__Range4Amplifier, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_p_FX__Distortion__Amplifier__DiodAmplifier[] = {{&_swigt__p_p_FX__Distortion__Amplifier__DiodAmplifier, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_p_FX__Distortion__Amplifier__ValveAmplifier[] = {{&_swigt__p_p_FX__Distortion__Amplifier__ValveAmplifier, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_FX__Distortion__Amplifier__RangeAmplifier[] = {{&_swigt__p_p_FX__Distortion__Amplifier__RangeAmplifier, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_FX__Distortion__Amplifier__TwinAmplifier[] = {{&_swigt__p_p_FX__Distortion__Amplifier__TwinAmplifier, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_FX__Distortion__Amplifier__Amplifier[] = {{&_swigt__p_p_FX__Distortion__Amplifier__Amplifier, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_p_FX__Distortion__Amplifier__BipolarAmplifier2[] = {{&_swigt__p_p_FX__Distortion__Amplifier__BipolarAmplifier2, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_FX__WaveShaping__ATanSoftClipper[] = {{&_swigt__p_p_FX__WaveShaping__ATanSoftClipper, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_p_FX__Distortion__Amplifier__BipolarAmplifier2[] = {{&_swigt__p_p_FX__Distortion__Amplifier__BipolarAmplifier2, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_FX__Distortion__AmplifierFunction1[] = {{&_swigt__p_p_FX__Distortion__AmplifierFunction1, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_p_AmplifierProcessor[] = {  {&_swigt__p_p_AmplifierProcessor, 0, 0, 0},  {&_swigt__p_p_FX__Distortion__Clip__SerpentCurve, _p_p_FX__Distortion__Clip__SerpentCurveTo_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__AmplifierFunction2, _p_p_FX__Distortion__AmplifierFunction2To_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__AmplifierFunction3, _p_p_FX__Distortion__AmplifierFunction3To_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__Amplifier__Amplifier8, _p_p_FX__Distortion__Amplifier__Amplifier8To_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__Amplifier__DiodeClipperAmplifier, _p_p_FX__Distortion__Amplifier__DiodeClipperAmplifierTo_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifier, _p_p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifierTo_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__AmplifierFunction4, _p_p_FX__Distortion__AmplifierFunction4To_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__FoldAmp, _p_p_FX__Distortion__FoldAmpTo_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__Udo1, _p_p_FX__Distortion__Udo1To_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__Amplifier__DiodeSimAmplifier, _p_p_FX__Distortion__Amplifier__DiodeSimAmplifierTo_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__Amplifier__BipolarAmplifier, _p_p_FX__Distortion__Amplifier__BipolarAmplifierTo_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__Amplifier__QuadAmplifier, _p_p_FX__Distortion__Amplifier__QuadAmplifierTo_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__Amplifier__Range4Amplifier, _p_p_FX__Distortion__Amplifier__Range4AmplifierTo_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__Amplifier__DiodAmplifier, _p_p_FX__Distortion__Amplifier__DiodAmplifierTo_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__Amplifier__ValveAmplifier, _p_p_FX__Distortion__Amplifier__ValveAmplifierTo_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__Amplifier__RangeAmplifier, _p_p_FX__Distortion__Amplifier__RangeAmplifierTo_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__Amplifier__TwinAmplifier, _p_p_FX__Distortion__Amplifier__TwinAmplifierTo_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__Amplifier__Amplifier, _p_p_FX__Distortion__Amplifier__AmplifierTo_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__Amplifier__BipolarAmplifier2, _p_p_FX__Distortion__Amplifier__BipolarAmplifier2To_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__WaveShaping__ATanSoftClipper, _p_p_FX__WaveShaping__ATanSoftClipperTo_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__AmplifierFunction1, _p_p_FX__Distortion__AmplifierFunction1To_p_p_AmplifierProcessor, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_p_AmplifierProcessor[] = {  {&_swigt__p_p_AmplifierProcessor, 0, 0, 0},  {&_swigt__p_p_FX__Distortion__Clip__SerpentCurve, _p_p_FX__Distortion__Clip__SerpentCurveTo_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__AmplifierFunction2, _p_p_FX__Distortion__AmplifierFunction2To_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__AmplifierFunction3, _p_p_FX__Distortion__AmplifierFunction3To_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__AmplifierFunction4, _p_p_FX__Distortion__AmplifierFunction4To_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__FoldAmp, _p_p_FX__Distortion__FoldAmpTo_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__Udo1, _p_p_FX__Distortion__Udo1To_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__Amplifier__BipolarAmplifier, _p_p_FX__Distortion__Amplifier__BipolarAmplifierTo_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__Amplifier__QuadAmplifier, _p_p_FX__Distortion__Amplifier__QuadAmplifierTo_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__Amplifier__Range4Amplifier, _p_p_FX__Distortion__Amplifier__Range4AmplifierTo_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__Amplifier__RangeAmplifier, _p_p_FX__Distortion__Amplifier__RangeAmplifierTo_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__Amplifier__TwinAmplifier, _p_p_FX__Distortion__Amplifier__TwinAmplifierTo_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__Amplifier__Amplifier, _p_p_FX__Distortion__Amplifier__AmplifierTo_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__WaveShaping__ATanSoftClipper, _p_p_FX__WaveShaping__ATanSoftClipperTo_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__Amplifier__BipolarAmplifier2, _p_p_FX__Distortion__Amplifier__BipolarAmplifier2To_p_p_AmplifierProcessor, 0, 0},  {&_swigt__p_p_FX__Distortion__AmplifierFunction1, _p_p_FX__Distortion__AmplifierFunction1To_p_p_AmplifierProcessor, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_FilterProcessor[] = {  {&_swigt__p_p_FilterProcessor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_FX__Distortion__Diode__DiodeClipperFP[] = {{&_swigt__p_p_FX__Distortion__Diode__DiodeClipperFP, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_FX__Distortion__Diode__DiodeClipperNR[] = {{&_swigt__p_p_FX__Distortion__Diode__DiodeClipperNR, 0, 0, 0},{0, 0, 0, 0}};
@@ -52102,7 +58651,6 @@ static swig_cast_info _swigc__p_std__numeric_limitsT_unsigned_long_t[] = {  {&_s
 static swig_cast_info _swigc__p_std__numeric_limitsT_unsigned_short_t[] = {  {&_swigt__p_std__numeric_limitsT_unsigned_short_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__string[] = {  {&_swigt__p_std__string, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_MonoProcessor_p_std__allocatorT_MonoProcessor_p_t_t[] = {  {&_swigt__p_std__vectorT_MonoProcessor_p_std__allocatorT_MonoProcessor_p_t_t, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_std__vectorT_OscillatorProcessor_p_std__allocatorT_OscillatorProcessor_p_t_t[] = {  {&_swigt__p_std__vectorT_OscillatorProcessor_p_std__allocatorT_OscillatorProcessor_p_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_SoundProcessor_p_std__allocatorT_SoundProcessor_p_t_t[] = {  {&_swigt__p_std__vectorT_SoundProcessor_p_std__allocatorT_SoundProcessor_p_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_StereoProcessor_p_std__allocatorT_StereoProcessor_p_t_t[] = {  {&_swigt__p_std__vectorT_StereoProcessor_p_std__allocatorT_StereoProcessor_p_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_double_std__allocatorT_double_t_t[] = {  {&_swigt__p_std__vectorT_double_std__allocatorT_double_t_t, 0, 0, 0},{0, 0, 0, 0}};
@@ -52127,18 +58675,13 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_FX__Distortion__AmplifierFunction3,
   _swigc__p_FX__Distortion__AmplifierFunction4,
   _swigc__p_FX__Distortion__Amplifier__Amplifier,
-  _swigc__p_FX__Distortion__Amplifier__Amplifier8,
   _swigc__p_FX__Distortion__Amplifier__BipolarAmplifier,
   _swigc__p_FX__Distortion__Amplifier__BipolarAmplifier2,
-  _swigc__p_FX__Distortion__Amplifier__DiodAmplifier,
-  _swigc__p_FX__Distortion__Amplifier__DiodeClipperAmplifier,
-  _swigc__p_FX__Distortion__Amplifier__DiodeSimAmplifier,
   _swigc__p_FX__Distortion__Amplifier__QuadAmplifier,
   _swigc__p_FX__Distortion__Amplifier__Range4Amplifier,
   _swigc__p_FX__Distortion__Amplifier__RangeAmplifier,
+  _swigc__p_FX__Distortion__Amplifier__ToneAmp,
   _swigc__p_FX__Distortion__Amplifier__TwinAmplifier,
-  _swigc__p_FX__Distortion__Amplifier__ValveAmplifier,
-  _swigc__p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifier,
   _swigc__p_FX__Distortion__ClipFunction,
   _swigc__p_FX__Distortion__Clip__SerpentCurve,
   _swigc__p_FX__Distortion__Diode__DiodeClipperFP,
@@ -52150,8 +58693,6 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_FX__Distortion__FoldAmp,
   _swigc__p_FX__Distortion__MorphClipper,
   _swigc__p_FX__Distortion__Udo1,
-  _swigc__p_FX__Distortion__table1d,
-  _swigc__p_FX__Distortion__table1d_impT_200_t,
   _swigc__p_FX__SstWaveShaper__SstWaveshaper,
   _swigc__p_FX__WaveShaping__ATanSoftClipper,
   _swigc__p_FilterProcessor,
@@ -52204,18 +58745,12 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_p_FX__Distortion__AmplifierFunction3,
   _swigc__p_p_FX__Distortion__AmplifierFunction4,
   _swigc__p_p_FX__Distortion__Amplifier__Amplifier,
-  _swigc__p_p_FX__Distortion__Amplifier__Amplifier8,
   _swigc__p_p_FX__Distortion__Amplifier__BipolarAmplifier,
   _swigc__p_p_FX__Distortion__Amplifier__BipolarAmplifier2,
-  _swigc__p_p_FX__Distortion__Amplifier__DiodAmplifier,
-  _swigc__p_p_FX__Distortion__Amplifier__DiodeClipperAmplifier,
-  _swigc__p_p_FX__Distortion__Amplifier__DiodeSimAmplifier,
   _swigc__p_p_FX__Distortion__Amplifier__QuadAmplifier,
   _swigc__p_p_FX__Distortion__Amplifier__Range4Amplifier,
   _swigc__p_p_FX__Distortion__Amplifier__RangeAmplifier,
   _swigc__p_p_FX__Distortion__Amplifier__TwinAmplifier,
-  _swigc__p_p_FX__Distortion__Amplifier__ValveAmplifier,
-  _swigc__p_p_FX__Distortion__Amplifier__WDFDiodeClipperAmplifier,
   _swigc__p_p_FX__Distortion__Clip__SerpentCurve,
   _swigc__p_p_FX__Distortion__Diode__DiodeClipperFP,
   _swigc__p_p_FX__Distortion__Diode__DiodeClipperNR,
@@ -52256,7 +58791,6 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_std__numeric_limitsT_unsigned_short_t,
   _swigc__p_std__string,
   _swigc__p_std__vectorT_MonoProcessor_p_std__allocatorT_MonoProcessor_p_t_t,
-  _swigc__p_std__vectorT_OscillatorProcessor_p_std__allocatorT_OscillatorProcessor_p_t_t,
   _swigc__p_std__vectorT_SoundProcessor_p_std__allocatorT_SoundProcessor_p_t_t,
   _swigc__p_std__vectorT_StereoProcessor_p_std__allocatorT_StereoProcessor_p_t_t,
   _swigc__p_std__vectorT_double_std__allocatorT_double_t_t,

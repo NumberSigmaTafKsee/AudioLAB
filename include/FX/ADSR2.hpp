@@ -137,10 +137,12 @@ namespace Envelopes
         {
             return I*step();
         }
-        void Process(size_t n, DspFloatType * input, DspFloatType * output) {
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            #pragma omp simd
             for(size_t i = 0; i < n; i++) output[i] = input[i]*step();
         }
-        void Process(DspFloatType * input, size_t n) {
+        void ProcessInplace(DspFloatType * input, size_t n) {
+            #pragma omp simd
             for(size_t i = 0; i < n; i++) input[i] = input[i]*step();
         }
         //

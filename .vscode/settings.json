@@ -5,6 +5,7 @@
         "cmath": "cpp",
         "chrono": "cpp",
         "adolcforward": "cpp",
-        "vca.hpp": "c"
+        "vca.hpp": "c",
+        "map": "cpp"
     }
 }

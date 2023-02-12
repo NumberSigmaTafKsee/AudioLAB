@@ -209,6 +209,15 @@ namespace Casino::MKL
 
         #ifdef SWIG
         %extend {
+            size_t size() const { return $self->size(); }
+            void resize(size_t i) { $self->resize(i); }
+            T* data() { return $self->data(); }
+            void push_back(const T v) { $self->push_back(v); }
+            void pop_back() { $self->pop_back(); }
+            T front() { return $self->front(); }
+            T back() { return $self->back(); }
+            T at(size_t i) { return $self->at(i); }
+                
             T __getitem__(size_t i) { return (*$self)[i-1]; }
             void __setitem__(size_t i, T v) { (*$self)[i-1] = v; }
             Vector<T> __add__(const Vector<T> & m) {

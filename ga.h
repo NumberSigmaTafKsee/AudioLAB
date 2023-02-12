@@ -99,7 +99,6 @@ struct individual {
 };
 
 
-
 /*
  * Records the best individual so far and remembers the generation where it
  * appeared.
@@ -108,6 +107,7 @@ struct fittest {
 	struct individual *i;
 	unsigned generation;
 };
+
 
 
 /*
@@ -131,6 +131,7 @@ struct population {
 	void *select_data;		/* Selector-specific data */
 };
 
+struct ga;
 
 typedef void (*preselection_fn)(struct population *);
 
@@ -219,6 +220,7 @@ void ga_set_report_strategy(struct ga *self, enum ga_report_strategies report_st
 
 void ga_first(struct ga *self);
 void ga_next(struct ga *self);
+void ga_step(struct ga *self);
 void ga_evolve(struct ga *self, unsigned maxgen);
 
 struct fittest *ga_get_best_ever(struct ga *self);
@@ -277,6 +279,7 @@ unsigned int chromosome_get_allele(struct chromosome *self, unsigned int pos);
 
 char *chromosome_as_string(struct chromosome *self);
 
+
 /* Generates an individual with random genetic material */
 void individual_random(struct individual *self);
 
@@ -297,11 +300,13 @@ double individual_get_fitness(struct individual *self);
 
 
 
+
 void population_compute_fitness_stats(struct population *self);
 
 struct individual *population_get_fittest(struct population *self);
 
 void population_print(struct population *self, FILE *fp);
+
 
 void random_seed(u_long seed);
 

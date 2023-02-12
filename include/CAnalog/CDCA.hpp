@@ -115,7 +115,31 @@ struct CDCA : public StereoFXProcessor
 		return (oL+oR)*0.5;
 	}
 	void ProcessBlock(size_t n, DspFloatType ** in, DspFloatType ** out) {
-		for(size_t i = 0; i < n; i++) doDCA(in[0][i],in[1][i],out[0][i],out[1][i]);
+		#pragma omp simd
+		for(size_t i = 0; i < n; i++) {
+			// total pan value
+			DspFloatType dPanTotal = m_dPanControl + m_dPanMod;
+
+			// limit in case pan control is biased
+			dPanTotal = fmin(dPanTotal, (DspFloatType)1.0);
+			dPanTotal = fmax(dPanTotal, (DspFloatType)-1.0);
+
+			DspFloatType dPanLeft = 0.707;
+			DspFloatType dPanRight = 0.707;
+
+			// equal std::power calculation in synthfunction.h
+			calculatePanValues(dPanTotal, dPanLeft, dPanRight);
+			
+			DspFloatType dLeftInput = in[i][0];
+			DspFloatType dRightInput= in[i][1];
+
+			// form left and right outputs
+			DspFloatType dLeftOutput =  dPanLeft*m_dAmplitudeControl*dLeftInput*m_dGain;
+			DspFloatType dRightOutput =  dPanRight*m_dAmplitudeControl*dRightInput*m_dGain;
+
+			out[i][0] = dLeftOutput;
+			out[i][1] = dRightOutput;
+		}
 	}
 };
 

@@ -9,7 +9,8 @@ namespace Analog::Oscillators
     ///////////////////////////////////////////////////////////////////////////////////////
     // square is made from subtracting out of phase sawtooth waves
     ///////////////////////////////////////////////////////////////////////////////////////
-    struct BlitSquare : public OscillatorProcessor
+    template<typename T>
+    struct BlitSquare : public GSSoundProcessor<T>
     {
         FX::Filters::OnePole block;
         BlitSaw s1,s2;
@@ -17,7 +18,7 @@ namespace Analog::Oscillators
         DspFloatType _duty = 0.5;
         DspFloatType sampleRate=44100.0;
 
-        BlitSquare(DspFloatType sampleRate=44100) : OscillatorProcessor()
+        BlitSquare(DspFloatType sampleRate=44100) : GSSoundProcessor<T>()
         {
             this->sampleRate = sampleRate;
             block.setFc(10.0f/sampleRate);

@@ -1,3 +1,4 @@
+// MDFM-1000 Mathematical Distortion Function Morphing Amplifier#pragma once
 #pragma once
 
 #include "SoundObject.hpp"
@@ -5,6 +6,8 @@
 #include "Diode.hpp"
 #include "Amplifiers.hpp"
 #include "DistortionFunctions.hpp"
+#include "TSClipper.hpp"
+#include "TSTone.hpp"
 
 namespace FX::Distortion::Amplifier
 {
@@ -103,8 +106,7 @@ namespace FX::Distortion::Amplifier
         DISTORTION_SIGMOID,
         DISTORTION_SIGMOID_MINUS,
         DISTORTION_BPSIGMOID,        
-        DISTORTION_LAST,       
-        // doesn't work??
+                
         DISTORTION_ASIN,
         DISTORTION_ASINH,
         DISTORTION_ACOS,    
@@ -116,7 +118,7 @@ namespace FX::Distortion::Amplifier
         DISTORTION_ACOSH,
         DISTORTION_ATANH,
 
-
+        DISTORTION_LAST,       
     };
 
     struct Amplifier : public AmplifierProcessor
@@ -204,7 +206,7 @@ namespace FX::Distortion::Amplifier
             bias = 0.01*noise.frand();
             dist1_clip = noise.randint(1,DISTORTION_LAST);
             dist2_clip = noise.randint(1,DISTORTION_LAST);
-            //printf("%d %d\n",dist1_clip,dist2_clip);
+            printf("%d %d\n",dist1_clip,dist2_clip);
             distortion_morph = noise.frand();
         }
         DspFloatType Integrator(DspFloatType in) {
@@ -289,7 +291,7 @@ namespace FX::Distortion::Amplifier
                 case DISTORTION_DOUBLESOFT: return Distortion::doubleSoftClipper(I,A,X,Y);
                 case DISTORTION_CRUSH: return Distortion::crush(I,A,X,Y);
                 case DISTORTION_TUBOID: return Distortion::tuboid(I,A,X,Y);
-                case DISTORTION_YEH: return Distortion::pakarinen_Yeh(I,A,X,Y);
+                case DISTORTION_YEH: return Distortion::pakarinen_yeh(I,A,X,Y);
 
                 case DISTORTION_CUBIC: return Distortion::cubic_distortion(I,A,X,Y);
                 case DISTORTION_ASIN2: return Distortion::asin_distortion(I,A,X,Y);
@@ -344,11 +346,26 @@ namespace FX::Distortion::Amplifier
             DspFloatType d2 = distortionClip(dist2_clip,I,K);
             
             DspFloatType distortion = A*function_morpher(d1,d2,distortion_morph);        
-            DspFloatType r = clamp(distortion,min*-X,max*Y);
+            DspFloatType r = std::clamp(distortion,min*-X,max*Y);
             
             r -= bias;
             return tanh(postGain*r);
 
+        }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            #pragma omp simd
+            for(size_t i=0; i < n; i++) {
+                DspFloatType K = G;
+                DspFloatType I = in[i];
+                I += bias;
+                I *= preGain;
+                DspFloatType d1 = distortionClip(dist1_clip,I,K);
+                DspFloatType d2 = distortionClip(dist2_clip,I,K);                
+                DspFloatType distortion = function_morpher(d1,d2,distortion_morph);        
+                DspFloatType r = std::clamp(distortion,min,max);
+                r -= bias;
+                out[i] = std::tanh(postGain*r);
+            }
         }
     };
 
@@ -356,10 +373,16 @@ namespace FX::Distortion::Amplifier
     {
         Amplifier amp[2];
         //Dioder diode;
+        double morph = 0.5;
 
         TwinAmplifier() : Amplifier()
         {
 
+        }
+        void Randomize() {
+            amp[0].RandomClip();
+            amp[1].RandomClip();
+            RandomClip();
         }
         DspFloatType Tick(DspFloatType I, DspFloatType A = 1, DspFloatType X = -1, DspFloatType Y = 1, DspFloatType B=0)
         {
@@ -373,12 +396,32 @@ namespace FX::Distortion::Amplifier
             DspFloatType d1 = distortionClip(dist1_clip,I,K*X);
             DspFloatType d2 = distortionClip(dist2_clip,I,K*Y);
             
-            DspFloatType distortion = A*function_morpher(amp[0].Tick(d1),amp[1].Tick(d2),distortion_morph);        
+            DspFloatType distortion = (A*function_morpher(amp[0].Tick(d1),amp[1].Tick(d2),distortion_morph));
             DspFloatType r = clamp(distortion,min,max);
+            
             bias = bt;
             r -= bias;        
             return tanh(postGain*r);
-
+        }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
+                DspFloatType K  = G;
+                DspFloatType bt = bias;
+                DspFloatType I  = in[i];                
+                I += bias;
+                I *= preGain;
+                //I = diode.Tick(I);
+                DspFloatType d1 = distortionClip(dist1_clip,I,K);
+                DspFloatType d2 = distortionClip(dist2_clip,I,K);
+                
+                DspFloatType distortion = (function_morpher(amp[0].Tick(d1),amp[1].Tick(d2),distortion_morph));
+                DspFloatType r = std::clamp(distortion,min,max);
+            
+                bias = bt;
+                r -= bias;        
+                out[i] = std::tanh(postGain*r);
+            }
         }
     };
 
@@ -391,8 +434,7 @@ namespace FX::Distortion::Amplifier
         }
 
         virtual DspFloatType Tick(DspFloatType I, DspFloatType A = 1, DspFloatType X = -1, DspFloatType Y = 1, DspFloatType B=0)
-        {
-            
+        {            
             DspFloatType K = G;
             DspFloatType bt = bias;
             bias = B;
@@ -404,11 +446,29 @@ namespace FX::Distortion::Amplifier
             if(fabs(I) < 0.5) distortion = d1;
             else distortion = d2;
             distortion = A*distortion;
-            DspFloatType r = clamp(distortion,min*-X,max*Y);
+            DspFloatType r = std::clamp(distortion,min*-X,max*Y);
             bias = bt;
             r -= bias;
-            return tanh(postGain*r);
-
+            return std::tanh(postGain*r);
+        }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
+                DspFloatType K  = G;
+                DspFloatType bt = bias;
+                DspFloatType I  = in[i];                
+                I += bias;
+                I *= preGain;
+                DspFloatType d1 = distortionClip(dist1_clip,I,K);
+                DspFloatType d2 = distortionClip(dist2_clip,I,K);
+                DspFloatType distortion;
+                if(fabs(I) < 0.5) distortion = d1;
+                else distortion = d2;                
+                DspFloatType r = std::clamp(distortion,min,max);
+                bias = bt;
+                r -= bias;
+                out[i] = std::tanh(postGain*r);
+            }
         }
     };
 
@@ -421,7 +481,6 @@ namespace FX::Distortion::Amplifier
         {
 
         }
-
         virtual void RandomClip() 
         {
             Random noise;
@@ -440,8 +499,7 @@ namespace FX::Distortion::Amplifier
         }
 
         virtual DspFloatType Tick(DspFloatType I, DspFloatType A = 1, DspFloatType X = -1, DspFloatType Y = 1, DspFloatType B=0)
-        {
-            
+        {            
             DspFloatType K = G;
             DspFloatType bt = bias;
             bias = B;
@@ -460,11 +518,36 @@ namespace FX::Distortion::Amplifier
             else distortion = d4;
 
             distortion = A*distortion;
-            DspFloatType r = clamp(distortion,min*-X,max*Y);
+            DspFloatType r = std::clamp(distortion,min*-X,max*Y);
             bias = bt;
             r -= bias;
-            return tanh(postGain*r);
+            return std::tanh(postGain*r);
+        }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
+                DspFloatType K = G;
+                DspFloatType bt= bias;
+                DspFloatType I = in[i];                
+                I += bias;
+                I *= preGain;
+                
+                DspFloatType d1 = distortionClip(dist1_clip,I,K);
+                DspFloatType d2 = distortionClip(dist2_clip,I,K);
+                DspFloatType d3 = distortionClip(dist3_clip,I,K);
+                DspFloatType d4 = distortionClip(dist4_clip,I,K);
 
+                DspFloatType distortion;
+                if(fabs(I) < 0.25) distortion = d1;
+                else if(fabs(I) < 0.5) distortion = d1;
+                else if(fabs(I) < 0.75) distortion = d3;
+                else distortion = d4;
+                
+                DspFloatType r = std::clamp(distortion,min,max);
+                bias = bt;
+                r -= bias;
+                out[i] = std::tanh(postGain*r);
+            }
         }
     };
 
@@ -477,7 +560,6 @@ namespace FX::Distortion::Amplifier
         {
 
         }
-
         virtual void RandomClip() 
         {
             Random noise;
@@ -496,8 +578,7 @@ namespace FX::Distortion::Amplifier
         }
 
         virtual DspFloatType Tick(DspFloatType I, DspFloatType A = 1, DspFloatType X = -1, DspFloatType Y = 1, DspFloatType B=0)
-        {
-            
+        {            
             DspFloatType K = G;
             DspFloatType bt = bias;
             bias = B;
@@ -517,12 +598,11 @@ namespace FX::Distortion::Amplifier
             else distortion = d4;
 
             distortion = A*distortion;
-            DspFloatType r = clamp(distortion,min,max);
+            DspFloatType r = std::clamp(distortion,min,max);
             bias = bt;
             r -= bias;
-            return tanh(postGain*r);
-
-        }
+            return std::tanh(postGain*r);
+        }        
     };
 
     struct BipolarAmplifier : public Amplifier
@@ -547,11 +627,32 @@ namespace FX::Distortion::Amplifier
             if(I >= 0) distortion = d1;
             else distortion = d2;
 
-            DspFloatType r = clamp(A*distortion,min*-X,max*Y);
+            DspFloatType r = std::clamp(A*distortion,min*-X,max*Y);
             bias = bt;
             r -= bias;
-            return tanh(postGain*r);
+            return std::tanh(postGain*r);
+        }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
+                DspFloatType K  = G;
+                DspFloatType bt = bias;
+                DspFloatType I  = in[i];
+                
+                I += bias;
+                I *= preGain;
+                DspFloatType d1 = distortionClip(dist1_clip,I,K);
+                DspFloatType d2 = distortionClip(dist2_clip,I,K);
+                
+                DspFloatType distortion;
+                if(I >= 0) distortion = d1;
+                else distortion = d2;
 
+                DspFloatType r = std::clamp(distortion,min,max);
+                bias = bt;
+                r -= bias;
+                out[i] = std::tanh(postGain*r);
+            }
         }
     };
 
@@ -583,8 +684,7 @@ namespace FX::Distortion::Amplifier
         }
 
         virtual DspFloatType Tick(DspFloatType I, DspFloatType A = 1, DspFloatType X = -1, DspFloatType Y = 1, DspFloatType B=0)
-        {
-            
+        {            
             DspFloatType K = G;
             DspFloatType bt = bias;
             bias = B;
@@ -606,17 +706,20 @@ namespace FX::Distortion::Amplifier
 
             DspFloatType distortion = function_morpher(distortion1,distortion2,distortion_morph);
 
-            DspFloatType r = clamp(A*distortion,min,max);
+            DspFloatType r = std::clamp(A*distortion,min,max);
             bias = bt;
             r -= bias;
-            return tanh(postGain*r);
-
-        }
+            return std::tanh(postGain*r);
+        }        
     };
 
-
+    /*
     struct DiodeClipperAmplifier : public Amplifier
     {
+    private:
+        WDFDiodeClipper clip;
+    public:
+
         DspFloatType bias = 0.0;
         DspFloatType preG = 1.0;
         DspFloatType postG = 1.0;
@@ -630,114 +733,44 @@ namespace FX::Distortion::Amplifier
 
         virtual DspFloatType Tick(DspFloatType I, DspFloatType A = 1, DspFloatType X = -1, DspFloatType Y = 1, DspFloatType B=0)
         {
-            return 0.0;            
+            return clip.Tick(Amplifier::Tick(I,A,X,Y));
         }
     };
-
-    struct DiodeSimAmplifier : public Amplifier
+    */
+    struct ToneAmp
     {
+    private:
+        TSClipper clipper;
+        TSTone    tone;
+    public:
+        DspFloatType Drive=1;
+        DspFloatType Tone=1,Output=1;
 
-    };
-
-    struct DiodAmplifier : public Amplifier
-    {
-
-    };
-
-    struct WDFDiodeClipperAmplifier : public Amplifier
-    {
-
-    };
-
-    struct ValveAmplifier : public Amplifier
-    {
-
-    };
-
-
-    struct Amplifier8 : public Amplifier
-    {
-        Amplifier amps[4];
-
-        Amplifier8() : Amplifier() {
-
+        ToneAmp(DspFloatType sr) {
+            clipper.prepare(sr);
+            tone.prepare(sr);
         }
-
-        DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X = -1, DspFloatType Y=1)
-        {
-            DspFloatType r = I;
-            for(size_t i = 0; i < 4; i++)
-                r = amps[i].Tick(r);
-            return r;
+        void setDrive(DspFloatType d) {
+            Drive = d;
         }
-        DspFloatType Serial(DspFloatType I, DspFloatType A=1, DspFloatType X = -1, DspFloatType Y=1)
-        {
-            DspFloatType r = 1;
-            for(size_t i = 0; i < 4; i++)
-                r *= amps[i].Tick(I);
-            return r;
+        void setTone(DspFloatType t) {
+            Tone = t;
         }
-        DspFloatType Parallel(DspFloatType I, DspFloatType A=1, DspFloatType X = -1, DspFloatType Y=1)
-        {
-            DspFloatType r = 0;
-            for(size_t i = 0; i < 4; i++)
-                r += amps[i].Tick(I);
-            return r/4.0f;
+        void setOutput(DspFloatType o) {
+            Output = o;
         }
-        DspFloatType Modulus(DspFloatType I, DspFloatType A=1, DspFloatType X = -1, DspFloatType Y=1)
-        {
-            DspFloatType r = I;
-            for(size_t i = 0; i < 4; i++)
-                r = fmod(amps[i].Tick(r),r);
-            return r;
+        DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1 ) {
+            clipper.setKnob(Drive);
+            DspFloatType r = clipper.processSample(I);
+            tone.setKnobs(Tone,Output);
+            tone.processSample(r);
+            return A*r;
         }
-        void RandomClip() {
-            for(size_t i = 0; i < 4; i++)
-                amps[i].RandomClip();
-        }
-    };
-
-
-    template<int N>
-    struct AmplifierN : public Amplifier
-    {
-        Amplifier amps[N];
-
-        AmplifierN() : Amplifier() {
-
-        }
-
-        DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X = -1, DspFloatType Y=1)
-        {
-            DspFloatType r = I;
-            for(size_t i = 0; i < N; i++)
-                r = amps[i].Tick(r);
-            return r;
-        }
-        DspFloatType Serial(DspFloatType I, DspFloatType A=1, DspFloatType X = -1, DspFloatType Y=1)
-        {
-            DspFloatType r = 1;
-            for(size_t i = 0; i < N; i++)
-                r *= amps[i].Tick(I);
-            return r;
-        }
-        DspFloatType Parallel(DspFloatType I, DspFloatType A=1, DspFloatType X = -1, DspFloatType Y=1)
-        {
-            DspFloatType r = 0;
-            for(size_t i = 0; i < N; i++)
-                r += amps[i].Tick(I);
-            return r/(DspFloatType)N;
-        }
-        DspFloatType Modulus(DspFloatType I, DspFloatType A=1, DspFloatType X = -1, DspFloatType Y=1)
-        {
-            DspFloatType r = I;
-            for(size_t i = 0; i < N; i++)
-                r = fmod(amps[i].Tick(r),r);
-            return r;
-        }
-        void RandomClip() {
-            for(size_t i = 0; i < N; i++)
-                amps[i].RandomClip();
+        void ProcessSIMD(size_t n, DspFloatType * out) {            
+            clipper.setKnob(Drive);
+            clipper.ProcessSIMD(n,out);
+            tone.setKnobs(Tone,Output);
+            tone.ProcessSIMD(n,out);
         }
     };
 }

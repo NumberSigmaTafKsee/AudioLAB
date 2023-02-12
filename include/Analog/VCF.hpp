@@ -195,11 +195,12 @@ namespace Analog
 
         void coefficients(DspFloatType sampleRate,DspFloatType frequency, DspFloatType resonance) 
         {
+            /*
             if(frequency < 0.01) frequency = 0.01;
             if(frequency > 10) frequency = 10;
             if(resonance < 0.05) resonance = 0.05;
             if(resonance > 1) resonance = 1;
-
+            */
             F = frequency;            
             R = resonance;
             fs = sampleRate;
@@ -207,7 +208,7 @@ namespace Analog
             cutoff  = F; //cutSmooth.process(F);
             Q       = R; //resSmooth.process(R);
             
-            f =  MusicFunctions::cv2freq(cutoff) / (oversample*sampleRate); //[0 - 1]
+            f =  cutoff / (oversample*sampleRate); //[0 - 1]
             K = 3.6*f - 1.6*f*f -1; //(Empirical tuning)
             
             // super resonance
@@ -221,7 +222,7 @@ namespace Analog
             
         }
         void setCutoff(DspFloatType c) {     
-            c = clamp(c,0,10);
+            c = clamp(c,0,fs/2.0);
             coefficients(fs,c,Q);
         }
         void setResonance(DspFloatType res) {

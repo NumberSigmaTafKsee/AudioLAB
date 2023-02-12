@@ -1,12 +1,9 @@
 #pragma once
 
-// MDFM-1000 Mathematical Distortion Function Morphing Amplifier
+// I dont know what happened here
+// MDFM is in Amplifier
+// This was some experiment I never finished.
 
-// Random Curve Generators
-// Bezier
-// B-Splines
-// Splines
-// Curves
 
 #include "Bezier.hpp"
 #include "DCFilter.hpp"

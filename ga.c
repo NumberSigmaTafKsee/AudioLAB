@@ -317,7 +317,7 @@ individual_compare(struct individual **lhs, struct individual **rhs)
 
 	f1 = individual_get_fitness(*lhs);
 	f2 = individual_get_fitness(*rhs);
-
+	
 	if (f1 < f2)
 		status = -1;
 	else if (f1 == f2)
@@ -431,11 +431,10 @@ struct individual *
 population_get_fittest(struct population *self)
 {
 	assert(self);
-
+	
 	qsort(self->pop, self->len, sizeof(struct individual *),
 		(int (*)(const void *, const void *)) individual_compare);
-
-	return self->pop[0];
+	return self->pop[self->len-1];	
 }
 
 
@@ -575,27 +574,30 @@ select_roulette_wheel(struct population *pop,
 
 
 struct tournament_data {
-	struct individual **candidates;
+	struct individual *mom,*dad;
 };
 
 void
 preselect_tournament(struct population *pop)
 {
-	struct tournament_data *data;
-
-	assert(pop);
-
-	data = calloc(1, sizeof(struct tournament_data));
-	assert(data);
-
+	
+	
 }
 
 void
 select_tournament(struct population *pop,
 			struct individual **dad, struct individual **mom)
 {
+	/*
 	assert(pop && dad && mom);
+	struct tournament_data candidate[10];
 
+	for(size_t i = 0; i < 10; i++)
+		select_roulette_wheel(pop,&candidate[i]->dad, &candidate[i]->mom);
+	int x = (rand() % 10]->dad;
+	*dad = candidate[x]->dad;
+	*mom = candidate(x]->mom;
+	*/
 }
 
 
@@ -639,7 +641,7 @@ void
 crossover_n_point(struct individual *dad, struct individual *mom,
 			struct individual **son, struct individual **daughter)
 {
-
+		
 }
 
 void
@@ -649,9 +651,7 @@ crossover_uniform(struct individual *dad, struct individual *mom,
 
 }
 
-
-
-size_t
+size_t 
 mutate(float pmutation, struct individual *indiv)
 {
 	unsigned int i;
@@ -770,6 +770,12 @@ delete_ga(struct ga *self)
 	free(self);
 }
 
+void ga_step(struct ga *self)
+{
+	if(self->current == 0) ga_first(self);
+	else ga_next(self);
+	self->current++;
+}
 
 void
 ga_evolve(struct ga *self, unsigned int max_gen)
@@ -894,25 +900,25 @@ void
 ga_set_best_ever(struct ga *self, unsigned int generation,
 		struct individual *candidate)
 {
-	int status, should_change = 1;
+	int should_change = 1;
 	struct individual *best;
 
 	assert(self && candidate);
 
 	best = self->best.i;
-	if (best) {
-		status = individual_compare(&best, &candidate);
-		should_change = (status == 1) ? 1 : 0;
+	if (best) {		
+		should_change = candidate->fitness > best->fitness;		
 	}
-
+	
 	/*
 	 * In case the candidate is actually better than the best individual so
 	 * far (or in case there's no best yet)...
 	 */
 	if (should_change) {
-		if (best)
+		if (best) {
 			delete_individual(best);
-
+			
+		}
 		self->best.i = individual_dup(candidate);
 		self->best.generation = generation;
 	}
@@ -1026,7 +1032,7 @@ report_human_readable(struct ga *self, FILE *fp)
 
 	fprintf(fp, ".----------------------------------------------------------------\n"); 
 	fprintf(fp, "| Generation number: %3u / %3u\n", self->current, self->max_gen);
-	fprintf(fp, "| Crossovers: %3u\tMutations: %3u\n", self->crossovers, self->mutations);
+	fprintf(fp, "| Crossovers: %3lu\tMutations: %3lu\n", self->crossovers, self->mutations);
 	fprintf(fp, "| Fittest individuals:\n");
 	fprintf(fp, "|   so far (%3u):\t", self->best.generation);
 	individual_print(self->best.i, fp);
@@ -1048,9 +1054,4 @@ report_graph(struct ga *self, FILE *fp)
 	assert(stats);
 
 	fprintf(fp, "%u %f\n", self->current - 1, stats->average);
-}
-
-int main()
-{
-    printf("Hello GA\n");
 }

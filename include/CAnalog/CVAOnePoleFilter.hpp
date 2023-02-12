@@ -44,6 +44,41 @@ public:
     // do the filter
     virtual DspFloatType doFilter(DspFloatType xn);
 
+    DspFloatType Tick(DspFloatType I=0, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0)
+    {
+        return A*doFilter(I);
+    }
+    void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+		#pragma omp simd
+		for(size_t i = 0; i < n; i++) {
+            DspFloatType xn = in[i];
+            // return xn if filter not supported
+            if(m_uFilterType != LPF1 && m_uFilterType != HPF1)
+                out[i] = xn;
+            else {
+                // for diode filter support
+                xn = xn*m_dGamma + m_dFeedback + m_dEpsilon*getFeedbackOutput();
+                
+                // calculate v(n)
+                DspFloatType vn = (m_da0*xn - m_dZ1)*m_dAlpha;
+
+                // form LP output
+                DspFloatType lpf = vn + m_dZ1;
+
+                // update memory
+                m_dZ1 = vn + lpf;
+
+                // do the HPF
+                DspFloatType hpf = xn - lpf;
+
+                if(m_uFilterType == LPF1)
+                    out[i] = lpf;
+                else if(m_uFilterType == HPF1)
+                    out[i] = hpf;                
+            }
+        }
+    }
+
 protected:
     DspFloatType m_dZ1;		// our z-1 storage location
 };

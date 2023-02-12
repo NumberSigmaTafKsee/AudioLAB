@@ -132,6 +132,15 @@ namespace Casino::MKL
 
         #ifdef SWIG
         %extend {
+            size_t size() const { return $self->size(); }
+            void resize(size_t i) { $self->resize(i); }
+            std::complex<T>* data() { return $self->data(); }
+            void push_back(const std::complex<T> v) { $self->push_back(v); }
+            void pop_back() { $self->pop_back(); }
+            std::complex<T> front() { return $self->front(); }
+            std::complex<T> back() { return $self->back(); }
+            std::complex<T> at(size_t i) { return $self->at(i); }
+
             std::complex<T> __getitem__(size_t i) { return (*$self)[i-1]; }
             void __setitem__(size_t i, std::complex<T> v) { (*$self)[i-1] = v; }
             std::complex<T>* data() { return $self->data(); }
