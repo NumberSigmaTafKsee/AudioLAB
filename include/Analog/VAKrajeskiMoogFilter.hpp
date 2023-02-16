@@ -41,7 +41,6 @@ namespace Analog::Filters::Moog
                 output[s] = state[4];
             }
         }
-
         void ProcessInplace(size_t n, DspFloatType * samples)
         {
             ProcessBlock(n,samples,samples);

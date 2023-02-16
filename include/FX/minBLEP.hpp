@@ -587,7 +587,9 @@ namespace Analog::minBLEP
 		}
 		
 		void ProcessSIMD(size_t n, DspFloatType * buffer);
-
+		void ProcessInplace(size_t n, DspFloatType * buffer) {
+			ProcessSIMD(n,buffer);
+		}
 		// call when main oscillator resets
 		void syncSlave()
 		{        

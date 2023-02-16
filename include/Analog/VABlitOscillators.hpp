@@ -57,8 +57,15 @@ namespace Analog::Oscillators::Blit
       DspFloatType Tick(DspFloatType I=1, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0) {
         return tick();
       }
-      void ProcessSIMD(size_t n, DspFloatType * buffer);
-      
+      void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * buffer);
+      void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n,input,output);
+        }
+        
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessBlock(n,nullptr,input);
+        }
+
       enum {
           PORT_FREQ,
           PORT_PHASE,
@@ -115,7 +122,7 @@ namespace Analog::Oscillators::Blit
       y = tmp;
       return y;
     }
-    void Blit::ProcessSIMD(size_t n, DspFloatType * buffer)
+    void Blit::ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * buffer)
     {
       #pragma omp simd
       for(size_t i = 0; i < n; i++) {
@@ -129,6 +136,7 @@ namespace Analog::Oscillators::Blit
         phase_ += rate_;
         if ( phase_ >= M_PI ) phase_ -= M_PI;        
         buffer[i] = tmp;
+        if(in) buffer[i] *= in[i];
       }
     }
 
@@ -217,8 +225,15 @@ namespace Analog::Oscillators::Blit
         return tick();
       }
 
-    void ProcessSIMD(size_t n, DspFloatType * out);
-    
+    void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out);
+    void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+        ProcessSIMD(n,input,output);
+      }
+        
+    void ProcessInplace(size_t n, DspFloatType * input) {
+        ProcessBlock(n,nullptr,input);
+    }
+
     enum {
         PORT_FREQ,
         PORT_PHASE,
@@ -272,7 +287,7 @@ namespace Analog::Oscillators::Blit
     return 2*y;
   }
 
-  void BlitSaw::ProcessSIMD(size_t n, DspFloatType * out)
+  void BlitSaw::ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
   {
     #pragma omp simd
     for(size_t i = 0; i < n; i++)
@@ -293,6 +308,7 @@ namespace Analog::Oscillators::Blit
         
       y = tmp;
       out[i] = 2*y;      
+      if(in) out[i] *= in[i];
     }
   }
 
@@ -422,8 +438,16 @@ namespace Analog::Oscillators::Blit
         return tick();
       }
 
-    void ProcessSIMD(size_t n, DspFloatType * out);
+    void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out);
 
+    void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+        ProcessSIMD(n,input,output);
+      }
+        
+    void ProcessInplace(size_t n, DspFloatType * input) {
+        ProcessBlock(n,nullptr,input);
+    }
+    
     void updateHarmonics( void );
 
     unsigned int nHarmonics_;
@@ -478,7 +502,7 @@ namespace Analog::Oscillators::Blit
     return 0.9*y/2.0;
   }
 
-  void BlitSquare::ProcessSIMD(size_t n, DspFloatType * out)
+  void BlitSquare::ProcessSIMD(size_t n, DspFloatType *in, DspFloatType * out)
   {
     #pragma omp simd
     for(size_t i = 0; i < n; i++)

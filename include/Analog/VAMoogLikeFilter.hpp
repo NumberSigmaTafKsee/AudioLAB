@@ -5,7 +5,7 @@
 
 namespace Analog::Filters::MoogLike
 {
-    struct MoogLike : public FilterProcessor
+    struct MoogLikeFilter: public FilterProcessor
     {
         
         enum {
@@ -24,7 +24,7 @@ namespace Analog::Filters::MoogLike
         DspFloatType k,p,q,g,a;
         DspFloatType a0,a1,a2,a3,a4;
         
-        MoogLike(DspFloatType Fc, DspFloatType Q, DspFloatType G, DspFloatType Fs) : FilterProcessor()
+        MoogLikeFilter(DspFloatType Fc, DspFloatType Q, DspFloatType G, DspFloatType Fs) : FilterProcessor()
         {
             omega = Fc;
             q  = Q;
@@ -114,6 +114,12 @@ namespace Analog::Filters::MoogLike
                 d[3]=coef[4]*_in+coef[8]*_out;
                 out[i] = _out;
             }
+        }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * out) {
+            ProcessSIMD(n,out,out);
         }
     };
 }

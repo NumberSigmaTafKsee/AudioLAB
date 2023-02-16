@@ -135,18 +135,12 @@ struct NonBandlimitedOsc
         return function(phase);
     }
 
-    DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=0,DspFloatType Y=0) {                
+    DspFloatType Tick(DspFloatType I=1, DspFloatType A=1, DspFloatType X=0,DspFloatType Y=0) {                
         DspFloatType tp = phase;                
         DspFloatType tf = freq;
-        phase = phase + Y;
-        if(phase > 1.0) phase -=1.0;
-        if(phase < 0) phase += 1.0;
         DspFloatType ts = step;
-        step = dsp_osc_step(freq + X,sample_rate);
-        DspFloatType r = I*A*Tick();                
-        phase = tp;
-        freq  = tf;
         step = dsp_osc_step(freq,sample_rate);
+        DspFloatType r = Tick();                        
         return r;
     }
 };

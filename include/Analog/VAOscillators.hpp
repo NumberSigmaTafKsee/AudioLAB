@@ -95,7 +95,7 @@ namespace Oscillators
             y -= block.process(y);
             return y;
         }
-        void ProcessSIMD(size_t n, DspFloatType * out) {
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
             #pragma omp simd
             for(size_t i = 0; i < n; i++)
             {
@@ -114,12 +114,18 @@ namespace Oscillators
                 state_ = tmp * 0.995;
                 //phase_   = x;
                 phase_ += rate_;
-                if ( phase_ >= M_PI ) phase_ -= M_PI;
-
-                DspFloatType out = tmp;
+                if ( phase_ >= M_PI ) phase_ -= M_PI;                
+                y = tmp;
                 y -= block.process(y);
                 out[i] = y;
+                if(in) out[i] *= in[i];
             }
+        }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * out) {
+            ProcessSIMD(n,nullptr,out);
         }
         DspFloatType getPhase() { return phase_; }
 
@@ -198,6 +204,16 @@ namespace Oscillators
             x -= block.process(x);
             return 4*x;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+        }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * out) {
+            ProcessSIMD(n,out,out);
+        }
     };
 
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -237,6 +253,16 @@ namespace Oscillators
             _out += (r1/s1.s1.m_);                
             DspFloatType x = _out;        
             return 2*(x-b2.process(x));
+        }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+        }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * out) {
+            ProcessSIMD(n,out,out);
         }
     };
 

@@ -66,7 +66,7 @@ namespace Analog::Filters::VoltageControlledFilter
 		DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {
 			process(I,1.0/sampleRate);
 			return A*state[3];
-		}
+		}		
 		void reset() {
 			for (int i = 0; i < 4; i++) {
 				state[i] = 0.0f;

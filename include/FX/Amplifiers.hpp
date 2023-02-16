@@ -68,11 +68,15 @@ namespace FX::Distortion
         }
     };
 
+	// std::clamp = annoying template
+	inline DspFloatType amp_clamp(DspFloatType x, DspFloatType a, DspFloatType b) {
+        return x < a? a: x > b? b : x;
+    }
     inline DspFloatType udo1(DspFloatType x, DspFloatType g = 1.0)
     {
         DspFloatType ax = fabs(x*pre_gain);
         if(ax == 0) return 0;
-        return std::clamp(post_gain*((x/ax)*(1-exp(g*(x*x)/ax))),-1.0,1.0);
+        return amp_clamp(post_gain*((x/ax)*(1-exp(g*(x*x)/ax))),-1.0,1.0);
     }
     inline void udo1_simd(size_t n, DspFloatType * in, DspFloatType g = 1.0)
     {
@@ -81,7 +85,7 @@ namespace FX::Distortion
             DspFloatType x  = in[i];
             DspFloatType ax = fabs(x*pre_gain);
             if(ax == 0) in[i] = 0;
-            else in[i] = std::clamp(post_gain*((x/ax)*(1-exp(g*(x*x)/ax))),-1.0,1.0);
+            else in[i] = amp_clamp(post_gain*((x/ax)*(1-exp(g*(x*x)/ax))),-1.0,1.0);
         }
     }
     
@@ -141,9 +145,7 @@ namespace FX::Distortion
         for(size_t i = 0; i < n; i++)
             buffer[i] = cheby_polynomial(o,buffer[i]);
     }
-    inline DspFloatType amp_clamp(DspFloatType x, DspFloatType a, DspFloatType b) {
-        return x < a? a: x > b? b : x;
-    }
+    
     inline void clamp_vector(size_t n, DspFloatType * in, DspFloatType *out, DspFloatType a, DspFloatType b) {
         #pragma omp simd
         for(size_t i = 0; i < n; i++)
@@ -204,14 +206,14 @@ namespace FX::Distortion
         }
     }
     inline DspFloatType tanh_normal(DspFloatType x, DspFloatType K=10,DspFloatType r = 1.0) {
-        return std::clamp(post_gain*std::tanh(pre_gain*K*x) / std::tanh(r),-1.0,1.0);        
+        return amp_clamp(post_gain*std::tanh(pre_gain*K*x) / std::tanh(r),-1.0,1.0);        
     }
     inline void tanh_normal_vector(size_t n, DspFloatType *in, DspFloatType * out, DspFloatType K=10,DspFloatType r = 1.0) {
         #pragma omp simd
         for(size_t i = 0; i < n; i++)
         {
             DspFloatType x = in[i]*pre_gain;
-            out[i] = std::clamp(post_gain* std::tanh(pre_gain*K*x) / std::tanh(r),-1.0,1.0);
+            out[i] = amp_clamp(post_gain* std::tanh(pre_gain*K*x) / std::tanh(r),-1.0,1.0);
         }
     }
     inline DspFloatType positive_signal(DspFloatType x) {
@@ -223,13 +225,13 @@ namespace FX::Distortion
     
 
     inline DspFloatType sigmoid_function(DspFloatType x, DspFloatType K=10) {
-        return std::clamp(2*post_gain*(1.0 / (1.0 + std::exp(-K*pre_gain*x))-0.5),-1.0,1.0);
+        return amp_clamp(2*post_gain*(1.0 / (1.0 + std::exp(-K*pre_gain*x))-0.5),-1.0,1.0);
     }
     inline void sigmoid_vector(size_t n, DspFloatType * in, DspFloatType *out, DspFloatType K=10) {
         #pragma omp simd
         for(size_t i = 0; i < n; i++) {
             DspFloatType x = in[i];
-            out[i] = std::clamp(2*post_gain*(1.0 / (1.0 + std::exp(-K*pre_gain*x))-0.5),-1.0,1.0);
+            out[i] = amp_clamp(2*post_gain*(1.0 / (1.0 + std::exp(-K*pre_gain*x))-0.5),-1.0,1.0);
         }        
     }
     inline DspFloatType sigmoid_minus(DspFloatType x, DspFloatType K=10) {
@@ -239,7 +241,7 @@ namespace FX::Distortion
         #pragma omp simd
         for(size_t i = 0; i < n; i++) {
             DspFloatType x = in[i];
-            out[i] = -std::clamp(2*post_gain*(1.0 / (1.0 + std::exp(-K*pre_gain*x))-0.5),-1.0,1.0);
+            out[i] = -amp_clamp(2*post_gain*(1.0 / (1.0 + std::exp(-K*pre_gain*x))-0.5),-1.0,1.0);
         }        
     }
     inline DspFloatType bpsigmoid(DspFloatType x, DspFloatType g = 10) {
@@ -249,7 +251,7 @@ namespace FX::Distortion
         #pragma omp simd
         for(size_t i = 0; i < n; i++) {
             DspFloatType x = -in[i];
-            out[i] = std::clamp(2*post_gain*(1.0 / (1.0 + std::exp(-K*pre_gain*x))-0.5),-1.0,1.0);
+            out[i] = amp_clamp(2*post_gain*(1.0 / (1.0 + std::exp(-K*pre_gain*x))-0.5),-1.0,1.0);
         }        
     }
     inline DspFloatType full_rectify(DspFloatType x) {
@@ -267,23 +269,23 @@ namespace FX::Distortion
         clamp_vector(n,x,0,1);
     }
     inline DspFloatType modulated_signals(DspFloatType a, DspFloatType b) {
-        return std::clamp(post_gain*a*b,-1.0,1.0);
+        return amp_clamp(post_gain*a*b,-1.0,1.0);
     }
     
 
     inline DspFloatType circular_modulated_signals(DspFloatType a, DspFloatType b) {
-        return std::clamp(post_gain*std::fmod(pre_gain*a,pre_gain*b),-1.0,1.0);
+        return amp_clamp(post_gain*std::fmod(pre_gain*a,pre_gain*b),-1.0,1.0);
     }
     inline DspFloatType positive_modulated_signals(DspFloatType a, DspFloatType b) {
-        return std::clamp(positive_signal(a)*positive_signal(b),-1.0,1.0);
+        return amp_clamp(positive_signal(a)*positive_signal(b),-1.0,1.0);
     }
     inline DspFloatType negative_modulated_signals(DspFloatType a, DspFloatType b) {
-        return std::clamp(negative_signal(a)*negative_signal(b),-1.0,1.0);
+        return amp_clamp(negative_signal(a)*negative_signal(b),-1.0,1.0);
     }
 
     inline DspFloatType sigmoidDistortionFunction(DspFloatType x, DspFloatType gain,
                                             DspFloatType max, DspFloatType dc) {                                                        
-        return std::clamp(max * gain * x / sqrt(1 + (gain * std::pow(gain * x, 2))) + dc,-1.0,1.0);
+        return amp_clamp(max * gain * x / sqrt(1 + (gain * std::pow(gain * x, 2))) + dc,-1.0,1.0);
     }
     inline void sigmoid_distortion_functionvector(size_t n, DspFloatType * in, DspFloatType *out, DspFloatType gain,DspFloatType max, DspFloatType dc) {
         #pragma omp simd
@@ -767,7 +769,7 @@ namespace FX::Distortion
         }
     }
 
-    inline DspFloatType fuzzExponential (DspFloatType input, DspFloatType gain=1, DspFloatType X =1, DspFloatType Y=1)
+    inline DspFloatType fuzzExponential (DspFloatType input, DspFloatType gain=1, DspFloatType X =-1, DspFloatType Y=1)
     {
         gain *= pre_gain;
         DspFloatType newInput = input * gain;
@@ -1279,7 +1281,7 @@ namespace FX::Distortion
     inline void logiclip_vector(size_t n, DspFloatType * input, DspFloatType *output, DspFloatType G = 1.0) {
         #pragma omp simd        
         for(size_t i = 0; i < n; i++) {    
-            output [i] = std::clamp(post_gain*(2.0 / (1.0 + std::exp (-2.0 * pre_gain*G*input[i])) - 1.0),-1.0,1.0);
+            output [i] = amp_clamp(post_gain*(2.0 / (1.0 + std::exp (-2.0 * pre_gain*G*input[i])) - 1.0),-1.0,1.0);
         }
     }
     template<typename T>
@@ -1292,7 +1294,7 @@ namespace FX::Distortion
         for(size_t i = 0; i < n; i++) {    
             DspFloatType x = input[i]*pre_gain;
             auto s = x < 0? -1.0 : 1.0;
-            output[i] = std::clamp(post_gain* s * std::fminf(std::fabs(x), 1.0),-1.0,1.0);
+            output[i] = amp_clamp(post_gain* s * std::fminf(std::fabs(x), 1.0),-1.0,1.0);
         }
     }
     template<typename T>
@@ -1305,7 +1307,7 @@ namespace FX::Distortion
         #pragma omp simd        
         for(size_t i = 0; i < n; i++) {    
             DspFloatType x = input[i]*pre_gain;
-            output[i] = std::clamp(post_gain*std::tanh ((1.0 - 0.5 * G) * x),-1.0,1.0);
+            output[i] = amp_clamp(post_gain*std::tanh ((1.0 - 0.5 * G) * x),-1.0,1.0);
         }
     }
 
@@ -1327,10 +1329,10 @@ namespace FX::Distortion
             auto s = x < 0? -1.0:1.0;
             if (std::fabs (x) < 1.25)
             {
-                output[i] = std::clamp(post_gain * x - (256.0 / 3125.0) * std::pow (G*x, 5.0),-1.0,1.0);
+                output[i] = amp_clamp(post_gain * x - (256.0 / 3125.0) * std::pow (G*x, 5.0),-1.0,1.0);
             } else
             {
-                output[i] = std::clamp(post_gain * s * 1.0,-1.0,1.0);
+                output[i] = amp_clamp(post_gain * s * 1.0,-1.0,1.0);
             }
         }
     }
@@ -1358,7 +1360,7 @@ namespace FX::Distortion
             {
                 x= s * 1.0;
             }
-            output[i] = std::clamp(post_gain * x, -1.0, 1.0);
+            output[i] = amp_clamp(post_gain * x, -1.0, 1.0);
         }
     }
     
@@ -1374,7 +1376,7 @@ namespace FX::Distortion
         for(size_t i = 0; i < n; i++) {    
             DspFloatType x = input[i]*pre_gain;
             DspFloatType soft = G;
-            output[i] =  std::clamp( post_gain * x / std::sqrt ((1.0 + 2.0 * soft + std::pow (x, 2.0))), -1.0, 1.0);
+            output[i] =  amp_clamp( post_gain * x / std::sqrt ((1.0 + 2.0 * soft + std::pow (x, 2.0))), -1.0, 1.0);
         }
         }
 
@@ -1389,7 +1391,7 @@ namespace FX::Distortion
         for(size_t i = 0; i < n; i++) {    
             DspFloatType x = input[i]*pre_gain;
             DspFloatType soft = G;
-            output[i] = std::clamp(post_gain * (2.0 / M_PI) * std::atan ((1.6 - soft * 0.6) * x),-1.0,1.0);
+            output[i] = amp_clamp(post_gain * (2.0 / M_PI) * std::atan ((1.6 - soft * 0.6) * x),-1.0,1.0);
         }
     }
 
@@ -1418,7 +1420,7 @@ namespace FX::Distortion
             {
                 x = s * 1.0;
             }
-            output[i] = std::clamp(post_gain * x, -1.0, 1.0);
+            output[i] = amp_clamp(post_gain * x, -1.0, 1.0);
         }
     }
     inline DspFloatType FuzzCtrTable(const DspFloatType x)

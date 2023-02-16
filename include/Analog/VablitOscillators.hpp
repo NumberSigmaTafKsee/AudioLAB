@@ -128,7 +128,7 @@ namespace Analog::Oscillators
             return 1.9*y;
         }                
 
-        void ProcessSIMD(size_t n, DspFloatType * out)
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
         {
             #pragma omp simd
             for(size_t i = 0; i < n; i++)
@@ -141,8 +141,18 @@ namespace Analog::Oscillators
                 y = clamp(tmp,-1,1);        
                 y -= block.process(y);
                 out[i] = 1.9*y;
+                if(in) out[i] *= in[i];
             }
         }
+
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n,input,output);
+        }
+        
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessBlock(n,input,input);
+        }
+
     };
 
     struct blitSquare : public OscillatorProcessor
@@ -258,7 +268,7 @@ namespace Analog::Oscillators
             return y;
         }
 
-        void ProcessSIMD(size_t n, DspFloatType * out)
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
         {
             #pragma omp simd
             for(size_t i = 0; i < n; i++)
@@ -273,8 +283,18 @@ namespace Analog::Oscillators
                 y = state_;
                 y -= block.process(y);
                 out[i] = y;
+                if(in) out[i] *= in[i];
             }
         }
+
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n,input,output);
+        }
+        
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessBlock(n,nullptr,input);
+        }
+
     };
 
     struct blitTriangle : public OscillatorProcessor
@@ -331,7 +351,7 @@ namespace Analog::Oscillators
             return 4*triangle;
         }
 
-        void ProcessSIMD(size_t n, DspFloatType * out)
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
         {
             #pragma omp simd
             for(size_t i = 0; i < n; i++)
@@ -342,7 +362,17 @@ namespace Analog::Oscillators
                 DspFloatType kaka = b1.process(triangle);
                 triangle -= kaka;                
                 out[i] = 4*triangle;
+                if(in) out[i] *= in[i];
             }
         }
+
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n,input,output);
+        }
+        
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessBlock(n,input,input);
+        }
+
     };
 }

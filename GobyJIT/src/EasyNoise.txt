@@ -1,0 +1,20 @@
+Easy noise generation,
+in .hpp,
+b_noise = 19.1919191919191919191919191919191919191919;
+
+alternatively, the number 19 below can be replaced with a number of your choice, to get
+that particular flavour of noise.
+
+Regards,
+Ove Karlsen.
+
+code
+
+    b_noise = b_noise * b_noise;
+    int i_noise = b_noise;
+    b_noise = b_noise - i_noise;
+
+    double b_noiseout;
+    b_noiseout = b_noise - 0.5;
+
+    b_noise = b_noise + 19;

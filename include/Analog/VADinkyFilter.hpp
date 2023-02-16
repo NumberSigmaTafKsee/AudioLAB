@@ -71,6 +71,13 @@ namespace Analog::Filters::DinkFilter
                 }
             }
         }
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n,input,output);
+        }
+            
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessBlock(n,input,input);
+        }
 
     private:
         DspFloatType cutoff;

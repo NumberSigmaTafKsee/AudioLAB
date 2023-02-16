@@ -117,6 +117,7 @@ namespace JoonasFX
 		DspFloatType frac = delayInSamplesFrac - delayInSamplesInt;
 
 		// Add delay into buffer
+		#pragma omp simd
 		for (auto channel = 0; channel < mNumChannels; ++channel)
 		{
 

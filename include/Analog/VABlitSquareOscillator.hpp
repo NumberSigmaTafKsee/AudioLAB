@@ -63,7 +63,7 @@ namespace Analog::Oscillators
             return x;
         }
 
-        void ProcessSIMD(size_t n, DspFloatType * out)
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
         {
             #pragma omp simd
             for(size_t i = 0; i < n; i++)
@@ -75,7 +75,16 @@ namespace Analog::Oscillators
                 DspFloatType x = _out;
                 x -= block.process(x);
                 out[i] = x;
+                if(in) out[i] *= in[i];
             }
+        }
+
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n,input,output);
+        }
+            
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessBlock(n,nullptr,input);
         }
     };
 }

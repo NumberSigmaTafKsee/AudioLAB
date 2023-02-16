@@ -107,6 +107,7 @@ namespace FX
         }
         void ProcessBlock(size_t n, DspFloatType * buffer)
         {
+            #pragma omp simd
             for(size_t i = 0; i < n; i++) buffer[i] = Tick();
         }
     };

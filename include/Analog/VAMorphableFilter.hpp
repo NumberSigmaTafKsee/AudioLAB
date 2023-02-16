@@ -136,6 +136,7 @@ DspFloatType MorphableFilter::process(DspFloatType input)
     DspFloatType summing_junction {};
     
     // Use filter_type to index into the two dimensional array
+    #pragma omp simd
     for (unsigned int i = 0; i < filters.size(); ++i) {
         if (i == 0) {
             summing_junction += nonlinearity * filter_weights[filter_t][i];

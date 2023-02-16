@@ -24,7 +24,7 @@ namespace Analog::Filters::Moog::NonLinear
 
 		}
 
-		void ProcessBlock(uint32_t n,DspFloatType * _input, DspFloatType * _output)
+		void ProcessSIMD(uint32_t n,DspFloatType * _input, DspFloatType * _output)
 		{
 			Undenormal denormal;
 			#pragma omp simd
@@ -49,10 +49,12 @@ namespace Analog::Filters::Moog::NonLinear
 			}
 		}
 
-		void ProcessInplace(size_t n, DspFloatType * _input)
-		{
-			Process(n,_input,_input);
-		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * out) {
+            ProcessSIMD(n,out,out);
+        }
 
 		
 		DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {

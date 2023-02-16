@@ -96,7 +96,7 @@ void OnePoleAllpassFilter::processSamples (DspFloatType* const samples,
     // Process a buffer of samples all at once
     // make sure sample values are locked
     //const ScopedLock sl (lock);
-    
+    #pragma omp simd
     for (int i = 0; i < numSamples; ++i)
     {
         y1 = (b0 * samples[i]) + (b1 * x1) + (a1 * y1);

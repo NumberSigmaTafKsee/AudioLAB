@@ -20,6 +20,7 @@ public:
   }
 
   void clear() {
+    #pragma omp simd
     for( size_t i=0; i< PINK_NOISE_NUM_STAGES; i++ )
       state[ i ] = 0.0;
     }

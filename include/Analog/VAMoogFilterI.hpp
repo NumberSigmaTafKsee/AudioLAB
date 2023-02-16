@@ -40,8 +40,7 @@ namespace Analog::Filters::Moog::MoogFilterI
 		// 0.0 will effectively turn off the saturation
 		void setSaturation(DspFloatType saturationAmount);
 
-		void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output);
-	
+		
 		void calculateCoefficients();
 		DspFloatType process(DspFloatType x);
 		DspFloatType saturate(DspFloatType input);
@@ -49,7 +48,9 @@ namespace Analog::Filters::Moog::MoogFilterI
 		DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {
 			return A*process(I);
 		}
-
+		void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output);
+		void ProcessInplace(size_t n, DspFloatType * buffer) { ProcessBlock(n,buffer,buffer); }
+		
 
 		enum
         {
@@ -127,7 +128,7 @@ namespace Analog::Filters::Moog::MoogFilterI
 		for (int s = 0; s < n; s++)
 		{
 			// process input
-			input = saturate(inputs[s]);
+			DspFloatType input = saturate(inputs[s]);
 			input -= r * out4;
 
 			//Four cascaded onepole filters (bilinear transform)

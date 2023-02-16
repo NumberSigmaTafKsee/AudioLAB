@@ -45,9 +45,10 @@ namespace Analog::Oscillators::DPW
             DspFloatType out = scaleFactor * (value - lastValue);
             lastValue = value;
 
-            phase = fmod(phase + inc,1.0f);
+            phase = std::fmod(phase + inc,1.0f);
             return A*out;
-        }   
+        }
+
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * output)  {
             #pragma omp simd
             for(size_t i = 0; i < n; i++)
@@ -55,7 +56,7 @@ namespace Analog::Oscillators::DPW
                 position += phase - lastPhase;
                 lastPhase = phase;
 
-                position = fmod(position, 1.0f);
+                position = std::fmod(position, 1.0f);
 
                 DspFloatType value = position * 2 - 1;
                 value = value * value;
@@ -63,9 +64,16 @@ namespace Analog::Oscillators::DPW
                 DspFloatType out = scaleFactor * (value - lastValue);
                 lastValue = value;
 
-                phase = fmod(phase + inc,1.0f);
+                phase = std::fmod(phase + inc,1.0f);
                 output[i] = out;            
             }
+        }
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n,input,output);
+        }
+            
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessBlock(n,nullptr,input);
         }
     };
 
@@ -114,8 +122,8 @@ namespace Analog::Oscillators::DPW
             positionB += phase - lastPhase;
             lastPhase = phase;
 
-            positionA = fmod(positionA, 1.0f);
-            positionB = fmod(positionB, 1.0f);
+            positionA = std::fmod(positionA, 1.0f);
+            positionB = std::fmod(positionB, 1.0f);
 
             DspFloatType valueA = positionA * 2.0f - 1.0f;
             DspFloatType valueB = positionB * 2.0f - 1.0f;
@@ -129,6 +137,37 @@ namespace Analog::Oscillators::DPW
             positionB += freq * invSampleRate;
 
             return out;        
+        }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * output)  {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++)
+            {
+                positionB += phase - lastPhase;
+                lastPhase = phase;
+
+                positionA = std::fmod(positionA, 1.0f);
+                positionB = std::fmod(positionB, 1.0f);
+
+                DspFloatType valueA = positionA * 2.0f - 1.0f;
+                DspFloatType valueB = positionB * 2.0f - 1.0f;
+                valueA = valueA * valueA;
+                valueB = valueB * valueB;
+                DspFloatType out = ((valueA - lastValueA) -(valueB - lastValueB)) * scaleFactor;
+                lastValueA = valueA;
+                lastValueB = valueB;
+
+                positionA += freq * invSampleRate;
+                positionB += freq * invSampleRate;
+
+                output[i] = out;        
+            }
+        }
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n,input,output);
+        }
+            
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessBlock(n,nullptr,input);
         }
     };
 
@@ -174,10 +213,28 @@ namespace Analog::Oscillators::DPW
         {        
             position += phase - lastPhase;
             lastPhase = phase;
-            position = fmod(position, 1.0f);                
+            position = std::fmod(position, 1.0f);                
             DspFloatType out = std::abs(position - 0.5) * 4 - 1;                
             position += freq * invSampleRate;        
             return A*out;
+        }
+        void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output) {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
+                position += phase - lastPhase;
+                lastPhase = phase;
+                position = std::fmod(position, 1.0f);                
+                DspFloatType out = std::abs(position - 0.5) * 4 - 1;                
+                position += freq * invSampleRate;        
+                output[i] =  out;
+            }
+        }
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n,input,output);
+        }
+            
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessBlock(n,nullptr,input);
         }
     };
 }

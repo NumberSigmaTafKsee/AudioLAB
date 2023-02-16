@@ -58,7 +58,7 @@ namespace Analog::Oscillators
             _out += 0.8*(r1/s1.s1.m_);                            
             return 2*(_out-b2.process(_out));
         }
-        void ProcessSIMD(size_t n, DspFloatType * out)
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
         {
             #pragma omp simd
             for(size_t i = 0; i < n; i++)
@@ -69,7 +69,16 @@ namespace Analog::Oscillators
                 // not really sure why it works but it does I think m_ = harmonic * harmonic like the fourier expansion
                 _out += 0.8*(r1/s1.s1.m_);                            
                 out[i] =  2*(_out-b2.process(_out));
+                if(in) out[i] *= in[i];
             }
+        }
+
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n,input,output);
+        }
+            
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessBlock(n,nullptr,input);
         }
     };
 }

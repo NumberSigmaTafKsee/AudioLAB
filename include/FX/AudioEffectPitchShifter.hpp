@@ -536,7 +536,7 @@ namespace FX
                 outwritepos = outputBufferWritePosition_;
                 outreadpos = outputBufferReadPosition_;
                 sampsincefft = samplesSinceLastFFT_;
-                
+                #pragma omp simd
                 for (int i = 0; i < numSamples; ++i)
                 {
                     const DspFloatType in = channelData[i];

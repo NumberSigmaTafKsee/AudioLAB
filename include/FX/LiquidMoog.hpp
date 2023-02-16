@@ -67,6 +67,6 @@ namespace Liquid
             }
             out *= A;
             return out;
-        }
+        }        
     };
 }

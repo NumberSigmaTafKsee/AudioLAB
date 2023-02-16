@@ -75,7 +75,7 @@ namespace Analog::Filters::SVF
                 // algorithm
                 // loop
                 L = D2 + F1 * D1;
-                H = I - L - Q1*D1;
+                H = x - L - Q1*D1;
                 B = F1 * H + D1;
                 N = H + L;
 
@@ -94,6 +94,13 @@ namespace Analog::Filters::SVF
                     case NOTCH: out = N; break;
                 }
                 output[i] = out;
+			}
+        }
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n,input,output);
+        }
+        void InplaceProcess(size_t n, DspFloatType * input) {
+            ProcessSIMD(n,input,input);
         }
     };
 }

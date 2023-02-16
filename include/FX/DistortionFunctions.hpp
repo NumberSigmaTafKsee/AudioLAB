@@ -10,7 +10,7 @@ namespace FX::Distortion
     // http://www.mitpressjournals.org/doi/pdf/10.1162/comj.2009.33.2.85
     DspFloatType distortionOne(DspFloatType input)
     {
-        return 3 * input / 2 * ((1 - pow(input, 2) / 3));
+        return 3 * input / 2 * ((1 - std::pow(input, 2) / 3));
     }
 
 
@@ -19,7 +19,7 @@ namespace FX::Distortion
         // if input > 0 sign is minus
         const DspFloatType sign = input > 0 ? 1.0f : -1.0f;
         
-        return sign * (fabs(2 * input) - pow(input, 2));
+        return sign * (std::fabs(2 * input) - std::pow(input, 2));
     }
 
 
@@ -64,7 +64,7 @@ namespace FX::Distortion
     // Overdrive, default drive = 0
     DspFloatType overdrive2(DspFloatType input, DspFloatType drive = 1.0f)
     {
-        return (((sqrt(input) - input) * drive) + input) * (1 - ((drive / 4) * 0.5));
+        return (((std::sqrt(input) - input) * drive) + input) * (1 - ((drive / 4) * 0.5));
     }
 
 
@@ -73,7 +73,7 @@ namespace FX::Distortion
     {
         DspFloatType sign = (input < 0) ? -1.0f : 1.0f;
         
-        return sign * pow(atan (pow (fabs(input), drive)), (1 / drive));
+        return sign * std::pow(std::atan (std::pow (std::fabs(input), drive)), (1 / drive));
     }    
     // distortions
     inline DspFloatType arctanDistortion(DspFloatType x, DspFloatType g = 1) {
@@ -82,10 +82,10 @@ namespace FX::Distortion
     // triangle = -asin(sin(2*pi*x))/1.5
     // triangle = acos(sin(2*pi*x))/3
     inline DspFloatType triangleDistortion1(DspFloatType x, DspFloatType g=1) {
-        return -asin(2*M_PI*x*g)/1.5;
+        return -std::asin(2*M_PI*x*g)/1.5;
     }
     inline DspFloatType triangleDistortion2(DspFloatType x, DspFloatType g=1) {
-        return acos(sin(2*M_PI*x*g))/3.0;
+        return std::acos(std::sin(2*M_PI*x*g))/3.0;
     }
     inline DspFloatType asinDistortion(DspFloatType x, DspFloatType g=1) {
         return std::asin(x*g)/1.57;
@@ -95,7 +95,7 @@ namespace FX::Distortion
     }
     inline DspFloatType asinhDistortion(DspFloatType x, DspFloatType g=1)
     {
-        return std::asinh(g*sin(2*M_PI*x*g))/(g/2.0f);
+        return std::asinh(g*std::sin(2*M_PI*x*g))/(g/2.0f);
     }
     /*
     inline sample_vector<DspFloatType> arctanDistortion(sample_vector<DspFloatType> x, DspFloatType g = 1) {
@@ -115,7 +115,7 @@ namespace FX::Distortion
         return std::tanh(h*signum(x)*std::log(1.2+2*std::abs(g*x))/std::log(2));
     }
 
-    DspFloatType logarithmic(DspFloatType x)          { return std::log(1 + x) / std::log(2); }
+    DspFloatType logarithmic(DspFloatType x)                 { return std::log(1 + x) / std::log(2); }
     DspFloatType soft(DspFloatType x, DspFloatType g =1)     { return clamp(2.0f/(1+std::exp(-g*x)) - 0.5f,-1,1);}
     DspFloatType exp1(DspFloatType x,DspFloatType gain=1)    { return clamp(std::exp(gain*x)/std::exp(gain)-1,-1,1); }
     DspFloatType iexp(DspFloatType x,DspFloatType gain=1)    { return clamp((std::exp(gain*x)-1)/std::exp(gain)-1,-1,1); }
@@ -144,14 +144,14 @@ namespace FX::Distortion
 
     DspFloatType saturate(DspFloatType x, DspFloatType t, DspFloatType g)
     {
-        if(fabs(x)<t)
+        if(std::fabs(x)<t)
             return x;
         else
         {
             if(x > 0.f)
-                return t + (1.f-t)*tanh(g*((x-t)/(1-t)));
+                return t + (1.f-t)*std::tanh(g*((x-t)/(1-t)));
             else
-                return -(t + (1.f-t)*tanh(g*((-x-t)/(1-t))));
+                return -(t + (1.f-t)*std::tanh(g*((-x-t)/(1-t))));
         }
     }
 
@@ -218,7 +218,7 @@ DspFloatType dafe_foldback(DspFloatType in, DspFloatType threshold)
 {
 	if (in>threshold || in<-threshold)
 	{
-		in = fabs(fabs(fmod(in - threshold, threshold * 4)) - threshold * 2) - threshold;
+		in = std::fabs(std::fabs(std::fmod(in - threshold, threshold * 4)) - threshold * 2) - threshold;
 	}
 	return in;
 }

@@ -114,7 +114,7 @@ namespace Analog
             return clamp(r,-1.0,1.0);
         }
 
-        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {            
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {            
             FX::Distortion::amp_vector(n,gain,in,out);
             if(dcBias != 0) FX::Distortion::bias_vector(n,dcBias,out);
             #pragma omp simd
@@ -126,8 +126,11 @@ namespace Analog
             if(dcBias != 0) FX::Distortion::bias_vector(n,-dcBias,out);
             FX::Distortion::clamp_vector(n,out,clipMin,clipMax);            
         }
-        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
-            ProcessBlock(n,in,out);
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * in) {
+            ProcessSIMD(n,in,in);
         }
     };
 
@@ -164,6 +167,9 @@ namespace Analog
                 out[i] = x + morph*(B.Tick(in[i]) - x);
                 out[i] *= gain;
             }
+        }
+        void ProcessInplace(size_t n, DspFloatType * in) {
+            ProcessBlock(n,in,in);
         }
     };
 }

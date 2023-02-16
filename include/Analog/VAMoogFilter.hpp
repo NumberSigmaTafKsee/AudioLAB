@@ -116,7 +116,7 @@ namespace Analog::Filters::Moog::MoogFilter
                 
                 DspFloatType volume = std::pow(10.0, (dbGain/20.0));
 
-                const DspFloatType input=sample[i];
+                const DspFloatType input=in[i];
                 
                 // input with half delay, for non-linearities
                 const DspFloatType ih = (DspFloatType)0.5 * (input + zi);
@@ -159,6 +159,14 @@ namespace Analog::Filters::Moog::MoogFilter
                 zi = input;
                 out[i] = y3*volume;                
             }
+        }
+        void ProcessInplace(size_t n, DspFloatType * samples)
+        {
+            ProcessSIMD(n,samples,samples);
+        }
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+            ProcessSIMD(n,in,out);
         }
         void reset()
         {  	zi = 0;

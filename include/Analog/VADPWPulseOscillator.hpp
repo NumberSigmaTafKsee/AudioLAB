@@ -52,8 +52,8 @@ namespace Analog::Oscillators
             positionB += phase - lastPhase;
             lastPhase = phase;
 
-            positionA = fmod(positionA, 1.0f);
-            positionB = fmod(positionB, 1.0f);
+            positionA = std::fmod(positionA, 1.0f);
+            positionB = std::fmod(positionB, 1.0f);
 
             DspFloatType valueA = positionA * 2.0f - 1.0f;
             DspFloatType valueB = positionB * 2.0f - 1.0f;
@@ -74,8 +74,8 @@ namespace Analog::Oscillators
                 positionB += phase - lastPhase;
                 lastPhase = phase;
 
-                positionA = fmod(positionA, 1.0f);
-                positionB = fmod(positionB, 1.0f);
+                positionA = std::fmod(positionA, 1.0f);
+                positionB = std::fmod(positionB, 1.0f);
 
                 DspFloatType valueA = positionA * 2.0f - 1.0f;
                 DspFloatType valueB = positionB * 2.0f - 1.0f;
@@ -89,6 +89,13 @@ namespace Analog::Oscillators
                 positionB += freq * invSampleRate;
                 output[i] = out;
             }
+        }
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n,input,output);
+        }
+            
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessBlock(n,nullptr,input);
         }
     };
 }

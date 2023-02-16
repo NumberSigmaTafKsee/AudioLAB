@@ -49,7 +49,7 @@ namespace Analog::Oscillators
         {        
             position += phase - lastPhase;
             lastPhase = phase;
-            position = fmod(position, 1.0f);                
+            position = std::fmod(position, 1.0f);                
             DspFloatType out = std::abs(position - 0.5) * 4 - 1;                
             position += freq * invSampleRate;        
             return out;
@@ -59,11 +59,18 @@ namespace Analog::Oscillators
             for(size_t i = 0; i < n; i++) {
                 position += phase - lastPhase;
                 lastPhase = phase;
-                position = fmod(position, 1.0f);                
+                position = std::fmod(position, 1.0f);                
                 DspFloatType out = std::abs(position - 0.5) * 4 - 1;                
                 position += freq * invSampleRate;        
                 output[i] = out;
             }
+        }
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n,input,output);
+        }
+            
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessSIMD(n,nullptr,input);
         }
     };
 }

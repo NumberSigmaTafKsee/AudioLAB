@@ -154,11 +154,7 @@ namespace Analog::Distortion::Diode
 		{
 			return A*process(I);
 		}
-
-		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {			
-			#pragma omp simd			
-			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
-		}
+		
 		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
 		{
 			#pragma omp simd
@@ -213,7 +209,13 @@ namespace Analog::Distortion::Diode
 				out[i] = y;
 			}
 		}
-
+		void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n,input,output);
+        }
+            
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessBlock(n,input,input);
+        }
 	private:
 
 		// Sample Rate

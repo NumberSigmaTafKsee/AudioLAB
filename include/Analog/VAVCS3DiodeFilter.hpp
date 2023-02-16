@@ -66,7 +66,7 @@ struct VCS3DiodeFilter : public MonoFXProcessor
             case PORT_RESONANCE: setResonance(v); break;
         }
     }
-    void ProcessBlock (size_t numSamples, DspFloatType * inputs, DspFloatType * outputs)
+    void ProcessSIMD(size_t numSamples, DspFloatType * inputs, DspFloatType * outputs)
     {
         Undenormal nodenormals;
         
@@ -106,10 +106,10 @@ struct VCS3DiodeFilter : public MonoFXProcessor
             OutputChannel[n] = DspFloatType(Vout);        
         }    
     }
-    void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
-        ProcessBlock(n,in,out);
+    void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+        ProcessSIMD(n,input,output);
     }
-    void ProcessInplace(size_t n, DspFloatType * buffer) {
-        ProcessBlock(n,buffer,buffer);
+    void ProcessInplace(size_t n, DspFloatType * input) {
+        ProcessSIMD(n,input,input);
     }
 };

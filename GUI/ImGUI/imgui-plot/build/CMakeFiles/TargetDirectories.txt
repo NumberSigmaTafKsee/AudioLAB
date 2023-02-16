@@ -1,3 +1,0 @@
-/home/quake/Projects/AudioLAB-C++/ImGUI/imgui-plot/build/CMakeFiles/imgui_plot.dir
-/home/quake/Projects/AudioLAB-C++/ImGUI/imgui-plot/build/CMakeFiles/edit_cache.dir
-/home/quake/Projects/AudioLAB-C++/ImGUI/imgui-plot/build/CMakeFiles/rebuild_cache.dir

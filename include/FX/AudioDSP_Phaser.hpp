@@ -208,12 +208,14 @@ namespace JoonasFX {
 		mDCBlocker.ProcessBlock(numSamples,inputs,outputs);
 
 		// Copy current buffer to dry buffer =====
+		#pragma omp simd
 		for (auto channel = 0; channel < numChannels; ++channel)
 		{
 			mDryBuffer.setChannel(channel,numSamples, outputs[channel]);
 		}
 
 		// AP Filters ============================
+		#pragma omp simd
 		for (auto channel = 0; channel < numChannels; ++channel)
 		{
 			const DspFloatType* input = outputs[channel];

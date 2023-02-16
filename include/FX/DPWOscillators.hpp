@@ -80,6 +80,33 @@ namespace Analog::Oscillators::DPW
             return getSawtoothWaveform();
 
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            #pragma omp simd
+            for(size_t i = 0; i < n ; i++ {
+                // Implement DPW algorithm
+                DspFloatType delta = f0/sampleRate;
+                DspFloatType scalingFactor = sampleRate/(4.0f*f0);
+                DspFloatType modPhase = 2.0f*phase - 1.0f;
+                DspFloatType parWaveform = modPhase*modPhase;
+                DspFloatType dyWaveform = parWaveform - state;
+
+                state = parWaveform;
+                output = scalingFactor * dyWaveform; 
+                out[i] = output;
+
+                phase += delta;
+                if (phase >= 1.0f)
+                    phase -= 1.0f;
+
+            }
+        }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * buffer)
+        {
+            ProcessSIMD(n,buffer,buffer);
+        }
         DspFloatType getSawtoothWaveform() {
             return output;
         }
@@ -134,7 +161,19 @@ namespace Analog::Oscillators::DPW
             generateSamples(f0*X);
             phase = p;
             return getSquareWaveform();
-
+        }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            #pragma omp simd
+            for(size_t i = 0; i < n ; i++ {
+                out[i] = Tick(in[i]);
+            }
+        }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * buffer)
+        {
+            ProcessSIMD(n,buffer,buffer);
         }
     };
 }

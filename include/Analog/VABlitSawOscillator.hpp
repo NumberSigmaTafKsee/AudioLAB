@@ -114,7 +114,7 @@ namespace Analog::Oscillators
             return 1.9*y;
         }
 
-        void ProcessSIMD(size_t n, DspFloatType * out)
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
         {
             #pragma omp simd
             for(size_t i = 0; i < n; i++)
@@ -133,7 +133,15 @@ namespace Analog::Oscillators
                 if ( phase_ >= M_PI ) phase_ -= M_PI;
                 y = tmp;
                 out[i] = 2*y;
-            }
+                if(in) out[i] *= in[i];
+            }            
+        }
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n,input,output);
+        }
+            
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessBlock(n,nullptr,input);
         }
 
         FX::Filters::OnePole     block;    

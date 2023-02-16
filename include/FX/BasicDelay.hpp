@@ -48,8 +48,10 @@ namespace FX::Delays
             memcpy(out[1],in[1],num*sizeof(DspFloatType));
             processBlock(0,num,out[0]);
             processBlock(1,num,out[1]);
+        }        
+        void ProcessInplace(size_t n, DspFloatType * in) {
+            ProcessBlock(n,in,in);
         }
-        
         inline void updatePosition(int channel, int size) noexcept{
             writePosition[channel] += size;
             if( writePosition[channel] >= delayBuffer[channel].size()){
@@ -93,7 +95,7 @@ namespace FX::Delays
         //String feedbackAm(nextValue);
         //Logger::outputDebugString(feedbackAm);
         int localWritePosition = writePosition[channel];
-        
+        #pragma omp simd
         for(auto sample = 0; sample < bufferLength; ++sample){
             const DspFloatType in = dryBuffer[numChannels*sample + channel];
             const DspFloatType fullPosition = delayBufferLength + localWritePosition -(sampleRate*delayTime);

@@ -84,6 +84,7 @@ public:
         T SizeDelta	= (Size - SizeSmooth) * OneOverSampleFrames;
         T DecayDelta = (((0.7995f * Decay) + 0.005) - DecaySmooth) * OneOverSampleFrames;
         T DensityDelta = (((0.7995f * Density1) + 0.005) - DensitySmooth) * OneOverSampleFrames;
+        #pragma omp simd
         for(int i=0;i<sampleFrames;++i){
             T left = inputs[0][i];
             T right = inputs[1][i];

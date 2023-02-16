@@ -79,7 +79,7 @@ namespace FX::Distortion::Diode
 	{
 		if(Ud < 0.0f)
 			return 0;
-		return C1 * expf(Ud * C2);
+		return C1 * std::exp(Ud * C2);
 	}
 
 	//diode params[0] -> C1
@@ -89,11 +89,11 @@ namespace FX::Distortion::Diode
 	inline DspFloatType
 	feedbackVoltageCached(const DspFloatType Id, const DspFloatType R3, DspFloatType* const aafDiodeParams[2], DspFloatType* const aafCachedParams[2], const uint nDiodes)
 	{
-		DspFloatType fLogId = logf(Id);
+		DspFloatType fLogId = std::log(Id);
 
-		DspFloatType Ud = 0;
-		uint uiDiode = 0;
-		for(; uiDiode < nDiodes; uiDiode++)
+		DspFloatType Ud = 0;		
+		#pragma omp simd
+		for(uint uiDiode = 0; uiDiode < nDiodes; uiDiode++)
 			if(Id > aafDiodeParams[0][uiDiode])
 				Ud += diodeVoltageCached(aafCachedParams[0][uiDiode], aafCachedParams[1][uiDiode], fLogId);
 
@@ -112,8 +112,8 @@ namespace FX::Distortion::Diode
 		DspFloatType dIf = 1.0f;
 		DspFloatType fOverId = 1.0f / Id;
 
-		uint uiDiode = 0;
-		for(; uiDiode < nDiodes; uiDiode++)
+		#pragma omp simd
+		for(uint uiDiode = 0; uiDiode < nDiodes; uiDiode++)
 			if(Id > aafDiodeParams[0][uiDiode])
 				dIf += fOverId * aafCachedParams[1][uiDiode] * fOverR2;
 
@@ -161,8 +161,8 @@ namespace FX::Distortion::Diode
 	#endif
 		
 		DspFloatType* const aafDiodeParams[2]={afDiodeC1, afDiodeC2};
-		uint uiDiode = 0;
-		for(; uiDiode < nDiodes; uiDiode++)
+		#pragma omp simd
+		for(uint uiDiode = 0; uiDiode < nDiodes; uiDiode++)
 		{
 	#ifdef SPAM_OUTPUT
 			printf("diode %d is type %d\n", uiDiode, pDiodeTypes[uiDiode]);
@@ -196,7 +196,7 @@ namespace FX::Distortion::Diode
 	#endif
 
 			DspFloatType fdBAttenuation = -60.0f * (1.0f - fGainSetting);
-			R2 *= powf(10.0f, fdBAttenuation/20.0f);
+			R2 *= std::pow(10.0f, fdBAttenuation/20.0f);
 			break;
 		}
 		//pot with three wires
@@ -213,8 +213,8 @@ namespace FX::Distortion::Diode
 			break;
 		}
 
-		R2 = fmaxf(R_MIN, R2);
-		R1 = fmaxf(R_MIN, R1);
+		R2 = std::fmax(R_MIN, R2);
+		R1 = std::fmax(R_MIN, R1);
 
 		//minimum feedback current for which to solve
 		//-140dB is plenty, well below A/D noise
@@ -238,8 +238,8 @@ namespace FX::Distortion::Diode
 
 
 		DspFloatType* const aafCachedParams[2]={afCached1, afCached2};
-		uiDiode = 0;
-		for(; uiDiode < nDiodes; uiDiode++)
+		#pragma omp simd
+		for(uiDiode = 0; uiDiode < nDiodes; uiDiode++)
 		{
 			aafCachedParams[0][uiDiode] = logf(aafDiodeParams[0][uiDiode]);
 			aafCachedParams[1][uiDiode] = 1.0f/aafDiodeParams[1][uiDiode];
@@ -268,11 +268,11 @@ namespace FX::Distortion::Diode
 	#endif
 			//current through diode must be somewhere between zero and total current
 			//epsilon to ensure good approximation
-			DspFloatType fIdMax = fminf(If, diodeCurrent(aafDiodeParams[0][0], aafDiodeParams[1][0], R2 * If));
+			DspFloatType fIdMax = std::fmin(If, diodeCurrent(aafDiodeParams[0][0], aafDiodeParams[1][0], R2 * If));
 			//find the diode current by -100dB of the total feedback current
 			//limit accuracy for low signal level to absolute minimum current
 			//const DspFloatType fEpsilon = fmaxf(If * 1e-5f, fMinFeedbackCurrent);
-			const DspFloatType fEpsilon = fmaxf(If * 1e-6f, fMinFeedbackCurrent);
+			const DspFloatType fEpsilon = std::fmax(If * 1e-6f, fMinFeedbackCurrent);
 
 			//minimum bound diode current
 			DspFloatType fIdMin = 0;
@@ -414,20 +414,21 @@ namespace FX::Distortion::Diode
 
 		DspFloatType* afTempIn = (DspFloatType*) calloc(nSamples, sizeof(DspFloatType));
 
-		for(; i < nSamples; i++)
-			afTempIn[i] = fabsf(pIn[i]);
+		#pragma omp simd
+		for(i = 0; i < nSamples; i++)
+			afTempIn[i] = std::fabs(pIn[i]);
 
 		saturation(afTempIn, pOut, nSamples,
 					satType, nDiodes, pDiodeTypes, potType,
 					ground, pot, series,
 					fGainSetting);
 
-		i = 0;
-		for(; i < nSamples; i++)
+		#pragma omp simd
+		for(i = 0; i < nSamples; i++)
 		//saturation calculated using absolute voltages
 		//copy sign of input and saturation curve to output
 		//multiplication for inverting/non-inverting circuit
-			pOut[i] = copysignf(pOut[i], pIn[i] * pOut[i]);
+			pOut[i] = std::copysign(pOut[i], pIn[i] * pOut[i]);
 
 
 		free(afTempIn);

@@ -12,9 +12,9 @@ namespace Analog::Distortion::Diode
     struct Dioder
     {        
         DspFloatType sampleRate=44100.0;
-        DspFloatType v = 0.0253;
-        DspFloatType e = 1.68;
-        DspFloatType i = .015;
+        DspFloatType Iv = 0.0253;
+        DspFloatType Ie = 1.68;
+        DspFloatType Ii = .015;
         
         Dioder(DspFloatType sr=44100.0) 
         {                    
@@ -23,13 +23,20 @@ namespace Analog::Distortion::Diode
         DspFloatType Tick(DspFloatType In, DspFloatType V=1, DspFloatType E=1, DspFloatType I=1)
         {
             //return FX::Distortion::Diode::Diode(In,v*V,e*E,i*I);
-            return (I*i) * (exp(0.1*x/((E*e)*(V*v)))-1);
+            return (I*Ii) * (exp(0.1*In/((E*Ie)*(V*Iv)))-1);
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
             #pragma omp simd
             for(size_t i = 0; i < n; i++) {
-                out[i] = (I*i) * (exp(0.1*in[i]/((E*e)*(V*v)))-1);
+                out[i] = Ii * (exp(0.1*in[i]/((Ie)*(Iv)))-1);
             }
+        }
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n,input,output);
+        }
+            
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessBlock(n,input,input);
         }
     };    
 }

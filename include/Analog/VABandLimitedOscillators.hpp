@@ -15,8 +15,8 @@
 #include "VADPWSawOscillator.hpp"    
 #include "VADPWPulseOscillator.hpp"
 #include "VADPWTriangleOscillator.hpp"
-#include "FX/PolyBLEP.hpp"
-#include "FX/minBLEP.hpp"
+#include "VAPolyBLEPOscillator.hpp"
+#include "VAMinBLEP.hpp"
     
     
     

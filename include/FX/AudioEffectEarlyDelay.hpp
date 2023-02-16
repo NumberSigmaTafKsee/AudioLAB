@@ -154,6 +154,7 @@ namespace FX
           outputs[1],
           numSamples
       );
+      #pragma omp simd
       for(size_t i = 0; i < numSamples; i++)
       {
           outputs[pingpong? 1:0][i] = mix*outputs[0][i] + (1.0-mix)*delayL.process(outputs[0][i]);

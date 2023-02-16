@@ -40,6 +40,7 @@ void LC_filter(size_t numSamples, DspFloatType * buffer, int filter_no, DspFloat
     dt_div_C = 1.0 / (C * sampleRate);
     dt_div_L = 1.0 / (L * sampleRate);
 
+    #pragma omp simd
     for (t = 0; t < numSamples; t++) {
 	if(isnan(*sound))
 	    *sound=0;
@@ -95,6 +96,7 @@ static void RC_filter(size_t numSamples, DspFloatType * buffer, int mode, int fi
     DspFloatType     *sound = buffer;
     int channels = 1;
 
+    #pragma omp simd
     for (t = 0; t < numSamples; t++) {
 	if(isnan(*sound))
 	    *sound=0;
@@ -485,6 +487,7 @@ DspFloatType sin_lookup_table[SIN_LOOKUP_SIZE+1];
 
 static void init_sin_lookup_table(void) {
     int i = 0;
+    #pragma omp simd
     for (i = 0; i < SIN_LOOKUP_SIZE + 1; i += 1)
         sin_lookup_table[i] = sin(2 * M_PI * i / SIN_LOOKUP_SIZE);
 }
@@ -537,7 +540,7 @@ void autowah_filter(autowah_params *ap, size_t numSamples, DspFloatType * inputs
          * We just skip all channels but the first presently. */
         
         
-
+        #pragma omp simd
         for (i = 0; i < numSamples; i++) { 
             outputs[i] = inputs[i];
             if (curr_channel == 0) {
@@ -663,6 +666,7 @@ void autowah_filter(autowah_params *ap, size_t numSamples, DspFloatType * inputs
     }
     
     /* mix with dry sound */
+    #pragma omp simd
     for (i = 0; i < numSamples; i++)
         outputs[i] = (outputs[i]*ap->drywet + inputs[i]*(100.f-ap->drywet))/100.0f;
 }
@@ -696,6 +700,7 @@ void chorus_filter_mono(chorus_params * cp, size_t numSamples, DspFloatType * in
     while (count) {
         tmp = 0.0;
         tmp_ang = cp->ang;
+        #pragma omp simd
         for (i = 0; i < cp->voices; i += 1) {
             dly = BaseDelay * i / cp->voices + Depth * (1 + sin_lookup(tmp_ang)) / 2.0;
             tmp += cp->history[curr_channel]->get_interpolated(cp->history[curr_channel], dly) / sqrt(cp->voices);
@@ -801,6 +806,7 @@ void delay_filter_mono(delay_params * dp, size_t n, DspFloatType * inputs, DspFl
         current_delay = 0;
         current_decay = 1.0;
         *t = *s;
+        #pragma omp simd
         for (i = 0; i < dp->delay_count; i += 1) {
             current_delay += delay_inc;
             current_decay *= decay_fac;
@@ -974,6 +980,7 @@ distort2_filter(struct distort2_params *dp, size_t numSamples, DspFloatType * in
         upsample[3] = ((DspFloatType) 3 * upsample[2] + dp->interpolate_firmem[curr_channel][2]) / (DspFloatType) 4;
 
         /* Now the actual upsampled processing */
+        #pragma omp simd
         for (i = 0; i < UPSAMPLING_RATE; i++)
         {
             /* scale down to -1 .. 1 range */
@@ -1168,6 +1175,7 @@ void echo_create(struct echo_params *params)
     /* build history buffers, one per channel per echo */
     /* with 20 voices, 0.5 s max buffer, 48 kHz sample rate
      * and 4 bytes per sample we need approx. 1 MB */
+     #pragma omp simd
     for (i = 0; i < MAX_ECHO_COUNT; i += 1) {
         for (j = 0; j < MAX_CHANNELS; j += 1) {
             params->history[j][i] = new_Backbuf(MAX_ECHO_LENGTH / 1000.0 * MAX_sampleRate * params->size_factor[i]);
@@ -1213,6 +1221,7 @@ void eqbank_filter(struct eqbank_params *params, size_t numSamples, DspFloatType
         DspFloatType out1, out2;
         /* using 2x upsampling */
         fir_interpolate_2x(params->history_in[cchannel], *s, &out1, &out2);
+        #pragma omp simd
 	    for (i = 0; i < FB_NB; i++) {
             /* out1 is the sample before out2 */
 	        out1 = do_biquad(out1, &params->filters[i], cchannel);
@@ -1273,6 +1282,7 @@ void phasor_filter_mono(struct phasor_params *params, size_t numSamples, DspFloa
         }
         
         tmp = *s;
+        #pragma omp simd
         for (i = 0; i < MAX_PHASOR_FILTERS; i += 1)
             tmp = do_biquad(tmp, &params->allpass[i], curr_channel);
         *out = *s * Dry + tmp * Wet;
@@ -1608,6 +1618,7 @@ static DspFloatType convolve(const DspFloatType *a, const DspFloatType *b, int l
     int i;
     /* a long int type would be needed to hold the value in integer dsp */
     DspFloatType dot = 0;
+    #pragma omp simd
     for (i = 0; i < len; i += 1)
             dot += (DspFloatType) a[i] * (DspFloatType) b[i];
     return dot;
@@ -1634,6 +1645,7 @@ void tubeamp_filter(struct tubeamp_params *params, size_t numSamples, DspFloatTy
     gain = pow(10.f, params->gain / 20.f);
     
     /* highpass -> low shelf eq -> lowpass -> waveshaper */
+    #pragma omp simd
     for (i = 0; i < numSamples; i += 1) {
         DspFloatType result;
         for (k = 0; k < UPSAMPLE_RATIO; k += 1) {
@@ -1735,6 +1747,7 @@ void tubeamp_create(struct tubeamp_params *params)
 #define NONLINEARITY_MAX 1024           /* normalize table between -1 .. 1 */
 
     DspFloatType y = 0.0;
+    #pragma omp simd
     for (i = 0; i < NONLINEARITY_SIZE; i += 1) {
         int iter = 10000;
         /* Solve implicit equation
@@ -1869,6 +1882,7 @@ estimate_best_correlation(DspFloatType *data, const int frames, const int aligno
     apprx = best;
 
     /* now look around the estimated maximum for the best match */
+    #pragma omp simd
     for (i = std::max(best - 3, 0); i < std::min(best + 4, frames - looplen); i += 1) {
         /* don't recompute the convolution we already know */
         if (i == apprx)
@@ -1894,6 +1908,7 @@ copy_to_output_buffer(DspFloatType *in, DspFloatType *out, DspFloatType *wp, con
 
     /* sum the first half with the tail of previous buffer, but overwrite
      * with the second half because the data on that side is old. */
+     #pragma omp simd
     for (i = 0; i < length / 2 / 4; i += 1) {
         __m128 w = wp4[i];
         /* unfortunately we must take the performance hit of unaligned load */
@@ -1910,6 +1925,7 @@ copy_to_output_buffer(DspFloatType *in, DspFloatType *out, DspFloatType *wp, con
 
     /* sum the first half with the tail of previous buffer, but overwrite
      * with the second half because the data on that side is old. */
+    #pragma omp simd
     for (i = 0; i < length / 2; i += 1) {
         DspFloatType w = wp[i];
         out[i] = w * in[i] + (1.f - w) * out[i + length/2];
@@ -1965,6 +1981,7 @@ void pitch_filter(struct pitch_params * params, size_t n, DspFloatType * inputs,
     output_inc = LOOP_LENGTH / 2 / depth; 
     while (count --) {
         /* uninterleave channel data */
+        #pragma omp simd
         for (i = 0; i < channels; i += 1) {
             params->channel_memory[i][params->memory_index] =
             params->channel_memory[i][params->memory_index + MEMORY_LENGTH] =
@@ -1997,6 +2014,7 @@ void pitch_filter(struct pitch_params * params, size_t n, DspFloatType * inputs,
          * pristine input data. At each iteration, we use only half of the
          * output buffer for actual output, and copy the latter half as the
          * first half for next iteration. */
+        #pragma omp simd
         for (i = 0; i < channels; i += 1) {
             int bestpos = estimate_best_correlation(
                 params->channel_memory[i] + params->memory_index,
@@ -2038,6 +2056,7 @@ void pitch_filter(struct pitch_params * params, size_t n, DspFloatType * inputs,
             continue;
         }
         /* consume history now. */
+        #pragma omp simd
         for (i = 0; i < n; i += 1) {
             *o = Dry * *s + Wet * params->history[i]->get(params->history[i], (int) params->output_pos);
             s++;
@@ -2051,7 +2070,7 @@ void pitch_filter(struct pitch_params * params, size_t n, DspFloatType * inputs,
 void pitch_create(    struct pitch_params *params)
 {
     int                 i;
-       
+    
     for (i = 0; i < MAX_CHANNELS; i += 1) {
         params->channel_memory[i] = (DspFloatType*)calloc(MEMORY_LENGTH * 2, sizeof(DspFloatType));
         params->output_memory[i] = (DspFloatType*)calloc(LOOP_LENGTH, sizeof(DspFloatType));
@@ -2105,6 +2124,7 @@ void rotary_filter(struct rotary_params *params, size_t numSamples, DspFloatType
     
 
     pha = params->phase;
+    #pragma omp simd
     for (i = 0; i < numSamples; i += 1) {
         DspFloatType x0, x1, y0, y1;
 

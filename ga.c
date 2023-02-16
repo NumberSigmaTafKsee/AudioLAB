@@ -175,6 +175,7 @@ chromosome_as_string(struct chromosome *self)
 	if (!s)
 		return NULL;
 
+	
 	for (i = 0; i < self->len; i++)
 		s[i] = (chromosome_get_allele(self, i) == 1) ? '1' : '0';
 
@@ -552,6 +553,7 @@ select_roulette_wheel_parent(struct population *pop, struct individual **parent)
 	data = (struct roulette_wheel_data *) pop->select_data;
 	assert(data);
 
+	
 	for (i = 0, sum = 0.0, cur_indiv = NULL; (sum < pick) && (i < pop->len); i++) {
 		cur_indiv = pop->pop[i];
 
@@ -641,7 +643,38 @@ void
 crossover_n_point(struct individual *dad, struct individual *mom,
 			struct individual **son, struct individual **daughter)
 {
-		
+		unsigned int xsite;		/* Crossover point */
+	size_t chrom_len;
+	struct chromosome *cdad, *cmom, *cson, *cdaughter;
+
+	assert(dad && mom && son && daughter);
+
+	cdad = individual_get_chromosome(dad);
+	cmom = individual_get_chromosome(mom);
+	assert(cdad && cmom);
+
+	chrom_len = chromosome_get_len(cdad);
+	assert(chrom_len == chromosome_get_len(cdad));
+
+	*son = new_individual(chrom_len);
+	*daughter = new_individual(chrom_len);
+	assert(*son && *daughter);
+
+	
+	for(size_t i = 0; i < 100; i++) {
+		cson = individual_get_chromosome(*son);
+		cdaughter = individual_get_chromosome(*daughter);
+		assert(cson && cdaughter);
+
+		chromosome_copy(cdad, cson, 0, 0, chrom_len);
+		chromosome_copy(cmom, cdaughter, 0, 0, chrom_len);
+
+		xsite = random_range(0, chrom_len - 1);
+		(*son)->xsite = (*daughter)->xsite = xsite;
+
+		chromosome_copy(cmom, cson, xsite, xsite, chrom_len - xsite);
+		chromosome_copy(cdad, cdaughter, xsite, xsite, chrom_len - xsite);
+	}
 }
 
 void
@@ -802,7 +835,9 @@ ga_first(struct ga *self)
 	/*
 	 * Generate a random population.
 	 */
-	for (cur_indiv = NULL, i = 0; i < self->cur_pop->len; i++) {
+	cur_indiv = NULL;
+	#pragma omp parallel for
+	for (i = 0; i < self->cur_pop->len; i++) {
 		cur_indiv = cur_pop->pop[i] = new_individual(self->chrom_len);
 
 		individual_random(cur_indiv);
@@ -843,7 +878,8 @@ ga_next(struct ga *self)
 
 	ga_preselect(self);
 
-	for (i = 0; i < self->normal; ) {
+	//#pragma omp parallel for
+	for (i = 0; i < self->normal; i+=2) {
 		self->select(self->old_pop, &dad, &mom);
 
 		ga_cross(self, dad, mom, &son, &daughter);
@@ -851,8 +887,8 @@ ga_next(struct ga *self)
 		ga_mutate(self, son);
 		ga_mutate(self, daughter);
 
-		cur_pop->pop[i++] = son;
-		cur_pop->pop[i++] = daughter;
+		cur_pop->pop[i] = son;
+		cur_pop->pop[i+1] = daughter;
 
 		self->obj_fn(son);
 		self->obj_fn(daughter);

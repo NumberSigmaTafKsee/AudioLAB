@@ -1,0 +1,1 @@
+gcc -std=c++17 -O2 -I/opt/intel/oneapi/intelpython/latest/include/python3.9 -fPIC -march=native -mavx2 -shared -o plot_fft.so plot_fft_wrap.cxx plot_fft.cpp cfft.cpp -lstdc++ -lm -lluajit -lpython3.9 -lutil -lpthread -L/opt/intel/oneapi/intelpython/latest/lib -lpython3.9

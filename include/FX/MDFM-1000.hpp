@@ -24,14 +24,14 @@ namespace Analog
         void init() {
             if(cbezier) delete cbezier;
             Random noise;
-            float x1 = noise.randint(250,250);
-            float y1 = noise.randint(0,250);
-            float x2 = noise.randint(x1,500);
-            float y2 = noise.randint(0,250);
-            float x3 = noise.randint(x2,750);
-            float y3 = noise.randint(0,250);
-            float x4 = noise.randint(x3,1000);
-            float y4 = noise.randint(0,250);
+            int x1 = noise.randint(250,250);
+            int y1 = noise.randint(0,250);
+            int x2 = noise.randint(x1,500);
+            int y2 = noise.randint(0,250);
+            int x3 = noise.randint(x2,750);
+            int y3 = noise.randint(0,250);
+            int x4 = noise.randint(x3,1000);
+            int y4 = noise.randint(0,250);
             cbezier = new Bezier::Bezier<3>(
             {                                
                 {x1,y1},

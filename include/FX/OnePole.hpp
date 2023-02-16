@@ -14,6 +14,24 @@ namespace FX::Filters
         void setHighPass(DspFloatType Fc);
         DspFloatType process(DspFloatType in);
 
+        DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {
+            return A*process(I);
+        }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++)    
+            {
+                z1 = in[i] * a0 + z1 * b1;
+                out[i] = z1;
+            }
+        }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) { 
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * in) { 
+            ProcessSIMD(n,in,in);
+        }
+
     protected:
         DspFloatType a0, b1, z1;
     };
@@ -32,4 +50,5 @@ namespace FX::Filters
     inline DspFloatType OnePole::process(DspFloatType in) {
         return z1 = in * a0 + z1 * b1;
     }
+    
 }

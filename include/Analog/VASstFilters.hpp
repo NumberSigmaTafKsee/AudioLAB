@@ -25,8 +25,7 @@ namespace Analog::SstFilter
             reset();
         }
         void reset()
-        {
-            
+        {                           
             for (int i = 0; i < 4; ++i)
             {
                 std::fill(delayBufferData[i], delayBufferData[i] + dbLength, 0.0f);

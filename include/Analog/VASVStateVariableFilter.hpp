@@ -78,7 +78,12 @@ namespace Analog::Filters::AnalogStateVariableFilter
         /**    Performs the actual processing.
         */
         void process(DspFloatType gain, const DspFloatType *input, DspFloatType *output, unsigned count);
-
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            process(1.0,input,output,n);
+        }
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            process(1.0,input,input,n);
+        }
         //------------------------------------------------------------------------------
         /**    Reset the state variables.
         */
@@ -116,9 +121,7 @@ namespace Analog::Filters::AnalogStateVariableFilter
                 case PORT_SHELFGAIN: setFilter(filterType,cutoffFreq,Q,v); break;
             }
         }
-        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
-            process(1.0,input,output,n);
-        }
+        
     private:
         //==============================================================================
         //    Calculate the coefficients for the filter based on parameters.

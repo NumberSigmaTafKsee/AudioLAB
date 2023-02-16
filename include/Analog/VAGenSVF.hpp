@@ -24,7 +24,14 @@ public:
         v_n1 = v;
         return y * makeup;
     }
-
+    void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+        #pragma omp simd
+        for(size_t i = 0; i < n; i++) output[i] = process(input[i]);
+    }
+        
+    void ProcessInplace(size_t n, DspFloatType * input) {
+        ProcessBlock(n,input,input);
+    }    
     inline void nonlinearity(Eigen::Matrix<float, 4, 1>& v) {
         v(0,0) = std::tanh(v(0,0) * drive) * invDrive;
         v(2,0) = std::tanh(v(2,0) * drive) * invDrive;

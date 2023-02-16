@@ -48,9 +48,13 @@ namespace FX::Delays
         DspFloatType Tick(DspFloatType In, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0)  {
             return next(In);
         }
+        void ProcessSIMD(size_t num, DspFloatType * in, DspFloatType * out);
         void ProcessBlock(size_t num, DspFloatType * in, DspFloatType * out)
         {
-            for(size_t i = 0; i < num; i++) out[i] = Tick(in[i]);
+            ProcessSIMD(num,in,out);            
+        }
+        void ProcessInplace(size_t n, DspFloatType * out) {
+            ProcessSIMD(n,out,out);
         }
     private:
         DspFloatType gain;
@@ -154,7 +158,29 @@ namespace FX::Delays
         delay->writeDelay(dLW);
         
         //return the initially read delay
-        return dL;
-        
+        return dL;       
+    }
+    void ProcessSIMD(size_t num, DspFloatType * in, DspFloatType * out)
+    {
+        Undenormal denormals;
+        #pragma omp simd
+        for(size_t i = 0; i < num; i++) {
+            //read delay
+            DspFloatType dL = delay->readDelay();
+            
+            //attenuate with gain
+            DspFloatType dlAttn = dL * gain;
+            //pass through low pass filter
+            DspFloatType lpOut = lpFilter->next(dlAttn);
+            
+            const DspFloatType input = in[i];
+            //combine output for feedback loop
+            DspFloatType dLW = input + lpOut;
+            //write feedback loop back to delay buffer
+            delay->writeDelay(dLW);
+            
+            //return the initially read delay
+            out[i] = dL;       
+        }
     }
 }

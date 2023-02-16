@@ -34,6 +34,9 @@ namespace FX::Dynamics
 		DspFloatType calcCompressorGain(DspFloatType fDetectorValue, DspFloatType fThreshold,DspFloatType fRatio, DspFloatType fKneeWidth, bool bLimit);
 		)
 		void ProcessBlock(size_t numSamples, DspFloatType ** inputs, DspFloatType ** outputs);
+		void ProcessInplace(size_t n, DspFloatType ** output) {
+			ProcessBlock(n,output,output);
+		}
 	};
 
 	void Compreezor::ProcessBlock(size_t numSamples,DspFloatType ** inputs, DspFloatType ** outputs)
@@ -49,7 +52,7 @@ namespace FX::Dynamics
 		DspFloatType* channelDataR = inputs[1];
 		DspFloatType* channelOutL  = outputs[0];
 		DspFloatType* channelOutR  = outputs[1];
-
+		#pragma omp simd
 		for (int sample = 0; sample < numSamples; ++sample)
 		{       // ..do something to the data...			    
 

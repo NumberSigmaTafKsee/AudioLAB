@@ -57,26 +57,34 @@ namespace Analog::MoogFilters::MoogFilter4
             }
         }
         DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {
-            DspFloatType samples = tanhf(I * drive);
-            y_a = y_a + g * (tanhf(samples - resonance * ((y_d_1 + y_d)/2) - tanhf(y_a)));
-            y_b = y_b + g * (tanhf(y_a) - tanhf(y_b));
-            y_c = y_c + g * (tanhf(y_b) - tanhf(y_c));
+            DspFloatType samples = std::tanh(I * drive);
+            y_a = y_a + g * (std::tanh(samples - resonance * ((y_d_1 + y_d)/2) - std::tanh(y_a)));
+            y_b = y_b + g * (std::tanh(y_a) - std::tanh(y_b));
+            y_c = y_c + g * (std::tanh(y_b) - std::tanh(y_c));
             y_d_1 = y_d;
-            y_d = y_d + g * (tanhf(y_c) - tanhf(y_d));
+            y_d = y_d + g * (std::tanh(y_c) - std::tanh(y_d));
             return A*y_d;
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
             Undenormal denormals;
             #pragma omp simd
             for(size_t i = 0; i < n; i++) {
-                DspFloatType samples = tanh(in[i] * drive);
-                y_a = y_a + g * (tanh(samples - resonance * ((y_d_1 + y_d)/2) - tanhf(y_a)));
-                y_b = y_b + g * (tanh(y_a) - tanhf(y_b));
-                y_c = y_c + g * (tanh(y_b) - tanhf(y_c));
+                DspFloatType samples = std::tanh(in[i] * drive);
+                y_a = y_a + g * (std::tanh(samples - resonance * ((y_d_1 + y_d)/2) - std::tanh(y_a)));
+                y_b = y_b + g * (std::tanh(y_a) - std::tanh(y_b));
+                y_c = y_c + g * (std::tanh(y_b) - std::tanh(y_c));
                 y_d_1 = y_d;
-                y_d = y_d + g * (tanh(y_c) - tanhf(y_d));
+                y_d = y_d + g * (std::tanh(y_c) - std::tanh(y_d));
                 out[i] = y_d;
             }
+        }
+        void ProcessInplace(size_t n, DspFloatType * samples)
+        {
+            ProcessSIMD(n,samples,samples);
+        }
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+            ProcessSIMD(n,in,out);
         }
     };
 

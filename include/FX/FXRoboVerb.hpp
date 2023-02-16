@@ -199,7 +199,7 @@ public:
                         const int numSamples) noexcept
     {
         // jassert (left != nullptr && right != nullptr);
-
+        #pragma omp simd
         for (int i = 0; i < numSamples; ++i)
         {
             const DspFloatType input = (left[i] + right[i]) * gain;
@@ -237,7 +237,7 @@ public:
     void processMono (DspFloatType* const samples, const int numSamples) noexcept
     {
         // jassert (samples != nullptr);
-
+        #prgma omp simd
         for (int i = 0; i < numSamples; ++i)
         {
             const DspFloatType input = samples[i] * gain;

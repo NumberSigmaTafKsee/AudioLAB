@@ -139,6 +139,14 @@ namespace FX::CombFilters
         CombFilter::FilterType_t getFiltertType() const;
 
         Error_t process(const DspFloatType* inputBuffer, DspFloatType* outputBuffer, int numSamples);
+        
+        void ProcessBlock(size_t num, DspFloatType * in, DspFloatType * out)
+        {
+            process(in,out,num);
+        }
+        void ProcessInplace(size_t n, DspFloatType * out) {
+            process(out,out,n);
+        }
     private:
         bool isInParamRange(CombFilter::Param_t param, DspFloatType value) const;
         DspFloatType mParamRanges[CombFilter::Param_t::numParams][2]{};
@@ -208,12 +216,14 @@ namespace FX::CombFilters
 
         switch (mFilterType) {
         case fir:
+            #pragma omp simd
             for (int i = 0; i < numSamples; i++) {
                 mDelayLine->putPostInc(inputBuffer[i]);
                 outputBuffer[i] = inputBuffer[i] + mParamValues[CombFilter::Param_t::gain] * mDelayLine->getPostInc();
             }
             break;
         case iir:
+            #pragma omp simd
             for (int i = 0; i < numSamples; i++) {
                 outputBuffer[i] = inputBuffer[i] + mParamValues[CombFilter::Param_t::gain] * mDelayLine->getPostInc();
                 mDelayLine->putPostInc(outputBuffer[i]);

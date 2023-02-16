@@ -87,7 +87,7 @@ namespace FX
             // delayDataL and delayDataR are the circular buffers for implementing delay
             DspFloatType* delayDataL = delayBuffer_[0].data();
             DspFloatType* delayDataR = delayBuffer_[1].data();
-            
+            #pragma omp simd
             for (int i = 0; i < numSamples; ++i)
             {
                 const DspFloatType inL = channelDataL[i];
@@ -119,7 +119,7 @@ namespace FX
                 outputChannelR[i] = outR;
             }            
         }
-        void InplaceProcess(size_t n, DspFloatType ** buffer)
+        void ProcessInplace(size_t n, DspFloatType ** buffer)
         {
             ProcessBlock(n,buffer,buffer);
         }

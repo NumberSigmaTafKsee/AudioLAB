@@ -69,9 +69,12 @@ namespace FX::Delays
         }
         void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
         {
+            #pragma omp simd
             for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+        }       
+        void ProcessInplace(size_t n, DspFloatType * in) {
+            ProcessBlock(n,in,in);
         }
-        
     private:
         int writePos, readPosA, MAX_DELAY_SAMPLES;
         DspFloatType delay_ms, delay_samples, fraction, feedback, mixLevel, MAX_DELAY_MS;

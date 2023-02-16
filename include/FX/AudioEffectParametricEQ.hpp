@@ -111,7 +111,7 @@ namespace FX
             int channel;
             
             // Go through each channel of audio that's passed in
-            
+            #pragma omp simd
             for (channel = 0; channel < std::min((int32_t)numInputChannels, numEqFilters_); ++channel)
             {
                 // channelData is an array of length numSamples which contains the audio for one channel
@@ -123,6 +123,9 @@ namespace FX
                 //eqFilters_[channel]->processSamples(channelData, numSamples);
                 eqFilters_[channel]->Process(numSamples,channelData,channelOut);
             }                
+        }
+        void ProcessInplace(size_t n, DspFloatType ** buffer) {
+            ProcessBlock(n,buffer,buffer);
         }
     };
 }

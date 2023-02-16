@@ -153,6 +153,9 @@ namespace Analog::Filters::StateVariableFilter
         void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
             process(1.0,input,output,n);
         }
+        void ProcessInplace(size_t n, DspFloatType * out) {
+            ProcessBlock(n,out,out);
+        }
     private:
         //==============================================================================
         //    Calculate the coefficients for the filter based on parameters.

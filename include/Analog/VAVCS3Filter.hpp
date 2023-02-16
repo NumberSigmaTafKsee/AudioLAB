@@ -177,6 +177,12 @@ namespace Analog::Filters::VCS3Filter
                 out[i] = y3*r*volume;        
             }
         }
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n,input,output);
+        }
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessSIMD(n,input,input);
+        }
         void reset()
         {  	zi = 0;
             s0 = s1 = s2 = s3 = 0;

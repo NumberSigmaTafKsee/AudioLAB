@@ -61,6 +61,13 @@ namespace Analog::Filters::StateVariableFilter2
                 band = f * high + band;
                 notch = high + low;
                 out[i] = low;
+             }
+        }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * out) {
+            ProcessSIMD(n,out,out);
         }
     };
 }

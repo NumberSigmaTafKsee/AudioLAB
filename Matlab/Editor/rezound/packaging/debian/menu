@@ -1,2 +1,0 @@
-?package(rezound):needs=X11 section=Apps/Sound\
-  title="ReZound" command="/usr/bin/rezound"

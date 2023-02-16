@@ -251,8 +251,8 @@ namespace FX::Distortion::DistortionCompressor
     DspFloatType Distortion::gloubiBoulga(DspFloatType sample)
     {
         const DspFloatType x = sample * 0.686306;
-        const DspFloatType a = 1 + exp(sqrt(fabs(x)) * -0.75);
-        return (exp(x) - exp(-x * a)) / (exp(x) + exp(-x));
+        const DspFloatType a = 1 + std::exp(std::sqrt(std::fabs(x)) * -0.75);
+        return (std::exp(x) - std::exp(-x * a)) / (std::exp(x) + std::exp(-x));
     }
 
     // Approximation based on description in gloubiBoulga
@@ -293,12 +293,12 @@ namespace FX::Distortion::DistortionCompressor
 
     void GainDynamics::setAttack(DspFloatType newAttackTime) {
         attackTime = newAttackTime;
-        b0Attack = 1. - expf(-1. / (attackTime * fs));;
+        b0Attack = 1. - std::exp(-1. / (attackTime * fs));;
     }
 
     void GainDynamics::setRelease(DspFloatType newReleaseTime) {
         releaseTime = newReleaseTime;
-        b0Release = 1. - expf(-1. / (releaseTime * fs));;
+        b0Release = 1. - std::exp(-1. / (releaseTime * fs));;
     }
 
     PeakLevelDetector::PeakLevelDetector(DspFloatType sampleRate) {
@@ -329,7 +329,7 @@ namespace FX::Distortion::DistortionCompressor
         
         // set coefficients for leaky integrator
         b0Attack = 1.f;
-        a1 = expf(-1 / (releaseTime * fs));
+        a1 = std::exp(-1 / (releaseTime * fs));
         b0Release = 1.f - a1;
     }   
 }

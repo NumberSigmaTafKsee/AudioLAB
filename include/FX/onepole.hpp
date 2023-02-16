@@ -37,6 +37,21 @@ public:
     DspFloatType hi() {
         return x - z1;
     }
+    void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+        #pragma omp simd
+        for(size_t i = 0; i < n; i++)    
+        {
+            z1 = in[i] * a0 + z1 * b1;
+            out[i] = z1;
+        }
+    }
+    void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) { 
+        ProcessSIMD(n,in,out);
+    }
+    void ProcessInplace(size_t n, DspFloatType * in) { 
+        ProcessSIMD(n,in,in);
+    }
+
     
 protected:    
     DspFloatType x;

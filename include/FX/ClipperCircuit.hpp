@@ -86,6 +86,70 @@ namespace FX::Distortion::ClipperCircuit
             return yCur;
         }
         
+        DspFloatType Tick(DspFloatType I, DspFloatType A = 1, DspFloatType X = 1, DspFloatType Y = 1) {
+            return A*run(I);
+        }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
+                T residual = 10;
+                unsigned int numIters = 0;
+                T step = 0.;
+                T funcValue = 0.;
+                T derivativeValue = 0.;
+                
+                // Set last solution as current iterate.
+                T yCur = yn1;
+                const T uVal  = in[i];    
+                // Combine constant terms.
+                const T pConst = uVal/R1 + state;
+                
+                T ePos = 0.;
+                T eNeg = 0.;
+                // Find solution iteratively
+                while ((residual>tolerance) && (numIters < maximumIters))
+                {
+                    // Precalculate exponentials as they are used twice.
+                    ePos = fastExp(yCur/(NVt));
+                    eNeg = fastExp(-yCur/(asym*NVt));
+                    
+                    // Calculate step
+                    funcValue = pConst - (yCur/R1)
+                    - ((2.*C1*sFreq)*yCur) - (Is*(ePos - eNeg));
+                    
+                    derivativeValue = (-1./R1) - (2.*C1*sFreq)
+                    - (Is*((ePos/(NVt)) + (eNeg/(asym*NVt))));
+                    
+                    step = -funcValue/derivativeValue;
+                    
+                    // Residual is only step size.
+                    residual = std::fabs(step);
+                    
+                    yCur += step;
+                    
+                    numIters++;
+                }
+                
+                // Fail-safe if iterating explodes.
+                if(yCur!=yCur)
+                {
+                    yCur = 0;
+                }
+                
+                // Update state and past-sample
+                state = (4.*C1*sFreq)*yCur - state;
+                yn1 = yCur;
+                
+                out[i] = yCur;
+            }
+        }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * in) {
+            ProcessSIMD(n,in,in);
+        }
+        
         // Set ideality factor, combined with thermal voltage
         void setIdeality(const T idealityFactor)
         {

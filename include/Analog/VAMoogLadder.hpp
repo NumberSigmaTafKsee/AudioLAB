@@ -67,6 +67,12 @@ namespace Analog::Flters::Moog::MoogLadder
 		DspFloatType process(DspFloatType input); 
 		
 		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out);
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * out) {
+            ProcessSIMD(n,out,out);
+        }
 		// Destructor
 		~MoogLadder();
 

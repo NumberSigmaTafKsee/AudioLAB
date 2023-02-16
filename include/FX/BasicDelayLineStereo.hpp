@@ -24,8 +24,10 @@ namespace FX::Delays
         void ProcessBlock(size_t num, DspFloatType ** in, DspFloatType ** out)
         {
             delayL.ProcessBlock(num,in[0],out[0]);
-            delayR.ProcessBlock(num,in[0],out[0]);
-
+            delayR.ProcessBlock(num,in[0],out[0]);            
+        }
+        void ProcessInplace(size_t num, DspFloatType ** out) {
+            ProcessBlock(num,out,out);
         }
     };
 }

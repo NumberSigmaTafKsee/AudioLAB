@@ -149,6 +149,7 @@ namespace JoonasFX
         
         // Middle
         mCenterBuffer.resize(n);    
+        #pragma omp simd
         for(size_t i = 0; i < n; i++) {
             mCenterBuffer[i] = 0.5*(leftInput[i] + rightInput[i]);
         }
@@ -164,6 +165,7 @@ namespace JoonasFX
         mRightDelay.ProcessBlock(n,rightInput , rightOutput);
 
         DspFloatType volume = getVolume();
+        #pragma omp simd
         for(size_t i = 0; i < n; i++)
         {
             outputs[0][i] += centerOutput[n];

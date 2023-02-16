@@ -83,6 +83,30 @@ namespace Oscillators::Generators
             r = (max-min)*r + min;
             return A*(r);
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            #pragma omp simd
+            for)size_t i = 0; i < n; i++)
+            {
+                DspFloatType A = in? in[i] : 1.0;
+                DspFloatType r = A*function();
+                DspFloatType p = phase;
+                phase = phasor(Index*(frequency + X*frequency)) + (Y*phase);
+                phase = std::fmod(phase,1);        
+                if(polarity == POSITIVE) r = std::abs(r);
+                else if(polarity == NEGATIVE) r = -std::abs(r);
+                phase = p;
+                phaseIncrement();      
+                r = (max-min)*r + min;
+                out[i] = r;
+            }
+        }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * in) {
+            ProcessSIMD(n,in,in);
+        }
+
         DspFloatType operator()() {
             return Tick();
         }
@@ -143,6 +167,28 @@ namespace Oscillators::Generators
             phase = p;
             phaseIncrement();      
             return A*r;
+        }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            #pragma omp simd
+            for)size_t i = 0; i < n; i++)
+            {
+                DspFloatType A = in? in[i] : 1.0;
+                DspFloatType r = A*phase;
+                DspFloatType p = phase;
+                phase = phasor(I*(frequency*X)) + (Y*phase);
+                phase = std::fmod(phase,1);        
+                if(polarity == POSITIVE) r = std::abs(r);
+                else if(polarity == NEGATIVE) r = -std::abs(r);
+                phase = p;
+                phaseIncrement();      
+                out[i] = r;
+            }
+        }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * in) {
+            ProcessSIMD(n,in,in);
         }
         DspFloatType operator()() {
             return Tick();
@@ -209,16 +255,31 @@ namespace Oscillators::Generators
             max = _max;
         }
         DspFloatType Tick(DspFloatType I=1, DspFloatType A = 1, DspFloatType X = 1, DspFloatType Y = 1) {
-            //DspFloatType p = phase;
-            //phase = phasor(I*(frequency + 0.5*X*frequency)) + (Y*phase);
-            //phase = std::fmod(phase,1);            
             DspFloatType r = func(phase);
-            //phase = p;        
             phaseIncrement();                  
             if(polarity == POSITIVE) r = std::abs(r);
             else if(polarity == NEGATIVE) r = -std::abs(r);
             r = (max-min)*r + min;
             return A*r;
+        }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            #pragma omp simd
+            for)size_t i = 0; i < n; i++)
+            {
+                DspFloatType A = in? in[i] : 1.0;
+                DspFloatType r = func(phase);
+                phaseIncrement();                  
+                if(polarity == POSITIVE) r = std::abs(r);
+                else if(polarity == NEGATIVE) r = -std::abs(r);
+                r = (max-min)*r + min;                
+                out[i] = r;
+            }
+        }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * in) {
+            ProcessSIMD(n,in,in);
         }
         DspFloatType operator()() {
             return Tick();
@@ -416,17 +477,33 @@ namespace Oscillators::Functions
             return triangle();
         }
     
-        DspFloatType Tick(DspFloatType I=0, DspFloatType A = 1, DspFloatType X = 0, DspFloatType Y = 0) {        
-            //DspFloatType p = phase;
-            //phase = phasor(frequency + 0.5*X*frequency) + Y + phase;
-            //phase = std::fmod(phase,1);
-            DspFloatType r = function();
-            //phase = p;        
+        DspFloatType Tick(DspFloatType I=0, DspFloatType A = 1, DspFloatType X = 0, DspFloatType Y = 0) {                    
+            DspFloatType r = function();            
             phaseIncrement();      
             r = (max-min)*r + min;
             if(polarity == POSITIVE) return r;
             else if(polarity == NEGATIVE) return -r;
             return 2*r-1;
+        }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            #pragma omp simd
+            for)size_t i = 0; i < n; i++)
+            {
+                DspFloatType A = in? in[i] : 1.0;
+                DspFloatType r = function();            
+                phaseIncrement();      
+                r = (max-min)*r + min;
+                if(polarity == POSITIVE) return std::abs(r);
+                else if(polarity == NEGATIVE) return -std::abs(r);
+                else r = 2*r-1;
+                out[i] = A*r;
+            }
+        }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * in) {
+            ProcessSIMD(n,in,in);
         }
         DspFloatType operator()() {
             return Tick();

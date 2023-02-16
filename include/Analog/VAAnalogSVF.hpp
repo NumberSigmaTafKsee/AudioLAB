@@ -118,15 +118,8 @@ namespace Analog::Filters::AnalogSVF
             }
             return tanh(out);
         }
-        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output, DspFloatType *A=NULL,DspFloatType *X=NULL,DspFloatType *Y=NULL) {
-            #pragma omp simd
-            for(size_t i = 0; i < n; i++) output[i] = Tick(input[i], A != NULL? A[i]:1.0, X != NULL? X[i]:1.0, Y != NULL? Y[i]:1.0);
-        }
         
-        void InplaceProcess(size_t n, DspFloatType * input, DspFloatType *A=NULL,DspFloatType *X=NULL,DspFloatType *Y=NULL) {
-            ProcessBlock(n,input,input,A,X,Y);
-        }
-
+        
         void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output)
         {
             #pragma omp simd
@@ -183,6 +176,14 @@ namespace Analog::Filters::AnalogSVF
                 output[i] = out;
             }
         }
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n,input,output);
+        }
+        
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessBlock(n,input,input);
+        }
+
     };
 
     

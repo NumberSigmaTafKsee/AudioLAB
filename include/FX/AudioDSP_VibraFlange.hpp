@@ -159,6 +159,7 @@ namespace JoonasFX
 
 
 		// Iterate trough samples in a channel
+		#pragma omp simd
 		for (auto sample = 0; sample < n; ++sample)
 		{
 			// Get delay amount

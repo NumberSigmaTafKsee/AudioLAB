@@ -44,12 +44,12 @@ namespace Analog::Oscillators
         {                                    
             position += phase - lastPhase;
             lastPhase = phase;
-            position = fmod(position, 1.0f);
+            position = std::fmod(position, 1.0f);
             DspFloatType value = position * 2 - 1;
             value = value * value;            
             DspFloatType out = scaleFactor * (value - lastValue);
             lastValue = value;
-            phase = fmod(phase + inc,1.0f);
+            phase = std::fmod(phase + inc,1.0f);
             return out;
         }   
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * output) {
@@ -57,14 +57,21 @@ namespace Analog::Oscillators
             for(size_t i = 0; i < n; i++) {
                 position += phase - lastPhase;
                 lastPhase = phase;
-                position = fmod(position, 1.0f);
+                position = std::fmod(position, 1.0f);
                 DspFloatType value = position * 2 - 1;
                 value = value * value;                
                 DspFloatType out = scaleFactor * (value - lastValue);
                 lastValue = value;
-                phase = fmod(phase + inc,1.0f);
+                phase = std::fmod(phase + inc,1.0f);
                 output[i] = out;
             }
+        }
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n,input,output);
+        }
+            
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessBlock(n,nullptr,input);
         }
     };
 }

@@ -117,12 +117,12 @@ struct Plot
 
     void set_xlabel(char * label)
     {
-        cmd(handle, "set xlabel \"%s\"", label) ;
+        cmd("set xlabel \"%s\"", label) ;
     }
 
     void set_ylabel(char * label)
     {
-        cmd(handle, "set ylabel \"%s\"", label) ;
+        cmd("set ylabel \"%s\"", label) ;
     }
 
     void resetplot()
@@ -186,7 +186,7 @@ struct Plot
         if (x==NULL || y==NULL || (n<1)) return ;
 
         /* Open temporary file for output   */
-        tmpfname = tmpfile(handle);
+        tmpfname = tmpfile();
         tmpfd = fopen(tmpfname, "w");
 
         if (tmpfd == NULL) {
@@ -200,7 +200,7 @@ struct Plot
         }
         fclose(tmpfd) ;
 
-        plot_atmpfile(handle,tmpfname,title);
+        plot_atmpfile(tmpfname,title);
         return ;
     }
 
@@ -216,24 +216,24 @@ struct Plot
     {
     if (x==NULL || n<1) return ;    
     if (style!=NULL) {
-        setstyle(handle, style);
+        setstyle( style);
     } else {
-        setstyle(handle, "lines");
+        setstyle( "lines");
     }
     if (label_x!=NULL) {
-        set_xlabel(handle, label_x);
+        set_xlabel( label_x);
     } else {
-        set_xlabel(handle, "X");
+        set_xlabel( "X");
     }
     if (label_y!=NULL) {
-        set_ylabel(handle, label_y);
+        set_ylabel( label_y);
     } else {
-        set_ylabel(handle, "Y");
+        set_ylabel( "Y");
     }
     if (y==NULL) {
-        plot_x(handle, x, n, title);
+        plot_x( x, n, title);
     } else {
-        plot_xy(handle, x, y, n, title);
+        plot_xy( x, y, n, title);
     }
     printf("press ENTER to continue\n");
     while (getchar()!='\n') {}
@@ -247,11 +247,11 @@ struct Plot
         char            *   title
     )
     {
-        char const *    cmd    = (handle->nplots > 0) ? "replot" : "plot";
+        char const *    scmd    = (handle->nplots > 0) ? "replot" : "plot";
         title                  = (title == NULL)      ? "(none)" : title;
 
-        cmd(handle, "%s %.18e * x + %.18e title \"%s\" with %s",
-                    cmd, a, b, title, handle->pstyle) ;
+        cmd( "%s %.18e * x + %.18e title \"%s\" with %s",
+                    scmd, a, b, title, handle->pstyle) ;
 
         handle->nplots++ ;
         return ;

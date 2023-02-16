@@ -73,6 +73,7 @@ void FirstOrderAllPass::prepare(const int& numChannels)
 inline
 void FirstOrderAllPass::ProcessBlock(size_t numSamples, DspFloatType * inputs, DspFloatType * outputs)
 {
+	#pragma omp simd
 	for (auto channel = 0; channel < 2; ++channel)
 	{
 		const DspFloatType* input = inputs;

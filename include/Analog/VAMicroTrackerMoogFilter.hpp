@@ -15,7 +15,7 @@ namespace Analog::Filters::Moog
 
 	public:
 
-		MicrotrackerMoog(DspDspFloatTypeType sr) : FilterProcessor(),sampleRate(sr)
+		MicrotrackerMoog(DspFloatType sr) : FilterProcessor(),sampleRate(sr)
 		{
 			p0 = p1 = p2 = p3 = p32 = p33 = p34 = 0.0;
 			SetCutoff(1000.0f);
@@ -24,23 +24,23 @@ namespace Analog::Filters::Moog
 
 		virtual ~MicrotrackerMoog() {}
 
-		DspDspFloatTypeType fast_tanh(DspDspFloatTypeType x) 
+		DspFloatType fast_tanh(DspFloatType x) 
 		{
-			DspDspFloatTypeType x2 = x * x;
+			DspFloatType x2 = x * x;
 			return x * (27.0 + x2) / (27.0 + 9.0 * x2);
 		}
 
 		void ProcessBlock(size_t n, DspFloatType * samples, DspFloatType * output)
 		{
 			Undenormal denormal;
-			DspDspFloatTypeType k = resonance * 4;
+			DspFloatType k = resonance * 4;
 			#pragma omp simd
 			for (uint32_t s = 0; s < n; ++s)
 			{
 				// Coefficients optimized using differential evolution
 				// to make feedback gain 4.0 correspond closely to the
 				// border of instability, for all values of omega.
-				DspDspFloatTypeType out = p3 * 0.360891 + p32 * 0.417290 + p33 * 0.177896 + p34 * 0.0439725;
+				DspFloatType out = p3 * 0.360891 + p32 * 0.417290 + p33 * 0.177896 + p34 * 0.0439725;
 
 				p34 = p33;
 				p33 = p32;
@@ -51,20 +51,20 @@ namespace Analog::Filters::Moog
 				p2 += (fast_tanh(p1) - fast_tanh(p2)) * cutoff;
 				p3 += (fast_tanh(p2) - fast_tanh(p3)) * cutoff;
 
-				output[s] = out;
+				output[s] = out;				
 			}
 		}
 
 		void ProcessInplace(size_t n, DspFloatType * samples)
 		{
-			Process(n,samples);
+			ProcessBlock(n,samples,samples);
 		}
 
 		
-		DspDspFloatTypeType Tick(DspDspFloatTypeType I, DspDspFloatTypeType A=1, DspDspFloatTypeType X=1, DspDspFloatTypeType Y=1) {
+		DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {
 			Undenormal denormal;
-			DspDspFloatTypeType k = resonance * 4;
-			DspDspFloatTypeType out = p3 * 0.360891 + p32 * 0.417290 + p33 * 0.177896 + p34 * 0.0439725;
+			DspFloatType k = resonance * 4;
+			DspFloatType out = p3 * 0.360891 + p32 * 0.417290 + p33 * 0.177896 + p34 * 0.0439725;
 
 			p34 = p33;
 			p33 = p32;
@@ -79,26 +79,26 @@ namespace Analog::Filters::Moog
 
 		}
 
-		void SetResonance(DspDspFloatTypeType r)
+		void SetResonance(DspFloatType r)
 		{
 			resonance = r;
 		}
 
-		void SetCutoff(DspDspFloatTypeType c)
+		void SetCutoff(DspFloatType c)
 		{
 			cutoff = c * 2 * M_PI / sampleRate;
-			cutoff = std::min(cutoff, (DspDspFloatTypeType)1);
+			cutoff = std::min(cutoff, (DspFloatType)1);
 		}
 
-		DspDspFloatTypeType GetResonance() { return resonance; }
-		DspDspFloatTypeType GetCutoff() { return cutoff; }
+		DspFloatType GetResonance() { return resonance; }
+		DspFloatType GetCutoff() { return cutoff; }
 
 		enum
         {
             PORT_CUTOFF,
             PORT_RESONANCE,		
         };
-        void setPort(int port, DspDspFloatTypeType v)
+        void setPort(int port, DspFloatType v)
         {
             switch (port)
             {
@@ -112,13 +112,13 @@ namespace Analog::Filters::Moog
         }
 	private:
 
-		DspDspFloatTypeType p0;
-		DspDspFloatTypeType p1;
-		DspDspFloatTypeType p2;
-		DspDspFloatTypeType p3;
-		DspDspFloatTypeType p32;
-		DspDspFloatTypeType p33;
-		DspDspFloatTypeType p34;
-		DspDspFloatTypeType cutoff,resonance,sampleRate;
+		DspFloatType p0;
+		DspFloatType p1;
+		DspFloatType p2;
+		DspFloatType p3;
+		DspFloatType p32;
+		DspFloatType p33;
+		DspFloatType p34;
+		DspFloatType cutoff,resonance,sampleRate;
 	};
 }

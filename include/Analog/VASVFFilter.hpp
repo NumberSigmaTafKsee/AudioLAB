@@ -100,5 +100,11 @@ namespace Analog::Filters::SVF
                 output[i] = out;
             }
         }
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n,input,output);
+        }
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessSIMD(n,input,input);
+        }
     };
 }

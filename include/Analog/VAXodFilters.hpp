@@ -238,6 +238,13 @@ namespace Analog::Filters::XOD
 			setResonance(r);
 			return A*out;
 		}		
+		void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+			#pragma omp simd
+			for(size_t i = 0; i < n; i++) output[i] = Tick(input[i]);
+		}
+		void ProcessInplace(size_t n, DspFloatType * input) {
+			ProcessBlock(n,input,input);
+		}
 	};
 
 	// *--------------------------------------------------------* //

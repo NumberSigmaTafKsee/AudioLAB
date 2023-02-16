@@ -47,13 +47,14 @@ namespace FX::Filters
         
         virtual DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0) = 0;
 
+        virtual void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) = 0;
         void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
-            for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+            ProcessSIMD(n,in,out);
         }
-        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out, DspFloatType * a, DspFloatType * x, DspFloatType * y) {
-            for(size_t i = 0; i < n; i++) out[i] = Tick(in[i],a[i],x[i],y[i]);
+        void ProcessInplace(size_t n, DspFloatType * in) {
+            ProcessSIMD(n,in,in);
         }
-
+        
         virtual void setCutoff(DspFloatType fc) {
             printf("Virtual function setCutoff\n");
         }
@@ -1032,14 +1033,21 @@ namespace FX::Filters
             x1 = x;
             return y;
         }
-        void Process(size_t n, DspFloatType * input, DspFloatType * output)
+        void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output)
         {
-            for(size_t i = 0; i < n; i++) output[i] = Tick(input[i]);
+            Undenormal denormal;
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
+                x = input[i];
+                y = b0*x + b1*x1 + b2*x2 - a1*y1 - a2*y2;
+                y2 = y1;
+                y1 = y;
+                x2 = x2;
+                x1 = x;
+                output[i =] y;
+            }
         }
-        void InplaceProcess(size_t n, DspFloatType * buffer)
-        {
-            for(size_t i = 0; i < n; i++) buffer[i] = Tick(buffer[i]);
-        }
+        
     };
 
 
@@ -1053,6 +1061,7 @@ namespace FX::Filters
         DspFloatType Tick(DspFloatType in, DspFloatType A = 1, DspFloatType X = 0, DspFloatType Y = 0) {        
             x = in;
             y = x;
+            #pragma omp parallel for
             for(size_t i = filters.size()-1; i >= 0; i--)
                 y = filters[i]->Tick(y,A,X,Y);
             return y;
@@ -1068,13 +1077,14 @@ namespace FX::Filters
         DspFloatType Tick(DspFloatType in, DspFloatType A = 1, DspFloatType X = 0, DspFloatType Y = 0) {        
             x = in;
             y = 0;
+            #pragma omp parallel for
             for(size_t i = 0; i < filters.size(); i++)
                 y += filters[i]->Tick(x,A,X,Y);
             return y/filters.size();
         }
     };
 
-        struct BiquadSection
+    struct BiquadSection
     {
         DspFloatType z[3];
         DspFloatType p[3];
@@ -1191,6 +1201,21 @@ namespace FX::Filters
             y1 = y;
             return A * y;
         }
+        void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output)
+        {
+            Undenormal denormal;
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
+                x = input[i];
+                y = biquad.z[0] * x + biquad.z[1] * x1 + biquad.z[2] * x2;
+                y = y - biquad.p[0] * y1 - biquad.p[1] * y2;
+                x2 = x1;
+                x1 = x2;
+                y2 = y1;
+                y1 = y;
+                output[i] =  y;
+            }
+        }
     };
 
     struct BiquadTypeII : public FilterBase
@@ -1233,6 +1258,19 @@ namespace FX::Filters
             v2 = v1;
             v1 = v;
             return A * y;
+        }
+        void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output)
+        {
+            Undenormal denormal;
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
+                x = input[i];
+                v = x - biquad.p[0] * v1 - biquad.p[1] * v2;
+                y = biquad.z[0] * v + biquad.z[1] * v1 + biquad.z[2] * v2;
+                v2 = v1;
+                v1 = v;
+                output[i] = y;
+            }
         }
     };
 
@@ -1279,6 +1317,21 @@ namespace FX::Filters
             y1 = y;
             return A * y;
         }
+        void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output)
+        {
+            Undenormal denormal;
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
+                x = input[i];
+                x += -biquad.p[0] * y1 + -biquad.p[1] * y2;
+                y = biquad.z[0] * x + biquad.z[1] * x1 + biquad.z[2] * x2;
+                x2 = x1;
+                x1 = x;
+                y2 = y1;
+                y1 = y;
+                output[i] = y;
+            }
+        }
     };
 
     // This is Transposed Type II
@@ -1320,6 +1373,18 @@ namespace FX::Filters
             d1 = biquad.z[1] * x - biquad.p[0] * y + d2;
             d2 = biquad.z[2] * x - biquad.p[1] * y;
             return A * y;
+        }
+        void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output)
+        {
+            Undenormal denormal;
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
+                x = input[i];
+                y = biquad.z[0] * x + d1;
+                d1 = biquad.z[1] * x - biquad.p[0] * y + d2;
+                d2 = biquad.z[2] * x - biquad.p[1] * y;
+                output[i] = y;
+            }
         }
     };
 

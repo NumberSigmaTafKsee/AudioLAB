@@ -1,0 +1,1 @@
+gcc -fmax-errors=1 -I/usr/local/include -Iinclude -ISource -O2 -march=native -mavx2 -o filters kfr_filters.cpp audiosystem.c Source/PolyBLEP.cpp lib/libaudiofft.a -lstdc++ -lm -lkfr_dft -lkfr_io -lportaudio -lportmidi -lpthread -lfftw3f

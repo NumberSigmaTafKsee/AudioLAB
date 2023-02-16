@@ -69,7 +69,7 @@ namespace Analog::Filters::StateVariableFilters
                 // algorithm
                 // loop
                 L = D2 + F1 * D1;
-                H = I - L - Q1*D1;
+                H = x - L - Q1*D1;
                 B = F1 * H + D1;
                 N = H + L;
 
@@ -81,6 +81,12 @@ namespace Analog::Filters::StateVariableFilters
                 //L,H,B,N
                 out[i] =  L;
             }
+        }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * out) {
+            ProcessSIMD(n,out,out);
         }
     };
 
@@ -143,11 +149,40 @@ namespace Analog::Filters::StateVariableFilters
             
             return lp;
         }
+        void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output) {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
+                const DspFloatType I = input[i];
+                DspFloatType wd = 2*M_PI*fc;
+                DspFloatType T  = 1/fs;
+                DspFloatType wa = (2/T)*tan(wd*T/2);
+                DspFloatType g  = wa*T/2;
+                DspFloatType xn = I;
+                DspFloatType  R  = 1.0/(2*(q));
+                
+                hp = (xn - (2*R+g)*z1 - z2) / (1.0 + 2*R*g + g*g);
+                bp = g*hp + z1;
+                lp = g*bp + z2;        
+                // not sure these work right yet
+                ubp = 2 * R * bp;
+                // dont know exactly what K is it's not explained
+                shelf = xn + 2*K*R*bp;
+                notch = xn - 2*R*bp;
+                apf   = xn - 4*R*bp;
+                peak  = lp - hp;
+
+                // delay feedback
+                z1 = g*hp + bp;
+                z2 = g*bp + lp;
+                
+                output[i] = lp;
+            }
+        }
         void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
-            for(size_t i = 0; i < n; i++) output[i] = Tick(input[i]);
+            ProcessSIMD(n,input,output);
         }
         void InplaceProcess(size_t n, DspFloatType * input) {
-            ProcessBlock(n,input,input);
+            ProcessSIMD(n,input,input);
         }
     };
 

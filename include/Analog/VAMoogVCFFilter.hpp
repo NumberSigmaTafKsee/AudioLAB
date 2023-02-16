@@ -85,6 +85,12 @@ namespace Analog::Filters::Moog::MoogVCF
         }
 
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out);
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * out) {
+            ProcessSIMD(n,out,out);
+        }
     };
 
 
@@ -163,10 +169,9 @@ namespace Analog::Filters::Moog::MoogVCF
     void MoogVCF::ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
     {
         Undenormal denormals;
-        #pragma omp simd
-        for(size)
+        #pragma omp simd        
         for(size_t s = 0; s < n; s++) {
-            DspFloatType feedback_loop = in - ( (delayed_filter_output - (in[s] * gComp)) * gRes * 4.0f );
+            DspFloatType feedback_loop = in[s] - ( (delayed_filter_output - (in[s] * gComp)) * gRes * 4.0f );
 
             // Use the hyperbolic tangent function to approximate the nonlinearity of an analog circuit
             DspFloatType nonlinearity = tanhf (feedback_loop);

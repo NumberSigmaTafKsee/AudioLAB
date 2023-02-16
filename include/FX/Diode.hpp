@@ -9,8 +9,7 @@ namespace FX::Distortion::Diode
     inline DspFloatType Diode(DspFloatType x, DspFloatType Vt = 0.0253,DspFloatType eta = 1.68,DspFloatType Is = .105)
     {
         return Is * (exp(0.1*x/(eta*Vt))-1);
-    }
-
+    }    
 
     struct DiodeClipperNR : public FunctionProcessor
     {

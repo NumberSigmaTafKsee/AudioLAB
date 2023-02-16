@@ -115,7 +115,7 @@ namespace FX::BodeShifter
             DspFloatType c = cutoff_frequency_;
             setCutoffFrequency(c * fabs(X));
             DspFloatType r = processSample(Y*I);
-            setCutoffFreqnecy(c);
+            setCutoffFrequency(c);
             return A*r;
         }
 

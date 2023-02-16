@@ -26,7 +26,21 @@ namespace FX::Filters
         {
             return process(I);
         }
-        
+        void ProcessSIMD(size_t num, DspFloatType * in, DspFloatType * out)
+        {
+            #pragma omp simd
+            for(size_t i = 0; i < num ; i++) {
+                z1 = in[i] * a0 + z1 * b1;
+                out[i] = in[i] - z1;
+            }
+        }
+        void ProcessBlock(size_t num, DspFloatType * in, DspFloatType * out)
+        {
+            ProcessSIMD(num,in,out);            
+        }
+        void ProcessInplace(size_t n, DspFloatType * out) {
+            ProcessSIMD(n,out,out);
+        }
     protected:    
         DspFloatType a0, b1, z1;
     };
@@ -53,6 +67,21 @@ namespace FX::Filters
         DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0)
         {
             return process(I);
+        }
+        void ProcessSIMD(size_t num, DspFloatType * in, DspFloatType * out)
+        {
+            #pragma omp simd
+            for(size_t i = 0; i < num ; i++) {
+                z1 = in[i] * a0 + z1 * b1;
+                out[i] = z1;
+            }
+        }
+        void ProcessBlock(size_t num, DspFloatType * in, DspFloatType * out)
+        {
+            ProcessSIMD(num,in,out);            
+        }
+        void ProcessInplace(size_t n, DspFloatType * out) {
+            ProcessSIMD(n,out,out);
         }
     protected:    
         DspFloatType a0, b1, z1;

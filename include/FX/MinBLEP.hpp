@@ -1294,6 +1294,7 @@ namespace Analog::MinBLEP
                 // Wrapped around or synced to beginning of wave. Place a step here.
                 
                 const int offset = PhaseAccumulator / pace * MinBLEP::overSampling;
+                #pragma omp simd
                 for (int i = 0; i < BufferLen; i++) {
                     Buffer[(BufferPos + i) % BufferLen] += stepA
                             * (-1
@@ -1369,6 +1370,7 @@ namespace Analog::MinBLEP
             }
             if (lastpos > PhaseAccumulator) {
                 const int offset = PhaseAccumulator / pace * MinBLEP::overSampling;
+                #pragma omp simd
                 for (int i = 0; i < BufferLen; i++) {
                     Buffer[(BufferPos + i) % BufferLen] += MinBLEP::table[i
                             * MinBLEP::overSampling + offset];
@@ -1430,6 +1432,7 @@ namespace Analog::MinBLEP
                 // Wrapped around or synced to beginning of wave. Place a step here.
                 syncout[sn] = PhaseAccumulator / pace + 0.0000001;
                 const int offset = PhaseAccumulator / pace * MinBLEP::overSampling;
+                #pragma omp simd
                 for (int i = 0; i < BufferLen; i++) {
                     Buffer[(BufferPos + i) % BufferLen] += stepA
                             * (-1

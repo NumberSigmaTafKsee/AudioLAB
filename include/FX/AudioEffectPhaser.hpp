@@ -147,7 +147,7 @@ namespace FX
             // passed through them.
             
             // Filters are stored with all channel 0 filters first, then all channel 1 filters, etc.
-            
+            #pragma omp simd
             for(int channel = 0; channel < numInputChannels; ++channel)
             {
                 // channelData is an array of length numSamples which contains the audio for one channel
@@ -220,7 +220,7 @@ namespace FX
             lfoPhase_ = channel0EndPhase;
             sampleCount_ = sc;                
         }
-        void InplaceProcess(size_t n, DspFloatType ** buffer)
+        void ProcessInplace(size_t n, DspFloatType ** buffer)
         {
             ProcessBlock(n,buffer,buffer);
         }

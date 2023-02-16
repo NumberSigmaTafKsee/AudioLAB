@@ -158,6 +158,14 @@ namespace Analog::Filters
             setCutoff(f);
             return A*out;
         }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+        }
+        void ProcessInplace(size_t n, DspFloatType * out) {
+            ProcessBlock(n,out,out);
+        }
+        
     };
 }
 #undef HIGHPASS 

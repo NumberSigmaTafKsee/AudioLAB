@@ -20,6 +20,7 @@ namespace Analog::Calculus::RateLimiters
         DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {
             return next(I,_last);
         }
+     
     };
 
     void SlewLimiter::setParams(DspFloatType sampleRate, DspFloatType milliseconds, DspFloatType range) {
@@ -34,8 +35,7 @@ namespace Analog::Calculus::RateLimiters
             return std::min(last + _delta, sample);
         }
         return std::max(last - _delta, sample);
-    }
-
+    }    
 
     struct Slew : public FunctionProcessor
     {
@@ -85,6 +85,6 @@ namespace Analog::Calculus::RateLimiters
             if(out < _target) out += rise;
             if(out > _target) out -= fall;
             return out;
-        }
+        }        
     };
 }

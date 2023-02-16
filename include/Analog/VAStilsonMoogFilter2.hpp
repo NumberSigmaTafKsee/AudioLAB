@@ -141,5 +141,11 @@ namespace Analog::Filters::Moog::StilsonMoogFilter2
                 out[i] = std::tanh(post_gain*output);
             }
         }
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n,input,output);
+        }
+        void InplaceProcess(size_t n, DspFloatType * input) {
+            ProcessSIMD(n,input,input);
+        }
     };
 }

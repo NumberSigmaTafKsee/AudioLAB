@@ -1,0 +1,17 @@
+const float sampleRate = 44100;
+float coeff;
+float currentLevel;
+
+void init(float levelBegin, float levelEnd, float releaseTime) {
+    currentLevel = levelBegin;
+    coeff = (log(levelEnd) - log(levelBegin)) /
+            (releaseTime * sampleRate);
+}
+
+inline void calculateEnvelope(int samplePoints) {
+    for (int i = 0; i < samplePoints; i++) {
+        currentLevel += coeff * currentLevel;
+        // do something with 'currentLevel' here
+        ...
+    }
+}

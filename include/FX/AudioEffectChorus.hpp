@@ -115,7 +115,7 @@ namespace FX
             // Go through each channel of audio that's passed in. In this example we apply identical
             // effects to each channel, regardless of how many input channels there are. For some effects, like
             // a stereo chorus or panner, you might do something different for each channel.
-            
+            #pragma omp simd
             for (channel = 0; channel < numInputChannels; ++channel)
             {
                 // channelData is an array of length numSamples which contains the audio for one channel
@@ -251,8 +251,7 @@ namespace FX
                 chorus_lfoPhase[channel] = ph;    
             }            
         }
-        void InplaceProcess(size_t n, DspFloatType ** buffer)
-        {
+        void ProcessInplace(size_t n, DspFloatType ** buffer) {
             ProcessBlock(n,buffer,buffer);
         }
     };   
@@ -282,6 +281,9 @@ namespace FX
             outs[0]= out;
             outs[1]= out;
             chorus->ProcessBlock(numSamples,ins,outs);
+        }
+        void ProcessInplace(size_t n, DspFloatType * buffer) {
+            ProcessBlock(n,buffer,buffer);
         }
     };
 }

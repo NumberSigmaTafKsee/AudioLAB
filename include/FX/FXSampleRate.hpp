@@ -121,6 +121,7 @@ inline double** decomposeFilter(double* filterIR, unsigned int FIRLength, unsign
 {
 	unsigned int subBandLength = FIRLength / ratio;
 	double ** polyFilterSet = new double*[ratio];
+	#pragma omp simd
 	for (unsigned int i = 0; i < ratio; i++)
 	{
 		double* polyFilter = new double[subBandLength];
@@ -128,6 +129,7 @@ inline double** decomposeFilter(double* filterIR, unsigned int FIRLength, unsign
 	}
 
 	int m = 0;
+	#pragma omp simd
 	for (int i = 0; i < subBandLength; i++)
 	{
 		for (int j = ratio - 1; j >= 0; j--)
@@ -213,6 +215,7 @@ public:
 		}
 
 		// --- set the individual polyphase filter IRs on the convolvers
+		#pragma omp simd
 		for (unsigned int i = 0; i < count; i++)
 		{
 			polyPhaseConvolvers[i].initialize(subBandLength);
@@ -237,6 +240,7 @@ public:
 
 		// --- polyphase uses "backwards" indexing for interpolator; see book
 		int m = count-1;
+		#pragma omp simd
 		for (unsigned int i = 0; i < count; i++)
 		{
 			if (!polyphase)
@@ -334,6 +338,7 @@ public:
 		}
 
 		// --- set the individual polyphase filter IRs on the convolvers
+		#pragma omp simd
 		for (unsigned int i = 0; i < count; i++)
 		{
 			polyPhaseConvolvers[i].initialize(subBandLength);
@@ -353,6 +358,7 @@ public:
 		double output = 0.0;
 
 		// --- polyphase uses "forwards" indexing for decimator; see book
+		#pragma omp simd
 		for (unsigned int i = 0; i < count; i++)
 		{
 			if (!polyphase) // overwrites output; only the last output is saved

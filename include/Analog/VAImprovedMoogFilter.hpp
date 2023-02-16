@@ -80,7 +80,7 @@ namespace Analog::Filters::Moog
             SetResonance(r);
         }
 
-        void InplaceProcess(size_t n, DspFloatType * i)
+        void ProcessInplace(size_t n, DspFloatType * i)
         {
             ProcessBlock(n,i,i);
         }

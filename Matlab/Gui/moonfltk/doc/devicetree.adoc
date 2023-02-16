@@ -1,8 +1,0 @@
-
-[[devices]]
-=== Devices
-
-//@@ TODO
-
-Not implemented (yet).
-

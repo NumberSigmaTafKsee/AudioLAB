@@ -156,6 +156,7 @@ namespace Reverb::Multiverb
 		wGain = DspFloatType(pow(10.0, m_wetGain / 20.0));
 		right = wGain * (1.0 - m_stereoSep / 100.0) / 2.0;
 		left = wGain * (1.0 + m_stereoSep / 100.0) / 2.0;
+		#pragma omp simd
 		for (int i = 0; i < ORDER; i++) { // update attenuation and damping
 			alf = DspFloatType(pow(10.0, -3.0 * DspFloatType(delay[i]) / (sampRate * m_t60lf)));
 			ahf = DspFloatType(pow(10.0, -3.0 * DspFloatType(delay[i]) / (sampRate * m_t60hf)));
@@ -166,6 +167,7 @@ namespace Reverb::Multiverb
 
 	void Multiverb::Reset(void)
 	{
+		#pragma omp simd
 		for (int i = 0; i < ORDER; i++) {// reset buffers
 			east[i].clear();
 			west[i].clear();
@@ -178,6 +180,7 @@ namespace Reverb::Multiverb
 	{// process one sampling period
 		DspFloatType xPlusTotal = 0.0;
 		DspFloatType yPlusTotal = 0.0;
+		#pragma omp simd
 		for (int i = 0; i < ORDER; i++) {
 			xPlus[i] = damp[i] * xPlus[i] + atten[i] * west[i].get();
 			yPlus[i] = damp[i] * yPlus[i] + atten[i] * east[i].get();
@@ -186,6 +189,7 @@ namespace Reverb::Multiverb
 		}
 		xPlusTotal /= DspFloatType(ORDER);
 		yPlusTotal /= DspFloatType(ORDER);
+		#pragma omp simd
 		for (int i = 0; i < ORDER; i++) {
 			east[i].push(xPlusTotal - xPlus[i] + *LeftSample);
 			west[i].push(yPlusTotal - yPlus[i] + *RightSample);

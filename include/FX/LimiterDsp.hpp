@@ -25,7 +25,7 @@ public:
     void UpdateCounter(DspFloatType inputSigLinear,DspFloatType outputSigLinear, DspFloatType sampleRate, int channel);
     void UpdateWorkingState();
     bool IsWorking();
-    
+        
 private:
     DspFloatType threasholdDb;
     DspFloatType kneeWidthDb;

@@ -91,7 +91,32 @@ namespace sspo
 
             return in * G;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
+                //envelope follower
+                auto rectIn = std::abs(in[i]);
+                currentEnv = rectIn > lastEnv
+                                 ? attackCoeff * (lastEnv - rectIn) + rectIn
+                                 : releaseCoeff * (lastEnv - rectIn) + rectIn;
+                currentEnv = std::max (currentEnv, 0.00000000001f);
+                lastEnv = currentEnv;
 
+                //            auto dn = 20.0f * lookup.log10 (currentEnv);
+                auto dn = 20.0f * simd::log10 (currentEnv);
+                //Hard knee compression
+                auto yndB = dn <= threshold ? dn : threshold + ((dn - threshold) / ratio);
+                auto gndB = yndB - dn;
+                G = simd::pow (10.0f, gndB / 20.0f);
+                out[i] = G * in[i];
+            }
+        }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * in) {
+            ProcessSIMD(n,in,in);
+        }
         DspFloatType attackTime{ 0.0001f };
         DspFloatType releaseTimes{ 0.025f };
         DspFloatType ratio{ 10.5f };
@@ -164,5 +189,37 @@ namespace sspo
         DspFloatType process (DspFloatType in) const
         {
             return saturate (in, max, kneeWidth);
+        }
+        void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output) {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {                
+                auto ret = 0.0f;
+                const DspFloatType in = input[i];
+                if (std::abs (in) < (max - kneeWidth))
+                {
+                    ret = in;
+                }
+                else
+                {
+                    if (std::abs (in) < max)
+                    {
+                        ret = in > 0.0f
+                                ? in - ((simd::pow (in - max + (kneeWidth / 2.0), 2.0)) / (2.0 * kneeWidth))
+                                : in + ((simd::pow (in + max - (kneeWidth / 2.0), 2.0)) / (2.0 * kneeWidth));
+                        //ret = rack::math::clamp (ret, -max, max);
+                    }
+                    else
+                        ret = in > 0.0f
+                                ? max
+                                : -max;
+                }
+                out[i] = ret;            
+            }
+        }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * in) {
+            ProcessSIMD(n,in,in);
         }
     };

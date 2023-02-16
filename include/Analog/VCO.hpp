@@ -280,7 +280,12 @@ namespace Analog
                     memset(out,0x00,n*sizeof(DspFloatType));
             }
         }
-
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * in) {
+            ProcessSIMD(n,in,in);
+        }
         void inc() {
             t += freqInSecondsPerSample;
             t -= bitwiseOrZero(t);

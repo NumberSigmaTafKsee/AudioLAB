@@ -32,6 +32,12 @@ namespace Analog
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType *out) {
             analog_svf.ProcessSIMD(n,in,out);
         }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * in) {
+            ProcessSIMD(n,in,in);
+        }
     };
 
     // this thing is a hunk of shit
@@ -400,6 +406,12 @@ namespace Analog
             //MoogI_ProcessBlock(n,in,out);
             #pragma omp simd
             for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+        }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * in) {
+            ProcessSIMD(n,in,in);
         }
     };
 

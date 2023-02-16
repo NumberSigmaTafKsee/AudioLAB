@@ -16,8 +16,9 @@
 
 #define PROVE(x) std::cout << x << std::endl;
 
-using Matrix = Eigen::Matrix<double,Eigen::Dynamic,Eigen::Dynamic,Eigen::RowMajor>;
-typedef double floatType;
+typedef float floatType;
+using Matrix = Eigen::Matrix<floatType,Eigen::Dynamic,Eigen::Dynamic,Eigen::RowMajor>;
+
 
 enum LayerType {
     INPUT=1,
@@ -47,7 +48,8 @@ enum ActivationType {
     ALGEBRA=7,
     SINWAVE=8,
     FULLWAVE_SIGMOID=9,
-    FULLWAVE_RELU=10,    
+    FULLWAVE_RELU=10,
+    AUTO=11,    
 };
 
 typedef void (*activation)(Matrix & m);
@@ -182,7 +184,7 @@ inline void softmax(Matrix & m)
 
 inline void sinwave(Matrix & m)
 {
-    m = (sin(2*M_PI*m.array()));    
+    m = (cos(2*M_PI*m.array()));    
 }
 
 // random already exists somewhere.
@@ -307,7 +309,11 @@ struct Layer {
         activation_grad  activate_grad_f;                        
         atype = a;
         switch(a) {
-            case LINEAR: activate_f = linear;
+			case AUTO:activate_f = linear;            
+                         activate_grad_f = linear_grad;                         
+                         useAutoDiff = true;
+                         break;
+            case LINEAR: activate_f = linear;            
                          activate_grad_f = linear_grad;                         
                          break;
             case SIGMOID: activate_f = sigmoid;
@@ -342,6 +348,8 @@ struct Layer {
                         activate_f = softmax;
                         activate_grad_f = linear_grad;
                         break;
+			
+				
         }        
         activator.activate_f = activate_f;
         activator.activate_grad_f = activate_grad_f;
@@ -364,8 +372,10 @@ struct Layer {
         loss = output - target;
         return loss;
     }
-    virtual Matrix& getOutput() { return input; }
-    virtual Matrix& getLoss()   { return loss;  }
+
+    virtual void getInput(Matrix& m) { m = input.eval(); }
+    virtual void getOutput(Matrix& m) { m = input.eval(); }
+    virtual void getLoss(Matrix & m) { m = loss.eval();  }
 };
 
 
@@ -572,7 +582,7 @@ public:
     size_t NumConnections() const { return connections.size(); }
     size_t NumInputs() const { return num_features; }
     size_t NumOutputs() const { return num_outputs; }
-    size_t LastLayer() const { return layers.size()-1; }
+    
 
     void ForwardPass(Matrix& input) {
         assert(input.cols() == layers[0]->input.cols());
@@ -610,15 +620,17 @@ public:
             
         return ((0.5 / loss.rows()) * total_err) + (rs*0.5*reg_err);
     }
-    Matrix& GetInput() {
-        return layers[0]->input;
+    virtual void GetInput( Matrix& m) {
+        m = layers[0]->input.eval();
     }
-    Matrix& GetOutput() {
-        return layers[LastLayer()]->getOutput();
+    virtual void GetOutput(Matrix& m) {
+        LastLayer()->getOutput(m);
     }
-    Matrix& GetLoss() {
-        return layers[LastLayer()]->getLoss();;
+    virtual void GetLoss(Matrix& m) {
+        LastLayer()->getLoss(m);
     }
+    Connection* LastConnection() { return connections[connections.size()-1]; }
+    Layer* LastLayer() const { return layers[layers.size()-1]; }
     
     // legacy
     std::vector<int> predict() {
@@ -865,12 +877,15 @@ public:
     virtual void verbosity(const ParameterSet & ps, size_t epoch, Matrix & data, Matrix & classes) {
         if(ps.verbose == true) {
             if(epoch % ps.ticks == 0 || epoch <= 1) {
+                Matrix tmp;
                 ForwardPass(data);
                 if(ps.loss_function == CROSS_ENTROPY_LOSS) {
-                    printf("EPOCH: %ld loss is %f\n",epoch, CrossEntropyLoss(GetOutput(),classes,ps.regularization_strength));
+                    GetOutput(tmp);
+                    printf("EPOCH: %ld loss is %f\n",epoch, CrossEntropyLoss(tmp,classes,ps.regularization_strength));
                 }
                 else {
-                    printf("EPOCH: %ld loss is %f\n",epoch, MeanSquaredError(GetLoss(),ps.regularization_strength));                    
+                    GetLoss(tmp);
+                    printf("EPOCH: %ld loss is %f\n",epoch, loss=MeanSquaredError(tmp,ps.regularization_strength));                    
                 }
             }
         }
@@ -894,7 +909,7 @@ public:
             regi.push_back(createMatrixZeros(connections[i]->weights.rows(),
                                             connections[i]->weights.cols()));
         }
-        errori.push_back(createMatrixZeros(1,layers[LastLayer()]->size));
+        errori.push_back(createMatrixZeros(1,LastLayer()->size));
         size_t num_hidden = layers.size()-2;
         
         for(size_t k = 0; k < num_hidden; k++)
@@ -984,6 +999,7 @@ public:
 struct NeuralNetwork : public Network
 {
     
+    
     NeuralNetwork() : Network()
     {
         delete_data = false;
@@ -1007,5 +1023,5 @@ struct NeuralNetwork : public Network
             Connection * c = new Connection(layers[i],layers[i+1]);
             connections.push_back(c);
         }
-    }    
+    }            
 };

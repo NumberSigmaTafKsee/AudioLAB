@@ -24,6 +24,7 @@ namespace FX::Delays
         //business methods
         DspFloatType next(const DspFloatType in);
         
+        
         void resetDelay() { delay->resetDelay(); }
 
     private:

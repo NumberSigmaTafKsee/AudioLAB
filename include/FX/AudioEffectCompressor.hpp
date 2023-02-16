@@ -50,7 +50,7 @@ namespace FX
             DspFloatType alphaAttack = exp(-1.0f / (0.001f * sampleRate * attackTimeMs));
             DspFloatType alphaRelease = exp(-1.0f / (0.001f * sampleRate * releaseTimeMs));
             DspFloatType yl_avg = 0.0f;
-
+            #pragma omp simd
             for (int i = 0; i < bufferSize; ++i)
             {
                 // Level detection- estimate level using peak detector
@@ -86,6 +86,7 @@ namespace FX
         {
             alphaAttack = exp(-1/(0.001 * samplerate * tauAttack));
             alphaRelease= exp(-1/(0.001 * samplerate * tauRelease));
+            #pragma omp simd
             for (int i = 0 ; i <  n; ++i)
             {
                 //Level detection- estimate level using peak detector
@@ -112,6 +113,7 @@ namespace FX
                 //computeCompressionGain(n,input);
                 compressor(n,inputs);
                 // apply control voltage to the audio signal        
+                #pragma omp simd
                 for (int i = 0; i < n; ++i)
                 {
                     DspFloatType cv = c[i];
@@ -177,6 +179,7 @@ namespace FX
         {
             alphaAttack = exp(-1/(0.001 * samplerate * tauAttack));
             alphaRelease= exp(-1/(0.001 * samplerate * tauRelease));
+            #pragma omp simd
             for (int i = 0 ; i < buffer.size() ; ++i)
             {
                 //Level detection- estimate level using peak detector
@@ -199,12 +202,14 @@ namespace FX
             if (compressorSwitch == true)
             {           
                 zeros(inputBuffer);
+                #pragma omp simd
                 for(size_t i = 0; i < numSamples; i++)
                 {
                     outputs[0][i] = inputs[0][i];
                     outputs[1][i] = inputs[1][i];
                     inputBuffer[i] = 0.5*(inputs[0][i]+inputs[1][i]);
                 } 
+                #pragma omp simd
                 for(size_t m = 0; m < 2; m++)
                 if ( (threshold< 0) )
                 {                
@@ -219,8 +224,7 @@ namespace FX
                 }
             }        
         }
-        void InplaceProcess(size_t n, DspFloatType ** buffer)
-        {
+        void ProcessInplace(size_t n, DspFloatType ** buffer) {
             ProcessBlock(n,buffer,buffer);
         }
     };

@@ -125,7 +125,7 @@ namespace FX
             
             // Go through each channel and put it through the resonant lowpass filter, updating
             // the coefficients as we go along. Each channel is processed identically in this effect.
-            
+            #pragma omp simd
             for(channel = 0; channel < std::min(numInputChannels, numWahFilters_); ++channel)
             {
                 // channelData is an array of length numSamples which contains the audio for one channel
@@ -180,8 +180,7 @@ namespace FX
             
             lfoPhase_ = ph;                
         }
-        void InplaceProcess(size_t n, DspFloatType ** buffer)
-        {
+        void ProcessInplace(size_t n, DspFloatType ** buffer) {
             ProcessBlock(n,buffer,buffer);
         }
     };

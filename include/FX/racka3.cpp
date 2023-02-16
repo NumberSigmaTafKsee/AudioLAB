@@ -35,7 +35,7 @@ int note_active[POLY];
 int rnote[POLY];
 int gate[POLY];
 
-//The below pow function really works & is good to 16 bits, but is it faster than math lib powf()???
+//The below pow function really works & is good to 16 bits, but is it faster than math lib std::pow()???
 //globals
 
 static const DspFloatType a[5] = { 1.00000534060469, 0.693057900547259, 0.239411678986933, 0.0532229404911678, 0.00686649174914722 };
@@ -141,10 +141,11 @@ FilterParams::defaults ()
 
     Pnumformants = 3;
     Pformantslowness = 64;
+    #pragma omp simd
     for (int j = 0; j < FF_MAX_VOWELS; j++) {
         defaults (j);
     };
-
+    #pragma omp simd
     Psequencesize = 3;
     for (int i = 0; i < FF_MAX_SEQUENCE; i++)
         Psequence[i].nvowel = (unsigned char) i % FF_MAX_VOWELS;
@@ -160,6 +161,7 @@ void
 FilterParams::defaults (int n)
 {
     int j = n;
+    #pragma omp simd
     for (int i = 0; i < FF_MAX_FORMANTS; i++) {
         Pvowels[j].formants[i].freq = (unsigned char) (RND*127.0);	//some random freqs
         Pvowels[j].formants[i].q = 64;
@@ -191,6 +193,7 @@ FilterParams::getfromFilterParams (FilterParams * pars)
 
     Pnumformants = pars->Pnumformants;
     Pformantslowness = pars->Pformantslowness;
+    #pragma omp simd
     for (int j = 0; j < FF_MAX_VOWELS; j++) {
         for (int i = 0; i < FF_MAX_FORMANTS; i++) {
             Pvowels[j].formants[i].freq = pars->Pvowels[j].formants[i].freq;
@@ -200,6 +203,7 @@ FilterParams::getfromFilterParams (FilterParams * pars)
     };
 
     Psequencesize = pars->Psequencesize;
+    #pragma omp simd
     for (int i = 0; i < FF_MAX_SEQUENCE; i++)
         Psequence[i].nvowel = pars->Psequence[i].nvowel;
 
@@ -222,12 +226,12 @@ DspFloatType FilterParams::getfreq ()
 
 DspFloatType FilterParams::getq ()
 {
-    return (expf (powf ((DspFloatType) Pq / 127.0f, 2) * logf (1000.0f)) - 0.9f);
+    return (std::exp (std::pow ((DspFloatType) Pq / 127.0f, 2) * std::log (1000.0f)) - 0.9f);
 };
 
 DspFloatType FilterParams::getfreqtracking (DspFloatType notefreq)
 {
-    return (logf (notefreq / 440.0f) * ((DspFloatType)Pfreqtrack - 64.0f) / (64.0f * LOG_2));
+    return (std::log (notefreq / 440.0f) * ((DspFloatType)Pfreqtrack - 64.0f) / (64.0f * LOG_2));
 };
 
 DspFloatType FilterParams::getgain ()
@@ -240,7 +244,7 @@ DspFloatType FilterParams::getgain ()
  */
 DspFloatType FilterParams::getcenterfreq ()
 {
-    return (10000.0f * powf (10.0f, -(1.0f - (DspFloatType)Pcenterfreq / 127.0f) * 2.0f));
+    return (10000.0f * std::pow (10.0f, -(1.0f - (DspFloatType)Pcenterfreq / 127.0f) * 2.0f));
 };
 
 /*
@@ -259,8 +263,8 @@ DspFloatType FilterParams::getfreqx (DspFloatType x)
     if (x > 1.0)
         x = 1.0f;
     DspFloatType
-    octf = powf (2.0f, getoctavesfreq ());
-    return (getcenterfreq () / sqrtf (octf) * powf (octf, x));
+    octf = std::pow (2.0f, getoctavesfreq ());
+    return (getcenterfreq () / sqrtf (octf) * std::pow (octf, x));
 };
 
 /*
@@ -268,8 +272,8 @@ DspFloatType FilterParams::getfreqx (DspFloatType x)
  */
 DspFloatType FilterParams::getfreqpos (DspFloatType freq)
 {
-    return ((logf (freq) -
-             logf (getfreqx (0.0))) / logf (2.0f) / getoctavesfreq ());
+    return ((std::log (freq) -
+             std::log (getfreqx (0.0))) / std::log (2.0f) / getoctavesfreq ());
 };
 
 
@@ -282,26 +286,27 @@ FilterParams::formantfilterH (int nvowel, int nfreqs, DspFloatType * freqs)
     DspFloatType c[3], d[3];
     DspFloatType filter_freq, filter_q, filter_amp;
     DspFloatType omega, sn, cs, alpha;
-
+    #pragma omp simd
     for (int i = 0; i < nfreqs; i++)
         freqs[i] = 0.0;
 
     //for each formant...
+    #pragma omp simd
     for (int nformant = 0; nformant < Pnumformants; nformant++) {
         //compute formant parameters(frequency,amplitude,etc.)
         filter_freq = getformantfreq (Pvowels[nvowel].formants[nformant].freq);
         filter_q = getformantq (Pvowels[nvowel].formants[nformant].q) * getq ();
         if (Pstages > 0)
             filter_q =
-                (filter_q > 1.0 ? powf (filter_q, 1.0f / ((DspFloatType)Pstages + 1)) : filter_q);
+                (filter_q > 1.0 ? std::pow (filter_q, 1.0f / ((DspFloatType)Pstages + 1)) : filter_q);
 
         filter_amp = getformantamp (Pvowels[nvowel].formants[nformant].amp);
 
 
         if (filter_freq <= (sampleRate / 2 - 100.0)) {
             omega = 2.0f * PI * filter_freq / sampleRate;
-            sn = sinf (omega);
-            cs = cosf (omega);
+            sn = std::sin (omega);
+            cs = std::cos (omega);
             alpha = sn / (2.0f * filter_q);
             DspFloatType tmp = 1.0f + alpha;
             c[0] = alpha / tmp * sqrtf (filter_q + 1.0f);
@@ -323,21 +328,22 @@ FilterParams::formantfilterH (int nvowel, int nfreqs, DspFloatType * freqs)
             DspFloatType fr = freq / sampleRate * PI * 2.0f;
             DspFloatType x = c[0], y = 0.0f;
             for (int n = 1; n < 3; n++) {
-                x += cosf ((DspFloatType)n * fr) * c[n];
-                y -= sinf ((DspFloatType)n * fr) * c[n];
+                x += std::cos ((DspFloatType)n * fr) * c[n];
+                y -= std::sin ((DspFloatType)n * fr) * c[n];
             };
             DspFloatType h = x * x + y * y;
             x = 1.0f;
             y = 0.0;
             for (int n = 1; n < 3; n++) {
-                x -= cosf ((DspFloatType)n * fr) * d[n];
-                y += sinf ((DspFloatType)n * fr) * d[n];
+                x -= std::cos ((DspFloatType)n * fr) * d[n];
+                y += std::sin ((DspFloatType)n * fr) * d[n];
             };
             h = h / (x * x + y * y);
 
-            freqs[i] += powf (h, ((DspFloatType)Pstages + 1.0f) / 2.0f) * filter_amp;
+            freqs[i] += std::pow (h, ((DspFloatType)Pstages + 1.0f) / 2.0f) * filter_amp;
         };
     };
+    #pragma omp simd
     for (int i = 0; i < nfreqs; i++) {
         if (freqs[i] > 0.000000001f)
             freqs[i] = rap2dB (freqs[i]) + getgain ();
@@ -360,7 +366,7 @@ DspFloatType FilterParams::getformantfreq (unsigned char freq)
 DspFloatType FilterParams::getformantamp (unsigned char amp)
 {
     DspFloatType
-    result = powf (0.1f, (1.0f - (DspFloatType)amp / 127.0f) * 4.0f);
+    result = std::pow (0.1f, (1.0f - (DspFloatType)amp / 127.0f) * 4.0f);
     return (result);
 };
 
@@ -368,7 +374,7 @@ DspFloatType FilterParams::getformantq (unsigned char q)
 {
     //temp
     DspFloatType
-    result = powf (25.0f, ((DspFloatType)q - 32.0f) / 64.0f);
+    result = std::pow (25.0f, ((DspFloatType)q - 32.0f) / 64.0f);
     return (result);
 };
 
@@ -434,7 +440,7 @@ Filter::setq (DspFloatType q_)
 DspFloatType Filter::getrealfreq (DspFloatType freqpitch)
 {
     if ((category == 0) || (category == 2))
-        return (powf (2.0f, freqpitch + 9.96578428f));	//log2(1000)=9.95748
+        return (std::pow (2.0f, freqpitch + 9.96578428f));	//log2(1000)=9.95748
     else
         return (freqpitch);
 };
@@ -482,6 +488,7 @@ AnalogFilter::~AnalogFilter ()
 void
 AnalogFilter::cleanup ()
 {
+    #pragma omp simd
     for (int i = 0; i < MAX_FILTER_STAGES + 1; i++) {
         x[i].c1 = 0.0;
         x[i].c2 = 0.0;
@@ -518,8 +525,8 @@ AnalogFilter::computefiltercoefs ()
         tmpq = q;
         tmpgain = gain;
     } else {
-        tmpq = (q > 1.0 ? powf (q, 1.0f /(DspFloatType) (stages + 1)) : q);
-        tmpgain = powf (gain, 1.0f / (DspFloatType)(stages + 1));
+        tmpq = (q > 1.0 ? std::pow (q, 1.0f /(DspFloatType) (stages + 1)) : q);
+        tmpgain = std::pow (gain, 1.0f / (DspFloatType)(stages + 1));
     };
 
     //most of theese are implementations of
@@ -529,7 +536,7 @@ AnalogFilter::computefiltercoefs ()
     switch (type) {
     case 0:			//LPF 1 pole
         if (zerocoefs == 0)
-            tmp = expf (-D_PI * freq / ifSAMPLE_RATE);
+            tmp = std::exp (-D_PI * freq / ifSAMPLE_RATE);
         else
             tmp = 0.0f;
         c[0] = 1.0f - tmp;
@@ -541,7 +548,7 @@ AnalogFilter::computefiltercoefs ()
         break;
     case 1:			//HPF 1 pole
         if (zerocoefs == 0)
-            tmp = expf (-D_PI * freq / ifSAMPLE_RATE);
+            tmp = std::exp (-D_PI * freq / ifSAMPLE_RATE);
         else
             tmp = 0.0f;
         c[0] = (1.0f + tmp) * .5f;
@@ -554,8 +561,8 @@ AnalogFilter::computefiltercoefs ()
     case 2:			//LPF 2 poles
         if (zerocoefs == 0) {
             omega = D_PI * freq / ifSAMPLE_RATE;
-            sn = sinf (omega);
-            cs = cosf (omega);
+            sn = std::sin (omega);
+            cs = std::cos (omega);
             alpha = sn / (2.0f * tmpq);
             tmp = 1 + alpha;
             c[0] = (1.0f - cs) * .5f / tmp;
@@ -575,8 +582,8 @@ AnalogFilter::computefiltercoefs ()
     case 3:			//HPF 2 poles
         if (zerocoefs == 0) {
             omega =  D_PI * freq / ifSAMPLE_RATE;
-            sn = sinf (omega);
-            cs = cosf (omega);
+            sn = std::sin (omega);
+            cs = std::cos (omega);
             alpha = sn / (2.0f * tmpq);
             tmp = 1.0f + alpha;
             c[0] = (1.0f + cs) / 2.0f / tmp;
@@ -596,8 +603,8 @@ AnalogFilter::computefiltercoefs ()
     case 4:			//BPF 2 poles
         if (zerocoefs == 0) {
             omega = D_PI * freq / ifSAMPLE_RATE;
-            sn = sinf (omega);
-            cs = cosf (omega);
+            sn = std::sin (omega);
+            cs = std::cos (omega);
             alpha = sn / (2.0f * tmpq);
             tmp = 1.0f + alpha;
             c[0] = alpha / tmp * sqrtf (tmpq + 1.0f);
@@ -617,8 +624,8 @@ AnalogFilter::computefiltercoefs ()
     case 5:			//NOTCH 2 poles
         if (zerocoefs == 0) {
             omega = D_PI * freq / ifSAMPLE_RATE;
-            sn = sinf (omega);
-            cs = cosf (omega);
+            sn = std::sin (omega);
+            cs = std::cos (omega);
             alpha = sn / (2.0f * sqrtf (tmpq));
             tmp = 1.0f + alpha;
             c[0] = 1.0f / tmp;
@@ -638,8 +645,8 @@ AnalogFilter::computefiltercoefs ()
     case 6:			//PEAK (2 poles)
         if (zerocoefs == 0) {
             omega = D_PI * freq / ifSAMPLE_RATE;
-            sn = sinf (omega);
-            cs = cosf (omega);
+            sn = std::sin (omega);
+            cs = std::cos (omega);
             tmpq *= 3.0f;
             alpha = sn / (2.0f * tmpq);
             tmp = 1.0f + alpha / tmpgain;
@@ -660,8 +667,8 @@ AnalogFilter::computefiltercoefs ()
     case 7:			//Low Shelf - 2 poles
         if (zerocoefs == 0) {
             omega = D_PI * freq / ifSAMPLE_RATE;
-            sn = sinf (omega);
-            cs = cosf (omega);
+            sn = std::sin (omega);
+            cs = std::cos (omega);
             tmpq = sqrtf (tmpq);
             alpha = sn / (2.0f * tmpq);
             beta = sqrtf (tmpgain) / tmpq;
@@ -690,8 +697,8 @@ AnalogFilter::computefiltercoefs ()
     case 8:			//High Shelf - 2 poles
         if (zerocoefs == 0) {
             omega = D_PI * freq / ifSAMPLE_RATE;
-            sn = sinf (omega);
-            cs = cosf (omega);
+            sn = std::sin (omega);
+            cs = std::cos (omega);
             tmpq = sqrtf (tmpq);
             alpha = sn / (2.0f * tmpq);
             beta = sqrtf (tmpgain) / tmpq;
@@ -742,10 +749,12 @@ AnalogFilter::setfreq (DspFloatType frequency)
 
     if ((rap > 3.0) || (nyquistthresh != 0)) {
         //if the frequency is changed fast, it needs interpolation (now, filter and coeficients backup)
+        #pragma omp simd
         for (int i = 0; i < 3; i++) {
             oldc[i] = c[i];
             oldd[i] = d[i];
         };
+        #pragma omp simd
         for (int i = 0; i < MAX_FILTER_STAGES + 1; i++) {
             oldx[i] = x[i];
             oldy[i] = y[i];
@@ -817,6 +826,7 @@ AnalogFilter::singlefilterout (DspFloatType * smp, fstage & x, fstage & y,
     DspFloatType y0;
     if (order == 1) {
         //First order filter
+        #pragma omp simd
         for (i = 0; i < PERIOD; i++) {
 
             y0 = smp[i] * c[0] + x.c1 * c[1] + y.c1 * d[1];
@@ -828,6 +838,7 @@ AnalogFilter::singlefilterout (DspFloatType * smp, fstage & x, fstage & y,
     };
     if (order == 2) {
         //Second order filter
+        #pragma omp simd
         for (i = 0; i < PERIOD; i++) {
             y0 =
                 (smp[i] * c[0]) + (x.c1 * c[1]) + (x.c2 * c[2]) + (y.c1 * d[1]) +
@@ -849,8 +860,10 @@ AnalogFilter::filterout (DspFloatType * smp)
     DspFloatType *ismp = NULL;	//used if it needs interpolation
     if (needsinterpolation != 0) {
         ismp = new DspFloatType[PERIOD];
+        #pragma omp simd
         for (i = 0; i < PERIOD; i++)
             ismp[i] = smp[i];
+        #pragma omp simd
         for (i = 0; i < stages + 1; i++)
             singlefilterout (ismp, oldx[i], oldy[i], oldc, oldd);
     };
@@ -859,6 +872,7 @@ AnalogFilter::filterout (DspFloatType * smp)
         singlefilterout (smp, x[i], y[i], c, d);
 
     if (needsinterpolation != 0) {
+        #pragma omp simd
         for (i = 0; i < PERIOD; i++) {
             DspFloatType x = (DspFloatType) i / fPERIOD;
             smp[i] = ismp[i] * (1.0f - x) + smp[i] * x;
@@ -875,10 +889,11 @@ AnalogFilter::filterout_s(DspFloatType smp)
 {
     int i;
     if (needsinterpolation != 0) {
+        #pragma omp simd
         for (i = 0; i < stages + 1; i++)
             smp=singlefilterout_s(smp, oldx[i], oldy[i], oldc, oldd);
     }
-
+    #pragma omp simd
     for (i = 0; i < stages + 1; i++)
         smp=singlefilterout_s(smp, x[i], y[i], c, d);
 
@@ -948,20 +963,22 @@ DspFloatType AnalogFilter::H (DspFloatType freq)
     fr = freq / ifSAMPLE_RATE * D_PI;
     DspFloatType
     x = c[0], y = 0.0;
+    #pragma omp simd
     for (int n = 1; n < 3; n++) {
-        x += cosf ((DspFloatType)n * fr) * c[n];
-        y -= sinf ((DspFloatType)n * fr) * c[n];
+        x += std::cos ((DspFloatType)n * fr) * c[n];
+        y -= std::sin ((DspFloatType)n * fr) * c[n];
     };
     DspFloatType
     h = x * x + y * y;
     x = 1.0;
     y = 0.0;
+    #pragma omp simd
     for (int n = 1; n < 3; n++) {
-        x -= cosf ((DspFloatType)n * fr) * d[n];
-        y += sinf ((DspFloatType)n * fr) * d[n];
+        x -= std::cos ((DspFloatType)n * fr) * d[n];
+        y += std::sin ((DspFloatType)n * fr) * d[n];
     };
     h = h / (x * x + y * y);
-    return (powf (h, (DspFloatType)(stages + 1) / 2.0f));
+    return (std::pow (h, (DspFloatType)(stages + 1) / 2.0f));
 };
 
 ///////////////////////////////////////////////////////
@@ -1026,7 +1043,7 @@ EffectLFO::updateparams ()
         PLFOtype = 0;		
     lfotype = PLFOtype;
 
-    xr = fmodf (xl + ((DspFloatType)Pstereo - 64.0f) / 127.0f + 1.0f, 1.0f);
+    xr = std::fmod (xl + ((DspFloatType)Pstereo - 64.0f) / 127.0f + 1.0f, 1.0f);
 
     if ((h = incx*ratediv) > 0.02) h = 0.02;  //keeps it stable
 
@@ -1086,6 +1103,7 @@ DspFloatType EffectLFO::getlfoshape (DspFloatType x)
     case 8:                       //Lorenz Fractal, faster, using X,Y outputs
         iterations = 4;
     case 7:			// Lorenz Fractal
+        #pragma omp simd
         for(int j=0; j<iterations; j++) {
             x1 = x0 + h * a * (y0 - x0);
             y1 = y0 + h * (x0 * (b - z0) - y0);
@@ -1286,7 +1304,7 @@ Analog_Phaser::out (DspFloatType * smpsl, DspFloatType * smpsr)
 
     oldlgain = lmod;
     oldrgain = rmod;
-
+    #pragma omp simd
     for (i = 0; i < PERIOD; i++) {
 
         gl += ldiff;	// Linear interpolation between LFO samples
@@ -1297,8 +1315,8 @@ Analog_Phaser::out (DspFloatType * smpsl, DspFloatType * smpsr)
 
 
         if (barber) {
-            gl = fmodf((gl + 0.25f) , ONE_);
-            gr = fmodf((gr + 0.25f) , ONE_);
+            gl = std::fmod((gl + 0.25f) , ONE_);
+            gr = std::fmod((gr + 0.25f) , ONE_);
         };
 
 
@@ -1457,10 +1475,11 @@ Analog_Phaser::setpreset (int npreset)
     if(npreset>NUM_PRESETS-1) {
 
         Fpre->ReadPreset(18,npreset-NUM_PRESETS+1);
+        #pragma omp simd
         for (int n = 0; n < PRESET_SIZE; n++)
             changepar (n, pdata[n]);
     } else {
-
+        #pragma omp simd
         for (int n = 0; n < PRESET_SIZE; n++)
             changepar (n, presets[npreset][n]);
     }
@@ -1614,11 +1633,11 @@ Alienwah::out (DspFloatType * smpsl, DspFloatType * smpsr)
     lfo.effectlfoout (&lfol, &lfor);
     lfol *= depth * D_PI;
     lfor *= depth * D_PI;
-    clfol.a = cosf (lfol + phase) * fb;
-    clfol.b = sinf (lfol + phase) * fb;
-    clfor.a = cosf (lfor + phase) * fb;
-    clfor.b = sinf (lfor + phase) * fb;
-
+    clfol.a = std::cos (lfol + phase) * fb;
+    clfol.b = std::sin (lfol + phase) * fb;
+    clfor.a = std::cos (lfor + phase) * fb;
+    clfor.b = std::sin (lfor + phase) * fb;
+    #pragma omp simd
     for (i = 0; i < PERIOD; i++) {
         DspFloatType x = (DspFloatType)i / fPERIOD;
         DspFloatType x1 = 1.0f - x;
@@ -1756,11 +1775,11 @@ Alienwah::setpreset (int npreset)
     if(npreset>NUM_PRESETS-1) {
 
         Fpre->ReadPreset(11,npreset-NUM_PRESETS+1);
+        #pragma omp simd
         for (int n = 0; n < PRESET_SIZE; n++)
             changepar (n, pdata[n]);
     } else {
-
-
+        #pragma omp simd
         for (int n = 0; n < PRESET_SIZE; n++)
             changepar (n, presets[npreset][n]);
     }
@@ -1872,6 +1891,7 @@ FormantFilter::FormantFilter (FilterParams * pars)
     inbuffer = new DspFloatType[PERIOD];
     tmpbuf = new DspFloatType[PERIOD];
 
+    #pragma omp simd
     for (int j = 0; j < FF_MAX_VOWELS; j++)
         for (int i = 0; i < numformants; i++) {
             formantpar[j][i].freq =
@@ -1881,25 +1901,28 @@ FormantFilter::FormantFilter (FilterParams * pars)
             formantpar[j][i].q =
                 pars->getformantq (pars->Pvowels[j].formants[i].q);
         };
+    #pragma omp simd        
     for (int i = 0; i < FF_MAX_FORMANTS; i++)
         oldformantamp[i] = 1.0;
+    #pragma omp simd
     for (int i = 0; i < numformants; i++) {
         currentformants[i].freq = 1000.0f;
         currentformants[i].amp = 1.0f;
         currentformants[i].q = 2.0f;
     };
 
-    formantslowness = powf (1.0f - ((DspFloatType)pars->Pformantslowness / 128.0f), 3.0f);
+    formantslowness = std::pow (1.0f - ((DspFloatType)pars->Pformantslowness / 128.0f), 3.0f);
 
     sequencesize = pars->Psequencesize;
     if (sequencesize == 0)
         sequencesize = 1;
+    #pragma omp simd
     for (int k = 0; k < sequencesize; k++)
         sequence[k].nvowel = pars->Psequence[k].nvowel;
 
-    vowelclearness = powf (10.0f, ((DspFloatType)pars->Pvowelclearness - 32.0f) / 48.0f);
+    vowelclearness = std::pow (10.0f, ((DspFloatType)pars->Pvowelclearness - 32.0f) / 48.0f);
 
-    sequencestretch = powf (0.1f, ((DspFloatType)pars->Psequencestretch - 32.0f) / 48.0f);
+    sequencestretch = std::pow (0.1f, ((DspFloatType)pars->Psequencestretch - 32.0f) / 48.0f);
     if (pars->Psequencereversed)
         sequencestretch *= -1.0f;
 
@@ -1949,7 +1972,7 @@ FormantFilter::setpos (DspFloatType input)
         oldinput = input;
 
 
-    DspFloatType pos = fmodf (input * sequencestretch, 1.0f);
+    DspFloatType pos = std::fmod (input * sequencestretch, 1.0f);
     if (pos < 0.0)
         pos += 1.0f;
 
@@ -1958,19 +1981,20 @@ FormantFilter::setpos (DspFloatType input)
     if (p1 < 0)
         p1 += sequencesize;
 
-    pos = fmodf (pos * (DspFloatType)sequencesize, 1.0f);
+    pos = std::fmod (pos * (DspFloatType)sequencesize, 1.0f);
     if (pos < 0.0)
         pos = 0.0f;
     else if (pos > 1.0)
         pos = 1.0f;
     pos =
-        (atanf ((pos * 2.0f - 1.0f) * vowelclearness) / atanf (vowelclearness) +
+        (std::atan ((pos * 2.0f - 1.0f) * vowelclearness) / std::atan (vowelclearness) +
          1.0f) * 0.5f;
 
     p1 = sequence[p1].nvowel;
     p2 = sequence[p2].nvowel;
 
     if (firsttime != 0) {
+        #pragma omp simd
         for (int i = 0; i < numformants; i++) {
             currentformants[i].freq =
                 formantpar[p1][i].freq * (1.0f - pos) +
@@ -1985,6 +2009,7 @@ FormantFilter::setpos (DspFloatType input)
         };
         firsttime = 0;
     } else {
+        #pragma omp simd
         for (int i = 0; i < numformants; i++) {
             currentformants[i].freq =
                 currentformants[i].freq * (1.0f - formantslowness) +
@@ -2035,11 +2060,12 @@ void
 FormantFilter::filterout (DspFloatType * smp)
 {
     int i, j;
+    #pragma omp simd
     for (i = 0; i < PERIOD; i++) {
         inbuffer[i] = smp[i];
         smp[i] = 0.0;
     };
-
+    #pragma omp simd
     for (j = 0; j < numformants; j++) {
         for (i = 0; i < PERIOD; i++)
             tmpbuf[i] = inbuffer[i] * outgain;
@@ -2104,8 +2130,8 @@ SVFilter::computefiltercoefs ()
     par.f = freq / fSAMPLE_RATE * 4.0f;
     if (par.f > 0.99999)
         par.f = 0.99999f;
-    par.q = 1.0f - atanf (sqrtf (q)) * 2.0f / PI;
-    par.q = powf (par.q, 1.0f / (DspFloatType)(stages + 1));
+    par.q = 1.0f - std::atan (sqrtf (q)) * 2.0f / PI;
+    par.q = std::pow (par.q, 1.0f / (DspFloatType)(stages + 1));
     par.q_sqrt = sqrtf (par.q);
 };
 
@@ -2194,7 +2220,7 @@ SVFilter::singlefilterout (DspFloatType * smp, fstage & x, parameters & par)
         out = &x.notch;
         break;
     };
-
+    #pragma omp simd
     for (i = 0; i < PERIOD; i++) {
         x.low = x.low + par.f * x.band;
         x.high = par.q_sqrt * smp[i] - x.low - par.q * x.band;
@@ -2213,16 +2239,19 @@ SVFilter::filterout (DspFloatType * smp)
 
     if (needsinterpolation != 0) {
         ismp = new DspFloatType[PERIOD];
+        #pragma omp simd
         for (i = 0; i < PERIOD; i++)
             ismp[i] = smp[i];
+        #pragma omp simd
         for (i = 0; i < stages + 1; i++)
             singlefilterout (ismp, st[i], ipar);
     };
-
+    #pragma omp simd
     for (i = 0; i < stages + 1; i++)
         singlefilterout (smp, st[i], par);
 
     if (needsinterpolation != 0) {
+        #pragma omp simd
         for (i = 0; i < PERIOD; i++) {
             DspFloatType x = (DspFloatType) i / fPERIOD;
             smp[i] = ismp[i] * (1.0f - x) + smp[i] * x;
@@ -2230,7 +2259,7 @@ SVFilter::filterout (DspFloatType * smp)
         delete (ismp);
         needsinterpolation = 0;
     };
-
+    #pragma omp simd
     for (i = 0; i < PERIOD; i++)
         smp[i] *= outgain;
 
@@ -2365,8 +2394,10 @@ Arpie::initdelays ()
     Srate_Attack_Coeff = 15.0f / (dl + dr);   // Set swell time to 1/10th of average delay time
     fade = (dl+dr)/5;
 
+    #pragma omp simd
     for (i = dl; i < maxx_delay; i++)
         ldelay[i] = 0.0;
+    #pragma omp simd
     for (i = dr; i < maxx_delay; i++)
         rdelay[i] = 0.0;
     oldl = 0.0;
@@ -2382,7 +2413,7 @@ Arpie::out (DspFloatType * smpsl, DspFloatType * smpsr)
 {
     int i;
     DspFloatType l, r, ldl, rdl, rswell, lswell;
-
+    #pragma omp simd
     for (i = 0; i < PERIOD; i++) {
         ldl = ldelay[kl];
         rdl = rdelay[kr];
@@ -2398,10 +2429,10 @@ Arpie::out (DspFloatType * smpsl, DspFloatType * smpsr)
         if(reverse > 0.0) {
 
             lswell =	(DspFloatType)(abs(kl - rvkl)) * Srate_Attack_Coeff;
-            envswell = (1.0f - cosf(PI * envcnt*envattack));
+            envswell = (1.0f - std::cos(PI * envcnt*envattack));
             if (envswell > 1.0f) envswell = 1.0f;
             if (lswell <= PI) {
-                lswell = 0.5f * (1.0f - cosf(lswell));  //Clickless transition
+                lswell = 0.5f * (1.0f - std::cos(lswell));  //Clickless transition
                 efxoutl[i] = envswell * (reverse * (ldelay[rvkl] * lswell + ldelay[rvfl] * (1.0f - lswell))  + (ldl * (1-reverse)));   //Volume ducking near zero crossing.
             } else {
                 efxoutl[i] = ((ldelay[rvkl] * reverse)  + (ldl * (1-reverse))) * envswell;
@@ -2409,7 +2440,7 @@ Arpie::out (DspFloatType * smpsl, DspFloatType * smpsr)
 
             rswell = 	(DspFloatType)(abs(kr - rvkr)) * Srate_Attack_Coeff;
             if (rswell <= PI) {
-                rswell = 0.5f * (1.0f - cosf(rswell));   //Clickless transition
+                rswell = 0.5f * (1.0f - std::cos(rswell));   //Clickless transition
                 efxoutr[i] = envswell * (reverse * (rdelay[rvkr] * rswell + rdelay[rvfr] * (1.0f - rswell))  + (rdl * (1-reverse)));  //Volume ducking near zero crossing.
             } else {
                 efxoutr[i] = envswell * ((rdelay[rvkr] * reverse)  + (rdl * (1-reverse)));
@@ -2497,7 +2528,7 @@ Arpie::setlrdelay (int Plrdelay)
     DspFloatType tmp;
     this->Plrdelay = Plrdelay;
     tmp =
-        (powf (2.0, fabsf ((DspFloatType)Plrdelay - 64.0f) / 64.0f * 9.0f) -
+        (std::pow (2.0, fabsf ((DspFloatType)Plrdelay - 64.0f) / 64.0f * 9.0f) -
          1.0f) / 1000.0f * fSAMPLE_RATE;
     if (Plrdelay < 64.0)
         tmp = -tmp;
@@ -2755,7 +2786,7 @@ Chorus::out (DspFloatType * smpsl, DspFloatType * smpsr)
         dr2 = delay + lfor * depth;
         if (Poutsub != 0) tmpsub = -1.0f;
         else tmpsub = 1.0f;
-
+        #pragma omp simd
         for (i = 0; i < PERIOD; i++) {
             //Left
             mdel = (dl1 * (DspFloatType)(PERIOD - i) + dl2 * (DspFloatType)i) / fPERIOD;
@@ -2774,6 +2805,7 @@ Chorus::out (DspFloatType * smpsl, DspFloatType * smpsr)
 
         dl2 = getdelay (lfol);
         dr2 = getdelay (lfor);
+        #pragma omp simd
         for (i = 0; i < PERIOD; i++) {
             DspFloatType inl = smpsl[i];
             DspFloatType inr = smpsr[i];
@@ -2795,7 +2827,7 @@ Chorus::out (DspFloatType * smpsl, DspFloatType * smpsr)
             dlhi %= maxdelay;
 
             dlhi2 = (dlhi - 1 + maxdelay) % maxdelay;
-            dllo = 1.0f - fmodf (tmp, 1.0f);
+            dllo = 1.0f - std::fmod (tmp, 1.0f);
             efxoutl[i] = delayl[dlhi2] * dllo + delayl[dlhi] * (1.0f - dllo);
             delayl[dlk] = inl + efxoutl[i] * fb;
 
@@ -2811,7 +2843,7 @@ Chorus::out (DspFloatType * smpsl, DspFloatType * smpsr)
             dlhi %= maxdelay;
 
             dlhi2 = (dlhi - 1 + maxdelay) % maxdelay;
-            dllo = 1.0f - fmodf (tmp, 1.0f);
+            dllo = 1.0f - std::fmod (tmp, 1.0f);
             efxoutr[i] = delayr[dlhi2] * dllo + delayr[dlhi] * (1.0f - dllo);
             delayr[dlk] = inr + efxoutr[i] * fb;
 
@@ -2824,7 +2856,7 @@ Chorus::out (DspFloatType * smpsl, DspFloatType * smpsr)
                 efxoutr[i] *= -1.0f;
             };
 
-
+        #pragma omp simd
         for (int i = 0; i < PERIOD; i++) {
             efxoutl[i] *= panning;
             efxoutr[i] *= (1.0f - panning);
@@ -2853,14 +2885,14 @@ void
 Chorus::setdepth (int Pdepth)
 {
     this->Pdepth = Pdepth;
-    depth = (powf (8.0f, ((DspFloatType)Pdepth / 127.0f) * 2.0f) - 1.0f) / 1000.0f;	//seconds
+    depth = (std::pow (8.0f, ((DspFloatType)Pdepth / 127.0f) * 2.0f) - 1.0f) / 1000.0f;	//seconds
 };
 
 void
 Chorus::setdelay (int Pdelay)
 {
     this->Pdelay = Pdelay;
-    delay = (powf (10.0f, ((DspFloatType)Pdelay / 127.0f) * 2.0f) - 1.0f) / 1000.0f;	//seconds
+    delay = (std::pow (10.0f, ((DspFloatType)Pdelay / 127.0f) * 2.0f) - 1.0f) / 1000.0f;	//seconds
 };
 
 void
@@ -3096,8 +3128,10 @@ delayline::cleanup()
 {
     zero_index = 0;
     int i, k;
+    #pragma omp simd
     for (i = 0; i < maxdelaysmps; i++)
         ringbuffer[i] = 0.0;
+    #pragma omp simd
     for (i = 0; i < maxtaps; i++) {
         avgtime[i] = 0.0;
         time[i] = 0.0;
@@ -3111,7 +3145,7 @@ delayline::cleanup()
 
         }
     }
-
+    #pragma omp simd
     for (i = 0; i < maxtaps; i++) {
         avgtime[i] = 0.0f;
         newtime[i] = 0;
@@ -3353,6 +3387,7 @@ delayline::phaser(DspFloatType fxn)	//All-pass interpolation
 {
 
     DspFloatType xn = fxn;
+    #pragma omp simd
     for (int st = 0; st < pstruct[tap].stages; st++) {
         pstruct[tap].yn1[st] =
             pstruct[tap].xn1[st] - pstruct[tap].gain[st] * (xn +
@@ -3542,13 +3577,13 @@ HarmEnhancer::chebpc (DspFloatType c[], DspFloatType d[])
     int j,k;
 
     DspFloatType sv, dd[HARMONICS];
-
+    #pragma omp simd
     for (j = 0; j < HARMONICS; j++) {
         d[j] = dd[j] = 0.0;
     }
 
     d[0] = c[HARMONICS - 1];
-
+    #pragma omp simd
     for (j = HARMONICS - 2; j >= 1; j--) {
         for (k = HARMONICS - j; k >= 1; k--) {
             sv = d[k];
@@ -3559,7 +3594,7 @@ HarmEnhancer::chebpc (DspFloatType c[], DspFloatType d[])
         d[0] = -dd[0] + c[j];
         dd[0] = sv;
     }
-
+    #pragma omp simd
     for (j = HARMONICS - 1; j >= 1; j--) {
         d[j] = d[j - 1] - dd[j];
     }
@@ -3620,7 +3655,7 @@ HarmEnhancer::harm_out(DspFloatType *smpsl, DspFloatType *smpsr)
     hpfr->filterout(inputr);
 
     limiter->out(inputl,inputr);
-
+    #pragma omp simd
     for (i=0; i<PERIOD; i++) {
         DspFloatType xl = inputl[i];
         DspFloatType xr = inputr[i];
@@ -3650,7 +3685,7 @@ HarmEnhancer::harm_out(DspFloatType *smpsl, DspFloatType *smpsr)
 
     lpfl->filterout(inputl);
     lpfr->filterout(inputr);
-
+    #pragma omp simd
     for (i=0; i<PERIOD; i++) {
         smpsl[i] =(smpsl[i]+inputl[i]*vol);
         smpsr[i] =(smpsr[i]+inputr[i]*vol);
@@ -3668,7 +3703,7 @@ CoilCrafter::CoilCrafter (DspFloatType * efxoutl_, DspFloatType * efxoutr_)
     Ppreset = 0;
     Pvolume = 50;
     Ptone = 20;
-    att = 16.0f*powf(PI,fSAMPLE_RATE/44100.0f);
+    att = 16.0f*std::pow(PI,fSAMPLE_RATE/44100.0f);
 
     tfreqs[0]=4000.0f;
     tfreqs[1]=4400.0f;
@@ -3749,7 +3784,7 @@ CoilCrafter::out (DspFloatType * smpsl, DspFloatType * smpsr)
     if(Ppo>0) {
         RB1l->filterout(smpsl);
         RB1r->filterout(smpsr);
-
+        #pragma omp simd
         for (i=0; i<PERIOD; i++) {
             smpsl[i]*=att;
             smpsr[i]*=att;
@@ -3763,7 +3798,7 @@ CoilCrafter::out (DspFloatType * smpsl, DspFloatType * smpsr)
 
     if(Pmode) harm->harm_out(smpsl,smpsr);
 
-
+    #pragma omp simd
     for (i=0; i<PERIOD; i++) {
         smpsl[i]*=outvolume;
         smpsr[i]*=outvolume;
@@ -4069,7 +4104,7 @@ Compressor::Compressor_Change (int np, int value)
 
     }
 
-    kratio = logf(ratio)/LOG_2;  //  Log base 2 relationship matches slope
+    kratio = std::log(ratio)/LOG_2;  //  Log base 2 relationship matches slope
     knee = -kpct*thres_db;
 
     coeff_kratio = 1.0 / kratio;
@@ -4176,7 +4211,7 @@ Compressor::out (DspFloatType *efxoutl, DspFloatType *efxoutr)
 
     int i;
 
-
+    #pragma omp simd
     for (i = 0; i < PERIOD; i++) {
         DspFloatType rdelta = 0.0f;
         DspFloatType ldelta = 0.0f;
@@ -4444,7 +4479,7 @@ CompBand::out (DspFloatType * smpsl, DspFloatType * smpsr)
     CMH->out(midhl,midhr);
     CH->out(highl,highr);
 
-
+    #pragma omp simd
     for (i = 0; i < PERIOD; i++) {
         efxoutl[i]=(lowl[i]+midll[i]+midhl[i]+highl[i])*level;
         efxoutr[i]=(lowr[i]+midlr[i]+midhr[i]+highr[i])*level;
@@ -4816,7 +4851,7 @@ void fft_filter::mayer_fht(DspFloatType *fz, int n)
     int  k,k1,k2,k3,k4,kx;
     DspFloatType *fi,*fn,*gi;
     TRIG_VARS;
-
+    #pragma omp simd
     for (k1=1,k2=0; k1<n; k1++) {
         DspFloatType aa;
         for (k=n>>1; (!((k2^=k)&k)); k>>=1);
@@ -4826,9 +4861,11 @@ void fft_filter::mayer_fht(DspFloatType *fz, int n)
             fz[k2]=aa;
         }
     }
+    #pragma omp simd
     for ( k=0 ; (1<<k)<n ; k++ );
-    k  &= 1;
+    k  &= 1;    
     if (k==0) {
+        #pragma omp simd
         for (fi=fz,fn=fz+n; fi<fn; fi+=4) {
             DspFloatType f0,f1,f2,f3;
             f1     = fi[0 ]-fi[1 ];
@@ -4841,6 +4878,7 @@ void fft_filter::mayer_fht(DspFloatType *fz, int n)
             fi[1 ] = (f1+f3);
         }
     } else {
+        #pragma omp simd
         for (fi=fz,fn=fz+n,gi=fi+1; fi<fn; fi+=8,gi+=8) {
             DspFloatType bs1,bc1,bs2,bc2,bs3,bc3,bs4,bc4,
                   bg0,bf0,bf1,bg1,bf2,bg2,bf3,bg3;
@@ -4906,6 +4944,7 @@ void fft_filter::mayer_fht(DspFloatType *fz, int n)
             fi     += k4;
         } while (fi<fn);
         TRIG_INIT(k,c1,s1);
+        #pragma omp simd
         for (ii=1; ii<kx; ii++) {
             DspFloatType c2,s2;
             TRIG_NEXT(k,c1,s1);
@@ -4953,6 +4992,7 @@ void fft_filter::mayer_fft(int n, DspFloatType *real, DspFloatType *imag)
     DspFloatType a,b,c,d;
     DspFloatType q,r,s,t;
     int i,j,k;
+    #pragma omp simd
     for (i=1,j=n-1,k=n/2; i<k; i++,j--) {
         a = real[i];
         b = real[j];
@@ -4978,6 +5018,7 @@ void fft_filter::mayer_ifft(int n, DspFloatType *real, DspFloatType *imag)
     int i,j,k;
     mayer_fht(real,n);
     mayer_fht(imag,n);
+    #pragma omp simd
     for (i=1,j=n-1,k=n/2; i<k; i++,j--) {
         a = real[i];
         b = real[j];
@@ -5000,6 +5041,7 @@ void fft_filter::mayer_realfft(int n, DspFloatType *real)
     int i,j,k;
 
     mayer_fht(real,n);
+    #pragma omp simd
     for (i=1,j=n-1,k=n/2; i<k; i++,j--) {
         a = real[i];
         b = real[j];
@@ -5012,7 +5054,7 @@ void fft_filter::mayer_realifft(int n, DspFloatType *real)
 {
     DspFloatType a,b;
     int i,j,k;
-
+    #pragma omp simd
     for (i=1,j=n-1,k=n/2; i<k; i++,j--) {
         a = real[i];
         b = real[j];
@@ -5033,6 +5075,7 @@ fft_filter::realifft(int n, DspFloatType *real)
 
     real[n/2] = 0.0f;
 //unwrap this thing into something easier to index
+    #pragma omp simd
     for (i=1+(n/2),j=n-1,k=(n - n/4); i<k; i++,j--) {
         tmp = real[j];
         real[j] = real[i];
@@ -5053,6 +5096,7 @@ fft_filter::realfft(int n, DspFloatType *real)
     mayer_realfft(n, real);
     real[n/2] = 0.0f;
 //unwrap this thing into something easier to index
+    #pragma omp simd
     for (i=1+(n/2),j=n-1,k=(n - n/4); i<k; i++,j--) {
         tmp = real[j];
         real[j] = real[i];
@@ -5068,8 +5112,9 @@ void fft_filter::make_window(int n, DspFloatType *window)
     DspFloatType Ts = 1.0f/((DspFloatType) n);
     DspFloatType x = 2.0f*M_PI*Ts;
     DspFloatType tt = 0.0f;
+    #pragma omp simd
     for(i=0; i<n; i++) {
-        window[i] = 0.5f - 0.5f*cosf(tt);
+        window[i] = 0.5f - 0.5f*std::cos(tt);
         tt+=x;
 
     }
@@ -5091,6 +5136,7 @@ void fft_filter::resample_impulse(int size, DspFloatType* ir)
     memcpy(fftBuf, ir, size*sizeof(DspFloatType));
 
     realfft(fftLength, fftBuf);
+    #pragma omp simd
     for(i=0,j=fftLength/2; i<fftLength/2; i++, j++) {
         fftBuf[i]*=ratio;
         fftBuf[j]*=ratio;
@@ -5516,7 +5562,7 @@ Convolotron::process_rbuf()
         if (ii<N2) {
             tailfader = 1.0f;
         } else {
-            tailfader = a0 - a1*cosf(ii*Nm1p) + a2 * cosf(ii*Nm1pp);   //Calculate Blackman Window for right half of IR
+            tailfader = a0 - a1*std::cos(ii*Nm1p) + a2 * std::cos(ii*Nm1pp);   //Calculate Blackman Window for right half of IR
         }
 
         buf[ii]= rbuf[ii] * tailfader;   //Apply window function
@@ -5750,7 +5796,7 @@ Waveshaper::Waveshaper()
 
     mu = 100.0f;  //Valve2 gain
     V2bias = 1.5f;  //Valve2 bias voltage
-    Is = 105/(R*powf(V2bias*mu, 1.5f));  //bias point for Valve2
+    Is = 105/(R*std::pow(V2bias*mu, 1.5f));  //bias point for Valve2
     Vg2 = mu*V2bias;
     vfact = 12;   //adjustment of valve shut-off.  Small is hard clipping, large is softer clipping
     ffact = 40;  //Valve2 ffact and vfact set onset of significant limiting.   Small is hard clip, large is soft clip
@@ -5799,15 +5845,15 @@ Waveshaper::waveshapesmps (int n, DspFloatType * smps, int type,
 
     int i;
     DspFloatType ws = (DspFloatType)drive / 127.0f + .00001f;
-    ws = 1.0f - expf (-ws * 4.0f);
+    ws = 1.0f - std::exp (-ws * 4.0f);
     DspFloatType tmpv;
     DspFloatType factor;
 
     switch (type + 1 ) {
     case 1:
-        ws = powf (10.0f, ws * ws * 3.0f) - 1.0f + 0.001f;	//Arctangent
+        ws = std::pow (10.0f, ws * ws * 3.0f) - 1.0f + 0.001f;	//Arctangent
         for (i = 0; i < nn; i++)
-            temps[i] = atanf (temps[i] * ws) / atanf (ws);
+            temps[i] = std::atan (temps[i] * ws) / std::atan (ws);
         break;
     case 2:
         ws = ws * ws * 32.0f + 0.0001f;	//Asymmetric
@@ -5824,7 +5870,7 @@ Waveshaper::waveshapesmps (int n, DspFloatType * smps, int type,
         for (i = 0; i < nn; i++) {
             temps[i] *= ws;
             if (fabsf (temps[i]) < 1.0) {
-                temps[i] = (temps[i] - powf (temps[i], 3.0f)) * 3.0f;
+                temps[i] = (temps[i] - std::pow (temps[i], 3.0f)) * 3.0f;
                 if (ws < 1.0)
                     temps[i] /= ws;
             } else
@@ -5855,7 +5901,7 @@ Waveshaper::waveshapesmps (int n, DspFloatType * smps, int type,
             temps[i] = asinf (f_sin (temps[i] * ws)) / tmpv;
         break;
     case 7:
-        ws = powf (2.0f, -ws * ws * 8.0f);	//Limiter
+        ws = std::pow (2.0f, -ws * ws * 8.0f);	//Limiter
         for (i = 0; i < nn; i++) {
             DspFloatType tmp = temps[i];
             if (fabsf (tmp) > ws) {
@@ -5868,7 +5914,7 @@ Waveshaper::waveshapesmps (int n, DspFloatType * smps, int type,
         };
         break;
     case 8:
-        ws = powf (2.0f, -ws * ws * 8.0f);	//Upper Limiter
+        ws = std::pow (2.0f, -ws * ws * 8.0f);	//Upper Limiter
         for (i = 0; i < nn; i++) {
             DspFloatType tmp = temps[i];
             if (tmp > ws)
@@ -5877,7 +5923,7 @@ Waveshaper::waveshapesmps (int n, DspFloatType * smps, int type,
         };
         break;
     case 9:
-        ws = powf (2.0f, -ws * ws * 8.0f);	//Lower Limiter
+        ws = std::pow (2.0f, -ws * ws * 8.0f);	//Lower Limiter
         for (i = 0; i < nn; i++) {
             DspFloatType tmp = temps[i];
             if (tmp < -ws)
@@ -5886,7 +5932,7 @@ Waveshaper::waveshapesmps (int n, DspFloatType * smps, int type,
         };
         break;
     case 10:
-        ws = (powf (2.0f, ws * 6.0f) - 1.0f) / powf (2.0f, 6.0f);	//Inverse Limiter
+        ws = (std::pow (2.0f, ws * 6.0f) - 1.0f) / std::pow (2.0f, 6.0f);	//Inverse Limiter
         for (i = 0; i < nn; i++) {
             DspFloatType tmp = temps[i];
             if (fabsf (tmp) > ws) {
@@ -5899,7 +5945,7 @@ Waveshaper::waveshapesmps (int n, DspFloatType * smps, int type,
         };
         break;
     case 11:
-        ws = powf (5.0f, ws * ws * 1.0f) - 1.0f;	//Clip
+        ws = std::pow (5.0f, ws * ws * 1.0f) - 1.0f;	//Clip
         for (i = 0; i < nn; i++)
             temps[i] =
                 temps[i] * (ws + 0.5f) * 0.9999f - floorf (0.5f +
@@ -5937,18 +5983,18 @@ Waveshaper::waveshapesmps (int n, DspFloatType * smps, int type,
         };
         break;
     case 14:
-        ws = powf (ws, 5.0f) * 80.0f + 0.0001f;	//sigmoid
+        ws = std::pow (ws, 5.0f) * 80.0f + 0.0001f;	//sigmoid
         if (ws > 10.0)
             tmpv = 0.5f;
         else
-            tmpv = 0.5f - 1.0f / (expf (ws) + 1.0f);
+            tmpv = 0.5f - 1.0f / (std::exp (ws) + 1.0f);
         for (i = 0; i < nn; i++) {
             DspFloatType tmp = temps[i] * ws;
             if (tmp < -10.0)
                 tmp = -10.0f;
             else if (tmp > 10.0)
                 tmp = 10.0f;
-            tmp = 0.5f - 1.0f / (expf (tmp) + 1.0f);
+            tmp = 0.5f - 1.0f / (std::exp (tmp) + 1.0f);
             temps[i] = tmp / tmpv;
         };
         break;
@@ -6059,7 +6105,7 @@ Waveshaper::waveshapesmps (int n, DspFloatType * smps, int type,
         break;
 
     case 21: //Overdrive
-        ws = powf (10.0f, ws * ws * 3.0f) - 1.0f + 0.001f;
+        ws = std::pow (10.0f, ws * ws * 3.0f) - 1.0f + 0.001f;
         for (i = 0; i < nn; i++) {
             if(temps[i]>0.0f) temps[i] = sqrtf(temps[i]*ws);
             else temps[i] = -sqrtf(-temps[i]*ws);
@@ -6067,23 +6113,23 @@ Waveshaper::waveshapesmps (int n, DspFloatType * smps, int type,
         break;
 
     case 22: //Soft
-        ws = powf(4.0f, ws*ws+1.0f);
+        ws = std::pow(4.0f, ws*ws+1.0f);
         for (i = 0; i < nn; i++) {
-            if(temps[i]>0.0f) temps[i] = ws*powf(temps[i],1.4142136f);
-            else temps[i] = ws* -powf(-temps[i],1.4142136f);
+            if(temps[i]>0.0f) temps[i] = ws*std::pow(temps[i],1.4142136f);
+            else temps[i] = ws* -std::pow(-temps[i],1.4142136f);
         }
         break;
 
     case 23: //Super Soft
 
-        ws = powf (20.0f, ws * ws) + 0.5f;
+        ws = std::pow (20.0f, ws * ws) + 0.5f;
         factor = 1.0f / ws;
         for (i = 0; i < nn; i++) {
             if(temps[i] > 1.0) temps[i] = 1.0f;
             if(temps[i] < -1.0) temps[i] = -1.0f;
 
             if(temps[i]<factor) temps[i]=temps[i];
-            else if(temps[i]>factor) temps[i]=factor+(temps[i]-factor)/powf(1.0f+((temps[i]-factor)/(1.0f-temps[i])),2.0f);
+            else if(temps[i]>factor) temps[i]=factor+(temps[i]-factor)/std::pow(1.0f+((temps[i]-factor)/(1.0f-temps[i])),2.0f);
             else if(temps[i]>1.0f) temps[i]=(factor+1.0f)*.5f;
             temps[i]*=ws;
         }
@@ -6147,7 +6193,7 @@ Waveshaper::waveshapesmps (int n, DspFloatType * smps, int type,
 
     case 26: //JFET
 
-        ws = powf (35.0f, ws * ws) + 4.0f;
+        ws = std::pow (35.0f, ws * ws) + 4.0f;
         factor = sqrt(1.0f / ws);
         for (i = 0; i < nn; i++) {
             temps[i] = temps[i] + factor;
@@ -6158,7 +6204,7 @@ Waveshaper::waveshapesmps (int n, DspFloatType * smps, int type,
 
     case 27: //dyno JFET
 
-        ws = powf (85.0f, ws * ws) + 10.0f;
+        ws = std::pow (85.0f, ws * ws) + 10.0f;
 
         for (i = 0; i < nn; i++) {
             tmpv = fabs(temps[i]);
@@ -6177,14 +6223,14 @@ Waveshaper::waveshapesmps (int n, DspFloatType * smps, int type,
 
     case 28: //Valve 1
 
-        ws = powf (4.0f, ws * ws) - 0.98f;
+        ws = std::pow (4.0f, ws * ws) - 0.98f;
 
         for (i = 0; i < nn; i++) {
             Vg = Vgbias + ws*temps[i] - 0.1f*Vdyno;
 
             if(Vg<=0.05f) Vg = 0.05f/((-20.0f*Vg) + 2.0f);
 
-            Ip = P*powf(Vg,Vfactor);
+            Ip = P*std::pow(Vg,Vfactor);
             tmpv = Vsupp - (Vmin - (Vmin/(R*Ip + 1.0f)));  //Here is the plate voltage
             tmpv = (tmpv - 106.243f)/100.0f;
             Vdyno += (1.0f - dynodecay) * tmpv;
@@ -6196,14 +6242,14 @@ Waveshaper::waveshapesmps (int n, DspFloatType * smps, int type,
 
     case 29: //Valve 2
 
-        ws = powf (110.0f, ws);
+        ws = std::pow (110.0f, ws);
 
         for (i = 0; i < nn; i++) {
 
             Vg2 = mu*(V2bias + V2dyno + ws*temps[i]);
 
             if(Vg2 <= vfact) Vg2 = vfact/((-Vg2/vfact) + 2.0f);	 //Toward cut-off, behavior is a little different than 2/3 power law
-            Vlv2out = Vsupp - R*Is*powf(Vg2,1.5f);   //2/3 power law relationship
+            Vlv2out = Vsupp - R*Is*std::pow(Vg2,1.5f);   //2/3 power law relationship
             if(Vlv2out <= ffact) Vlv2out = ffact/((-Vlv2out/ffact) + 2.0f);  //Then as Vplate decreases, gain decreases until saturation
 
             temps[i] = (Vlv2out - 95.0f)*0.01f;
@@ -6214,13 +6260,13 @@ Waveshaper::waveshapesmps (int n, DspFloatType * smps, int type,
         break;
     case 30: //Diode clipper
 
-        ws = 5.0f + powf (110.0f, ws);
+        ws = 5.0f + std::pow (110.0f, ws);
 
         for (i = 0; i < nn; i++) {
 
             tmpv = ws*temps[i];
-            if (tmpv>0.0f) tmpv = 1.0f - 1.0f/powf(4.0f, tmpv);
-            else tmpv = -(1.0f - 1.0f/powf(4.0f, -tmpv));
+            if (tmpv>0.0f) tmpv = 1.0f - 1.0f/std::pow(4.0f, tmpv);
+            else tmpv = -(1.0f - 1.0f/std::pow(4.0f, -tmpv));
             temps[i] = tmpv;
 
         }
@@ -6285,7 +6331,7 @@ Dflange::Dflange (DspFloatType * efxoutl_, DspFloatType * efxoutr_)
     rsB = 0.0f;
     lsA  = 0.0f;
     lsB = 0.0f;
-    logmax = logf(1000.0f)/logf(2.0f);
+    logmax = std::log(1000.0f)/std::log(2.0f);
     setpreset (Ppreset);
     cleanup ();
 };
@@ -6434,8 +6480,8 @@ Dflange::out (DspFloatType * smpsl, DspFloatType * smpsr)
 
     } else {
 
-        lmodfreq = fdepth + fwidth*(powf(base, lmod) - 1.0f)*ibase;	//sets frequency of lowest notch. // 20 <= fdepth <= 4000 // 20 <= width <= 16000 //
-        rmodfreq = fdepth + fwidth*(powf(base, rmod) - 1.0f)*ibase;
+        lmodfreq = fdepth + fwidth*(std::pow(base, lmod) - 1.0f)*ibase;	//sets frequency of lowest notch. // 20 <= fdepth <= 4000 // 20 <= width <= 16000 //
+        rmodfreq = fdepth + fwidth*(std::pow(base, rmod) - 1.0f)*ibase;
 
 
         if (lmodfreq > 10000.0f)
@@ -6618,13 +6664,13 @@ Dflange::changepar (int npar, int value)
         Pdepth = value;
         fdepth =  (DspFloatType) Pdepth;
         zcenter = (int) fSAMPLE_RATE/floor(0.5f * (fdepth + fwidth));
-        logmax = logf( (fdepth + fwidth)/fdepth )/LOG_2;
+        logmax = std::log( (fdepth + fwidth)/fdepth )/LOG_2;
         break;
     case 4:
         Pwidth = value;
         fwidth = (DspFloatType) Pwidth;
         zcenter = (int) fSAMPLE_RATE/floor(0.5f * (fdepth + fwidth));
-        logmax = logf( (fdepth + fwidth)/fdepth )/LOG_2;
+        logmax = std::log( (fdepth + fwidth)/fdepth )/LOG_2;
         break;
     case 5:
         Poffset = value;
@@ -6817,7 +6863,7 @@ DynamicFilter::out (DspFloatType * smpsl, DspFloatType * smpsr)
     };
 
 
-    DspFloatType ampsmooth2 = powf (ampsmooth, 0.2f) * 0.3f;
+    DspFloatType ampsmooth2 = std::pow (ampsmooth, 0.2f) * 0.3f;
     ms2 = ms2 * (1.0f - ampsmooth2) + ms1 * ampsmooth2;
     ms3 = ms3 * (1.0f - ampsmooth2) + ms2 * ampsmooth2;
     ms4 = ms4 * (1.0f - ampsmooth2) + ms3 * ampsmooth2;
@@ -6863,7 +6909,7 @@ void
 DynamicFilter::setdepth (int Pdepth)
 {
     this->Pdepth = Pdepth;
-    depth = powf (((DspFloatType)Pdepth / 127.0f), 2.0f);
+    depth = std::pow (((DspFloatType)Pdepth / 127.0f), 2.0f);
 };
 
 
@@ -6886,10 +6932,10 @@ DynamicFilter::setpanning (int Ppanning)
 void
 DynamicFilter::setampsns (int Pampsns)
 {
-    ampsns = powf ((DspFloatType)Pampsns / 127.0f, 2.5f) * 10.0f;
+    ampsns = std::pow ((DspFloatType)Pampsns / 127.0f, 2.5f) * 10.0f;
     if (Pampsnsinv != 0)
         ampsns = -ampsns;
-    ampsmooth = expf ((DspFloatType)-Pampsmooth / 127.0f * 10.0f) * 0.99f;
+    ampsmooth = std::exp ((DspFloatType)-Pampsmooth / 127.0f * 10.0f) * 0.99f;
     this->Pampsns = Pampsns;
 };
 
@@ -7186,7 +7232,7 @@ PluginEQ::setvolume (int Pvolume)
 {
     this->Pvolume = Pvolume;
 
-    outvolume = powf (0.005f, (1.0f - (DspFloatType)Pvolume / 127.0f)) * 10.0f;
+    outvolume = std::pow (0.005f, (1.0f - (DspFloatType)Pvolume / 127.0f)) * 10.0f;
 
 
 };
@@ -7251,7 +7297,7 @@ PluginEQ::changepar (int npar, int value)
         break;
     case 3:
         filter[nb].Pq = value;
-        tmp = powf (30.0f, ((DspFloatType)value - 64.0f) / 64.0f);
+        tmp = std::pow (30.0f, ((DspFloatType)value - 64.0f) / 64.0f);
         filter[nb].l->setq (tmp);
         filter[nb].r->setq (tmp);
         break;
@@ -7487,7 +7533,7 @@ Echo::setlrdelay (int Plrdelay)
     DspFloatType tmp;
     this->Plrdelay = Plrdelay;
     tmp =
-        (powf (2.0, fabsf ((DspFloatType)Plrdelay - 64.0f) / 64.0f * 9.0f) -
+        (std::pow (2.0, fabsf ((DspFloatType)Plrdelay - 64.0f) / 64.0f * 9.0f) -
          1.0f) / 1000.0f;
     if (Plrdelay < 64.0)
         tmp = -tmp;
@@ -7797,8 +7843,8 @@ Echotron::setpanning (int value)
     Ppanning = value;
     rpanning = ((DspFloatType)Ppanning) / 64.0f;
     lpanning = 2.0f - rpanning;
-    lpanning = 10.0f * powf(lpanning, 4);
-    rpanning = 10.0f * powf(rpanning, 4);
+    lpanning = 10.0f * std::pow(lpanning, 4);
+    rpanning = 10.0f * std::pow(rpanning, 4);
     lpanning = 1.0f - 1.0f/(lpanning + 1.0f);
     rpanning = 1.0f - 1.0f/(rpanning + 1.0f);
     lpanning *= 1.1f;
@@ -8260,11 +8306,11 @@ RBFilter::cleanup ()
 void
 RBFilter::computefiltercoefs ()
 {
-    par.f = 2.0f * sinf(PI*freq / fSAMPLE_RATE);
+    par.f = 2.0f * std::sin(PI*freq / fSAMPLE_RATE);
     if (par.f > 0.99999f)
         par.f = 0.99999f;
-    par.q = 1.0f - atanf (sqrtf (q)) * 2.0f / PI;
-    par.q = powf (par.q, 1.0f / (DspFloatType)(stages + 1));
+    par.q = 1.0f - std::atan (sqrtf (q)) * 2.0f / PI;
+    par.q = std::pow (par.q, 1.0f / (DspFloatType)(stages + 1));
     par.q_sqrt = sqrtf (par.q);
 
 };
@@ -8272,12 +8318,12 @@ RBFilter::computefiltercoefs ()
 void
 RBFilter::computefiltercoefs_hiQ ()  //potentially unstable at some settings, but better sound
 {
-    par.f = 2.0f * sinf(PI*freq / fSAMPLE_RATE);
+    par.f = 2.0f * std::sin(PI*freq / fSAMPLE_RATE);
     if (par.f > 0.99999f)
         par.f = 0.99999f;
     if(q<0.5f) q = 0.5f;
     par.q = 1.0f/q;
-    par.q = powf (par.q, 1.0f / (DspFloatType)(stages + 1));
+    par.q = std::pow (par.q, 1.0f / (DspFloatType)(stages + 1));
     par.q_sqrt = 1.0f;
 
 };
@@ -8815,7 +8861,7 @@ Expander::Expander_Change (int np, int value)
     case 2:
         Pshape = value;
         sfactor = dB2rap ((DspFloatType)Pshape/2);
-        sgain = expf(-sfactor);
+        sgain = std::exp(-sfactor);
         break;
     case 3:
         Pattack = value;
@@ -8932,7 +8978,7 @@ Expander::out (DspFloatType *efxoutl, DspFloatType *efxoutr)
         //End envelope power detection
 
         if (env > tlevel) env = tlevel;
-        expenv = sgain * (expf(env*sfactor*tfactor) - 1.0f);		//Envelope waveshaping
+        expenv = sgain * (std::exp(env*sfactor*tfactor) - 1.0f);		//Envelope waveshaping
 
         gain = (1.0f - d_rate) * oldgain + d_rate * expenv;
         oldgain = gain;				//smooth it out a little bit
@@ -9435,8 +9481,8 @@ PitchShifter::smbFft (DspFloatType *fftBuffer, long fftFrameSize, long sign)
         ur = 1.0;
         ui = 0.0;
         arg = M_PI / (le2 >> 1);
-        wr = cosf (arg);
-        wi = sign * sinf (arg);
+        wr = std::cos (arg);
+        wi = sign * std::sin (arg);
         for (j = 0; j < le2; j += 2) {
             p1r = fftBuffer + j;
             p1i = p1r + 1;
@@ -9637,7 +9683,7 @@ Harmonizer::setinterval (int value)
 
     this->Pinterval = value;
     interval = (DspFloatType)Pinterval - 12.0f;
-    PS->ratio = powf(2.0f, interval / 12.0f);
+    PS->ratio = std::pow(2.0f, interval / 12.0f);
     if (Pinterval % 12 == 0)
         mira = 0;
     else
@@ -9672,7 +9718,7 @@ Harmonizer::fsetq (int value)
 
     DspFloatType tmp;
     this->fPq = value;
-    tmp = powf(30.0f, ((DspFloatType)value - 64.0f) / 64.0f);
+    tmp = std::pow(30.0f, ((DspFloatType)value - 64.0f) / 64.0f);
     pl->setq (tmp);
 
 }
@@ -10128,10 +10174,10 @@ Infinity::setq ()
 {
     DspFloatType fq = (DspFloatType) Pq;
     if(Pq<0) {
-        qq = powf(2.0f, fq/500.0f);  //q ranges down to 0.5
+        qq = std::pow(2.0f, fq/500.0f);  //q ranges down to 0.5
         volmaster = 1.0f;
     } else {
-        qq = powf(2.0f, fq/125.0f);  //q can go up to 256
+        qq = std::pow(2.0f, fq/125.0f);  //q can go up to 256
         volmaster = (1.0f-fq/1500.0f)/sqrt(qq);
     }
 
@@ -10151,15 +10197,15 @@ Infinity::reinitfilter ()
     for (int i=0; i<NUM_INF_BANDS; i++)  {  //get them started on their respective phases
 //right
         idx = (DspFloatType) i;
-        rbandstate[i].sinp = sinf(halfpi + D_PI*idx/fbandnum);
-        rbandstate[i].cosp = cosf(halfpi + D_PI*idx/fbandnum);
-        rbandstate[i].ramp = linconst*powf(2.0f,logconst*idx/fbandnum);
+        rbandstate[i].sinp = std::sin(halfpi + D_PI*idx/fbandnum);
+        rbandstate[i].cosp = std::cos(halfpi + D_PI*idx/fbandnum);
+        rbandstate[i].ramp = linconst*std::pow(2.0f,logconst*idx/fbandnum);
         rbandstate[i].lfo = 0.5f*(1.0f + rbandstate[i].sinp);  //lfo modulates filter band volume
 //left
         stateconst = fmod((stdiff + idx), fbandnum);
-        lbandstate[i].sinp = sinf(halfpi + D_PI*stateconst/fbandnum);
-        lbandstate[i].cosp = cosf(halfpi + D_PI*stateconst/fbandnum);
-        lbandstate[i].ramp = linconst*powf(2.0f,logconst*stateconst/fbandnum);
+        lbandstate[i].sinp = std::sin(halfpi + D_PI*stateconst/fbandnum);
+        lbandstate[i].cosp = std::cos(halfpi + D_PI*stateconst/fbandnum);
+        lbandstate[i].ramp = linconst*std::pow(2.0f,logconst*stateconst/fbandnum);
         lbandstate[i].lfo = 0.5f*(1.0f + rbandstate[i].sinp);  //lfo modulates filter band volume
 //printf("i: %d sin: %f lfo: %f ramp: %f max: %f min: %f\n",i,rbandstate[i].sinp, rbandstate[i].lfo, rbandstate[i].ramp, maxlevel, minlevel);
 
@@ -10194,21 +10240,21 @@ Infinity::adjustfreqs()
     if (fstart < fend) {
         frmin = fstart;
         frmax = fend;
-        crampconst = 1.0f + frate*logf(frmax/frmin)/fs;
+        crampconst = 1.0f + frate*std::log(frmax/frmin)/fs;
     } else {
         frmax = fstart;
         frmin = fend;
-        crampconst = 1.0f/(1.0f + frate*logf(frmax/frmin)/fs);
+        crampconst = 1.0f/(1.0f + frate*std::log(frmax/frmin)/fs);
     }
 
     cirampconst = 1.0f/crampconst;
-    logconst = logf(frmax/frmin)/logf(2.0f);
-    linconst = D_PI*frmin/fs;  //these lines are for using powf() in the initialization
+    logconst = std::log(frmax/frmin)/std::log(2.0f);
+    linconst = D_PI*frmin/fs;  //these lines are for using std::pow() in the initialization
 
     minlevel = D_PI*frmin/fs;
     maxlevel = minlevel*frmax/frmin;
     //printf("min %f max %f rampconst %f irampconst %f\n", minlevel, maxlevel,rampconst, irampconst);
-    //fconst =  2.0f * sinf(PI*frate / fs);  //this is a more precise interpretation
+    //fconst =  2.0f * std::sin(PI*frate / fs);  //this is a more precise interpretation
     cfconst =  D_PI*frate / fs;  //this seems to work well at low frequencies
     mconst = D_PI*((DspFloatType) Prate)/(fs*60.0f*4.0f);
 
@@ -10619,7 +10665,7 @@ Looper::out (DspFloatType * smpsl, DspFloatType * smpsr)
 
                 lswell =	(DspFloatType)(abs(kl - rvkl)) * Srate_Attack_Coeff;
                 if (lswell <= PI) {
-                    lswell = 0.5f * (1.0f - cosf(lswell));  //Clickless transition
+                    lswell = 0.5f * (1.0f - std::cos(lswell));  //Clickless transition
                     efxoutl[i] = (fade1 * ldelay[rvkl] + fade2 * t2ldelay[rvkl2]) * lswell;   //Volume ducking near zero crossing.
                 } else {
                     efxoutl[i] = fade1 * ldelay[rvkl] + fade2 * t2ldelay[rvkl2];
@@ -10627,7 +10673,7 @@ Looper::out (DspFloatType * smpsl, DspFloatType * smpsr)
 
                 rswell = 	(DspFloatType)(abs(kl - rvkl)) * Srate_Attack_Coeff;
                 if (rswell <= PI) {
-                    rswell = 0.5f * (1.0f - cosf(rswell));   //Clickless transition
+                    rswell = 0.5f * (1.0f - std::cos(rswell));   //Clickless transition
                     efxoutr[i] = ( fade1 * rdelay[rvkl] + fade2 * t2rdelay[rvkl2] )* rswell;  //Volume ducking near zero crossing.
                 } else {
                     efxoutr[i] = fade1 * rdelay[rvkl] + fade2 * t2rdelay[rvkl2];
@@ -11215,7 +11261,7 @@ MBDist::out (DspFloatType * smpsl, DspFloatType * smpsr)
     int i;
     DspFloatType l, r, lout, rout;
 
-    DspFloatType inputvol = powf (5.0f, ((DspFloatType)Pdrive - 32.0f) / 127.0f);
+    DspFloatType inputvol = std::pow (5.0f, ((DspFloatType)Pdrive - 32.0f) / 127.0f);
     if (Pnegate != 0)
         inputvol *= -1.0f;
 
@@ -12653,7 +12699,7 @@ NewDist::changepar (int npar, int value)
         break;
     case 9:
         Prfreq = value;
-        rfreq = expf (powf ((DspFloatType)value / 127.0f, 0.5f) * logf (25000.0f)) + 40.0f;
+        rfreq = std::exp (std::pow ((DspFloatType)value / 127.0f, 0.5f) * std::log (25000.0f)) + 40.0f;
         filterl->setfreq(rfreq);
         filterr->setfreq(rfreq);
 
@@ -12724,14 +12770,14 @@ Opticaltrem::Opticaltrem (DspFloatType * efxoutl_, DspFloatType * efxoutr_)
 
     R1 = 2700.0f;	   //tremolo circuit series resistance
     Ra = 1000000.0f;  //Cds cell dark resistance.
-    Ra = logf(Ra);		//this is done for clarity
+    Ra = std::log(Ra);		//this is done for clarity
     Rb = 300.0f;         //Cds cell full illumination
     Rp = 100000.0f;      //Resistor in parallel with Cds cell
-    b = exp(Ra/logf(Rb)) - CNST_E;
+    b = exp(Ra/std::log(Rb)) - CNST_E;
     dTC = 0.03f;
     dRCl = dTC;
     dRCr = dTC;   //Right & left channel dynamic time contsants
-    minTC = logf(0.005f/dTC);
+    minTC = std::log(0.005f/dTC);
     alphal = 1.0f - cSAMPLE_RATE/(dRCl + cSAMPLE_RATE);
     alphar = alphal;
     lstep = 0.0f;
@@ -12788,8 +12834,8 @@ Opticaltrem::out (DspFloatType *smpsl, DspFloatType *smpsr)
     else if (lfor < 0.0f)
         lfor = 0.0f;
 
-    lfor = powf(lfor, 1.9f);
-    lfol = powf(lfol, 1.9f);  //emulate lamp turn on/off characteristic
+    lfor = std::pow(lfor, 1.9f);
+    lfol = std::pow(lfol, 1.9f);  //emulate lamp turn on/off characteristic
 
     //lfo interpolation
     rdiff = (lfor - oldgr)*cperiod;
@@ -12806,7 +12852,7 @@ Opticaltrem::out (DspFloatType *smpsl, DspFloatType *smpsr)
         dRCl = dTC*f_exp(stepl*minTC);
         alphal = 1.0f - cSAMPLE_RATE/(dRCl + cSAMPLE_RATE);
         xl = CNST_E + stepl*b;
-        fxl = f_exp(Ra/logf(xl));
+        fxl = f_exp(Ra/std::log(xl));
         if(Pinvert) {
         fxl = fxl*Rp/(fxl + Rp); //Parallel resistance
         fxl = fxl/(fxl + R1);
@@ -12819,7 +12865,7 @@ Opticaltrem::out (DspFloatType *smpsl, DspFloatType *smpsr)
         dRCr = dTC*f_exp(stepr*minTC);
         alphar = 1.0f - cSAMPLE_RATE/(dRCr + cSAMPLE_RATE);
         xr = CNST_E + stepr*b;
-        fxr = f_exp(Ra/logf(xr));
+        fxr = f_exp(Ra/std::log(xr));
         if(Pinvert) {
         fxr = fxr*Rp/(fxr + Rp); //Parallel resistance
         fxr = fxr/(fxr + R1);
@@ -12844,8 +12890,8 @@ Opticaltrem::setpanning (int value)
     Ppanning = value;
     rpanning = ((DspFloatType)Ppanning) / 64.0f;
     lpanning = 2.0f - rpanning;
-    lpanning = 10.0f * powf(lpanning, 4);
-    rpanning = 10.0f * powf(rpanning, 4);
+    lpanning = 10.0f * std::pow(lpanning, 4);
+    rpanning = 10.0f * std::pow(rpanning, 4);
     lpanning = 1.0f - 1.0f/(lpanning + 1.0f);
     rpanning = 1.0f - 1.0f/(rpanning + 1.0f);
     
@@ -12932,9 +12978,9 @@ Opticaltrem::changepar (int npar, int value)
         }
         setpanning(Ppanning);
  
-        Ra = logf(Ra);		//this is done for clarity
+        Ra = std::log(Ra);		//this is done for clarity
         Rb = 300.0f;         //Cds cell full illumination
-        b = exp(Ra/logf(Rb)) - CNST_E;
+        b = exp(Ra/std::log(Rb)) - CNST_E;
            break;
    }
 
@@ -13087,8 +13133,8 @@ Pan::setpanning (int Ppanning)
     this->Ppanning = Ppanning;
     panning = ((DspFloatType)Ppanning)/ 127.0f;
     dvalue= panning*M_PI_2;
-    cdvalue=cosf(dvalue);
-    sdvalue=sinf(dvalue);
+    cdvalue=std::cos(dvalue);
+    sdvalue=std::sin(dvalue);
 
 
 };
@@ -13249,9 +13295,9 @@ Phaser::out (DspFloatType * smpsl, DspFloatType * smpsr)
     lgain = lfol;
     rgain = lfor;
     lgain =
-        (expf (lgain * PHASER_LFO_SHAPE) - 1.0f) / (expf (PHASER_LFO_SHAPE) - 1.0f);
+        (std::exp (lgain * PHASER_LFO_SHAPE) - 1.0f) / (std::exp (PHASER_LFO_SHAPE) - 1.0f);
     rgain =
-        (expf (rgain * PHASER_LFO_SHAPE) - 1.0f) / (expf (PHASER_LFO_SHAPE) - 1.0f);
+        (std::exp (rgain * PHASER_LFO_SHAPE) - 1.0f) / (std::exp (PHASER_LFO_SHAPE) - 1.0f);
 
 
     lgain = 1.0f - phase * (1.0f - depth) - (1.0f - phase) * lgain * depth;
@@ -13625,8 +13671,8 @@ RBEcho::out (DspFloatType * smpsl, DspFloatType * smpsr)
         rfeedback = rpanning * fb * rdl;
 
         if(Pes) {
-            ldl *= cosf(lrcross);
-            rdl *= sinf(lrcross);
+            ldl *= std::cos(lrcross);
+            rdl *= std::sin(lrcross);
 
             avg = (ldl + rdl) * 0.5f;
             ldiff = ldl - avg;
@@ -13665,8 +13711,8 @@ RBEcho::setpanning (int Ppanning)
     this->Ppanning = Ppanning;
     lpanning = ((DspFloatType)Ppanning) / 64.0f;
     rpanning = 2.0f - lpanning;
-    lpanning = 10.0f * powf(lpanning, 4);
-    rpanning = 10.0f * powf(rpanning, 4);
+    lpanning = 10.0f * std::pow(lpanning, 4);
+    rpanning = 10.0f * std::pow(rpanning, 4);
     lpanning = 1.0f - 1.0f/(lpanning + 1.0f);
     rpanning = 1.0f - 1.0f/(rpanning + 1.0f);
     lpanning *= 1.1f;
@@ -14600,7 +14646,7 @@ RecChord::Vamos (int voz, int interval)
 
 
 
-    r__ratio[voz] = powf (2, ((DspFloatType)ninterval / 12.0f));
+    r__ratio[voz] = std::pow (2, ((DspFloatType)ninterval / 12.0f));
 
 }
 
@@ -14760,7 +14806,7 @@ Recognize::displayFrequency (DspFloatType freq)
 
     if (freq < 1E-15)
         freq = 1E-15f;
-    lfreq = logf (freq);
+    lfreq = std::log (freq);
     while (lfreq < lfreqs[0] - LOG_D_NOTE * .5f)
         lfreq += LOG_2;
     while (lfreq >= lfreqs[0] + LOG_2 - LOG_D_NOTE * .5f)
@@ -15006,11 +15052,11 @@ Reverb::settime (int Ptime)
     int i;
     DspFloatType t;
     this->Ptime = Ptime;
-    t = powf (60.0f, (DspFloatType) Ptime / 127.0f) - 0.97f;
+    t = std::pow (60.0f, (DspFloatType) Ptime / 127.0f) - 0.97f;
 
     for (i = 0; i < REV_COMBS * 2; i++) {
         combfb[i] =
-            -expf ((DspFloatType) comblen[i] / fSAMPLE_RATE * logf (0.001f) /
+            -std::exp ((DspFloatType) comblen[i] / fSAMPLE_RATE * std::log (0.001f) /
                    t);
         //the feedback is negative because it removes the DC
     };
@@ -15043,7 +15089,7 @@ Reverb::setidelay (int Pidelay)
 {
     DspFloatType delay;
     this->Pidelay = Pidelay;
-    delay = powf (50.0f * (DspFloatType)Pidelay / 127.0f, 2.0f) - 1.0f;
+    delay = std::pow (50.0f * (DspFloatType)Pidelay / 127.0f, 2.0f) - 1.0f;
 
     if (idelay != NULL)
         delete (idelay);
@@ -15155,7 +15201,7 @@ Reverb::setroomsize (int Proomsize)
     roomsize = ((DspFloatType)Proomsize - 64.0f) / 64.0f;
     if (roomsize > 0.0)
         roomsize *= 2.0f;
-    roomsize = powf (10.0f, roomsize);
+    roomsize = std::pow (10.0f, roomsize);
     rs = sqrtf (roomsize);
     rs_coeff = rs / (DspFloatType) REV_COMBS;
     settype (Ptype);
@@ -15823,7 +15869,7 @@ Synthfilter::changepar (int npar, int value)
     };
 
     if(Phpstages && Plpstages)
-        bandgain = powf(((DspFloatType)(Phpstages*Plpstages + 3)), (1.0f - (DspFloatType) Pbandwidth/127.0f));
+        bandgain = std::pow(((DspFloatType)(Phpstages*Plpstages + 3)), (1.0f - (DspFloatType) Pbandwidth/127.0f));
     else bandgain = 1.0f;
 
 };
@@ -15982,7 +16028,7 @@ Valve::Wshape(DspFloatType x)
 {
 
     if(x<factor) return(x);
-    if(x>factor) return(factor+(x-factor)/powf(1.0f+((x-factor)/(1.0f-factor)),2.0f));
+    if(x>factor) return(factor+(x-factor)/std::pow(1.0f+((x-factor)/(1.0f-factor)),2.0f));
     if(x>1.0f) return((factor+1.0f)*.5f);
     return(0.0);
 }
@@ -16038,7 +16084,7 @@ Valve::out (DspFloatType * smpsl, DspFloatType * smpsr)
     if (q == 0.0f) {
         for (i =0; i<PERIOD; i++) {
             if (efxoutl[i] == q) fx = fdist;
-            else fx =efxoutl[i] / (1.0f - powf(2.0f,-dist * efxoutl[i] ));
+            else fx =efxoutl[i] / (1.0f - std::pow(2.0f,-dist * efxoutl[i] ));
             otml = atk * otml + fx - itml;
             itml = fx;
             efxoutl[i]= otml;
@@ -16046,7 +16092,7 @@ Valve::out (DspFloatType * smpsl, DspFloatType * smpsr)
     } else {
         for (i = 0; i < PERIOD; i++) {
             if (efxoutl[i] == q) fx = fdist + qcoef;
-            else fx =(efxoutl[i] - q) / (1.0f - powf(2.0f,-dist * (efxoutl[i] - q))) + qcoef;
+            else fx =(efxoutl[i] - q) / (1.0f - std::pow(2.0f,-dist * (efxoutl[i] - q))) + qcoef;
             otml = atk * otml + fx - itml;
             itml = fx;
             efxoutl[i]= otml;
@@ -16060,7 +16106,7 @@ Valve::out (DspFloatType * smpsl, DspFloatType * smpsr)
         if (q == 0.0f) {
             for (i =0; i<PERIOD; i++) {
                 if (efxoutr[i] == q) fx = fdist;
-                else fx = efxoutr[i] / (1.0f - powf(2.0f,-dist * efxoutr[i] ));
+                else fx = efxoutr[i] / (1.0f - std::pow(2.0f,-dist * efxoutr[i] ));
                 otmr = atk * otmr + fx - itmr;
                 itmr = fx;
                 efxoutr[i]= otmr;
@@ -16069,7 +16115,7 @@ Valve::out (DspFloatType * smpsl, DspFloatType * smpsr)
         } else {
             for (i = 0; i < PERIOD; i++) {
                 if (efxoutr[i] == q) fx = fdist + qcoef;
-                else fx = (efxoutr[i] - q) / (1.0f - powf(2.0f,-dist * (efxoutr[i] - q))) + qcoef;
+                else fx = (efxoutr[i] - q) / (1.0f - std::pow(2.0f,-dist * (efxoutr[i] - q))) + qcoef;
                 otmr = atk * otmr + fx - itmr;
                 itmr = fx;
                 efxoutr[i]= otmr;
@@ -16116,10 +16162,10 @@ Valve::out (DspFloatType * smpsl, DspFloatType * smpsr)
 void
 Valve::init_coefs()
 {
-    coef = 1.0 / (1.0f - powf(2.0f,dist * q ));
+    coef = 1.0 / (1.0f - std::pow(2.0f,dist * q ));
     qcoef = q * coef;
     fdist = 1.0f / dist;
-    inputvol = powf (4.0f, ((DspFloatType)Pdrive - 32.0f) / 127.0f);
+    inputvol = std::pow (4.0f, ((DspFloatType)Pdrive - 32.0f) / 127.0f);
     if (Pnegate != 0)
         inputvol *= -1.0f;
 };
@@ -16331,13 +16377,13 @@ Vibe::Vibe (DspFloatType * efxoutl_, DspFloatType * efxoutr_)
 //End resistance will max out to around 10k for most LFO freqs.
 //pushing low end a little lower for kicks and giggles
     Ra = 500000.0f;  //Cds cell dark resistance.
-    Ra = logf(Ra);		//this is done for clarity
+    Ra = std::log(Ra);		//this is done for clarity
     Rb = 600.0f;         //Cds cell full illumination
-    b = exp(Ra/logf(Rb)) - CNST_E;
+    b = exp(Ra/std::log(Rb)) - CNST_E;
     dTC = 0.085f;
     dRCl = dTC;
     dRCr = dTC;   //Right & left channel dynamic time contsants
-    minTC = logf(0.005f/dTC);
+    minTC = std::log(0.005f/dTC);
     alphal = 1.0f - cSAMPLE_RATE/(dRCl + cSAMPLE_RATE);
     alphar = alphal;
     dalphal = dalphar = alphal;
@@ -16417,7 +16463,7 @@ Vibe::out (DspFloatType *smpsl, DspFloatType *smpsr)
         alphal = cSAMPLE_RATE/(dRCl + cSAMPLE_RATE);
         dalphal = 1.0f - cSAMPLE_RATE/(0.5f*dRCl + cSAMPLE_RATE);     //different attack & release character
         xl = CNST_E + stepl*b;
-        fxl = f_exp(Ra/logf(xl));
+        fxl = f_exp(Ra/std::log(xl));
 
         //Right Lamp
         if(Pstereo) {
@@ -16431,7 +16477,7 @@ Vibe::out (DspFloatType *smpsl, DspFloatType *smpsr)
             alphar = cSAMPLE_RATE/(dRCr + cSAMPLE_RATE);
             dalphar = 1.0f - cSAMPLE_RATE/(0.5f*dRCr + cSAMPLE_RATE);      //different attack & release character
             xr = CNST_E + stepr*b;
-            fxr = f_exp(Ra/logf(xr));
+            fxr = f_exp(Ra/std::log(xr));
         }
 
         if(i%16 == 0)  modulate(fxl, fxr);
@@ -16742,8 +16788,8 @@ Vibe::setpanning (int value)
     Ppanning = value;
     rpanning = ((DspFloatType)Ppanning) / 64.0f;
     lpanning = 2.0f - rpanning;
-    lpanning = 10.0f * powf(lpanning, 4);
-    rpanning = 10.0f * powf(rpanning, 4);
+    lpanning = 10.0f * std::pow(lpanning, 4);
+    rpanning = 10.0f * std::pow(rpanning, 4);
     lpanning = 1.0f - 1.0f/(lpanning + 1.0f);
     rpanning = 1.0f - 1.0f/(rpanning + 1.0f);
     lpanning *= 1.3f;
@@ -17201,7 +17247,7 @@ Vocoder::setbands (int numbands, DspFloatType startfreq, DspFloatType endfreq)
     int k;
 
     //calculate intermediate values
-    DspFloatType pwer = logf(endband/start)/log(2.0f);
+    DspFloatType pwer = std::log(endband/start)/log(2.0f);
 
     for(k=0; k<=VOC_BANDS; k++) output[k] = start*f_pow2(((DspFloatType) k)*pwer/fnumbands);
     for(k=0; k<VOC_BANDS; k++) {

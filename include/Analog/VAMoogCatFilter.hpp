@@ -44,6 +44,7 @@ namespace Analog::MoogFilters::MoogCat
                 break;			
             }
         }
+        
         DspFloatType processSample(DspFloatType input, size_t channel) noexcept {
             auto& s = state[channel];
             const DspFloatType g_2 = g*g;
@@ -84,7 +85,7 @@ namespace Analog::MoogFilters::MoogCat
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * output) {
             #pragma omp simd
             for(size_t i = 0; i < n; i++) {
-                auto& s = state[channel];
+                auto& s = state[0];
                 const DspFloatType input = in[i];
                 const DspFloatType g_2 = g*g;
                 const DspFloatType g_3 = g_2*g;
@@ -109,6 +110,14 @@ namespace Analog::MoogFilters::MoogCat
                 s[3] = d/den;
                 output[i] = out;                
             }
+        }
+        void ProcessInplace(size_t n, DspFloatType * samples)
+        {
+            ProcessSIMD(n,samples,samples);
+        }
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+            ProcessSIMD(n,in,out);
         }
     };
 }

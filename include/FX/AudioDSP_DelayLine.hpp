@@ -62,11 +62,19 @@ namespace JoonasFX
 		DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=0)
 		{
 			DspFloatType r = back();
-			push(X*I + Y*r);
+			push(X*mix*I + Y*(1.0-mix)*r);
 			return A*r;
 		}
-		
-	private:
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+			#pragma omp simd
+			for(size_t i = 0; i < n; i++) {
+				DspFloatType r = back();
+				const DspFloatType I = in[i];
+				push(mix*I + (1.0-mix)*r);
+				out[i] =  A*r;
+			}
+		}
+		DspFloatType mix = 1.0;
 		std::vector<Type> rawData;
 		size_t leastRecentIndex = 0;
 	};

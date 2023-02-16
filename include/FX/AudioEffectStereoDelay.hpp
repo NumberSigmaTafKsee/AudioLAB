@@ -68,8 +68,9 @@ namespace FX
             return 0.5*(L+R);        
         }
 
-        void run(size_t numSamples, DspFloatType** inputs, DspFloatType** outputs) 
+        void ProcessBlock(size_t numSamples, DspFloatType** inputs, DspFloatType** outputs) 
         {    
+            #pragma omp simd
             for(size_t i = 0; i < numSamples; i++)
             {
                 outputs[pingpong? 1:0][i] = mix*outputs[0][i] + (1.0-mix)*delayL.process(inputs[0][i]);

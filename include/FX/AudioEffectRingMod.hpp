@@ -74,7 +74,7 @@ namespace FX
                 
             const DspFloatType* pIn = inputs;
             DspFloatType* pOut = outputs;
-
+            #pragma omp simd
             for (int i = 0; i < n; i++)
             {
                 // Carrier oscillator is a simple sine wave
@@ -107,7 +107,7 @@ namespace FX
             // local copies of state variables carrierPhase and lfoPhase
             
             // apply the same modulation to all input channels for which there is an output channel
-            
+            #pragma omp simd
             for (int channelIndex = 0; channelIndex < numInputChannels; channelIndex++)
             {
                 DspFloatType cphi = RingMod_carrierPhase[channelIndex];
@@ -145,7 +145,7 @@ namespace FX
                 RingMod_lfoPhase[channelIndex] = lphi;    
             }        
         }
-        void InplaceProcess(size_t n, DspFloatType ** buffer)
+        void ProcessInplace(size_t n, DspFloatType ** buffer)
         {
             ProcessBlock(n,buffer,buffer);
         }

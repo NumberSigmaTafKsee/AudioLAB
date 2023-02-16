@@ -77,5 +77,13 @@ namespace Analog::MoogFilters::MoogFilter3
                 out[i] = out4;
             }
         }
+        void ProcessInplace(size_t n, DspFloatType * samples)
+        {
+            ProcessSIMD(n,samples,samples);
+        }
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+            ProcessSIMD(n,in,out);
+        }
     };
 }

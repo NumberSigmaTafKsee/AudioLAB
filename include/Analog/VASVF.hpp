@@ -101,7 +101,7 @@ namespace Analog::Filters::SVF
             return tanh(A*out);
         }
 
-        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+        void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output) {
             Undenormal denormals;                 
             #pragma omp simd
             for(size_t i = 0; i < n; i++) {
@@ -152,8 +152,11 @@ namespace Analog::Filters::SVF
                 output[i] = tanh(out);
             }
         }
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n,input,output);
+        }
         void InplaceProcess(size_t n, DspFloatType * input) {
-            ProcessBlock(n,input,input);
+            ProcessSIMD(n,input,input);
         }
     };
 

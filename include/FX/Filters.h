@@ -23,9 +23,9 @@ namespace Filters
 		}
 
 		// DF-II impl
-		void Process(float * samples, const uint32_t n)
+		void Process(DspFloatType * samples, const uint32_t n)
 		{
-			float out = 0;
+			DspFloatType out = 0;
 			for (uint32_t s = 0; s < n; ++s)
 			{
 				out = bCoef[0] * samples[s] + w[0];
@@ -35,24 +35,40 @@ namespace Filters
 			}
 		}
 
-		float Tick(float s)
+		DspFloatType Tick(DspFloatType s)
 		{
-			float out = bCoef[0] * s + w[0];
+			DspFloatType out = bCoef[0] * s + w[0];
 			w[0] = bCoef[1] * s - aCoef[0] * out + w[1];
 			w[1] = bCoef[2] * s - aCoef[1] * out;
 			return out;
 		}
-
-		void SetBiquadCoefs(std::array<float, 3> b, std::array<float, 2> a)
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * Out) {
+			Undenormal abinormals;
+			#pragma omp simd
+			for(size_t i = 0; i < n; i++) {
+				const DspFloatType s = in[i];
+				DspFloatType out = bCoef[0] * s + w[0];
+				w[0] = bCoef[1] * s - aCoef[0] * out + w[1];
+				w[1] = bCoef[2] * s - aCoef[1] * out;
+				Out[i] = out;
+			}
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+			ProcessSIMD(n,in,out);
+		}
+		void ProcessInplace(size_t n, DspFloatType * in) {
+			ProcessSIMD(n,in,in);
+		}
+		void SetBiquadCoefs(std::array<DspFloatType, 3> b, std::array<DspFloatType, 2> a)
 		{
 			bCoef = b;
 			aCoef = a;
 		}
 
 	protected:
-		std::array<float, 3> bCoef; // b0, b1, b2
-		std::array<float, 2> aCoef; // a1, a2
-		std::array<float, 2> w; // delays
+		std::array<DspFloatType, 3> bCoef; // b0, b1, b2
+		std::array<DspFloatType, 2> aCoef; // a1, a2
+		std::array<DspFloatType, 2> w; // delays
 	};
 
 	class RBJFilter : public BiQuadBase
@@ -71,7 +87,7 @@ namespace Filters
 			HIGH_SHELF
 		};
 
-		RBJFilter(FilterType type = FilterType::LOWPASS, float cutoff = 1, float sampleRate = 44100) : sampleRate(sampleRate), t(type)
+		RBJFilter(FilterType type = FilterType::LOWPASS, DspFloatType cutoff = 1, DspFloatType sampleRate = 44100) : sampleRate(sampleRate), t(type)
 		{
 			Q = 1;
 			A = 1;
@@ -184,10 +200,10 @@ namespace Filters
 			}
 
 			// Normalize filter coefficients
-			float factor = 1.0f / a[0];
+			DspFloatType factor = 1.0f / a[0];
 
-			std::array<float, 2> aNorm;
-			std::array<float, 3> bNorm;
+			std::array<DspFloatType, 2> aNorm;
+			std::array<DspFloatType, 3> bNorm;
 
 			aNorm[0] = a[1] * factor;
 			aNorm[1] = a[2] * factor;
@@ -200,25 +216,25 @@ namespace Filters
 		}
 
 		// In Hertz, 0 to Nyquist
-		void SetCutoff(float c)
+		void SetCutoff(DspFloatType c)
 		{
 			omega = HZ_TO_RAD(c) / sampleRate;
 			UpdateCoefficients();
 		}
 
-		float GetCutoff()
+		DspFloatType GetCutoff()
 		{
 			return omega;
 		}
 
 		// Arbitrary, from 0.01f to ~20
-		void SetQValue(float q)
+		void SetQValue(DspFloatType q)
 		{
 			Q = q;
 			UpdateCoefficients();
 		}
 
-		float GetQValue()
+		DspFloatType GetQValue()
 		{
 			return Q;
 		}
@@ -236,18 +252,18 @@ namespace Filters
 
 	private:
 
-		float sampleRate;
+		DspFloatType sampleRate;
 
-		float omega;
-		float cosOmega;
-		float sinOmega;
+		DspFloatType omega;
+		DspFloatType cosOmega;
+		DspFloatType sinOmega;
 
-		float Q;
-		float alpha;
-		float A;
+		DspFloatType Q;
+		DspFloatType alpha;
+		DspFloatType A;
 
-		std::array<float, 3> a;
-		std::array<float, 3> b;
+		std::array<DspFloatType, 3> a;
+		std::array<DspFloatType, 3> b;
 
 		FilterType t;
 	};
@@ -255,10 +271,10 @@ namespace Filters
 	// +/-0.05dB above 9.2Hz @ 44,100Hz
 	class PinkingFilter
 	{
-		double b0, b1, b2, b3, b4, b5, b6;
+		DspFloatType b0, b1, b2, b3, b4, b5, b6;
 	public:
 		PinkingFilter() : b0(0), b1(0), b2(0), b3(0), b4(0), b5(0), b6(0) {}
-		float process(const float s)
+		DspFloatType process(const DspFloatType s)
 		{
 			b0 = 0.99886 * b0 + s * 0.0555179;
 			b1 = 0.99332 * b1 + s * 0.0750759;
@@ -266,24 +282,63 @@ namespace Filters
 			b3 = 0.86650 * b3 + s * 0.3104856;
 			b4 = 0.55000 * b4 + s * 0.5329522;
 			b5 = -0.7616 * b5 - s * 0.0168980;
-			const double pink = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + (s * 0.5362)) * 0.11;
+			const DspFloatType pink = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + (s * 0.5362)) * 0.11;
 			b6 = s * 0.115926;
 			return pink;
+		}
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+			#pragma omp simd
+			for(size_t i = 0; i < n; i++) {
+				const DspFloatType s = in[i];
+				b0 = 0.99886 * b0 + s * 0.0555179;
+				b1 = 0.99332 * b1 + s * 0.0750759;
+				b2 = 0.96900 * b2 + s * 0.1538520;
+				b3 = 0.86650 * b3 + s * 0.3104856;
+				b4 = 0.55000 * b4 + s * 0.5329522;
+				b5 = -0.7616 * b5 - s * 0.0168980;
+				const DspFloatType pink = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + (s * 0.5362)) * 0.11;
+				b6 = s * 0.115926;
+				out[i] = pink;
+				if(in) out[i] *= in[i];
+			}
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+			ProcessSIMD(n,in,out);
+		}
+		void ProcessInplace(size_t n, DspFloatType * in) {
+			ProcessSIMD(n,nullptr,in);
 		}
 	};
 
 	class BrowningFilter
 	{
-	float l;
+	DspFloatType l;
 	public:
 		BrowningFilter() : l(0) {}
-		float process(const float s)
-		{
-			float brown = (l + (0.02f * s)) / 1.02f;
-			l = brown;
-			return brown * 3.5f; // compensate for gain
+		DspFloatType process(const DspFloatType s)
+		{			
+			DspFloatType brown = (l + (0.02 * s)) / 1.02;
+			l = brown;				
+			return brown * 3.5;				
+		}
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+			#pragma omp simd
+			for(size_t i = 0; i < n; i++) {
+				const DspFloatType s = in[i];
+				DspFloatType brown = (l + (0.02 * s)) / 1.02;
+				l = brown;				
+				out[i] = brown * 3.5;
+				if(in) out[i] *= in[i];
+			}
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+			ProcessSIMD(n,in,out);
+		}
+		void ProcessInplace(size_t n, DspFloatType * in) {
+			ProcessSIMD(n,nullptr,in);
 		}
 	};
 }
+
 
 

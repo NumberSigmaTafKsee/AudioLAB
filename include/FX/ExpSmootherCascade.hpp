@@ -100,6 +100,7 @@ namespace Filters
     * samples of the input signal and stores it in the output vector. */
     template<size_t stages, typename real>
     void ExpSmootherCascade<stages, real>::Process(real* xVec, real* yVec, size_t vecLen) {
+        #pragma omp simd
         for (size_t n = 0; n < vecLen; n++) { // Level-0 for-loop.
             
             /* Outside of the inner for-loop, we assign the input vector sample 

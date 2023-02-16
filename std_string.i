@@ -6,6 +6,7 @@
 
 namespace std
 {
+#ifndef PYTHON
     %naturalvar string;
 
     %typemap(in,checkfn="lua_isstring") string
@@ -39,7 +40,7 @@ namespace std
     %{ lua_pushlstring(L,$1->data(),$1->size()); SWIG_arg++;%}
     %typemap(in) string &INOUT =const string &;
     %typemap(argout) string &INOUT = string &OUTPUT;
-
+#endif
     class string
     {
     public:

@@ -12,6 +12,7 @@ namespace FX
 {
     void Sigmoid_ProcessBlock(size_t n, DspFloatType * inputs, DspFloatType * outputs)
     {
+        #pragma omp simd
         for(size_t i = 0; i < n; i++)
         {
             outputs[i] = Distortion::sigmoid(-gain * inputs[i]);
@@ -19,6 +20,7 @@ namespace FX
     }
     void Sigmoid_ProcessBlock(size_t n, DspFloatType ** inputs, DspFloatType ** outputs)
     {
+        #pragma omp simd
         for(size_t c = 0; c < 2; c++)
         for(size_t i = 0; i < n; i++)
         {
@@ -28,6 +30,7 @@ namespace FX
     void DCSigmoid_ProcessBlock(size_t n, DspFloatType * inputs, DspFloatType * outputs)
     {
         DspFloatType dc = 0;
+        #pragma omp simd
         for(size_t i = 0; i < n; i++)
         {
             DspFloatType x = inputs[i];
@@ -42,6 +45,7 @@ namespace FX
     void DCSigmoid_ProcessBlock(size_t n, DspFloatType ** inputs, DspFloatType ** outputs)
     {
         DspFloatType dc = 0;
+        #pragma omp simd
         for(size_t c = 0; c < 2; c++)
         for(size_t i = 0; i < n; i++)
         {
@@ -56,6 +60,7 @@ namespace FX
     }
     void Amplifier_ProcessBlock(size_t n, DspFloatType * inputs, DspFloatType * outputs)
     {
+        #pragma omp simd
         for(size_t i = 0; i < n; i++)
         {
             outputs[i] = std::tanh(gain * inputs[i]);
@@ -63,6 +68,7 @@ namespace FX
     }
     void Amplifier_ProcessBlock(size_t n, DspFloatType ** inputs, DspFloatType ** outputs)
     {
+        #pragma omp simd
         for(size_t c = 0; c < 2; c++)
         for(size_t i = 0; i < n; i++)
         {
@@ -123,7 +129,10 @@ namespace FX
                 case SIG: Sigmoid_ProcessBlock(numSamples,in,out); break;
             }            
         }
-
+        void ProcessInplace(size_t n, DspFloatType ** buffer) {
+            ProcessBlock(n,buffer,buffer);
+        }
+        
         void randomize() {
             Random noise;
 			amp  = noise.frand();

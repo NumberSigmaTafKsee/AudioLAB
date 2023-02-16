@@ -291,6 +291,7 @@ public:
 
 		if( cres )
 		{
+			#pragma omp simd
 			for( i = 0; i < envcount4; i += 4 )
 			{
 				envr[ i + 0 ] = resa;
@@ -311,6 +312,7 @@ public:
 		envr[ 3 ] += ( envr[ 4 * 3 + 0 ] - envr[ 3 ]) * envb[ 3 ];
 		envr5 += ( envr[ 4 * 3 + 0 ] - envr5 ) * envb5;
 
+		#pragma omp simd
 		for( i = 4; i < envcount4; i += 4 )
 		{
 			envr[ i + 0 ] += ( envr[ i - 4 ] - envr[ i + 0 ]) * envb[ 0 ];
@@ -352,6 +354,7 @@ public:
 		env5 += ( env[ 4 * 3 + 0 ] - env5 ) * enva5;
 		int i;
 
+		#pragma omp simd
 		for( i = 4; i < envcount4; i += 4 )
 		{
 			env[ i + 0 ] += ( env[ i - 4 ] - env[ i + 0 ]) * enva[ 0 ];

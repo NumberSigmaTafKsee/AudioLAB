@@ -34,6 +34,7 @@ namespace Delays
 
         DspFloatType processSample(DspFloatType sample)
         {
+            #pragma omp simd
             for (int i = 0; i < 8; ++i) {
                 buffer.update(sample);
                 sample = 0.5f * sample + 0.5f * buffer.get();
@@ -49,6 +50,18 @@ namespace Delays
             buffer.setHead(h);
             buffer.setTail(t);
             return A*out;
+        }
+        void ProcessSIMD(size_t num, DspFloatType * in, DspFloatType * out)
+        {
+            #pragma omp simd
+            for(size_t i = 0; i < num; i++) out[i] = Tick(in[i]);
+        }
+        void ProcessBlock(size_t num, DspFloatType * in, DspFloatType * out)
+        {
+            ProcessSIMD(num,in,out);            
+        }
+        void ProcessInplace(size_t n, DspFloatType * out) {
+            ProcessSIMD(n,out,out);
         }
 
     private:

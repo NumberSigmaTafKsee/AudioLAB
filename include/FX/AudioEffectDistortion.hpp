@@ -53,7 +53,7 @@ namespace FX
         void ProcessBlock (size_t numSamples, DspFloatType ** input, DspFloatType ** output)
         {
             DspFloatType gain = powf(10.0f, _gainIndB/20.f);
-                    
+            #pragma omp simd
             for (int channel = 0; channel < _numChannels; ++channel)
             {
                 DspFloatType * in = input[channel];
@@ -278,8 +278,7 @@ namespace FX
             }
             return out;
         }
-        void InplaceProcess(size_t n, DspFloatType ** buffer)
-        {
+        void ProcessInplace(size_t n, DspFloatType ** buffer) {
             ProcessBlock(n,buffer,buffer);
         }
     };
@@ -307,6 +306,9 @@ namespace FX
             outs[0]= out;
             outs[1]= out;
             dist->ProcessBlock(numSamples,ins,outs);
+        }
+        void ProcessInplace(size_t n, DspFloatType * buffer) {
+            ProcessBlock(n,buffer,buffer);
         }
     };
 }

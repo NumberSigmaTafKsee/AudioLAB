@@ -50,5 +50,22 @@ namespace FX::Filters
             tick(&out,cutoff);
             return out;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
+                const DspFloatType sample = in[i];
+                outputs     = sample - inputs + (0.999f - cutoff * 0.4f) * outputs;
+                inputs      = sample;
+                lastOutput  = outputs;
+                out[i] =     = lastOutput;
+            }
+        }
+        void ProcessBlock(size_t num, DspFloatType * in, DspFloatType * out)
+        {
+            ProcessSIMD(num,in,out);            
+        }
+        void ProcessInplace(size_t n, DspFloatType * out) {
+            ProcessSIMD(n,out,out);
+        }
     };
 }

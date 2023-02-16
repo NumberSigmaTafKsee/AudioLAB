@@ -116,6 +116,15 @@ namespace Analog::Filters::LadderFilter
 				output[x] = mvVolt[NUMBER_OF_FILTERS-1];
 			}
 		}
+		void ProcessInplace(size_t n, DspFloatType * samples)
+        {
+            ProcessSIMD(n,samples,samples);
+        }
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+            ProcessSIMD(n,in,out);
+        }
+		
 		
 	private:
 		
