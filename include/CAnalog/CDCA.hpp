@@ -115,7 +115,7 @@ struct CDCA : public StereoFXProcessor
 		return (oL+oR)*0.5;
 	}
 	void ProcessBlock(size_t n, DspFloatType ** in, DspFloatType ** out) {
-		#pragma omp simd
+		#pragma omp simd aligned(in,out)
 		for(size_t i = 0; i < n; i++) {
 			// total pan value
 			DspFloatType dPanTotal = m_dPanControl + m_dPanMod;

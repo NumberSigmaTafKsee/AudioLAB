@@ -110,8 +110,7 @@ namespace FX
             
             int channel;
             
-            // Go through each channel of audio that's passed in
-            #pragma omp simd
+            // Go through each channel of audio that's passed in            
             for (channel = 0; channel < std::min((int32_t)numInputChannels, numEqFilters_); ++channel)
             {
                 // channelData is an array of length numSamples which contains the audio for one channel

@@ -27,10 +27,10 @@ namespace Analog::Moog
 		void ProcessBlock(size_t n, DspFloatType * samples, DspFloatType * output)
 		{
 			Undenormal denormal;
-			#pragma omp simd
+			#pragma omp simd aligned(samples,output)
 			for (uint32_t s = 0; s < n; ++s)
 			{
-				state[0] = tanh(drive * (samples[s] - 4 * gRes * (state[4] - gComp * samples[s])));
+				state[0] = std::tanh(drive * (samples[s] - 4 * gRes * (state[4] - gComp * samples[s])));
 
 				for(int i = 0; i < 4; i++)
 				{
@@ -42,7 +42,7 @@ namespace Analog::Moog
 		}
 		DspFloatType Tick(DspFloatType input) {
 			Undenormal denormal;
-			state[0] = tanh(drive * (input - 4 * gRes * (state[4] - gComp * input)));
+			state[0] = std::tanh(drive * (input - 4 * gRes * (state[4] - gComp * input)));
 			#pragma omp simd
 			for(int i = 0; i < 4; i++)
 			{

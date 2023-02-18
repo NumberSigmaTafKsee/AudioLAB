@@ -83,7 +83,7 @@ struct FourierWave : public OscillatorProcessor
         return G*r;
     }
     void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
-        #pragma omp simd
+        #pragma omp simd aligned(in,out)
         for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
     }
     void ProcessInplace(size_t n, DspFloatType * in) {

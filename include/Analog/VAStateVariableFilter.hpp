@@ -331,7 +331,7 @@ namespace Analog::Filters::StateVariableFilter
 
         DspFloatType z1_A = this->z1_A;
         DspFloatType z2_A = this->z2_A;
-        #pragma omp simd
+        #pragma omp simd aligned(input,output)
         for (unsigned i = 0; i < count; ++i) {
             DspFloatType in = gain * input[i];
 

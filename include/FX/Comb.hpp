@@ -163,7 +163,7 @@ namespace FX::Delays
     void ProcessSIMD(size_t num, DspFloatType * in, DspFloatType * out)
     {
         Undenormal denormals;
-        #pragma omp simd
+        #pragma omp simd aligned(in,out)
         for(size_t i = 0; i < num; i++) {
             //read delay
             DspFloatType dL = delay->readDelay();

@@ -215,12 +215,12 @@ namespace JoonasFX {
 		}
 
 		// AP Filters ============================
-		#pragma omp simd
+		
 		for (auto channel = 0; channel < numChannels; ++channel)
 		{
 			const DspFloatType* input = outputs[channel];
 			DspFloatType* output = outputs[channel];
-
+			#pragma omp simd aligned(input,output)
 			for (auto sample = 0; sample < numSamples; ++sample)
 			{
 				DspFloatType outputSample = 0.f;

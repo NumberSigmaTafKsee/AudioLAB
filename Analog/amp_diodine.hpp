@@ -1,3 +1,4 @@
+#pragma once
 // https://github.com/pwmagro/diodine    
 
 namespace Diodine

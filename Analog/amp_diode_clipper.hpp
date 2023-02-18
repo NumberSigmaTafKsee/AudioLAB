@@ -1,15 +1,16 @@
 #pragma once
 #include <cmath>
+#include "GenericSoundProcessor.hpp"
 
 namespace FX::Distortion::Diode
 {
 	// https://github.com/a-carson/DiodeClipper
-	template<class temp>
-	class DiodeClipper : public FunctionProcessor
+	Template<typename T>
+	class DiodeClipper : public GSSoundProcessor<T>
 	{
 	public:
 
-		DiodeClipper()
+		DiodeClipper() : GSSoundProcessor<T>()
 		{
 			// initialise
 			x = 0.0f;
@@ -24,18 +25,18 @@ namespace FX::Distortion::Diode
 			Ni = 1.752f;
 		};
 
-		void setSampleRate(temp sampleRate)
+		void setSampleRate(T sampleRate)
 		{
 			fs = sampleRate;
 		}
 
-		void setCircuitParameters(temp resistance, temp capacitance)
+		void setCircuitParameters(T resistance, T capacitance)
 		{
 			R = resistance;
 			C = capacitance;
 		}
 
-		void setDiodeParameters(temp saturationCurrent, temp thermalVoltage, temp idealityFactor)
+		void setDiodeParameters(T saturationCurrent, T thermalVoltage, T idealityFactor)
 		{
 			Is = saturationCurrent;
 			Vt = thermalVoltage;
@@ -48,42 +49,42 @@ namespace FX::Distortion::Diode
 		}
 
 		// Non linear function
-		temp func(temp Y, temp p)
+		T func(T Y, T p)
 		{
 			return Y * R * C + (Y + (2.0f * Is * R) * sinh(Y /(Ni * Vt)) - p) / (2.0f * fs);
 		}
 
 		// Derivative of Non-linear function
-		temp dfunc(temp Y)
+		T dfunc(T Y)
 		{
 			return R * C + (1 + (2.0f * Is * R / (Ni * Vt)) * cosh(Y / (Ni * Vt))) / (2.0f * fs);
 		}
 
 		// Fast approximation of function
-		temp fastFunc(temp Y, temp p)
+		T fastFunc(T Y, T p)
 		{
-			temp sinhy = sinh(Y / (Ni * Vt));
+			T sinhy = sinh(Y / (Ni * Vt));
 			return Y * R *C + (Y + (2.0f * Is * R) * sinhy - p) / (2.0f*fs);
 
 		}
 
 		// Fast aproximation of derivative
-		temp fastDfunc(temp Y)
+		T fastDfunc(T Y)
 		{
-			temp coshy = cosh(Y / (Ni * Vt));
+			T coshy = cosh(Y / (Ni * Vt));
 			return R * C + (1 + (2 * Is * R / (Ni * Vt))*coshy) / (2.0f * fs);
 		}
 
 		// Main Process
-		temp process(temp in)
+		T process(T in)
 		{
 			iter = 0;
-			const temp p = x + in;		
+			const T p = x + in;		
 			y = Ni * Vt * asinh(p / (2 * Is * R));
-			temp res = func(y, p);
-			temp J = dfunc(y);
-			temp step = res / J;
-			temp cond = fabsf(step);
+			T res = func(y, p);
+			T J = dfunc(y);
+			T step = res / J;
+			T cond = fabsf(step);
 
 			while ((cond > tol) && (iter < maxIters))
 			{
@@ -101,7 +102,7 @@ namespace FX::Distortion::Diode
 				y -= step;
 				
 				// Check argument
-				temp arg = y / (Ni * Vt);
+				T arg = y / (Ni * Vt);
 
 				// Compute residual and jacobian
 				if (fabsf(arg) < 5)
@@ -137,28 +138,38 @@ namespace FX::Distortion::Diode
 		{
 			return A*process(I);
 		}
+		void ProcessSIMD(size_t n, T * in, T * out) {
+			#pragma omp simd
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessBlock(size_t n, T * in, T * out) {
+			ProcessSIMD(n,in,out);
+		}
+		void ProcessInplace(size_t n, T * buffer) {
+			ProcessSIMD(n,buffer,buffer);
+		}
 
 	private:
 
 		// Sample Rate
-		temp fs;
+		T fs;
 
 		// state variable
-		temp x;
+		T x;
 
 		// output variable
-		temp y;
+		T y;
 
 		// Circuit parameters
-		temp C;									// capactance
-		temp R;									// resistance
-		temp Is;								// saturation current
-		temp Vt;								// thermal voltage
-		temp Ni;								// ideality factor
+		T C;									// capactance
+		T R;									// resistance
+		T Is;								// saturation current
+		T Vt;								// thermal voltage
+		T Ni;								// ideality factor
 
 		// Newton raphson parameters
-		temp cap;
-		const temp tol = 1e-7;						// tolerance
+		T cap;
+		const T tol = 1e-7;						// tolerance
 		const unsigned int maxIters = 25;  // maximum number of iterations
 		unsigned int iter = 0;
 	};

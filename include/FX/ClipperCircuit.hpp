@@ -90,7 +90,7 @@ namespace FX::Distortion::ClipperCircuit
             return A*run(I);
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++) {
                 T residual = 10;
                 unsigned int numIters = 0;

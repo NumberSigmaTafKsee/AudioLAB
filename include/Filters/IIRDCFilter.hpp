@@ -32,7 +32,20 @@ namespace Filters
         {
             return process(I);
         }
-        
+            void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++)
+			{
+				z1 = in * a0 + z1 * b1;
+				out[i] = in - z1;
+			}
+		}
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+			ProcessSIMD(n,in,out);
+		}
+		void ProcessSIMD(size_t n, DspFloatType * out) {
+			ProcessSIMD(n,out,out);
     protected:    
         DspFloatType a0, b1, z1;
     };

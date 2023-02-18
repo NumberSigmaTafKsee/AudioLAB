@@ -57,14 +57,27 @@ namespace FX::BodeShifter
             std::pair<DspFloatType,DspFloatType> p = processSample();
             DspFloatType ca = currentAngle_;
             DspFloatType f  = cyclesPerSample_;
-            setFrequency(f * fabs(Y));
-            currentAngle_ *= fabs(X);            
+            setFrequency(f * std::fabs(Y));
+            currentAngle_ *= std::fabs(X);            
             oL = A*p.first;
             oR = A*p.second;
             setFrequency(f);
             currentAngle_ = ca;
             return 0.5*(oL+oR);
         }
+        void ProcessBlock(size_t n, DspFloatType ** in, DspFloatType ** out) {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) {
+				DspFloatType& iL = in[0][i];
+				DspFloatType& iR = in[1][i];
+				DspFloatType& oL = out[0][i];
+				DspFloatType& oR = out[1][i];
+				Tick(iL,iR,oL,oR);
+			}
+		}
+		void ProcessInplace(size_t n, DspFloatType ** out) {
+			ProcessBlock(n,out,out);
+		}
 
     private:
         DspFloatType frequency_;

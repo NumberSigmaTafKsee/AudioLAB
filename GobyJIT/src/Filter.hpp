@@ -1,4 +1,0 @@
-// Filter.hpp
-#pragma once
-
-

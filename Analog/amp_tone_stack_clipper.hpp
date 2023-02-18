@@ -1,6 +1,9 @@
 #pragma once
 
-class TSClipper
+#include "GenericSoundObject.hpp"
+
+template<typename T>
+class TSClipper public GSSoundProcessor<T>
 {
 public:
     
@@ -14,6 +17,20 @@ public:
     
     void setKnob(DspFloatType newDrive);
     
+	DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1)
+	{
+		return processSample(I);
+	}
+	void ProcessSIMD(size_t n, T * in, T * out) {
+		#pragma omp simd
+		for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+	}
+	void ProcessBlock(size_t n, T * in, T * out) {
+		ProcessSIMD(n,in,out);
+	}
+	void ProcessInplace(size_t n, T * buffer) {
+		ProcessSIMD(n,buffer,buffer);
+	}
 private:
     
     const DspFloatType eta = 1.f; // Change for non-ideal diode

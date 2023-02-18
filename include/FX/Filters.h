@@ -44,7 +44,7 @@ namespace Filters
 		}
 		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * Out) {
 			Undenormal abinormals;
-			#pragma omp simd
+			#pragma omp simd #pragma omp simd aligned(in,Out)
 			for(size_t i = 0; i < n; i++) {
 				const DspFloatType s = in[i];
 				DspFloatType out = bCoef[0] * s + w[0];
@@ -287,7 +287,7 @@ namespace Filters
 			return pink;
 		}
 		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
-			#pragma omp simd
+			#pragma omp simd aligned(in,out)
 			for(size_t i = 0; i < n; i++) {
 				const DspFloatType s = in[i];
 				b0 = 0.99886 * b0 + s * 0.0555179;
@@ -322,7 +322,7 @@ namespace Filters
 			return brown * 3.5;				
 		}
 		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
-			#pragma omp simd
+			#pragma omp simd aligned(in,out)
 			for(size_t i = 0; i < n; i++) {
 				const DspFloatType s = in[i];
 				DspFloatType brown = (l + (0.02 * s)) / 1.02;

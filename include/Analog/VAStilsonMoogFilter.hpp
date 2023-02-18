@@ -112,7 +112,7 @@ namespace Analog::Filters::Moog::StilsonMoog
             DspFloatType temp, input;
             Undenormal denormal;
             
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++) {            
                 DspFloatType I = in[i];
                 input  = std::tanh(pre_gain*I);

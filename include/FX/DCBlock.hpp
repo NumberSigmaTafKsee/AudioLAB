@@ -51,7 +51,7 @@ namespace FX::Filters
             return out;
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++) {
                 const DspFloatType sample = in[i];
                 outputs     = sample - inputs + (0.999f - cutoff * 0.4f) * outputs;

@@ -83,7 +83,7 @@ namespace Analog::MoogFilters::MoogCat
         }
 
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * output) {
-            #pragma omp simd
+            #pragma omp simd aligned(in,output)
             for(size_t i = 0; i < n; i++) {
                 auto& s = state[0];
                 const DspFloatType input = in[i];

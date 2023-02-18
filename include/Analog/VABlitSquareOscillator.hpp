@@ -3,6 +3,7 @@
 #include "SoundObject.hpp"
 #include "FX/OnePole.hpp"
 #include "FX/Filters.h"
+#include "VABlitSawOscillator.hpp"
 
 namespace Analog::Oscillators
 {
@@ -12,7 +13,7 @@ namespace Analog::Oscillators
     struct BlitSquare : public OscillatorProcessor
     {
         FX::Filters::OnePole block;
-        BlitSaw s1,s2;
+        Analog::Oscillators::BlitSaw s1,s2;
         DspFloatType _out = 0;
         DspFloatType _duty = 0.5;
         DspFloatType sampleRate=44100.0;
@@ -65,16 +66,20 @@ namespace Analog::Oscillators
 
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
         {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
             {
                 DspFloatType r1 = s1.Tick();        
                 s2.setPhaseOffset(s1.getPhase() + _duty*M_PI);
                 DspFloatType r2 = s2.Tick();                
-                _out = r2-r1;
+                _out = (r2-r1);
                 DspFloatType x = _out;
                 x -= block.process(x);
-                out[i] = x;
+                // this will make it perfectly square but it will most likely alias again
+                DspFloatType gibbs;
+                if(x < 0) gibbs = - 1.0 + fabs(x);
+                else gibbs = 1.0 - x;
+                out[i] = x+gibbs;
                 if(in) out[i] *= in[i];
             }
         }

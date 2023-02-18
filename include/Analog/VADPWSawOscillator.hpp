@@ -53,7 +53,7 @@ namespace Analog::Oscillators
             return out;
         }   
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * output) {
-            #pragma omp simd
+            #pragma omp simd aligned(in,output)
             for(size_t i = 0; i < n; i++) {
                 position += phase - lastPhase;
                 lastPhase = phase;

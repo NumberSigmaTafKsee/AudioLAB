@@ -26,10 +26,10 @@ namespace Analog::Filters::Moog
 
         virtual ~KrajeskiMoog() { }
 
-        void ProcessBlock(size_t n, DspFloatType * samples, DspFloatType * output)
+        void ProcessSIMD(size_t n, DspFloatType * samples, DspFloatType * output)
         {
             Undenormal denormal;
-            #pragma omp simd
+            #pragma omp simd aligned(samples,output)
             for (uint32_t s = 0; s < n; ++s)
             {
                 state[0] = std::tanh(drive * (samples[s] - 4 * gRes * (state[4] - gComp * samples[s])));                                
@@ -41,9 +41,12 @@ namespace Analog::Filters::Moog
                 output[s] = state[4];
             }
         }
+        void ProcessBlock(size_t n, DspFloatType * samples, DspFloatType * output) {
+			ProcessSIMD(n,samples,output);
+		}
         void ProcessInplace(size_t n, DspFloatType * samples)
         {
-            ProcessBlock(n,samples,samples);
+            ProcessSIMD(n,samples,samples);
         }
         
         DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {

@@ -75,7 +75,7 @@ struct VCS3DiodeFilter : public MonoFXProcessor
         
         auto I0 = 8 * C * VT * 2 * Fs * tan((M_PI * biasParameter) / Fs);
         DspFloatType K = gainParameter;
-        #pragma omp simd
+        #pragma omp simd aligned(input,outputs)
         for (auto n = 0; n < numSamples; n++)
         {
             Vin = InputChannel[n];

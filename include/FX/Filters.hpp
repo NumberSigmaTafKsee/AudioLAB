@@ -1036,7 +1036,7 @@ namespace FX::Filters
         void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output)
         {
             Undenormal denormal;
-            #pragma omp simd
+            #pragma omp simd aligned(input,output)
             for(size_t i = 0; i < n; i++) {
                 x = input[i];
                 y = b0*x + b1*x1 + b2*x2 - a1*y1 - a2*y2;
@@ -1060,8 +1060,7 @@ namespace FX::Filters
 
         DspFloatType Tick(DspFloatType in, DspFloatType A = 1, DspFloatType X = 0, DspFloatType Y = 0) {        
             x = in;
-            y = x;
-            #pragma omp parallel for
+            y = x;            
             for(size_t i = filters.size()-1; i >= 0; i--)
                 y = filters[i]->Tick(y,A,X,Y);
             return y;
@@ -1076,8 +1075,7 @@ namespace FX::Filters
 
         DspFloatType Tick(DspFloatType in, DspFloatType A = 1, DspFloatType X = 0, DspFloatType Y = 0) {        
             x = in;
-            y = 0;
-            #pragma omp parallel for
+            y = 0;            
             for(size_t i = 0; i < filters.size(); i++)
                 y += filters[i]->Tick(x,A,X,Y);
             return y/filters.size();
@@ -1204,7 +1202,7 @@ namespace FX::Filters
         void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output)
         {
             Undenormal denormal;
-            #pragma omp simd
+            #pragma omp simd aligned(input,output)
             for(size_t i = 0; i < n; i++) {
                 x = input[i];
                 y = biquad.z[0] * x + biquad.z[1] * x1 + biquad.z[2] * x2;
@@ -1262,7 +1260,7 @@ namespace FX::Filters
         void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output)
         {
             Undenormal denormal;
-            #pragma omp simd
+            #pragma omp simd aligned(input,output)
             for(size_t i = 0; i < n; i++) {
                 x = input[i];
                 v = x - biquad.p[0] * v1 - biquad.p[1] * v2;
@@ -1320,7 +1318,7 @@ namespace FX::Filters
         void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output)
         {
             Undenormal denormal;
-            #pragma omp simd
+            #pragma omp simd aligned(input,output)
             for(size_t i = 0; i < n; i++) {
                 x = input[i];
                 x += -biquad.p[0] * y1 + -biquad.p[1] * y2;
@@ -1377,7 +1375,7 @@ namespace FX::Filters
         void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output)
         {
             Undenormal denormal;
-            #pragma omp simd
+            #pragma omp simd aligned(input,output)
             for(size_t i = 0; i < n; i++) {
                 x = input[i];
                 y = biquad.z[0] * x + d1;

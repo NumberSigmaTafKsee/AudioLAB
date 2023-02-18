@@ -29,8 +29,9 @@ namespace Analog::Filters::Moog::MoogFilterII
 		void set(DspFloatType cutoff, DspFloatType resonance);
 		DspFloatType processSample(DspFloatType in);
 		
-		void ProcessBlock(size_t n, DspFloatType * inputs, DspFloatType * outputs);
-		void ProcessInplace(size_t n, DspFloatType * buffer) { ProcessBlock(n,buffer,buffer); }
+		void ProcessSIMD(size_t n, DspFloatType * inputs, DspFloatType * outputs);
+		void ProcessBlock(size_t n, DspFloatType * inputs, DspFloatType * outputs) { ProcessSIMD(n,inputs,outputs); }
+		void ProcessInplace(size_t n, DspFloatType * buffer) { ProcessSIMD(n,buffer,buffer); }
 
 		enum
         {
@@ -88,7 +89,7 @@ namespace Analog::Filters::Moog::MoogFilterII
 	DspFloatType MoogFilterII::processSample(DspFloatType in)
 	{
 		Undenormal denormal;		
-		DspFloatType f = cutoff * 1.16;
+		DspFloatType f = cutoff * 1.16;		
 		DspFloatType fb = resonance * (1.0 - 0.15 * f * f);
 		in -= out4 * fb;
 		in *= 0.35013 * (f * f) * (f * f);
@@ -116,11 +117,12 @@ namespace Analog::Filters::Moog::MoogFilterII
 			return out4;
 		}			
 	}
+	
 
-	void MoogFilterII::ProcessBlock(size_t numSamples, DspFloatType * inputs, DspFloatType * outputs)
+	void MoogFilterII::ProcessSIMD(size_t numSamples, DspFloatType * inputs, DspFloatType * outputs)
 	{
 		Undenormal denormal;
-		#pragma omp simd
+		#pragma omp simd aligned(inputs,outputs)
 		for (int s = 0; s < numSamples; s++)
 		{
 			DspFloatType in = inputs[s];

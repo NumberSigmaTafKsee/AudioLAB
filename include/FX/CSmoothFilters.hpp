@@ -1,13 +1,14 @@
 #pragma once
 
-#include <cmath>
 
+#include <cmath>
+#include "SoundObject.hpp"
 
 namespace FX::Filters::Smoothers
 {
     // is just the one pole again
     class CSmoothFilter : public FilterProcessor
-     {
+    {
     public:
                 
         CSmoothFilter(DspFloatType Fs=44100.0f, DspFloatType Fc=0.1f) : FilterProcessor() {

@@ -66,7 +66,7 @@ namespace Analog::Filters::Moog::NonLinear2
         
     }
     void NonLinearMoogFilter2::ProcessSIMD(size_t n, DspFloatType *input, DspFloatType * samples) {
-        #pragma omp simd
+        #pragma omp simd aligned(input,samples)
         for (int i = 0; i < 2 * n; i++) {
             samples[i/2] = std::tanh(input[i/2] * drive);
             y_a = y_a + g * (std::tanh(samples[i/2] - resonance * ((y_d_1 + y_d)/2) - std::tanh(y_a)));

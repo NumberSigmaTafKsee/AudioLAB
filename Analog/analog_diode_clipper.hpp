@@ -9,7 +9,7 @@ namespace Analog::Distortion::Diode
 	{
 	public:
 
-		DiodeClipper()
+		DiodeClipper() : GSSoundProcessor<DSP>()
 		{
 			// initialise
 			x = 0.0f;
@@ -158,7 +158,7 @@ namespace Analog::Distortion::Diode
 
 		void ProcessSIMD(size_t n, DSP * in, DSP * out) {
             Undenormal denormal;            
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
             {            
 				iter = 0;
@@ -222,7 +222,7 @@ namespace Analog::Distortion::Diode
             ProcessSIMD(n,in,out);
         }
         void ProcessInplace(size_t n, DSP * out) {
-            ProcessSIMD(n,out);
+            ProcessSIMD(n,out,out);
         }
 	private:
 

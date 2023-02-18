@@ -88,7 +88,7 @@ namespace FX::Delays
         {
             // it probably does not optimize anything but it might.
             // will have to test it to find out.
-            #pragma omp simd
+            #pragma omp simd aligned(input, output)
             for(size_t i = 0; i < n; i++) {
                 DspFloatType G = getGain();
                 DspFloatType ms = getDelayTimeMS();
@@ -100,6 +100,13 @@ namespace FX::Delays
                 output[i] = out;
             }
         }
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n, input, output);
+        }
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessSIMD(n, nullptr, input);
+        }
+        
         void resetDelay() { delay->resetDelay(); }
         
     private:

@@ -161,6 +161,7 @@ namespace FX
         llvm_dsp_factory* m_factory;
         dsp* m_dsp;
 
+
         FaustFX(const char * file, size_t sample_rate=44100, size_t n = 256)         
         {
             srand(time(NULL));
@@ -172,12 +173,7 @@ namespace FX
                 output[i] = (float*)calloc(n,sizeof(float*));
             }
 
-            // the Faust code to compile as a string (could be in a file too)
-            //std::string theCode = read_file(file);
-            //std::cout << theCode << std::endl;
-            // compiling in memory (createDSPFactoryFromFile could be used alternatively)
-            //int argc=0;
-            //const char *argv[] = {NULL};
+			
             std::string m_errorString;
             bool optimize=true;
             

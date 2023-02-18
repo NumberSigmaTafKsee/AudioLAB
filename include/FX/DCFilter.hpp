@@ -28,7 +28,7 @@ namespace FX::Filters
         }
         void ProcessSIMD(size_t num, DspFloatType * in, DspFloatType * out)
         {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < num ; i++) {
                 z1 = in[i] * a0 + z1 * b1;
                 out[i] = in[i] - z1;

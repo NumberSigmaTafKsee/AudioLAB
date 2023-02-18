@@ -103,7 +103,7 @@ namespace Analog::Filters::MoogLike
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
             Undenormal denormal;
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)  {
                 _in = in[i];
                 // per sample:

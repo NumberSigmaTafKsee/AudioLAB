@@ -206,8 +206,8 @@ namespace Filters::Allpass
             return output;
         }
 
-        void ProcessBlock(size_t blockSize,T* inputBuffer, T* outputBuffer) {
-            #pragma omp simd
+        void ProcessSIMD(size_t blockSize,T* inputBuffer, T* outputBuffer) {
+            #pragma omp simd aligned(inputBuffer,outputBuffer)
             for (uint64_t i = 0; i < blockSize; ++i) {
                 _inSum = inputBuffer[i] + delay.output * gain;
                 output = delay.output + _inSum * gain * -1;
@@ -215,6 +215,12 @@ namespace Filters::Allpass
                 delay.process();
                 outputBuffer[i] = output;
             }
+        }
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n, input, output);
+        }
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessSIMD(n, nullptr, input);
         }
 
         void clear() {

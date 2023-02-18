@@ -1,3 +1,0 @@
-swig -lua -c++ -Iinclude audiodsp_csemfilter.i
-gcc -fmax-errors=1 -std=c++17 -I. -Iinclude -I.-O2 -fPIC -march=native -mavx2 -shared \
--o csemfilter.so audiodsp_csemfilter_wrap.cxx  -lstdc++ -lm -lluajit

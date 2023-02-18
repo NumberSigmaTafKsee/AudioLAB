@@ -2697,46 +2697,43 @@ SWIG_Lua_dostring(lua_State *L, const char *str) {
 
 /* -------- TYPES TABLE (BEGIN) -------- */
 
-#define SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t swig_types[0]
-#define SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t swig_types[1]
-#define SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t swig_types[2]
-#define SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t swig_types[3]
-#define SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t swig_types[4]
-#define SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t swig_types[5]
-#define SWIGTYPE_p_FX__Filters__OnePole swig_types[6]
-#define SWIGTYPE_p_Random swig_types[7]
-#define SWIGTYPE_p_double swig_types[8]
-#define SWIGTYPE_p_float swig_types[9]
-#define SWIGTYPE_p_int swig_types[10]
-#define SWIGTYPE_p_long_long swig_types[11]
-#define SWIGTYPE_p_short swig_types[12]
-#define SWIGTYPE_p_signed_char swig_types[13]
-#define SWIGTYPE_p_std__complexT_double_t swig_types[14]
-#define SWIGTYPE_p_std__complexT_float_t swig_types[15]
-#define SWIGTYPE_p_std__numeric_limitsT_double_t swig_types[16]
-#define SWIGTYPE_p_std__numeric_limitsT_float_t swig_types[17]
-#define SWIGTYPE_p_std__numeric_limitsT_int_t swig_types[18]
-#define SWIGTYPE_p_std__numeric_limitsT_long_long_t swig_types[19]
-#define SWIGTYPE_p_std__numeric_limitsT_long_t swig_types[20]
-#define SWIGTYPE_p_std__numeric_limitsT_short_t swig_types[21]
-#define SWIGTYPE_p_std__numeric_limitsT_unsigned_int_t swig_types[22]
-#define SWIGTYPE_p_std__numeric_limitsT_unsigned_long_long_t swig_types[23]
-#define SWIGTYPE_p_std__numeric_limitsT_unsigned_long_t swig_types[24]
-#define SWIGTYPE_p_std__numeric_limitsT_unsigned_short_t swig_types[25]
-#define SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t swig_types[26]
-#define SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t swig_types[27]
-#define SWIGTYPE_p_std__vectorT_std__complexT_double_t_std__allocatorT_std__complexT_double_t_t_t swig_types[28]
-#define SWIGTYPE_p_std__vectorT_std__complexT_float_t_std__allocatorT_std__complexT_float_t_t_t swig_types[29]
-#define SWIGTYPE_p_std__vector_iteratorT_double_std__allocatorT_double_t_t swig_types[30]
-#define SWIGTYPE_p_std__vector_iteratorT_float_std__allocatorT_float_t_t swig_types[31]
-#define SWIGTYPE_p_std__vector_iteratorT_std__complexT_double_t_std__allocatorT_std__complexT_double_t_t_t swig_types[32]
-#define SWIGTYPE_p_std__vector_iteratorT_std__complexT_float_t_std__allocatorT_std__complexT_float_t_t_t swig_types[33]
-#define SWIGTYPE_p_unsigned_char swig_types[34]
-#define SWIGTYPE_p_unsigned_int swig_types[35]
-#define SWIGTYPE_p_unsigned_long_long swig_types[36]
-#define SWIGTYPE_p_unsigned_short swig_types[37]
-static swig_type_info *swig_types[39];
-static swig_module_info swig_module = {swig_types, 38, 0, 0, 0, 0};
+#define SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t swig_types[0]
+#define SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t swig_types[1]
+#define SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t swig_types[2]
+#define SWIGTYPE_p_FX__Filters__OnePole swig_types[3]
+#define SWIGTYPE_p_Random swig_types[4]
+#define SWIGTYPE_p_double swig_types[5]
+#define SWIGTYPE_p_float swig_types[6]
+#define SWIGTYPE_p_int swig_types[7]
+#define SWIGTYPE_p_long_long swig_types[8]
+#define SWIGTYPE_p_short swig_types[9]
+#define SWIGTYPE_p_signed_char swig_types[10]
+#define SWIGTYPE_p_std__complexT_double_t swig_types[11]
+#define SWIGTYPE_p_std__complexT_float_t swig_types[12]
+#define SWIGTYPE_p_std__numeric_limitsT_double_t swig_types[13]
+#define SWIGTYPE_p_std__numeric_limitsT_float_t swig_types[14]
+#define SWIGTYPE_p_std__numeric_limitsT_int_t swig_types[15]
+#define SWIGTYPE_p_std__numeric_limitsT_long_long_t swig_types[16]
+#define SWIGTYPE_p_std__numeric_limitsT_long_t swig_types[17]
+#define SWIGTYPE_p_std__numeric_limitsT_short_t swig_types[18]
+#define SWIGTYPE_p_std__numeric_limitsT_unsigned_int_t swig_types[19]
+#define SWIGTYPE_p_std__numeric_limitsT_unsigned_long_long_t swig_types[20]
+#define SWIGTYPE_p_std__numeric_limitsT_unsigned_long_t swig_types[21]
+#define SWIGTYPE_p_std__numeric_limitsT_unsigned_short_t swig_types[22]
+#define SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t swig_types[23]
+#define SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t swig_types[24]
+#define SWIGTYPE_p_std__vectorT_std__complexT_double_t_std__allocatorT_std__complexT_double_t_t_t swig_types[25]
+#define SWIGTYPE_p_std__vectorT_std__complexT_float_t_std__allocatorT_std__complexT_float_t_t_t swig_types[26]
+#define SWIGTYPE_p_std__vector_iteratorT_double_std__allocatorT_double_t_t swig_types[27]
+#define SWIGTYPE_p_std__vector_iteratorT_float_std__allocatorT_float_t_t swig_types[28]
+#define SWIGTYPE_p_std__vector_iteratorT_std__complexT_double_t_std__allocatorT_std__complexT_double_t_t_t swig_types[29]
+#define SWIGTYPE_p_std__vector_iteratorT_std__complexT_float_t_std__allocatorT_std__complexT_float_t_t_t swig_types[30]
+#define SWIGTYPE_p_unsigned_char swig_types[31]
+#define SWIGTYPE_p_unsigned_int swig_types[32]
+#define SWIGTYPE_p_unsigned_long_long swig_types[33]
+#define SWIGTYPE_p_unsigned_short swig_types[34]
+static swig_type_info *swig_types[36];
+static swig_module_info swig_module = {swig_types, 35, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -2753,16 +2750,8 @@ typedef struct{} LANGUAGE_OBJ;
 }
 
 
-#define DSPFLOATDOUBLE    
+typedef float DspFloatType;
 #include "GenericSoundObject.hpp"
-#include <cassert>
-#include <random>
-#include <chrono>
-#include <complex>
-#include <cstdio>
-#include <cstring>
-#include <cstdlib>
-
 #include "analog_blit_oscillators.hpp"
 
 
@@ -2984,6 +2973,40 @@ namespace std {
             
         };
     }
+
+
+typedef struct{
+  lua_State* L; /* the state */
+  int idx;      /* the index on the stack */
+}SWIGLUA_FN;
+
+#define SWIGLUA_FN_GET(fn) {lua_pushvalue(fn.L,fn.idx);}
+
+
+typedef struct{
+  lua_State* L; /* the state */
+  int ref;      /* a ref in the lua global index */
+}SWIGLUA_REF;
+
+
+void swiglua_ref_clear(SWIGLUA_REF* pref){
+ 	if (pref->L!=0 && pref->ref!=LUA_NOREF && pref->ref!=LUA_REFNIL){
+		luaL_unref(pref->L,LUA_REGISTRYINDEX,pref->ref);
+	}
+	pref->L=0; pref->ref=0;
+}
+
+void swiglua_ref_set(SWIGLUA_REF* pref,lua_State* L,int idx){
+	pref->L=L;
+	lua_pushvalue(L,idx);                 /* copy obj to top */
+	pref->ref=luaL_ref(L,LUA_REGISTRYINDEX); /* remove obj from top & put into registry */
+}
+
+void swiglua_ref_get(SWIGLUA_REF* pref){
+	if (pref->L!=0)
+		lua_rawgeti(pref->L,LUA_REGISTRYINDEX,pref->ref);
+}
+
 
 SWIGINTERN float std_vector_Sl_float_Sg____getitem____SWIG(std::vector< float > *self,size_t i){ return (*self)[i-1]; }
 SWIGINTERN void std_vector_Sl_float_Sg____setitem____SWIG(std::vector< float > *self,size_t i,float val){ (*self)[i-1] = val; }
@@ -9424,23 +9447,23 @@ static swig_lua_class *swig_complex_double_vector_bases[] = {0};
 static const char *swig_complex_double_vector_base_names[] = {0};
 static swig_lua_class _wrap_class_complex_double_vector = { "complex_double_vector", "complex_double_vector", &SWIGTYPE_p_std__vectorT_std__complexT_double_t_std__allocatorT_std__complexT_double_t_t_t,_proxy__wrap_new_complex_double_vector, swig_delete_complex_double_vector, swig_complex_double_vector_methods, swig_complex_double_vector_attributes, &swig_complex_double_vector_Sf_SwigStatic, swig_complex_double_vector_meta, swig_complex_double_vector_bases, swig_complex_double_vector_base_names };
 
-static int _wrap_Blit2SawOscillator_f32_block_set(lua_State* L) {
+static int _wrap_BlitSawOscillator_block_set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   FX::Filters::OnePole arg2 ;
   FX::Filters::OnePole *argp2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::block",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::block",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::block",2,"FX::Filters::OnePole");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::block",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::block",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::block",2,"FX::Filters::OnePole");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_block_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_block_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_FX__Filters__OnePole,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_block_set",2,SWIGTYPE_p_FX__Filters__OnePole);
+    SWIG_fail_ptr("BlitSawOscillator_block_set",2,SWIGTYPE_p_FX__Filters__OnePole);
   }
   arg2 = *argp2;
   
@@ -9456,16 +9479,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_block_get(lua_State* L) {
+static int _wrap_BlitSawOscillator_block_get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   FX::Filters::OnePole result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::block",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::block",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::block",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::block",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_block_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_block_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   result =  ((arg1)->block);
@@ -9483,17 +9506,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_nHarmonics__set(lua_State* L) {
+static int _wrap_BlitSawOscillator_nHarmonics__set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   unsigned int arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::nHarmonics_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::nHarmonics_",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::nHarmonics_",2,"unsigned int");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::nHarmonics_",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::nHarmonics_",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::nHarmonics_",2,"unsigned int");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_nHarmonics__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_nHarmonics__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
@@ -9510,16 +9533,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_nHarmonics__get(lua_State* L) {
+static int _wrap_BlitSawOscillator_nHarmonics__get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   unsigned int result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::nHarmonics_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::nHarmonics_",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::nHarmonics_",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::nHarmonics_",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_nHarmonics__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_nHarmonics__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   result = (unsigned int) ((arg1)->nHarmonics_);
@@ -9534,17 +9557,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_m__set(lua_State* L) {
+static int _wrap_BlitSawOscillator_m__set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   unsigned int arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::m_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::m_",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::m_",2,"unsigned int");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::m_",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::m_",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::m_",2,"unsigned int");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_m__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_m__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
@@ -9561,16 +9584,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_m__get(lua_State* L) {
+static int _wrap_BlitSawOscillator_m__get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   unsigned int result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::m_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::m_",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::m_",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::m_",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_m__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_m__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   result = (unsigned int) ((arg1)->m_);
@@ -9585,17 +9608,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_rate__set(lua_State* L) {
+static int _wrap_BlitSawOscillator_rate__set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::rate_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::rate_",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::rate_",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::rate_",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::rate_",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::rate_",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_rate__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_rate__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -9611,16 +9634,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_rate__get(lua_State* L) {
+static int _wrap_BlitSawOscillator_rate__get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::rate_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::rate_",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::rate_",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::rate_",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_rate__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_rate__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   result = (float) ((arg1)->rate_);
@@ -9635,17 +9658,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_phase__set(lua_State* L) {
+static int _wrap_BlitSawOscillator_phase__set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::phase_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::phase_",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::phase_",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::phase_",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::phase_",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::phase_",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_phase__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_phase__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -9661,16 +9684,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_phase__get(lua_State* L) {
+static int _wrap_BlitSawOscillator_phase__get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::phase_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::phase_",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::phase_",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::phase_",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_phase__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_phase__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   result = (float) ((arg1)->phase_);
@@ -9685,17 +9708,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_offset_set(lua_State* L) {
+static int _wrap_BlitSawOscillator_offset_set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::offset",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::offset",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::offset",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::offset",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::offset",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::offset",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_offset_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_offset_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -9711,16 +9734,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_offset_get(lua_State* L) {
+static int _wrap_BlitSawOscillator_offset_get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::offset",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::offset",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::offset",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::offset",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_offset_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_offset_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   result = (float) ((arg1)->offset);
@@ -9735,17 +9758,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_p__set(lua_State* L) {
+static int _wrap_BlitSawOscillator_p__set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::p_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::p_",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::p_",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::p_",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::p_",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::p_",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_p__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_p__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -9761,16 +9784,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_p__get(lua_State* L) {
+static int _wrap_BlitSawOscillator_p__get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::p_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::p_",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::p_",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::p_",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_p__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_p__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   result = (float) ((arg1)->p_);
@@ -9785,17 +9808,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_C2__set(lua_State* L) {
+static int _wrap_BlitSawOscillator_C2__set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::C2_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::C2_",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::C2_",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::C2_",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::C2_",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::C2_",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_C2__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_C2__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -9811,16 +9834,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_C2__get(lua_State* L) {
+static int _wrap_BlitSawOscillator_C2__get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::C2_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::C2_",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::C2_",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::C2_",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_C2__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_C2__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   result = (float) ((arg1)->C2_);
@@ -9835,17 +9858,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_a__set(lua_State* L) {
+static int _wrap_BlitSawOscillator_a__set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::a_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::a_",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::a_",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::a_",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::a_",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::a_",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_a__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_a__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -9861,16 +9884,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_a__get(lua_State* L) {
+static int _wrap_BlitSawOscillator_a__get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::a_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::a_",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::a_",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::a_",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_a__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_a__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   result = (float) ((arg1)->a_);
@@ -9885,17 +9908,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_state__set(lua_State* L) {
+static int _wrap_BlitSawOscillator_state__set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::state_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::state_",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::state_",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::state_",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::state_",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::state_",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_state__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_state__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -9911,16 +9934,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_state__get(lua_State* L) {
+static int _wrap_BlitSawOscillator_state__get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::state_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::state_",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::state_",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::state_",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_state__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_state__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   result = (float) ((arg1)->state_);
@@ -9935,17 +9958,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_y_set(lua_State* L) {
+static int _wrap_BlitSawOscillator_y_set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::y",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::y",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::y",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::y",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::y",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::y",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_y_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_y_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -9961,16 +9984,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_y_get(lua_State* L) {
+static int _wrap_BlitSawOscillator_y_get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::y",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::y",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::y",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::y",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_y_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_y_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   result = (float) ((arg1)->y);
@@ -9985,17 +10008,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_sampleRate_set(lua_State* L) {
+static int _wrap_BlitSawOscillator_sampleRate_set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::sampleRate",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::sampleRate",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::sampleRate",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::sampleRate",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::sampleRate",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::sampleRate",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_sampleRate_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_sampleRate_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -10011,16 +10034,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_sampleRate_get(lua_State* L) {
+static int _wrap_BlitSawOscillator_sampleRate_get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::sampleRate",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::sampleRate",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::sampleRate",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::sampleRate",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_sampleRate_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_sampleRate_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   result = (float) ((arg1)->sampleRate);
@@ -10035,18 +10058,18 @@ fail:
 }
 
 
-static int _wrap_new_Blit2SawOscillator_f32__SWIG_0(lua_State* L) {
+static int _wrap_new_BlitSawOscillator__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   float arg1 ;
   float arg2 ;
-  Analog::Oscillators::Blit2SawOscillator< float > *result = 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *result = 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::Blit2SawOscillator",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::Blit2SawOscillator",1,"float");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::Blit2SawOscillator",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Blit2SawOscillator",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Blit2SawOscillator",1,"float");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Blit2SawOscillator",2,"float");
   arg1 = (float)lua_tonumber(L, 1);
   arg2 = (float)lua_tonumber(L, 2);
-  result = (Analog::Oscillators::Blit2SawOscillator< float > *)new Analog::Oscillators::Blit2SawOscillator< float >(arg1,arg2);
+  result = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *)new Analog::Oscillators::Blit2SawOscillator< DspFloatType >(arg1,arg2);
   SWIG_NewPointerObj(L,result,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,1); SWIG_arg++; 
   return SWIG_arg;
   
@@ -10058,15 +10081,15 @@ fail:
 }
 
 
-static int _wrap_new_Blit2SawOscillator_f32__SWIG_1(lua_State* L) {
+static int _wrap_new_BlitSawOscillator__SWIG_1(lua_State* L) {
   int SWIG_arg = 0;
   float arg1 ;
-  Analog::Oscillators::Blit2SawOscillator< float > *result = 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *result = 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::Blit2SawOscillator",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::Blit2SawOscillator",1,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Blit2SawOscillator",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Blit2SawOscillator",1,"float");
   arg1 = (float)lua_tonumber(L, 1);
-  result = (Analog::Oscillators::Blit2SawOscillator< float > *)new Analog::Oscillators::Blit2SawOscillator< float >(arg1);
+  result = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *)new Analog::Oscillators::Blit2SawOscillator< DspFloatType >(arg1);
   SWIG_NewPointerObj(L,result,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,1); SWIG_arg++; 
   return SWIG_arg;
   
@@ -10078,12 +10101,12 @@ fail:
 }
 
 
-static int _wrap_new_Blit2SawOscillator_f32__SWIG_2(lua_State* L) {
+static int _wrap_new_BlitSawOscillator__SWIG_2(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *result = 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *result = 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::Blit2SawOscillator",0,0)
-  result = (Analog::Oscillators::Blit2SawOscillator< float > *)new Analog::Oscillators::Blit2SawOscillator< float >();
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Blit2SawOscillator",0,0)
+  result = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *)new Analog::Oscillators::Blit2SawOscillator< DspFloatType >();
   SWIG_NewPointerObj(L,result,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,1); SWIG_arg++; 
   return SWIG_arg;
   
@@ -10095,7 +10118,7 @@ fail:
 }
 
 
-static int _wrap_new_Blit2SawOscillator_f32(lua_State* L) {
+static int _wrap_new_BlitSawOscillator(lua_State* L) {
   int argc;
   int argv[3]={
     1,2,3
@@ -10103,7 +10126,7 @@ static int _wrap_new_Blit2SawOscillator_f32(lua_State* L) {
   
   argc = lua_gettop(L);
   if (argc == 0) {
-    return _wrap_new_Blit2SawOscillator_f32__SWIG_2(L);
+    return _wrap_new_BlitSawOscillator__SWIG_2(L);
   }
   if (argc == 1) {
     int _v = 0;
@@ -10111,7 +10134,7 @@ static int _wrap_new_Blit2SawOscillator_f32(lua_State* L) {
       _v = lua_isnumber(L,argv[0]);
     }
     if (_v) {
-      return _wrap_new_Blit2SawOscillator_f32__SWIG_1(L);
+      return _wrap_new_BlitSawOscillator__SWIG_1(L);
     }
   }
   if (argc == 2) {
@@ -10124,29 +10147,29 @@ static int _wrap_new_Blit2SawOscillator_f32(lua_State* L) {
         _v = lua_isnumber(L,argv[1]);
       }
       if (_v) {
-        return _wrap_new_Blit2SawOscillator_f32__SWIG_0(L);
+        return _wrap_new_BlitSawOscillator__SWIG_0(L);
       }
     }
   }
   
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'new_Blit2SawOscillator_f32'\n"
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'new_BlitSawOscillator'\n"
     "  Possible C/C++ prototypes are:\n"
-    "    Analog::Oscillators::Blit2SawOscillator< float >::Blit2SawOscillator(float,float)\n"
-    "    Analog::Oscillators::Blit2SawOscillator< float >::Blit2SawOscillator(float)\n"
-    "    Analog::Oscillators::Blit2SawOscillator< float >::Blit2SawOscillator()\n");
+    "    Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Blit2SawOscillator(float,float)\n"
+    "    Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Blit2SawOscillator(float)\n"
+    "    Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Blit2SawOscillator()\n");
   lua_error(L);return 0;
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_reset(lua_State* L) {
+static int _wrap_BlitSawOscillator_reset(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::reset",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::reset",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::reset",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::reset",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_reset",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_reset",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   (arg1)->reset();
@@ -10161,17 +10184,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_setFrequency(lua_State* L) {
+static int _wrap_BlitSawOscillator_setFrequency(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::setFrequency",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::setFrequency",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::setFrequency",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::setFrequency",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::setFrequency",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::setFrequency",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_setFrequency",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_setFrequency",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -10187,17 +10210,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_setHarmonics__SWIG_0(lua_State* L) {
+static int _wrap_BlitSawOscillator_setHarmonics__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   unsigned int arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::setHarmonics",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::setHarmonics",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::setHarmonics",2,"unsigned int");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::setHarmonics",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::setHarmonics",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::setHarmonics",2,"unsigned int");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_setHarmonics",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_setHarmonics",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
@@ -10214,15 +10237,15 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_setHarmonics__SWIG_1(lua_State* L) {
+static int _wrap_BlitSawOscillator_setHarmonics__SWIG_1(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::setHarmonics",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::setHarmonics",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::setHarmonics",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::setHarmonics",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_setHarmonics",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_setHarmonics",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   (arg1)->setHarmonics();
@@ -10237,7 +10260,7 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_setHarmonics(lua_State* L) {
+static int _wrap_BlitSawOscillator_setHarmonics(lua_State* L) {
   int argc;
   int argv[3]={
     1,2,3
@@ -10255,7 +10278,7 @@ static int _wrap_Blit2SawOscillator_f32_setHarmonics(lua_State* L) {
       }
     }
     if (_v) {
-      return _wrap_Blit2SawOscillator_f32_setHarmonics__SWIG_1(L);
+      return _wrap_BlitSawOscillator_setHarmonics__SWIG_1(L);
     }
   }
   if (argc == 2) {
@@ -10273,29 +10296,29 @@ static int _wrap_Blit2SawOscillator_f32_setHarmonics(lua_State* L) {
         _v = lua_isnumber(L,argv[1]);
       }
       if (_v) {
-        return _wrap_Blit2SawOscillator_f32_setHarmonics__SWIG_0(L);
+        return _wrap_BlitSawOscillator_setHarmonics__SWIG_0(L);
       }
     }
   }
   
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'Blit2SawOscillator_f32_setHarmonics'\n"
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'BlitSawOscillator_setHarmonics'\n"
     "  Possible C/C++ prototypes are:\n"
-    "    Analog::Oscillators::Blit2SawOscillator< float >::setHarmonics(unsigned int)\n"
-    "    Analog::Oscillators::Blit2SawOscillator< float >::setHarmonics()\n");
+    "    Analog::Oscillators::Blit2SawOscillator< DspFloatType >::setHarmonics(unsigned int)\n"
+    "    Analog::Oscillators::Blit2SawOscillator< DspFloatType >::setHarmonics()\n");
   lua_error(L);return 0;
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_getPhase(lua_State* L) {
+static int _wrap_BlitSawOscillator_getPhase(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::getPhase",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::getPhase",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::getPhase",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::getPhase",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_getPhase",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_getPhase",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   result = (float)(arg1)->getPhase();
@@ -10310,17 +10333,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_setPhaseOffset(lua_State* L) {
+static int _wrap_BlitSawOscillator_setPhaseOffset(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::setPhaseOffset",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::setPhaseOffset",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::setPhaseOffset",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::setPhaseOffset",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::setPhaseOffset",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::setPhaseOffset",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_setPhaseOffset",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_setPhaseOffset",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -10336,15 +10359,15 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_updateHarmonics(lua_State* L) {
+static int _wrap_BlitSawOscillator_updateHarmonics(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::updateHarmonics",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::updateHarmonics",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::updateHarmonics",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::updateHarmonics",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_updateHarmonics",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_updateHarmonics",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   (arg1)->updateHarmonics();
@@ -10359,19 +10382,19 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_setPort(lua_State* L) {
+static int _wrap_BlitSawOscillator_setPort(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   int arg2 ;
   float arg3 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::setPort",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::setPort",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::setPort",2,"int");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::setPort",3,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::setPort",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::setPort",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::setPort",2,"int");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::setPort",3,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_setPort",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_setPort",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   arg2 = (int)lua_tonumber(L, 2);
@@ -10388,19 +10411,19 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_lastOut(lua_State* L) {
+static int _wrap_BlitSawOscillator_lastOut(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::lastOut",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::lastOut",1,"Analog::Oscillators::Blit2SawOscillator< float > const *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::lastOut",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::lastOut",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > const *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_lastOut",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_lastOut",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
-  result = (float)((Analog::Oscillators::Blit2SawOscillator< float > const *)arg1)->lastOut();
+  result = (float)((Analog::Oscillators::Blit2SawOscillator< DspFloatType > const *)arg1)->lastOut();
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -10412,24 +10435,24 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_Tick__SWIG_0(lua_State* L) {
+static int _wrap_BlitSawOscillator_Tick__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   float arg3 ;
   float arg4 ;
   float arg5 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::Tick",5,5)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::Tick",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::Tick",2,"float");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::Tick",3,"float");
-  if(!lua_isnumber(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::Tick",4,"float");
-  if(!lua_isnumber(L,5)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::Tick",5,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick",5,5)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick",2,"float");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick",3,"float");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick",4,"float");
+  if(!lua_isnumber(L,5)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick",5,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -10448,22 +10471,22 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_Tick__SWIG_1(lua_State* L) {
+static int _wrap_BlitSawOscillator_Tick__SWIG_1(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   float arg3 ;
   float arg4 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::Tick",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::Tick",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::Tick",2,"float");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::Tick",3,"float");
-  if(!lua_isnumber(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::Tick",4,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick",2,"float");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick",3,"float");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick",4,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -10481,20 +10504,20 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_Tick__SWIG_2(lua_State* L) {
+static int _wrap_BlitSawOscillator_Tick__SWIG_2(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   float arg3 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::Tick",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::Tick",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::Tick",2,"float");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::Tick",3,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick",2,"float");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick",3,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -10511,18 +10534,18 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_Tick__SWIG_3(lua_State* L) {
+static int _wrap_BlitSawOscillator_Tick__SWIG_3(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::Tick",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::Tick",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::Tick",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -10538,16 +10561,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_Tick__SWIG_4(lua_State* L) {
+static int _wrap_BlitSawOscillator_Tick__SWIG_4(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::Tick",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::Tick",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   result = (float)(arg1)->Tick();
@@ -10562,7 +10585,7 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_Tick(lua_State* L) {
+static int _wrap_BlitSawOscillator_Tick(lua_State* L) {
   int argc;
   int argv[6]={
     1,2,3,4,5,6
@@ -10580,7 +10603,7 @@ static int _wrap_Blit2SawOscillator_f32_Tick(lua_State* L) {
       }
     }
     if (_v) {
-      return _wrap_Blit2SawOscillator_f32_Tick__SWIG_4(L);
+      return _wrap_BlitSawOscillator_Tick__SWIG_4(L);
     }
   }
   if (argc == 2) {
@@ -10598,7 +10621,7 @@ static int _wrap_Blit2SawOscillator_f32_Tick(lua_State* L) {
         _v = lua_isnumber(L,argv[1]);
       }
       if (_v) {
-        return _wrap_Blit2SawOscillator_f32_Tick__SWIG_3(L);
+        return _wrap_BlitSawOscillator_Tick__SWIG_3(L);
       }
     }
   }
@@ -10621,7 +10644,7 @@ static int _wrap_Blit2SawOscillator_f32_Tick(lua_State* L) {
           _v = lua_isnumber(L,argv[2]);
         }
         if (_v) {
-          return _wrap_Blit2SawOscillator_f32_Tick__SWIG_2(L);
+          return _wrap_BlitSawOscillator_Tick__SWIG_2(L);
         }
       }
     }
@@ -10649,7 +10672,7 @@ static int _wrap_Blit2SawOscillator_f32_Tick(lua_State* L) {
             _v = lua_isnumber(L,argv[3]);
           }
           if (_v) {
-            return _wrap_Blit2SawOscillator_f32_Tick__SWIG_1(L);
+            return _wrap_BlitSawOscillator_Tick__SWIG_1(L);
           }
         }
       }
@@ -10682,7 +10705,7 @@ static int _wrap_Blit2SawOscillator_f32_Tick(lua_State* L) {
               _v = lua_isnumber(L,argv[4]);
             }
             if (_v) {
-              return _wrap_Blit2SawOscillator_f32_Tick__SWIG_0(L);
+              return _wrap_BlitSawOscillator_Tick__SWIG_0(L);
             }
           }
         }
@@ -10690,44 +10713,44 @@ static int _wrap_Blit2SawOscillator_f32_Tick(lua_State* L) {
     }
   }
   
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'Blit2SawOscillator_f32_Tick'\n"
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'BlitSawOscillator_Tick'\n"
     "  Possible C/C++ prototypes are:\n"
-    "    Analog::Oscillators::Blit2SawOscillator< float >::Tick(float,float,float,float)\n"
-    "    Analog::Oscillators::Blit2SawOscillator< float >::Tick(float,float,float)\n"
-    "    Analog::Oscillators::Blit2SawOscillator< float >::Tick(float,float)\n"
-    "    Analog::Oscillators::Blit2SawOscillator< float >::Tick(float)\n"
-    "    Analog::Oscillators::Blit2SawOscillator< float >::Tick()\n");
+    "    Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick(float,float,float,float)\n"
+    "    Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick(float,float,float)\n"
+    "    Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick(float,float)\n"
+    "    Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick(float)\n"
+    "    Analog::Oscillators::Blit2SawOscillator< DspFloatType >::Tick()\n");
   lua_error(L);return 0;
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_ProcessSIMD(lua_State* L) {
+static int _wrap_BlitSawOscillator_ProcessSIMD(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   size_t arg2 ;
   float *arg3 = (float *) 0 ;
   float *arg4 = (float *) 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::ProcessSIMD",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::ProcessSIMD",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::ProcessSIMD",2,"size_t");
-  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::ProcessSIMD",3,"float *");
-  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::ProcessSIMD",4,"float *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::ProcessSIMD",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::ProcessSIMD",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::ProcessSIMD",3,"float *");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::ProcessSIMD",4,"float *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_ProcessSIMD",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_ProcessSIMD",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_ProcessSIMD",3,SWIGTYPE_p_float);
+    SWIG_fail_ptr("BlitSawOscillator_ProcessSIMD",3,SWIGTYPE_p_float);
   }
   
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_ProcessSIMD",4,SWIGTYPE_p_float);
+    SWIG_fail_ptr("BlitSawOscillator_ProcessSIMD",4,SWIGTYPE_p_float);
   }
   
   (arg1)->ProcessSIMD(arg2,arg3,arg4);
@@ -10742,33 +10765,33 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_ProcessBlock(lua_State* L) {
+static int _wrap_BlitSawOscillator_ProcessBlock(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   size_t arg2 ;
   float *arg3 = (float *) 0 ;
   float *arg4 = (float *) 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::ProcessBlock",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::ProcessBlock",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::ProcessBlock",2,"size_t");
-  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::ProcessBlock",3,"float *");
-  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::ProcessBlock",4,"float *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::ProcessBlock",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::ProcessBlock",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::ProcessBlock",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::ProcessBlock",3,"float *");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::ProcessBlock",4,"float *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_ProcessBlock",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_ProcessBlock",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_ProcessBlock",3,SWIGTYPE_p_float);
+    SWIG_fail_ptr("BlitSawOscillator_ProcessBlock",3,SWIGTYPE_p_float);
   }
   
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_ProcessBlock",4,SWIGTYPE_p_float);
+    SWIG_fail_ptr("BlitSawOscillator_ProcessBlock",4,SWIGTYPE_p_float);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4);
@@ -10783,26 +10806,26 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32_ProcessInplace(lua_State* L) {
+static int _wrap_BlitSawOscillator_ProcessInplace(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   size_t arg2 ;
   float *arg3 = (float *) 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::ProcessInplace",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::ProcessInplace",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::ProcessInplace",2,"size_t");
-  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::ProcessInplace",3,"float *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::ProcessInplace",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::ProcessInplace",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::ProcessInplace",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::ProcessInplace",3,"float *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_ProcessInplace",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator_ProcessInplace",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32_ProcessInplace",3,SWIGTYPE_p_float);
+    SWIG_fail_ptr("BlitSawOscillator_ProcessInplace",3,SWIGTYPE_p_float);
   }
   
   (arg1)->ProcessInplace(arg2,arg3);
@@ -10817,16 +10840,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f32___call(lua_State* L) {
+static int _wrap_BlitSawOscillator___call(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< float >::operator ()",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< float >::operator ()",1,"Analog::Oscillators::Blit2SawOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::operator ()",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< DspFloatType >::operator ()",1,"Analog::Oscillators::Blit2SawOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f32___call",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSawOscillator___call",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t);
   }
   
   result = (float)(arg1)->operator ()();
@@ -10841,99 +10864,99 @@ fail:
 }
 
 
-static void swig_delete_Blit2SawOscillator_f32(void *obj) {
-Analog::Oscillators::Blit2SawOscillator< float > *arg1 = (Analog::Oscillators::Blit2SawOscillator< float > *) obj;
+static void swig_delete_BlitSawOscillator(void *obj) {
+Analog::Oscillators::Blit2SawOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SawOscillator< DspFloatType > *) obj;
 delete arg1;
 }
-static int _proxy__wrap_new_Blit2SawOscillator_f32(lua_State *L) {
+static int _proxy__wrap_new_BlitSawOscillator(lua_State *L) {
     assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_Blit2SawOscillator_f32);
+    lua_pushcfunction(L,_wrap_new_BlitSawOscillator);
     assert(!lua_isnil(L,-1));
     lua_replace(L,1); /* replace our table with real constructor */
     lua_call(L,lua_gettop(L)-1,1);
     return 1;
 }
-static swig_lua_attribute swig_Blit2SawOscillator_f32_attributes[] = {
-    { "block", _wrap_Blit2SawOscillator_f32_block_get, _wrap_Blit2SawOscillator_f32_block_set },
-    { "nHarmonics_", _wrap_Blit2SawOscillator_f32_nHarmonics__get, _wrap_Blit2SawOscillator_f32_nHarmonics__set },
-    { "m_", _wrap_Blit2SawOscillator_f32_m__get, _wrap_Blit2SawOscillator_f32_m__set },
-    { "rate_", _wrap_Blit2SawOscillator_f32_rate__get, _wrap_Blit2SawOscillator_f32_rate__set },
-    { "phase_", _wrap_Blit2SawOscillator_f32_phase__get, _wrap_Blit2SawOscillator_f32_phase__set },
-    { "offset", _wrap_Blit2SawOscillator_f32_offset_get, _wrap_Blit2SawOscillator_f32_offset_set },
-    { "p_", _wrap_Blit2SawOscillator_f32_p__get, _wrap_Blit2SawOscillator_f32_p__set },
-    { "C2_", _wrap_Blit2SawOscillator_f32_C2__get, _wrap_Blit2SawOscillator_f32_C2__set },
-    { "a_", _wrap_Blit2SawOscillator_f32_a__get, _wrap_Blit2SawOscillator_f32_a__set },
-    { "state_", _wrap_Blit2SawOscillator_f32_state__get, _wrap_Blit2SawOscillator_f32_state__set },
-    { "y", _wrap_Blit2SawOscillator_f32_y_get, _wrap_Blit2SawOscillator_f32_y_set },
-    { "sampleRate", _wrap_Blit2SawOscillator_f32_sampleRate_get, _wrap_Blit2SawOscillator_f32_sampleRate_set },
+static swig_lua_attribute swig_BlitSawOscillator_attributes[] = {
+    { "block", _wrap_BlitSawOscillator_block_get, _wrap_BlitSawOscillator_block_set },
+    { "nHarmonics_", _wrap_BlitSawOscillator_nHarmonics__get, _wrap_BlitSawOscillator_nHarmonics__set },
+    { "m_", _wrap_BlitSawOscillator_m__get, _wrap_BlitSawOscillator_m__set },
+    { "rate_", _wrap_BlitSawOscillator_rate__get, _wrap_BlitSawOscillator_rate__set },
+    { "phase_", _wrap_BlitSawOscillator_phase__get, _wrap_BlitSawOscillator_phase__set },
+    { "offset", _wrap_BlitSawOscillator_offset_get, _wrap_BlitSawOscillator_offset_set },
+    { "p_", _wrap_BlitSawOscillator_p__get, _wrap_BlitSawOscillator_p__set },
+    { "C2_", _wrap_BlitSawOscillator_C2__get, _wrap_BlitSawOscillator_C2__set },
+    { "a_", _wrap_BlitSawOscillator_a__get, _wrap_BlitSawOscillator_a__set },
+    { "state_", _wrap_BlitSawOscillator_state__get, _wrap_BlitSawOscillator_state__set },
+    { "y", _wrap_BlitSawOscillator_y_get, _wrap_BlitSawOscillator_y_set },
+    { "sampleRate", _wrap_BlitSawOscillator_sampleRate_get, _wrap_BlitSawOscillator_sampleRate_set },
     {0,0,0}
 };
-static swig_lua_method swig_Blit2SawOscillator_f32_methods[]= {
-    { "reset", _wrap_Blit2SawOscillator_f32_reset},
-    { "setFrequency", _wrap_Blit2SawOscillator_f32_setFrequency},
-    { "setHarmonics", _wrap_Blit2SawOscillator_f32_setHarmonics},
-    { "getPhase", _wrap_Blit2SawOscillator_f32_getPhase},
-    { "setPhaseOffset", _wrap_Blit2SawOscillator_f32_setPhaseOffset},
-    { "updateHarmonics", _wrap_Blit2SawOscillator_f32_updateHarmonics},
-    { "setPort", _wrap_Blit2SawOscillator_f32_setPort},
-    { "lastOut", _wrap_Blit2SawOscillator_f32_lastOut},
-    { "Tick", _wrap_Blit2SawOscillator_f32_Tick},
-    { "ProcessSIMD", _wrap_Blit2SawOscillator_f32_ProcessSIMD},
-    { "ProcessBlock", _wrap_Blit2SawOscillator_f32_ProcessBlock},
-    { "ProcessInplace", _wrap_Blit2SawOscillator_f32_ProcessInplace},
-    { "__call", _wrap_Blit2SawOscillator_f32___call},
+static swig_lua_method swig_BlitSawOscillator_methods[]= {
+    { "reset", _wrap_BlitSawOscillator_reset},
+    { "setFrequency", _wrap_BlitSawOscillator_setFrequency},
+    { "setHarmonics", _wrap_BlitSawOscillator_setHarmonics},
+    { "getPhase", _wrap_BlitSawOscillator_getPhase},
+    { "setPhaseOffset", _wrap_BlitSawOscillator_setPhaseOffset},
+    { "updateHarmonics", _wrap_BlitSawOscillator_updateHarmonics},
+    { "setPort", _wrap_BlitSawOscillator_setPort},
+    { "lastOut", _wrap_BlitSawOscillator_lastOut},
+    { "Tick", _wrap_BlitSawOscillator_Tick},
+    { "ProcessSIMD", _wrap_BlitSawOscillator_ProcessSIMD},
+    { "ProcessBlock", _wrap_BlitSawOscillator_ProcessBlock},
+    { "ProcessInplace", _wrap_BlitSawOscillator_ProcessInplace},
+    { "__call", _wrap_BlitSawOscillator___call},
     {0,0}
 };
-static swig_lua_method swig_Blit2SawOscillator_f32_meta[] = {
-    { "__call", _wrap_Blit2SawOscillator_f32___call},
+static swig_lua_method swig_BlitSawOscillator_meta[] = {
+    { "__call", _wrap_BlitSawOscillator___call},
     {0,0}
 };
 
-static swig_lua_attribute swig_Blit2SawOscillator_f32_Sf_SwigStatic_attributes[] = {
+static swig_lua_attribute swig_BlitSawOscillator_Sf_SwigStatic_attributes[] = {
     {0,0,0}
 };
-static swig_lua_const_info swig_Blit2SawOscillator_f32_Sf_SwigStatic_constants[]= {
-    {SWIG_LUA_CONSTTAB_INT("PORT_FREQ", Analog::Oscillators::Blit2SawOscillator< float >::PORT_FREQ)},
-    {SWIG_LUA_CONSTTAB_INT("PORT_HARMONICS", Analog::Oscillators::Blit2SawOscillator< float >::PORT_HARMONICS)},
-    {SWIG_LUA_CONSTTAB_INT("PORT_PHASE", Analog::Oscillators::Blit2SawOscillator< float >::PORT_PHASE)},
+static swig_lua_const_info swig_BlitSawOscillator_Sf_SwigStatic_constants[]= {
+    {SWIG_LUA_CONSTTAB_INT("PORT_FREQ", Analog::Oscillators::Blit2SawOscillator< DspFloatType >::PORT_FREQ)},
+    {SWIG_LUA_CONSTTAB_INT("PORT_HARMONICS", Analog::Oscillators::Blit2SawOscillator< DspFloatType >::PORT_HARMONICS)},
+    {SWIG_LUA_CONSTTAB_INT("PORT_PHASE", Analog::Oscillators::Blit2SawOscillator< DspFloatType >::PORT_PHASE)},
     {0,0,0,0,0,0}
 };
-static swig_lua_method swig_Blit2SawOscillator_f32_Sf_SwigStatic_methods[]= {
+static swig_lua_method swig_BlitSawOscillator_Sf_SwigStatic_methods[]= {
     {0,0}
 };
-static swig_lua_class* swig_Blit2SawOscillator_f32_Sf_SwigStatic_classes[]= {
+static swig_lua_class* swig_BlitSawOscillator_Sf_SwigStatic_classes[]= {
     0
 };
 
-static swig_lua_namespace swig_Blit2SawOscillator_f32_Sf_SwigStatic = {
-    "Blit2SawOscillator_f32",
-    swig_Blit2SawOscillator_f32_Sf_SwigStatic_methods,
-    swig_Blit2SawOscillator_f32_Sf_SwigStatic_attributes,
-    swig_Blit2SawOscillator_f32_Sf_SwigStatic_constants,
-    swig_Blit2SawOscillator_f32_Sf_SwigStatic_classes,
+static swig_lua_namespace swig_BlitSawOscillator_Sf_SwigStatic = {
+    "BlitSawOscillator",
+    swig_BlitSawOscillator_Sf_SwigStatic_methods,
+    swig_BlitSawOscillator_Sf_SwigStatic_attributes,
+    swig_BlitSawOscillator_Sf_SwigStatic_constants,
+    swig_BlitSawOscillator_Sf_SwigStatic_classes,
     0
 };
-static swig_lua_class *swig_Blit2SawOscillator_f32_bases[] = {0};
-static const char *swig_Blit2SawOscillator_f32_base_names[] = {0};
-static swig_lua_class _wrap_class_Blit2SawOscillator_f32 = { "Blit2SawOscillator_f32", "Blit2SawOscillator_f32", &SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,_proxy__wrap_new_Blit2SawOscillator_f32, swig_delete_Blit2SawOscillator_f32, swig_Blit2SawOscillator_f32_methods, swig_Blit2SawOscillator_f32_attributes, &swig_Blit2SawOscillator_f32_Sf_SwigStatic, swig_Blit2SawOscillator_f32_meta, swig_Blit2SawOscillator_f32_bases, swig_Blit2SawOscillator_f32_base_names };
+static swig_lua_class *swig_BlitSawOscillator_bases[] = {0};
+static const char *swig_BlitSawOscillator_base_names[] = {0};
+static swig_lua_class _wrap_class_BlitSawOscillator = { "BlitSawOscillator", "BlitSawOscillator", &SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_float_t,_proxy__wrap_new_BlitSawOscillator, swig_delete_BlitSawOscillator, swig_BlitSawOscillator_methods, swig_BlitSawOscillator_attributes, &swig_BlitSawOscillator_Sf_SwigStatic, swig_BlitSawOscillator_meta, swig_BlitSawOscillator_bases, swig_BlitSawOscillator_base_names };
 
-static int _wrap_Blit2SawOscillator_f64_block_set(lua_State* L) {
+static int _wrap_BlitSquareOscillator_block_set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   FX::Filters::OnePole arg2 ;
   FX::Filters::OnePole *argp2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::block",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::block",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::block",2,"FX::Filters::OnePole");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::block",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::block",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::block",2,"FX::Filters::OnePole");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_block_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
+    SWIG_fail_ptr("BlitSquareOscillator_block_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_FX__Filters__OnePole,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_block_set",2,SWIGTYPE_p_FX__Filters__OnePole);
+    SWIG_fail_ptr("BlitSquareOscillator_block_set",2,SWIGTYPE_p_FX__Filters__OnePole);
   }
   arg2 = *argp2;
   
@@ -10949,16 +10972,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f64_block_get(lua_State* L) {
+static int _wrap_BlitSquareOscillator_block_get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   FX::Filters::OnePole result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::block",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::block",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::block",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::block",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_block_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
+    SWIG_fail_ptr("BlitSquareOscillator_block_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   result =  ((arg1)->block);
@@ -10976,17 +10999,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f64_nHarmonics__set(lua_State* L) {
+static int _wrap_BlitSquareOscillator_nHarmonics__set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   unsigned int arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::nHarmonics_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::nHarmonics_",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::nHarmonics_",2,"unsigned int");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::nHarmonics_",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::nHarmonics_",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::nHarmonics_",2,"unsigned int");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_nHarmonics__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
+    SWIG_fail_ptr("BlitSquareOscillator_nHarmonics__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
@@ -11003,16 +11026,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f64_nHarmonics__get(lua_State* L) {
+static int _wrap_BlitSquareOscillator_nHarmonics__get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   unsigned int result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::nHarmonics_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::nHarmonics_",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::nHarmonics_",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::nHarmonics_",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_nHarmonics__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
+    SWIG_fail_ptr("BlitSquareOscillator_nHarmonics__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   result = (unsigned int) ((arg1)->nHarmonics_);
@@ -11027,17 +11050,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f64_m__set(lua_State* L) {
+static int _wrap_BlitSquareOscillator_m__set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   unsigned int arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::m_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::m_",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::m_",2,"unsigned int");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::m_",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::m_",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::m_",2,"unsigned int");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_m__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
+    SWIG_fail_ptr("BlitSquareOscillator_m__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
@@ -11054,16 +11077,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f64_m__get(lua_State* L) {
+static int _wrap_BlitSquareOscillator_m__get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   unsigned int result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::m_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::m_",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::m_",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::m_",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_m__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
+    SWIG_fail_ptr("BlitSquareOscillator_m__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   result = (unsigned int) ((arg1)->m_);
@@ -11078,1510 +11101,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SawOscillator_f64_rate__set(lua_State* L) {
+static int _wrap_BlitSquareOscillator_f_set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::rate_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::rate_",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::rate_",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_rate__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  if (arg1) (arg1)->rate_ = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_rate__get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::rate_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::rate_",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_rate__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  result = (double) ((arg1)->rate_);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_phase__set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::phase_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::phase_",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::phase_",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_phase__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  if (arg1) (arg1)->phase_ = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_phase__get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::phase_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::phase_",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_phase__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  result = (double) ((arg1)->phase_);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_offset_set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::offset",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::offset",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::offset",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_offset_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  if (arg1) (arg1)->offset = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_offset_get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::offset",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::offset",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_offset_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  result = (double) ((arg1)->offset);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_p__set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::p_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::p_",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::p_",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_p__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  if (arg1) (arg1)->p_ = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_p__get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::p_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::p_",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_p__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  result = (double) ((arg1)->p_);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_C2__set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::C2_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::C2_",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::C2_",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_C2__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  if (arg1) (arg1)->C2_ = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_C2__get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::C2_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::C2_",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_C2__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  result = (double) ((arg1)->C2_);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_a__set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::a_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::a_",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::a_",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_a__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  if (arg1) (arg1)->a_ = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_a__get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::a_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::a_",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_a__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  result = (double) ((arg1)->a_);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_state__set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::state_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::state_",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::state_",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_state__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  if (arg1) (arg1)->state_ = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_state__get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::state_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::state_",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_state__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  result = (double) ((arg1)->state_);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_y_set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::y",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::y",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::y",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_y_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  if (arg1) (arg1)->y = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_y_get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::y",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::y",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_y_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  result = (double) ((arg1)->y);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_sampleRate_set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::sampleRate",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::sampleRate",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::sampleRate",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_sampleRate_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  if (arg1) (arg1)->sampleRate = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_sampleRate_get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::sampleRate",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::sampleRate",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_sampleRate_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  result = (double) ((arg1)->sampleRate);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_new_Blit2SawOscillator_f64__SWIG_0(lua_State* L) {
-  int SWIG_arg = 0;
-  double arg1 ;
-  double arg2 ;
-  Analog::Oscillators::Blit2SawOscillator< double > *result = 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::Blit2SawOscillator",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::Blit2SawOscillator",1,"double");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::Blit2SawOscillator",2,"double");
-  arg1 = (double)lua_tonumber(L, 1);
-  arg2 = (double)lua_tonumber(L, 2);
-  result = (Analog::Oscillators::Blit2SawOscillator< double > *)new Analog::Oscillators::Blit2SawOscillator< double >(arg1,arg2);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,1); SWIG_arg++; 
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_new_Blit2SawOscillator_f64__SWIG_1(lua_State* L) {
-  int SWIG_arg = 0;
-  double arg1 ;
-  Analog::Oscillators::Blit2SawOscillator< double > *result = 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::Blit2SawOscillator",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::Blit2SawOscillator",1,"double");
-  arg1 = (double)lua_tonumber(L, 1);
-  result = (Analog::Oscillators::Blit2SawOscillator< double > *)new Analog::Oscillators::Blit2SawOscillator< double >(arg1);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,1); SWIG_arg++; 
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_new_Blit2SawOscillator_f64__SWIG_2(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *result = 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::Blit2SawOscillator",0,0)
-  result = (Analog::Oscillators::Blit2SawOscillator< double > *)new Analog::Oscillators::Blit2SawOscillator< double >();
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,1); SWIG_arg++; 
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_new_Blit2SawOscillator_f64(lua_State* L) {
-  int argc;
-  int argv[3]={
-    1,2,3
-  };
-  
-  argc = lua_gettop(L);
-  if (argc == 0) {
-    return _wrap_new_Blit2SawOscillator_f64__SWIG_2(L);
-  }
-  if (argc == 1) {
-    int _v = 0;
-    {
-      _v = lua_isnumber(L,argv[0]);
-    }
-    if (_v) {
-      return _wrap_new_Blit2SawOscillator_f64__SWIG_1(L);
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      _v = lua_isnumber(L,argv[0]);
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        return _wrap_new_Blit2SawOscillator_f64__SWIG_0(L);
-      }
-    }
-  }
-  
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'new_Blit2SawOscillator_f64'\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    Analog::Oscillators::Blit2SawOscillator< double >::Blit2SawOscillator(double,double)\n"
-    "    Analog::Oscillators::Blit2SawOscillator< double >::Blit2SawOscillator(double)\n"
-    "    Analog::Oscillators::Blit2SawOscillator< double >::Blit2SawOscillator()\n");
-  lua_error(L);return 0;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_reset(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::reset",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::reset",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_reset",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  (arg1)->reset();
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_setFrequency(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::setFrequency",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::setFrequency",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::setFrequency",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_setFrequency",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  (arg1)->setFrequency(arg2);
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_setHarmonics__SWIG_0(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  unsigned int arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::setHarmonics",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::setHarmonics",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::setHarmonics",2,"unsigned int");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_setHarmonics",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-  arg2 = (unsigned int)lua_tonumber(L, 2);
-  (arg1)->setHarmonics(arg2);
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_setHarmonics__SWIG_1(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::setHarmonics",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::setHarmonics",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_setHarmonics",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  (arg1)->setHarmonics();
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_setHarmonics(lua_State* L) {
-  int argc;
-  int argv[3]={
-    1,2,3
-  };
-  
-  argc = lua_gettop(L);
-  if (argc == 1) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      return _wrap_Blit2SawOscillator_f64_setHarmonics__SWIG_1(L);
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        return _wrap_Blit2SawOscillator_f64_setHarmonics__SWIG_0(L);
-      }
-    }
-  }
-  
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'Blit2SawOscillator_f64_setHarmonics'\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    Analog::Oscillators::Blit2SawOscillator< double >::setHarmonics(unsigned int)\n"
-    "    Analog::Oscillators::Blit2SawOscillator< double >::setHarmonics()\n");
-  lua_error(L);return 0;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_getPhase(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::getPhase",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::getPhase",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_getPhase",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  result = (double)(arg1)->getPhase();
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_setPhaseOffset(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::setPhaseOffset",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::setPhaseOffset",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::setPhaseOffset",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_setPhaseOffset",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  (arg1)->setPhaseOffset(arg2);
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_updateHarmonics(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::updateHarmonics",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::updateHarmonics",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_updateHarmonics",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  (arg1)->updateHarmonics();
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_setPort(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  int arg2 ;
-  double arg3 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::setPort",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::setPort",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::setPort",2,"int");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::setPort",3,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_setPort",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  arg2 = (int)lua_tonumber(L, 2);
-  arg3 = (double)lua_tonumber(L, 3);
-  (arg1)->setPort(arg2,arg3);
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_lastOut(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::lastOut",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::lastOut",1,"Analog::Oscillators::Blit2SawOscillator< double > const *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_lastOut",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  result = (double)((Analog::Oscillators::Blit2SawOscillator< double > const *)arg1)->lastOut();
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_Tick__SWIG_0(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double arg2 ;
-  double arg3 ;
-  double arg4 ;
-  double arg5 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::Tick",5,5)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::Tick",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::Tick",2,"double");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::Tick",3,"double");
-  if(!lua_isnumber(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::Tick",4,"double");
-  if(!lua_isnumber(L,5)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::Tick",5,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  arg3 = (double)lua_tonumber(L, 3);
-  arg4 = (double)lua_tonumber(L, 4);
-  arg5 = (double)lua_tonumber(L, 5);
-  result = (double)(arg1)->Tick(arg2,arg3,arg4,arg5);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_Tick__SWIG_1(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double arg2 ;
-  double arg3 ;
-  double arg4 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::Tick",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::Tick",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::Tick",2,"double");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::Tick",3,"double");
-  if(!lua_isnumber(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::Tick",4,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  arg3 = (double)lua_tonumber(L, 3);
-  arg4 = (double)lua_tonumber(L, 4);
-  result = (double)(arg1)->Tick(arg2,arg3,arg4);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_Tick__SWIG_2(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double arg2 ;
-  double arg3 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::Tick",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::Tick",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::Tick",2,"double");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::Tick",3,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  arg3 = (double)lua_tonumber(L, 3);
-  result = (double)(arg1)->Tick(arg2,arg3);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_Tick__SWIG_3(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double arg2 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::Tick",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::Tick",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::Tick",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  result = (double)(arg1)->Tick(arg2);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_Tick__SWIG_4(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::Tick",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::Tick",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  result = (double)(arg1)->Tick();
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_Tick(lua_State* L) {
-  int argc;
-  int argv[6]={
-    1,2,3,4,5,6
-  };
-  
-  argc = lua_gettop(L);
-  if (argc == 1) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      return _wrap_Blit2SawOscillator_f64_Tick__SWIG_4(L);
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        return _wrap_Blit2SawOscillator_f64_Tick__SWIG_3(L);
-      }
-    }
-  }
-  if (argc == 3) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          return _wrap_Blit2SawOscillator_f64_Tick__SWIG_2(L);
-        }
-      }
-    }
-  }
-  if (argc == 4) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          {
-            _v = lua_isnumber(L,argv[3]);
-          }
-          if (_v) {
-            return _wrap_Blit2SawOscillator_f64_Tick__SWIG_1(L);
-          }
-        }
-      }
-    }
-  }
-  if (argc == 5) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          {
-            _v = lua_isnumber(L,argv[3]);
-          }
-          if (_v) {
-            {
-              _v = lua_isnumber(L,argv[4]);
-            }
-            if (_v) {
-              return _wrap_Blit2SawOscillator_f64_Tick__SWIG_0(L);
-            }
-          }
-        }
-      }
-    }
-  }
-  
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'Blit2SawOscillator_f64_Tick'\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    Analog::Oscillators::Blit2SawOscillator< double >::Tick(double,double,double,double)\n"
-    "    Analog::Oscillators::Blit2SawOscillator< double >::Tick(double,double,double)\n"
-    "    Analog::Oscillators::Blit2SawOscillator< double >::Tick(double,double)\n"
-    "    Analog::Oscillators::Blit2SawOscillator< double >::Tick(double)\n"
-    "    Analog::Oscillators::Blit2SawOscillator< double >::Tick()\n");
-  lua_error(L);return 0;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_ProcessSIMD(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  size_t arg2 ;
-  double *arg3 = (double *) 0 ;
-  double *arg4 = (double *) 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::ProcessSIMD",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::ProcessSIMD",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::ProcessSIMD",2,"size_t");
-  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::ProcessSIMD",3,"double *");
-  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::ProcessSIMD",4,"double *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_ProcessSIMD",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-  arg2 = (size_t)lua_tonumber(L, 2);
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_ProcessSIMD",3,SWIGTYPE_p_double);
-  }
-  
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_ProcessSIMD",4,SWIGTYPE_p_double);
-  }
-  
-  (arg1)->ProcessSIMD(arg2,arg3,arg4);
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_ProcessBlock(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  size_t arg2 ;
-  double *arg3 = (double *) 0 ;
-  double *arg4 = (double *) 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::ProcessBlock",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::ProcessBlock",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::ProcessBlock",2,"size_t");
-  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::ProcessBlock",3,"double *");
-  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::ProcessBlock",4,"double *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_ProcessBlock",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-  arg2 = (size_t)lua_tonumber(L, 2);
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_ProcessBlock",3,SWIGTYPE_p_double);
-  }
-  
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_ProcessBlock",4,SWIGTYPE_p_double);
-  }
-  
-  (arg1)->ProcessBlock(arg2,arg3,arg4);
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64_ProcessInplace(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  size_t arg2 ;
-  double *arg3 = (double *) 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::ProcessInplace",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::ProcessInplace",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::ProcessInplace",2,"size_t");
-  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::ProcessInplace",3,"double *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_ProcessInplace",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-  arg2 = (size_t)lua_tonumber(L, 2);
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64_ProcessInplace",3,SWIGTYPE_p_double);
-  }
-  
-  (arg1)->ProcessInplace(arg2,arg3);
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SawOscillator_f64___call(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SawOscillator< double >::operator ()",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SawOscillator< double >::operator ()",1,"Analog::Oscillators::Blit2SawOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SawOscillator_f64___call",1,SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t);
-  }
-  
-  result = (double)(arg1)->operator ()();
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static void swig_delete_Blit2SawOscillator_f64(void *obj) {
-Analog::Oscillators::Blit2SawOscillator< double > *arg1 = (Analog::Oscillators::Blit2SawOscillator< double > *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_Blit2SawOscillator_f64(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_Blit2SawOscillator_f64);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_Blit2SawOscillator_f64_attributes[] = {
-    { "block", _wrap_Blit2SawOscillator_f64_block_get, _wrap_Blit2SawOscillator_f64_block_set },
-    { "nHarmonics_", _wrap_Blit2SawOscillator_f64_nHarmonics__get, _wrap_Blit2SawOscillator_f64_nHarmonics__set },
-    { "m_", _wrap_Blit2SawOscillator_f64_m__get, _wrap_Blit2SawOscillator_f64_m__set },
-    { "rate_", _wrap_Blit2SawOscillator_f64_rate__get, _wrap_Blit2SawOscillator_f64_rate__set },
-    { "phase_", _wrap_Blit2SawOscillator_f64_phase__get, _wrap_Blit2SawOscillator_f64_phase__set },
-    { "offset", _wrap_Blit2SawOscillator_f64_offset_get, _wrap_Blit2SawOscillator_f64_offset_set },
-    { "p_", _wrap_Blit2SawOscillator_f64_p__get, _wrap_Blit2SawOscillator_f64_p__set },
-    { "C2_", _wrap_Blit2SawOscillator_f64_C2__get, _wrap_Blit2SawOscillator_f64_C2__set },
-    { "a_", _wrap_Blit2SawOscillator_f64_a__get, _wrap_Blit2SawOscillator_f64_a__set },
-    { "state_", _wrap_Blit2SawOscillator_f64_state__get, _wrap_Blit2SawOscillator_f64_state__set },
-    { "y", _wrap_Blit2SawOscillator_f64_y_get, _wrap_Blit2SawOscillator_f64_y_set },
-    { "sampleRate", _wrap_Blit2SawOscillator_f64_sampleRate_get, _wrap_Blit2SawOscillator_f64_sampleRate_set },
-    {0,0,0}
-};
-static swig_lua_method swig_Blit2SawOscillator_f64_methods[]= {
-    { "reset", _wrap_Blit2SawOscillator_f64_reset},
-    { "setFrequency", _wrap_Blit2SawOscillator_f64_setFrequency},
-    { "setHarmonics", _wrap_Blit2SawOscillator_f64_setHarmonics},
-    { "getPhase", _wrap_Blit2SawOscillator_f64_getPhase},
-    { "setPhaseOffset", _wrap_Blit2SawOscillator_f64_setPhaseOffset},
-    { "updateHarmonics", _wrap_Blit2SawOscillator_f64_updateHarmonics},
-    { "setPort", _wrap_Blit2SawOscillator_f64_setPort},
-    { "lastOut", _wrap_Blit2SawOscillator_f64_lastOut},
-    { "Tick", _wrap_Blit2SawOscillator_f64_Tick},
-    { "ProcessSIMD", _wrap_Blit2SawOscillator_f64_ProcessSIMD},
-    { "ProcessBlock", _wrap_Blit2SawOscillator_f64_ProcessBlock},
-    { "ProcessInplace", _wrap_Blit2SawOscillator_f64_ProcessInplace},
-    { "__call", _wrap_Blit2SawOscillator_f64___call},
-    {0,0}
-};
-static swig_lua_method swig_Blit2SawOscillator_f64_meta[] = {
-    { "__call", _wrap_Blit2SawOscillator_f64___call},
-    {0,0}
-};
-
-static swig_lua_attribute swig_Blit2SawOscillator_f64_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_Blit2SawOscillator_f64_Sf_SwigStatic_constants[]= {
-    {SWIG_LUA_CONSTTAB_INT("PORT_FREQ", Analog::Oscillators::Blit2SawOscillator< double >::PORT_FREQ)},
-    {SWIG_LUA_CONSTTAB_INT("PORT_HARMONICS", Analog::Oscillators::Blit2SawOscillator< double >::PORT_HARMONICS)},
-    {SWIG_LUA_CONSTTAB_INT("PORT_PHASE", Analog::Oscillators::Blit2SawOscillator< double >::PORT_PHASE)},
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_Blit2SawOscillator_f64_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_Blit2SawOscillator_f64_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_Blit2SawOscillator_f64_Sf_SwigStatic = {
-    "Blit2SawOscillator_f64",
-    swig_Blit2SawOscillator_f64_Sf_SwigStatic_methods,
-    swig_Blit2SawOscillator_f64_Sf_SwigStatic_attributes,
-    swig_Blit2SawOscillator_f64_Sf_SwigStatic_constants,
-    swig_Blit2SawOscillator_f64_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_Blit2SawOscillator_f64_bases[] = {0};
-static const char *swig_Blit2SawOscillator_f64_base_names[] = {0};
-static swig_lua_class _wrap_class_Blit2SawOscillator_f64 = { "Blit2SawOscillator_f64", "Blit2SawOscillator_f64", &SWIGTYPE_p_Analog__Oscillators__Blit2SawOscillatorT_double_t,_proxy__wrap_new_Blit2SawOscillator_f64, swig_delete_Blit2SawOscillator_f64, swig_Blit2SawOscillator_f64_methods, swig_Blit2SawOscillator_f64_attributes, &swig_Blit2SawOscillator_f64_Sf_SwigStatic, swig_Blit2SawOscillator_f64_meta, swig_Blit2SawOscillator_f64_bases, swig_Blit2SawOscillator_f64_base_names };
-
-static int _wrap_Blit2SquareOscillator_f32_block_set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
-  FX::Filters::OnePole arg2 ;
-  FX::Filters::OnePole *argp2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::block",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::block",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::block",2,"FX::Filters::OnePole");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_block_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
-  }
-  
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_FX__Filters__OnePole,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_block_set",2,SWIGTYPE_p_FX__Filters__OnePole);
-  }
-  arg2 = *argp2;
-  
-  if (arg1) (arg1)->block = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f32_block_get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
-  FX::Filters::OnePole result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::block",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::block",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_block_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
-  }
-  
-  result =  ((arg1)->block);
-  {
-    FX::Filters::OnePole * resultptr = new FX::Filters::OnePole((const FX::Filters::OnePole &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_FX__Filters__OnePole,1); SWIG_arg++;
-  }
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f32_nHarmonics__set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
-  unsigned int arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::nHarmonics_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::nHarmonics_",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::nHarmonics_",2,"unsigned int");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_nHarmonics__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
-  }
-  
-  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-  arg2 = (unsigned int)lua_tonumber(L, 2);
-  if (arg1) (arg1)->nHarmonics_ = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f32_nHarmonics__get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
-  unsigned int result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::nHarmonics_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::nHarmonics_",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_nHarmonics__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
-  }
-  
-  result = (unsigned int) ((arg1)->nHarmonics_);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f32_m__set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
-  unsigned int arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::m_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::m_",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::m_",2,"unsigned int");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_m__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
-  }
-  
-  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-  arg2 = (unsigned int)lua_tonumber(L, 2);
-  if (arg1) (arg1)->m_ = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f32_m__get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
-  unsigned int result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::m_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::m_",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_m__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
-  }
-  
-  result = (unsigned int) ((arg1)->m_);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f32_f_set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::f",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::f",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::f",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::f",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::f",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::f",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_f_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_f_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -12597,16 +11127,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_f_get(lua_State* L) {
+static int _wrap_BlitSquareOscillator_f_get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::f",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::f",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::f",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::f",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_f_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_f_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   result = (float) ((arg1)->f);
@@ -12621,17 +11151,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_rate__set(lua_State* L) {
+static int _wrap_BlitSquareOscillator_rate__set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::rate_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::rate_",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::rate_",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::rate_",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::rate_",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::rate_",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_rate__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_rate__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -12647,16 +11177,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_rate__get(lua_State* L) {
+static int _wrap_BlitSquareOscillator_rate__get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::rate_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::rate_",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::rate_",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::rate_",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_rate__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_rate__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   result = (float) ((arg1)->rate_);
@@ -12671,17 +11201,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_phase__set(lua_State* L) {
+static int _wrap_BlitSquareOscillator_phase__set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::phase_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::phase_",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::phase_",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::phase_",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::phase_",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::phase_",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_phase__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_phase__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -12697,16 +11227,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_phase__get(lua_State* L) {
+static int _wrap_BlitSquareOscillator_phase__get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::phase_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::phase_",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::phase_",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::phase_",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_phase__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_phase__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   result = (float) ((arg1)->phase_);
@@ -12721,17 +11251,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_offset_set(lua_State* L) {
+static int _wrap_BlitSquareOscillator_offset_set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::offset",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::offset",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::offset",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::offset",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::offset",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::offset",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_offset_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_offset_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -12747,16 +11277,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_offset_get(lua_State* L) {
+static int _wrap_BlitSquareOscillator_offset_get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::offset",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::offset",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::offset",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::offset",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_offset_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_offset_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   result = (float) ((arg1)->offset);
@@ -12771,17 +11301,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_p__set(lua_State* L) {
+static int _wrap_BlitSquareOscillator_p__set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::p_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::p_",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::p_",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::p_",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::p_",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::p_",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_p__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_p__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -12797,16 +11327,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_p__get(lua_State* L) {
+static int _wrap_BlitSquareOscillator_p__get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::p_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::p_",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::p_",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::p_",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_p__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_p__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   result = (float) ((arg1)->p_);
@@ -12821,17 +11351,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_C2__set(lua_State* L) {
+static int _wrap_BlitSquareOscillator_C2__set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::C2_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::C2_",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::C2_",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::C2_",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::C2_",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::C2_",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_C2__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_C2__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -12847,16 +11377,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_C2__get(lua_State* L) {
+static int _wrap_BlitSquareOscillator_C2__get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::C2_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::C2_",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::C2_",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::C2_",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_C2__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_C2__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   result = (float) ((arg1)->C2_);
@@ -12871,17 +11401,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_a__set(lua_State* L) {
+static int _wrap_BlitSquareOscillator_a__set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::a_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::a_",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::a_",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::a_",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::a_",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::a_",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_a__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_a__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -12897,16 +11427,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_a__get(lua_State* L) {
+static int _wrap_BlitSquareOscillator_a__get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::a_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::a_",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::a_",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::a_",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_a__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_a__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   result = (float) ((arg1)->a_);
@@ -12921,17 +11451,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_state__set(lua_State* L) {
+static int _wrap_BlitSquareOscillator_state__set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::state_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::state_",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::state_",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::state_",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::state_",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::state_",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_state__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_state__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -12947,16 +11477,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_state__get(lua_State* L) {
+static int _wrap_BlitSquareOscillator_state__get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::state_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::state_",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::state_",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::state_",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_state__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_state__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   result = (float) ((arg1)->state_);
@@ -12971,17 +11501,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_y_set(lua_State* L) {
+static int _wrap_BlitSquareOscillator_y_set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::y",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::y",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::y",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::y",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::y",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::y",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_y_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_y_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -12997,16 +11527,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_y_get(lua_State* L) {
+static int _wrap_BlitSquareOscillator_y_get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::y",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::y",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::y",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::y",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_y_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_y_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   result = (float) ((arg1)->y);
@@ -13021,17 +11551,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_D_set(lua_State* L) {
+static int _wrap_BlitSquareOscillator_D_set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::D",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::D",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::D",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::D",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::D",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::D",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_D_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_D_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -13047,16 +11577,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_D_get(lua_State* L) {
+static int _wrap_BlitSquareOscillator_D_get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::D",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::D",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::D",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::D",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_D_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_D_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   result = (float) ((arg1)->D);
@@ -13071,17 +11601,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_sampleRate_set(lua_State* L) {
+static int _wrap_BlitSquareOscillator_sampleRate_set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::sampleRate",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::sampleRate",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::sampleRate",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::sampleRate",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::sampleRate",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::sampleRate",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_sampleRate_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_sampleRate_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -13097,16 +11627,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_sampleRate_get(lua_State* L) {
+static int _wrap_BlitSquareOscillator_sampleRate_get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::sampleRate",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::sampleRate",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::sampleRate",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::sampleRate",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_sampleRate_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_sampleRate_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   result = (float) ((arg1)->sampleRate);
@@ -13121,18 +11651,18 @@ fail:
 }
 
 
-static int _wrap_new_Blit2SquareOscillator_f32__SWIG_0(lua_State* L) {
+static int _wrap_new_BlitSquareOscillator__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   float arg1 ;
   float arg2 ;
-  Analog::Oscillators::Blit2SquareOscillator< float > *result = 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *result = 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::Blit2SquareOscillator",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::Blit2SquareOscillator",1,"float");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::Blit2SquareOscillator",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Blit2SquareOscillator",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Blit2SquareOscillator",1,"float");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Blit2SquareOscillator",2,"float");
   arg1 = (float)lua_tonumber(L, 1);
   arg2 = (float)lua_tonumber(L, 2);
-  result = (Analog::Oscillators::Blit2SquareOscillator< float > *)new Analog::Oscillators::Blit2SquareOscillator< float >(arg1,arg2);
+  result = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *)new Analog::Oscillators::Blit2SquareOscillator< DspFloatType >(arg1,arg2);
   SWIG_NewPointerObj(L,result,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,1); SWIG_arg++; 
   return SWIG_arg;
   
@@ -13144,15 +11674,15 @@ fail:
 }
 
 
-static int _wrap_new_Blit2SquareOscillator_f32__SWIG_1(lua_State* L) {
+static int _wrap_new_BlitSquareOscillator__SWIG_1(lua_State* L) {
   int SWIG_arg = 0;
   float arg1 ;
-  Analog::Oscillators::Blit2SquareOscillator< float > *result = 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *result = 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::Blit2SquareOscillator",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::Blit2SquareOscillator",1,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Blit2SquareOscillator",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Blit2SquareOscillator",1,"float");
   arg1 = (float)lua_tonumber(L, 1);
-  result = (Analog::Oscillators::Blit2SquareOscillator< float > *)new Analog::Oscillators::Blit2SquareOscillator< float >(arg1);
+  result = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *)new Analog::Oscillators::Blit2SquareOscillator< DspFloatType >(arg1);
   SWIG_NewPointerObj(L,result,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,1); SWIG_arg++; 
   return SWIG_arg;
   
@@ -13164,12 +11694,12 @@ fail:
 }
 
 
-static int _wrap_new_Blit2SquareOscillator_f32__SWIG_2(lua_State* L) {
+static int _wrap_new_BlitSquareOscillator__SWIG_2(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *result = 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *result = 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::Blit2SquareOscillator",0,0)
-  result = (Analog::Oscillators::Blit2SquareOscillator< float > *)new Analog::Oscillators::Blit2SquareOscillator< float >();
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Blit2SquareOscillator",0,0)
+  result = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *)new Analog::Oscillators::Blit2SquareOscillator< DspFloatType >();
   SWIG_NewPointerObj(L,result,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,1); SWIG_arg++; 
   return SWIG_arg;
   
@@ -13181,7 +11711,7 @@ fail:
 }
 
 
-static int _wrap_new_Blit2SquareOscillator_f32(lua_State* L) {
+static int _wrap_new_BlitSquareOscillator(lua_State* L) {
   int argc;
   int argv[3]={
     1,2,3
@@ -13189,7 +11719,7 @@ static int _wrap_new_Blit2SquareOscillator_f32(lua_State* L) {
   
   argc = lua_gettop(L);
   if (argc == 0) {
-    return _wrap_new_Blit2SquareOscillator_f32__SWIG_2(L);
+    return _wrap_new_BlitSquareOscillator__SWIG_2(L);
   }
   if (argc == 1) {
     int _v = 0;
@@ -13197,7 +11727,7 @@ static int _wrap_new_Blit2SquareOscillator_f32(lua_State* L) {
       _v = lua_isnumber(L,argv[0]);
     }
     if (_v) {
-      return _wrap_new_Blit2SquareOscillator_f32__SWIG_1(L);
+      return _wrap_new_BlitSquareOscillator__SWIG_1(L);
     }
   }
   if (argc == 2) {
@@ -13210,29 +11740,29 @@ static int _wrap_new_Blit2SquareOscillator_f32(lua_State* L) {
         _v = lua_isnumber(L,argv[1]);
       }
       if (_v) {
-        return _wrap_new_Blit2SquareOscillator_f32__SWIG_0(L);
+        return _wrap_new_BlitSquareOscillator__SWIG_0(L);
       }
     }
   }
   
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'new_Blit2SquareOscillator_f32'\n"
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'new_BlitSquareOscillator'\n"
     "  Possible C/C++ prototypes are:\n"
-    "    Analog::Oscillators::Blit2SquareOscillator< float >::Blit2SquareOscillator(float,float)\n"
-    "    Analog::Oscillators::Blit2SquareOscillator< float >::Blit2SquareOscillator(float)\n"
-    "    Analog::Oscillators::Blit2SquareOscillator< float >::Blit2SquareOscillator()\n");
+    "    Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Blit2SquareOscillator(float,float)\n"
+    "    Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Blit2SquareOscillator(float)\n"
+    "    Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Blit2SquareOscillator()\n");
   lua_error(L);return 0;
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_reset(lua_State* L) {
+static int _wrap_BlitSquareOscillator_reset(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::reset",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::reset",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::reset",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::reset",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_reset",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_reset",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   (arg1)->reset();
@@ -13247,17 +11777,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_setFrequency(lua_State* L) {
+static int _wrap_BlitSquareOscillator_setFrequency(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::setFrequency",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::setFrequency",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::setFrequency",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::setFrequency",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::setFrequency",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::setFrequency",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_setFrequency",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_setFrequency",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -13273,17 +11803,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_setHarmonics__SWIG_0(lua_State* L) {
+static int _wrap_BlitSquareOscillator_setHarmonics__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   unsigned int arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::setHarmonics",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::setHarmonics",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::setHarmonics",2,"unsigned int");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::setHarmonics",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::setHarmonics",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::setHarmonics",2,"unsigned int");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_setHarmonics",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_setHarmonics",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
@@ -13300,15 +11830,15 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_setHarmonics__SWIG_1(lua_State* L) {
+static int _wrap_BlitSquareOscillator_setHarmonics__SWIG_1(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::setHarmonics",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::setHarmonics",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::setHarmonics",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::setHarmonics",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_setHarmonics",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_setHarmonics",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   (arg1)->setHarmonics();
@@ -13323,7 +11853,7 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_setHarmonics(lua_State* L) {
+static int _wrap_BlitSquareOscillator_setHarmonics(lua_State* L) {
   int argc;
   int argv[3]={
     1,2,3
@@ -13341,7 +11871,7 @@ static int _wrap_Blit2SquareOscillator_f32_setHarmonics(lua_State* L) {
       }
     }
     if (_v) {
-      return _wrap_Blit2SquareOscillator_f32_setHarmonics__SWIG_1(L);
+      return _wrap_BlitSquareOscillator_setHarmonics__SWIG_1(L);
     }
   }
   if (argc == 2) {
@@ -13359,30 +11889,30 @@ static int _wrap_Blit2SquareOscillator_f32_setHarmonics(lua_State* L) {
         _v = lua_isnumber(L,argv[1]);
       }
       if (_v) {
-        return _wrap_Blit2SquareOscillator_f32_setHarmonics__SWIG_0(L);
+        return _wrap_BlitSquareOscillator_setHarmonics__SWIG_0(L);
       }
     }
   }
   
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'Blit2SquareOscillator_f32_setHarmonics'\n"
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'BlitSquareOscillator_setHarmonics'\n"
     "  Possible C/C++ prototypes are:\n"
-    "    Analog::Oscillators::Blit2SquareOscillator< float >::setHarmonics(unsigned int)\n"
-    "    Analog::Oscillators::Blit2SquareOscillator< float >::setHarmonics()\n");
+    "    Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::setHarmonics(unsigned int)\n"
+    "    Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::setHarmonics()\n");
   lua_error(L);return 0;
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_setDuty(lua_State* L) {
+static int _wrap_BlitSquareOscillator_setDuty(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::setDuty",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::setDuty",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::setDuty",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::setDuty",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::setDuty",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::setDuty",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_setDuty",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_setDuty",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -13398,16 +11928,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_getPhase(lua_State* L) {
+static int _wrap_BlitSquareOscillator_getPhase(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::getPhase",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::getPhase",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::getPhase",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::getPhase",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_getPhase",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_getPhase",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   result = (float)(arg1)->getPhase();
@@ -13422,17 +11952,17 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_setPhaseOffset(lua_State* L) {
+static int _wrap_BlitSquareOscillator_setPhaseOffset(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::setPhaseOffset",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::setPhaseOffset",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::setPhaseOffset",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::setPhaseOffset",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::setPhaseOffset",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::setPhaseOffset",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_setPhaseOffset",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_setPhaseOffset",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -13448,15 +11978,15 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_updateHarmonics(lua_State* L) {
+static int _wrap_BlitSquareOscillator_updateHarmonics(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::updateHarmonics",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::updateHarmonics",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::updateHarmonics",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::updateHarmonics",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_updateHarmonics",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_updateHarmonics",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   (arg1)->updateHarmonics();
@@ -13471,19 +12001,19 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_setPort(lua_State* L) {
+static int _wrap_BlitSquareOscillator_setPort(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   int arg2 ;
   float arg3 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::setPort",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::setPort",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::setPort",2,"int");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::setPort",3,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::setPort",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::setPort",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::setPort",2,"int");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::setPort",3,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_setPort",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_setPort",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   arg2 = (int)lua_tonumber(L, 2);
@@ -13500,19 +12030,19 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_lastOut(lua_State* L) {
+static int _wrap_BlitSquareOscillator_lastOut(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::lastOut",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::lastOut",1,"Analog::Oscillators::Blit2SquareOscillator< float > const *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::lastOut",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::lastOut",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > const *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_lastOut",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_lastOut",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
-  result = (float)((Analog::Oscillators::Blit2SquareOscillator< float > const *)arg1)->lastOut();
+  result = (float)((Analog::Oscillators::Blit2SquareOscillator< DspFloatType > const *)arg1)->lastOut();
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -13524,24 +12054,24 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_Tick__SWIG_0(lua_State* L) {
+static int _wrap_BlitSquareOscillator_Tick__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   float arg3 ;
   float arg4 ;
   float arg5 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::Tick",5,5)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::Tick",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::Tick",2,"float");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::Tick",3,"float");
-  if(!lua_isnumber(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::Tick",4,"float");
-  if(!lua_isnumber(L,5)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::Tick",5,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick",5,5)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick",2,"float");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick",3,"float");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick",4,"float");
+  if(!lua_isnumber(L,5)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick",5,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -13560,22 +12090,22 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_Tick__SWIG_1(lua_State* L) {
+static int _wrap_BlitSquareOscillator_Tick__SWIG_1(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   float arg3 ;
   float arg4 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::Tick",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::Tick",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::Tick",2,"float");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::Tick",3,"float");
-  if(!lua_isnumber(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::Tick",4,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick",2,"float");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick",3,"float");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick",4,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -13593,20 +12123,20 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_Tick__SWIG_2(lua_State* L) {
+static int _wrap_BlitSquareOscillator_Tick__SWIG_2(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   float arg3 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::Tick",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::Tick",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::Tick",2,"float");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::Tick",3,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick",2,"float");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick",3,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -13623,18 +12153,18 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_Tick__SWIG_3(lua_State* L) {
+static int _wrap_BlitSquareOscillator_Tick__SWIG_3(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::Tick",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::Tick",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::Tick",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -13650,16 +12180,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_Tick__SWIG_4(lua_State* L) {
+static int _wrap_BlitSquareOscillator_Tick__SWIG_4(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::Tick",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::Tick",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   result = (float)(arg1)->Tick();
@@ -13674,7 +12204,7 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_Tick(lua_State* L) {
+static int _wrap_BlitSquareOscillator_Tick(lua_State* L) {
   int argc;
   int argv[6]={
     1,2,3,4,5,6
@@ -13692,7 +12222,7 @@ static int _wrap_Blit2SquareOscillator_f32_Tick(lua_State* L) {
       }
     }
     if (_v) {
-      return _wrap_Blit2SquareOscillator_f32_Tick__SWIG_4(L);
+      return _wrap_BlitSquareOscillator_Tick__SWIG_4(L);
     }
   }
   if (argc == 2) {
@@ -13710,7 +12240,7 @@ static int _wrap_Blit2SquareOscillator_f32_Tick(lua_State* L) {
         _v = lua_isnumber(L,argv[1]);
       }
       if (_v) {
-        return _wrap_Blit2SquareOscillator_f32_Tick__SWIG_3(L);
+        return _wrap_BlitSquareOscillator_Tick__SWIG_3(L);
       }
     }
   }
@@ -13733,7 +12263,7 @@ static int _wrap_Blit2SquareOscillator_f32_Tick(lua_State* L) {
           _v = lua_isnumber(L,argv[2]);
         }
         if (_v) {
-          return _wrap_Blit2SquareOscillator_f32_Tick__SWIG_2(L);
+          return _wrap_BlitSquareOscillator_Tick__SWIG_2(L);
         }
       }
     }
@@ -13761,7 +12291,7 @@ static int _wrap_Blit2SquareOscillator_f32_Tick(lua_State* L) {
             _v = lua_isnumber(L,argv[3]);
           }
           if (_v) {
-            return _wrap_Blit2SquareOscillator_f32_Tick__SWIG_1(L);
+            return _wrap_BlitSquareOscillator_Tick__SWIG_1(L);
           }
         }
       }
@@ -13794,7 +12324,7 @@ static int _wrap_Blit2SquareOscillator_f32_Tick(lua_State* L) {
               _v = lua_isnumber(L,argv[4]);
             }
             if (_v) {
-              return _wrap_Blit2SquareOscillator_f32_Tick__SWIG_0(L);
+              return _wrap_BlitSquareOscillator_Tick__SWIG_0(L);
             }
           }
         }
@@ -13802,44 +12332,44 @@ static int _wrap_Blit2SquareOscillator_f32_Tick(lua_State* L) {
     }
   }
   
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'Blit2SquareOscillator_f32_Tick'\n"
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'BlitSquareOscillator_Tick'\n"
     "  Possible C/C++ prototypes are:\n"
-    "    Analog::Oscillators::Blit2SquareOscillator< float >::Tick(float,float,float,float)\n"
-    "    Analog::Oscillators::Blit2SquareOscillator< float >::Tick(float,float,float)\n"
-    "    Analog::Oscillators::Blit2SquareOscillator< float >::Tick(float,float)\n"
-    "    Analog::Oscillators::Blit2SquareOscillator< float >::Tick(float)\n"
-    "    Analog::Oscillators::Blit2SquareOscillator< float >::Tick()\n");
+    "    Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick(float,float,float,float)\n"
+    "    Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick(float,float,float)\n"
+    "    Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick(float,float)\n"
+    "    Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick(float)\n"
+    "    Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::Tick()\n");
   lua_error(L);return 0;
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_ProcessSIMD(lua_State* L) {
+static int _wrap_BlitSquareOscillator_ProcessSIMD(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   size_t arg2 ;
   float *arg3 = (float *) 0 ;
   float *arg4 = (float *) 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::ProcessSIMD",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::ProcessSIMD",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::ProcessSIMD",2,"size_t");
-  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::ProcessSIMD",3,"float *");
-  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::ProcessSIMD",4,"float *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::ProcessSIMD",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::ProcessSIMD",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::ProcessSIMD",3,"float *");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::ProcessSIMD",4,"float *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_ProcessSIMD",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_ProcessSIMD",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_ProcessSIMD",3,SWIGTYPE_p_float);
+    SWIG_fail_ptr("BlitSquareOscillator_ProcessSIMD",3,SWIGTYPE_p_float);
   }
   
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_ProcessSIMD",4,SWIGTYPE_p_float);
+    SWIG_fail_ptr("BlitSquareOscillator_ProcessSIMD",4,SWIGTYPE_p_float);
   }
   
   (arg1)->ProcessSIMD(arg2,arg3,arg4);
@@ -13854,33 +12384,33 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_ProcessBlock(lua_State* L) {
+static int _wrap_BlitSquareOscillator_ProcessBlock(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   size_t arg2 ;
   float *arg3 = (float *) 0 ;
   float *arg4 = (float *) 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::ProcessBlock",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::ProcessBlock",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::ProcessBlock",2,"size_t");
-  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::ProcessBlock",3,"float *");
-  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::ProcessBlock",4,"float *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::ProcessBlock",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::ProcessBlock",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::ProcessBlock",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::ProcessBlock",3,"float *");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::ProcessBlock",4,"float *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_ProcessBlock",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_ProcessBlock",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_ProcessBlock",3,SWIGTYPE_p_float);
+    SWIG_fail_ptr("BlitSquareOscillator_ProcessBlock",3,SWIGTYPE_p_float);
   }
   
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_ProcessBlock",4,SWIGTYPE_p_float);
+    SWIG_fail_ptr("BlitSquareOscillator_ProcessBlock",4,SWIGTYPE_p_float);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4);
@@ -13895,26 +12425,26 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32_ProcessInplace(lua_State* L) {
+static int _wrap_BlitSquareOscillator_ProcessInplace(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   size_t arg2 ;
   float *arg3 = (float *) 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::ProcessInplace",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::ProcessInplace",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::ProcessInplace",2,"size_t");
-  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::ProcessInplace",3,"float *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::ProcessInplace",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::ProcessInplace",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::ProcessInplace",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::ProcessInplace",3,"float *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_ProcessInplace",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator_ProcessInplace",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32_ProcessInplace",3,SWIGTYPE_p_float);
+    SWIG_fail_ptr("BlitSquareOscillator_ProcessInplace",3,SWIGTYPE_p_float);
   }
   
   (arg1)->ProcessInplace(arg2,arg3);
@@ -13929,16 +12459,16 @@ fail:
 }
 
 
-static int _wrap_Blit2SquareOscillator_f32___call(lua_State* L) {
+static int _wrap_BlitSquareOscillator___call(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< float >::operator ()",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< float >::operator ()",1,"Analog::Oscillators::Blit2SquareOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::operator ()",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::operator ()",1,"Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f32___call",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitSquareOscillator___call",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   result = (float)(arg1)->operator ()();
@@ -13953,1723 +12483,101 @@ fail:
 }
 
 
-static void swig_delete_Blit2SquareOscillator_f32(void *obj) {
-Analog::Oscillators::Blit2SquareOscillator< float > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< float > *) obj;
+static void swig_delete_BlitSquareOscillator(void *obj) {
+Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *) obj;
 delete arg1;
 }
-static int _proxy__wrap_new_Blit2SquareOscillator_f32(lua_State *L) {
+static int _proxy__wrap_new_BlitSquareOscillator(lua_State *L) {
     assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_Blit2SquareOscillator_f32);
+    lua_pushcfunction(L,_wrap_new_BlitSquareOscillator);
     assert(!lua_isnil(L,-1));
     lua_replace(L,1); /* replace our table with real constructor */
     lua_call(L,lua_gettop(L)-1,1);
     return 1;
 }
-static swig_lua_attribute swig_Blit2SquareOscillator_f32_attributes[] = {
-    { "block", _wrap_Blit2SquareOscillator_f32_block_get, _wrap_Blit2SquareOscillator_f32_block_set },
-    { "nHarmonics_", _wrap_Blit2SquareOscillator_f32_nHarmonics__get, _wrap_Blit2SquareOscillator_f32_nHarmonics__set },
-    { "m_", _wrap_Blit2SquareOscillator_f32_m__get, _wrap_Blit2SquareOscillator_f32_m__set },
-    { "f", _wrap_Blit2SquareOscillator_f32_f_get, _wrap_Blit2SquareOscillator_f32_f_set },
-    { "rate_", _wrap_Blit2SquareOscillator_f32_rate__get, _wrap_Blit2SquareOscillator_f32_rate__set },
-    { "phase_", _wrap_Blit2SquareOscillator_f32_phase__get, _wrap_Blit2SquareOscillator_f32_phase__set },
-    { "offset", _wrap_Blit2SquareOscillator_f32_offset_get, _wrap_Blit2SquareOscillator_f32_offset_set },
-    { "p_", _wrap_Blit2SquareOscillator_f32_p__get, _wrap_Blit2SquareOscillator_f32_p__set },
-    { "C2_", _wrap_Blit2SquareOscillator_f32_C2__get, _wrap_Blit2SquareOscillator_f32_C2__set },
-    { "a_", _wrap_Blit2SquareOscillator_f32_a__get, _wrap_Blit2SquareOscillator_f32_a__set },
-    { "state_", _wrap_Blit2SquareOscillator_f32_state__get, _wrap_Blit2SquareOscillator_f32_state__set },
-    { "y", _wrap_Blit2SquareOscillator_f32_y_get, _wrap_Blit2SquareOscillator_f32_y_set },
-    { "D", _wrap_Blit2SquareOscillator_f32_D_get, _wrap_Blit2SquareOscillator_f32_D_set },
-    { "sampleRate", _wrap_Blit2SquareOscillator_f32_sampleRate_get, _wrap_Blit2SquareOscillator_f32_sampleRate_set },
+static swig_lua_attribute swig_BlitSquareOscillator_attributes[] = {
+    { "block", _wrap_BlitSquareOscillator_block_get, _wrap_BlitSquareOscillator_block_set },
+    { "nHarmonics_", _wrap_BlitSquareOscillator_nHarmonics__get, _wrap_BlitSquareOscillator_nHarmonics__set },
+    { "m_", _wrap_BlitSquareOscillator_m__get, _wrap_BlitSquareOscillator_m__set },
+    { "f", _wrap_BlitSquareOscillator_f_get, _wrap_BlitSquareOscillator_f_set },
+    { "rate_", _wrap_BlitSquareOscillator_rate__get, _wrap_BlitSquareOscillator_rate__set },
+    { "phase_", _wrap_BlitSquareOscillator_phase__get, _wrap_BlitSquareOscillator_phase__set },
+    { "offset", _wrap_BlitSquareOscillator_offset_get, _wrap_BlitSquareOscillator_offset_set },
+    { "p_", _wrap_BlitSquareOscillator_p__get, _wrap_BlitSquareOscillator_p__set },
+    { "C2_", _wrap_BlitSquareOscillator_C2__get, _wrap_BlitSquareOscillator_C2__set },
+    { "a_", _wrap_BlitSquareOscillator_a__get, _wrap_BlitSquareOscillator_a__set },
+    { "state_", _wrap_BlitSquareOscillator_state__get, _wrap_BlitSquareOscillator_state__set },
+    { "y", _wrap_BlitSquareOscillator_y_get, _wrap_BlitSquareOscillator_y_set },
+    { "D", _wrap_BlitSquareOscillator_D_get, _wrap_BlitSquareOscillator_D_set },
+    { "sampleRate", _wrap_BlitSquareOscillator_sampleRate_get, _wrap_BlitSquareOscillator_sampleRate_set },
     {0,0,0}
 };
-static swig_lua_method swig_Blit2SquareOscillator_f32_methods[]= {
-    { "reset", _wrap_Blit2SquareOscillator_f32_reset},
-    { "setFrequency", _wrap_Blit2SquareOscillator_f32_setFrequency},
-    { "setHarmonics", _wrap_Blit2SquareOscillator_f32_setHarmonics},
-    { "setDuty", _wrap_Blit2SquareOscillator_f32_setDuty},
-    { "getPhase", _wrap_Blit2SquareOscillator_f32_getPhase},
-    { "setPhaseOffset", _wrap_Blit2SquareOscillator_f32_setPhaseOffset},
-    { "updateHarmonics", _wrap_Blit2SquareOscillator_f32_updateHarmonics},
-    { "setPort", _wrap_Blit2SquareOscillator_f32_setPort},
-    { "lastOut", _wrap_Blit2SquareOscillator_f32_lastOut},
-    { "Tick", _wrap_Blit2SquareOscillator_f32_Tick},
-    { "ProcessSIMD", _wrap_Blit2SquareOscillator_f32_ProcessSIMD},
-    { "ProcessBlock", _wrap_Blit2SquareOscillator_f32_ProcessBlock},
-    { "ProcessInplace", _wrap_Blit2SquareOscillator_f32_ProcessInplace},
-    { "__call", _wrap_Blit2SquareOscillator_f32___call},
+static swig_lua_method swig_BlitSquareOscillator_methods[]= {
+    { "reset", _wrap_BlitSquareOscillator_reset},
+    { "setFrequency", _wrap_BlitSquareOscillator_setFrequency},
+    { "setHarmonics", _wrap_BlitSquareOscillator_setHarmonics},
+    { "setDuty", _wrap_BlitSquareOscillator_setDuty},
+    { "getPhase", _wrap_BlitSquareOscillator_getPhase},
+    { "setPhaseOffset", _wrap_BlitSquareOscillator_setPhaseOffset},
+    { "updateHarmonics", _wrap_BlitSquareOscillator_updateHarmonics},
+    { "setPort", _wrap_BlitSquareOscillator_setPort},
+    { "lastOut", _wrap_BlitSquareOscillator_lastOut},
+    { "Tick", _wrap_BlitSquareOscillator_Tick},
+    { "ProcessSIMD", _wrap_BlitSquareOscillator_ProcessSIMD},
+    { "ProcessBlock", _wrap_BlitSquareOscillator_ProcessBlock},
+    { "ProcessInplace", _wrap_BlitSquareOscillator_ProcessInplace},
+    { "__call", _wrap_BlitSquareOscillator___call},
     {0,0}
 };
-static swig_lua_method swig_Blit2SquareOscillator_f32_meta[] = {
-    { "__call", _wrap_Blit2SquareOscillator_f32___call},
+static swig_lua_method swig_BlitSquareOscillator_meta[] = {
+    { "__call", _wrap_BlitSquareOscillator___call},
     {0,0}
 };
 
-static swig_lua_attribute swig_Blit2SquareOscillator_f32_Sf_SwigStatic_attributes[] = {
+static swig_lua_attribute swig_BlitSquareOscillator_Sf_SwigStatic_attributes[] = {
     {0,0,0}
 };
-static swig_lua_const_info swig_Blit2SquareOscillator_f32_Sf_SwigStatic_constants[]= {
-    {SWIG_LUA_CONSTTAB_INT("PORT_FREQ", Analog::Oscillators::Blit2SquareOscillator< float >::PORT_FREQ)},
-    {SWIG_LUA_CONSTTAB_INT("PORT_HARMONICS", Analog::Oscillators::Blit2SquareOscillator< float >::PORT_HARMONICS)},
-    {SWIG_LUA_CONSTTAB_INT("PORT_PHASE", Analog::Oscillators::Blit2SquareOscillator< float >::PORT_PHASE)},
+static swig_lua_const_info swig_BlitSquareOscillator_Sf_SwigStatic_constants[]= {
+    {SWIG_LUA_CONSTTAB_INT("PORT_FREQ", Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::PORT_FREQ)},
+    {SWIG_LUA_CONSTTAB_INT("PORT_HARMONICS", Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::PORT_HARMONICS)},
+    {SWIG_LUA_CONSTTAB_INT("PORT_PHASE", Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::PORT_PHASE)},
     {0,0,0,0,0,0}
 };
-static swig_lua_method swig_Blit2SquareOscillator_f32_Sf_SwigStatic_methods[]= {
+static swig_lua_method swig_BlitSquareOscillator_Sf_SwigStatic_methods[]= {
     {0,0}
 };
-static swig_lua_class* swig_Blit2SquareOscillator_f32_Sf_SwigStatic_classes[]= {
+static swig_lua_class* swig_BlitSquareOscillator_Sf_SwigStatic_classes[]= {
     0
 };
 
-static swig_lua_namespace swig_Blit2SquareOscillator_f32_Sf_SwigStatic = {
-    "Blit2SquareOscillator_f32",
-    swig_Blit2SquareOscillator_f32_Sf_SwigStatic_methods,
-    swig_Blit2SquareOscillator_f32_Sf_SwigStatic_attributes,
-    swig_Blit2SquareOscillator_f32_Sf_SwigStatic_constants,
-    swig_Blit2SquareOscillator_f32_Sf_SwigStatic_classes,
+static swig_lua_namespace swig_BlitSquareOscillator_Sf_SwigStatic = {
+    "BlitSquareOscillator",
+    swig_BlitSquareOscillator_Sf_SwigStatic_methods,
+    swig_BlitSquareOscillator_Sf_SwigStatic_attributes,
+    swig_BlitSquareOscillator_Sf_SwigStatic_constants,
+    swig_BlitSquareOscillator_Sf_SwigStatic_classes,
     0
 };
-static swig_lua_class *swig_Blit2SquareOscillator_f32_bases[] = {0};
-static const char *swig_Blit2SquareOscillator_f32_base_names[] = {0};
-static swig_lua_class _wrap_class_Blit2SquareOscillator_f32 = { "Blit2SquareOscillator_f32", "Blit2SquareOscillator_f32", &SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,_proxy__wrap_new_Blit2SquareOscillator_f32, swig_delete_Blit2SquareOscillator_f32, swig_Blit2SquareOscillator_f32_methods, swig_Blit2SquareOscillator_f32_attributes, &swig_Blit2SquareOscillator_f32_Sf_SwigStatic, swig_Blit2SquareOscillator_f32_meta, swig_Blit2SquareOscillator_f32_bases, swig_Blit2SquareOscillator_f32_base_names };
+static swig_lua_class *swig_BlitSquareOscillator_bases[] = {0};
+static const char *swig_BlitSquareOscillator_base_names[] = {0};
+static swig_lua_class _wrap_class_BlitSquareOscillator = { "BlitSquareOscillator", "BlitSquareOscillator", &SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,_proxy__wrap_new_BlitSquareOscillator, swig_delete_BlitSquareOscillator, swig_BlitSquareOscillator_methods, swig_BlitSquareOscillator_attributes, &swig_BlitSquareOscillator_Sf_SwigStatic, swig_BlitSquareOscillator_meta, swig_BlitSquareOscillator_bases, swig_BlitSquareOscillator_base_names };
 
-static int _wrap_Blit2SquareOscillator_f64_block_set(lua_State* L) {
+static int _wrap_BlitTriangleOscillator_sqr_set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  FX::Filters::OnePole arg2 ;
-  FX::Filters::OnePole *argp2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::block",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::block",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::block",2,"FX::Filters::OnePole");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_block_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_FX__Filters__OnePole,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_block_set",2,SWIGTYPE_p_FX__Filters__OnePole);
-  }
-  arg2 = *argp2;
-  
-  if (arg1) (arg1)->block = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_block_get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  FX::Filters::OnePole result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::block",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::block",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_block_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  result =  ((arg1)->block);
-  {
-    FX::Filters::OnePole * resultptr = new FX::Filters::OnePole((const FX::Filters::OnePole &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_FX__Filters__OnePole,1); SWIG_arg++;
-  }
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_nHarmonics__set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  unsigned int arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::nHarmonics_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::nHarmonics_",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::nHarmonics_",2,"unsigned int");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_nHarmonics__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-  arg2 = (unsigned int)lua_tonumber(L, 2);
-  if (arg1) (arg1)->nHarmonics_ = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_nHarmonics__get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  unsigned int result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::nHarmonics_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::nHarmonics_",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_nHarmonics__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  result = (unsigned int) ((arg1)->nHarmonics_);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_m__set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  unsigned int arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::m_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::m_",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::m_",2,"unsigned int");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_m__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-  arg2 = (unsigned int)lua_tonumber(L, 2);
-  if (arg1) (arg1)->m_ = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_m__get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  unsigned int result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::m_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::m_",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_m__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  result = (unsigned int) ((arg1)->m_);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_f_set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::f",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::f",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::f",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_f_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  if (arg1) (arg1)->f = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_f_get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::f",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::f",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_f_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  result = (double) ((arg1)->f);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_rate__set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::rate_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::rate_",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::rate_",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_rate__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  if (arg1) (arg1)->rate_ = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_rate__get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::rate_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::rate_",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_rate__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  result = (double) ((arg1)->rate_);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_phase__set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::phase_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::phase_",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::phase_",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_phase__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  if (arg1) (arg1)->phase_ = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_phase__get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::phase_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::phase_",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_phase__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  result = (double) ((arg1)->phase_);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_offset_set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::offset",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::offset",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::offset",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_offset_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  if (arg1) (arg1)->offset = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_offset_get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::offset",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::offset",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_offset_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  result = (double) ((arg1)->offset);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_p__set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::p_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::p_",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::p_",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_p__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  if (arg1) (arg1)->p_ = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_p__get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::p_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::p_",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_p__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  result = (double) ((arg1)->p_);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_C2__set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::C2_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::C2_",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::C2_",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_C2__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  if (arg1) (arg1)->C2_ = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_C2__get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::C2_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::C2_",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_C2__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  result = (double) ((arg1)->C2_);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_a__set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::a_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::a_",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::a_",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_a__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  if (arg1) (arg1)->a_ = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_a__get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::a_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::a_",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_a__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  result = (double) ((arg1)->a_);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_state__set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::state_",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::state_",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::state_",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_state__set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  if (arg1) (arg1)->state_ = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_state__get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::state_",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::state_",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_state__get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  result = (double) ((arg1)->state_);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_y_set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::y",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::y",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::y",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_y_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  if (arg1) (arg1)->y = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_y_get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::y",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::y",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_y_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  result = (double) ((arg1)->y);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_D_set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::D",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::D",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::D",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_D_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  if (arg1) (arg1)->D = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_D_get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::D",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::D",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_D_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  result = (double) ((arg1)->D);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_sampleRate_set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::sampleRate",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::sampleRate",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::sampleRate",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_sampleRate_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  if (arg1) (arg1)->sampleRate = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_sampleRate_get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::sampleRate",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::sampleRate",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_sampleRate_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  result = (double) ((arg1)->sampleRate);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_new_Blit2SquareOscillator_f64__SWIG_0(lua_State* L) {
-  int SWIG_arg = 0;
-  double arg1 ;
-  double arg2 ;
-  Analog::Oscillators::Blit2SquareOscillator< double > *result = 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::Blit2SquareOscillator",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::Blit2SquareOscillator",1,"double");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::Blit2SquareOscillator",2,"double");
-  arg1 = (double)lua_tonumber(L, 1);
-  arg2 = (double)lua_tonumber(L, 2);
-  result = (Analog::Oscillators::Blit2SquareOscillator< double > *)new Analog::Oscillators::Blit2SquareOscillator< double >(arg1,arg2);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,1); SWIG_arg++; 
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_new_Blit2SquareOscillator_f64__SWIG_1(lua_State* L) {
-  int SWIG_arg = 0;
-  double arg1 ;
-  Analog::Oscillators::Blit2SquareOscillator< double > *result = 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::Blit2SquareOscillator",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::Blit2SquareOscillator",1,"double");
-  arg1 = (double)lua_tonumber(L, 1);
-  result = (Analog::Oscillators::Blit2SquareOscillator< double > *)new Analog::Oscillators::Blit2SquareOscillator< double >(arg1);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,1); SWIG_arg++; 
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_new_Blit2SquareOscillator_f64__SWIG_2(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *result = 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::Blit2SquareOscillator",0,0)
-  result = (Analog::Oscillators::Blit2SquareOscillator< double > *)new Analog::Oscillators::Blit2SquareOscillator< double >();
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,1); SWIG_arg++; 
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_new_Blit2SquareOscillator_f64(lua_State* L) {
-  int argc;
-  int argv[3]={
-    1,2,3
-  };
-  
-  argc = lua_gettop(L);
-  if (argc == 0) {
-    return _wrap_new_Blit2SquareOscillator_f64__SWIG_2(L);
-  }
-  if (argc == 1) {
-    int _v = 0;
-    {
-      _v = lua_isnumber(L,argv[0]);
-    }
-    if (_v) {
-      return _wrap_new_Blit2SquareOscillator_f64__SWIG_1(L);
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      _v = lua_isnumber(L,argv[0]);
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        return _wrap_new_Blit2SquareOscillator_f64__SWIG_0(L);
-      }
-    }
-  }
-  
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'new_Blit2SquareOscillator_f64'\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    Analog::Oscillators::Blit2SquareOscillator< double >::Blit2SquareOscillator(double,double)\n"
-    "    Analog::Oscillators::Blit2SquareOscillator< double >::Blit2SquareOscillator(double)\n"
-    "    Analog::Oscillators::Blit2SquareOscillator< double >::Blit2SquareOscillator()\n");
-  lua_error(L);return 0;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_reset(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::reset",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::reset",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_reset",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  (arg1)->reset();
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_setFrequency(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::setFrequency",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::setFrequency",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::setFrequency",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_setFrequency",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  (arg1)->setFrequency(arg2);
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_setHarmonics__SWIG_0(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  unsigned int arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::setHarmonics",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::setHarmonics",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::setHarmonics",2,"unsigned int");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_setHarmonics",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-  arg2 = (unsigned int)lua_tonumber(L, 2);
-  (arg1)->setHarmonics(arg2);
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_setHarmonics__SWIG_1(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::setHarmonics",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::setHarmonics",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_setHarmonics",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  (arg1)->setHarmonics();
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_setHarmonics(lua_State* L) {
-  int argc;
-  int argv[3]={
-    1,2,3
-  };
-  
-  argc = lua_gettop(L);
-  if (argc == 1) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      return _wrap_Blit2SquareOscillator_f64_setHarmonics__SWIG_1(L);
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        return _wrap_Blit2SquareOscillator_f64_setHarmonics__SWIG_0(L);
-      }
-    }
-  }
-  
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'Blit2SquareOscillator_f64_setHarmonics'\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    Analog::Oscillators::Blit2SquareOscillator< double >::setHarmonics(unsigned int)\n"
-    "    Analog::Oscillators::Blit2SquareOscillator< double >::setHarmonics()\n");
-  lua_error(L);return 0;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_setDuty(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::setDuty",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::setDuty",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::setDuty",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_setDuty",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  (arg1)->setDuty(arg2);
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_getPhase(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::getPhase",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::getPhase",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_getPhase",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  result = (double)(arg1)->getPhase();
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_setPhaseOffset(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::setPhaseOffset",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::setPhaseOffset",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::setPhaseOffset",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_setPhaseOffset",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  (arg1)->setPhaseOffset(arg2);
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_updateHarmonics(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::updateHarmonics",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::updateHarmonics",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_updateHarmonics",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  (arg1)->updateHarmonics();
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_setPort(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  int arg2 ;
-  double arg3 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::setPort",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::setPort",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::setPort",2,"int");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::setPort",3,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_setPort",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  arg2 = (int)lua_tonumber(L, 2);
-  arg3 = (double)lua_tonumber(L, 3);
-  (arg1)->setPort(arg2,arg3);
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_lastOut(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::lastOut",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::lastOut",1,"Analog::Oscillators::Blit2SquareOscillator< double > const *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_lastOut",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  result = (double)((Analog::Oscillators::Blit2SquareOscillator< double > const *)arg1)->lastOut();
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_Tick__SWIG_0(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double arg2 ;
-  double arg3 ;
-  double arg4 ;
-  double arg5 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::Tick",5,5)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::Tick",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::Tick",2,"double");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::Tick",3,"double");
-  if(!lua_isnumber(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::Tick",4,"double");
-  if(!lua_isnumber(L,5)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::Tick",5,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  arg3 = (double)lua_tonumber(L, 3);
-  arg4 = (double)lua_tonumber(L, 4);
-  arg5 = (double)lua_tonumber(L, 5);
-  result = (double)(arg1)->Tick(arg2,arg3,arg4,arg5);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_Tick__SWIG_1(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double arg2 ;
-  double arg3 ;
-  double arg4 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::Tick",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::Tick",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::Tick",2,"double");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::Tick",3,"double");
-  if(!lua_isnumber(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::Tick",4,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  arg3 = (double)lua_tonumber(L, 3);
-  arg4 = (double)lua_tonumber(L, 4);
-  result = (double)(arg1)->Tick(arg2,arg3,arg4);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_Tick__SWIG_2(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double arg2 ;
-  double arg3 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::Tick",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::Tick",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::Tick",2,"double");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::Tick",3,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  arg3 = (double)lua_tonumber(L, 3);
-  result = (double)(arg1)->Tick(arg2,arg3);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_Tick__SWIG_3(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double arg2 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::Tick",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::Tick",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::Tick",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  result = (double)(arg1)->Tick(arg2);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_Tick__SWIG_4(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::Tick",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::Tick",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  result = (double)(arg1)->Tick();
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_Tick(lua_State* L) {
-  int argc;
-  int argv[6]={
-    1,2,3,4,5,6
-  };
-  
-  argc = lua_gettop(L);
-  if (argc == 1) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      return _wrap_Blit2SquareOscillator_f64_Tick__SWIG_4(L);
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        return _wrap_Blit2SquareOscillator_f64_Tick__SWIG_3(L);
-      }
-    }
-  }
-  if (argc == 3) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          return _wrap_Blit2SquareOscillator_f64_Tick__SWIG_2(L);
-        }
-      }
-    }
-  }
-  if (argc == 4) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          {
-            _v = lua_isnumber(L,argv[3]);
-          }
-          if (_v) {
-            return _wrap_Blit2SquareOscillator_f64_Tick__SWIG_1(L);
-          }
-        }
-      }
-    }
-  }
-  if (argc == 5) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          {
-            _v = lua_isnumber(L,argv[3]);
-          }
-          if (_v) {
-            {
-              _v = lua_isnumber(L,argv[4]);
-            }
-            if (_v) {
-              return _wrap_Blit2SquareOscillator_f64_Tick__SWIG_0(L);
-            }
-          }
-        }
-      }
-    }
-  }
-  
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'Blit2SquareOscillator_f64_Tick'\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    Analog::Oscillators::Blit2SquareOscillator< double >::Tick(double,double,double,double)\n"
-    "    Analog::Oscillators::Blit2SquareOscillator< double >::Tick(double,double,double)\n"
-    "    Analog::Oscillators::Blit2SquareOscillator< double >::Tick(double,double)\n"
-    "    Analog::Oscillators::Blit2SquareOscillator< double >::Tick(double)\n"
-    "    Analog::Oscillators::Blit2SquareOscillator< double >::Tick()\n");
-  lua_error(L);return 0;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_ProcessSIMD(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  size_t arg2 ;
-  double *arg3 = (double *) 0 ;
-  double *arg4 = (double *) 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::ProcessSIMD",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::ProcessSIMD",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::ProcessSIMD",2,"size_t");
-  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::ProcessSIMD",3,"double *");
-  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::ProcessSIMD",4,"double *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_ProcessSIMD",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-  arg2 = (size_t)lua_tonumber(L, 2);
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_ProcessSIMD",3,SWIGTYPE_p_double);
-  }
-  
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_ProcessSIMD",4,SWIGTYPE_p_double);
-  }
-  
-  (arg1)->ProcessSIMD(arg2,arg3,arg4);
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_ProcessBlock(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  size_t arg2 ;
-  double *arg3 = (double *) 0 ;
-  double *arg4 = (double *) 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::ProcessBlock",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::ProcessBlock",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::ProcessBlock",2,"size_t");
-  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::ProcessBlock",3,"double *");
-  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::ProcessBlock",4,"double *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_ProcessBlock",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-  arg2 = (size_t)lua_tonumber(L, 2);
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_ProcessBlock",3,SWIGTYPE_p_double);
-  }
-  
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_ProcessBlock",4,SWIGTYPE_p_double);
-  }
-  
-  (arg1)->ProcessBlock(arg2,arg3,arg4);
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64_ProcessInplace(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  size_t arg2 ;
-  double *arg3 = (double *) 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::ProcessInplace",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::ProcessInplace",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::ProcessInplace",2,"size_t");
-  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::ProcessInplace",3,"double *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_ProcessInplace",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-  arg2 = (size_t)lua_tonumber(L, 2);
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64_ProcessInplace",3,SWIGTYPE_p_double);
-  }
-  
-  (arg1)->ProcessInplace(arg2,arg3);
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2SquareOscillator_f64___call(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2SquareOscillator< double >::operator ()",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2SquareOscillator< double >::operator ()",1,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2SquareOscillator_f64___call",1,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  result = (double)(arg1)->operator ()();
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static void swig_delete_Blit2SquareOscillator_f64(void *obj) {
-Analog::Oscillators::Blit2SquareOscillator< double > *arg1 = (Analog::Oscillators::Blit2SquareOscillator< double > *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_Blit2SquareOscillator_f64(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_Blit2SquareOscillator_f64);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_Blit2SquareOscillator_f64_attributes[] = {
-    { "block", _wrap_Blit2SquareOscillator_f64_block_get, _wrap_Blit2SquareOscillator_f64_block_set },
-    { "nHarmonics_", _wrap_Blit2SquareOscillator_f64_nHarmonics__get, _wrap_Blit2SquareOscillator_f64_nHarmonics__set },
-    { "m_", _wrap_Blit2SquareOscillator_f64_m__get, _wrap_Blit2SquareOscillator_f64_m__set },
-    { "f", _wrap_Blit2SquareOscillator_f64_f_get, _wrap_Blit2SquareOscillator_f64_f_set },
-    { "rate_", _wrap_Blit2SquareOscillator_f64_rate__get, _wrap_Blit2SquareOscillator_f64_rate__set },
-    { "phase_", _wrap_Blit2SquareOscillator_f64_phase__get, _wrap_Blit2SquareOscillator_f64_phase__set },
-    { "offset", _wrap_Blit2SquareOscillator_f64_offset_get, _wrap_Blit2SquareOscillator_f64_offset_set },
-    { "p_", _wrap_Blit2SquareOscillator_f64_p__get, _wrap_Blit2SquareOscillator_f64_p__set },
-    { "C2_", _wrap_Blit2SquareOscillator_f64_C2__get, _wrap_Blit2SquareOscillator_f64_C2__set },
-    { "a_", _wrap_Blit2SquareOscillator_f64_a__get, _wrap_Blit2SquareOscillator_f64_a__set },
-    { "state_", _wrap_Blit2SquareOscillator_f64_state__get, _wrap_Blit2SquareOscillator_f64_state__set },
-    { "y", _wrap_Blit2SquareOscillator_f64_y_get, _wrap_Blit2SquareOscillator_f64_y_set },
-    { "D", _wrap_Blit2SquareOscillator_f64_D_get, _wrap_Blit2SquareOscillator_f64_D_set },
-    { "sampleRate", _wrap_Blit2SquareOscillator_f64_sampleRate_get, _wrap_Blit2SquareOscillator_f64_sampleRate_set },
-    {0,0,0}
-};
-static swig_lua_method swig_Blit2SquareOscillator_f64_methods[]= {
-    { "reset", _wrap_Blit2SquareOscillator_f64_reset},
-    { "setFrequency", _wrap_Blit2SquareOscillator_f64_setFrequency},
-    { "setHarmonics", _wrap_Blit2SquareOscillator_f64_setHarmonics},
-    { "setDuty", _wrap_Blit2SquareOscillator_f64_setDuty},
-    { "getPhase", _wrap_Blit2SquareOscillator_f64_getPhase},
-    { "setPhaseOffset", _wrap_Blit2SquareOscillator_f64_setPhaseOffset},
-    { "updateHarmonics", _wrap_Blit2SquareOscillator_f64_updateHarmonics},
-    { "setPort", _wrap_Blit2SquareOscillator_f64_setPort},
-    { "lastOut", _wrap_Blit2SquareOscillator_f64_lastOut},
-    { "Tick", _wrap_Blit2SquareOscillator_f64_Tick},
-    { "ProcessSIMD", _wrap_Blit2SquareOscillator_f64_ProcessSIMD},
-    { "ProcessBlock", _wrap_Blit2SquareOscillator_f64_ProcessBlock},
-    { "ProcessInplace", _wrap_Blit2SquareOscillator_f64_ProcessInplace},
-    { "__call", _wrap_Blit2SquareOscillator_f64___call},
-    {0,0}
-};
-static swig_lua_method swig_Blit2SquareOscillator_f64_meta[] = {
-    { "__call", _wrap_Blit2SquareOscillator_f64___call},
-    {0,0}
-};
-
-static swig_lua_attribute swig_Blit2SquareOscillator_f64_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_Blit2SquareOscillator_f64_Sf_SwigStatic_constants[]= {
-    {SWIG_LUA_CONSTTAB_INT("PORT_FREQ", Analog::Oscillators::Blit2SquareOscillator< double >::PORT_FREQ)},
-    {SWIG_LUA_CONSTTAB_INT("PORT_HARMONICS", Analog::Oscillators::Blit2SquareOscillator< double >::PORT_HARMONICS)},
-    {SWIG_LUA_CONSTTAB_INT("PORT_PHASE", Analog::Oscillators::Blit2SquareOscillator< double >::PORT_PHASE)},
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_Blit2SquareOscillator_f64_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_Blit2SquareOscillator_f64_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_Blit2SquareOscillator_f64_Sf_SwigStatic = {
-    "Blit2SquareOscillator_f64",
-    swig_Blit2SquareOscillator_f64_Sf_SwigStatic_methods,
-    swig_Blit2SquareOscillator_f64_Sf_SwigStatic_attributes,
-    swig_Blit2SquareOscillator_f64_Sf_SwigStatic_constants,
-    swig_Blit2SquareOscillator_f64_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_Blit2SquareOscillator_f64_bases[] = {0};
-static const char *swig_Blit2SquareOscillator_f64_base_names[] = {0};
-static swig_lua_class _wrap_class_Blit2SquareOscillator_f64 = { "Blit2SquareOscillator_f64", "Blit2SquareOscillator_f64", &SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,_proxy__wrap_new_Blit2SquareOscillator_f64, swig_delete_Blit2SquareOscillator_f64, swig_Blit2SquareOscillator_f64_methods, swig_Blit2SquareOscillator_f64_attributes, &swig_Blit2SquareOscillator_f64_Sf_SwigStatic, swig_Blit2SquareOscillator_f64_meta, swig_Blit2SquareOscillator_f64_bases, swig_Blit2SquareOscillator_f64_base_names };
-
-static int _wrap_Blit2TriangleOscillator_f32_sqr_set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< float > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *) 0 ;
   Analog::Oscillators::Blit2SquareOscillator< float > *arg2 = (Analog::Oscillators::Blit2SquareOscillator< float > *) 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< float >::sqr",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::sqr",1,"Analog::Oscillators::Blit2TriangleOscillator< float > *");
-  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::sqr",2,"Analog::Oscillators::Blit2SquareOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::sqr",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::sqr",1,"Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::sqr",2,"Analog::Oscillators::Blit2SquareOscillator< float > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_sqr_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
+    SWIG_fail_ptr("BlitTriangleOscillator_sqr_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
   }
   
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_sqr_set",2,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
+    SWIG_fail_ptr("BlitTriangleOscillator_sqr_set",2,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t);
   }
   
   if (arg1) (arg1)->sqr = *arg2;
@@ -15684,16 +12592,16 @@ fail:
 }
 
 
-static int _wrap_Blit2TriangleOscillator_f32_sqr_get(lua_State* L) {
+static int _wrap_BlitTriangleOscillator_sqr_get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< float > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *) 0 ;
   Analog::Oscillators::Blit2SquareOscillator< float > *result = 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< float >::sqr",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::sqr",1,"Analog::Oscillators::Blit2TriangleOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::sqr",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::sqr",1,"Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_sqr_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
+    SWIG_fail_ptr("BlitTriangleOscillator_sqr_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
   }
   
   result = (Analog::Oscillators::Blit2SquareOscillator< float > *)& ((arg1)->sqr);
@@ -15708,23 +12616,23 @@ fail:
 }
 
 
-static int _wrap_Blit2TriangleOscillator_f32_b1_set(lua_State* L) {
+static int _wrap_BlitTriangleOscillator_b1_set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< float > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *) 0 ;
   FX::Filters::OnePole arg2 ;
   FX::Filters::OnePole *argp2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< float >::b1",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::b1",1,"Analog::Oscillators::Blit2TriangleOscillator< float > *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::b1",2,"FX::Filters::OnePole");
+  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::b1",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::b1",1,"Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::b1",2,"FX::Filters::OnePole");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_b1_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
+    SWIG_fail_ptr("BlitTriangleOscillator_b1_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
   }
   
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_FX__Filters__OnePole,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_b1_set",2,SWIGTYPE_p_FX__Filters__OnePole);
+    SWIG_fail_ptr("BlitTriangleOscillator_b1_set",2,SWIGTYPE_p_FX__Filters__OnePole);
   }
   arg2 = *argp2;
   
@@ -15740,16 +12648,16 @@ fail:
 }
 
 
-static int _wrap_Blit2TriangleOscillator_f32_b1_get(lua_State* L) {
+static int _wrap_BlitTriangleOscillator_b1_get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< float > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *) 0 ;
   FX::Filters::OnePole result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< float >::b1",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::b1",1,"Analog::Oscillators::Blit2TriangleOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::b1",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::b1",1,"Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_b1_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
+    SWIG_fail_ptr("BlitTriangleOscillator_b1_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
   }
   
   result =  ((arg1)->b1);
@@ -15767,17 +12675,17 @@ fail:
 }
 
 
-static int _wrap_Blit2TriangleOscillator_f32_sampleRate_set(lua_State* L) {
+static int _wrap_BlitTriangleOscillator_sampleRate_set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< float > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< float >::sampleRate",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::sampleRate",1,"Analog::Oscillators::Blit2TriangleOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::sampleRate",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::sampleRate",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::sampleRate",1,"Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::sampleRate",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_sampleRate_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
+    SWIG_fail_ptr("BlitTriangleOscillator_sampleRate_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -15793,16 +12701,16 @@ fail:
 }
 
 
-static int _wrap_Blit2TriangleOscillator_f32_sampleRate_get(lua_State* L) {
+static int _wrap_BlitTriangleOscillator_sampleRate_get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< float > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< float >::sampleRate",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::sampleRate",1,"Analog::Oscillators::Blit2TriangleOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::sampleRate",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::sampleRate",1,"Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_sampleRate_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
+    SWIG_fail_ptr("BlitTriangleOscillator_sampleRate_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
   }
   
   result = (float) ((arg1)->sampleRate);
@@ -15817,17 +12725,17 @@ fail:
 }
 
 
-static int _wrap_Blit2TriangleOscillator_f32_triangle_set(lua_State* L) {
+static int _wrap_BlitTriangleOscillator_triangle_set(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< float > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< float >::triangle",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::triangle",1,"Analog::Oscillators::Blit2TriangleOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::triangle",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::triangle",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::triangle",1,"Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::triangle",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_triangle_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
+    SWIG_fail_ptr("BlitTriangleOscillator_triangle_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -15843,16 +12751,16 @@ fail:
 }
 
 
-static int _wrap_Blit2TriangleOscillator_f32_triangle_get(lua_State* L) {
+static int _wrap_BlitTriangleOscillator_triangle_get(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< float > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< float >::triangle",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::triangle",1,"Analog::Oscillators::Blit2TriangleOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::triangle",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::triangle",1,"Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_triangle_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
+    SWIG_fail_ptr("BlitTriangleOscillator_triangle_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
   }
   
   result = (float) ((arg1)->triangle);
@@ -15867,18 +12775,18 @@ fail:
 }
 
 
-static int _wrap_new_Blit2TriangleOscillator_f32__SWIG_0(lua_State* L) {
+static int _wrap_new_BlitTriangleOscillator__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   float arg1 ;
   float arg2 ;
-  Analog::Oscillators::Blit2TriangleOscillator< float > *result = 0 ;
+  Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *result = 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< float >::Blit2TriangleOscillator",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::Blit2TriangleOscillator",1,"float");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::Blit2TriangleOscillator",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Blit2TriangleOscillator",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Blit2TriangleOscillator",1,"float");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Blit2TriangleOscillator",2,"float");
   arg1 = (float)lua_tonumber(L, 1);
   arg2 = (float)lua_tonumber(L, 2);
-  result = (Analog::Oscillators::Blit2TriangleOscillator< float > *)new Analog::Oscillators::Blit2TriangleOscillator< float >(arg1,arg2);
+  result = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *)new Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >(arg1,arg2);
   SWIG_NewPointerObj(L,result,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,1); SWIG_arg++; 
   return SWIG_arg;
   
@@ -15890,15 +12798,15 @@ fail:
 }
 
 
-static int _wrap_new_Blit2TriangleOscillator_f32__SWIG_1(lua_State* L) {
+static int _wrap_new_BlitTriangleOscillator__SWIG_1(lua_State* L) {
   int SWIG_arg = 0;
   float arg1 ;
-  Analog::Oscillators::Blit2TriangleOscillator< float > *result = 0 ;
+  Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *result = 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< float >::Blit2TriangleOscillator",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::Blit2TriangleOscillator",1,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Blit2TriangleOscillator",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Blit2TriangleOscillator",1,"float");
   arg1 = (float)lua_tonumber(L, 1);
-  result = (Analog::Oscillators::Blit2TriangleOscillator< float > *)new Analog::Oscillators::Blit2TriangleOscillator< float >(arg1);
+  result = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *)new Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >(arg1);
   SWIG_NewPointerObj(L,result,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,1); SWIG_arg++; 
   return SWIG_arg;
   
@@ -15910,12 +12818,12 @@ fail:
 }
 
 
-static int _wrap_new_Blit2TriangleOscillator_f32__SWIG_2(lua_State* L) {
+static int _wrap_new_BlitTriangleOscillator__SWIG_2(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< float > *result = 0 ;
+  Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *result = 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< float >::Blit2TriangleOscillator",0,0)
-  result = (Analog::Oscillators::Blit2TriangleOscillator< float > *)new Analog::Oscillators::Blit2TriangleOscillator< float >();
+  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Blit2TriangleOscillator",0,0)
+  result = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *)new Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >();
   SWIG_NewPointerObj(L,result,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,1); SWIG_arg++; 
   return SWIG_arg;
   
@@ -15927,7 +12835,7 @@ fail:
 }
 
 
-static int _wrap_new_Blit2TriangleOscillator_f32(lua_State* L) {
+static int _wrap_new_BlitTriangleOscillator(lua_State* L) {
   int argc;
   int argv[3]={
     1,2,3
@@ -15935,7 +12843,7 @@ static int _wrap_new_Blit2TriangleOscillator_f32(lua_State* L) {
   
   argc = lua_gettop(L);
   if (argc == 0) {
-    return _wrap_new_Blit2TriangleOscillator_f32__SWIG_2(L);
+    return _wrap_new_BlitTriangleOscillator__SWIG_2(L);
   }
   if (argc == 1) {
     int _v = 0;
@@ -15943,7 +12851,7 @@ static int _wrap_new_Blit2TriangleOscillator_f32(lua_State* L) {
       _v = lua_isnumber(L,argv[0]);
     }
     if (_v) {
-      return _wrap_new_Blit2TriangleOscillator_f32__SWIG_1(L);
+      return _wrap_new_BlitTriangleOscillator__SWIG_1(L);
     }
   }
   if (argc == 2) {
@@ -15956,29 +12864,29 @@ static int _wrap_new_Blit2TriangleOscillator_f32(lua_State* L) {
         _v = lua_isnumber(L,argv[1]);
       }
       if (_v) {
-        return _wrap_new_Blit2TriangleOscillator_f32__SWIG_0(L);
+        return _wrap_new_BlitTriangleOscillator__SWIG_0(L);
       }
     }
   }
   
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'new_Blit2TriangleOscillator_f32'\n"
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'new_BlitTriangleOscillator'\n"
     "  Possible C/C++ prototypes are:\n"
-    "    Analog::Oscillators::Blit2TriangleOscillator< float >::Blit2TriangleOscillator(float,float)\n"
-    "    Analog::Oscillators::Blit2TriangleOscillator< float >::Blit2TriangleOscillator(float)\n"
-    "    Analog::Oscillators::Blit2TriangleOscillator< float >::Blit2TriangleOscillator()\n");
+    "    Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Blit2TriangleOscillator(float,float)\n"
+    "    Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Blit2TriangleOscillator(float)\n"
+    "    Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Blit2TriangleOscillator()\n");
   lua_error(L);return 0;
 }
 
 
-static int _wrap_Blit2TriangleOscillator_f32_reset(lua_State* L) {
+static int _wrap_BlitTriangleOscillator_reset(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< float > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *) 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< float >::reset",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::reset",1,"Analog::Oscillators::Blit2TriangleOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::reset",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::reset",1,"Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_reset",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
+    SWIG_fail_ptr("BlitTriangleOscillator_reset",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
   }
   
   (arg1)->reset();
@@ -15993,17 +12901,17 @@ fail:
 }
 
 
-static int _wrap_Blit2TriangleOscillator_f32_setDuty(lua_State* L) {
+static int _wrap_BlitTriangleOscillator_setDuty(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< float > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< float >::setDuty",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::setDuty",1,"Analog::Oscillators::Blit2TriangleOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::setDuty",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::setDuty",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::setDuty",1,"Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::setDuty",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_setDuty",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
+    SWIG_fail_ptr("BlitTriangleOscillator_setDuty",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -16019,17 +12927,17 @@ fail:
 }
 
 
-static int _wrap_Blit2TriangleOscillator_f32_setFrequency(lua_State* L) {
+static int _wrap_BlitTriangleOscillator_setFrequency(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< float > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< float >::setFrequency",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::setFrequency",1,"Analog::Oscillators::Blit2TriangleOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::setFrequency",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::setFrequency",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::setFrequency",1,"Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::setFrequency",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_setFrequency",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
+    SWIG_fail_ptr("BlitTriangleOscillator_setFrequency",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -16045,19 +12953,19 @@ fail:
 }
 
 
-static int _wrap_Blit2TriangleOscillator_f32_setPort(lua_State* L) {
+static int _wrap_BlitTriangleOscillator_setPort(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< float > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *) 0 ;
   int arg2 ;
   float arg3 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< float >::setPort",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::setPort",1,"Analog::Oscillators::Blit2TriangleOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::setPort",2,"int");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::setPort",3,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::setPort",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::setPort",1,"Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::setPort",2,"int");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::setPort",3,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_setPort",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
+    SWIG_fail_ptr("BlitTriangleOscillator_setPort",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
   }
   
   arg2 = (int)lua_tonumber(L, 2);
@@ -16074,24 +12982,24 @@ fail:
 }
 
 
-static int _wrap_Blit2TriangleOscillator_f32_Tick__SWIG_0(lua_State* L) {
+static int _wrap_BlitTriangleOscillator_Tick__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< float > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   float arg3 ;
   float arg4 ;
   float arg5 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< float >::Tick",5,5)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::Tick",1,"Analog::Oscillators::Blit2TriangleOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::Tick",2,"float");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::Tick",3,"float");
-  if(!lua_isnumber(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::Tick",4,"float");
-  if(!lua_isnumber(L,5)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::Tick",5,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick",5,5)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick",1,"Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick",2,"float");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick",3,"float");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick",4,"float");
+  if(!lua_isnumber(L,5)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick",5,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
+    SWIG_fail_ptr("BlitTriangleOscillator_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -16110,22 +13018,22 @@ fail:
 }
 
 
-static int _wrap_Blit2TriangleOscillator_f32_Tick__SWIG_1(lua_State* L) {
+static int _wrap_BlitTriangleOscillator_Tick__SWIG_1(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< float > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   float arg3 ;
   float arg4 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< float >::Tick",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::Tick",1,"Analog::Oscillators::Blit2TriangleOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::Tick",2,"float");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::Tick",3,"float");
-  if(!lua_isnumber(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::Tick",4,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick",1,"Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick",2,"float");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick",3,"float");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick",4,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
+    SWIG_fail_ptr("BlitTriangleOscillator_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -16143,20 +13051,20 @@ fail:
 }
 
 
-static int _wrap_Blit2TriangleOscillator_f32_Tick__SWIG_2(lua_State* L) {
+static int _wrap_BlitTriangleOscillator_Tick__SWIG_2(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< float > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   float arg3 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< float >::Tick",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::Tick",1,"Analog::Oscillators::Blit2TriangleOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::Tick",2,"float");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::Tick",3,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick",1,"Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick",2,"float");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick",3,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
+    SWIG_fail_ptr("BlitTriangleOscillator_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -16173,18 +13081,18 @@ fail:
 }
 
 
-static int _wrap_Blit2TriangleOscillator_f32_Tick__SWIG_3(lua_State* L) {
+static int _wrap_BlitTriangleOscillator_Tick__SWIG_3(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< float > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *) 0 ;
   float arg2 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< float >::Tick",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::Tick",1,"Analog::Oscillators::Blit2TriangleOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::Tick",2,"float");
+  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick",1,"Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick",2,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
+    SWIG_fail_ptr("BlitTriangleOscillator_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
   }
   
   arg2 = (float)lua_tonumber(L, 2);
@@ -16200,16 +13108,16 @@ fail:
 }
 
 
-static int _wrap_Blit2TriangleOscillator_f32_Tick__SWIG_4(lua_State* L) {
+static int _wrap_BlitTriangleOscillator_Tick__SWIG_4(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< float > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< float >::Tick",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::Tick",1,"Analog::Oscillators::Blit2TriangleOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick",1,"Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
+    SWIG_fail_ptr("BlitTriangleOscillator_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
   }
   
   result = (float)(arg1)->Tick();
@@ -16224,7 +13132,7 @@ fail:
 }
 
 
-static int _wrap_Blit2TriangleOscillator_f32_Tick(lua_State* L) {
+static int _wrap_BlitTriangleOscillator_Tick(lua_State* L) {
   int argc;
   int argv[6]={
     1,2,3,4,5,6
@@ -16242,7 +13150,7 @@ static int _wrap_Blit2TriangleOscillator_f32_Tick(lua_State* L) {
       }
     }
     if (_v) {
-      return _wrap_Blit2TriangleOscillator_f32_Tick__SWIG_4(L);
+      return _wrap_BlitTriangleOscillator_Tick__SWIG_4(L);
     }
   }
   if (argc == 2) {
@@ -16260,7 +13168,7 @@ static int _wrap_Blit2TriangleOscillator_f32_Tick(lua_State* L) {
         _v = lua_isnumber(L,argv[1]);
       }
       if (_v) {
-        return _wrap_Blit2TriangleOscillator_f32_Tick__SWIG_3(L);
+        return _wrap_BlitTriangleOscillator_Tick__SWIG_3(L);
       }
     }
   }
@@ -16283,7 +13191,7 @@ static int _wrap_Blit2TriangleOscillator_f32_Tick(lua_State* L) {
           _v = lua_isnumber(L,argv[2]);
         }
         if (_v) {
-          return _wrap_Blit2TriangleOscillator_f32_Tick__SWIG_2(L);
+          return _wrap_BlitTriangleOscillator_Tick__SWIG_2(L);
         }
       }
     }
@@ -16311,7 +13219,7 @@ static int _wrap_Blit2TriangleOscillator_f32_Tick(lua_State* L) {
             _v = lua_isnumber(L,argv[3]);
           }
           if (_v) {
-            return _wrap_Blit2TriangleOscillator_f32_Tick__SWIG_1(L);
+            return _wrap_BlitTriangleOscillator_Tick__SWIG_1(L);
           }
         }
       }
@@ -16344,7 +13252,7 @@ static int _wrap_Blit2TriangleOscillator_f32_Tick(lua_State* L) {
               _v = lua_isnumber(L,argv[4]);
             }
             if (_v) {
-              return _wrap_Blit2TriangleOscillator_f32_Tick__SWIG_0(L);
+              return _wrap_BlitTriangleOscillator_Tick__SWIG_0(L);
             }
           }
         }
@@ -16352,44 +13260,44 @@ static int _wrap_Blit2TriangleOscillator_f32_Tick(lua_State* L) {
     }
   }
   
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'Blit2TriangleOscillator_f32_Tick'\n"
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'BlitTriangleOscillator_Tick'\n"
     "  Possible C/C++ prototypes are:\n"
-    "    Analog::Oscillators::Blit2TriangleOscillator< float >::Tick(float,float,float,float)\n"
-    "    Analog::Oscillators::Blit2TriangleOscillator< float >::Tick(float,float,float)\n"
-    "    Analog::Oscillators::Blit2TriangleOscillator< float >::Tick(float,float)\n"
-    "    Analog::Oscillators::Blit2TriangleOscillator< float >::Tick(float)\n"
-    "    Analog::Oscillators::Blit2TriangleOscillator< float >::Tick()\n");
+    "    Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick(float,float,float,float)\n"
+    "    Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick(float,float,float)\n"
+    "    Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick(float,float)\n"
+    "    Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick(float)\n"
+    "    Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::Tick()\n");
   lua_error(L);return 0;
 }
 
 
-static int _wrap_Blit2TriangleOscillator_f32_ProcessSIMD(lua_State* L) {
+static int _wrap_BlitTriangleOscillator_ProcessSIMD(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< float > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *) 0 ;
   size_t arg2 ;
   float *arg3 = (float *) 0 ;
   float *arg4 = (float *) 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< float >::ProcessSIMD",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::ProcessSIMD",1,"Analog::Oscillators::Blit2TriangleOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::ProcessSIMD",2,"size_t");
-  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::ProcessSIMD",3,"float *");
-  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::ProcessSIMD",4,"float *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::ProcessSIMD",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::ProcessSIMD",1,"Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::ProcessSIMD",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::ProcessSIMD",3,"float *");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::ProcessSIMD",4,"float *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_ProcessSIMD",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
+    SWIG_fail_ptr("BlitTriangleOscillator_ProcessSIMD",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_ProcessSIMD",3,SWIGTYPE_p_float);
+    SWIG_fail_ptr("BlitTriangleOscillator_ProcessSIMD",3,SWIGTYPE_p_float);
   }
   
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_ProcessSIMD",4,SWIGTYPE_p_float);
+    SWIG_fail_ptr("BlitTriangleOscillator_ProcessSIMD",4,SWIGTYPE_p_float);
   }
   
   (arg1)->ProcessSIMD(arg2,arg3,arg4);
@@ -16404,33 +13312,33 @@ fail:
 }
 
 
-static int _wrap_Blit2TriangleOscillator_f32_ProcessBlock(lua_State* L) {
+static int _wrap_BlitTriangleOscillator_ProcessBlock(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< float > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *) 0 ;
   size_t arg2 ;
   float *arg3 = (float *) 0 ;
   float *arg4 = (float *) 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< float >::ProcessBlock",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::ProcessBlock",1,"Analog::Oscillators::Blit2TriangleOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::ProcessBlock",2,"size_t");
-  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::ProcessBlock",3,"float *");
-  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::ProcessBlock",4,"float *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::ProcessBlock",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::ProcessBlock",1,"Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::ProcessBlock",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::ProcessBlock",3,"float *");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::ProcessBlock",4,"float *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_ProcessBlock",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
+    SWIG_fail_ptr("BlitTriangleOscillator_ProcessBlock",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_ProcessBlock",3,SWIGTYPE_p_float);
+    SWIG_fail_ptr("BlitTriangleOscillator_ProcessBlock",3,SWIGTYPE_p_float);
   }
   
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_ProcessBlock",4,SWIGTYPE_p_float);
+    SWIG_fail_ptr("BlitTriangleOscillator_ProcessBlock",4,SWIGTYPE_p_float);
   }
   
   (arg1)->ProcessBlock(arg2,arg3,arg4);
@@ -16445,26 +13353,26 @@ fail:
 }
 
 
-static int _wrap_Blit2TriangleOscillator_f32_ProcessInplace(lua_State* L) {
+static int _wrap_BlitTriangleOscillator_ProcessInplace(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< float > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *) 0 ;
   size_t arg2 ;
   float *arg3 = (float *) 0 ;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< float >::ProcessInplace",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::ProcessInplace",1,"Analog::Oscillators::Blit2TriangleOscillator< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::ProcessInplace",2,"size_t");
-  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::ProcessInplace",3,"float *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::ProcessInplace",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::ProcessInplace",1,"Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::ProcessInplace",2,"size_t");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::ProcessInplace",3,"float *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_ProcessInplace",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
+    SWIG_fail_ptr("BlitTriangleOscillator_ProcessInplace",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_float,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32_ProcessInplace",3,SWIGTYPE_p_float);
+    SWIG_fail_ptr("BlitTriangleOscillator_ProcessInplace",3,SWIGTYPE_p_float);
   }
   
   (arg1)->ProcessInplace(arg2,arg3);
@@ -16479,16 +13387,16 @@ fail:
 }
 
 
-static int _wrap_Blit2TriangleOscillator_f32___call(lua_State* L) {
+static int _wrap_BlitTriangleOscillator___call(lua_State* L) {
   int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< float > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< float > *) 0 ;
+  Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *) 0 ;
   float result;
   
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< float >::operator ()",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< float >::operator ()",1,"Analog::Oscillators::Blit2TriangleOscillator< float > *");
+  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::operator ()",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::operator ()",1,"Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f32___call",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
+    SWIG_fail_ptr("BlitTriangleOscillator___call",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t);
   }
   
   result = (float)(arg1)->operator ()();
@@ -16503,986 +13411,71 @@ fail:
 }
 
 
-static void swig_delete_Blit2TriangleOscillator_f32(void *obj) {
-Analog::Oscillators::Blit2TriangleOscillator< float > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< float > *) obj;
+static void swig_delete_BlitTriangleOscillator(void *obj) {
+Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *) obj;
 delete arg1;
 }
-static int _proxy__wrap_new_Blit2TriangleOscillator_f32(lua_State *L) {
+static int _proxy__wrap_new_BlitTriangleOscillator(lua_State *L) {
     assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_Blit2TriangleOscillator_f32);
+    lua_pushcfunction(L,_wrap_new_BlitTriangleOscillator);
     assert(!lua_isnil(L,-1));
     lua_replace(L,1); /* replace our table with real constructor */
     lua_call(L,lua_gettop(L)-1,1);
     return 1;
 }
-static swig_lua_attribute swig_Blit2TriangleOscillator_f32_attributes[] = {
-    { "sqr", _wrap_Blit2TriangleOscillator_f32_sqr_get, _wrap_Blit2TriangleOscillator_f32_sqr_set },
-    { "b1", _wrap_Blit2TriangleOscillator_f32_b1_get, _wrap_Blit2TriangleOscillator_f32_b1_set },
-    { "sampleRate", _wrap_Blit2TriangleOscillator_f32_sampleRate_get, _wrap_Blit2TriangleOscillator_f32_sampleRate_set },
-    { "triangle", _wrap_Blit2TriangleOscillator_f32_triangle_get, _wrap_Blit2TriangleOscillator_f32_triangle_set },
+static swig_lua_attribute swig_BlitTriangleOscillator_attributes[] = {
+    { "sqr", _wrap_BlitTriangleOscillator_sqr_get, _wrap_BlitTriangleOscillator_sqr_set },
+    { "b1", _wrap_BlitTriangleOscillator_b1_get, _wrap_BlitTriangleOscillator_b1_set },
+    { "sampleRate", _wrap_BlitTriangleOscillator_sampleRate_get, _wrap_BlitTriangleOscillator_sampleRate_set },
+    { "triangle", _wrap_BlitTriangleOscillator_triangle_get, _wrap_BlitTriangleOscillator_triangle_set },
     {0,0,0}
 };
-static swig_lua_method swig_Blit2TriangleOscillator_f32_methods[]= {
-    { "reset", _wrap_Blit2TriangleOscillator_f32_reset},
-    { "setDuty", _wrap_Blit2TriangleOscillator_f32_setDuty},
-    { "setFrequency", _wrap_Blit2TriangleOscillator_f32_setFrequency},
-    { "setPort", _wrap_Blit2TriangleOscillator_f32_setPort},
-    { "Tick", _wrap_Blit2TriangleOscillator_f32_Tick},
-    { "ProcessSIMD", _wrap_Blit2TriangleOscillator_f32_ProcessSIMD},
-    { "ProcessBlock", _wrap_Blit2TriangleOscillator_f32_ProcessBlock},
-    { "ProcessInplace", _wrap_Blit2TriangleOscillator_f32_ProcessInplace},
-    { "__call", _wrap_Blit2TriangleOscillator_f32___call},
+static swig_lua_method swig_BlitTriangleOscillator_methods[]= {
+    { "reset", _wrap_BlitTriangleOscillator_reset},
+    { "setDuty", _wrap_BlitTriangleOscillator_setDuty},
+    { "setFrequency", _wrap_BlitTriangleOscillator_setFrequency},
+    { "setPort", _wrap_BlitTriangleOscillator_setPort},
+    { "Tick", _wrap_BlitTriangleOscillator_Tick},
+    { "ProcessSIMD", _wrap_BlitTriangleOscillator_ProcessSIMD},
+    { "ProcessBlock", _wrap_BlitTriangleOscillator_ProcessBlock},
+    { "ProcessInplace", _wrap_BlitTriangleOscillator_ProcessInplace},
+    { "__call", _wrap_BlitTriangleOscillator___call},
     {0,0}
 };
-static swig_lua_method swig_Blit2TriangleOscillator_f32_meta[] = {
-    { "__call", _wrap_Blit2TriangleOscillator_f32___call},
+static swig_lua_method swig_BlitTriangleOscillator_meta[] = {
+    { "__call", _wrap_BlitTriangleOscillator___call},
     {0,0}
 };
 
-static swig_lua_attribute swig_Blit2TriangleOscillator_f32_Sf_SwigStatic_attributes[] = {
+static swig_lua_attribute swig_BlitTriangleOscillator_Sf_SwigStatic_attributes[] = {
     {0,0,0}
 };
-static swig_lua_const_info swig_Blit2TriangleOscillator_f32_Sf_SwigStatic_constants[]= {
-    {SWIG_LUA_CONSTTAB_INT("PORT_FREQ", Analog::Oscillators::Blit2TriangleOscillator< float >::PORT_FREQ)},
-    {SWIG_LUA_CONSTTAB_INT("PORT_DUTY", Analog::Oscillators::Blit2TriangleOscillator< float >::PORT_DUTY)},
-    {SWIG_LUA_CONSTTAB_INT("PORT_RESET", Analog::Oscillators::Blit2TriangleOscillator< float >::PORT_RESET)},
-    {SWIG_LUA_CONSTTAB_INT("PORT_HARMONICS", Analog::Oscillators::Blit2TriangleOscillator< float >::PORT_HARMONICS)},
-    {SWIG_LUA_CONSTTAB_INT("PORT_PHASE", Analog::Oscillators::Blit2TriangleOscillator< float >::PORT_PHASE)},
+static swig_lua_const_info swig_BlitTriangleOscillator_Sf_SwigStatic_constants[]= {
+    {SWIG_LUA_CONSTTAB_INT("PORT_FREQ", Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::PORT_FREQ)},
+    {SWIG_LUA_CONSTTAB_INT("PORT_DUTY", Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::PORT_DUTY)},
+    {SWIG_LUA_CONSTTAB_INT("PORT_RESET", Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::PORT_RESET)},
+    {SWIG_LUA_CONSTTAB_INT("PORT_HARMONICS", Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::PORT_HARMONICS)},
+    {SWIG_LUA_CONSTTAB_INT("PORT_PHASE", Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::PORT_PHASE)},
     {0,0,0,0,0,0}
 };
-static swig_lua_method swig_Blit2TriangleOscillator_f32_Sf_SwigStatic_methods[]= {
+static swig_lua_method swig_BlitTriangleOscillator_Sf_SwigStatic_methods[]= {
     {0,0}
 };
-static swig_lua_class* swig_Blit2TriangleOscillator_f32_Sf_SwigStatic_classes[]= {
+static swig_lua_class* swig_BlitTriangleOscillator_Sf_SwigStatic_classes[]= {
     0
 };
 
-static swig_lua_namespace swig_Blit2TriangleOscillator_f32_Sf_SwigStatic = {
-    "Blit2TriangleOscillator_f32",
-    swig_Blit2TriangleOscillator_f32_Sf_SwigStatic_methods,
-    swig_Blit2TriangleOscillator_f32_Sf_SwigStatic_attributes,
-    swig_Blit2TriangleOscillator_f32_Sf_SwigStatic_constants,
-    swig_Blit2TriangleOscillator_f32_Sf_SwigStatic_classes,
+static swig_lua_namespace swig_BlitTriangleOscillator_Sf_SwigStatic = {
+    "BlitTriangleOscillator",
+    swig_BlitTriangleOscillator_Sf_SwigStatic_methods,
+    swig_BlitTriangleOscillator_Sf_SwigStatic_attributes,
+    swig_BlitTriangleOscillator_Sf_SwigStatic_constants,
+    swig_BlitTriangleOscillator_Sf_SwigStatic_classes,
     0
 };
-static swig_lua_class *swig_Blit2TriangleOscillator_f32_bases[] = {0};
-static const char *swig_Blit2TriangleOscillator_f32_base_names[] = {0};
-static swig_lua_class _wrap_class_Blit2TriangleOscillator_f32 = { "Blit2TriangleOscillator_f32", "Blit2TriangleOscillator_f32", &SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,_proxy__wrap_new_Blit2TriangleOscillator_f32, swig_delete_Blit2TriangleOscillator_f32, swig_Blit2TriangleOscillator_f32_methods, swig_Blit2TriangleOscillator_f32_attributes, &swig_Blit2TriangleOscillator_f32_Sf_SwigStatic, swig_Blit2TriangleOscillator_f32_meta, swig_Blit2TriangleOscillator_f32_bases, swig_Blit2TriangleOscillator_f32_base_names };
-
-static int _wrap_Blit2TriangleOscillator_f64_sqr_set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< double > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< double > *) 0 ;
-  Analog::Oscillators::Blit2SquareOscillator< double > *arg2 = (Analog::Oscillators::Blit2SquareOscillator< double > *) 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< double >::sqr",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::sqr",1,"Analog::Oscillators::Blit2TriangleOscillator< double > *");
-  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::sqr",2,"Analog::Oscillators::Blit2SquareOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_sqr_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t);
-  }
-  
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_sqr_set",2,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t);
-  }
-  
-  if (arg1) (arg1)->sqr = *arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2TriangleOscillator_f64_sqr_get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< double > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< double > *) 0 ;
-  Analog::Oscillators::Blit2SquareOscillator< double > *result = 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< double >::sqr",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::sqr",1,"Analog::Oscillators::Blit2TriangleOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_sqr_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t);
-  }
-  
-  result = (Analog::Oscillators::Blit2SquareOscillator< double > *)& ((arg1)->sqr);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,0); SWIG_arg++; 
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2TriangleOscillator_f64_b1_set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< double > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< double > *) 0 ;
-  FX::Filters::OnePole arg2 ;
-  FX::Filters::OnePole *argp2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< double >::b1",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::b1",1,"Analog::Oscillators::Blit2TriangleOscillator< double > *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::b1",2,"FX::Filters::OnePole");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_b1_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t);
-  }
-  
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_FX__Filters__OnePole,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_b1_set",2,SWIGTYPE_p_FX__Filters__OnePole);
-  }
-  arg2 = *argp2;
-  
-  if (arg1) (arg1)->b1 = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2TriangleOscillator_f64_b1_get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< double > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< double > *) 0 ;
-  FX::Filters::OnePole result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< double >::b1",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::b1",1,"Analog::Oscillators::Blit2TriangleOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_b1_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t);
-  }
-  
-  result =  ((arg1)->b1);
-  {
-    FX::Filters::OnePole * resultptr = new FX::Filters::OnePole((const FX::Filters::OnePole &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_FX__Filters__OnePole,1); SWIG_arg++;
-  }
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2TriangleOscillator_f64_sampleRate_set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< double > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< double >::sampleRate",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::sampleRate",1,"Analog::Oscillators::Blit2TriangleOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::sampleRate",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_sampleRate_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  if (arg1) (arg1)->sampleRate = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2TriangleOscillator_f64_sampleRate_get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< double > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< double >::sampleRate",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::sampleRate",1,"Analog::Oscillators::Blit2TriangleOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_sampleRate_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t);
-  }
-  
-  result = (double) ((arg1)->sampleRate);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2TriangleOscillator_f64_triangle_set(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< double > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< double >::triangle",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::triangle",1,"Analog::Oscillators::Blit2TriangleOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::triangle",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_triangle_set",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  if (arg1) (arg1)->triangle = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2TriangleOscillator_f64_triangle_get(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< double > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< double >::triangle",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::triangle",1,"Analog::Oscillators::Blit2TriangleOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_triangle_get",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t);
-  }
-  
-  result = (double) ((arg1)->triangle);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_new_Blit2TriangleOscillator_f64__SWIG_0(lua_State* L) {
-  int SWIG_arg = 0;
-  double arg1 ;
-  double arg2 ;
-  Analog::Oscillators::Blit2TriangleOscillator< double > *result = 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< double >::Blit2TriangleOscillator",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::Blit2TriangleOscillator",1,"double");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::Blit2TriangleOscillator",2,"double");
-  arg1 = (double)lua_tonumber(L, 1);
-  arg2 = (double)lua_tonumber(L, 2);
-  result = (Analog::Oscillators::Blit2TriangleOscillator< double > *)new Analog::Oscillators::Blit2TriangleOscillator< double >(arg1,arg2);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,1); SWIG_arg++; 
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_new_Blit2TriangleOscillator_f64__SWIG_1(lua_State* L) {
-  int SWIG_arg = 0;
-  double arg1 ;
-  Analog::Oscillators::Blit2TriangleOscillator< double > *result = 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< double >::Blit2TriangleOscillator",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::Blit2TriangleOscillator",1,"double");
-  arg1 = (double)lua_tonumber(L, 1);
-  result = (Analog::Oscillators::Blit2TriangleOscillator< double > *)new Analog::Oscillators::Blit2TriangleOscillator< double >(arg1);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,1); SWIG_arg++; 
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_new_Blit2TriangleOscillator_f64__SWIG_2(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< double > *result = 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< double >::Blit2TriangleOscillator",0,0)
-  result = (Analog::Oscillators::Blit2TriangleOscillator< double > *)new Analog::Oscillators::Blit2TriangleOscillator< double >();
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,1); SWIG_arg++; 
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_new_Blit2TriangleOscillator_f64(lua_State* L) {
-  int argc;
-  int argv[3]={
-    1,2,3
-  };
-  
-  argc = lua_gettop(L);
-  if (argc == 0) {
-    return _wrap_new_Blit2TriangleOscillator_f64__SWIG_2(L);
-  }
-  if (argc == 1) {
-    int _v = 0;
-    {
-      _v = lua_isnumber(L,argv[0]);
-    }
-    if (_v) {
-      return _wrap_new_Blit2TriangleOscillator_f64__SWIG_1(L);
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      _v = lua_isnumber(L,argv[0]);
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        return _wrap_new_Blit2TriangleOscillator_f64__SWIG_0(L);
-      }
-    }
-  }
-  
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'new_Blit2TriangleOscillator_f64'\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    Analog::Oscillators::Blit2TriangleOscillator< double >::Blit2TriangleOscillator(double,double)\n"
-    "    Analog::Oscillators::Blit2TriangleOscillator< double >::Blit2TriangleOscillator(double)\n"
-    "    Analog::Oscillators::Blit2TriangleOscillator< double >::Blit2TriangleOscillator()\n");
-  lua_error(L);return 0;
-}
-
-
-static int _wrap_Blit2TriangleOscillator_f64_reset(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< double > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< double > *) 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< double >::reset",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::reset",1,"Analog::Oscillators::Blit2TriangleOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_reset",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t);
-  }
-  
-  (arg1)->reset();
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2TriangleOscillator_f64_setDuty(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< double > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< double >::setDuty",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::setDuty",1,"Analog::Oscillators::Blit2TriangleOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::setDuty",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_setDuty",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  (arg1)->setDuty(arg2);
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2TriangleOscillator_f64_setFrequency(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< double > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< double > *) 0 ;
-  double arg2 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< double >::setFrequency",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::setFrequency",1,"Analog::Oscillators::Blit2TriangleOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::setFrequency",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_setFrequency",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  (arg1)->setFrequency(arg2);
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2TriangleOscillator_f64_setPort(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< double > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< double > *) 0 ;
-  int arg2 ;
-  double arg3 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< double >::setPort",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::setPort",1,"Analog::Oscillators::Blit2TriangleOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::setPort",2,"int");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::setPort",3,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_setPort",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t);
-  }
-  
-  arg2 = (int)lua_tonumber(L, 2);
-  arg3 = (double)lua_tonumber(L, 3);
-  (arg1)->setPort(arg2,arg3);
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2TriangleOscillator_f64_Tick__SWIG_0(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< double > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< double > *) 0 ;
-  double arg2 ;
-  double arg3 ;
-  double arg4 ;
-  double arg5 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< double >::Tick",5,5)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::Tick",1,"Analog::Oscillators::Blit2TriangleOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::Tick",2,"double");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::Tick",3,"double");
-  if(!lua_isnumber(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::Tick",4,"double");
-  if(!lua_isnumber(L,5)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::Tick",5,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  arg3 = (double)lua_tonumber(L, 3);
-  arg4 = (double)lua_tonumber(L, 4);
-  arg5 = (double)lua_tonumber(L, 5);
-  result = (double)(arg1)->Tick(arg2,arg3,arg4,arg5);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2TriangleOscillator_f64_Tick__SWIG_1(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< double > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< double > *) 0 ;
-  double arg2 ;
-  double arg3 ;
-  double arg4 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< double >::Tick",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::Tick",1,"Analog::Oscillators::Blit2TriangleOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::Tick",2,"double");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::Tick",3,"double");
-  if(!lua_isnumber(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::Tick",4,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  arg3 = (double)lua_tonumber(L, 3);
-  arg4 = (double)lua_tonumber(L, 4);
-  result = (double)(arg1)->Tick(arg2,arg3,arg4);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2TriangleOscillator_f64_Tick__SWIG_2(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< double > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< double > *) 0 ;
-  double arg2 ;
-  double arg3 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< double >::Tick",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::Tick",1,"Analog::Oscillators::Blit2TriangleOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::Tick",2,"double");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::Tick",3,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  arg3 = (double)lua_tonumber(L, 3);
-  result = (double)(arg1)->Tick(arg2,arg3);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2TriangleOscillator_f64_Tick__SWIG_3(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< double > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< double > *) 0 ;
-  double arg2 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< double >::Tick",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::Tick",1,"Analog::Oscillators::Blit2TriangleOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::Tick",2,"double");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t);
-  }
-  
-  arg2 = (double)lua_tonumber(L, 2);
-  result = (double)(arg1)->Tick(arg2);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2TriangleOscillator_f64_Tick__SWIG_4(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< double > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< double >::Tick",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::Tick",1,"Analog::Oscillators::Blit2TriangleOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_Tick",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t);
-  }
-  
-  result = (double)(arg1)->Tick();
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2TriangleOscillator_f64_Tick(lua_State* L) {
-  int argc;
-  int argv[6]={
-    1,2,3,4,5,6
-  };
-  
-  argc = lua_gettop(L);
-  if (argc == 1) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      return _wrap_Blit2TriangleOscillator_f64_Tick__SWIG_4(L);
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        return _wrap_Blit2TriangleOscillator_f64_Tick__SWIG_3(L);
-      }
-    }
-  }
-  if (argc == 3) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          return _wrap_Blit2TriangleOscillator_f64_Tick__SWIG_2(L);
-        }
-      }
-    }
-  }
-  if (argc == 4) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          {
-            _v = lua_isnumber(L,argv[3]);
-          }
-          if (_v) {
-            return _wrap_Blit2TriangleOscillator_f64_Tick__SWIG_1(L);
-          }
-        }
-      }
-    }
-  }
-  if (argc == 5) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          {
-            _v = lua_isnumber(L,argv[3]);
-          }
-          if (_v) {
-            {
-              _v = lua_isnumber(L,argv[4]);
-            }
-            if (_v) {
-              return _wrap_Blit2TriangleOscillator_f64_Tick__SWIG_0(L);
-            }
-          }
-        }
-      }
-    }
-  }
-  
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'Blit2TriangleOscillator_f64_Tick'\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    Analog::Oscillators::Blit2TriangleOscillator< double >::Tick(double,double,double,double)\n"
-    "    Analog::Oscillators::Blit2TriangleOscillator< double >::Tick(double,double,double)\n"
-    "    Analog::Oscillators::Blit2TriangleOscillator< double >::Tick(double,double)\n"
-    "    Analog::Oscillators::Blit2TriangleOscillator< double >::Tick(double)\n"
-    "    Analog::Oscillators::Blit2TriangleOscillator< double >::Tick()\n");
-  lua_error(L);return 0;
-}
-
-
-static int _wrap_Blit2TriangleOscillator_f64_ProcessSIMD(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< double > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< double > *) 0 ;
-  size_t arg2 ;
-  double *arg3 = (double *) 0 ;
-  double *arg4 = (double *) 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< double >::ProcessSIMD",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::ProcessSIMD",1,"Analog::Oscillators::Blit2TriangleOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::ProcessSIMD",2,"size_t");
-  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::ProcessSIMD",3,"double *");
-  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::ProcessSIMD",4,"double *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_ProcessSIMD",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t);
-  }
-  
-  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-  arg2 = (size_t)lua_tonumber(L, 2);
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_ProcessSIMD",3,SWIGTYPE_p_double);
-  }
-  
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_ProcessSIMD",4,SWIGTYPE_p_double);
-  }
-  
-  (arg1)->ProcessSIMD(arg2,arg3,arg4);
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2TriangleOscillator_f64_ProcessBlock(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< double > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< double > *) 0 ;
-  size_t arg2 ;
-  double *arg3 = (double *) 0 ;
-  double *arg4 = (double *) 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< double >::ProcessBlock",4,4)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::ProcessBlock",1,"Analog::Oscillators::Blit2TriangleOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::ProcessBlock",2,"size_t");
-  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::ProcessBlock",3,"double *");
-  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::ProcessBlock",4,"double *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_ProcessBlock",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t);
-  }
-  
-  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-  arg2 = (size_t)lua_tonumber(L, 2);
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_ProcessBlock",3,SWIGTYPE_p_double);
-  }
-  
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_double,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_ProcessBlock",4,SWIGTYPE_p_double);
-  }
-  
-  (arg1)->ProcessBlock(arg2,arg3,arg4);
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2TriangleOscillator_f64_ProcessInplace(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< double > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< double > *) 0 ;
-  size_t arg2 ;
-  double *arg3 = (double *) 0 ;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< double >::ProcessInplace",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::ProcessInplace",1,"Analog::Oscillators::Blit2TriangleOscillator< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::ProcessInplace",2,"size_t");
-  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::ProcessInplace",3,"double *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_ProcessInplace",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t);
-  }
-  
-  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-  arg2 = (size_t)lua_tonumber(L, 2);
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_double,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64_ProcessInplace",3,SWIGTYPE_p_double);
-  }
-  
-  (arg1)->ProcessInplace(arg2,arg3);
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_Blit2TriangleOscillator_f64___call(lua_State* L) {
-  int SWIG_arg = 0;
-  Analog::Oscillators::Blit2TriangleOscillator< double > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< double > *) 0 ;
-  double result;
-  
-  SWIG_check_num_args("Analog::Oscillators::Blit2TriangleOscillator< double >::operator ()",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Analog::Oscillators::Blit2TriangleOscillator< double >::operator ()",1,"Analog::Oscillators::Blit2TriangleOscillator< double > *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,0))){
-    SWIG_fail_ptr("Blit2TriangleOscillator_f64___call",1,SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t);
-  }
-  
-  result = (double)(arg1)->operator ()();
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static void swig_delete_Blit2TriangleOscillator_f64(void *obj) {
-Analog::Oscillators::Blit2TriangleOscillator< double > *arg1 = (Analog::Oscillators::Blit2TriangleOscillator< double > *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_Blit2TriangleOscillator_f64(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_Blit2TriangleOscillator_f64);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_Blit2TriangleOscillator_f64_attributes[] = {
-    { "sqr", _wrap_Blit2TriangleOscillator_f64_sqr_get, _wrap_Blit2TriangleOscillator_f64_sqr_set },
-    { "b1", _wrap_Blit2TriangleOscillator_f64_b1_get, _wrap_Blit2TriangleOscillator_f64_b1_set },
-    { "sampleRate", _wrap_Blit2TriangleOscillator_f64_sampleRate_get, _wrap_Blit2TriangleOscillator_f64_sampleRate_set },
-    { "triangle", _wrap_Blit2TriangleOscillator_f64_triangle_get, _wrap_Blit2TriangleOscillator_f64_triangle_set },
-    {0,0,0}
-};
-static swig_lua_method swig_Blit2TriangleOscillator_f64_methods[]= {
-    { "reset", _wrap_Blit2TriangleOscillator_f64_reset},
-    { "setDuty", _wrap_Blit2TriangleOscillator_f64_setDuty},
-    { "setFrequency", _wrap_Blit2TriangleOscillator_f64_setFrequency},
-    { "setPort", _wrap_Blit2TriangleOscillator_f64_setPort},
-    { "Tick", _wrap_Blit2TriangleOscillator_f64_Tick},
-    { "ProcessSIMD", _wrap_Blit2TriangleOscillator_f64_ProcessSIMD},
-    { "ProcessBlock", _wrap_Blit2TriangleOscillator_f64_ProcessBlock},
-    { "ProcessInplace", _wrap_Blit2TriangleOscillator_f64_ProcessInplace},
-    { "__call", _wrap_Blit2TriangleOscillator_f64___call},
-    {0,0}
-};
-static swig_lua_method swig_Blit2TriangleOscillator_f64_meta[] = {
-    { "__call", _wrap_Blit2TriangleOscillator_f64___call},
-    {0,0}
-};
-
-static swig_lua_attribute swig_Blit2TriangleOscillator_f64_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_Blit2TriangleOscillator_f64_Sf_SwigStatic_constants[]= {
-    {SWIG_LUA_CONSTTAB_INT("PORT_FREQ", Analog::Oscillators::Blit2TriangleOscillator< double >::PORT_FREQ)},
-    {SWIG_LUA_CONSTTAB_INT("PORT_DUTY", Analog::Oscillators::Blit2TriangleOscillator< double >::PORT_DUTY)},
-    {SWIG_LUA_CONSTTAB_INT("PORT_RESET", Analog::Oscillators::Blit2TriangleOscillator< double >::PORT_RESET)},
-    {SWIG_LUA_CONSTTAB_INT("PORT_HARMONICS", Analog::Oscillators::Blit2TriangleOscillator< double >::PORT_HARMONICS)},
-    {SWIG_LUA_CONSTTAB_INT("PORT_PHASE", Analog::Oscillators::Blit2TriangleOscillator< double >::PORT_PHASE)},
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_Blit2TriangleOscillator_f64_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_Blit2TriangleOscillator_f64_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_Blit2TriangleOscillator_f64_Sf_SwigStatic = {
-    "Blit2TriangleOscillator_f64",
-    swig_Blit2TriangleOscillator_f64_Sf_SwigStatic_methods,
-    swig_Blit2TriangleOscillator_f64_Sf_SwigStatic_attributes,
-    swig_Blit2TriangleOscillator_f64_Sf_SwigStatic_constants,
-    swig_Blit2TriangleOscillator_f64_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_Blit2TriangleOscillator_f64_bases[] = {0};
-static const char *swig_Blit2TriangleOscillator_f64_base_names[] = {0};
-static swig_lua_class _wrap_class_Blit2TriangleOscillator_f64 = { "Blit2TriangleOscillator_f64", "Blit2TriangleOscillator_f64", &SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,_proxy__wrap_new_Blit2TriangleOscillator_f64, swig_delete_Blit2TriangleOscillator_f64, swig_Blit2TriangleOscillator_f64_methods, swig_Blit2TriangleOscillator_f64_attributes, &swig_Blit2TriangleOscillator_f64_Sf_SwigStatic, swig_Blit2TriangleOscillator_f64_meta, swig_Blit2TriangleOscillator_f64_bases, swig_Blit2TriangleOscillator_f64_base_names };
+static swig_lua_class *swig_BlitTriangleOscillator_bases[] = {0};
+static const char *swig_BlitTriangleOscillator_base_names[] = {0};
+static swig_lua_class _wrap_class_BlitTriangleOscillator = { "BlitTriangleOscillator", "BlitTriangleOscillator", &SWIGTYPE_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,_proxy__wrap_new_BlitTriangleOscillator, swig_delete_BlitTriangleOscillator, swig_BlitTriangleOscillator_methods, swig_BlitTriangleOscillator_attributes, &swig_BlitTriangleOscillator_Sf_SwigStatic, swig_BlitTriangleOscillator_meta, swig_BlitTriangleOscillator_bases, swig_BlitTriangleOscillator_base_names };
 
 static swig_lua_attribute swig_SwigModule_attributes[] = {
     {0,0,0}
@@ -17507,28 +13500,17 @@ static swig_lua_const_info swig_SwigModule_constants[]= {
     {SWIG_LUA_CONSTTAB_INT("llong_min", LLONG_MIN)},
     {SWIG_LUA_CONSTTAB_INT("llong_max", LLONG_MAX)},
     {SWIG_LUA_CONSTTAB_INT("ullong_max", ULLONG_MAX)},
-    {SWIG_LUA_CONSTTAB_INT("Blit2SawOscillator_f32_PORT_FREQ", Analog::Oscillators::Blit2SawOscillator< float >::PORT_FREQ)},
-    {SWIG_LUA_CONSTTAB_INT("Blit2SawOscillator_f32_PORT_HARMONICS", Analog::Oscillators::Blit2SawOscillator< float >::PORT_HARMONICS)},
-    {SWIG_LUA_CONSTTAB_INT("Blit2SawOscillator_f32_PORT_PHASE", Analog::Oscillators::Blit2SawOscillator< float >::PORT_PHASE)},
-    {SWIG_LUA_CONSTTAB_INT("Blit2SawOscillator_f64_PORT_FREQ", Analog::Oscillators::Blit2SawOscillator< double >::PORT_FREQ)},
-    {SWIG_LUA_CONSTTAB_INT("Blit2SawOscillator_f64_PORT_HARMONICS", Analog::Oscillators::Blit2SawOscillator< double >::PORT_HARMONICS)},
-    {SWIG_LUA_CONSTTAB_INT("Blit2SawOscillator_f64_PORT_PHASE", Analog::Oscillators::Blit2SawOscillator< double >::PORT_PHASE)},
-    {SWIG_LUA_CONSTTAB_INT("Blit2SquareOscillator_f32_PORT_FREQ", Analog::Oscillators::Blit2SquareOscillator< float >::PORT_FREQ)},
-    {SWIG_LUA_CONSTTAB_INT("Blit2SquareOscillator_f32_PORT_HARMONICS", Analog::Oscillators::Blit2SquareOscillator< float >::PORT_HARMONICS)},
-    {SWIG_LUA_CONSTTAB_INT("Blit2SquareOscillator_f32_PORT_PHASE", Analog::Oscillators::Blit2SquareOscillator< float >::PORT_PHASE)},
-    {SWIG_LUA_CONSTTAB_INT("Blit2SquareOscillator_f64_PORT_FREQ", Analog::Oscillators::Blit2SquareOscillator< double >::PORT_FREQ)},
-    {SWIG_LUA_CONSTTAB_INT("Blit2SquareOscillator_f64_PORT_HARMONICS", Analog::Oscillators::Blit2SquareOscillator< double >::PORT_HARMONICS)},
-    {SWIG_LUA_CONSTTAB_INT("Blit2SquareOscillator_f64_PORT_PHASE", Analog::Oscillators::Blit2SquareOscillator< double >::PORT_PHASE)},
-    {SWIG_LUA_CONSTTAB_INT("Blit2TriangleOscillator_f32_PORT_FREQ", Analog::Oscillators::Blit2TriangleOscillator< float >::PORT_FREQ)},
-    {SWIG_LUA_CONSTTAB_INT("Blit2TriangleOscillator_f32_PORT_DUTY", Analog::Oscillators::Blit2TriangleOscillator< float >::PORT_DUTY)},
-    {SWIG_LUA_CONSTTAB_INT("Blit2TriangleOscillator_f32_PORT_RESET", Analog::Oscillators::Blit2TriangleOscillator< float >::PORT_RESET)},
-    {SWIG_LUA_CONSTTAB_INT("Blit2TriangleOscillator_f32_PORT_HARMONICS", Analog::Oscillators::Blit2TriangleOscillator< float >::PORT_HARMONICS)},
-    {SWIG_LUA_CONSTTAB_INT("Blit2TriangleOscillator_f32_PORT_PHASE", Analog::Oscillators::Blit2TriangleOscillator< float >::PORT_PHASE)},
-    {SWIG_LUA_CONSTTAB_INT("Blit2TriangleOscillator_f64_PORT_FREQ", Analog::Oscillators::Blit2TriangleOscillator< double >::PORT_FREQ)},
-    {SWIG_LUA_CONSTTAB_INT("Blit2TriangleOscillator_f64_PORT_DUTY", Analog::Oscillators::Blit2TriangleOscillator< double >::PORT_DUTY)},
-    {SWIG_LUA_CONSTTAB_INT("Blit2TriangleOscillator_f64_PORT_RESET", Analog::Oscillators::Blit2TriangleOscillator< double >::PORT_RESET)},
-    {SWIG_LUA_CONSTTAB_INT("Blit2TriangleOscillator_f64_PORT_HARMONICS", Analog::Oscillators::Blit2TriangleOscillator< double >::PORT_HARMONICS)},
-    {SWIG_LUA_CONSTTAB_INT("Blit2TriangleOscillator_f64_PORT_PHASE", Analog::Oscillators::Blit2TriangleOscillator< double >::PORT_PHASE)},
+    {SWIG_LUA_CONSTTAB_INT("BlitSawOscillator_PORT_FREQ", Analog::Oscillators::Blit2SawOscillator< DspFloatType >::PORT_FREQ)},
+    {SWIG_LUA_CONSTTAB_INT("BlitSawOscillator_PORT_HARMONICS", Analog::Oscillators::Blit2SawOscillator< DspFloatType >::PORT_HARMONICS)},
+    {SWIG_LUA_CONSTTAB_INT("BlitSawOscillator_PORT_PHASE", Analog::Oscillators::Blit2SawOscillator< DspFloatType >::PORT_PHASE)},
+    {SWIG_LUA_CONSTTAB_INT("BlitSquareOscillator_PORT_FREQ", Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::PORT_FREQ)},
+    {SWIG_LUA_CONSTTAB_INT("BlitSquareOscillator_PORT_HARMONICS", Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::PORT_HARMONICS)},
+    {SWIG_LUA_CONSTTAB_INT("BlitSquareOscillator_PORT_PHASE", Analog::Oscillators::Blit2SquareOscillator< DspFloatType >::PORT_PHASE)},
+    {SWIG_LUA_CONSTTAB_INT("BlitTriangleOscillator_PORT_FREQ", Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::PORT_FREQ)},
+    {SWIG_LUA_CONSTTAB_INT("BlitTriangleOscillator_PORT_DUTY", Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::PORT_DUTY)},
+    {SWIG_LUA_CONSTTAB_INT("BlitTriangleOscillator_PORT_RESET", Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::PORT_RESET)},
+    {SWIG_LUA_CONSTTAB_INT("BlitTriangleOscillator_PORT_HARMONICS", Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::PORT_HARMONICS)},
+    {SWIG_LUA_CONSTTAB_INT("BlitTriangleOscillator_PORT_PHASE", Analog::Oscillators::Blit2TriangleOscillator< DspFloatType >::PORT_PHASE)},
     {0,0,0,0,0,0}
 };
 static swig_lua_method swig_SwigModule_methods[]= {
@@ -17555,12 +13537,9 @@ static swig_lua_class* swig_SwigModule_classes[]= {
 &_wrap_class_double_vector,
 &_wrap_class_complex_float_vector,
 &_wrap_class_complex_double_vector,
-&_wrap_class_Blit2SawOscillator_f32,
-&_wrap_class_Blit2SawOscillator_f64,
-&_wrap_class_Blit2SquareOscillator_f32,
-&_wrap_class_Blit2SquareOscillator_f64,
-&_wrap_class_Blit2TriangleOscillator_f32,
-&_wrap_class_Blit2TriangleOscillator_f64,
+&_wrap_class_BlitSawOscillator,
+&_wrap_class_BlitSquareOscillator,
+&_wrap_class_BlitTriangleOscillator,
     0
 };
 static swig_lua_namespace* swig_SwigModule_namespaces[] = {
@@ -17581,16 +13560,13 @@ static swig_lua_namespace swig_SwigModule = {
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
 
-static swig_type_info _swigt__p_Analog__Oscillators__Blit2SawOscillatorT_double_t = {"_p_Analog__Oscillators__Blit2SawOscillatorT_double_t", "Analog::Oscillators::Blit2SawOscillator< double > *", 0, 0, (void*)&_wrap_class_Blit2SawOscillator_f64, 0};
-static swig_type_info _swigt__p_Analog__Oscillators__Blit2SawOscillatorT_float_t = {"_p_Analog__Oscillators__Blit2SawOscillatorT_float_t", "Analog::Oscillators::Blit2SawOscillator< float > *", 0, 0, (void*)&_wrap_class_Blit2SawOscillator_f32, 0};
-static swig_type_info _swigt__p_Analog__Oscillators__Blit2SquareOscillatorT_double_t = {"_p_Analog__Oscillators__Blit2SquareOscillatorT_double_t", "Analog::Oscillators::Blit2SquareOscillator< double > *", 0, 0, (void*)&_wrap_class_Blit2SquareOscillator_f64, 0};
-static swig_type_info _swigt__p_Analog__Oscillators__Blit2SquareOscillatorT_float_t = {"_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t", "Analog::Oscillators::Blit2SquareOscillator< float > *", 0, 0, (void*)&_wrap_class_Blit2SquareOscillator_f32, 0};
-static swig_type_info _swigt__p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t = {"_p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t", "Analog::Oscillators::Blit2TriangleOscillator< double > *", 0, 0, (void*)&_wrap_class_Blit2TriangleOscillator_f64, 0};
-static swig_type_info _swigt__p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t = {"_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t", "Analog::Oscillators::Blit2TriangleOscillator< float > *", 0, 0, (void*)&_wrap_class_Blit2TriangleOscillator_f32, 0};
+static swig_type_info _swigt__p_Analog__Oscillators__Blit2SawOscillatorT_float_t = {"_p_Analog__Oscillators__Blit2SawOscillatorT_float_t", "Analog::Oscillators::Blit2SawOscillator< float > *|Analog::Oscillators::Blit2SawOscillator< DspFloatType > *", 0, 0, (void*)&_wrap_class_BlitSawOscillator, 0};
+static swig_type_info _swigt__p_Analog__Oscillators__Blit2SquareOscillatorT_float_t = {"_p_Analog__Oscillators__Blit2SquareOscillatorT_float_t", "Analog::Oscillators::Blit2SquareOscillator< float > *|Analog::Oscillators::Blit2SquareOscillator< DspFloatType > *", 0, 0, (void*)&_wrap_class_BlitSquareOscillator, 0};
+static swig_type_info _swigt__p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t = {"_p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t", "Analog::Oscillators::Blit2TriangleOscillator< DspFloatType > *|Analog::Oscillators::Blit2TriangleOscillator< float > *", 0, 0, (void*)&_wrap_class_BlitTriangleOscillator, 0};
 static swig_type_info _swigt__p_FX__Filters__OnePole = {"_p_FX__Filters__OnePole", "FX::Filters::OnePole *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Random = {"_p_Random", "Random *", 0, 0, (void*)&_wrap_class_Random, 0};
-static swig_type_info _swigt__p_double = {"_p_double", "DspFloatType *|double *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_float = {"_p_float", "float *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_double = {"_p_double", "double *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_float = {"_p_float", "DspFloatType *|float *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_int = {"_p_int", "intptr_t *|int *|int_least32_t *|int_fast32_t *|int32_t *|int_fast16_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_long_long = {"_p_long_long", "int_least64_t *|int_fast64_t *|int64_t *|long long *|intmax_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_short = {"_p_short", "short *|int_least16_t *|int16_t *", 0, 0, (void*)0, 0};
@@ -17621,11 +13597,8 @@ static swig_type_info _swigt__p_unsigned_long_long = {"_p_unsigned_long_long", "
 static swig_type_info _swigt__p_unsigned_short = {"_p_unsigned_short", "unsigned short *|uint_least16_t *|uint16_t *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
-  &_swigt__p_Analog__Oscillators__Blit2SawOscillatorT_double_t,
   &_swigt__p_Analog__Oscillators__Blit2SawOscillatorT_float_t,
-  &_swigt__p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,
   &_swigt__p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,
-  &_swigt__p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,
   &_swigt__p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,
   &_swigt__p_FX__Filters__OnePole,
   &_swigt__p_Random,
@@ -17661,11 +13634,8 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_unsigned_short,
 };
 
-static swig_cast_info _swigc__p_Analog__Oscillators__Blit2SawOscillatorT_double_t[] = {  {&_swigt__p_Analog__Oscillators__Blit2SawOscillatorT_double_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Analog__Oscillators__Blit2SawOscillatorT_float_t[] = {  {&_swigt__p_Analog__Oscillators__Blit2SawOscillatorT_float_t, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_Analog__Oscillators__Blit2SquareOscillatorT_double_t[] = {  {&_swigt__p_Analog__Oscillators__Blit2SquareOscillatorT_double_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Analog__Oscillators__Blit2SquareOscillatorT_float_t[] = {  {&_swigt__p_Analog__Oscillators__Blit2SquareOscillatorT_float_t, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t[] = {  {&_swigt__p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t[] = {  {&_swigt__p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FX__Filters__OnePole[] = {  {&_swigt__p_FX__Filters__OnePole, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Random[] = {  {&_swigt__p_Random, 0, 0, 0},{0, 0, 0, 0}};
@@ -17701,11 +13671,8 @@ static swig_cast_info _swigc__p_unsigned_long_long[] = {  {&_swigt__p_unsigned_l
 static swig_cast_info _swigc__p_unsigned_short[] = {  {&_swigt__p_unsigned_short, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
-  _swigc__p_Analog__Oscillators__Blit2SawOscillatorT_double_t,
   _swigc__p_Analog__Oscillators__Blit2SawOscillatorT_float_t,
-  _swigc__p_Analog__Oscillators__Blit2SquareOscillatorT_double_t,
   _swigc__p_Analog__Oscillators__Blit2SquareOscillatorT_float_t,
-  _swigc__p_Analog__Oscillators__Blit2TriangleOscillatorT_double_t,
   _swigc__p_Analog__Oscillators__Blit2TriangleOscillatorT_float_t,
   _swigc__p_FX__Filters__OnePole,
   _swigc__p_Random,

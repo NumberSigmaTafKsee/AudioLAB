@@ -32,7 +32,7 @@ namespace Analog::Filters::Moog
         virtual ~ImprovedMoog() { }
 
         
-        void ProcessBlock(uint32_t n, DspFloatType * samples, DspFloatType * output, DspFloatType * A=NULL,DspFloatType * X=NULL,DspFloatType * Y=NULL)
+        void ProcessSIMD(size_t n, DspFloatType * samples, DspFloatType * output)
         {
             Undenormal denormal;
             DspFloatType dV0, dV1, dV2, dV3;
@@ -40,18 +40,9 @@ namespace Analog::Filters::Moog
             c = cutoff;
             r = resonance;
             
-            #pragma omp simd
-            for (uint32_t i = 0; i < n; i++)
-            {
-                
-                if(X != NULL) {
-                    SetCutoff(c * fabs(X[i]));
-                }
-                if(Y != NULL) {
-                    SetResonance(r * fabs(Y[i]));
-                }
-                
-
+            #pragma omp simd aligned(samples,output)
+            for (size_t i = 0; i < n; i++)
+            {               
                 dV0 = -g * (std::tanh((drive * samples[i] + resonance * V[3]) / (2.0 * VT)) + tV[0]);
                 V[0] += (dV0 + dV[0]) / (2.0 * sampleRate);
                 dV[0] = dV0;
@@ -71,18 +62,17 @@ namespace Analog::Filters::Moog
                 V[3] += (dV3 + dV[3]) / (2.0 * sampleRate);
                 dV[3] = dV3;
                 tV[3] = std::tanh(V[3] / (2.0 * VT));
-
-                DspFloatType amp = 1.0;
-                if(A != NULL) amp = A[i];
-                output[i] = amp*V[3];
-            }
-            SetCutoff(c);
-            SetResonance(r);
+             
+                output[i] = V[3];
+            }            
         }
 
+		void ProcessBlock(size_t n, DspFloatType * i, DspFloatType * o) {
+			ProcessSIMD(n,i,o);
+		}
         void ProcessInplace(size_t n, DspFloatType * i)
         {
-            ProcessBlock(n,i,i);
+            ProcessSIMD(n,i,i);
         }
 
         void SetResonance(DspFloatType r)

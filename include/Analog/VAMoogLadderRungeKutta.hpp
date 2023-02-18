@@ -31,7 +31,7 @@ namespace Analog::Moog
         void ProcessBlock(size_t n, DspFloatType * samples, DspFloatType * output)
         {
             Undenormal denormal;
-            #pragma omp simd
+            #pragma omp simd aligned(samples,output)
             for (uint32_t s = 0; s < n; ++s)
             {
                 for (int j = 0; j < oversampleFactor; j++)
@@ -67,17 +67,14 @@ namespace Analog::Moog
 
         void calculateDerivatives(DspFloatType input, DspFloatType * dstate, DspFloatType * state)
         {
-            #pragma omp simd
-            {
-                DspFloatType satstate0 = clip(state[0], saturation, saturationInv);
-                DspFloatType satstate1 = clip(state[1], saturation, saturationInv);
-                DspFloatType satstate2 = clip(state[2], saturation, saturationInv);
+			DspFloatType satstate0 = clip(state[0], saturation, saturationInv);
+			DspFloatType satstate1 = clip(state[1], saturation, saturationInv);
+			DspFloatType satstate2 = clip(state[2], saturation, saturationInv);
 
-                dstate[0] = cutoff * (clip(input - resonance * state[3], saturation, saturationInv) - satstate0);
-                dstate[1] = cutoff * (satstate0 - satstate1);
-                dstate[2] = cutoff * (satstate1 - satstate2);
-                dstate[3] = cutoff * (satstate2 - clip(state[3], saturation, saturationInv));
-            }
+			dstate[0] = cutoff * (clip(input - resonance * state[3], saturation, saturationInv) - satstate0);
+			dstate[1] = cutoff * (satstate0 - satstate1);
+			dstate[2] = cutoff * (satstate1 - satstate2);
+			dstate[3] = cutoff * (satstate2 - clip(state[3], saturation, saturationInv));
         }
 
         void rungekutteSolver(DspFloatType input, DspFloatType * state)

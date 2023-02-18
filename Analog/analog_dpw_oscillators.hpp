@@ -49,8 +49,8 @@ namespace Analog::Oscillators::DPW
             phase = std::fmod(phase + inc,1.0f);
             return A*out;
         }   
-        void ProcessBlock(size_t n, DSP * in, DSP * out) {
-            #pragma omp simd
+        void ProcessSIMD(size_t n, DSP * in, DSP * out) {
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
             {
                 position += phase - lastPhase;
@@ -65,8 +65,12 @@ namespace Analog::Oscillators::DPW
                 if(in) out[i] *= in[i];
             }
         }
+        void ProcessBlock(size_t n, DSP * in, DSP * out)
+        {
+			ProcessSIMD(n,in,out);
+		}
         void ProcessInplace(size_t n, DSP * in) {
-            ProcessBlock(n,nullptr,in);
+            ProcessSIMD(n,nullptr,in);
         }
     };
 
@@ -98,7 +102,7 @@ namespace Analog::Oscillators::DPW
             scaleFactor = 0.5f * fs /(4.0f * freq);    
         }
         void setDuty(DSP d) {
-            phase = std::clamp(d,0.01f,0.99f);
+            phase = clamp(d,0.01f,0.99f);
         }
         enum {
             PORT_FREQ,
@@ -132,8 +136,8 @@ namespace Analog::Oscillators::DPW
 
             return 2*out;        
         }
-        void ProcessBlock(size_t n, DSP * in, DSP * out) {
-            #pragma omp simd
+        void ProcessSIMD(size_t n, DSP * in, DSP * out) {
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
             {
                 positionB += phase - lastPhase;
@@ -157,8 +161,11 @@ namespace Analog::Oscillators::DPW
                 if(in) out[i] *= in;
             }
         }
+        void ProcessBlock(size_t n, DSP * in, DSP * out) {
+			ProcessSIMD(n,in,out);
+		}			
         void ProcessInplace(size_t n, DSP * in) {
-            ProcessBlock(n,nullptr,in);
+            ProcessSIMD(n,nullptr,in);
         }
     };
 
@@ -210,7 +217,7 @@ namespace Analog::Oscillators::DPW
             position += freq * invSampleRate;        
             return A*out;
         }
-        void ProcessBlock(size_t n, DSP * in, DSP * out) {
+        void ProcessSIMD(size_t n, DSP * in, DSP * out) {
             #pragma omp simd
             for(size_t i = 0; i < n; i++)
             {
@@ -223,8 +230,11 @@ namespace Analog::Oscillators::DPW
                 if(in) out[i] *= in[i];
             }
         }
+        void ProcessBlock(size_t n, DSP * in, DSP * out) {
+			ProcessSIMD(n,in,out);
+		}
         void ProcessInplace(size_t n, DSP * in) {
-            ProcessBlock(n,nullptr,in);
+            ProcessSIMD(n,nullptr,in);
         }
     };
 }

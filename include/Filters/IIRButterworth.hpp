@@ -694,16 +694,7 @@ namespace Filters::IIR::ButterworthFilters
         }
         return sos;
     }
-    // LP(wv/s) => 1/(1+s) => 1/(1+(wc/s)) => wc/(1+s)
-    // 2LP = (wc/(1+s))*(wc/(1+s)) => wc^2/(s^2 + 2*s + 1)
-    // HP(wc/s) => 1 - LP = 1 - (1/(1+(wc/s))) => 1 - s / (s+wc) => ((s+wc) - s)/(s+wc) => wc/(s+wc)
-    // Bandpass H((s-wu*wl)/((wu-wl)*s)) => 1st order low pass (1/(1+s))=> (1/(1 +((s-wu*wl)/((wu-wl)*s))))
-    // Bandstop H(((wu-wl)*s)/(s-wu*wl)) => 1st order low pass
-    // Low Shelf = GLP + HP = GLP + (1-LP)  = LP(G-1) + 1 
-    // High Shelf = LP + GP = LP + G*(1-LP) = G -GLP + LP = G(1-LP) + LP 
-    // Peak =  GBP + BS
-    // Notch = BP + GBS
-    // All pass = 
+    
     struct ButterworthLowPassFilter12db
     {
 
@@ -748,6 +739,21 @@ namespace Filters::IIR::ButterworthFilters
             DspFloatType y = bc.Tick(I);
             return y;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(out[i]);
+		}
     };
 
     struct ButterworthResonantLowPassFilter12db
@@ -799,6 +805,21 @@ namespace Filters::IIR::ButterworthFilters
             DspFloatType y = bc.Tick(I);
             return y;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(out[i]);
+		}
     };
 
     struct ButterworthDampedLowPassFilter12db
@@ -848,6 +869,21 @@ namespace Filters::IIR::ButterworthFilters
             DspFloatType y = bc.Tick(I);
             return y;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(out[i]);
+		}
     };
 
 
@@ -902,6 +938,21 @@ namespace Filters::IIR::ButterworthFilters
             DspFloatType y = bc.Tick(I);
             return y;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(out[i]);
+		}
     };
 
     struct ButterworthResonantLowPassCascadeFilter
@@ -955,6 +1006,21 @@ namespace Filters::IIR::ButterworthFilters
             DspFloatType y = bc.Tick(I);
             return y;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(out[i]);
+		}
     };
 
     
@@ -1009,10 +1075,23 @@ namespace Filters::IIR::ButterworthFilters
             DspFloatType y = bc.Tick(I);
             return y;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(out[i]);
+		}
     };
 
-    // Genetic Algorithm Transfer Function
-    // Input => H(s) => Output
 
     struct ButterworthHighPassFilter12db
     {
@@ -1061,6 +1140,21 @@ namespace Filters::IIR::ButterworthFilters
             DspFloatType y = bc.Tick(I);
             return y;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(out[i]);
+		}
     };
 
     struct ButterworthHighPassCascadeFilter
@@ -1112,6 +1206,21 @@ namespace Filters::IIR::ButterworthFilters
             DspFloatType y = bc.Tick(I);
             return y;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(out[i]);
+		}
     };
 
     struct ButterworthBandPassFilter12db
@@ -1162,9 +1271,24 @@ namespace Filters::IIR::ButterworthFilters
         }
         DspFloatType Tick(DspFloatType I)
         {
-            DspFloatType y = bc.Tick(I);
+            DspFloatType y = bc.Tick(I);         
             return y;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(out[i]);
+		}
     };
     
     struct ButterworthBandPassCascadeFilter
@@ -1229,6 +1353,21 @@ namespace Filters::IIR::ButterworthFilters
             DspFloatType y = bc.Tick(I);
             return y;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(out[i]);
+		}
     };
 
     struct ButterworthBandStopFilter12db
@@ -1287,6 +1426,21 @@ namespace Filters::IIR::ButterworthFilters
             DspFloatType y = bc.Tick(I);
             return y;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(out[i]);
+		}
     };
     
     struct ButterworthBandStopCascadeFilter
@@ -1352,5 +1506,20 @@ namespace Filters::IIR::ButterworthFilters
             DspFloatType y = bc.Tick(I);
             return y;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(out[i]);
+		}
     };
 }

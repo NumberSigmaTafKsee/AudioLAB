@@ -80,7 +80,7 @@ namespace FX
         }
         void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output) { {
             Undenormal abinormal;
-            #pragma omp simd
+            #pragma omp simd aligned(input,output)
             for(size_t i = 0; i < n; i++) {            
                 const DspFloatType I = input[i];
                 DspFloatType wd = 2*M_PI*fc;

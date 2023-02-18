@@ -140,7 +140,7 @@ namespace Analog::Oscillators
             #ifdef USE_GPU
             #pragma omp target teams distribute parallel for
             #else
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             #endif
             for(size_t i = 0; i < n; i++)
             {
@@ -287,7 +287,7 @@ namespace Analog::Oscillators
             #ifdef USE_GPU
             #pragma omp target teams distribute parallel for
             #else
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             #endif
             for(size_t i = 0; i < n; i++)
             {
@@ -377,7 +377,7 @@ namespace Analog::Oscillators
             #ifdef USE_GPU
             #pragma omp target teams distribute parallel for
             #else
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             #endif
             for(size_t i = 0; i < n; i++)
             {

@@ -53,7 +53,7 @@ namespace Delays
         }
         void ProcessSIMD(size_t num, DspFloatType * in, DspFloatType * out)
         {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < num; i++) out[i] = Tick(in[i]);
         }
         void ProcessBlock(size_t num, DspFloatType * in, DspFloatType * out)

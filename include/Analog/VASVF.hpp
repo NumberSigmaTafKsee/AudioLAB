@@ -103,7 +103,7 @@ namespace Analog::Filters::SVF
 
         void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output) {
             Undenormal denormals;                 
-            #pragma omp simd
+            #pragma omp simd aligned(input,output)
             for(size_t i = 0; i < n; i++) {
 
                 DspFloatType wd = 2*M_PI*fc;

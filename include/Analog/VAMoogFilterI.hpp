@@ -48,8 +48,9 @@ namespace Analog::Filters::Moog::MoogFilterI
 		DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {
 			return A*process(I);
 		}
-		void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output);
-		void ProcessInplace(size_t n, DspFloatType * buffer) { ProcessBlock(n,buffer,buffer); }
+		void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output);
+		void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) { ProcessSIMD(n,input,output); }
+		void ProcessInplace(size_t n, DspFloatType * buffer) { ProcessSIMD(n,buffer,buffer); }
 		
 
 		enum
@@ -121,10 +122,10 @@ namespace Analog::Filters::Moog::MoogFilterI
 		}
 	}
 
-	void MoogFilterI::ProcessBlock(size_t n, DspFloatType * inputs, DspFloatType * outputs)
+	void MoogFilterI::ProcessSIMD(size_t n, DspFloatType * inputs, DspFloatType * outputs)
 	{
 		Undenormal denormals;
-		#pragma omp simd
+		#pragma omp simd aligned(inputs,outputs)
 		for (int s = 0; s < n; s++)
 		{
 			// process input
@@ -176,7 +177,6 @@ namespace Analog::Filters::Moog::MoogFilterI
 	DspFloatType MoogFilterI::process(DspFloatType input)
 	{
 		Undenormal denormals;
-		// process input
 		input = saturate(input);
 		input -= r * out4;
 
@@ -209,13 +209,11 @@ namespace Analog::Filters::Moog::MoogFilterI
 			return out4;
 		}
 	}
-
-	
+		
 	DspFloatType MoogFilterI::saturate(DspFloatType input)
 	{
 		DspFloatType drySignal = input;
 		input *= 1.5f;
-
 		DspFloatType x1 = fabsf(input + saturationLimit);
 		DspFloatType x2 = fabsf(input - saturationLimit);
 		DspFloatType wetSignal = (0.5f * (x1 - x2));

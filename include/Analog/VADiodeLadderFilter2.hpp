@@ -103,7 +103,7 @@ namespace Analog::Filters::DiodeLadderFilter2
         }            
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
             Undenormal noDenormals;                        
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
             {                
                 auto I0 = 8 * C * VT * 2 * Fs * tan((M_PI * biasParameter)/ Fs);

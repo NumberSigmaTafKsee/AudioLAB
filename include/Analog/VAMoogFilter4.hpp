@@ -67,7 +67,7 @@ namespace Analog::MoogFilters::MoogFilter4
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
             Undenormal denormals;
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++) {
                 DspFloatType samples = std::tanh(in[i] * drive);
                 y_a = y_a + g * (std::tanh(samples - resonance * ((y_d_1 + y_d)/2) - std::tanh(y_a)));

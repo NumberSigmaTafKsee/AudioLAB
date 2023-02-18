@@ -99,29 +99,29 @@ namespace Analog::Filters::MoogFilters
     template<typename T>
     T TMoogFilter<T>::process(T input)
     {
-        // process input
-        x = bpsigmoid(input) - r*y4;
+		x = input - r*y4;
 
-        //T q = p;
-        //p = p+p;
-        //Four cascaded onepole filters (bilinear transform)
-        y1= x*p +  oldx*p - k*y1;    
-        y2=y1*p + oldy1*p - k*y2;    
-        y3=y2*p + oldy2*p - k*y3;    
-        y4=y3*p + oldy3*p - k*y4;
-        //p = q;
-        //Clipper band limited sigmoid
-        y4-=((y4*y4*y4)/6.f);
+		//T q = p;
+		//p = p+p;
+		//Four cascaded onepole filters (bilinear transform)
+		y1= x*p +  oldx*p - k*y1;    
+		y2=y1*p + oldy1*p - k*y2;    
+		y3=y2*p + oldy2*p - k*y3;    
+		y4=y3*p + oldy3*p - k*y4;
+		//p = q;
+		//Clipper band limited sigmoid
+		y4-=((y4*y4*y4)/6.f);
 
-        oldx = x; oldy1 = y1; oldy2 = y2; oldy3 = y3;
-        return y4;
-    }
+		oldx = x; oldy1 = y1; oldy2 = y2; oldy3 = y3;
+		return y4;
+	}
+
 
     template<typename T>
     void TMoogFilter<T>::ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
     {
         Undenormal denormal;
-        #pragma omp simd
+        #pragma omp simd aligned(in,out)
         for(size_t i = 0; i < n; i++) {
             // process input
             x = in[i] - r*y4;
@@ -214,33 +214,33 @@ struct AnotherMoogFilter1 : public FilterProcessor
     DspFloatType Tick(DspFloatType input, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0)
     {
         Undenormal denormal;
-        DspFloatType c = cutoff;
-        DspFloatType res = Q;
-        coefficients(fs,c + 0.5*X*c,Q + 0.5*Y*Q);
-        //Loop
-        //--Inverted feed back for corner peaking
-        x = input - r*y4;                
-        
-        //Four cascaded onepole filters (bilinear transform)
-        y1=x*p + oldx*p - k*y1;        
-        y2=y1*p+oldy1*p - k*y2;        
-        y3=y2*p+oldy2*p - k*y3;        
-        y4=y3*p+oldy3*p - k*y4;        
+		DspFloatType c = cutoff;
+		DspFloatType res = Q;
+		coefficients(fs,c + 0.5*X*c,Q + 0.5*Y*Q);
+		//Loop
+		//--Inverted feed back for corner peaking
+		x = input - r*y4;                
+		
+		//Four cascaded onepole filters (bilinear transform)
+		y1=x*p + oldx*p - k*y1;        
+		y2=y1*p+oldy1*p - k*y2;        
+		y3=y2*p+oldy2*p - k*y3;        
+		y4=y3*p+oldy3*p - k*y4;        
 
-        coefficients(fs,c,res);
+		coefficients(fs,c,res);
 
-        //Clipper band limited sigmoid
-        y4 = y4 - (y4*y4*y4)/6;        
-        oldx  = x;
-        oldy1 = y1;
-        oldy2 = y2;
-        oldy3 = y3;
+		//Clipper band limited sigmoid
+		y4 = y4 - (y4*y4*y4)/6;        
+		oldx  = x;
+		oldy1 = y1;
+		oldy2 = y2;
+		oldy3 = y3;
 
-        return A*y4;
+		return A*y4;
     }
 	void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
 		Undenormal denormal;
-		#pragma omp simd
+		#pragma omp simd aligned(in,out)
 		for(size_t i = 0; i < n; i++) {
 			DspFloatType c = cutoff;
 			DspFloatType res = Q;
@@ -325,7 +325,7 @@ struct AnotherMoogFilter2 : public FilterProcessor
     }
 	void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * out) {
 		Undenormal denormal;
-		#pragma omp simd
+		#pragma omp simd aligned(input,out)
 		for(size_t i = 0; i < n; i++) {			
 			calc();
 			DspFloatType in = input[i] - q*b4;       
@@ -391,7 +391,7 @@ struct MoogVCF2 : public FilterProcessor
     }
 	void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
 		Undenormal denormal;
-		#pragma omp simd
+		#pragma omp simd aligned(in,out)
 		for(size_t i = 0; i < n; i++) {			
 			DspFloatType f = fc * 1.16;
 			DspFloatType fb = res * (1.0 - 0.15 * f * f);
@@ -498,7 +498,7 @@ struct StilsonMoog2 : public FilterProcessor
 		Undenormal denormal;
 		int i,pole;
 		DspFloatType temp, input;			
-		#pragma omp simd
+		#pragma omp simd aligned(in,out)
 		for(size_t i = 0; i < n; i++) {						
 			input  = std::tanh(pre_gain*in[i]);
 			output = 0.25 * ( input - output ); //negative feedback
@@ -637,7 +637,7 @@ struct MoogLike : public FilterProcessor
     }
 	void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
 		Undenormal denormal;		
-		#pragma omp simd
+		#pragma omp simd aligned(in,out)
 		for(size_t i = 0; i < n; i++) {						
 			_in = in[i];
 			// per sample:

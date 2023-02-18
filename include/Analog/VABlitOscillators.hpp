@@ -124,7 +124,7 @@ namespace Analog::Oscillators::Blit
     }
     void Blit::ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * buffer)
     {
-      #pragma omp simd
+      #pragma omp simd aligned(in,buffer)
       for(size_t i = 0; i < n; i++) {
         DspFloatType tmp, denominator = sin( phase_ );
         if ( denominator <= std::numeric_limits<DspFloatType>::epsilon() )
@@ -289,7 +289,7 @@ namespace Analog::Oscillators::Blit
 
   void BlitSaw::ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
   {
-    #pragma omp simd
+    #pragma omp simd aligned(in,out)
     for(size_t i = 0; i < n; i++)
     {
       DspFloatType tmp, denominator = sin( phase_ );
@@ -504,7 +504,7 @@ namespace Analog::Oscillators::Blit
 
   void BlitSquare::ProcessSIMD(size_t n, DspFloatType *in, DspFloatType * out)
   {
-    #pragma omp simd
+    #pragma omp simd aligned(in,out)
     for(size_t i = 0; i < n; i++)
     {
       DspFloatType temp = lastBlitOutput_;

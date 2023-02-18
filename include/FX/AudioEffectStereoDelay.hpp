@@ -70,7 +70,7 @@ namespace FX
 
         void ProcessBlock(size_t numSamples, DspFloatType** inputs, DspFloatType** outputs) 
         {    
-            #pragma omp simd
+            #pragma omp simd aligned(inputs,outputs)
             for(size_t i = 0; i < numSamples; i++)
             {
                 outputs[pingpong? 1:0][i] = mix*outputs[0][i] + (1.0-mix)*delayL.process(inputs[0][i]);

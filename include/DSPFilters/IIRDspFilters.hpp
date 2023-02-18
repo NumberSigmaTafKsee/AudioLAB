@@ -128,6 +128,28 @@ namespace Filters
             d2 = biquad.z[2] * x - biquad.p[1] * y;
             return A * y;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			Undenormal denormal;
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) {
+				x = in[i];
+				y = biquad.z[0] * x + d1;
+				d1 = biquad.z[1] * x - biquad.p[0] * y + d2;
+				d2 = biquad.z[2] * x - biquad.p[1] * y;
+				out[i] = y;
+			}
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(out[i]);
+		}
     };
 
     struct FilterBase

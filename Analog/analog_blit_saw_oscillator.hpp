@@ -112,7 +112,7 @@ namespace Analog::Oscillators
         }
 
         void ProcessSIMD(size_t n, DSP * in, DSP * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
             {
                 // I = index
@@ -131,14 +131,15 @@ namespace Analog::Oscillators
                 phase_ += rate_;
                 if ( phase_ >= M_PI ) phase_ -= M_PI;
                 y = tmp;
-                out[i] = 2*y;            
+                out[i] = 2*y;     
+                if(in) out[i] *= in[i];       
             }
         }
         void ProcessBlock(size_t n, DSP * in, DSP * out) {
             ProcessSIMD(n,in,out);
         }
         void ProcessInplace(size_t n, DSP * out) {
-            ProcessSIMD(n,out);
+            ProcessSIMD(n,nullptr,out);
         }
 
         FX::Filters::OnePole     block;    

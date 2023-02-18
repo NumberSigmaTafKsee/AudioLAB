@@ -81,8 +81,36 @@ namespace Analog::Filters::LadderFilter2
 			return A*process(I);
 		}
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
-            #pragma omp simd
-            for(size_t i = 0; i < n; i++) out[i] = process(in[i]);
+			Undenormal denormals;
+            #pragma omp simd aligned(in,out)
+            for(size_t i = 0; i < n; i++) {
+				for(int i = 0; i < mOversampleFactor; ++i) // repeat sample processing per oversampling factor
+				{            
+					DspFloatType inputSample = in[i];
+					for(int filterIndex = 0; filterIndex < NUMBER_OF_FILTERS; ++filterIndex) // go through filter stages
+					{
+						// compute voltage differential at current time step
+						if(filterIndex == 0) // for the first filter
+						{
+							mvDiffVolt[filterIndex] = -mBiasControl * (tanh(mvVolt_1[filterIndex] * OVER_TWO_THERMAL_VOLT) + tanh((mGain * inputSample + mResonance * mvVolt_1[NUMBER_OF_FILTERS-1]) * OVER_TWO_THERMAL_VOLT));
+						}
+						else // for the rest of the filters
+						{
+							mvDiffVolt[filterIndex] = mBiasControl * (tanh(mvVolt[filterIndex-1] * OVER_TWO_THERMAL_VOLT) - tanh(mvVolt_1[filterIndex] * OVER_TWO_THERMAL_VOLT));
+						}
+						
+						// compute voltage output for current filter at current time step
+						mvVolt[filterIndex] += (mvDiffVolt[filterIndex] +  mvDiffVolt_1[filterIndex])/(2*mSampleRate);
+						
+						// update voltages from previous time step
+						mvVolt_1[filterIndex] = mvVolt[filterIndex];
+						mvDiffVolt_1[filterIndex] = mvDiffVolt[filterIndex];
+					}
+				}
+				
+				// return the voltage output of the last filter
+				out[i] = mvVolt[NUMBER_OF_FILTERS-1];
+			}
         }
         void ProcessInplace(size_t n, DspFloatType * samples)
         {

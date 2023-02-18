@@ -24,7 +24,7 @@ namespace FX::Distortion
     }
     void serpent_curve_vector(size_t n, DspFloatType *in, DspFloatType g=1)
     {
-        #pragma omp simd
+        #pragma omp simd aligned(in)
         for(size_t i = 0; i < n; i++)
         {
             DspFloatType max = 2.0f / (g + 1.0f);
@@ -43,7 +43,7 @@ namespace FX::Distortion
         return r;///max;
     }
     void sigmoider_vector(size_t n, DspFloatType *in, DspFloatType g=1) {    
-        #pragma omp simd
+        #pragma omp simd aligned(in)
         for(size_t i = 0; i < n; i++) {
             DspFloatType x = in[i];
             DspFloatType sign = x < 0? -1.0f:1.0f;
@@ -59,7 +59,7 @@ namespace FX::Distortion
     }
     void erfmoider_vector(size_t n, DspFloatType *in, DspFloatType g=2)
     {
-        #pragma omp simd
+        #pragma omp simd aligned(in)
         for(size_t i = 0; i < n; i++) {
             in[i] = erf(sigmoider(g*in[i])*g);
         }        
@@ -68,7 +68,7 @@ namespace FX::Distortion
         return 2*(2 * std::atan(std::tanh(g*(x/2))))-1;
     }
     void gunderballs_vector(size_t n, DspFloatType *x,DspFloatType g=2) {
-        #pragma omp simd
+        #pragma omp simd aligned(x)
         for(size_t i = 0; i < n; i++) {
             x[i] = 2*(2 * std::atan(std::tanh(g*(x[i]/2))))-1;
         }
@@ -77,7 +77,7 @@ namespace FX::Distortion
         return 4 *( x/(1 + std::pow(std::pow(std::abs(x),g),1/g)));
     }
     void algebraballs_vector(size_t n, DspFloatType *x, DspFloatType g= 2) {
-        #pragma omp simd
+        #pragma omp simd aligned(x)
         for(size_t i = 0; i < n; i++) {
             x[i] =  4 *( x[i]/(1 + std::pow(std::pow(std::abs(x[i]),g),1/g)));
         }
@@ -86,7 +86,7 @@ namespace FX::Distortion
         return x / (std::sqrt(1 + (g*x)*(g*x)));
     }
     void algebramoider_vector(size_t n, DspFloatType *x, DspFloatType g= 2) {
-        #pragma omp simd
+        #pragma omp simd aligned(x)
         for(size_t i = 0; i < n; i++) {
             x[i] =  x[i] / (std::sqrt(1 + (g*x[i])*(g*x[i])));
         }
@@ -95,7 +95,7 @@ namespace FX::Distortion
         return std::tanh(g*x)/std::tanh(g);
     }
     void tanhify_vector(size_t n, DspFloatType *x, DspFloatType g=2) {
-        #pragma omp simd
+        #pragma omp simd aligned(x)
         for(size_t i = 0; i < n; i++) {
             x[i] = std::tanh(g*x[i])/std::tanh(g);
         }
@@ -104,7 +104,7 @@ namespace FX::Distortion
         return std::tanh(g*x/std::sqrt(g+g*x*x));
     }
     void tanhballs_vector(size_t n, DspFloatType *x, DspFloatType g=2) {
-        #pragma omp simd
+        #pragma omp simd aligned(x)
         for(size_t i = 0; i < n; i++) {
             x[i] = std::tanh(g*x[i]/std::sqrt(g+g*x[i]*x[i]));
         }
@@ -115,7 +115,7 @@ namespace FX::Distortion
     }
     void tanhmoider_vector(size_t n, DspFloatType *x, DspFloatType g=2) {        
         sigmoider_vector(n,x,g);
-        #pragma omp simd
+        #pragma omp simd aligned(x)
         for(size_t i = 0; i < n; i++) {            
             x[i] = std::tanh(g*x[i]/std::sqrt(g+g*x[i]*x[i]));
         }
@@ -124,7 +124,7 @@ namespace FX::Distortion
         return std::atan(g*x/std::sqrt(g+g*x*x));
     }
     void atanballs_vector(size_t n, DspFloatType *x, DspFloatType g=2) {                
-        #pragma omp simd
+        #pragma omp simd aligned(x)
         for(size_t i = 0; i < n; i++) {          
             x[i] = std::atan(g*x[i]/std::sqrt(g+g*x[i]*x[i]));  
         }
@@ -135,7 +135,7 @@ namespace FX::Distortion
     }
     void atanmoider_vector(size_t n, DspFloatType *x, DspFloatType g=2) {        
         sigmoider_vector(n,x,g);
-        #pragma omp simd
+        #pragma omp simd aligned(x)
         for(size_t i = 0; i < n; i++) {            
             x[i] = std::atan(g*x[i]/std::sqrt(g+g*x[i]*x[i]));
         }        
@@ -147,7 +147,7 @@ namespace FX::Distortion
     }
     void bipolar_tanh_vector(size_t n, DspFloatType *x, DspFloatType p = 2.0, DspFloatType m =2.0)
     {
-        #pragma omp simd        
+        #pragma omp simd aligned(x)        
         for(size_t i = 0; i < n; i++) {            
             if(x[i] < 0) x[i] = std::tanh(m*x[i]);
             else x[i] = std::tanh(p*x[i]);
@@ -161,7 +161,7 @@ namespace FX::Distortion
         return std::tanh(x*p4);
     }
     void morph_vector(size_t n, DspFloatType x, DspFloatType * a, DspFloatType * b, DspFloatType * r) {
-        #pragma omp simd
+        #pragma omp simd aligned(a,b,r)
         for(size_t i=  0; i < n; i++) r[i] = a[i] + x*(b[i]-a[i]);
     }
     struct ClipFunction

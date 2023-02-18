@@ -52,7 +52,7 @@ namespace JoonasFX
 		DspFloatType Tick(DspFloatType I=0, DspFloatType A=0, DspFloatType X=0, DspFloatType Y=0) { return getValue(); }
 
 		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
-			#pragma omp simd
+			#pragma omp simd aligned(out)
 			for(size_t i = 0; i < n; i++)
 				out[i] = getValue();
 		}

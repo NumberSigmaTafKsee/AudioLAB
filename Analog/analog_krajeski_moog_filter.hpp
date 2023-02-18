@@ -3,16 +3,17 @@
 #include <cmath>
 #include <cstdint>
 #include "Undenormal.hpp"
-#include "SoundObject.hpp"
+#include "GenericSoundObject.hpp"
 
 namespace Analog::Filters::Moog
 {
     ///////////////////////////////////////////////////////////////////////////////////////////
-    // The Krajtski 5
+    // The Krajtski 
     ///////////////////////////////////////////////////////////////////////////////////////////
-    struct KrajeskiMoog : public FilterProcessor
+    template<typename DSP>
+    struct KrajeskiMoog : public GSSoundProcessor<DSP>
     {
-        KrajeskiMoog(DspFloatType sr) : FilterProcessor(),sampleRate(sr)
+        KrajeskiMoog(DSP sr) : GSSoundProcessor<DSP>(),sampleRate(sr)
         {
             memset(state, 0, sizeof(state));
             memset(delay, 0, sizeof(delay));
@@ -26,7 +27,7 @@ namespace Analog::Filters::Moog
 
         virtual ~KrajeskiMoog() { }
 
-        void Process(size_t n, DspFloatType * samples, DspFloatType * output)
+        void Process(size_t n, DSP * samples, DSP * output)
         {
             Undenormal denormal;
             #pragma omp simd
@@ -42,9 +43,9 @@ namespace Analog::Filters::Moog
                 output[s] = state[4];
             }
         }
-        void ProcessSIMD(size_t n, DspFloatType * samples, DspFloatType * output)
+        void ProcessSIMD(size_t n, DSP * samples, DSP * output)
         {
-            #pragma omp simd
+            #pragma omp simd aligned(samples,output)
             for(size_t s = 0; s < n; s++)
             {
                 state[0] = std::tanh(drive * (samples[s] - 4 * gRes * (state[4] - gComp * samples[s])));
@@ -57,15 +58,18 @@ namespace Analog::Filters::Moog
                 output[s] = state[4];
             }
         }
-        void Process(size_t n, DspFloatType * samples)
+        void ProcessBlock(size_t n, DSP * samples, DSP * output) {
+			ProcessSIMD(n,samples,output);
+		}
+        void ProcessInplace(size_t n, DSP * samples)
         {
-            Process(n,samples,samples);
+            ProcessSIMD(n,samples,samples);
         }
         
-        DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {
+        DSP Tick(DSP I, DSP A=1, DSP X=1, DSP Y=1) {
             Undenormal denormal;
-            DspFloatType c = GetCutoff();
-            DspFloatType r = GetResonance();
+            DSP c = GetCutoff();
+            DSP r = GetResonance();
             SetCutoff(c * fabs(X));
             SetResonance(r * fabs(Y));
             state[0] = std::tanh(drive * (I - 4 * gRes * (state[4] - gComp * I)));
@@ -78,24 +82,24 @@ namespace Analog::Filters::Moog
             SetResonance(r);
             return A * state[4];
         }
-        void SetResonance(DspFloatType r)
+        void SetResonance(DSP r)
         {
             resonance = r;
             gRes = resonance * (1.0029 + 0.0526 * wc - 0.926 * std::pow(wc, 2) + 0.0218 * std::pow(wc, 3));
         }
-        void SetCutoff(DspFloatType c)
+        void SetCutoff(DSP c)
         {
             cutoff = c;
             wc = 2 * M_PI * cutoff / sampleRate;
             g = 0.9892 * wc - 0.4342 * std::pow(wc, 2) + 0.1381 * std::pow(wc, 3) - 0.0202 * std::pow(wc, 4);
         }
 
-        void setDrive(DspFloatType d) {
+        void setDrive(DSP d) {
             drive = d;
         }
 
-        DspFloatType GetResonance() { return resonance; }
-        DspFloatType GetCutoff() { return cutoff; }
+        DSP GetResonance() { return resonance; }
+        DSP GetCutoff() { return cutoff; }
         
         enum
         {
@@ -103,7 +107,7 @@ namespace Analog::Filters::Moog
             PORT_RESONANCE,
             PORT_DRIVE,
         };
-        void setPort(int port, DspFloatType v)
+        void setPort(int port, DSP v)
         {
             switch (port)
             {
@@ -118,15 +122,15 @@ namespace Analog::Filters::Moog
                 break;
             }
         }
-        DspFloatType state[5];
-        DspFloatType delay[5];
-        DspFloatType wc; // The angular frequency of the cutoff.
-        DspFloatType g; // A derived parameter for the cutoff frequency
-        DspFloatType gRes; // A similar derived parameter for resonance.
-        DspFloatType gComp; // Compensation factor.
-        DspFloatType drive; // A parameter that controls intensity of nonlinearities.
-        DspFloatType sampleRate;
-        DspFloatType resonance;
-        DspFloatType cutoff;        
+        DSP state[5];
+        DSP delay[5];
+        DSP wc; // The angular frequency of the cutoff.
+        DSP g; // A derived parameter for the cutoff frequency
+        DSP gRes; // A similar derived parameter for resonance.
+        DSP gComp; // Compensation factor.
+        DSP drive; // A parameter that controls intensity of nonlinearities.
+        DSP sampleRate;
+        DSP resonance;
+        DSP cutoff;        
     };
 }

@@ -30,11 +30,11 @@ namespace Analog::Filters::Moog
 			return x * (27.0 + x2) / (27.0 + 9.0 * x2);
 		}
 
-		void ProcessBlock(size_t n, DspFloatType * samples, DspFloatType * output)
+		void ProcessSIMD(size_t n, DspFloatType * samples, DspFloatType * output)
 		{
 			Undenormal denormal;
 			DspFloatType k = resonance * 4;
-			#pragma omp simd
+			#pragma omp simd aligned(samples,output)
 			for (uint32_t s = 0; s < n; ++s)
 			{
 				// Coefficients optimized using differential evolution
@@ -55,9 +55,12 @@ namespace Analog::Filters::Moog
 			}
 		}
 
+		void ProcessBlock(size_t n, DspFloatType * samples, DspFloatType * output) {
+			ProcessSIMD(n,samples,output);
+		}
 		void ProcessInplace(size_t n, DspFloatType * samples)
 		{
-			ProcessBlock(n,samples,samples);
+			ProcessSIMD(n,samples,samples);
 		}
 
 		

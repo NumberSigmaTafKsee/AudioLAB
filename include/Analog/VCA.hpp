@@ -117,7 +117,7 @@ namespace Analog
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {            
             FX::Distortion::amp_vector(n,gain,in,out);
             if(dcBias != 0) FX::Distortion::bias_vector(n,dcBias,out);
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++) {
                 DspFloatType I = out[i];
                 clip.processSample(I);                
@@ -160,7 +160,7 @@ namespace Analog
             B.RandomClip();
         }
         void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
             {
                 DspFloatType x = A.Tick(in[i]);

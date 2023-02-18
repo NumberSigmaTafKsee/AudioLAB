@@ -51,7 +51,7 @@ namespace Analog::Filters::StateVariableFilter2
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
             Undenormal denormal;
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++) {
                 DspFloatType f     = 2 * std::sin(2 * M_PI * cutoff/fs);        
                 //--beginloop

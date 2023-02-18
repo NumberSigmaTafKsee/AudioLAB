@@ -13,12 +13,16 @@
 #include <chrono>
 #include <cassert>
 
+/*
 //#define DSPFLOATDOUBLE 1
 #ifdef DSPFLOATDOUBLE
 typedef double DspFloatType;
 #else
 typedef float DspFloatType;
 #endif
+*/
+
+typedef float DspFloatType;
 
 #include "Undenormal.hpp"
 #include "StdNoise.hpp"

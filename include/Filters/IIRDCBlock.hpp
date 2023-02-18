@@ -50,5 +50,22 @@ namespace Filters
             tick(&out,cutoff);
             return out;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++)
+			{
+				outputs     = in[i] - inputs + (0.999f - cutoff * 0.4f) * outputs;
+				inputs      = in[i];
+				lastOutput  = outputs;
+				out[i]      = lastOutput;
+			}
+		}
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+			ProcessSIMD(n,in,out);
+		}
+		void ProcessSIMD(size_t n, DspFloatType * out) {
+			ProcessSIMD(n,out,out);
+		}
     };
 }

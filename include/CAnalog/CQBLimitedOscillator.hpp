@@ -207,7 +207,7 @@ public:
         return A*out;
     }
     void ProcessSIMD(size_t n, DspFloatType * out) {
-		#pragma omp simd
+		#pragma omp simd aligned(in,out)
 		for(size_t i = 0; i < n; i++) {
             out[i] = doOscillate();
         }

@@ -39,7 +39,7 @@ namespace Analog::Moog
         {
             Undenormal denormal;
             // Processing still happens at sample rate...
-            #pragma omp simd
+            #pragma omp simd aligned(samples,_output)
             for (size_t s = 0; s < n; ++s)
             {
                 for (int stageIdx = 0; stageIdx < 4; ++stageIdx)

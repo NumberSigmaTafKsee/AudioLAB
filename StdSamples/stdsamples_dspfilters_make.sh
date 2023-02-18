@@ -1,6 +1,6 @@
-kit="Kits/AudioDSP/"
+kit="Kits/AudioDSP"
 kit="."
-swig -lua -c++ -Iinclude/DSPFilters $kit/audiodsp_lua_dspfilters.i
-gcc -fmax-errors=1 -std=c++17 -Iinclude -Iinclude/DSPFilters -O2 -fPIC \
--march=native -mavx2 -shared -o DspFilters.so $kit/audiodsp_DspFilters_wrap.cxx -lstdc++ \
--lm -lluajit -lDSPFilters
+swig -lua -c++ -Iinclude -Iinclude/DSPFilters $kit/audiodsp_dspfilters.i
+gcc -fmax-errors=1 -std=c++17 -Iinclude/DSPFilters -Iinclude -O2 -fPIC \
+-march=native -mavx2 -shared -o dspfilters.so $kit/audiodsp_dspfilters_wrap.cxx -lstdc++ -lm -lluajit \
+-lDSPFilters

@@ -3,7 +3,7 @@
 #include <cmath>
 #include <cstdint>
 #include "Undenormal.hpp"
-#include "GeneticSoundObject.hpp"
+#include "GenericSoundObject.hpp"
 
 namespace Analog::Filters::Moog
 {
@@ -11,9 +11,9 @@ namespace Analog::Filters::Moog
     // The Krajtski 5
     ///////////////////////////////////////////////////////////////////////////////////////////
     template<typename T>
-    struct GSKrajeskiMoog : public GSSoundProcessor<T>
+    struct KrajeskiMoog : public GSSoundProcessor<T>
     {
-        GSKrajeskiMoog(T sr) : GSSoundProcessor<T>(),sampleRate(sr)
+        KrajeskiMoog(T sr) : GSSoundProcessor<T>(),sampleRate(sr)
         {
             memset(state, 0, sizeof(state));
             memset(delay, 0, sizeof(delay));
@@ -27,10 +27,10 @@ namespace Analog::Filters::Moog
 
         virtual ~KrajeskiMoog() { }
 
-        void ProcessBlock(size_t n, T * samples, T * output)
+        void ProcessSIMD(size_t n, T * samples, T * output)
         {
             Undenormal denormal;
-            #pragma omp simd
+            #pragma omp simd aligned(samples,output)
             for (uint32_t s = 0; s < n; ++s)
             {
                 state[0] = std::tanh(drive * (samples[s] - 4 * gRes * (state[4] - gComp * samples[s])));
@@ -43,12 +43,12 @@ namespace Analog::Filters::Moog
                 output[s] = state[4];
             }
         }
-
-        void Process(size_t n, T * samples)
-        {
-            Process(n,samples,samples);
-        }
-        
+        void ProcessBlock(size_t n, T * in, T * out) {
+			ProcessSIMD(n,in,out);
+		}
+		void ProcessInplace(size_t n, T * out) {
+			ProcessSIMD(n,out);
+		}
         T Tick(T I, T A=1, T X=1, T Y=1) {
             Undenormal denormal;
             T c = GetCutoff();

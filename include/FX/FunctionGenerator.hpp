@@ -84,7 +84,7 @@ namespace Oscillators::Generators
             return A*(r);
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for)size_t i = 0; i < n; i++)
             {
                 DspFloatType A = in? in[i] : 1.0;
@@ -169,7 +169,7 @@ namespace Oscillators::Generators
             return A*r;
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for)size_t i = 0; i < n; i++)
             {
                 DspFloatType A = in? in[i] : 1.0;
@@ -263,7 +263,7 @@ namespace Oscillators::Generators
             return A*r;
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for)size_t i = 0; i < n; i++)
             {
                 DspFloatType A = in? in[i] : 1.0;
@@ -486,7 +486,7 @@ namespace Oscillators::Functions
             return 2*r-1;
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for)size_t i = 0; i < n; i++)
             {
                 DspFloatType A = in? in[i] : 1.0;

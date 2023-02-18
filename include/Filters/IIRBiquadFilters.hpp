@@ -111,7 +111,7 @@ namespace Filters
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
             Undenormal denormal;
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++) {
                 DspFloatType x = in[i];
                 DspFloatType y = (mb0 / ma0) * x + (mb1 / ma0) * mx_z1 + (mb2 / ma0) * mx_z2 - (ma1 / ma0) * my_z1 - (ma2 / ma0) * my_z2;

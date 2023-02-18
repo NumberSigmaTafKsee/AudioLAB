@@ -75,17 +75,18 @@ namespace FXDSP
             a[1] = c.p[1];
             flush();
         }
-        void ProcessBuffer(size_t n, const T* inBuffer, T * outBuffer)
+        void ProcessSIMD(size_t n, const T* inBuffer, T * outBuffer)
         {
             T * buffer = outBuffer;
+            #pragma omp simd aligned(buffer,inBuffer,outBuffer)
             for (unsigned buffer_idx = 0; buffer_idx < n_samples; ++buffer_idx)
             {
 
                 // DF-II Implementation
-                buffer[buffer_idx] = filter->b[0] * inBuffer[buffer_idx] + filter->w[0];
-                filter->w[0] = filter->b[1] * inBuffer[buffer_idx] - filter->a[0] * \
-                buffer[buffer_idx] + filter->w[1];
-                filter->w[1] = filter->b[2] * inBuffer[buffer_idx] - filter->a[1] * \
+                buffer[buffer_idx] = b[0] * inBuffer[buffer_idx] + w[0];
+                w[0] = b[1] * inBuffer[buffer_idx] - a[0] * \
+                buffer[buffer_idx] + w[1];
+                w[1] = b[2] * inBuffer[buffer_idx] - a[1] * \
                 buffer[buffer_idx];
 
             }
@@ -93,9 +94,9 @@ namespace FXDSP
             
         T Tick(T I, T A=1, T X=1, T Y=1)
         {
-            T out = filter->b[0] * I + filter->w[0];
-            filter->w[0] = filter->b[1] * I- filter->a[0] * out + filter->w[1];
-            filter->w[1] = filter->b[2] * I - filter->a[1] * out;
+            T out = b[0] * I + w[0];
+            w[0] = b[1] * I- a[0] * out + w[1];
+            w[1] = b[2] * I - a[1] * out;
             return A*I;
         }
     };

@@ -686,8 +686,7 @@ namespace Analog::minBLEP
 		DspFloatType *lpBufferEnd=lpO->buffer+lpO->cBuffer;
 		DspFloatType f;
 
-		// add
-		#pragma omp simd
+		// add		
 		for (i=0; i<lpO->nInit; i++, lpIn+=KTABLE, lpOut++)
 		{
 			if (lpOut>=lpBufferEnd) lpOut=lpO->buffer;
@@ -695,8 +694,7 @@ namespace Analog::minBLEP
 			*lpOut+=amp*(1-f);
 		}
 
-		// copy
-		#pragma omp simd
+		// copy		
 		for (; i<cBLEP; i++, lpIn+=KTABLE, lpOut++)
 		{
 			if (lpOut>=lpBufferEnd) lpOut=lpO->buffer;
@@ -774,7 +772,7 @@ namespace Analog::minBLEP
 	}
 	void minBLEP::ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
 	{
-		#pragma omp simd
+		#pragma omp simd aligned(in,out)
 		for(size_t i = 0; i < n; i++) {
 			DspFloatType v;
 			DspFloatType fs=lpO->f / lpO->s_rate;
@@ -829,8 +827,9 @@ namespace Analog::minBLEP
 				out[i] = 8*(lpO->triangle);
 			else
 				out[i] = 2*v-1;
-		}
+		}			
 	}
+	
 }
 #undef KTABLE
 #undef LERP

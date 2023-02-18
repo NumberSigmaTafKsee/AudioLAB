@@ -50,7 +50,7 @@ namespace Analog::Oscillators::DPW
         }
 
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * output)  {
-            #pragma omp simd
+            #pragma omp simd aligned(in,output)
             for(size_t i = 0; i < n; i++)
             {
                 position += phase - lastPhase;
@@ -139,7 +139,7 @@ namespace Analog::Oscillators::DPW
             return out;        
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * output)  {
-            #pragma omp simd
+            #pragma omp simd aligned(in,output)
             for(size_t i = 0; i < n; i++)
             {
                 positionB += phase - lastPhase;
@@ -219,7 +219,7 @@ namespace Analog::Oscillators::DPW
             return A*out;
         }
         void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output) {
-            #pragma omp simd
+            #pragma omp simd aligned(input,output)
             for(size_t i = 0; i < n; i++) {
                 position += phase - lastPhase;
                 lastPhase = phase;

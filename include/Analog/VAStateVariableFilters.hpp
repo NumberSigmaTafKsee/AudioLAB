@@ -63,7 +63,7 @@ namespace Analog::Filters::StateVariableFilters
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
             Undenormal denormal;
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++) {
                 x = in[i];
                 // algorithm
@@ -137,7 +137,7 @@ namespace Analog::Filters::StateVariableFilters
             lp = g*bp + z2;        
             // not sure these work right yet
             ubp = 2 * R * bp;
-            // dont know exactly what K is it's not explained
+            // K = gain
             shelf = xn + 2*K*R*bp;
             notch = xn - 2*R*bp;
             apf   = xn - 4*R*bp;
@@ -150,7 +150,7 @@ namespace Analog::Filters::StateVariableFilters
             return lp;
         }
         void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output) {
-            #pragma omp simd
+            #pragma omp simd aligned(input,output)
             for(size_t i = 0; i < n; i++) {
                 const DspFloatType I = input[i];
                 DspFloatType wd = 2*M_PI*fc;
@@ -257,6 +257,26 @@ namespace Analog::Filters::StateVariableFilters
             band = f * high + band;
             notch = high + low;
             return low;
+        }
+        void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output) {
+			Undenormal denormal;
+            #pragma omp simd aligned(input,output)
+            for(size_t i = 0; i < n; i++) {                
+				DspFloatType f     = 2 * std::sin(2 * M_PI * cutoff/fs);        
+				//--beginloop
+				const DspFloatType I = input[i];
+				low = low + f * band;
+				high = scale * I - low - scale*band;
+				band = f * high + band;
+				notch = high + low;
+				output[i] = low;
+            }
+        }
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n,input,output);
+        }
+        void InplaceProcess(size_t n, DspFloatType * input) {
+            ProcessSIMD(n,input,input);
         }
     };
 

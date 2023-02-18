@@ -53,7 +53,7 @@ namespace Analog::Filters::SVF
             Undenormal denormal;
             x = I;
             // algorithm
-            // loop
+            // loop            
             L = D2 + F1 * D1;
             H = I - L - Q1*D1;
             B = F1 * H + D1;
@@ -69,7 +69,7 @@ namespace Analog::Filters::SVF
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * output) {
             Undenormal denormal;
-            #pragma omp simd
+            #pragma omp simd aligned(in,output)
             for(size_t i = 0; i < n; i++) {
                 x = in[i];
                 // algorithm

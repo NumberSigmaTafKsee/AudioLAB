@@ -52,7 +52,7 @@ namespace FX::Dynamics
 		DspFloatType* channelDataR = inputs[1];
 		DspFloatType* channelOutL  = outputs[0];
 		DspFloatType* channelOutR  = outputs[1];
-		#pragma omp simd
+		#pragma omp simd aligned(inputs,outputs)
 		for (int sample = 0; sample < numSamples; ++sample)
 		{       // ..do something to the data...			    
 

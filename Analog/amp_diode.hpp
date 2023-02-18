@@ -1,5 +1,5 @@
 #pragma once
-#include "SoundObject.hpp"
+#include "GenericSoundObject.hpp"
 
 namespace FX::Distortion::Diode
 {
@@ -11,22 +11,22 @@ namespace FX::Distortion::Diode
         return Is * (exp(0.1*x/(eta*Vt))-1);
     }
 
-
-    struct DiodeClipperNR : public FunctionProcessor
+    template<typename T>
+    struct DiodeClipperNR : public GSSoundProcessor<T>
     {
-        DspFloatType controlledR;
-        DspFloatType Id, C, Ve, Vp, R, err;
-        DspFloatType Fs, T;
-        DspFloatType vNom, vDenom;
-        DspFloatType vin;
-        DspFloatType vout, voutTemp, voutOld;
-        DspFloatType beta, betaM1;    
+        T controlledR;
+        T Id, C, Ve, Vp, R, err;
+        T Fs, T;
+        T vNom, vDenom;
+        T vin;
+        T vout, voutTemp, voutOld;
+        T beta, betaM1;    
         int oversample;
-        std::vector<DspFloatType> blockInput, blockOutput, blockOutputDownsampled;
-        DspFloatType oldBlockOutput;
-        //juce::dsp::ProcessorDuplicator< juce::dsp::IIR::Filter <DspFloatType>, juce::dsp::IIR::Coefficients<DspFloatType>> lowPassFilter;
+        std::vector<T> blockInput, blockOutput, blockOutputDownsampled;
+        T oldBlockOutput;
+        //juce::dsp::ProcessorDuplicator< juce::dsp::IIR::Filter <T>, juce::dsp::IIR::Coefficients<T>> lowPassFilter;
 
-        DiodeClipperNR(DspFloatType sampleRate=44100.0) : FunctionProcessor()
+        DiodeClipperNR(T sampleRate=44100.0) : GSSoundProcessor<T>()
         {
             // Use this method as the place to do any pre-playback
             // initialisation that you need..
@@ -48,15 +48,15 @@ namespace FX::Distortion::Diode
             beta = 0.125;
             betaM1 = 1 - beta;
         }
-        DspFloatType gdExp(DspFloatType vc)
+        T gdExp(T vc)
         {
             return Id * (std::exp(vc / (2.0 * Ve)) - 1.0);
         }
-        DspFloatType gdExpDiff(DspFloatType vc)
+        T gdExpDiff(T vc)
         {
             return (Id * std::exp(vc / (2.0 * Ve))) / (2.0 * Ve);
         }
-        DspFloatType limiter(DspFloatType val)
+        T limiter(T val)
         {
             if (val < -1.0)
             {
@@ -70,7 +70,7 @@ namespace FX::Distortion::Diode
             }
             return val;
         }
-        DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1)
+        T Tick(T I, T A=1, T X=1, T Y=1)
         {
             voutTemp = 1;
             vout = 0;
@@ -88,41 +88,52 @@ namespace FX::Distortion::Diode
             
             return limiter(vout);
         }
+	void ProcessSIMD(size_t n, T * in, T * out) {
+		#pragma omp simd
+		for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+	}
+	void ProcessBlock(size_t n, T * in, T * out) {
+		ProcessSIMD(n,in,out);
+	}
+	void ProcessInplace(size_t n, T * buffer) {
+		ProcessSIMD(n,buffer,buffer);
+	}
     };
 
-
-    struct DiodeClipperFP : public FunctionProcessor
+    
+	template<typename T>
+    struct DiodeClipperFP : : public GSSoundProcessor<T>
     {
-        DspFloatType controlledR;
-        DspFloatType Id, C,  Ve, Vp, R, err;
-        DspFloatType Fs, T;
+        T controlledR;
+        T Id, C,  Ve, Vp, R, err;
+        T Fs, T;
         
-        DspFloatType vin;
-        DspFloatType vout, voutTemp, voutOld;
+        T vin;
+        T vout, voutTemp, voutOld;
 
         int upsamplingScale;
 
-        //juce::dsp::ProcessorDuplicator< juce::dsp::IIR::Filter <DspFloatType>, juce::dsp::IIR::Coefficients<DspFloatType>> lowPassFilter;
+        //juce::dsp::ProcessorDuplicator< juce::dsp::IIR::Filter <T>, juce::dsp::IIR::Coefficients<T>> lowPassFilter;
         
-        DspFloatType gdExpDiff(DspFloatType vc)
+        T gdExpDiff(T vc)
         {
             return (Id * std::exp(vc / (2.0 * Ve))) / (2.0 * Ve);
         }
-        DspFloatType gdExp(DspFloatType vc) 
+        T gdExp(T vc) 
         {
             return Id * (std::exp(vc / (2 * Ve)) - 1);
         }
-        DspFloatType gdPoly(DspFloatType vc)
+        T gdPoly(T vc)
         {
             return Vp * vc*vc*vc*vc * Heaviside(vc);
         }
-        DspFloatType Heaviside(DspFloatType vc)
+        T Heaviside(T vc)
         {
             if (vc >= 0)
                 return 1;
             else return 0;
         }
-        DspFloatType limiter(DspFloatType val)
+        T limiter(T val)
         {
             if (val < -1.0)
             {
@@ -136,7 +147,7 @@ namespace FX::Distortion::Diode
             }
             return val;
         }
-        DiodeClipperFP(DspFloatType sampleRate=44100.0) : FunctionProcessor()
+        DiodeClipperFP(T sampleRate=44100.0) : GSSoundProcessor<T>()
         {
             //oversampling->reset();
             //oversampling->initProcessing(static_cast<size_t> (samplesPerBlock));
@@ -161,7 +172,7 @@ namespace FX::Distortion::Diode
             controlledR = 1.0;
             voutOld = 0;
         }
-        DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1)
+        T Tick(T I, T A=1, T X=1, T Y=1)
         {
             int itter=0;
             voutTemp = 1;
@@ -177,6 +188,16 @@ namespace FX::Distortion::Diode
             vout = limiter(vout);
             return vout;            
         }
+	void ProcessSIMD(size_t n, T * in, T * out) {
+		#pragma omp simd
+		for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+	}
+	void ProcessBlock(size_t n, T * in, T * out) {
+		ProcessSIMD(n,in,out);
+	}
+	void ProcessInplace(size_t n, T * buffer) {
+		ProcessSIMD(n,buffer,buffer);
+	}
     };
 }
 

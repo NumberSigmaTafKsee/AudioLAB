@@ -161,7 +161,7 @@ namespace FX::Distortion::Diode
 	#endif
 		
 		DspFloatType* const aafDiodeParams[2]={afDiodeC1, afDiodeC2};
-		#pragma omp simd
+		#pragma omp simd aligned(pIn,pOut)
 		for(uint uiDiode = 0; uiDiode < nDiodes; uiDiode++)
 		{
 	#ifdef SPAM_OUTPUT
@@ -238,15 +238,14 @@ namespace FX::Distortion::Diode
 
 
 		DspFloatType* const aafCachedParams[2]={afCached1, afCached2};
-		#pragma omp simd
-		for(uiDiode = 0; uiDiode < nDiodes; uiDiode++)
+		
+		for(uint uiDiode = 0; uiDiode < nDiodes; uiDiode++)
 		{
 			aafCachedParams[0][uiDiode] = logf(aafDiodeParams[0][uiDiode]);
 			aafCachedParams[1][uiDiode] = 1.0f/aafDiodeParams[1][uiDiode];
 		}
 
-		uint uiSample = 0;
-		for(; uiSample < nSamples; uiSample++)
+		for(uint uiSample = 0; uiSample < nSamples; uiSample++)
 		{
 			DspFloatType Ucurr = pIn[uiSample];
 	#ifdef SPAM_OUTPUT
@@ -413,8 +412,7 @@ namespace FX::Distortion::Diode
 		uint i = 0;
 
 		DspFloatType* afTempIn = (DspFloatType*) calloc(nSamples, sizeof(DspFloatType));
-
-		#pragma omp simd
+		
 		for(i = 0; i < nSamples; i++)
 			afTempIn[i] = std::fabs(pIn[i]);
 
@@ -422,8 +420,7 @@ namespace FX::Distortion::Diode
 					satType, nDiodes, pDiodeTypes, potType,
 					ground, pot, series,
 					fGainSetting);
-
-		#pragma omp simd
+		
 		for(i = 0; i < nSamples; i++)
 		//saturation calculated using absolute voltages
 		//copy sign of input and saturation curve to output

@@ -3,19 +3,20 @@
 #include <algorithm>
 #include <cmath>
 #include "Undenormal.hpp"
-#include "SoundObject.hpp"
+#include "GenericSoundObject.hpp"
 
 namespace Analog::Filters::Moog
 {
 	///////////////////////////////////////////////////////////////////////////////////////////
 	// Stolen from microtracker
 	///////////////////////////////////////////////////////////////////////////////////////////
-	class MicrotrackerMoog : public FilterProcessor
+	template<typename DSP>
+	class MicrotrackerMoog : public GSSoundProcessor<DSP>
 	{
 
 	public:
 
-		MicrotrackerMoog(DspFloatType sr) : FilterProcessor(),sampleRate(sr)
+		MicrotrackerMoog(DSP sr) : GSSoundProcessor<DSP>(),sampleRate(sr)
 		{
 			p0 = p1 = p2 = p3 = p32 = p33 = p34 = 0.0;
 			SetCutoff(1000.0f);
@@ -24,22 +25,23 @@ namespace Analog::Filters::Moog
 
 		virtual ~MicrotrackerMoog() {}
 
-		DspFloatType fast_tanh(DspFloatType x) 
+		DSP fast_tanh(DSP x) 
 		{
-			DspFloatType x2 = x * x;
+			DSP x2 = x * x;
 			return x * (27.0 + x2) / (27.0 + 9.0 * x2);
 		}
 
-		void Process(size_t n, float * samples, float * output)
+		void ProcessSIMD(size_t n, DSP * samples, DSP * output)
 		{
 			Undenormal denormal;
-			DspFloatType k = resonance * 4;
+			DSP k = resonance * 4;
+			#pragma omp simd aligned(samples,output)
 			for (uint32_t s = 0; s < n; ++s)
 			{
 				// Coefficients optimized using differential evolution
 				// to make feedback gain 4.0 correspond closely to the
 				// border of instability, for all values of omega.
-				DspFloatType out = p3 * 0.360891 + p32 * 0.417290 + p33 * 0.177896 + p34 * 0.0439725;
+				DSP out = p3 * 0.360891 + p32 * 0.417290 + p33 * 0.177896 + p34 * 0.0439725;
 
 				p34 = p33;
 				p33 = p32;
@@ -53,17 +55,21 @@ namespace Analog::Filters::Moog
 				output[s] = out;
 			}
 		}
-
-		void Process(size_t n, float * samples)
+	
+		void ProcessBlock(size_t n, DSP * in, DSP * out)
 		{
-			Process(n,samples);
+			ProcessSIMD(n,in,out);
+		}
+		void ProcessInplace(size_t n, DSP * samples)
+		{
+			ProcessSIMD(n,samples,samples);
 		}
 
 		
-		DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {
+		DSP Tick(DSP I, DSP A=1, DSP X=1, DSP Y=1) {
 			Undenormal denormal;
-			DspFloatType k = resonance * 4;
-			DspFloatType out = p3 * 0.360891 + p32 * 0.417290 + p33 * 0.177896 + p34 * 0.0439725;
+			DSP k = resonance * 4;
+			DSP out = p3 * 0.360891 + p32 * 0.417290 + p33 * 0.177896 + p34 * 0.0439725;
 
 			p34 = p33;
 			p33 = p32;
@@ -78,26 +84,26 @@ namespace Analog::Filters::Moog
 
 		}
 
-		void SetResonance(DspFloatType r)
+		void SetResonance(DSP r)
 		{
 			resonance = r;
 		}
 
-		void SetCutoff(DspFloatType c)
+		void SetCutoff(DSP c)
 		{
 			cutoff = c * 2 * M_PI / sampleRate;
-			cutoff = std::min(cutoff, (DspFloatType)1);
+			cutoff = std::min(cutoff, (DSP)1);
 		}
 
-		DspFloatType GetResonance() { return resonance; }
-		DspFloatType GetCutoff() { return cutoff; }
+		DSP GetResonance() { return resonance; }
+		DSP GetCutoff() { return cutoff; }
 
 		enum
         {
             PORT_CUTOFF,
             PORT_RESONANCE,		
         };
-        void setPort(int port, DspFloatType v)
+        void setPort(int port, DSP v)
         {
             switch (port)
             {
@@ -111,13 +117,13 @@ namespace Analog::Filters::Moog
         }
 	private:
 
-		DspFloatType p0;
-		DspFloatType p1;
-		DspFloatType p2;
-		DspFloatType p3;
-		DspFloatType p32;
-		DspFloatType p33;
-		DspFloatType p34;
-		DspFloatType cutoff,resonance,sampleRate;
+		DSP p0;
+		DSP p1;
+		DSP p2;
+		DSP p3;
+		DSP p32;
+		DSP p33;
+		DSP p34;
+		DSP cutoff,resonance,sampleRate;
 	};
 }

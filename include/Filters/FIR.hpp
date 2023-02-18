@@ -1,11 +1,12 @@
 #pragma once
+#include "StdSamples/stdsamples.hpp"
 
 namespace Filters::FIR
 {
     struct FIR
     {
-        std::vector<DspFloatType> taps;
-        std::vector<DspFloatType> sr;
+        AudioDSP::sample_vector<DspFloatType> taps;
+        AudioDSP::sample_vector<DspFloatType> sr;
         DspFloatType fs,f,fu;
         int    filter_type;
         DspFloatType lambda,phi;
@@ -47,100 +48,108 @@ namespace Filters::FIR
         {
             int n;
             DspFloatType mm;
-
+            DspFloatType * t = this->taps.data();
+			#pragma omp simd aligned(t)
             for(n = 0; n < taps.size(); n++){
                 mm = n - (taps.size() - 1.0) / 2.0;
-                if( mm == 0.0 ) taps[n] = lambda / M_PI;
-                else taps[n] = sin( mm * lambda ) / (mm * M_PI);
+                if( mm == 0.0 ) t[n] = lambda / M_PI;
+                else t[n] = std::sin( mm * lambda ) / (mm * M_PI);
             }
         }
         void DesignHighPass()
         {
             int n;
             DspFloatType mm;
-
+            DspFloatType * t = this->taps.data();
+			#pragma omp simd aligned(t)
             for(n = 0; n < taps.size(); n++){
                 mm = n - (taps.size() - 1.0) / 2.0;
-                if( mm == 0.0 ) taps[n] = 1.0 - lambda / M_PI;
-                else taps[n] = -sin( mm * lambda ) / (mm * M_PI);
+                if( mm == 0.0 ) t[n] = 1.0 - lambda / M_PI;
+                else t[n] = -std::sin( mm * lambda ) / (mm * M_PI);
             }    
         }
         void DesignBandPass()
         {
             int n;
             DspFloatType mm;
-
+            DspFloatType * t = this->taps.data();
+			#pragma omp simd aligned(t)
             for(n = 0; n < taps.size(); n++){
                 mm = n - (taps.size() - 1.0) / 2.0;
-                if( mm == 0.0 ) taps[n] = (phi - lambda) / M_PI;
-                else taps[n] = (   sin( mm * phi ) -
-                                    sin( mm * lambda )   ) / (mm * M_PI);
+                if( mm == 0.0 ) t[n] = (phi - lambda) / M_PI;
+                else t[n] = (    std::sin( mm * phi ) -
+                                    std::sin( mm * lambda )   ) / (mm * M_PI);
             }
         }
         void DesignBandStop()
         {
             int n;
             DspFloatType mm;
-
+            DspFloatType * t = this->taps.data();
+			#pragma omp simd aligned(t)
             for(n = 0; n < taps.size(); n++){
                 mm = n - (taps.size() - 1.0) / 2.0;
-                if( mm == 0.0 ) taps[n] = (phi - lambda) / M_PI;
-                else taps[n] = -(   sin( mm * phi ) -
-                                    sin( mm * lambda )   ) / (mm * M_PI);
+                if( mm == 0.0 ) t[n] = (phi - lambda) / M_PI;
+                else t[n] = -(   std::sin( mm * phi ) -
+                                    std::sin( mm * lambda )   ) / (mm * M_PI);
             }
         }
         void DesignPeak(DspFloatType g)
         {
             int n;
             DspFloatType mm;
-
+            DspFloatType * t = this->taps.data();
+			#pragma omp simd aligned(t)
             for(n = 0; n < taps.size(); n++){
-                DspFloatType bs = -(   sin( mm * phi ) -
-                                    sin( mm * lambda )   ) / (mm * M_PI);
-                DspFloatType bp = (   sin( mm * phi ) -
-                                    sin( mm * lambda )   ) / (mm * M_PI);
+                DspFloatType bs = -(   std::sin( mm * phi ) -
+                                    std::sin( mm * lambda )   ) / (mm * M_PI);
+                DspFloatType bp = (   std::sin( mm * phi ) -
+                                    std::sin( mm * lambda )   ) / (mm * M_PI);
 
                 mm = n - (taps.size() - 1.0) / 2.0;
-                if( mm == 0.0 ) taps[n] = (phi - lambda) / M_PI;
-                else taps[n] = g*bp + bs;
+                if( mm == 0.0 ) t[n] = (phi - lambda) / M_PI;
+                else t[n] = g*bp + bs;
             }
         }
         void DesignNotch(DspFloatType g)
         {
             int n;
             DspFloatType mm;
-
+            DspFloatType * t = this->taps.data();
+			#pragma omp simd aligned(t)
             for(n = 0; n < taps.size(); n++){
-                DspFloatType bs = -(   sin( mm * phi ) -
-                                    sin( mm * lambda )   ) / (mm * M_PI);
-                DspFloatType bp = (   sin( mm * phi ) -
-                                    sin( mm * lambda )   ) / (mm * M_PI);
+                DspFloatType bs = -(   std::sin( mm * phi ) -
+                                    std::sin( mm * lambda )   ) / (mm * M_PI);
+                DspFloatType bp = (   std::sin( mm * phi ) -
+                                    std::sin( mm * lambda )   ) / (mm * M_PI);
 
                 mm = n - (taps.size() - 1.0) / 2.0;
-                if( mm == 0.0 ) taps[n] = (phi - lambda) / M_PI;
-                else taps[n] = bp + g*bs;
+                if( mm == 0.0 ) t[n] = (phi - lambda) / M_PI;
+                else t[n] = bp + g*bs;
             }
         }
         void DesignLowShelf(DspFloatType g)
         {
             int n;
             DspFloatType mm;
-
+            DspFloatType * t = this->taps.data();
+			#pragma omp simd aligned(t)
             for(n = 0; n < taps.size(); n++){
                 mm = n - (taps.size() - 1.0) / 2.0;
-                if( mm == 0.0 ) taps[n] = (phi - lambda) / M_PI;
-                else taps[n] = g*(sin( mm * lambda ) / (mm * M_PI)) - (sin( mm * lambda ) / (mm * M_PI)); 
+                if( mm == 0.0 ) t[n] = (phi - lambda) / M_PI;
+                else t[n] = g*(std::sin( mm * lambda ) / (mm * M_PI)) - (std::sin( mm * lambda ) / (mm * M_PI)); 
             }
         }
         void DesignHighShelf(DspFloatType g)
         {
             int n;
             DspFloatType mm;
-
+            DspFloatType * t = this->taps.data();
+			#pragma omp simd aligned(t)
             for(n = 0; n < taps.size(); n++){
                 mm = n - (taps.size() - 1.0) / 2.0;
-                if( mm == 0.0 ) taps[n] = (phi - lambda) / M_PI;
-                else taps[n] = (sin( mm * lambda ) / (mm * M_PI)) - g*(sin( mm * lambda ) / (mm * M_PI)); 
+                if( mm == 0.0 ) t[n] = (phi - lambda) / M_PI;
+                else t[n] = (std::sin( mm * lambda ) / (mm * M_PI)) - g*(std::sin( mm * lambda ) / (mm * M_PI)); 
             }
         }
         DspFloatType Tick(DspFloatType data_sample)
@@ -148,48 +157,54 @@ namespace Filters::FIR
             int i;
             DspFloatType result;
             Undenormal denormals;
-
-            #pragma omp simd
+			DspFloatType * s = this->sr.data();
+			DspFloatType * t = this->taps.data();
+            #pragma omp simd aligned(s)
             for(i = taps.size() - 1; i >= 1; i--){
-                sr[i] = sr[i-1];
+                s[i] = s[i-1];
             }	
-            sr[0] = data_sample;
+            s[0] = data_sample;
 
-            result = 0;
-            #pragma omp simd
+            result = 0;            
+            #pragma omp simd aligned(s,t)
             for(i = 0; i < taps.size(); i++) result += sr[i] * taps[i];
 
             return result;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			Undenormal denormals;
+			DspFloatType * _s = sr.data();
+			DspFloatType * _t = taps.data();
+			#pragma omp simd aligned(in,out)
+			for(size_t s = 0; s < n; s++)
+			{
+				int i;
+				DspFloatType result;				
+
+				
+				const DspFloatType data_sample = in[s];
+				for(i = taps.size() - 1; i >= 1; i--){
+					_s[i] = _s[i-1];
+				}	
+				_s[0] = data_sample;
+
+				result = 0;            
+				
+				for(i = 0; i < taps.size(); i++) result += _s[i] * _t[i];
+
+				out[s] = result;
+			}
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType  *out) {
+			ProcessSIMD(n,in,out);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out) {
+			ProcessSIMD(n,out,out);
+		}
         DspFloatType Tick2x(DspFloatType x) {
             Tick(x);
             return Tick(0);
-        }
-        // todo: gnuplot
-        std::complex<DspFloatType> freqResponse(DspFloatType w) {
-            std::complex<DspFloatType> r = 0;
-            for(size_t i = 0; i < taps.size(); i++)
-                r += taps[i]*exp(std::complex<DspFloatType>(0,-w*i));
-            return r;
-        }
-        DspFloatType magResponse(DspFloatType w) {
-            std::complex<DspFloatType> r = 0;
-            for(size_t i = 0; i < taps.size(); i++)
-                r += taps[i]*exp(std::complex<DspFloatType>(0,-w*i));
-            return abs(r);
-        }
-        DspFloatType phaseResponse(DspFloatType w) {
-            std::complex<DspFloatType> r = 0;
-            for(size_t i = 0; i < taps.size(); i++)
-                r += taps[i]*exp(std::complex<DspFloatType>(0,-w*i));
-            return arg(r);
-        }
-        std::vector<DspFloatType> impResponse(size_t len) {
-            std::vector<DspFloatType> r(len);
-            r[0] = Tick(1);
-            for(size_t i = 1; i < len; i++)
-                r[i] = Tick(0);
-            return r;
         }
     };
 }

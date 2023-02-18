@@ -2,7 +2,7 @@
 #include <cmath>
 #include <cstdlib>
 #include <cmath>
-#include "core_fastmath.hpp"
+#include "StdSamples/Core/core_fastmath.hpp"
 
 
 #define IIR_MAX_ORDER 32
@@ -1348,21 +1348,6 @@ namespace Analog::KocMoc
     // IIR downsampling filter
     IIRLowpass *iir;
   };
-
-
-
-
-  // steepness of downsample filter response
-  #define IIR_DOWNSAMPLE_ORDER 16
-
-  // downsampling passthrough bandwidth
-  #define IIR_DOWNSAMPLING_BANDWIDTH 0.9
-
-  // maximum newton-raphson iteration steps
-  #define SVF_MAX_NEWTON_STEPS 8
-
-  // check for newton-raphson breaking limit
-  #define SVF_NEWTON_BREAKING_LIMIT 1
 
   // constructor
   SVFilter::SVFilter(DspFloatType newCutoff, DspFloatType newResonance, int newOversamplingFactor,

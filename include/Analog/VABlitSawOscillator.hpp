@@ -110,13 +110,13 @@ namespace Analog::Oscillators
             state_ = tmp * 0.995;            
             phase_ += rate_;
             if ( phase_ >= M_PI ) phase_ -= M_PI;
-            y = tmp;
-            return 1.9*y;
+            y = tmp - block.process(tmp);
+            return 1.8*y;
         }
 
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
         {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
             {
                 DspFloatType tmp, denominator = sin( phase_ );
@@ -131,8 +131,8 @@ namespace Analog::Oscillators
                 state_ = tmp * 0.995;            
                 phase_ += rate_;
                 if ( phase_ >= M_PI ) phase_ -= M_PI;
-                y = tmp;
-                out[i] = 2*y;
+                y = tmp - block.process(tmp);
+                out[i] = 1.8*y;
                 if(in) out[i] *= in[i];
             }            
         }

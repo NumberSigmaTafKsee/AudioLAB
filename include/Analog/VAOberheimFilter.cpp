@@ -13,6 +13,9 @@
 
 #include <utility>
 #include <cmath>
+#include <algorithm>
+#include <cmath>
+#include <math.h>
 
 namespace Analog::Filters::Oberheim
 {
@@ -85,17 +88,6 @@ namespace Analog::Filters::Oberheim
 	#   define FAUSTPP_END_NAMESPACE
 	#endif
 
-	FAUSTPP_BEGIN_NAMESPACE
-
-	#ifndef FAUSTFLOAT
-	#define FAUSTFLOAT DspFloatType
-	#endif 
-
-	FAUSTPP_END_NAMESPACE
-	#include <algorithm>
-	#include <cmath>
-	#include <math.h>
-	FAUSTPP_BEGIN_NAMESPACE
 
 	static DspFloatType mydsp_faustpower2_f(DspFloatType value) {
 		return (value * value);
@@ -116,9 +108,9 @@ namespace Analog::Filters::Oberheim
 		
 		int fSampleRate;
 		DspFloatType fConst0;
-		FAUSTFLOAT fHslider0;
+		DspFloatType fHslider0;
 		DspFloatType fRec6[2];
-		FAUSTFLOAT fHslider1;
+		DspFloatType fHslider1;
 		DspFloatType fRec4[2];
 		DspFloatType fRec5[2];
 		
@@ -201,8 +193,8 @@ namespace Analog::Filters::Oberheim
 		}
 		
 		FAUSTPP_VIRTUAL void instanceResetUserInterface() {
-			fHslider0 = FAUSTFLOAT(20000.0f);
-			fHslider1 = FAUSTFLOAT(1.0f);
+			fHslider0 = DspFloatType(20000.0f);
+			fHslider1 = DspFloatType(1.0f);
 		}
 		
 		FAUSTPP_VIRTUAL void instanceClear() {
@@ -252,12 +244,12 @@ namespace Analog::Filters::Oberheim
 			ui_interface->closeBox();
 		}
 		
-		FAUSTPP_VIRTUAL void compute(int count, FAUSTFLOAT** inputs, FAUSTFLOAT** outputs) {
-			FAUSTFLOAT* input0 = inputs[0];
-			FAUSTFLOAT* output0 = outputs[0];
-			FAUSTFLOAT* output1 = outputs[1];
-			FAUSTFLOAT* output2 = outputs[2];
-			FAUSTFLOAT* output3 = outputs[3];
+		FAUSTPP_VIRTUAL void compute(int count, DspFloatType** inputs, DspFloatType** outputs) {
+			DspFloatType* input0 = inputs[0];
+			DspFloatType* output0 = outputs[0];
+			DspFloatType* output1 = outputs[1];
+			DspFloatType* output2 = outputs[2];
+			DspFloatType* output3 = outputs[3];
 			DspFloatType fSlow0 = (0.00100000005f * DspFloatType(fHslider0));
 			DspFloatType fSlow1 = (1.0f / DspFloatType(fHslider1));
 			for (int i = 0; (i < count); i = (i + 1)) {
@@ -278,10 +270,10 @@ namespace Analog::Filters::Oberheim
 				DspFloatType fRec3 = (fTemp7 + (fRec4[1] + fTemp8));
 				fRec4[0] = (fRec4[1] + (2.0f * fTemp7));
 				fRec5[0] = (fTemp4 + fTemp9);
-				output0[i] = FAUSTFLOAT(fRec3);
-				output1[i] = FAUSTFLOAT(fRec2);
-				output2[i] = FAUSTFLOAT(fRec1);
-				output3[i] = FAUSTFLOAT(fRec0);
+				output0[i] = DspFloatType(fRec3);
+				output1[i] = DspFloatType(fRec2);
+				output2[i] = DspFloatType(fRec1);
+				output3[i] = DspFloatType(fRec0);
 				fRec6[1] = fRec6[0];
 				fRec4[1] = fRec4[0];
 				fRec5[1] = fRec5[0];
@@ -289,7 +281,6 @@ namespace Analog::Filters::Oberheim
 		}
 
 	};
-	FAUSTPP_END_NAMESPACE
 
 
 	#if defined(__GNUC__)

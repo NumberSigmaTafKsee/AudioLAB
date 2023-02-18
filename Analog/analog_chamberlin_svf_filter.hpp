@@ -1,7 +1,7 @@
 #pragma once
 #include <cmath>
 #include "FX/ClipFunctions.hpp"
-#include "GenericSoundProcessor.hpp"
+#include "GenericSoundObject.hpp"
 
 namespace Analog::Filters::SVF
 {
@@ -23,7 +23,7 @@ namespace Analog::Filters::SVF
         DSP x,L,B,H,N,F1,Q1,D1,D2;
         DSP Fc,Fs,R;
 
-        ChamberlinSVF(DSP sr, DSP fc, DSP q) : GSSoundProcessor<DSP> {        
+        ChamberlinSVF(DSP sr, DSP fc, DSP q) : GSSoundProcessor<DSP>() {        
             Fc = fc;
             Fs = sr;
             R  = q;
@@ -67,7 +67,7 @@ namespace Analog::Filters::SVF
         }
         void ProcessSIMD(size_t n, DSP * in, DSP * out) {
             Undenormal denormal;            
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
             {            
                 DSP I = in[i];
@@ -85,14 +85,14 @@ namespace Analog::Filters::SVF
 
                 // outputs
                 //L,H,B,N
-                out[i] = std::tanh(A*L);
+                out[i] = std::tanh(L);
             }
         }
         void ProcessBlock(size_t n, DSP * in, DSP * out) {
             ProcessSIMD(n,in,out);
         }
         void ProcessInplace(size_t n, DSP * out) {
-            ProcessSIMD(n,out);
+            ProcessSIMD(n,out,out);
         }
     };
 }

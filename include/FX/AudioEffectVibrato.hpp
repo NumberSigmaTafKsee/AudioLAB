@@ -106,7 +106,7 @@ namespace FX
             // Go through each channel of audio that's passed in. In this example we apply identical
             // effects to each channel, regardless of how many input channels there are. For some effects, like
             // a stereo chorus or panner, you might do something different for each channel.
-            #pragma omp simd
+            
             for (channel = 0; channel < numInputChannels; ++channel)
             {
                 // channelData is an array of length numSamples which contains the audio for one channel
@@ -123,7 +123,7 @@ namespace FX
                 
                 dpw = delayWritePosition_[channel];
                 ph = lfoPhase_[channel];
-                
+				#pragma omp simd aligned(channelData,channelOut,delayData)
                 for (int i = 0; i < numSamples; ++i)
                 {
                     const DspFloatType in = channelData[i];

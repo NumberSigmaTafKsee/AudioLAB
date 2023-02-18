@@ -2,8 +2,7 @@
 
 #include "MusicFunctions.hpp"
 #include "Undenormal.hpp"
-#include "FX/Diode.hpp"
-#include "GenericSoundProcessor.hpp"
+#include "GenericSoundObject.hpp"
 
 namespace Analog::Filters::DiodeLadderFilter2
 {
@@ -87,7 +86,7 @@ namespace Analog::Filters::DiodeLadderFilter2
                 u4 = std::tanh((VC4 - VC3) / (2 * gamma));
                 VC4 = (I0 / (4.0 * C * Fs) * (-u5 - u4)) + s4;
                 u5 = std::tanh(VC4 / (6.0f * gamma));
-                Vout = (K + 0.5f) * FX::Distortion::Diode::Diode(VC4);
+                Vout = (K + 0.5f) * VC4;
                 if (std::fabs(Vout - VoutPrev) >= Mp * std::fabs(VoutPrev) || iteration > maxNrIterations)
                 {
                     VoutPrev = Vout;
@@ -106,7 +105,7 @@ namespace Analog::Filters::DiodeLadderFilter2
         void ProcessSIMD(size_t n, DSP * in, DSP * out)
         {            
             Undenormal noDenormals;            
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++) {        
                 auto I0 = 8 * C * VT * 2 * Fs * std::tan((M_PI * biasParameter)/ Fs);
                 DSP K = gainParameter;
@@ -123,7 +122,7 @@ namespace Analog::Filters::DiodeLadderFilter2
                     u4 = std::tanh((VC4 - VC3) / (2 * gamma));
                     VC4 = (I0 / (4.0 * C * Fs) * (-u5 - u4)) + s4;
                     u5 = std::tanh(VC4 / (6.0f * gamma));
-                    Vout = (K + 0.5f) * FX::Distortion::Diode::Diode(VC4);
+                    Vout = (K + 0.5f) * VC4;
                     if (std::fabs(Vout - VoutPrev) >= Mp * std::fabs(VoutPrev) || iteration > maxNrIterations)
                     {
                         VoutPrev = Vout;
@@ -142,11 +141,11 @@ namespace Analog::Filters::DiodeLadderFilter2
         }
         void ProcessBlock(size_t n, DSP * in, DSP * out)
         {
-            
+            ProcessSIMD(n,in,out);
         }
         void ProcessInplace(size_t n, DSP * out)
         {
-            
+            ProcessSIMD(n,out,out);
         }
     };
 }

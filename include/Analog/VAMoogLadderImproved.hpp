@@ -29,10 +29,10 @@ namespace Analog::Moog
 		{
 			Undenormal denormal;
 			DspFloatType dV0, dV1, dV2, dV3;
-			#pragma omp simd
+			#pragma omp simd aligned(samples,output)
 			for (uint32_t i = 0; i < n; i++)
 			{
-				dV0 = -g * (tanh((drive * samples[i] + resonance * V[3]) / (2.0 * VT)) + tV[0]);
+				dV0 = -g * (std::tanh((drive * samples[i] + resonance * V[3]) / (2.0 * VT)) + tV[0]);
 				V[0] += (dV0 + dV[0]) / (2.0 * sampleRate);
 				dV[0] = dV0;
 				tV[0] = tanh(V[0] / (2.0 * VT));
@@ -40,17 +40,17 @@ namespace Analog::Moog
 				dV1 = g * (tV[0] - tV[1]);
 				V[1] += (dV1 + dV[1]) / (2.0 * sampleRate);
 				dV[1] = dV1;
-				tV[1] = tanh(V[1] / (2.0 * VT));
+				tV[1] = std::tanh(V[1] / (2.0 * VT));
 
 				dV2 = g * (tV[1] - tV[2]);
 				V[2] += (dV2 + dV[2]) / (2.0 * sampleRate);
 				dV[2] = dV2;
-				tV[2] = tanh(V[2] / (2.0 * VT));
+				tV[2] = std::tanh(V[2] / (2.0 * VT));
 
 				dV3 = g * (tV[2] - tV[3]);
 				V[3] += (dV3 + dV[3]) / (2.0 * sampleRate);
 				dV[3] = dV3;
-				tV[3] = tanh(V[3] / (2.0 * VT));
+				tV[3] = std::tanh(V[3] / (2.0 * VT));
 
 				output[i] = V[3];
 			}
@@ -71,32 +71,29 @@ namespace Analog::Moog
 		DspFloatType Tick(DspFloatType input) {
 			Undenormal denormal;
 			DspFloatType dV0, dV1, dV2, dV3;
+			dV0 = -g * (std::tanh((drive * input + resonance * V[3]) / (2.0 * VT)) + tV[0]);
+			V[0] += (dV0 + dV[0]) / (2.0 * sampleRate);
+			dV[0] = dV0;
+			tV[0] = tanh(V[0] / (2.0 * VT));
 
-			#pragma omp simd 
-			{
-				dV0 = -g * (tanh((drive * input + resonance * V[3]) / (2.0 * VT)) + tV[0]);
-				V[0] += (dV0 + dV[0]) / (2.0 * sampleRate);
-				dV[0] = dV0;
-				tV[0] = tanh(V[0] / (2.0 * VT));
+			dV1 = g * (tV[0] - tV[1]);
+			V[1] += (dV1 + dV[1]) / (2.0 * sampleRate);
+			dV[1] = dV1;
+			tV[1] = std::tanh(V[1] / (2.0 * VT));
 
-				dV1 = g * (tV[0] - tV[1]);
-				V[1] += (dV1 + dV[1]) / (2.0 * sampleRate);
-				dV[1] = dV1;
-				tV[1] = tanh(V[1] / (2.0 * VT));
+			dV2 = g * (tV[1] - tV[2]);
+			V[2] += (dV2 + dV[2]) / (2.0 * sampleRate);
+			dV[2] = dV2;
+			tV[2] = std::tanh(V[2] / (2.0 * VT));
 
-				dV2 = g * (tV[1] - tV[2]);
-				V[2] += (dV2 + dV[2]) / (2.0 * sampleRate);
-				dV[2] = dV2;
-				tV[2] = tanh(V[2] / (2.0 * VT));
-
-				dV3 = g * (tV[2] - tV[3]);
-				V[3] += (dV3 + dV[3]) / (2.0 * sampleRate);
-				dV[3] = dV3;
-				tV[3] = tanh(V[3] / (2.0 * VT));
-			}
+			dV3 = g * (tV[2] - tV[3]);
+			V[3] += (dV3 + dV[3]) / (2.0 * sampleRate);
+			dV[3] = dV3;
+			tV[3] = std::tanh(V[3] / (2.0 * VT));
+		
 			return V[3];
 		}
-		
+	
 	private:
 
 		DspFloatType V[4];

@@ -25,7 +25,7 @@ namespace Analog::Moog
         void ProcessBlock(size_t n, DspFloatType * samples, DspFloatType * output)
         {
             Undenormal denormal;
-            #pragma omp simd
+            #pragma omp simd aligned(samples,output)
             for (uint32_t s = 0; s < n; ++s)
             {
                 DspFloatType x = samples[s] - resonance * stage[3];
@@ -50,27 +50,24 @@ namespace Analog::Moog
 
         DspFloatType Tick(DspFloatType input) {
             Undenormal denormal;
-            #pragma omp simd		
-            {
-                DspFloatType x = input - resonance * stage[3];
+			DspFloatType x = input - resonance * stage[3];
 
-                // Four cascaded one-pole filters (bilinear transform)
-                stage[0] = x * p + delay[0]  * p - k * stage[0];
-                stage[1] = stage[0] * p + delay[1] * p - k * stage[1];
-                stage[2] = stage[1] * p + delay[2] * p - k * stage[2];
-                stage[3] = stage[2] * p + delay[3] * p - k * stage[3];
+			// Four cascaded one-pole filters (bilinear transform)
+			stage[0] = x * p + delay[0]  * p - k * stage[0];
+			stage[1] = stage[0] * p + delay[1] * p - k * stage[1];
+			stage[2] = stage[1] * p + delay[2] * p - k * stage[2];
+			stage[3] = stage[2] * p + delay[3] * p - k * stage[3];
 
-                // Clipping band-limited sigmoid
-                stage[3] -= (stage[3] * stage[3] * stage[3]) / 6.0;
+			// Clipping band-limited sigmoid
+			stage[3] -= (stage[3] * stage[3] * stage[3]) / 6.0;
 
-                delay[0] = x;
-                delay[1] = stage[0];
-                delay[2] = stage[1];
-                delay[3] = stage[2];
+			delay[0] = x;
+			delay[1] = stage[0];
+			delay[2] = stage[1];
+			delay[3] = stage[2];
 
-                return stage[3];
-            }
-        }
+			return stage[3];
+		}
 
         virtual void SetResonance(DspFloatType r) override
         {

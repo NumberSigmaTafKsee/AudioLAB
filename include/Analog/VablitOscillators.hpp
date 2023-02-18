@@ -130,7 +130,7 @@ namespace Analog::Oscillators
 
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
         {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
             {
                 DspFloatType tmp = BlitDSF(phase_,m_,p_,a_);        
@@ -270,7 +270,7 @@ namespace Analog::Oscillators
 
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
         {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
             {
                 DspFloatType tmp = BlitDSF(phase_,m_,p_,a_);        
@@ -353,7 +353,7 @@ namespace Analog::Oscillators
 
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
         {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
             {
                 DspFloatType x = sqr.Tick();

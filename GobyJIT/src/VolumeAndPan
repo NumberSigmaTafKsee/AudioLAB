@@ -1,6 +1,0 @@
-    balance = -50..50
-    volume  = dB
-    db = 20*log10(volume)
-    volumeGain = pow(10.0, ((volume) / 20.0));
-	leftGain = cos(((balance + 50.0) / 100.0) * (3.14159265 / 2.0));
-	rightGain = sin(((balance + 50.0) / 100.0) * (3.14159265 / 2.0));

@@ -222,8 +222,8 @@ namespace Analog
             return getAndInc();
         }
 
-        void ProcessSIMD(size_t n, DspFloatType * out) {
-            DspFloatType phase[n];            
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            DspFloatType  phase[n] __attribute__ ((aligned(64)));
             // generate the phase vector            
             for(size_t i = 0; i < n; i++)
             {
@@ -284,7 +284,7 @@ namespace Analog
             ProcessSIMD(n,in,out);
         }
         void ProcessInplace(size_t n, DspFloatType * in) {
-            ProcessSIMD(n,in,in);
+            ProcessSIMD(n,nullptr,in);
         }
         void inc() {
             t += freqInSecondsPerSample;
@@ -315,7 +315,7 @@ namespace Analog
             return amplitude * std::sin(TWO_PI * t);
         }
         void sin(size_t n, DspFloatType *phase, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(phase,out)
             for(size_t i = 0; i < n; i++) {
                 out[i] = amplitude * std::sin(TWO_PI * phase[i]);
             }
@@ -325,7 +325,7 @@ namespace Analog
             return amplitude * std::cos(TWO_PI * t);
         }
         void cos(size_t n, DspFloatType *phase, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(phase,out)
             for(size_t i = 0; i < n; i++) {
                 out[i] = amplitude * std::cos(TWO_PI * phase[i]);
             }
@@ -363,7 +363,7 @@ namespace Analog
             return amplitude * y;
         }
         void full(size_t n, DspFloatType *phase, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(phase,out)
             for(size_t i = 0; i < n; i++) {
                 DspFloatType _t = phase[i] + 0.25;
                 _t -= bitwiseOrZero(_t);
@@ -395,7 +395,7 @@ namespace Analog
             return amplitude * y;
         }
         void tri(size_t n, DspFloatType *phase, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(phase,out)
             for(size_t i = 0; i < n; i++) {
                 DspFloatType t1 = phase[i] + 0.25;
                 t1 -= bitwiseOrZero(t1);
@@ -443,7 +443,7 @@ namespace Analog
         }
 
         void tri2(size_t n, DspFloatType *phase, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(phase,out)
             for(size_t i = 0; i < n; i++) {
                  DspFloatType pulseWidth = std::fmax(0.0001, std::fmin(0.9999, this->pulseWidth));
 
@@ -491,7 +491,7 @@ namespace Analog
             return amplitude * y;
         }
         void trip(size_t n, DspFloatType *phase, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(phase,out)
             for(size_t i = 0; i < n; i++) {
                 DspFloatType t1 = phase[i] + 0.75 + 0.5 * pulseWidth;
                 t1 -= bitwiseOrZero(t1);
@@ -546,7 +546,7 @@ namespace Analog
             return amplitude * y;
         }
         void trap(size_t n, DspFloatType *phase, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(phase,out)
             for(size_t i = 0; i < n; i++) {
                 DspFloatType y = 4 * phase[i];
                 if (y >= 3) {
@@ -611,7 +611,7 @@ namespace Analog
             return amplitude * y;
         }
         void trap2(size_t n, DspFloatType *phase, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(phase,out)
             for(size_t i = 0; i < n; i++) {
                 DspFloatType pulseWidth = std::fmin(0.9999, this->pulseWidth);
                 DspFloatType scale = 1 / (1 - pulseWidth);
@@ -656,7 +656,7 @@ namespace Analog
             return amplitude * y;
         }
         void sqr(size_t n, DspFloatType *phase, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(phase,out)
             for(size_t i = 0; i < n; i++) {
                 DspFloatType t2 = phase[i] + 0.5;
                 t2 -= bitwiseOrZero(t2);
@@ -695,6 +695,7 @@ namespace Analog
         }   
         void sqr2(size_t n, DspFloatType *phase, DspFloatType * out) {
             
+            #pragma omp simd aligned(phase,out)
             for(size_t i = 0; i < n; i++) {
                 DspFloatType t1 = phase[i] + 0.875 + 0.25 * (pulseWidth - 0.5);
                 t1 -= bitwiseOrZero(t1);
@@ -736,7 +737,7 @@ namespace Analog
             return amplitude * y;
         }
         void rect(size_t n, DspFloatType *phase, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(phase,out)
             for(size_t i = 0; i < n; i++) {
                 DspFloatType t2 = phase[i] + 1 - pulseWidth;
                 t2 -= bitwiseOrZero(t2);
@@ -762,7 +763,7 @@ namespace Analog
             return (amplitude * y);
         }
         void saw(size_t n, DspFloatType *phase, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(phase,out)
             for(size_t i = 0; i < n; i++) {        
                 DspFloatType _t = phase[i] + 0.5;
                 _t -= bitwiseOrZero(_t);
@@ -783,7 +784,7 @@ namespace Analog
             return amplitude * y;
         }
         void ramp(size_t n, DspFloatType *phase, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(phase,out)
             for(size_t i = 0; i < n; i++) {        
                 DspFloatType _t = phase[i];
                 _t -= bitwiseOrZero(_t);
@@ -791,11 +792,7 @@ namespace Analog
                 y += blep(_t, freqInSecondsPerSample);
                 out[i] = amplitude * y;
             }
-        }
-
-        void ProcessBlock(size_t n, DspFloatType * out) {
-            ProcessSIMD(n,out);
-        }
+        }        
     };
 
     enum {
@@ -848,8 +845,11 @@ namespace Analog
         {
             return polyblep.Tick(I,A,X,Y);
         }
-        void ProcessSIMD(size_t n, DspFloatType * out) {
-            polyblep.ProcessSIMD(n,out);
+        void ProcessBlock(size_t n, DspFloatType *in, DspFloatType * out) {
+            polyblep.ProcessSIMD(n,in,out);
         }
+	void ProcessInplace(size_t n, DspFloatType * in) {
+		polyblep.ProcessSIMD(n,nullptr,in);
+	}
     };
 }

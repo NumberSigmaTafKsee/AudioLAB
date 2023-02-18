@@ -11,7 +11,7 @@ namespace Analog::Oscillators
     /////////////////////////////////////////////////////////////////////
     // Differential Parablic Wave
     /////////////////////////////////////////////////////////////////////
-    tempalte<typename DSP
+    template<typename DSP>
     struct DPWSaw : public GSSoundProcessor<DSP>
     {
         DSP freq,fs,inc;
@@ -57,8 +57,8 @@ namespace Analog::Oscillators
             phase = fmod(phase + inc,1.0f);
             return out;
         }   
-        void ProcessBlock(size_t n, DSP * in, DSP * out) {
-            #pragma omp simd
+        void ProcessSIMD(size_t n, DSP * in, DSP * out) {
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
             {
                 position += phase - lastPhase;
@@ -73,8 +73,11 @@ namespace Analog::Oscillators
                 if(in) out[i] *= in[i];
             }
         }
+        void ProcessBlock(size_t n, DSP * in, DSP * out) {
+			ProcessSIMD(n,in,out);
+		}
         void ProcessInplace(size_t n, DSP * in) {
-            ProcessBlock(n,nullptr,in);
+            ProcessSIMD(n,nullptr,in);
         }
     };
 }

@@ -1,8 +1,0 @@
-require('random')
-x = random.RandomMinStd()
-print(x:min())
-print(x:max())
-print(x:randint(0,100))
-print(x:randint(-100,100))
-print(x:rand())
-print(x:uniform_int_distribution(-1000,1000))

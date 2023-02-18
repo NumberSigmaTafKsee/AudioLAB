@@ -26,7 +26,7 @@ namespace Analog::Moog
 		void ProcessBlock(size_t n, DspFloatType * _input, DspFloatType * _output)
 		{
 			Undenormal denormal;
-			#pragma omp simd
+			#pragma omp simd aligned(_input,_output)
 			for (uint32_t s = 0; s < n; ++s)
 			{
 				// Oversample

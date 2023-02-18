@@ -1,2 +1,0 @@
-build/obj/fftpack++1.o: src/fftpack++1.cpp src/fftpack++.h \
- src/fftpack++.inc

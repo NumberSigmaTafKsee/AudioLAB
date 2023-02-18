@@ -3,7 +3,7 @@
 #include "GenericSoundObject.hpp"
 #include "FX/OnePole.hpp"
 #include "FX/Filters.h"
-
+#include "analog_blit_square_oscillator.hpp"
 
 namespace Analog::Oscillators
 {
@@ -14,7 +14,7 @@ namespace Analog::Oscillators
     struct BlitTriangle : public GSSoundProcessor<DSP>
     {
         FX::Filters::OnePole b1;    
-        BlitSquare sqr;
+        Analog::Oscillators::BlitSquare<DSP> sqr;
         DSP _out = 0;
         DSP sampleRate=44100.0;
 
@@ -57,7 +57,7 @@ namespace Analog::Oscillators
             return 3*_out;
         }
         void ProcessSIMD(size_t n, DSP * in, DSP * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
             {
                 DSP x = sqr.Tick();
@@ -65,13 +65,14 @@ namespace Analog::Oscillators
                 _out = a*_out + x/sqr.s1.p_;            
                 _out -= b1.process(_out);
                 out[i] =  3*_out;
+                if(in) out[i] *= in[i];
             }
         } 
         void ProcessBlock(size_t n, DSP * in, DSP * out) {
             ProcessSIMD(n,in,out);
         }
         void ProcessInplace(size_t n, DSP * out) {
-            ProcessSIMD(n,out);
+            ProcessSIMD(n,nullptr,out);
         }
     };
 }

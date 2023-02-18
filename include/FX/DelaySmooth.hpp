@@ -76,6 +76,7 @@ namespace Filters
     * neither the delay or interpolation time can be changed. */
     template<typename head, typename real>
     void DelaySmooth<head, real>::Process(real** xVec, real** yVec, size_t vecLen) {
+		#pragma omp simd aligned(xVec,yVec)
         for (size_t n = 0; n < vecLen; n++) { // Level-0 for-loop.
             real* xLeft = xVec[0];
             real* xRight = xVec[1];

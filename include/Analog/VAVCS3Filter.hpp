@@ -115,7 +115,7 @@ namespace Analog::Filters::VCS3Filter
         {
             Undenormal denormal;
 
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++) {
                
                 DspFloatType f = tan(M_PI * fc/sr);

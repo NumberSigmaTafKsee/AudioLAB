@@ -149,7 +149,7 @@ namespace JoonasFX
         
         // Middle
         mCenterBuffer.resize(n);    
-        #pragma omp simd
+        #pragma omp simd aligned(leftInput,rightInput)
         for(size_t i = 0; i < n; i++) {
             mCenterBuffer[i] = 0.5*(leftInput[i] + rightInput[i]);
         }
@@ -160,12 +160,12 @@ namespace JoonasFX
         DspFloatType* rightOutput = outputs[1];
         DspFloatType* centerOutput = mCenterBuffer.data();
 
-        mLeftDelay.ProcessBlock(n,leftInput  , leftOutput);
-        mCenterDelay.ProcessBlock(n,centerInput, centerOutput);
-        mRightDelay.ProcessBlock(n,rightInput , rightOutput);
+        mLeftDelay.ProcessBlock(n,leftInput,leftOutput);
+        mCenterDelay.ProcessBlock(n,centerInput,centerOutput);
+        mRightDelay.ProcessBlock(n,rightInput,rightOutput);
 
         DspFloatType volume = getVolume();
-        #pragma omp simd
+        #pragma omp simd aligned(input,outputs)
         for(size_t i = 0; i < n; i++)
         {
             outputs[0][i] += centerOutput[n];

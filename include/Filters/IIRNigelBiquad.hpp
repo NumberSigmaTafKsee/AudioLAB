@@ -47,6 +47,17 @@ namespace Filters
         DspFloatType process(DspFloatType in);
         
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out);
+        
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(out[i]);
+		}
     protected:
         void calcBiquad(void);
 
@@ -65,7 +76,7 @@ namespace Filters
     void NigelBiquad::ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * output)
     {
         Undenormal denormals;
-        #pragma omp simd
+        #pragma omp simd aligned(in,output)
         for(size_t i = 0; i < n; i++) {
             DspFloatType out = in[i] * a0 + z1;
             z1 = in * a1 + z2 - b1 * out;

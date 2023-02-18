@@ -117,7 +117,7 @@ namespace Analog::Moog
 		{
 			Undenormal denormal;
 			DspFloatType out = 0;
-			#pragma omp simd
+			#pragma omp simd aligned(in,output)
 			for (int s = 0; s < n; ++s)
 			{
 				out = bCoef[0]  * in[s] + w[0];
@@ -400,7 +400,7 @@ namespace Analog::Moog
 		}
 		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
 		{
-			#pragma omp simd
+			#pragma omp simd aligned(in,out)
 			for(size_t i = 0; i < n; i++) 
 			{
 				const DspFloatType s = in[i];
@@ -437,7 +437,7 @@ namespace Analog::Moog
 		}
 		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
 		{
-			#pragma omp simd
+			#pragma omp simd aligned(in,out)
 			for(size_t i = 0; i < n; i++) 
 			{
 				const DspFloatType s = in[i];
@@ -541,11 +541,11 @@ namespace Analog::Moog
 			}
 		}
 		void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
-			#pragma omp simd
+			#pragma omp simd aligned(input,output)
 			for(size_t i = 0; i < n; i++) output[i] = input[i]*Tick();
 		}
 		void ProcessInplace(DspFloatType * samples,size_t n) {
-			#pragma omp simd
+			#pragma omp simd aligned(samples)
 			for(size_t i = 0; i < n; i++) samples[i] = samples[i]*Tick();
 		}	
 	};
@@ -561,7 +561,7 @@ namespace Analog::Moog
 		LadderFilterBase(DspFloatType sampleRate) : sampleRate(sampleRate) {}
 		virtual ~LadderFilterBase() {}
 
-		virtual void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) = 0;
+		virtual void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) =0;
 		virtual void ProcessInplace(size_t n, DspFloatType * out) {
 			ProcessBlock(n,out,out);
 		}

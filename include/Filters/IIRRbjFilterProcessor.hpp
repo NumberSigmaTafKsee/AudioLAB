@@ -42,6 +42,21 @@ namespace Filters::IIR::RBJ
         DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0) {
             return biquads.Tick(I,A,X,Y);
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(out[i]);
+		}
     };
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -83,6 +98,21 @@ namespace Filters::IIR::RBJ
         DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0) {
             return biquads.Tick(I,A,X,Y);
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(out[i]);
+		}
     };
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -124,6 +154,21 @@ namespace Filters::IIR::RBJ
         DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0) {
             return biquads.Tick(I,A,X,Y);
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(out[i]);
+		}
     };
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -165,6 +210,21 @@ namespace Filters::IIR::RBJ
         DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0) {
             return biquads.Tick(I,A,X,Y);
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(out[i]);
+		}
     };
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -206,6 +266,21 @@ namespace Filters::IIR::RBJ
         DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0) {
             return biquads.Tick(I,A,X,Y);
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(out[i]);
+		}
     };
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -247,6 +322,21 @@ namespace Filters::IIR::RBJ
         DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0) {
             return biquads.Tick(I,A,X,Y);
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(out[i]);
+		}
     };
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -293,6 +383,21 @@ namespace Filters::IIR::RBJ
         DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0) {
             return biquads.Tick(I,A,X,Y);
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(out[i]);
+		}
     };
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -339,6 +444,21 @@ namespace Filters::IIR::RBJ
         DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0) {
             return biquads.Tick(I,A,X,Y);
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(out[i]);
+		}
     };
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -385,6 +505,21 @@ namespace Filters::IIR::RBJ
         DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0) {
             return biquads.Tick(I,A,X,Y);
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out)
+        {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(out[i]);
+		}
     };
 
 }

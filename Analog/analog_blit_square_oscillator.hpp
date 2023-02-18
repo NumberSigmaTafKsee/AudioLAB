@@ -4,6 +4,8 @@
 #include "FX/OnePole.hpp"
 #include "FX/Filters.h"
 
+#include "analog_blit_saw_oscillator.hpp"
+
 namespace Analog::Oscillators
 {
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -13,7 +15,7 @@ namespace Analog::Oscillators
     struct BlitSquare : public GSSoundProcessor<DSP>
     {
         FX::Filters::OnePole block;
-        BlitSaw s1,s2;
+        Analog::Oscillators::BlitSaw<DSP> s1,s2;
         DSP _out = 0;
         DSP _duty = 0.5;
         DSP sampleRate=44100.0;
@@ -62,20 +64,21 @@ namespace Analog::Oscillators
             return _out;
         }
         void ProcessSIMD(size_t n, DSP * in, DSP * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
             {
                 DSP r1 = s1.Tick();                    
                 DSP r2 = s2.Tick();                
                 _out = r1-r2;            
                 out[i] = _out;
+                if(in) out[i] *= in[i];
             }
         }
         void ProcessBlock(size_t n, DSP * in, DSP * out) {
             ProcessSIMD(n,in,out);
         }
         void ProcessInplace(size_t n, DSP * out) {
-            ProcessSIMD(n,out);
+            ProcessSIMD(n,nullptr,out);
         }
     };
 }

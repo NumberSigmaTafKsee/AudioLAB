@@ -54,7 +54,7 @@ namespace FX
             Undenormal denormal;
 
             // apply the same modulation to all input channels for which there is an output channel
-            #pragma omp simd
+            
             for (int channelIndex = 0; channelIndex < Tremolo_NumChannels; channelIndex++)
             {
                 DspFloatType phi = Tremolo_LfoPhase[channelIndex];
@@ -64,8 +64,8 @@ namespace FX
                 phi = Tremolo_LfoPhase[channelIndex];
 
                 DspFloatType* pIn  = inputs[channelIndex]  ;
-                DspFloatType* pOut = outputs[channelIndex] ;
-
+				DspFloatType* pOut = outputs[channelIndex] ;
+				#pragma omp simd aligned(pIn,pOut,inputs,outputs)
                 for (int i = 0; i < n; i++)
                 {
                     DspFloatType modAmount = LFO_GetSample(phi, Tremolo_LFO[channelIndex]);

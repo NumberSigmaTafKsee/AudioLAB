@@ -106,7 +106,7 @@ struct FunctionLFO : public GeneratorProcessor
         return 2*x-1;
     }
     void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
-        #pragma omp simd
+        #pragma omp simd aligned(in,out)
         for(size_t i = 0; i < n; i++) {
             DspFloatType A = in? in[i]:1.0;
             DspFloatType phase = lfoPhase;        
@@ -170,6 +170,7 @@ struct FunctionLFO : public GeneratorProcessor
             else if(polarity == NEGATIVE) o = -std::abs(x);
             else o = 2*x-1;
             out[i] = A*o;
+            if(in) out[i] *= in[i];
         }
     }
 };

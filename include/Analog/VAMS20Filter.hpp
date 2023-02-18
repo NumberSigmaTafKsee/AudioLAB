@@ -74,7 +74,7 @@ namespace Analog::Filters::MS20
 			// Cutoff and prewarping
 			DspFloatType wc = 2*M_PI*fc;
 			wc = 2.0f*sampleRate*std::tan(0.5f*wc/sampleRate)/alpha;
-			#pragma omp simd
+		
 			for (int i=0; i<10; i++) {
 
 				DspFloatType feedbackNL_n = fx( k*(V_n[1]) ) ;

@@ -646,7 +646,7 @@ namespace FX
             }
         }
 
-        void ProcessBlock (size_t numSamps, DspFloatType ** inputs, DspFloatType ** outputs)
+        void ProcessBlock(size_t numSamps, DspFloatType ** inputs, DspFloatType ** outputs)
         {
             Undenormal noDenormals;
             auto totalNumInputChannels  = 2;
@@ -670,6 +670,7 @@ namespace FX
             rightChannel = outputs[1];
             memcpy(leftChannel,inputs[0],numSamps*sizeof(DspFloatType));
             memcpy(rightChannel,inputs[1],numSamps*sizeof(DspFloatType));
+            #pragma omp simd aligned(leftChannel,rightChannel,inputs,outputs)
             for (int i = 0; i < numSamps; ++i)
             {
                 

@@ -66,7 +66,7 @@ namespace JoonasFX
 			return A*r;
 		}
 		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
-			#pragma omp simd
+			#pragma omp simd aligned(in,out)
 			for(size_t i = 0; i < n; i++) {
 				DspFloatType r = back();
 				const DspFloatType I = in[i];

@@ -20,43 +20,48 @@
 #pragma once 
 #include <cmath>
 #include "Undenormal.hpp"
+#include "GenericSoundObject.hpp"
 
 // ------------
 //| Structures |
 // ------------
 
-struct ToneStack
+template<typename T>
+struct ToneStack : public GSSoundProcessor<T>
 {
     // Filter #1 (Low band)
 
-    DspFloatType  lf;       // Frequency
-    DspFloatType  f1p0;     // Poles ...
-    DspFloatType  f1p1;
-    DspFloatType  f1p2;
-    DspFloatType  f1p3;
+    T  lf;       // Frequency
+    T  f1p0;     // Poles ...
+    T  f1p1;
+    T  f1p2;
+    T  f1p3;
 
     // Filter #2 (High band)
 
-    DspFloatType  hf;       // Frequency
-    DspFloatType  f2p0;     // Poles ...
-    DspFloatType  f2p1;
-    DspFloatType  f2p2;
-    DspFloatType  f2p3;
+    T  hf;       // Frequency
+    T  f2p0;     // Poles ...
+    T  f2p1;
+    T  f2p2;
+    T  f2p3;
 
     // Sample history buffer
 
-    DspFloatType  sdm1;     // Sample data minus 1
-    DspFloatType  sdm2;     //                   2
-    DspFloatType  sdm3;     //                   3
+    T  sdm1;     // Sample data minus 1
+    T  sdm2;     //                   2
+    T  sdm3;     //                   3
 
     // Gain Controls
 
-    DspFloatType  lg;       // low  gain
-    DspFloatType  mg;       // mid  gain
-    DspFloatType  hg;       // high gain
+    T  lg;       // low  gain
+    T  mg;       // mid  gain
+    T  hg;       // high gain
 
-    DspFloatType lowfreq,highfreq,mixfreq,input_gain,output_gain;
-    ToneStack(DspFloatType lowfreq=880.0f,DspFloatType highfreq=5000.0f, DspFloatType mixfreq=44100.0f) {
+    T lowfreq,highfreq,mixfreq,input_gain,output_gain;
+    
+    ToneStack(T lowfreq=880.0f,T highfreq=5000.0f, T mixfreq=44100.0f) 
+    : GSSoundProcessor<T>()
+    {
         lg = 1.0;
         mg = 1.0;
         hg = 1.0;
@@ -66,20 +71,20 @@ struct ToneStack
         input_gain = output_gain = 1.0f;
         // Calculate filter cutoff frequencies
 
-        lf = 2 * std::sin(M_PI * ((DspFloatType)lowfreq / (DspFloatType)mixfreq));
-        hf = 2 * std::sin(M_PI * ((DspFloatType)highfreq / (DspFloatType)mixfreq));
+        lf = 2 * std::sin(M_PI * ((T)lowfreq / (T)mixfreq));
+        hf = 2 * std::sin(M_PI * ((T)highfreq / (T)mixfreq));
     }
-    DspFloatType Tick(DspFloatType sample, DspFloatType A = 1, DspFloatType X = 0, DspFloatType Y = 0)
+    T Tick(T sample, T A = 1, T X = 0, T Y = 0)
     {
-            DspFloatType  l,m,h;      // Low / Mid / High - Sample Values
+            T  l,m,h;      // Low / Mid / High - Sample Values
             Undenormal denormal;
 
             
-            DspFloatType tl = lowfreq;
-            DspFloatType th = highfreq;
+            T tl = lowfreq;
+            T th = highfreq;
 
-            lf = 2 * std::sin(M_PI * ((DspFloatType)(lowfreq + X * lowfreq)/ (DspFloatType)mixfreq));
-            hf = 2 * std::sin(M_PI * ((DspFloatType)(highfreq + Y * highfreq)/ (DspFloatType)mixfreq));
+            lf = 2 * std::sin(M_PI * ((T)(lowfreq + X * lowfreq)/ (T)mixfreq));
+            hf = 2 * std::sin(M_PI * ((T)(highfreq + Y * highfreq)/ (T)mixfreq));
 
             // Filter #1 (lowpass)
             sample *= input_gain;
@@ -120,6 +125,16 @@ struct ToneStack
             // Return result
             return A*(l + m + h);
     }
+	void ProcessSIMD(size_t n, T * in, T * out) {
+		#pragma omp simd
+		for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+	}
+	void ProcessBlock(size_t n, T * in, T * out) {
+		ProcessSIMD(n,in,out);
+	}
+	void ProcessInplace(size_t n, T * buffer) {
+		ProcessSIMD(n,buffer,buffer);
+	}
 };
 
 

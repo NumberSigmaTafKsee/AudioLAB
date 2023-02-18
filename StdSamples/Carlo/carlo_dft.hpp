@@ -213,6 +213,24 @@ namespace Casino::IPP
         IppStatus status = ippsDFTFwd_RToPerm_64f(pSrc,pDst,(IppsDFTSpec_R_64f*)pDFTSpec,pBuffer);
         checkStatus(status);
     }
+    
+    template<typename T>
+    void DFTFwd_RToCCS(const T * pSrc, T * pDst, void * pDFTSpec, Ipp8u * pBuffer)
+    {
+        assert(1==0);
+    }
+    template<>
+    void DFTFwd_RToCCS<float>(const float * pSrc, float * pDst, void * pDFTSpec, Ipp8u * pBuffer)
+    {
+        IppStatus status = ippsDFTFwd_RToCCS_32f(pSrc,pDst,(IppsDFTSpec_R_32f*)pDFTSpec,pBuffer);
+        checkStatus(status);
+    }
+    template<>
+    void DFTFwd_RToCCS<double>(const double * pSrc, double * pDst, void * pDFTSpec, Ipp8u * pBuffer)
+    {
+        IppStatus status = ippsDFTFwd_RToCCS_64f(pSrc,pDst,(IppsDFTSpec_R_64f*)pDFTSpec,pBuffer);
+        checkStatus(status);
+    }
 
     
     template<typename T>
@@ -332,14 +350,60 @@ namespace Casino::IPP
                         
         void Forward(const std::complex<float>* pSrc, std::complex<float>* pDst)
         {                   
-            DFTFwd_C2C<std::complex<float>>((std::complex<float>*)pSrc,(std::complex<float>*)pDst,fft,pBuffer);
+            DFTFwd_RToCCS<std::complex<float>>((std::complex<float>*)pSrc,(std::complex<float>*)pDst,fft,pBuffer);
         }
         void Inverse(const std::complex<float>* pSrc, std::complex<float>* pDst)
         {                   
             DFTInv_C2C<std::complex<float>>((std::complex<float>*)pSrc,(std::complex<float>*)pDst,fft,pBuffer);
         }
     };
-
+	
+	struct RDFT32 
+    {
+        Ipp8u * pBuffer;        
+        Ipp8u * pSpecBuffer;        
+        void  * fft;
+        size_t blocks;            
+        RDFT32(size_t n) {
+            int size,specbuffer,spec;            
+            int flag = IPP_FFT_DIV_FWD_BY_N;
+            DFTGetSizeR<float>(n,flag,ippAlgHintNone,&spec,&specbuffer,&size);            
+            fft = Malloc<Ipp8u>(spec);
+            pSpecBuffer = specbuffer > 0? Malloc<Ipp8u>(specbuffer) : NULL;
+            pBuffer = Malloc<Ipp8u>(size);
+            int order = n;
+            blocks = n;
+            DFTInitR<float>(order,flag,ippAlgHintNone,fft,pSpecBuffer);                        
+        }
+        ~RDFT32() {
+            if(fft) Free(fft);
+            if(pSpecBuffer) Free(pSpecBuffer);
+            if(pBuffer) Free(pBuffer);
+        }
+                        
+        void Forward(const float* pSrc, std::complex<float>* pDst)
+        {                
+			std::vector<float> temp(blocks*2);
+            DFTFwd_RToCCS<float>(pSrc,temp.data(),fft,pBuffer);
+            for(size_t i = 0; i < blocks; i++)
+            {
+				pDst[i].real(temp[i*2]);
+				pDst[i].imag(temp[i*2+1]);
+			}
+        }
+        void Inverse(const std::complex<float>* pSrc, float* pDst)
+        {   
+			std::vector<float> temp(blocks*2);
+            temp[0] = (pSrc[0].real());
+            temp[1] = 0;
+            for(size_t i = 1; i < blocks; i++) {
+				temp[i*2] =(pSrc[i].real());
+				temp[i*2+1] = (pSrc[i].imag());
+			}
+            DFTInv_CCSToR<float>(temp.data(),pDst,fft,pBuffer);
+        }
+    };
+    
     struct CDFT64 
     {
         Ipp8u * pBuffer;        
@@ -374,8 +438,53 @@ namespace Casino::IPP
         }
     };
     
+    struct RDFT64
+    {
+        Ipp8u * pBuffer;        
+        Ipp8u * pSpecBuffer;        
+        void  * fft;
+        size_t blocks;            
+        RDFT64(size_t n) {
+            int size,specbuffer,spec;            
+            int flag = IPP_FFT_DIV_FWD_BY_N;
+            DFTGetSizeR<double>(n,flag,ippAlgHintNone,&spec,&specbuffer,&size);            
+            fft = Malloc<Ipp8u>(spec);
+            pSpecBuffer = specbuffer > 0? Malloc<Ipp8u>(specbuffer) : NULL;
+            pBuffer = Malloc<Ipp8u>(size);
+            int order = n;
+            blocks = n;
+            DFTInitR<double>(order,flag,ippAlgHintNone,fft,pSpecBuffer);                        
+        }
+        ~RDFT64() {
+            if(fft) Free(fft);
+            if(pSpecBuffer) Free(pSpecBuffer);
+            if(pBuffer) Free(pBuffer);
+        }
+                        
+        void Forward(const double* pSrc, std::complex<double>* pDst)
+        {                
+			std::vector<double> temp(blocks*2);
+            DFTFwd_RToCCS<double>(pSrc,temp.data(),fft,pBuffer);
+            for(size_t i = 0; i < blocks; i++)
+            {
+				pDst[i].real(temp[i*2]);
+				pDst[i].imag(temp[i*2+1]);
+			}
+        }
+        void Inverse(const std::complex<double>* pSrc, double* pDst)
+        {   
+			std::vector<double> temp(blocks*2);
+            temp[0]=(pSrc[0].real());
+            temp[0]=0;
+            for(size_t i = 1; i < blocks; i++) {
+				temp[i*2]=(pSrc[i].real());
+				temp[i*2+1]=(pSrc[i].imag());
+			}
+            DFTInv_CCSToR<double>(temp.data(),pDst,fft,pBuffer);
+        }
+    };
     
- void dft(size_t n, const std::complex<float> * pSrc, std::complex<float> * pDst)
+	void dft(size_t n, const std::complex<float> * pSrc, std::complex<float> * pDst)
     {
         CDFT32 d(n);
         d.Forward(pSrc,pDst);
@@ -396,39 +505,21 @@ namespace Casino::IPP
 
     void dft(size_t n, const float * pSrc, std::complex<float> * pDst)
     {
-        CDFT32 d(n);
-        std::vector<std::complex<float>> in(n);
-        for(size_t i = 0; i < n; i++) {
-            in[i].real(pSrc[i]);
-            in[i].imag(0);
-        }
-        d.Forward(in.data(),pDst);        
+        RDFT32 d(n);        
+        d.Forward(pSrc,pDst);        
     }
-    void dft(CDFT32 &d, const float * pSrc, std::complex<float> * pDst)
+    void dft(RDFT32 &d, const float * pSrc, std::complex<float> * pDst)
     {        
-        std::vector<std::complex<float>> in(d.blocks);
-        for(size_t i = 0; i < d.blocks; i++) {
-            in[i].real(pSrc[i]);
-            in[i].imag(0);
-        }
-        d.Forward(in.data(),pDst);        
+        d.Forward(pSrc,pDst);        
     }
     void idft(size_t n, const std::complex<float> * pSrc, float * pDst)
     {
-        CDFT32 d(n);
-        std::vector<std::complex<float>> out(n);
-        d.Inverse(pSrc,out.data());
-        for(size_t i = 0; i < n; i++) {
-            pDst[i] = (out[i].real());
-        }        
+        RDFT32 d(n);
+        d.Inverse(pSrc,pDst);        
     }
-    void idft(CDFT32 &d, const std::complex<float> * pSrc, float * pDst)
+    void idft(RDFT32 &d, const std::complex<float> * pSrc, float * pDst)
     {        
-        std::vector<std::complex<float>> out(d.blocks);
-        d.Inverse(pSrc,out.data());
-        for(size_t i = 0; i < d.blocks; i++) {
-            pDst[i] = (out[i].real());
-        }
+        d.Inverse(pSrc,pDst);
     }
 
     void dft(size_t n, const std::complex<double> * pSrc, std::complex<double> * pDst)
@@ -453,38 +544,20 @@ namespace Casino::IPP
 
     void dft(size_t n, const double * pSrc, std::complex<double> * pDst)
     {
-        CDFT64 d(n);
-        std::vector<std::complex<double>> in(n);
-        for(size_t i = 0; i < n; i++) {
-            in[i].real(pSrc[i]);
-            in[i].imag(0);
-        }
-        d.Forward(in.data(),pDst);        
+        RDFT64 d(n);        
+        d.Forward(pSrc,pDst);        
     }
-    void dft(CDFT64 &d, const double * pSrc, std::complex<double> * pDst)
-    {        
-        std::vector<std::complex<double>> in(d.blocks);
-        for(size_t i = 0; i < d.blocks; i++) {
-            in[i].real(pSrc[i]);
-            in[i].imag(0);
-        }
-        d.Forward(in.data(),pDst);        
+    void dft(RDFT64 &d, const double * pSrc, std::complex<double> * pDst)
+    {                
+        d.Forward(pSrc,pDst);        
     }
     void idft(size_t n, const std::complex<double> * pSrc, double * pDst)
     {
-        CDFT64 d(n);
-        std::vector<std::complex<double>> out(n);
-        d.Inverse(pSrc,out.data());
-        for(size_t i = 0; i < n; i++) {
-            pDst[i] = (out[i].real());            
-        }        
+        RDFT64 d(n);        
+        d.Inverse(pSrc,pDst);        
     }
-    void idft(CDFT64 &d, const std::complex<double> * pSrc, double * pDst)
-    {        
-        std::vector<std::complex<double>> out(d.blocks);
-        d.Inverse(pSrc,out.data());
-        for(size_t i = 0; i < d.blocks; i++) {
-            pDst[i] = (out[i].real());
-        }
+    void idft(RDFT64 &d, const std::complex<double> * pSrc, double * pDst)
+    {                
+        d.Inverse(pSrc,pDst);        
     }   
 }

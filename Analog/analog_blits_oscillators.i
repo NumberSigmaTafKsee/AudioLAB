@@ -1,6 +1,6 @@
 %module analog_blits_oscillators
 %{
-#include "SoundObject.hpp"
+#include "GenericSoundObject.hpp"
 #include <cassert>
 #include <random>
 #include <chrono>
@@ -22,7 +22,7 @@
 %include "std_map.i"
 %include "lua_fnptr.i"
 
-%include "SoundObject.hpp"
+%include "GenericSoundObject.hpp"
 %include "analog_blit_saw_oscillator.hpp"
 %include "analog_blit_square_oscillator.hpp"
 %include "analog_blit_triangle_oscillator.hpp"
@@ -33,3 +33,6 @@
 %template(complex_float_vector) std::vector<std::complex<float>>;
 %template(complex_double_vector) std::vector<std::complex<double>>;
 
+%template(BlitSaw) Analog::Oscillators::BlitSaw<DspFloatType>;
+%template(BlitSquare) Analog::Oscillators::BlitSquare<DspFloatType>;
+%template(BlitTriangle) Analog::Oscillators::BlitTriangle<DspFloatType>;

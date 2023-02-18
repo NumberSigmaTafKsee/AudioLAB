@@ -14,46 +14,57 @@ public:
     GeneralSVF();
 
     void reset();
-    void calcCoefs(float r, float k, float wc);
-    void setDrive (float newDrive);
+    void calcCoefs(DspFloatType r, DspFloatType k, DspFloatType wc);
+    void setDrive (DspFloatType newDrive);
 
-    inline float process(float x) {
-        Eigen::Matrix<float, 4, 1> v = A_tilde * v_n1 + B_tilde * x;
-        float y = (C_tilde * v_n1)(0, 0) + D_tilde(0, 0) * x;
+    inline DspFloatType process(DspFloatType x) {
+        Eigen::Matrix<DspFloatType, 4, 1> v = A_tilde * v_n1 + B_tilde * x;
+        DspFloatType y = (C_tilde * v_n1)(0, 0) + D_tilde(0, 0) * x;
         nonlinearity(v);
         v_n1 = v;
         return y * makeup;
     }
+    void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output) {
+		#pragma omp simd
+		for(size_t i = 0; i < n; i++)
+		{
+			const DspFloatType x = input[i];
+			Eigen::Matrix<DspFloatType, 4, 1> v = A_tilde * v_n1 + B_tilde * x;
+			DspFloatType y = (C_tilde * v_n1)(0, 0) + D_tilde(0, 0) * x;
+			nonlinearity(v);
+			v_n1 = v;
+			output[i] = y * makeup;
+		}
+	}
     void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
-        #pragma omp simd
-        for(size_t i = 0; i < n; i++) output[i] = process(input[i]);
+        ProcessSIMD(n,input,output);
     }
         
     void ProcessInplace(size_t n, DspFloatType * input) {
-        ProcessBlock(n,input,input);
+        ProcessSIMD(n,input,input);
     }    
-    inline void nonlinearity(Eigen::Matrix<float, 4, 1>& v) {
+    inline void nonlinearity(Eigen::Matrix<DspFloatType, 4, 1>& v) {
         v(0,0) = std::tanh(v(0,0) * drive) * invDrive;
         v(2,0) = std::tanh(v(2,0) * drive) * invDrive;
         v(3,0) = std::tanh(v(3,0) * drive) * invDrive;
     }
 
 private:
-    Eigen::Matrix<float, 4, 4> A;
-    Eigen::Matrix<float, 4, 1> B;
-    Eigen::Matrix<float, 1, 4> C;
+    Eigen::Matrix<DspFloatType, 4, 4> A;
+    Eigen::Matrix<DspFloatType, 4, 1> B;
+    Eigen::Matrix<DspFloatType, 1, 4> C;
 
-    Eigen::Matrix<float, 4, 4> A_tilde;
-    Eigen::Matrix<float, 4, 1> B_tilde;
-    Eigen::Matrix<float, 1, 4> C_tilde;
-    Eigen::Matrix<float, 1, 1> D_tilde;
+    Eigen::Matrix<DspFloatType, 4, 4> A_tilde;
+    Eigen::Matrix<DspFloatType, 4, 1> B_tilde;
+    Eigen::Matrix<DspFloatType, 1, 4> C_tilde;
+    Eigen::Matrix<DspFloatType, 1, 1> D_tilde;
 
-    float g;
-    Eigen::Matrix<float, 4, 1> v_n1;
+    DspFloatType g;
+    Eigen::Matrix<DspFloatType, 4, 1> v_n1;
 
-    float drive = 1.0f;
-    float invDrive = 1.0f;
-    float makeup = 1.0f;
+    DspFloatType drive = 1.0f;
+    DspFloatType invDrive = 1.0f;
+    DspFloatType makeup = 1.0f;
 };
 
 
@@ -69,16 +80,16 @@ GeneralSVF::GeneralSVF() {
 }
 
 void GeneralSVF::reset() {
-    v_n1 = Eigen::Matrix<float, 4, 1>::Zero();
+    v_n1 = Eigen::Matrix<DspFloatType, 4, 1>::Zero();
 }
 
-void GeneralSVF::setDrive (float newDrive) {
+void GeneralSVF::setDrive (DspFloatType newDrive) {
     drive = newDrive;
     invDrive = 1.0f / drive;
-    makeup = std::max(1.0f, (float) std::pow(drive, 0.75f));
+    makeup = std::max(1.0f, (DspFloatType) std::pow(drive, 0.75f));
 }
 
-void GeneralSVF::calcCoefs(float r, float k, float wc) {
+void GeneralSVF::calcCoefs(DspFloatType r, DspFloatType k, DspFloatType wc) {
     // cook parameters
     g = std::tan(wc);
     A(0, 0) = -2.0f * r;
@@ -86,8 +97,8 @@ void GeneralSVF::calcCoefs(float r, float k, float wc) {
     A(2, 2) = A(0, 0);
 
     // cook discrete state-space matrices
-    Eigen::Matrix<float, 4, 4> I = Eigen::Matrix<float, 4, 4>::Identity();
-    Eigen::Matrix<float, 4, 4> H = g * (I - g * A).inverse();
+    Eigen::Matrix<DspFloatType, 4, 4> I = Eigen::Matrix<DspFloatType, 4, 4>::Identity();
+    Eigen::Matrix<DspFloatType, 4, 4> H = g * (I - g * A).inverse();
     A_tilde = 2 * H * A + I;
     B_tilde = 2 * H * B;
     C_tilde = C * (H * A + I);

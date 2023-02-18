@@ -353,7 +353,7 @@ namespace FX::Distortion::Amplifier
 
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i=0; i < n; i++) {
                 DspFloatType K = G;
                 DspFloatType I = in[i];
@@ -366,6 +366,12 @@ namespace FX::Distortion::Amplifier
                 r -= bias;
                 out[i] = std::tanh(postGain*r);
             }
+        }
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n, input, output);
+        }
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessSIMD(n, nullptr, input);
         }
     };
 
@@ -404,7 +410,7 @@ namespace FX::Distortion::Amplifier
             return tanh(postGain*r);
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++) {
                 DspFloatType K  = G;
                 DspFloatType bt = bias;
@@ -422,6 +428,12 @@ namespace FX::Distortion::Amplifier
                 r -= bias;        
                 out[i] = std::tanh(postGain*r);
             }
+        }
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n, input, output);
+        }
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessSIMD(n, nullptr, input);
         }
     };
 
@@ -524,7 +536,7 @@ namespace FX::Distortion::Amplifier
             return std::tanh(postGain*r);
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++) {
                 DspFloatType K = G;
                 DspFloatType bt= bias;
@@ -548,6 +560,12 @@ namespace FX::Distortion::Amplifier
                 r -= bias;
                 out[i] = std::tanh(postGain*r);
             }
+        }
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n, input, output);
+        }
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessSIMD(n, nullptr, input);
         }
     };
 
@@ -602,6 +620,14 @@ namespace FX::Distortion::Amplifier
             bias = bt;
             r -= bias;
             return std::tanh(postGain*r);
+        }
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            #pragma omp simd aligned(input,output)
+            for(size_t i = 0; i < n; i++) output[i] = Tick(input[i]);
+        }
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            #pragma omp simd aligned(input,output)
+            for(size_t i = 0; i < n; i++) output[i] = Tick(output[i]);
         }        
     };
 
@@ -633,7 +659,7 @@ namespace FX::Distortion::Amplifier
             return std::tanh(postGain*r);
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++) {
                 DspFloatType K  = G;
                 DspFloatType bt = bias;
@@ -653,6 +679,12 @@ namespace FX::Distortion::Amplifier
                 r -= bias;
                 out[i] = std::tanh(postGain*r);
             }
+        }
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n, input, output);
+        }
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessSIMD(n, nullptr, input);
         }
     };
 
@@ -710,6 +742,14 @@ namespace FX::Distortion::Amplifier
             bias = bt;
             r -= bias;
             return std::tanh(postGain*r);
+        }        
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            #pragma omp simd aligned(input,output)
+            for(size_t i = 0; i < n; i++) output[i] = Tick(input[i]);
+        }
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            #pragma omp simd aligned(input,output)
+            for(size_t i = 0; i < n; i++) output[i] = Tick(output[i]);
         }        
     };
 
@@ -771,6 +811,12 @@ namespace FX::Distortion::Amplifier
             clipper.ProcessSIMD(n,out);
             tone.setKnobs(Tone,Output);
             tone.ProcessSIMD(n,out);
+        }
+		void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n, input, output);
+        }
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessSIMD(n, nullptr, input);
         }
     };
 }

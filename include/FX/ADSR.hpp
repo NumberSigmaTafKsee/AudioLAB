@@ -124,9 +124,9 @@ namespace Envelopes
             return A*r;
         }
 
-        template<typename T>
-        void ProcessBlock(size_t n, T * in, T* out) {
-            #pragma omp simd
+        
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType* out) {
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
             {
                 switch (state) {
@@ -159,41 +159,12 @@ namespace Envelopes
                 if(in) out[i] *= in[i];
             }
         }
-        
-        template<typename T>
-        void InplaceProcess(size_t n, T * samples) {
-            #pragma omp simd
-            for(size_t i = 0; i < n; i++)
-            {
-                switch (state) {
-                    case env_idle:
-                        break;
-                    case env_attack:
-                        output = attackBase + output * attackCoef;            
-                        if (output >= 1.0) {
-                            output = 1.0;
-                            state = env_decay;
-                        }
-                        break;
-                    case env_decay:
-                        output = decayBase + output * decayCoef;
-                        if (output <= sustainLevel) {
-                            output = sustainLevel;
-                            state = env_sustain;
-                        }
-                        break;
-                    case env_sustain:
-                        break;
-                    case env_release:
-                        output = releaseBase + output * releaseCoef;
-                        if (output <= 0.0) {
-                            output = 0.0;
-                            state = env_idle;
-                        }
-                }
-                samples[i] =  output*(max-min) + min;                                    
-            }
-        }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType* out) {
+			ProcessSIMD(n,in,out);
+		}
+		void ProcessInplace(size_t n, DspFloatType* out) {
+			ProcessSIMD(n,nullptr,out);
+		}
         
         enum envState {
             env_idle = 0,

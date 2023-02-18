@@ -3,9 +3,8 @@
 // https://github.com/titas2001/Diode_Clipper
 // https://github.com/titas2001/Diode_Ring_Modulator
 
-#include "FX/LiquidNeuron.hpp"
-#include "FX/Diode.hpp"
-#include "GenericSoundProcessor.hpp"
+#include "GenericSoundObject.hpp"
+
 namespace Analog::Distortion::Diode
 {
     // i do not know wtf this was
@@ -17,14 +16,14 @@ namespace Analog::Distortion::Diode
         DSP eS = 1.68;
         DSP iS = .015;
         
-        Dioder(DSP sr=44100.0) : GSSoundProcessor<DSP>
+        Dioder(DSP sr=44100.0) : GSSoundProcessor<DSP>()
         {                    
             sampleRate = sr;            
         }    
         DSP Tick(DSP In, DSP V=1, DSP E=1, DSP I=1)
         {
             //return FX::Distortion::Diode::Diode(In,v*V,e*E,i*I);
-            return (I*is) * (exp(0.1*x/((E*es)*(V*vs)))-1);
+            return (In*iS) * (exp(0.1*In/((E*eS)*(V*vS)))-1);
         }
         
         #if 0
@@ -34,26 +33,18 @@ namespace Analog::Distortion::Diode
         #endif
         
         void ProcessSIMD(size_t n, DSP * in, DSP * out) {
-            #pragma omp simd
-            for(size_t i = 0; i < n; i++) {
-                out[i] = (I*is) * (exp(0.1*in[i]/((E*es)*(V*vs)))-1);
+            #pragma omp simd aligned(in,out)
+            for(size_t i = 0; i < n; i++) {				
+                out[i] = (in[i]*iS) * (exp(0.1*in[i]/((eS)*(vS)))-1);
             }
         }
     
         void ProcessBlock(size_t n, DSP * in, DSP * out) {
-            #pragma omp simd
-            for(size_t i = 0; i < n; i++) {
-                DSP I = in[i];
-                out[i] = (I*is) * (exp(0.1*in[i]/((Es)*(Vs)))-1);
-            }
+            ProcessSIMD(n,in,out);
         }
 
         void ProcessInplace(size_t n, DSP * buffer) {
-            #pragma omp simd
-            for(size_t i = 0; i < n; i++) {
-                DSP I = in[i];
-                buffer[i] = (I*i) * (exp(0.1*in[i]/((e)*(v)))-1);
-            }
+            ProcessSIMD(n,buffer,buffer);
         }
     };    
 }

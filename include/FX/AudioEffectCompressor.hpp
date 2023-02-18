@@ -1,5 +1,5 @@
 #pragma once
-
+#include "StdSamples/stdsamples.hpp"
 
 namespace FX
 {
@@ -50,7 +50,7 @@ namespace FX
             DspFloatType alphaAttack = exp(-1.0f / (0.001f * sampleRate * attackTimeMs));
             DspFloatType alphaRelease = exp(-1.0f / (0.001f * sampleRate * releaseTimeMs));
             DspFloatType yl_avg = 0.0f;
-            #pragma omp simd
+            #pragma omp simd aligned(buffer)
             for (int i = 0; i < bufferSize; ++i)
             {
                 // Level detection- estimate level using peak detector
@@ -86,7 +86,7 @@ namespace FX
         {
             alphaAttack = exp(-1/(0.001 * samplerate * tauAttack));
             alphaRelease= exp(-1/(0.001 * samplerate * tauRelease));
-            #pragma omp simd
+            #pragma omp simd aligned(input)
             for (int i = 0 ; i <  n; ++i)
             {
                 //Level detection- estimate level using peak detector
@@ -113,7 +113,7 @@ namespace FX
                 //computeCompressionGain(n,input);
                 compressor(n,inputs);
                 // apply control voltage to the audio signal        
-                #pragma omp simd
+                #pragma omp simd aligned(inputs,outputs)
                 for (int i = 0; i < n; ++i)
                 {
                     DspFloatType cv = c[i];
@@ -125,8 +125,8 @@ namespace FX
 
     struct StereoCompressor : public StereoFXProcessor
     {
-        std::vector<DspFloatType> x_g, x_l,y_g, y_l,c;// input, output, control
-        std::vector<DspFloatType> inputBuffer;
+        AudioDSP::sample_vector<DspFloatType> x_g, x_l,y_g, y_l,c;// input, output, control
+        AudioDSP::sample_vector<DspFloatType> inputBuffer;
 
         bool autoTime,compressorSwitch = true;
         DspFloatType ratio,threshold,makeUpGain,tauAttack,tauRelease,alphaAttack,alphaRelease,yL_prev;
@@ -175,11 +175,12 @@ namespace FX
             zeros(y_l);
             zeros(c);        
         }
-        void compressor(std::vector<DspFloatType> & buffer)
+        void compressor(DspFloatType * buffer)
         {
             alphaAttack = exp(-1/(0.001 * samplerate * tauAttack));
             alphaRelease= exp(-1/(0.001 * samplerate * tauRelease));
-            #pragma omp simd
+            
+            #pragma omp simd aligned(buffer)
             for (int i = 0 ; i < buffer.size() ; ++i)
             {
                 //Level detection- estimate level using peak detector
@@ -202,24 +203,26 @@ namespace FX
             if (compressorSwitch == true)
             {           
                 zeros(inputBuffer);
-                #pragma omp simd
+                DspFloatType * inbuf = inputBuffer.data();
+                #pragma omp simd aligned(inbuf,inputs,outputs)
                 for(size_t i = 0; i < numSamples; i++)
                 {
                     outputs[0][i] = inputs[0][i];
                     outputs[1][i] = inputs[1][i];
-                    inputBuffer[i] = 0.5*(inputs[0][i]+inputs[1][i]);
+                    inbuf[i] = 0.5*(inputs[0][i]+inputs[1][i]);
                 } 
-                #pragma omp simd
+                
+                #pragma omp simd aligned(inbuf,inputs,outputs)
                 for(size_t m = 0; m < 2; m++)
                 if ( (threshold< 0) )
                 {                
-                    compressor(inputBuffer);
+                    compressor(inputBuffer.data());
                     // apply control voltage to the audio signal
                     for (int i = 0 ; i < numSamples ; ++i)
                     {
                         outputs[0][i] *= c[i];
                         outputs[1][i] *= c[i];                    
-                        inputBuffer[i*2] = 0.5 * (outputs[0][i] + outputs[1][i]);
+                        inbuf[i*2] = 0.5 * (outputs[0][i] + outputs[1][i]);
                     }            
                 }
             }        

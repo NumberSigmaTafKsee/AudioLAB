@@ -69,8 +69,8 @@ namespace Analog::Oscillators
 
             return out;        
         }
-        void ProcessBlock(size_t n, DSP * in, DSP * out) {
-            #pragma omp simd
+        void ProcessSIMD(size_t n, DSP * in, DSP * out) {
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
             {
                 positionB += phase - lastPhase;
@@ -94,8 +94,11 @@ namespace Analog::Oscillators
                 if(in) out[i] *= in;
             }
         }
+        void ProcessBlock(size_t n, DSP * in, DSP * out) {
+			ProcessSIMD(n,in,out);
+		}
         void ProcessInplace(size_t n, DSP * in) {
-            ProcessBlock(n,nullptr,in);
+            ProcessSIMD(n,nullptr,in);
         }
     };
 }

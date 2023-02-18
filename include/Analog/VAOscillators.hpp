@@ -96,7 +96,7 @@ namespace Oscillators
             return y;
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
             {
                 // I = index
@@ -205,7 +205,7 @@ namespace Oscillators
             return 4*x;
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
         }
         void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
@@ -255,7 +255,7 @@ namespace Oscillators
             return 2*(x-b2.process(x));
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
         }
         void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
@@ -352,7 +352,7 @@ namespace Oscillators
             return 2*y-1;
         }
         void ProcessSIMD(size_t n, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
             {
                 DspFloatType tmp = BlitDSF(phase_,m_,p_,a_);        
@@ -365,7 +365,13 @@ namespace Oscillators
                 out[i] = 2*y-1;
             }
         }
-
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * out) {
+            ProcessSIMD(n,out,out);
+        }
+        
         DspFloatType getPhase() { 
             return phase_; 
         }
@@ -462,21 +468,18 @@ namespace Oscillators
             y -= block.process(y);
             return y;
         }
-        void ProcessSIMD(size_t n, DspFloatType * out) {
-            #pragma omp simd
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
             {
-                DspFloatType tmp = BlitDSF(phase_,m_,p_,a_);        
-                DspFloatType tmp2= BlitDSF(phase_+D*M_PI,m_,p_,a_);
-                tmp      = tmp - tmp2;
-                //tmp     += state_ - C2_;        
-                state_ += tmp * 0.995;
-                phase_ += rate_;
-                if ( phase_ >= 2*M_PI ) phase_ -= 2*M_PI;
-                y = state_;
-                y -= block.process(y);
-                out[i] = y;
+                out[i] = Tick();
             }
+        }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * out) {
+            ProcessSIMD(n,out,out);
         }
         DspFloatType getPhase() { 
             return phase_; 
@@ -569,6 +572,19 @@ namespace Oscillators
 
             phase = fmod(phase + inc,1.0f);
             return out;
+        }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            #pragma omp simd aligned(in,out)
+            for(size_t i = 0; i < n; i++)
+            {
+                out[i] = Tick();
+            }
+        }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * out) {
+            ProcessSIMD(n,out,out);
         }   
     };
 
@@ -622,6 +638,19 @@ namespace Oscillators
 
             return out;        
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            #pragma omp simd aligned(in,out)
+            for(size_t i = 0; i < n; i++)
+            {
+                out[i] = Tick();
+            }
+        }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * out) {
+            ProcessSIMD(n,out,out);
+        }
     };
 
     struct DPWTriangle
@@ -659,6 +688,19 @@ namespace Oscillators
             DspFloatType out = std::abs(position - 0.5) * 4 - 1;                
             position += freq * invSampleRate;        
             return out;
+        }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+            #pragma omp simd aligned(in,out)
+            for(size_t i = 0; i < n; i++)
+            {
+                out[i] = Tick();
+            }
+        }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+            ProcessSIMD(n,in,out);
+        }
+        void ProcessInplace(size_t n, DspFloatType * out) {
+            ProcessSIMD(n,out,out);
         }
     };
 }

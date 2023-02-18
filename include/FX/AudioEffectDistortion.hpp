@@ -53,7 +53,7 @@ namespace FX
         void ProcessBlock (size_t numSamples, DspFloatType ** input, DspFloatType ** output)
         {
             DspFloatType gain = powf(10.0f, _gainIndB/20.f);
-            #pragma omp simd
+            #pragma omp simd aligned(input,output)
             for (int channel = 0; channel < _numChannels; ++channel)
             {
                 DspFloatType * in = input[channel];

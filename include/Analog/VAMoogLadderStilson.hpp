@@ -44,7 +44,7 @@ namespace Analog::Moog
         {
             Undenormal denormal;
             DspFloatType localState;
-            #pragma omp simd
+            #pragma omp simd aligned(samples,_output)
             for (int s = 0; s < n; ++s)
             {
                 // Scale by arbitrary value on account of our saturation function

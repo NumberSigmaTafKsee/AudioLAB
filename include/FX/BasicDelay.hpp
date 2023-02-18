@@ -13,6 +13,7 @@
 #include <vector>
 #include <cmath>
 #include "SoundObject.hpp"
+#include "StdSamples/sample_vector.hpp"
 
 namespace FX::Delays
 {
@@ -69,7 +70,7 @@ namespace FX::Delays
         size_t numChannels;
         DspFloatType feedbackAmount,delayTime,mixAmount;
         DspFloatType sampleRate;
-        std::vector<DspFloatType> delayBuffer[2];
+        AudioDSP::sample_vector<DspFloatType> delayBuffer[2];
         size_t writePosition[2];
         const DspFloatType delta = 0.3f;    
     };
@@ -95,7 +96,7 @@ namespace FX::Delays
         //String feedbackAm(nextValue);
         //Logger::outputDebugString(feedbackAm);
         int localWritePosition = writePosition[channel];
-        #pragma omp simd
+        #pragma omp simd aligned(buffer,dryBuffer,delayWritePointer)
         for(auto sample = 0; sample < bufferLength; ++sample){
             const DspFloatType in = dryBuffer[numChannels*sample + channel];
             const DspFloatType fullPosition = delayBufferLength + localWritePosition -(sampleRate*delayTime);

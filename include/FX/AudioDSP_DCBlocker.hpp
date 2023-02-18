@@ -59,12 +59,12 @@ namespace JoonasFX
 	{
 		DspFloatType inputValue = 0.f;
 
-		#pragma omp simd
+		
 		for (auto channel = 0; channel < 2; ++channel)
 		{
 			DspFloatType* input  = inputs[channel];
 			DspFloatType* output = outputs[channel];
-
+			#pragma omp simd aligned(input,output)
 			for (auto sample = 0; sample < numSamples; ++sample)
 			{
 

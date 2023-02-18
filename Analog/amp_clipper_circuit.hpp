@@ -6,11 +6,12 @@
 // A class that implements a diode clipper circuits
 
 #include <cmath>
+#include "GenericSoundObject.hpp"
 
 namespace FX::Distortion::ClipperCircuit
 {
     template<class T>
-    class clipperCircuit
+    class clipperCircuit : public GSSoundProcessor<T>
     {
     public:
         
@@ -24,7 +25,7 @@ namespace FX::Distortion::ClipperCircuit
         // Constructor for
         clipperCircuit(T fs, T ideality, T asymmetry)
         : sFreq(fs), Is(1e-7), C1(1e-6), asym(asymmetry),
-        state(0.), yn1(0.)
+        state(0.), yn1(0.), GSSoundProcessor<T>()
         {
             setIdeality(ideality);
         }
@@ -85,7 +86,22 @@ namespace FX::Distortion::ClipperCircuit
             
             return yCur;
         }
-        
+        void ProcessSIMD(size_t n, T * in, T * out)
+	{
+		#pragma omp simd
+		for(size_t i = 0; i < n; i++) out[i] = run(in[i]);
+	}
+	void ProcessBlock(size_t n, T * in, T * out)
+	{
+		#pragma omp simd
+		for(size_t i = 0; i < n; i++) out[i] = run(in[i]);
+	}
+	void ProcessInplace(size_t n, T * buffer)
+	{
+		#pragma omp simd
+		for(size_t i = 0; i < n; i++) buffer[i] = run(buffer[i]);
+	}
+	
         // Set ideality factor, combined with thermal voltage
         void setIdeality(const T idealityFactor)
         {

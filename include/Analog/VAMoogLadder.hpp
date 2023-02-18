@@ -156,7 +156,10 @@ namespace Analog::Flters::Moog::MoogLadder
 		// scaled by the resonance, filter drive and compensation value
 		state[0] = tanh(drive_ * (input - 4 * gRes * (state[4] - gComp_ * input)));
 		
-		// Loop through each pole of the ladder filter
+		// Loop through each pole of the ladder filter]
+		
+		// this will not do much really it only works fast on aligned memory but try it
+		#pragma omp simd
 		for(int i = 0; i < 4; i++)
 		{
 			// Equation implementing the Huovilainen (2006) one pole circuit diagram
@@ -174,12 +177,12 @@ namespace Analog::Flters::Moog::MoogLadder
 	void MoogLadder::ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
 	{
 		Undenormal denormal;
-		#pragma omp simd
+		#pragma omp simd aligned(in,out)
 		for(size_t i = 0; i < n; i++)
 		{
 			//Next input to the filter is a combination of the last output and current sample, 
-			// scaled by the resonance, filter drive and compensation value
-			state[0] = tanh(drive_ * (in[i] - 4 * gRes * (state[4] - gComp_ * input)));
+			// scaled by the resonance, filter drive and compensation value			
+			state[0] = tanh(drive_ * (in[i] - 4 * gRes * (state[4] - gComp_ * in[i])));
 			
 			// Loop through each pole of the ladder filter
 			for(int i = 0; i < 4; i++)

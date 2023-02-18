@@ -37,7 +37,7 @@ namespace Analog::Moog
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * output) {
             Undenormal denormal;
-            #pragma omp simd
+            #pragma omp simd aligned(in,output)
             for(size_t i = 0; i < n; i++) {
                 const DspFloatType s = in[i] * gamma + feedback + epsilon * GetFeedbackOutput();
                 DspFloatType vn = (a0 * s - z1) * alpha;
@@ -135,35 +135,33 @@ namespace Analog::Moog
         
         DspFloatType Tick(DspFloatType input) {
             Undenormal denormal;
-            #pragma omp simd		
-            {		
-                DspFloatType sigma =
-                    LPF1->GetFeedbackOutput() +
-                    LPF2->GetFeedbackOutput() +
-                    LPF3->GetFeedbackOutput() +
-                    LPF4->GetFeedbackOutput();
+			DspFloatType sigma =
+				LPF1->GetFeedbackOutput() +
+				LPF2->GetFeedbackOutput() +
+				LPF3->GetFeedbackOutput() +
+				LPF4->GetFeedbackOutput();
 
-                input *= 1.0 + K;
+			input *= 1.0 + K;
 
-                // calculate input to first filter
-                DspFloatType u = (input - K * sigma) * alpha0;
+			// calculate input to first filter
+			DspFloatType u = (input - K * sigma) * alpha0;
 
-                u = tanh(saturation * u);
+			u = tanh(saturation * u);
 
-                DspFloatType stage1 = LPF1->Tick(u);
-                DspFloatType stage2 = LPF2->Tick(stage1);
-                DspFloatType stage3 = LPF3->Tick(stage2);
-                DspFloatType stage4 = LPF4->Tick(stage3);
+			DspFloatType stage1 = LPF1->Tick(u);
+			DspFloatType stage2 = LPF2->Tick(stage1);
+			DspFloatType stage3 = LPF3->Tick(stage2);
+			DspFloatType stage4 = LPF4->Tick(stage3);
 
-                // Oberheim variations
-                return
-                    oberheimCoefs[0] * u +
-                    oberheimCoefs[1] * stage1 +
-                    oberheimCoefs[2] * stage2 +
-                    oberheimCoefs[3] * stage3 +
-                    oberheimCoefs[4] * stage4;
-            }
-        }
+			// Oberheim variations
+			return
+				oberheimCoefs[0] * u +
+				oberheimCoefs[1] * stage1 +
+				oberheimCoefs[2] * stage2 +
+				oberheimCoefs[3] * stage3 +
+				oberheimCoefs[4] * stage4;
+		}
+
         virtual void SetResonance(DspFloatType r) override
         {
                 // this maps resonance = 1->10 to K = 0 -> 4

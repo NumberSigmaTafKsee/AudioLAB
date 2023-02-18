@@ -354,7 +354,7 @@ namespace Analog
             scale = SCALE; //x2Smooth.process(SCALE);
             k = K; //x3Smooth.process(K);
             r = Q*scale; //x4Smooth.process(Q*scale);
-            #pragma omp simd     
+            #pragma omp simd aligned(in,output)
             for(size_t s = 0; s < n; s++) 
             {                                                    
                 DspFloatType input = in[s];       
@@ -404,7 +404,7 @@ namespace Analog
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
             //MoogI_ProcessBlock(n,in,out);
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
         }
         void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {

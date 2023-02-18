@@ -113,7 +113,7 @@ namespace Analog::Filters::Moog::RKLadder
 			this->input = input;
 		}
 		void ProcessSIMD(size_t n, DspFloatType *in, DspFloatType * out) {
-			#pragma omp simd
+			#pragma omp simd aligned(in,out)
 			const DspFloatType dt = 1/sampleRate;
 			for(size_t i = 0; i < n; i++) {
 				stepRK4(0, dt, state, 4, [&](DspFloatType t, const DspFloatType x[], DspFloatType dxdt[]) {

@@ -138,7 +138,7 @@ struct Chorus {
         return 0.5*(out[0] + out[1]);
     }
 
-    void Process(size_t n, const DspFloatType * input, DspFloatType * output) {
+    void ProcessBlock(size_t n, const DspFloatType * input, DspFloatType * output) {
     
         const int numInputChannels  = delayBufferChannels;
         const int numOutputChannels = delayBufferChannels;
@@ -157,7 +157,7 @@ struct Chorus {
             
             localWritePosition[channel] = delayWritePosition[channel];            
             phase = lfoPhase;
-            
+            #pragma omp simd aligned(input,output)
             for (int sample = 0; sample < numSamples; ++sample) 
             {                
                 size_t input_index  = numInputChannels*sample + channel;

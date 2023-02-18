@@ -171,7 +171,7 @@ DspFloatType CKThreeFiveFilter::doFilter(DspFloatType xn)
 
 void CKThreeFiveFilter::ProcessSIMD(size_t n, DspFloatType *in, DspFloatType *out)
 {
-	#pragma omp simd
+	#pragma omp simd aligned(in,out)
 	for(size_t i = 0; i < n; i++) {
 		DspFloatType xn = in[i];
 		// return xn if filter not supported

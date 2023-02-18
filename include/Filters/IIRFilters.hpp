@@ -207,13 +207,10 @@ namespace Filters
         
         virtual DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0) = 0;
 
-        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
-            for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
-        }
-        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out, DspFloatType * a, DspFloatType * x, DspFloatType * y) {
-            for(size_t i = 0; i < n; i++) out[i] = Tick(in[i],a[i],x[i],y[i]);
-        }
-        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out);
+        virtual void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) = 0;
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) { ProcessSIMD(n,in,out); }
+		void ProcessInplace(size_t n, DspFloatType * in, DspFloatType * out) { ProcessSIMD(n,out,out); }
+		
         virtual void setCutoff(DspFloatType fc) {
             printf("Virtual function setCutoff\n");
         }
@@ -1277,7 +1274,7 @@ namespace Filters
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
             Undenormal denormal;
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
             {                
                 x = in[i];
@@ -1339,7 +1336,7 @@ namespace Filters
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
             Undenormal denormal;
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
             {                
                 x = in[i];
@@ -1401,7 +1398,7 @@ namespace Filters
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
             Undenormal denormal;
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
             {            
                 x = in[i];
@@ -1462,7 +1459,7 @@ namespace Filters
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
             Undenormal denormal;
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
             {            
                 x = in[i];
@@ -1508,6 +1505,12 @@ namespace Filters
                 o = biquads[i].Tick(o, A, X, Y);
             return A * o;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			out = ProcessSIMD(n,in,out);
+			for(size_t i = 1; i < biquads.size(); i++)
+				biquads[i].ProcessSIMD(n,out,out);
+		}
     };
 
     struct BiquadTypeIICascade : public FilterBase
@@ -1538,6 +1541,12 @@ namespace Filters
                 o = biquads[i].Tick(o, A, X, Y);
             return A * o;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {			
+			out = ProcessSIMD(n,in,out);
+			for(size_t i = 1; i < biquads.size(); i++)
+				biquads[i].ProcessSIMD(n,out,out);
+		}
     };
 
     struct BiquadTransposedTypeICascade : public FilterBase
@@ -1568,6 +1577,12 @@ namespace Filters
                 o = biquads[i].Tick(o, A, X, Y);
             return A * o;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			out = ProcessSIMD(n,in,out);
+			for(size_t i = 1; i < biquads.size(); i++)
+				biquads[i].ProcessSIMD(n,out,out);
+		}
     };
 
     struct BiquadTransposedTypeIICascade : public FilterBase
@@ -1598,5 +1613,11 @@ namespace Filters
                 o = biquads[i].Tick(o, A, X, Y);
             return A * o;
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			out = ProcessSIMD(n,in,out);
+			for(size_t i = 1; i < biquads.size(); i++)
+				biquads[i].ProcessSIMD(n,out,out);
+		}
     };
 }

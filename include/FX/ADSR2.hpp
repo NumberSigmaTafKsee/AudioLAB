@@ -137,13 +137,67 @@ namespace Envelopes
         {
             return I*step();
         }
-        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
-            #pragma omp simd
-            for(size_t i = 0; i < n; i++) output[i] = input[i]*step();
+        void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output) {
+            #pragma omp simd aligned(input,output)
+            for(size_t i = 0; i < n; i++) {
+		        switch (currentState) {
+				case idle:
+					break;
+				case attack:
+					if (previousState == idle) {
+						currentStep = 0;
+						previousState = attack;
+					}
+					currentValue = calculateAttackValue(currentStep, parameters.attackTime, parameters.attackSlope);
+					if (currentValue >= 1.0) {
+						gotoState(decay);
+					} else {
+						currentStep++;
+					}
+					break;
+				case decay:
+					if (previousState != decay) {
+						currentStep = 0;
+						previousState = decay;
+					}
+					currentValue = calculateDecayValue(currentStep, parameters.decayTime, parameters.decaySlope,
+													parameters.sustainLevel);
+					if (currentValue <= parameters.sustainLevel) {
+						gotoState(sustain);
+					} else {
+						currentStep++;
+					}
+					break;
+				case sustain:
+					if (previousState != sustain) {
+						previousState = sustain;
+						currentValue = parameters.sustainLevel;
+					}
+					break;
+				case release:
+					if (previousState != release) {
+						currentStep = 0;
+						previousState = release;
+						releaseInitialValue = currentValue;
+					}
+					currentValue = calculateReleaseValue(currentStep, parameters.releaseTime, parameters.releaseSlope,
+														releaseInitialValue);
+					if (currentValue < 0.0) {
+						currentValue = 0.0;
+						gotoState(idle);
+					} else {
+						currentStep++;
+					}
+				}
+				output[i] = currentValue * maxLevel;
+				if(input) output[i] *= input[i];		
+			}
         }
-        void ProcessInplace(DspFloatType * input, size_t n) {
-            #pragma omp simd
-            for(size_t i = 0; i < n; i++) input[i] = input[i]*step();
+        void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+            ProcessSIMD(n, input, output);
+        }
+        void ProcessInplace(size_t n, DspFloatType * input) {
+            ProcessSIMD(n, nullptr, input);
         }
         //
         // Get the current state.

@@ -26,7 +26,7 @@ namespace Analog::Distortion::Diode
             return (I*Ii) * (exp(0.1*In/((E*Ie)*(V*Iv)))-1);
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++) {
                 out[i] = Ii * (exp(0.1*in[i]/((Ie)*(Iv)))-1);
             }

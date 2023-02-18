@@ -81,7 +81,7 @@ namespace Analog::Oscillators::DPW
 
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n ; i++ {
                 // Implement DPW algorithm
                 DspFloatType delta = f0/sampleRate;
@@ -163,7 +163,7 @@ namespace Analog::Oscillators::DPW
             return getSquareWaveform();
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n ; i++ {
                 out[i] = Tick(in[i]);
             }

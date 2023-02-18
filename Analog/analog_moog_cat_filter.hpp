@@ -1,29 +1,30 @@
 #pragma once
 
-#include "SoundObject.hpp"
+#include "GenericSoundObject.hpp"
 
 namespace Analog::MoogFilters::MoogCat
 {
-    struct MoogCat : public FilterProcessor
+	template<typename DSP>
+    struct MoogCat : public GSSoundProcessor<DSP>
     {
         
-        DspFloatType fc = 800.0f; //cutoff frequency
-        DspFloatType res = 0.0f; //resonance
-        DspFloatType Fs = 44100.0f; //sampling frequency
-        DspFloatType g = tan(M_PI * fc / Fs); //frequency warping factor
-        DspFloatType r_cat = 1.064f; //filter type value    
+        DSP fc = 800.0f; //cutoff frequency
+        DSP res = 0.0f; //resonance
+        DSP Fs = 44100.0f; //sampling frequency
+        DSP g = tan(M_PI * fc / Fs); //frequency warping factor
+        DSP r_cat = 1.064f; //filter type value    
 
         //vector of states
         static constexpr size_t numStates = 4;
-        std::vector<std::array<DspFloatType, numStates>> state;
+        std::vector<std::array<DSP, numStates>> state;
 
-        MoogCat() : FilterProcessor() {
+        MoogCat() : GSSoundProcessor<DSP>() {
 
         }
-        void setCutoff(DspFloatType f) {
+        void setCutoff(DSP f) {
             fc = f;        
         }
-        void setResonance(DspFloatType r) {
+        void setResonance(DSP r) {
             res = r;
         }
 
@@ -32,7 +33,7 @@ namespace Analog::MoogFilters::MoogCat
             PORT_CUTOFF,
             PORT_RESONANCE,		
         };
-        void setPort(int port, DspFloatType v)
+        void setPort(int port, DSP v)
         {
             switch (port)
             {
@@ -44,25 +45,25 @@ namespace Analog::MoogFilters::MoogCat
                 break;			
             }
         }
-        DspFloatType processSample(DspFloatType input, size_t channel) noexcept {
+        DSP processSample(DSP input, size_t channel) noexcept {
             auto& s = state[channel];
-            const DspFloatType g_2 = g*g;
-            const DspFloatType g_3 = g_2*g;
-            const DspFloatType g_4 = g_3*g;
-            const DspFloatType r_cat_2 = r_cat*r_cat;
-            const DspFloatType val1 = res*g_4*r_cat_2;
-            const DspFloatType val2 = g_3*r_cat;
-            const DspFloatType val3 = g*r_cat;
-            const DspFloatType val4 = g_2*r_cat_2;
-            const DspFloatType val5 = 2*val3 + 1;
-            const DspFloatType val6 = g_2 + val5;
-            const DspFloatType val7 = g*val6;
+            const DSP g_2 = g*g;
+            const DSP g_3 = g_2*g;
+            const DSP g_4 = g_3*g;
+            const DSP r_cat_2 = r_cat*r_cat;
+            const DSP val1 = res*g_4*r_cat_2;
+            const DSP val2 = g_3*r_cat;
+            const DSP val3 = g*r_cat;
+            const DSP val4 = g_2*r_cat_2;
+            const DSP val5 = 2*val3 + 1;
+            const DSP val6 = g_2 + val5;
+            const DSP val7 = g*val6;
             const auto den = (4*val1 + g_4 + 4*val2 + 4*val4 + 2*g_2 + 4*val3 + 1);
-            DspFloatType out = (g_3*s[0] - g_2*(val5)*s[1] + val7*s[2] - (2*val2 + 4*val4 + g_2 + 4*val3 + 1)*s[3])/den;
-            const DspFloatType a = -(val1*4 + g_4 + 4*val2 + 4*val4 - 1)*s[0] + 2*g*(res*val4*4 + val6)*s[1] - 8*g_2*res*r_cat_2*s[2] + 8*g*res*r_cat_2*(2*val3+1)*s[3] + val7*2*input;
-            const DspFloatType b = - 2*val7*s[0] + (-val1*4 - g_4 + 4*val4 + 4*val3 + 1)*s[1] + 8*g_3*res*r_cat_2*s[2] - 8*g_2*res*r_cat_2*(2*val3+1)*s[3] - g_2*(val6)*2*input;
-            const DspFloatType c = 2*g_2*s[0] - g*(val5)*2*s[1] - (val1*4 + g_4 + 4*g_3*r_cat + 4*val4 - 1)*s[2] + 2*g*(res*val4*4 + val6)*s[3] + 2*g_3*input;
-            const DspFloatType d = -2*g_3*s[0] + g_2*(val5)*2*s[1] - val7*2*s[2] + (-val1*4 - g_4 + 4*val4 + 4*val3 + 1)*s[3] - 2*g_4*input;
+            DSP out = (g_3*s[0] - g_2*(val5)*s[1] + val7*s[2] - (2*val2 + 4*val4 + g_2 + 4*val3 + 1)*s[3])/den;
+            const DSP a = -(val1*4 + g_4 + 4*val2 + 4*val4 - 1)*s[0] + 2*g*(res*val4*4 + val6)*s[1] - 8*g_2*res*r_cat_2*s[2] + 8*g*res*r_cat_2*(2*val3+1)*s[3] + val7*2*input;
+            const DSP b = - 2*val7*s[0] + (-val1*4 - g_4 + 4*val4 + 4*val3 + 1)*s[1] + 8*g_3*res*r_cat_2*s[2] - 8*g_2*res*r_cat_2*(2*val3+1)*s[3] - g_2*(val6)*2*input;
+            const DSP c = 2*g_2*s[0] - g*(val5)*2*s[1] - (val1*4 + g_4 + 4*g_3*r_cat + 4*val4 - 1)*s[2] + 2*g*(res*val4*4 + val6)*s[3] + 2*g_3*input;
+            const DSP d = -2*g_3*s[0] + g_2*(val5)*2*s[1] - val7*2*s[2] + (-val1*4 - g_4 + 4*val4 + 4*val3 + 1)*s[3] - 2*g_4*input;
             s[0] = a/den;
             s[1] = b/den;
             s[2] = c/den;
@@ -70,15 +71,52 @@ namespace Analog::MoogFilters::MoogCat
             return out;
         }
 
-        DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1)
+        DSP Tick(DSP I, DSP A=1, DSP X=1, DSP Y=1)
         {
-            DspFloatType F = fc;
-            DspFloatType R = res;
+            DSP F = fc;
+            DSP R = res;
 
             setCutoff(F*fabs(X));
             setResonance(R*fabs(Y));
-            DspFloatType out = processSample(I,0);
+            DSP out = processSample(I,0);
             return A*out;
         }
+        void ProcessSIMD(size_t n, DSP * inp, DSP * outp, size_t channel=0)
+        {
+			#pragma omp simd aligned(inp,outp)
+			for(size_t i = 0; i < n; i++)
+			{
+				auto& s = state[channel];
+				const DSP input = inp[i];
+				const DSP g_2 = g*g;
+				const DSP g_3 = g_2*g;
+				const DSP g_4 = g_3*g;
+				const DSP r_cat_2 = r_cat*r_cat;
+				const DSP val1 = res*g_4*r_cat_2;
+				const DSP val2 = g_3*r_cat;
+				const DSP val3 = g*r_cat;
+				const DSP val4 = g_2*r_cat_2;
+				const DSP val5 = 2*val3 + 1;
+				const DSP val6 = g_2 + val5;
+				const DSP val7 = g*val6;
+				const auto den = (4*val1 + g_4 + 4*val2 + 4*val4 + 2*g_2 + 4*val3 + 1);
+				DSP out = (g_3*s[0] - g_2*(val5)*s[1] + val7*s[2] - (2*val2 + 4*val4 + g_2 + 4*val3 + 1)*s[3])/den;
+				const DSP a = -(val1*4 + g_4 + 4*val2 + 4*val4 - 1)*s[0] + 2*g*(res*val4*4 + val6)*s[1] - 8*g_2*res*r_cat_2*s[2] + 8*g*res*r_cat_2*(2*val3+1)*s[3] + val7*2*input;
+				const DSP b = - 2*val7*s[0] + (-val1*4 - g_4 + 4*val4 + 4*val3 + 1)*s[1] + 8*g_3*res*r_cat_2*s[2] - 8*g_2*res*r_cat_2*(2*val3+1)*s[3] - g_2*(val6)*2*input;
+				const DSP c = 2*g_2*s[0] - g*(val5)*2*s[1] - (val1*4 + g_4 + 4*g_3*r_cat + 4*val4 - 1)*s[2] + 2*g*(res*val4*4 + val6)*s[3] + 2*g_3*input;
+				const DSP d = -2*g_3*s[0] + g_2*(val5)*2*s[1] - val7*2*s[2] + (-val1*4 - g_4 + 4*val4 + 4*val3 + 1)*s[3] - 2*g_4*input;
+				s[0] = a/den;
+				s[1] = b/den;
+				s[2] = c/den;
+				s[3] = d/den;
+				outp[i] = out;
+			}
+		}
+		void ProcessBlock(size_t n, DSP * inp, DSP * outp) {
+			ProcessSIMD(n,inp,outp);
+		}
+		void ProcessInplace(size_t n, DSP * inp) {
+			ProcessSIMD(n,inp,inp);
+		}		
     };
 }

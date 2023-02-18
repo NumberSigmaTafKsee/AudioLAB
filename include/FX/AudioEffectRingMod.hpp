@@ -74,7 +74,7 @@ namespace FX
                 
             const DspFloatType* pIn = inputs;
             DspFloatType* pOut = outputs;
-            #pragma omp simd
+            #pragma omp simd aligned(pIn,pOut,inputs,outputs)
             for (int i = 0; i < n; i++)
             {
                 // Carrier oscillator is a simple sine wave

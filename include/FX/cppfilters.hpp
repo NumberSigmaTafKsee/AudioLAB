@@ -47,7 +47,7 @@ namespace FX::Filters::cppfilters
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
             Undenormal denormal;                        
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)  {                
                 const DspFloatType sample = in[i];
                 coef_size_t xn = sample;

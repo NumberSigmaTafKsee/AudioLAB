@@ -100,7 +100,7 @@ namespace JoonasFX
     {
         update_params();
         // Iterate trough samples in a channel
-        #pragma omp simd
+        #pragma omp simd aligned(input,output)
         for (auto sample = 0; sample < nSamples; ++sample)
         {
            

@@ -21,55 +21,63 @@ Peak/Notch= GBP + BS
 #include <string.h>
 #include <string.h>
 #include <vector>
+#include <StdSamples/stdsamples.hpp>
 
 namespace Filters::FIR
 {
-    class FIRSincFilter
+    class FIRSinc
     {
     public:
-        FIRSincFilter( int taps=0, DspFloatType f1=0, DspFloatType f2=0, const char* type="", const char* window="");
-                
-        ~FIRSincFilter();
+        FIRSinc( int taps=0, DspFloatType f1=0, DspFloatType f2=0, const char* type="", 
+                    const char* window="");
+        ~FIRSinc();
 
-        std::vector<DspFloatType> getCoefficients();
+        AudioDSP::sample_vector<DspFloatType> getCoefficients();
 
         DspFloatType filter(DspFloatType new_sample);
 
+		DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {
+			return filter(I);
+		}
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out);
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) { ProcessSIMD(n,in,out); }
+		void ProcessInplace(size_t n, DspFloatType * in) { ProcessSIMD(n,in,in); }
+		/*
+		static DspFloatType sinc(const DspFloatType x)
+		{
+			if (x == 0)
+				return 1;
+
+			return sin(M_PI * x) / (M_PI * x);
+		}
+		*/
     private:
-        std::vector<DspFloatType> lowPass_coefficient( int taps, DspFloatType f);
-        std::vector<DspFloatType> highPass_coefficient(int taps, DspFloatType f);
-        std::vector<DspFloatType> bandPass_coefficient(int taps, DspFloatType f1, DspFloatType f2);
-        std::vector<DspFloatType> bandStop_coefficient(int taps, DspFloatType f1, DspFloatType f2);
+        AudioDSP::sample_vector<DspFloatType> lowPass_coefficient( int taps, DspFloatType f);
+        AudioDSP::sample_vector<DspFloatType> highPass_coefficient(int taps, DspFloatType f);
+        AudioDSP::sample_vector<DspFloatType> bandPass_coefficient(int taps, DspFloatType f1, DspFloatType f2);
+        AudioDSP::sample_vector<DspFloatType> bandStop_coefficient(int taps, DspFloatType f1, DspFloatType f2);
 
-        std::vector<DspFloatType> window_hamming(int taps);
-        std::vector<DspFloatType> window_triangle(int taps);
-        std::vector<DspFloatType> window_hanning(int taps);
-        std::vector<DspFloatType> window_blackman(int taps);
+        AudioDSP::sample_vector<DspFloatType> window_hamming(int taps);
+        AudioDSP::sample_vector<DspFloatType> window_triangle(int taps);
+        AudioDSP::sample_vector<DspFloatType> window_hanning(int taps);
+        AudioDSP::sample_vector<DspFloatType> window_blackman(int taps);
 
-        std::vector<DspFloatType> h;       // FIR coefficients
-        std::vector<DspFloatType> samples; // FIR delay
+        AudioDSP::sample_vector<DspFloatType> h;       // FIR coefficients
+        AudioDSP::sample_vector<DspFloatType> samples; // FIR delay
 
         int idx;        // Round robin index
         int taps;       // Number of taps of the filter
     };
 
-    /*
-    static DspFloatType sinc(const DspFloatType x)
-    {
-        if (x == 0)
-            return 1;
-
-        return sin(M_PI * x) / (M_PI * x);
-    }
-    */
-    FIRSincFilter::FIRSincFilter( int taps, DspFloatType f1,      DspFloatType f2, const char* type,
-                            const char* window): h(taps, 0), samples(taps, 0)
+    
+    FIRSinc::FIRSinc( int taps, DspFloatType f1, DspFloatType f2, const char* type,
+                            const char* window): h(taps), samples(taps)
     {
         this->idx     = 0;
         this->taps    = taps;
 
-        std::vector<DspFloatType> h;  // Buffer FIR coefficients
-        std::vector<DspFloatType> w;  // Buffer window coefficients
+        AudioDSP::sample_vector<DspFloatType> h;  // Buffer FIR coefficients
+        AudioDSP::sample_vector<DspFloatType> w;  // Buffer window coefficients
 
         // Calculate the coefficient corresponding to the filter type
         if (!strcmp(type, "lp")) {
@@ -104,143 +112,167 @@ namespace Filters::FIR
         }
         else
         {
+			DspFloatType * wx = w.data();
+			DspFloatType * hx = h.data();
+			#pragma omp simd aligned(hx,wx)
             for(int n = 0; n < taps; n++) {
-                this->h[n] = h[n] * w[n];
+                this->h[n] = hx[n] * wx[n];
             }
         }
     }
 
-    FIRSincFilter::~FIRSincFilter()
+    FIRSinc::~FIRSinc()
     {
 
     }
 
-    std::vector<DspFloatType> FIRSincFilter::getCoefficients()
+    AudioDSP::sample_vector<DspFloatType> FIRSinc::getCoefficients()
     {
         return this->h;
     }
 
-    std::vector<DspFloatType> FIRSincFilter::lowPass_coefficient(int taps, DspFloatType f)
+    AudioDSP::sample_vector<DspFloatType> FIRSinc::lowPass_coefficient(int taps, DspFloatType f)
     {
-        std::vector<int>    n(taps, 0);
-        std::vector<DspFloatType> h(taps, 0);
+        AudioDSP::sample_vector<int>    nv(taps);
+        AudioDSP::sample_vector<DspFloatType> hv(taps);
+        int * n = nv.data();
+        DspFloatType * h = hv.data();
 
+        #pragma omp simd aligned(n)
         for(int i = 0; i < taps; i++) {
             n[i] = i - int(taps/2);
         }
 
+        #pragma omp simd aligned(h,n)
         for(int i = 0; i < taps; i++) {
             h[i] = 2.0*f*sinc(2.0*f*n[i]);
         }
 
-        return h;
+        return hv;
     }
 
-    std::vector<DspFloatType> FIRSincFilter::highPass_coefficient(int taps, DspFloatType f)
+    AudioDSP::sample_vector<DspFloatType> FIRSinc::highPass_coefficient(int taps, DspFloatType f)
     {
-        std::vector<int>    n(taps, 0);
-        std::vector<DspFloatType> h(taps, 0);
-
+        AudioDSP::sample_vector<int>    nv(taps);
+        AudioDSP::sample_vector<DspFloatType> hv(taps);
+		int * n = nv.data();
+        DspFloatType * h = hv.data();
+        
+        #pragma omp simd aligned(n)
         for(int i = 0; i < taps; i++) {
             n[i] = i - int(taps/2);
         }
 
+        #pragma omp simd aligned(h,n)
         for(int i = 0; i < taps; i++) {
             h[i] = sinc(n[i]) - 2.0*f*sinc(2.0*f*n[i]);
         }
 
-        return h;
+        return hv;
     }
 
-    std::vector<DspFloatType> FIRSincFilter::bandPass_coefficient(int taps, DspFloatType f1, DspFloatType f2)
+    AudioDSP::sample_vector<DspFloatType> FIRSinc::bandPass_coefficient(int taps, DspFloatType f1, DspFloatType f2)
     {
-        std::vector<int>    n(taps, 0);
-        std::vector<DspFloatType> h(taps, 0);
-
+        AudioDSP::sample_vector<int>    nv(taps);
+        AudioDSP::sample_vector<DspFloatType> hv(taps);
+		int * n = nv.data();
+        DspFloatType * h = hv.data();
+        
+        #pragma omp simd aligned(n,h)
         for(int i = 0; i < taps; i++) {
             n[i] = i - int(taps/2);
         }
 
+        #pragma omp simd aligned(n,h)
         for(int i = 0; i < taps; i++) {
             h[i] = 2.0*f1*sinc(2.0*f1*n[i]) - 2.0*f2*sinc(2.0*f2*n[i]);
         }
 
-        return h;
+        return hv;
     }
 
-    std::vector<DspFloatType> FIRSincFilter::bandStop_coefficient(int taps, DspFloatType f1, DspFloatType f2)
+    AudioDSP::sample_vector<DspFloatType> FIRSinc::bandStop_coefficient(int taps, DspFloatType f1, DspFloatType f2)
     {
-        std::vector<int>    n(taps, 0);
-        std::vector<DspFloatType> h(taps, 0);
+        AudioDSP::sample_vector<int>    nv(taps);
+        AudioDSP::sample_vector<DspFloatType> hv(taps);
+        int * n = nv.data();
+        DspFloatType * h = hv.data();
 
+        #pragma omp simd aligned(n,h)
         for(int i = 0; i < taps; i++) {
             n[i] = i - int(taps/2);
         }
 
+        #pragma omp simd aligned(n,h)
         for(int i = 0; i < taps; i++) {
             h[i] = 2.0*f1*sinc(2.0*f1*n[i]) - 2.0*f2*sinc(2.0*f2*n[i]) + sinc(n[i]);
         }
 
-        return h;
+        return hv;
     }
 
-    std::vector<DspFloatType> FIRSincFilter::window_hamming(int taps)
-    {
-        std::vector<int>    n(taps, 0);
-        std::vector<DspFloatType> w(taps, 0);
+    AudioDSP::sample_vector<DspFloatType> FIRSinc::window_hamming(int taps)
+    {        
+        AudioDSP::sample_vector<DspFloatType> wv(taps);        
+        DspFloatType * w = wv.data();
 
         DspFloatType alpha   = 0.54;
         DspFloatType beta    = 0.46;
 
+        #pragma omp simd aligned(w)
         for(int i = 0; i < taps; i++) {
-            w[i] = alpha - beta * cos(2.0 * M_PI * i / (taps - 1));
+            w[i] = alpha - beta * std::cos(2.0 * M_PI * i / (taps - 1));
         }
 
-        return w;
+        return wv;
     }
 
-    std::vector<DspFloatType> FIRSincFilter::window_hanning(int taps)
+    AudioDSP::sample_vector<DspFloatType> FIRSinc::window_hanning(int taps)
     {
-        std::vector<DspFloatType> w(taps, 0);
-
+        AudioDSP::sample_vector<DspFloatType> wv(taps);		
+        DspFloatType * w = wv.data();
+        #pragma omp simd aligned(w)
         for(int i = 0; i < taps; i++) {
-            w[i] =  sin(((DspFloatType) M_PI * i) / (taps - 1)) *
-                    sin(((DspFloatType) M_PI * i) / (taps - 1));
+            w[i] =  std::sin(((DspFloatType) M_PI * i) / (taps - 1)) *
+                    std::sin(((DspFloatType) M_PI * i) / (taps - 1));
         }
 
-        return w;
+        return wv;
     }
 
-    std::vector<DspFloatType> FIRSincFilter::window_triangle(int taps)
+    AudioDSP::sample_vector<DspFloatType> FIRSinc::window_triangle(int taps)
     {
-        std::vector<DspFloatType> w(taps, 0);
-
+        AudioDSP::sample_vector<DspFloatType> wv(taps);
+		DspFloatType * w = wv.data();
         DspFloatType l = taps;
 
+        #pragma omp simd aligned(w)
         for(int i = 0; i < taps; i++) {
-            w[i] = 1 - abs((i - (((DspFloatType)(taps-1)) / 2.0)) / (((DspFloatType)l) / 2.0));
+            w[i] = 1 - std::abs((i - (((DspFloatType)(taps-1)) / 2.0)) / (((DspFloatType)l) / 2.0));
         }
 
-        return w;
+        return wv;
     }
 
-    std::vector<DspFloatType> FIRSincFilter::window_blackman(int taps)
+    AudioDSP::sample_vector<DspFloatType> FIRSinc::window_blackman(int taps)
     {
-        std::vector<DspFloatType> w(taps, 0);
-
+        AudioDSP::sample_vector<DspFloatType> wv(taps);
+		DspFloatType * w = wv.data();
         DspFloatType alpha0 = 0.42;
         DspFloatType alpha1 = 0.5;
         DspFloatType alpha2 = 0.08;
 
+		
+        #pragma omp simd aligned(w)
         for(int i = 0; i < taps; i++) {
-            w[i] = alpha0 - alpha1 * cos(2.0 * M_PI * i / (taps - 1))
-                        - alpha2 * cos(4.0 * M_PI * i / (taps - 1));
+            w[i] = alpha0 - alpha1 * std::cos(2.0 * M_PI * i / (taps - 1))
+                        - alpha2 * std::cos(4.0 * M_PI * i / (taps - 1));
         }
 
-        return w;
+        return wv;
     }
 
-    DspFloatType FIRSincFilter::filter(DspFloatType new_sample)
+    DspFloatType FIRSinc::filter(DspFloatType new_sample)
     {
         DspFloatType result = 0;
 
@@ -248,6 +280,9 @@ namespace Filters::FIR
         this->samples[this->idx] = new_sample;
 
         // Calculate the output
+        DspFloatType * s = this->samples.data();
+        DspFloatType * h = this->h.data();
+        #pragma omp simd aligned(s,h)
         for(int n = 0; n < this->taps; n++)
             result += this->samples[(this->idx + n) % this->taps] * this->h[n];
 
@@ -256,4 +291,28 @@ namespace Filters::FIR
 
         return result;
     }
+    void FIRSinc::ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+    {
+		// Calculate the output
+		DspFloatType * s = this->samples.data();
+		DspFloatType * h = this->h.data();
+		
+		#pragma omp simd aligned(in,out,s,h)
+		for(size_t i = 0; i < n; i++)
+		{
+			DspFloatType result = 0;
+			const DspFloatType new_sample = in[i];
+			// Save the new sample
+			this->samples[this->idx] = new_sample;
+
+			
+			for(int n = 0; n < this->taps; n++)
+				result += this->samples[(this->idx + n) % this->taps] * this->h[n];
+
+			// Increase the round robin index
+			this->idx = (this->idx + 1) % this->taps;
+
+			out[i] = result;
+		}
+	}
 }

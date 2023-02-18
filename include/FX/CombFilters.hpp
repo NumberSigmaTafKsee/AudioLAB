@@ -216,14 +216,14 @@ namespace FX::CombFilters
 
         switch (mFilterType) {
         case fir:
-            #pragma omp simd
+            #pragma omp simd aligned(inputBuffer,outputBuffer)
             for (int i = 0; i < numSamples; i++) {
                 mDelayLine->putPostInc(inputBuffer[i]);
                 outputBuffer[i] = inputBuffer[i] + mParamValues[CombFilter::Param_t::gain] * mDelayLine->getPostInc();
             }
             break;
         case iir:
-            #pragma omp simd
+            #pragma omp simd aligned(inputBuffer,outputBuffer)
             for (int i = 0; i < numSamples; i++) {
                 outputBuffer[i] = inputBuffer[i] + mParamValues[CombFilter::Param_t::gain] * mDelayLine->getPostInc();
                 mDelayLine->putPostInc(outputBuffer[i]);

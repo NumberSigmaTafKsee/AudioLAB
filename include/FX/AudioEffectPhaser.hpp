@@ -147,7 +147,7 @@ namespace FX
             // passed through them.
             
             // Filters are stored with all channel 0 filters first, then all channel 1 filters, etc.
-            #pragma omp simd
+            
             for(int channel = 0; channel < numInputChannels; ++channel)
             {
                 // channelData is an array of length numSamples which contains the audio for one channel
@@ -160,7 +160,8 @@ namespace FX
                 // For stereo phasing, keep the channels 90 degrees out of phase with each other
                 if(stereo_ != 0 && channel != 0)
                     ph = fmodf(ph + 0.25, 1.0);
-                
+            
+				#pragma omp simd aligned(channelData,channelOut)
                 for (int sample = 0; sample < numSamples; ++sample)
                 {
                     DspFloatType out = channelData[sample];

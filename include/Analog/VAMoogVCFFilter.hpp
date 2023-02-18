@@ -169,7 +169,7 @@ namespace Analog::Filters::Moog::MoogVCF
     void MoogVCF::ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
     {
         Undenormal denormals;
-        #pragma omp simd        
+        #pragma omp simd aligned(in,out)      
         for(size_t s = 0; s < n; s++) {
             DspFloatType feedback_loop = in[s] - ( (delayed_filter_output - (in[s] * gComp)) * gRes * 4.0f );
 

@@ -1,4 +1,5 @@
 #pragma once
+#include "StdSamples/stdsamples.hpp"
 
 namespace FX
 {
@@ -14,8 +15,8 @@ namespace FX
         DspFloatType  feedback_;    // Feedback level (0-just less than 1)
         size_t numChannels = 2;
         // Circular buffer variables for implementing delay
-        std::vector<DspFloatType> delayBuffer[2];
-        std::vector<size_t> tap_reads;
+        AudioDSP::sample_vector<DspFloatType> delayBuffer[2];
+        AudioDSP::sample_vector<size_t> tap_reads;
         size_t taps;
         int delayBufferLength_;
         int delayReadPosition_[2], delayWritePosition_[2];
@@ -68,7 +69,7 @@ namespace FX
             // Go through each channel of audio that's passed in. In this example we apply identical
             // effects to each channel, regardless of how many input channels there are. For some effects, like
             // a stereo chorus or panner, you might do something different for each channel.
-            #pragma omp simd
+            
             for (channel = 0; channel < numInputChannels; ++channel)
             {
                 // channelData is an array of length numSamples which contains the audio for one channel
@@ -85,7 +86,8 @@ namespace FX
                 
                 dpr = delayReadPosition_[channel];
                 dpw = delayWritePosition_[channel];
-                
+            
+				#pragma omp simd aligned(channelData,output,delayData)
                 for (int i = 0; i < numSamples; ++i)
                 {
                     DspFloatType tapout = 0;
