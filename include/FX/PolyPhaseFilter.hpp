@@ -71,7 +71,7 @@ int iceil(int n, int d) {
 DspFloatType dot(DspFloatType* a, int a_length, DspFloatType* history, DspFloatType* b, int b_last_index) {
     DspFloatType dotprod = 0.0f;
     int i = 0;
-    #pragma omp simd
+    #pragma omp simd aligned(a,b)
     for (; i < (a_length - b_last_index - 1); i++) {
         dotprod += a[i] * history[b_last_index + i];
     }
@@ -87,11 +87,11 @@ void src_shiftin(DspFloatType* a, int a_length, DspFloatType* b, int b_length) {
     if (b_length > a_length) 
         memcpy(a, &b[b_length - a_length], a_length * sizeof(DspFloatType));
     else {
-        #pragma omp simd
+        #pragma omp simd aligned(a,b)
         for (int i = 0; i < (a_length - b_length); i++) {
             a[i] = a[i + b_length];
         }
-        #pragma omp simd
+        #pragma omp simd aligned(a,b)
         for (int i = 0; i < b_length; i++) {
             a[i + a_length - b_length] = b[i];
         }
@@ -101,7 +101,7 @@ void src_shiftin(DspFloatType* a, int a_length, DspFloatType* b, int b_length) {
 // Hamming Window
 DspFloatType* src_hamming(int num_taps) {
     DspFloatType* window = malloc(num_taps * sizeof(DspFloatType));
-    #pragma omp simd
+    
     for (int i = 0; i < num_taps; i++) {
         DspFloatType alpha = 0.54;
         DspFloatType beta = 0.46;
@@ -114,7 +114,7 @@ DspFloatType* src_hamming(int num_taps) {
 // Hann Window
 DspFloatType* src_hann(int num_taps) {
     DspFloatType* window = malloc(num_taps * sizeof(DspFloatType));
-    #pragma omp simd
+    
     for (int i = 0; i < num_taps; i++) {
         DspFloatType alpha = 0.5;
         DspFloatType beta = 0.5;
@@ -127,7 +127,7 @@ DspFloatType* src_hann(int num_taps) {
 // Blackman Window
 DspFloatType* src_blackman(int num_taps) {
     DspFloatType* window = malloc(num_taps * sizeof(DspFloatType));
-    #pragma omp simd
+    
     for (int i = 0; i < num_taps; i++) {
         DspFloatType alpha = 0.42;
         DspFloatType beta = 0.5;
@@ -150,24 +150,20 @@ DspFloatType* src_fir_prototype(int num_taps, DspFloatType cutoff_low, DspFloatT
     DspFloatType f2 = cutoff_high;
     int m = num_taps - 1;
     switch(response) {
-        case FIR_LOWPASS:
-            #pragma omp simd
+        case FIR_LOWPASS:            
             for (int i = 0; i < num_taps; i++) 
                 proto[i] = 2.f*f*sincf(2.f*f*(i-m/2.f));
             break;
-        case FIR_HIGHPASS:
-            #pragma omp simd
+        case FIR_HIGHPASS:            
             for (int i = 0; i < num_taps; i++)
                 proto[i] = sincf(i-m/2.f)-2.f*f*sincf(2.f*f*(i-m/2.f));
             break;
-        case FIR_BANDPASS:
-            #pragma omp simd
+        case FIR_BANDPASS:            
             for (int i = 0; i < num_taps; i++)
                 proto[i] = 2.f*(f1*sincf(2.f*f1*(i-m/2.f)) - 
                         f2*sincf(2.f*f2*(i-m/2.f)));
             break;
-        case FIR_BANDSTOP:
-            #pragma omp simd
+        case FIR_BANDSTOP:            
             for (int i = 0; i < num_taps; i++)
                 proto[i] = 2.f*(f2*sincf(2.f*f2*(i-m/2.f)) - 
                         f1*sincf(2*f1*(i-m/2.f)));
@@ -184,8 +180,7 @@ DspFloatType* src_fir_prototype(int num_taps, DspFloatType cutoff_low, DspFloatT
 // Design an FIR filter with windowing
 DspFloatType* src_generate_fir_coeffs(int num_taps, DspFloatType cutoff) {
     DspFloatType* proto = src_fir_prototype(num_taps, cutoff, 0, FIR_LOWPASS);
-    DspFloatType* window = src_hann(num_taps);
-    #pragma omp simd
+    DspFloatType* window = src_hann(num_taps);    
     for (int i = 0; i < num_taps; i++) {
         proto[i] *= window[i];
     }
@@ -202,8 +197,7 @@ void src_taps_to_pfb(DspFloatType* coefficients, int num_taps, int interpolation
     int taps_per_phase = iceil(num_taps, num_phases); // iceil(a/b)
     int pfb_size = taps_per_phase * num_phases;
     DspFloatType* pfb = malloc(pfb_size * sizeof(DspFloatType));
-    int c_index = 0;
-    #pragma omp simd
+    int c_index = 0;    
     for (int phase = 0; phase < num_phases; phase++)
         for (int tap = 0; tap < taps_per_phase; tap++) {
             pfb[phase * taps_per_phase + taps_per_phase - 1 - tap] = 
@@ -257,7 +251,8 @@ int src_filt(FIR_Filter* filter, DspFloatType* samples, int count,
     int input_step;
     int j = 0;
     
-    while (i < count) {
+    #pragma omp simd aligned(samples)
+    for(i = filter->input_deficit; i < count; i++) {
         output[j++] = dot(
                 &filter->pfb[phase * filter->taps_per_phase],
                 filter->taps_per_phase, filter->history, samples, i);

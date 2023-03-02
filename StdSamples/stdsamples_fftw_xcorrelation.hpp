@@ -75,7 +75,7 @@ struct XCorr
 
         memcpy(out, out_rev,(M+N-1)*sizeof(float));        
     }
-}
+};
 
 
 void FFTW_XCorr(double * signala, double * signalb, double * result, int N)

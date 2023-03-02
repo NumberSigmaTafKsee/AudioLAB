@@ -144,7 +144,7 @@ void Limiter<real>::Process(real** xVec, real** yVec, size_t vecLen) {
     real* yRight = yVec[1];
     
     /* Apply the pre gain to the input samples. */
-    #pragma omp simd
+    #pragma omp simd aligned(xvec,yvec,xLeft,xRight,yLeft,yRight)
     for (size_t n = 0; n < vecLen; n++) {
         smoothPreGain =
             linPreGain + smoothParamCoeff * (smoothPreGain - linPreGain);
@@ -154,7 +154,7 @@ void Limiter<real>::Process(real** xVec, real** yVec, size_t vecLen) {
 
     /* Compute the max between inputs absolute values for stereo
      * processing and store it in the left output vector. */
-     #pragma omp simd
+    #pragma omp simd aligned(xvec,yvec,xLeft,xRight,yLeft,yRight)
     for (size_t n = 0; n < vecLen; n++) {
         yLeft[n] = std::max<real>(std::fabs(xLeft[n]), std::fabs(xRight[n]));
     }
@@ -169,7 +169,7 @@ void Limiter<real>::Process(real** xVec, real** yVec, size_t vecLen) {
      * smoothed out threshold parameter in the right output vector for
      * later use. yLeft now contains the clipped peak-hold envelope,
      * while yRight contains the smoothed out threshold parameter. */
-     #pragma omp simd
+    #pragma omp simd aligned(xvec,yvec,xLeft,xRight,yLeft,yRight)
     for (size_t n = 0; n < vecLen; n++) {
         smoothThreshold =
             linThreshold + smoothParamCoeff * (smoothThreshold - linThreshold);
@@ -186,7 +186,7 @@ void Limiter<real>::Process(real** xVec, real** yVec, size_t vecLen) {
      * threshold and the envelope profile. Finally, we copy the resulting
      * vector to both output vectors as the attenuation gain will be the
      * same for both inputs. */
-     #pragma omp simd
+    #pragma omp simd aligned(xvec,yvec,xLeft,xRight,yLeft,yRight)
     for (size_t n = 0; n < vecLen; n++) {
         yLeft[n] = yRight[n] / yLeft[n];
         yRight[n] = yLeft[n];
@@ -198,7 +198,7 @@ void Limiter<real>::Process(real** xVec, real** yVec, size_t vecLen) {
 
     /* Lastly, we apply the attenuation gain to the delayed inputs and store
      * the result in the output vectors. */
-     #pragma omp simd
+    #pragma omp simd aligned(xvec,yvec,xLeft,xRight,yLeft,yRight)
     for (size_t n = 0; n < vecLen; n++) {
         yLeft[n] *= xLeft[n];
         yRight[n] *= xRight[n];

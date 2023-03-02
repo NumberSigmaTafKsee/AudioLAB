@@ -92,7 +92,7 @@ namespace sspo
             return in * G;
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
-            #pragma omp simd
+            #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++) {
                 //envelope follower
                 auto rectIn = std::abs(in[i]);

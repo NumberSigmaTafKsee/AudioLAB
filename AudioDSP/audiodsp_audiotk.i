@@ -33,7 +33,6 @@
 #include "FX/ATKGainColoredCompressor.hpp"
 #include "FX/ATKGainColoredExpander.hpp"
 #include "FX/ATKGainCompressor.hpp"
-//#include "FX/ATKGainFilter.hpp"
 #include "FX/ATKGainLimiter.hpp"
 #include "FX/ATKGainMaxColoredExpander.hpp"
 #include "FX/ATKGainSwell.hpp"
@@ -45,7 +44,7 @@
 #include "FX/ATKMultipleUniversalFixedDelayLine.hpp"
 
 #include "FX/ATKPowerFilter.hpp"
-//#include "FX/ATKPreampProcessors.hpp"
+#include "FX/ATKPreampProcessors.hpp"
 #include "FX/ATKRBJFilters.hpp"
 #include "FX/ATKRelativePowerFilter.hpp"
 #include "FX/ATKRemezFilter.hpp"
@@ -67,6 +66,7 @@
 #include "FX/ATKUniversalVariableDelayLine.hpp"
 #include "FX/ATKVariableDelayLine.hpp"
 
+#include "FX/ATKConvolutionFilter.hpp"
 
 using namespace AudioTK;
 
@@ -117,7 +117,6 @@ using namespace AudioTK;
 %include "FX/ATKGainColoredCompressor.hpp"
 %include "FX/ATKGainColoredExpander.hpp"
 %include "FX/ATKGainCompressor.hpp"
-//%include "FX/ATKGainFilter.hpp"
 %include "FX/ATKGainLimiter.hpp"
 %include "FX/ATKGainMaxColoredExpander.hpp"
 %include "FX/ATKGainSwell.hpp"
@@ -149,6 +148,7 @@ using namespace AudioTK;
 %include "FX/ATKUniversalVariableDelayLine.hpp"
 %include "FX/ATKVariableDelayLine.hpp"
 
+%include "FX/ATKConvolutionFilter.hpp"
 
 %template(float_vector) std::vector<float>;
 %template(double_vector) std::vector<double>;

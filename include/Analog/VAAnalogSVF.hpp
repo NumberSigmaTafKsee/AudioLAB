@@ -34,16 +34,20 @@ namespace Analog::Filters::AnalogSVF
             fc = Fc;
             fs = Fs;
             q = Q;
-            if(q == 0) q = 0.01;
-            z1 = z2 = 0.0;
+            if(q == 0) q = 0.01;            
             K = 1;
+            reset();
         }
+        void reset() {
+			z1 = z2 = 0.0;
+			lp = bp = hp = ubp = peak = shelf = notch = apf = 0;
+		}
         void setCutoff(DspFloatType f) {
-            if(f < 0 || f >= fs/2) return;                  
-            fc = 0.995*f;
+            if(f < 30 || f >= fs/2) return;                              
+            fc = f;
         }
         void setQ(DspFloatType Q) {   
-            if(Q < 0.5) return;
+            if(Q < 0.5) return;            
             q = Q;
         }
         enum {
@@ -66,8 +70,7 @@ namespace Analog::Filters::AnalogSVF
             }
         }
         DspFloatType Tick(DspFloatType I, DspFloatType A = 1, DspFloatType X = 1, DspFloatType Y = 1)
-        {        
-            
+        {         			
             DspFloatType wd = 2*M_PI*fc;
             DspFloatType T  = 1/fs;
             DspFloatType temp = wd*T/2;
@@ -85,17 +88,14 @@ namespace Analog::Filters::AnalogSVF
             DspFloatType qt = fabs(Y)*q;
             if(qt < 0.5) qt = 0.5;
             DspFloatType  R  = 1.0/(2*qt);
-            
-            
+                        
             if(xn < minC) xn = minC;
             if(xn > maxC) xn = maxC;
-
+			
             hp = (xn - (2*R+g)*z1 - z2) / (1.0 + 2*R*g + g*g);
             bp = g*hp + z1;
-            lp = g*bp + z2;        
-            // not sure these work right yet
-            ubp = 2 * R * bp;
-            // dont know exactly what K is it's not explained
+            lp = g*bp + z2;                    
+            ubp = 2 * R * bp;            
             shelf = xn + 2*K*R*bp;
             notch = xn - 2*R*bp;
             apf   = xn - 4*R*bp;

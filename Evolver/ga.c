@@ -66,16 +66,12 @@ new_chromosome(size_t len)
 {
 	struct chromosome *c;
 
-	if (!(c = malloc(sizeof(struct chromosome))))
-		return NULL;
-
-	if (!(c->allele = calloc(NMEMB(len), sizeof(int)))) {
-		free(c);
-		return NULL;
+	#pragma omp single 
+	{
+		c = malloc(sizeof(struct chromosome));		
+		if(c) c->allele = calloc(NMEMB(len), sizeof(int));
+		if(c) c->len = len;
 	}
-
-	c->len = len;
-
 	return c;
 }
 
@@ -83,9 +79,11 @@ void
 delete_chromosome(struct chromosome *self)
 {
 	assert(self);
-
-	free(self->allele);
-	free(self);
+	#pragma omp single
+	{
+		free(self->allele);
+		free(self);
+	}
 }
 
 
@@ -171,7 +169,10 @@ chromosome_as_string(struct chromosome *self)
 
 	assert(self);
 
-	s = calloc(1, self->len + 1);
+	#pragma omp single
+	{
+		s = calloc(1, self->len + 1);
+	}
 	if (!s)
 		return NULL;
 
@@ -239,16 +240,14 @@ new_individual(size_t chrom_len)
 {
 	struct individual *i;
 
-	i = calloc(1, sizeof(struct individual));
+	#pragma omp single
+	{
+		i = calloc(1, sizeof(struct individual));
+	}
 	if (!i)
 		return NULL;
 
-	i->chrom = new_chromosome(chrom_len);
-	if (!i->chrom) {
-		free(i);
-		return NULL;
-	}
-
+	i->chrom = new_chromosome(chrom_len);	
 	return i;
 }
 
@@ -261,7 +260,10 @@ delete_individual(struct individual *self)
 		/* See individual_dup for details on why this can happen. */
 		delete_chromosome(self->chrom);
 	}
-	free(self);
+	#pragma omp single
+	{
+		free(self);
+	}
 }
 
 
@@ -389,17 +391,15 @@ new_population(size_t len)
 
 	assert(len > 0);
 
-	p = calloc(1, sizeof(struct population));
-	if (!p)
-		return NULL;
-
-	p->len = len;
-	p->pop = calloc(p->len, sizeof(struct individual *));
-	if (!p->pop) {
-		free(p);
-		return NULL;
+	#pragma omp single
+	{
+		p = calloc(1, sizeof(struct population));		
+		p->len = len;
+		p->pop = calloc(p->len, sizeof(struct individual *));
+		if (!p->pop) {
+			free(p);		
+		}
 	}
-
 	return p;
 }
 
@@ -413,9 +413,12 @@ delete_population(struct population *self)
 	if (self->pop)
 		for (i = 0; i < self->len; i++)
 			if (self->pop[i]) delete_individual(self->pop[i]);
-	free(self->pop);
-	free(self->select_data);
-	free(self);
+	#pragma omp single
+	{
+		free(self->pop);
+		free(self->select_data);
+		free(self);
+	}
 }
 
 
@@ -490,7 +493,10 @@ preselect_topbottom_pairing(struct population *pop)
 
 	assert(pop);	/* new_pop can't be NULL */
 
-	data = calloc(1, sizeof(struct topbottom_pairing_data));
+	#pragma omp single
+	{
+		data = calloc(1, sizeof(struct topbottom_pairing_data));
+	}
 	assert(data);	/* XXX - Need xmalloc */
 
 	data->current = 0;
@@ -518,7 +524,6 @@ select_topbottom_pairing(struct population *pop,
 	assert(*dad && *mom);
 }
 
-
 
 struct roulette_wheel_data {
 	double total;
@@ -531,7 +536,10 @@ preselect_roulette_wheel(struct population *pop)
 
 	assert(pop);
 
-	data = calloc(1, sizeof(struct roulette_wheel_data));
+	#pragma omp single
+	{
+		data = calloc(1, sizeof(struct roulette_wheel_data));
+	}
 	assert(data);
 
 	data->total = population_get_fitness_stats(pop)->total;
@@ -573,7 +581,7 @@ select_roulette_wheel(struct population *pop,
 	select_roulette_wheel_parent(pop, mom);
 }
 
-
+
 
 struct tournament_data {
 	struct individual *mom,*dad;
@@ -602,7 +610,6 @@ select_tournament(struct population *pop,
 	*/
 }
 
-
 
 void
 crossover_single_point(struct individual *dad, struct individual *mom,

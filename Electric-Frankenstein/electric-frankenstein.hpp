@@ -12,6 +12,9 @@
 #include <iostream>
 #include <vector>
 #include <functional>
+#include <queue>
+#include <fstream>
+
 #include <boost/math/differentiation/autodiff.hpp>
 
 #define PROVE(x) std::cout << x << std::endl;
@@ -256,6 +259,7 @@ struct BoxMuller {
 
 
 struct Connection;
+struct Network;
 
 struct Activator
 {
@@ -298,15 +302,16 @@ struct Activator
 
 struct Layer {
     LayerType        type;        
-    Matrix           input,loss;    
-    size_t           size;
+    Matrix           input,loss,output,temp;        
     ActivationType   atype;
     Activator        activator;
-    
+    size_t 			 size;
 	// a neuron is a layer with only 1 input (s=1)
+	Layer() = default;
+	
     Layer(LayerType t,size_t s,ActivationType a,bool useAutoDiff = true) {
-        type = t;
-        size = s;
+        type = t;       
+        size = s; 
         activation       activate_f;
         activation_grad  activate_grad_f;                        
         atype = a;
@@ -362,14 +367,15 @@ struct Layer {
     ~Layer() {
 
     }
-    virtual size_t size() const { return 1; }
+    //virtual size_t size() const { return 1; }
     virtual Layer* operator[](size_t i) { return this; }
     
-    virtual void Activate(Matrix& tmp) {        
-        input = tmp.eval();
-        activator.Activate(input);                        
+    virtual void Activate(Matrix& tmp) {                
+		input = tmp.eval(); 
+		temp  = tmp.eval();
+        activator.Activate(tmp);                                              
     }
-    virtual void Grad(Matrix & tmp) {
+    virtual void Grad(Matrix & tmp) {		
         activator.Grad(tmp);
     }    
     // loss = output - target
@@ -381,42 +387,18 @@ struct Layer {
     virtual void getInput(Matrix& m) { m = input.eval(); }
     virtual void getOutput(Matrix& m) { m = input.eval(); }
     virtual void getLoss(Matrix & m) { m = loss.eval();  }
-};
-
-// sample = matrix(1,1)
-struct LayerQueue
-{
-	std::queue<Matrix> queue;
-	
-	
-	LayerQueue(size_t size) {
-		queue.resize(size);
-	}
-	
-	Matrix pop() {
-		Matrix r = queue.back();
-		queue.pop_back();
-		return r;
-	}
-	void push(Matrix & m) {		
-		queue.push_front(m);
-		queue.pop_back();		
+    virtual void Update(Matrix & e) {}    
+    
+    void write(std::ofstream& f)
+    {		
+		f << type << std::endl;
+		f << atype << std::endl;
+		f << size << std::endl;
+		f << activator.useAutoDiff << std::endl;
 	}
 };
 
-struct LayerGroup : public Layer
-{
-	std::vector<Layer*> layers;
-	
-	size_t size() const { return layers.size(); }
-	Layer* operator[](size_t i) return layers[i]; }
-	
-	void addLayer(Layer * l) {
-		layers.push_back(l);
-	}
-};
 
-	
 struct Connection {
     Layer * from,
           * to;
@@ -425,7 +407,19 @@ struct Connection {
     Matrix weights;
     Matrix bias;
 
-    
+    Connection(std::ifstream & f, Layer * from, Layer *to)
+    {
+		this->from = from;
+		this->to   = to;
+		weights = matrix_create(from->size,to->size);
+        bias    = matrix_create(1,to->size);
+        for(size_t i = 0; i < weights.rows(); i++)
+        for(size_t j = 0; j < weights.cols(); j++)
+			f >> weights(i,j);
+		for(size_t i = 0; i < bias.rows(); i++)
+        for(size_t j = 0; j < bias.cols(); j++)
+			f >> bias(i,j);
+	}
     Connection(Layer * from, Layer * to) {
         this->from = from;
         this->to   = to;
@@ -448,20 +442,12 @@ struct Connection {
     ~Connection() {
 
     }
+    void write(std::ofstream &f) {
+		f << weights << std::endl;
+		f << bias << std::endl;
+	}
 };
 
-struct ConnectionMatrix
-{
-	std::vector<Connection*> connections;
-	size_t M,N;
-};
-
-std::string stringify(Matrix & m)
-{
-    std::stringstream ss;
-    ss << m;
-    return ss.str();
-}
 
 
 struct ParameterSet {
@@ -540,10 +526,13 @@ enum {
         NONSTOCHASTIC,
         STOCHASTIC
     };
+    
 struct Network {
 protected:
     Network() = default;
+
 public:    
+		
     size_t num_features;
     size_t num_outputs;
     std::vector<Layer*> layers;
@@ -571,8 +560,7 @@ public:
     floatType loss = 1e6;
     floatType loss_widget=1e-6;
     bool delete_data=true;
-    
-
+        
     Network(size_t num_features,
             std::vector<int64_t> & hidden,
             std::vector<ActivationType> & activations,
@@ -626,7 +614,12 @@ public:
     size_t NumInputs() const { return num_features; }
     size_t NumOutputs() const { return num_outputs; }
     
-
+    /*
+	Layer* L(size_t i) { return layers[i]; }
+	Connection* C()(size_t i) { return connections[i]; }
+	Matrix& W(size_t i) { return *weights[i]; }
+	Matrix& B(size_t i) { return *bias[i]; }
+	*/
     void ForwardPass(Matrix& input) {
         assert(input.cols() == layers[0]->input.cols());
         layers[0]->input = input.eval();
@@ -637,7 +630,46 @@ public:
             tmp2 = addToEachRow(tmp,connections[i]->bias);
             connections[i]->to->Activate(tmp2);       
         }
-    }
+    }    
+    void BackwardPass(Matrix error, floatType clr = 0.01) {
+		size_t layer = layers.size()-1;
+		Layer* to = layers[layer];
+		Connection* con = connections[layer-1];
+		
+		errori[layer] = error;
+		dWi[layer-1] = con->from->input.transpose() * errori[layer];
+		dbi[layer-1] = errori[layer].eval();
+												
+		for(layer = layers.size()-2; layer > 0; layer--)
+		{                                                     
+			size_t hidden_layer = layer-1;
+			to  = layers[layer];
+			con = connections[layer-1];
+			wTi[hidden_layer] = connections[layer]->weights.transpose();                            
+			errorLastTi[hidden_layer] = errori[layer+1]*wTi[hidden_layer];
+			fprimei[hidden_layer] = con->to->input.eval();
+			con->to->Grad(fprimei[hidden_layer]);
+			errori[layer] = hadamard(errorLastTi[hidden_layer],fprimei[hidden_layer]);
+			inputTi[hidden_layer] = con->from->input.transpose();                            
+			dWi[hidden_layer] = inputTi[hidden_layer] * errori[layer];
+			dbi[hidden_layer] = errori[layer].eval();
+		}                                                                
+		for(size_t idx=0; idx < connections.size(); idx++) {
+			dWi_avg[idx] = dWi[idx] + dWi_avg[idx];
+			dbi_avg[idx] = dbi[idx] + dbi_avg[idx];                    
+		}                                                                                 
+        for(size_t idx = 0; idx < connections.size(); idx++)
+        {
+            dWi_avg[idx] = dWi_avg[idx] * clr;
+            dbi_avg[idx] = dbi_avg[idx] * clr;
+
+            connections[idx]->weights = -dWi_avg[idx] + connections[idx]->weights;
+            connections[idx]->bias    = -dbi_avg[idx] + connections[idx]->bias;                    
+
+            dWi_avg[idx].setZero();
+            dbi_avg[idx].setZero();
+        }
+	}	
     floatType CrossEntropyLoss(Matrix& prediction, Matrix& actual, floatType rs) {
         floatType total_err = 0;
         floatType reg_err = 0;
@@ -701,6 +733,7 @@ public:
         return 100*num_correct/classes.rows();
     }
     void shuffle_batches() {
+		#pragma omp parallel for
         for(size_t i = 0; i < batch_list.size(); i++) {
               std::random_shuffle(batch_list[i].begin(),batch_list[i].end());
               //unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
@@ -743,6 +776,7 @@ public:
         }
         
         floatType clr = currentLearningRate / rows;
+        #pragma omp parallel for
         for(size_t idx = 0; idx < connections.size(); idx++)
         {
             dWi_avg[idx] = dWi_avg[idx] * clr;
@@ -779,7 +813,7 @@ public:
         }
         
         floatType alpha = currentLearningRate / rows;
-        
+        #pragma omp parallel for
         for(size_t i = 0; i < connections.size(); i++)
         {
             
@@ -837,7 +871,7 @@ public:
         }
         
         floatType alpha = currentLearningRate / rows;
-        
+        #pragma omp parallel for
         for(size_t i = 0; i < connections.size(); i++)
         {
             
@@ -910,7 +944,7 @@ public:
                 inputTi[hidden_layer] = con->from->input.transpose();                            
                 dWi[hidden_layer] = inputTi[hidden_layer] * errori[layer];
                 dbi[hidden_layer] = errori[layer].eval();
-            }                                                                
+            }                                                                         
             for(size_t idx=0; idx < connections.size(); idx++) {
                 dWi_avg[idx] = dWi[idx] + dWi_avg[idx];
                 dbi_avg[idx] = dbi[idx] + dbi_avg[idx];                    
@@ -936,9 +970,10 @@ public:
     void create_matrix()
     {
         Matrix beforeOutputT = createMatrixZeros(layers[layers.size()-2]->size,1);
-        
-
+        		
         for(size_t i = 0; i < connections.size(); i++) {
+			assert(layers[i]);
+			assert(connections[i]);
             errori.push_back(createMatrixZeros(1,layers[i]->size));
             dWi.push_back(createMatrixZeros(connections[i]->weights.rows(),
                                             connections[i]->weights.cols()));
@@ -952,6 +987,7 @@ public:
             regi.push_back(createMatrixZeros(connections[i]->weights.rows(),
                                             connections[i]->weights.cols()));
         }
+        
         errori.push_back(createMatrixZeros(1,LastLayer()->size));
         size_t num_hidden = layers.size()-2;
         
@@ -962,7 +998,6 @@ public:
             fprimei.push_back(createMatrixZeros(1,connections[k]->to->size));
             inputTi.push_back(createMatrixZeros(connections[k]->from->size,1));
         }
-        
         for(size_t i = 0; i < connections.size(); i++) {
             dWi_avg.push_back(createMatrixZeros(connections[i]->weights.rows(),connections[i]->weights.cols()));
             dbi_avg.push_back(createMatrixZeros(1,connections[i]->bias.cols()));
@@ -1037,12 +1072,56 @@ public:
         if(type == NONSTOCHASTIC) nonstochastic(ps);
         else stochastic(ps);
     }
+    
+    void save(const char * filename) {
+		std::ofstream f;
+		f.open(filename,std::ofstream::trunc);
+		f << num_features << std::endl;
+		f << num_outputs  << std::endl;
+		f << layers.size() << std::endl;
+		f << connections.size() << std::endl;
+		for(size_t i = 0; i < layers.size(); i++)
+			layers[i]->write(f);
+		for(size_t i = 0; i < connections.size(); i++)
+			connections[i]->write(f);
+		f.close();
+	}
+	void load(const char * filename) {
+		std::ifstream f;
+		size_t layer_size,connection_size;
+		f.open(filename);
+		f >> num_features;
+		f >> num_outputs;
+		f >> layer_size;		
+		f >> connection_size;
+		layers.resize(layer_size);
+		for(size_t i = 0; i < layers.size(); i++)
+		{
+			int     type;            
+			int		atype;			
+			size_t 	size;
+			bool 	autodiff;
+			f >> type;
+			f >> atype;
+			f >> size;			
+			f >> autodiff;
+			layers[i] = new Layer((LayerType)type,size,(ActivationType)atype,autodiff);
+		}
+		connections.resize(connection_size);
+		for(size_t i = 0; i < connections.size(); i++)
+		{
+			connections[i] = new Connection(f,layers[i],layers[i+1]);
+			weights.push_back(&connections[i]->weights);
+            bias.push_back(&connections[i]->bias);            
+		}
+		f.close();
+	}
+	
 };
 
+
 struct NeuralNetwork : public Network
-{
-    
-    
+{       
     NeuralNetwork() : Network()
     {
         delete_data = false;

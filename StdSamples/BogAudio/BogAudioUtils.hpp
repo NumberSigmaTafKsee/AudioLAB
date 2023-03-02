@@ -10,42 +10,42 @@ namespace DSP::BogAudio
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	struct DCBlocker : Filter {
-		float _lastIn = 0.0f;
-		float _lastOut = 0.0f;
+		DspFloatType _lastIn = 0.0f;
+		DspFloatType _lastOut = 0.0f;
 
-		float next(float sample) override;
+		DspFloatType next(DspFloatType sample) override;
 	};
 
     
 	struct AverageRectifiedValue : RunningAverage {
-		AverageRectifiedValue(float sampleRate = 1000.0f, float sensitivity = 1.0f, float maxDelayMS = 300.0f)
+		AverageRectifiedValue(DspFloatType sampleRate = 1000.0f, DspFloatType sensitivity = 1.0f, DspFloatType maxDelayMS = 300.0f)
 		: RunningAverage(sampleRate, sensitivity, maxDelayMS)
 		{
 		}
 
-		float next(float sample) override;
+		DspFloatType next(DspFloatType sample) override;
 	};
 
 	struct FastRootMeanSquare : AverageRectifiedValue {
 		DCBlocker _dcBlocker;
 
-		FastRootMeanSquare(float sampleRate = 1000.0f, float sensitivity = 1.0f, float maxDelayMS = 300.0f)
+		FastRootMeanSquare(DspFloatType sampleRate = 1000.0f, DspFloatType sensitivity = 1.0f, DspFloatType maxDelayMS = 300.0f)
 		: AverageRectifiedValue(sampleRate, sensitivity, maxDelayMS)
 		{
 		}
 
-		float next(float sample) override;
+		DspFloatType next(DspFloatType sample) override;
 	};
 
 
 
 	struct PureRootMeanSquare : RunningAverage {
-		PureRootMeanSquare(float sampleRate = 1000.0f, float sensitivity = 1.0f, float maxDelayMS = 300.0f)
+		PureRootMeanSquare(DspFloatType sampleRate = 1000.0f, DspFloatType sensitivity = 1.0f, DspFloatType maxDelayMS = 300.0f)
 		: RunningAverage(sampleRate, sensitivity, maxDelayMS)
 		{
 		}
 
-		float next(float sample) override;
+		DspFloatType next(DspFloatType sample) override;
 	};
 
 	typedef FastRootMeanSquare RootMeanSquare;
@@ -55,32 +55,32 @@ namespace DSP::BogAudio
 		DCBlocker _dcBlocker;
 		LowPassFilter _filter;
 
-		void setParams(float sampleRate, float sensitivity);
-		float next(float sample);
+		void setParams(DspFloatType sampleRate, DspFloatType sensitivity);
+		DspFloatType next(DspFloatType sample);
 	};
 
 	typedef PucketteEnvelopeFollower EnvelopeFollower;
 
-	float DCBlocker::next(float sample) {
-		const float r = 0.999f;
+	DspFloatType DCBlocker::next(DspFloatType sample) {
+		const DspFloatType r = 0.999f;
 		_lastOut = sample - _lastIn + r * _lastOut;
 		_lastIn = sample;
 		return _lastOut;
 	}
 
 
-	float AverageRectifiedValue::next(float sample) {
+	DspFloatType AverageRectifiedValue::next(DspFloatType sample) {
 		return RunningAverage::next(fabsf(sample));
 	}
 
 
-	float FastRootMeanSquare::next(float sample) {
+	DspFloatType FastRootMeanSquare::next(DspFloatType sample) {
 		return AverageRectifiedValue::next(_dcBlocker.next(sample));
 	}
 
 
-	float PureRootMeanSquare::next(float sample) {
-		float a = RunningAverage::next(sample * sample);
+	DspFloatType PureRootMeanSquare::next(DspFloatType sample) {
+		DspFloatType a = RunningAverage::next(sample * sample);
 		if (_sum <= 0.0) {
 			return 0.0f;
 		}
@@ -88,15 +88,15 @@ namespace DSP::BogAudio
 	}
 
 
-	void PucketteEnvelopeFollower::setParams(float sampleRate, float sensitivity) {
-		const float maxCutoff = 10000.0f;
-		const float minCutoff = 100.0f;
+	void PucketteEnvelopeFollower::setParams(DspFloatType sampleRate, DspFloatType sensitivity) {
+		const DspFloatType maxCutoff = 10000.0f;
+		const DspFloatType minCutoff = 100.0f;
 		assert(sensitivity >= 0.0f && sensitivity <= 1.0f);
-		float cutoff = minCutoff + sensitivity * (maxCutoff - minCutoff);
+		DspFloatType cutoff = minCutoff + sensitivity * (maxCutoff - minCutoff);
 		_filter.setParams(sampleRate, cutoff);
 	}
 
-	float PucketteEnvelopeFollower::next(float sample) {
+	DspFloatType PucketteEnvelopeFollower::next(DspFloatType sample) {
 		return _filter.next(fabsf(_dcBlocker.next(sample)));
 	}
 }

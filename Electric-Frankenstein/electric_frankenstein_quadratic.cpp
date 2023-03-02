@@ -5,6 +5,10 @@
 #include <algorithm>
 #include <functional>
 
+#define PRINT(X) std::cout << (X) << std::endl
+#define LOOP(start,end) for(size_t i = start; i < end; i++)
+#define MATRIXRC(w) std::cout << w.rows() << "," << w.cols() << std::endl
+
 typedef floatType DspFloatType;
 Plot<floatType> plt;
 
@@ -48,22 +52,17 @@ floatType chebyshev(floatType x, floatType A[], int order)
     return out;
 }
 
-const int cheby_order = 8;
+const int cheby_order = 4;
 
 double quadratic(double s, double a, double b, double c) {
     return a*s*s + b*s + c;
 }
 double chebyshev(double s, Matrix & w) {
 	floatType A[cheby_order];
-	for(size_t i = 0; i < cheby_order; i++) A[i] = w(i,0);
+	for(size_t i = 0; i < cheby_order; i++) A[i] = w(0,i);
 	return chebyshev(s,A,cheby_order);
 }
-double equation(double s, Matrix & w) {
-	floatType foo=1.0;    
-    for(size_t i = 0; i < w.rows(); i++) {		
-		w(i,0) *= foo;
-		foo   = sqrt(foo);		
-	}
+double equation(double s, Matrix & w) {		
 	return -chebyshev(s,w);
 }
 struct QuadraticLayer : public Layer
@@ -72,45 +71,104 @@ struct QuadraticLayer : public Layer
     // calculate the output from the weights
     QuadraticLayer(NeuralNetwork * neuralnet,size_t s,ActivationType a,bool useAutoDiff = true) : Layer(OUTPUT,s,a,useAutoDiff),net(neuralnet) {
 
-    }
+    }    
     
+    Matrix Loss(Matrix & output, Matrix & target)
+    {
+		Matrix w = net->layers[net->layers.size()-2]->input;				
+		Matrix input = net->layers[0]->input;
+		Matrix m(1,64);
+		for(size_t s = 0; s < 64; s++)
+		{						
+			floatType in = input(0,s);        
+			floatType y = equation(in,w) - equation(0,w);
+			m(0,s) = y;
+		}		
+		std::vector<floatType> out(64);
+		for(size_t i = 0; i < 64; i++) out[i] = m(0,i);
+        RemoveDCNorm(out);
+        for(size_t i = 0; i < 64; i++) m(0,i) = out[i];
+		return m - target;
+	} 
+	   	
+    void Formula(Matrix & e) {        
+        std::vector<floatType> out(64);
+        net->ForwardPass(e);        
+        output.resize(1,64);
+        
+        Matrix w = net->layers[net->layers.size()-2]->input;		
+		Matrix input = net->layers[0]->input;
+		Matrix m(1,64);
+		std::cout << w << std::endl;
+		for(size_t s = 0; s < 64; s++)
+		{						
+			floatType in = input(0,s);        
+			floatType y = equation(in,w) - equation(0,w);
+			m(0,s) = y;
+		}		
+        for(size_t i = 0; i < 64; i++) out[i] = output(0,i);
+        RemoveDCNorm(out);
+        plt.plot_x(out.data(),out.size(),"neural");
+    }        
     void Activate(Matrix &m)
-    {		
-		getOutput(m);	
+    {			
+		getOutput(m);			
     }
     void Grad(Matrix &m)
     {		
 		using namespace boost::math::differentiation;
-        constexpr unsigned Order = 2;                  // Highest order derivative to be calculated.
-        Matrix t = m;
-        getOutput(t);
-		auto const x = make_fvar<double, Order>((t(0,0)));  // Find derivatives at x=2.                            
-		m(0,0) = x.derivative(1);    
-		if(std::isnan(m(0,0))) m(0,0) = 0;
-		if(std::isinf(m(0,0))) m(0,0) = x < 0? -1:1;            
+        constexpr unsigned Order = 2;           
+                
+        Matrix t = m.eval();
+        Matrix& w = net->connections[net->connections.size()-1]->weights;							
+		Matrix  x(cheby_order,1);
+		std::cout << t << std::endl;
+		for(size_t i = 0; i < w.rows(); i++)
+		{
+			floatType c = 0;
+			for(size_t j = 0; j < w.cols(); j++) {
+				c += w(i,j);
+			}
+			c/=w.cols();
+			x(i,0) = c;
+		}
+		//std::cout << x << std::endl;		
+		for(size_t i = 0; i < t.rows(); i++)
+		{						
+			for(size_t j = 0; j < t.cols(); j++) {
+				floatType in = t(i,j);
+				floatType y = equation(in,x) - equation(0,x);
+				t(i,j) = y;
+			}
+		}
+		
+        for(size_t i = 0; i < t.rows(); i++)
+        {
+			for(size_t j = 0; j < t.cols(); j++) {
+				auto const x = make_fvar<double, Order>(t(i,j));  
+				m(i,j) = x.derivative(1);    
+				if(std::isnan(m(i,j))) m(i,j) = 0;
+				if(std::isinf(m(i,j))) m(i,j) = x < 0? -1:1;            
+			}
+		}
     } 
     void getOutput(Matrix & m)
-    {
-		m(0,0) = 0;
-		for(size_t i = 0; i < 8; i++) {
-			Matrix& w = net->connections[net->connections.size()-i-1]->weights;
-			Matrix& input = net->layers[0]->input;   
-			floatType in = input(0,0);        
+    {		
+		Matrix w = net->layers[net->layers.size()-2]->input;				
+		Matrix input = net->layers[0]->input;				
+		for(size_t s = 0; s < 64; s++)
+		{						
+			floatType in = input(0,s);        
 			floatType y = equation(in,w) - equation(0,w);
-			m(0,0) += y;
-		}
+			m(0,s) = y;
+		}		
+		std::vector<floatType> out(64);
+		for(size_t i = 0; i < 64; i++) out[i] = m(0,i);
+        RemoveDCNorm(out);
+        for(size_t i = 0; i < 64; i++) m(0,i) = out[i];       		
 	}
 	
-    void Formula(Matrix & e, Matrix & w) {        
-        std::vector<floatType> out(e.rows());
-        for(size_t i = 0; i < e.rows(); i++) {        
-            floatType in = e(i,0);
-            floatType y = equation(in,w) - equation(0,w);
-            out[i] = y;
-        }    
-        RemoveDCNorm(out);
-        plt.plot_x(out.data(),out.size(),"neural");
-    }        
+    
 };
 
 void Quadratic(ActivationType atype) {
@@ -118,8 +176,8 @@ void Quadratic(ActivationType atype) {
     std::vector<floatType> examples;
     std::vector<floatType> training;
     
-    for(size_t i = 0; i < 256; i++) {
-        double s = std::cos(M_PI*2.0*(double)i/256.0);
+    for(int i = 0; i < 64; i++) {
+        double s = std::sin(2*M_PI*i/64.0);
         double x = FX::Distortion::Fold(2*s);
         examples.push_back(s);
         training.push_back(x);
@@ -128,58 +186,56 @@ void Quadratic(ActivationType atype) {
     plt.plot_x(examples.data(),examples.size(),"examples");
     plt.plot_x(training.data(),training.size(),"training");
 
-    Matrix e = matrix_new(256,1,examples);
-    Matrix t = matrix_new(256,1,training);
+    Matrix e = matrix_new(1,64,examples);
+    Matrix t = matrix_new(1,64,training);
 
     NeuralNetwork net;
     const int COEFFS=cheby_order;
-    Layer * input = new Layer(INPUT,1,LINEAR);
-    Layer * h1= new Layer(HIDDEN,COEFFS,FULLWAVE_RELU);
-    Layer * h2= new Layer(HIDDEN,COEFFS,FULLWAVE_RELU);
-    Layer * h3= new Layer(HIDDEN,COEFFS,FULLWAVE_RELU);    
-    Layer * h4= new Layer(HIDDEN,COEFFS,FULLWAVE_RELU);
-    Layer * h5= new Layer(HIDDEN,COEFFS,FULLWAVE_RELU);
-    Layer * h6= new Layer(HIDDEN,COEFFS,FULLWAVE_RELU);
-    Layer * h7= new Layer(HIDDEN,COEFFS,FULLWAVE_RELU);
-    Layer * h8= new Layer(HIDDEN,COEFFS,FULLWAVE_RELU);
-    /*
-    Layer * h9= new Layer(HIDDEN,COEFFS,FULLWAVE_RELU);
-    Layer * h10= new Layer(HIDDEN,COEFFS,FULLWAVE_RELU);
-    */
-    QuadraticLayer * output= new QuadraticLayer(&net,1,AUTO);
+    Layer * input = new Layer(INPUT,64,LINEAR);
+    Layer * h1= new Layer(HIDDEN,64,TANH);    
+    Layer * h2= new Layer(HIDDEN,64,TANH);
+    Layer * h3= new Layer(HIDDEN,64,TANH);    
+    Layer * h4= new Layer(HIDDEN,COEFFS,TANH);
+    Layer * h5= new Layer(HIDDEN,COEFFS,TANH);
+    Layer * h6= new Layer(HIDDEN,COEFFS,TANH);
+    Layer * h7= new Layer(HIDDEN,COEFFS,TANH);
+    Layer * h8= new Layer(HIDDEN,COEFFS,TANH);
+    Layer * h9= new Layer(HIDDEN,COEFFS,TANH);
+    Layer * h10= new Layer(HIDDEN,COEFFS,TANH);	
+    QuadraticLayer * output= new QuadraticLayer(&net,64,AUTO);
     net.addLayer(input);    
-    net.addLayer(h1);    
+    net.addLayer(h1);          
     net.addLayer(h2);
     net.addLayer(h3);       
-    net.addLayer(h4);   
+    /*
+    net.addLayer(h4);           
     net.addLayer(h5);     
     net.addLayer(h6);    
     net.addLayer(h7);
-    net.addLayer(h8);   
-    /*    
-    net.addLayer(h9);
-    net.addLayer(h10);   
-    */    
+    net.addLayer(h8);              
+    net.addLayer(h9);                  
+    */
+    net.addLayer(h10);       
     net.addLayer(output);
     net.connect();
     net.loss_widget = 1e-5;
     
-    ParameterSet p(e,t,10000,256);
-    p.batch_size=8;
-    p.learning_rate = 0.01;
+    ParameterSet p(e,t,1000,64);
+    p.batch_size=1;
+    p.learning_rate = 0.001;
     p.momentum_factor = 0.9;
     p.regularization_strength = 1e-6;
     p.search_time=1000;
     p.verbose = true;
     p.shuffle = true;
-    p.optimizer = ADAM_OPTIMIZER;    
+    p.optimizer = RMSPROP_OPTIMIZER;    
     
     std::cout << "Electric-Frankenstein 9000" << std::endl;
-    net.train(p,STOCHASTIC);
+    net.train(p,NONSTOCHASTIC);
     
     
-    auto m = net.LastConnection()->weights;
-    output->Formula(e,m);
+    auto m = net.connections[net.connections.size()-1]->weights;
+    output->Formula(e);
 
 }
 

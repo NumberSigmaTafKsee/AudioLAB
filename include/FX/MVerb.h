@@ -68,7 +68,7 @@ public:
         //nowt to do here
     }
 
-    void process(T **inputs, T **outputs, int sampleFrames){
+    void ProcessBlock(size_t sampleFrames,T **inputs, T **outputs){
         Undenormal dn;
         if(on_button == false) {
             memcpy(outputs[0],inputs[0],sampleFrames * sizeof(T));
@@ -84,7 +84,7 @@ public:
         T SizeDelta	= (Size - SizeSmooth) * OneOverSampleFrames;
         T DecayDelta = (((0.7995f * Decay) + 0.005) - DecaySmooth) * OneOverSampleFrames;
         T DensityDelta = (((0.7995f * Density1) + 0.005) - DensitySmooth) * OneOverSampleFrames;
-        #pragma omp simd
+        #pragma omp simd aligned(inputs,outputs)
         for(int i=0;i<sampleFrames;++i){
             T left = inputs[0][i];
             T right = inputs[1][i];
@@ -171,9 +171,9 @@ public:
         }
     }
 
-    void InplaceProcess(size_t n, DspFloatType ** buf)
+    void ProcessInplace(size_t n, DspFloatType ** buf)
     {
-        process(buf,buf,n);
+        process(n,buf,buf);
     }
 
     void reset(){

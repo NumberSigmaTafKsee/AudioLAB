@@ -13,6 +13,22 @@ namespace FX::Mu45
         DspFloatType tick();                           // Generate a sample of output and update the state
         void resetPhase();                      // Set the oscillator phase to 0
         
+        DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1)
+        {
+			return A*tick(I);
+		}
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) {
+				out[i] = Tick(in[i]);
+			}
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+			ProcessSIMD(n,in,out);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out) {
+			ProcessSIMD(n,out,out);
+		}
     private:
         static const int N = 1024;      // size of the wavetable
         DspFloatType table[N];                 // the wavetable

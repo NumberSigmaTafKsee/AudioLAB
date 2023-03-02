@@ -36,6 +36,23 @@ namespace FX::Delays
         DspFloatType getDelayLength();
         
         void setFs(int inValue);
+               
+        DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1)
+        {
+			return A*processSingleSample(I);
+		}
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) {
+				out[i] = Tick(in[i]);
+			}
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+			ProcessSIMD(n,in,out);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out) {
+			ProcessSIMD(n,out,out);
+		} 
     };
 
 
@@ -45,6 +62,7 @@ namespace FX::Delays
     }
 
     void SchroederAllPass::process(DspFloatType* samples, int bufferSize){
+		#pragma omp simd aligned(samples)
         for(int i = 0; i < bufferSize; i++)
             samples[i] = processSingleSample(samples[i]);
     }

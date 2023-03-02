@@ -58,7 +58,7 @@ namespace FXDSP
 
         void read(T* dest, unsigned n_samples)
         {
-            #pragma omp simd
+            #pragma omp simd aligned(dest)
             for (unsigned i=0; i < n_samples; ++i)
             {
                 *dest++ = buffer[++read_index & wrap];

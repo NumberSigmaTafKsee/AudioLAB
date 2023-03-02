@@ -10,7 +10,13 @@ namespace FX::Distortion::Diode
     {
         return Is * (exp(0.1*x/(eta*Vt))-1);
     }    
-
+	inline DspFloatType DiodeVector(size_t n, DspFloatType *x, DspFloatType Vt = 0.0253,DspFloatType eta = 1.68,DspFloatType Is = .105)
+    {
+		#pragma omp simd aligned(x)
+		for(size_t i = 0; i < n; i++) 
+			x[i] = Is * (exp(0.1*x[i]/(eta*Vt))-1);
+    }   
+    
     struct DiodeClipperNR : public FunctionProcessor
     {
         DspFloatType controlledR;

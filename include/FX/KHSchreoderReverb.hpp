@@ -83,6 +83,23 @@ public:
     DspFloatType linInterp(DspFloatType x1, DspFloatType x2, DspFloatType y1, DspFloatType y2, DspFloatType x);
     DspFloatType numSamplesFromMSf(const int sr, const DspFloatType d_ms);
 
+	DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1)
+	{
+		return A*next(I);
+	}
+	void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+		#pragma omp simd aligned(in,out)
+		for(size_t i = 0; i < n; i++) {
+			out[i] = Tick(in[i]);
+		}
+	}
+	void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+		ProcessSIMD(n,in,out);
+	}
+	void ProcessInplace(size_t n, DspFloatType * out) {
+		ProcessSIMD(n,out,out);
+	}
+
     private:
     DspFloatType decayFactor, ALLPASS_GAIN_LIMIT = 0.707f;//to keep the allpasses from exploding
     bool bypass;

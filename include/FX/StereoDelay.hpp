@@ -61,6 +61,7 @@ namespace FX::Delays
     }
 
     void StereoDelay::processStereo(DspFloatType *const left, DspFloatType *const right, const int numSamples) {
+		#pragma omp simd aligned(left,right)
         for (int sample = 0; sample < numSamples; ++sample) {
             left[sample]  = delayLeft.next(left[sample]);
             right[sample] = delayRight.next(right[sample]);

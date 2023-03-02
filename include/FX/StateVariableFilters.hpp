@@ -51,6 +51,18 @@ namespace Filters::StateVariable
             //L,H,B,N
             return L;
         }
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) {
+				out[i] = Tick(in[i]);
+			}
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+			ProcessSIMD(n,in,out);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out) {
+			ProcessSIMD(n,out,out);
+		}
     };
     struct ChamberlinHighPassSVF
     {
@@ -99,6 +111,19 @@ namespace Filters::StateVariable
             //L,H,B,N
             return H;
         }
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) {
+				out[i] = Tick(in[i]);
+			}
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+			ProcessSIMD(n,in,out);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out) {
+			ProcessSIMD(n,out,out);
+		}
+
     };
     struct ChamberlinBandPassSVF
     {
@@ -147,6 +172,19 @@ namespace Filters::StateVariable
             //L,H,B,N
             return B;
         }
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) {
+				out[i] = Tick(in[i]);
+			}
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+			ProcessSIMD(n,in,out);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out) {
+			ProcessSIMD(n,out,out);
+		}
+        
     };
     struct ChamberlinNotchSVF
     {
@@ -195,6 +233,19 @@ namespace Filters::StateVariable
             //L,H,B,N
             return N;
         }
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) {
+				out[i] = Tick(in[i]);
+			}
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+			ProcessSIMD(n,in,out);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out) {
+			ProcessSIMD(n,out,out);
+		}
+        
     };
     
     struct StateVariableLowPassFilter
@@ -231,6 +282,19 @@ namespace Filters::StateVariable
             notch = high + low;
             return low;
         }
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) {
+				out[i] = Tick(in[i]);
+			}
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+			ProcessSIMD(n,in,out);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out) {
+			ProcessSIMD(n,out,out);
+		}
+        
     };
     struct StateVariableHighPassFilter
     {
@@ -266,6 +330,19 @@ namespace Filters::StateVariable
             notch = high + low;
             return high;
         }
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) {
+				out[i] = Tick(in[i]);
+			}
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+			ProcessSIMD(n,in,out);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out) {
+			ProcessSIMD(n,out,out);
+		}
+        
     };
     struct StateVariableBandPassFilter
     {
@@ -301,6 +378,19 @@ namespace Filters::StateVariable
             notch = high + low;
             return band;
         }
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) {
+				out[i] = Tick(in[i]);
+			}
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+			ProcessSIMD(n,in,out);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out) {
+			ProcessSIMD(n,out,out);
+		}
+        
     };
     struct StateVariableNotchFilter
     {
@@ -336,5 +426,18 @@ namespace Filters::StateVariable
             notch = high + low;
             return notch;
         }
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) {
+				out[i] = Tick(in[i]);
+			}
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+			ProcessSIMD(n,in,out);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out) {
+			ProcessSIMD(n,out,out);
+		}
+        
     };
 }

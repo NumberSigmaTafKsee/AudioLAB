@@ -1,30 +1,4 @@
 
-Pull requests
-Issues
-Marketplace
-Explore
-@TomCoalfish
-thedrgreenthumb /
-orfanidis_eq
-Public
-
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-
-    Insights
-
-orfanidis_eq/orfanidis_eq.h
-@thedrgreenthumb
-thedrgreenthumb Almost completed: logic simplification, additional renamings, README …
-Latest commit c5bc9e7 on Jun 10, 2018
-History
-1 contributor
-1449 lines (1182 sloc) 32.9 KB
 /*
  * Copyright (c) 2018 Fedor Uporov
  *

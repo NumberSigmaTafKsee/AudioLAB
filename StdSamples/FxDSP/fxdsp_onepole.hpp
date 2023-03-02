@@ -66,7 +66,7 @@ namespace FXDSP
         }
         void ProcessBlock(size_t n, T * inBuffer, T * outBuffer)
         {
-            #pragma omp simd
+            #pragma omp simd aligned(inBuffer,outBuffer)
             for (unsigned i = 0; i < n; ++i)
             {
                 outBuffer[i] = y1 = inBuffer[i] * a0 + y1 * b1;

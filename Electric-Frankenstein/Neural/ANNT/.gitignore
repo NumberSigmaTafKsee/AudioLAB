@@ -1,0 +1,13 @@
+build
+*.obj
+*.suo
+*.sdf
+*.opensdf
+*.o
+*.vcxproj.user
+*.a
+*.VC.db
+**/.vs
+**/msvc/Debug
+**/msvc/Release
+**/msvc/x64

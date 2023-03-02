@@ -12,9 +12,9 @@ namespace DSP::BogAudio
 		Filter() : FilterProcessor() {}
 		virtual ~Filter() {}
 
-		virtual double next(double sample) = 0;
+		virtual DspFloatType next(DspFloatType sample) = 0;
 
-		double Tick(double I, double A=1, double X=1, double Y=1) {
+		DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {
 			return A*next(I);
 		}
 	};
@@ -48,7 +48,7 @@ namespace DSP::BogAudio
 			_y[0] = _y[1] = _y[2] = 0.0;
 		}
 
-		double next(double sample) override {
+		DspFloatType next(DspFloatType sample) override {
 			_x[2] = _x[1];
 			_x[1] = _x[0];
 			_x[0] = sample;
@@ -68,25 +68,25 @@ namespace DSP::BogAudio
 
     
 	struct LowPassFilter : ResetableFilter {
-		double _sampleRate = 0.0f;
-		double _cutoff = 0.0f;
-		double _q = 0.0f;
+		DspFloatType _sampleRate = 0.0f;
+		DspFloatType _cutoff = 0.0f;
+		DspFloatType _q = 0.0f;
 
-		BiquadFilter<double> _biquad; // double is necessary here to make low cutoffs work at high sample rates.
+		BiquadFilter<DspFloatType> _biquad; // DspFloatType is necessary here to make low cutoffs work at high sample rates.
 
-		LowPassFilter(double sampleRate = 1000.0f, double cutoff = 100.0f, double q = 0.001f) {
+		LowPassFilter(DspFloatType sampleRate = 1000.0f, DspFloatType cutoff = 100.0f, DspFloatType q = 0.001f) {
 			setParams(sampleRate, cutoff, q);
 		}
 
-		void setParams(double sampleRate, double cutoff, double q = 0.001f);
+		void setParams(DspFloatType sampleRate, DspFloatType cutoff, DspFloatType q = 0.001f);
 		void reset() override { _biquad.reset(); }
-		double next(double sample) override {
+		DspFloatType next(DspFloatType sample) override {
 			return _biquad.next(sample);
 		}
 	};
 
 	// See: http://www.musicdsp.org/files/Audio-EQ-Cookbook.txt
-	void LowPassFilter::setParams(double sampleRate, double cutoff, double q) {
+	void LowPassFilter::setParams(DspFloatType sampleRate, DspFloatType cutoff, DspFloatType q) {
 		if (_sampleRate == sampleRate && _cutoff == cutoff && _q == q) {
 			return;
 		}
@@ -95,9 +95,9 @@ namespace DSP::BogAudio
 		_q = q;
 		// printf("\nLPF set param: sr=%f c=%f q=%f\n", _sampleRate, _cutoff, _q);
 
-		double w0 = 2.0 * M_PI * (double)(_cutoff / _sampleRate);
-		double cosw0 = cos(w0);
-		double alpha = sin(w0) / (2.0 * _q);
+		DspFloatType w0 = 2.0 * M_PI * (DspFloatType)(_cutoff / _sampleRate);
+		DspFloatType cosw0 = cos(w0);
+		DspFloatType alpha = sin(w0) / (2.0 * _q);
 
 		_biquad.setParams(
 			(1.0 - cosw0) / 2.0,
@@ -123,11 +123,11 @@ namespace DSP::BogAudio
 		void setParams(int i, T a0, T a1, T a2, T b0, T b1, T b2);
 		void reset() override;
 		void setN(int n, bool minDelay = false);
-		double next(double sample) override;
+		DspFloatType next(DspFloatType sample) override;
 	};
 
 	struct MultimodeTypes {
-		typedef double T;
+		typedef DspFloatType T;
 		typedef std::complex<T> TC;
 
 		enum Type {
@@ -159,14 +159,14 @@ namespace DSP::BogAudio
 		static constexpr int minPoles = 1;
 		static constexpr int maxPoles = 16;
 		static constexpr int modPoles = 1;
-		static constexpr double minFrequency = 3.0f; // FIXME: this can go down to at least 1.0f if T is double.
-		static constexpr double maxFrequency = 21000.0f;
-		static constexpr double minQbw = 0.0f;
-		static constexpr double maxQbw = 1.0f;
-		static constexpr double minBWLinear = 10.0f;
-		static constexpr double maxBWLinear = 5000.0f;
-		static constexpr double minBWPitch = 1.0f / (1.0f * 12.0f * 100.0f / 25.0f);
-		static constexpr double maxBWPitch = 2.0f;
+		static constexpr DspFloatType minFrequency = 3.0f; // FIXME: this can go down to at least 1.0f if T is DspFloatType.
+		static constexpr DspFloatType maxFrequency = 21000.0f;
+		static constexpr DspFloatType minQbw = 0.0f;
+		static constexpr DspFloatType maxQbw = 1.0f;
+		static constexpr DspFloatType minBWLinear = 10.0f;
+		static constexpr DspFloatType maxBWLinear = 5000.0f;
+		static constexpr DspFloatType minBWPitch = 1.0f / (1.0f * 12.0f * 100.0f / 25.0f);
+		static constexpr DspFloatType maxBWPitch = 2.0f;
 	};
 
     
@@ -192,28 +192,28 @@ namespace DSP::BogAudio
 			}
 		};
 
-		double _sampleRate = 44100.0f;
-		double _half2PiST = 0.0f;
+		DspFloatType _sampleRate = 44100.0f;
+		DspFloatType _half2PiST = 0.0f;
 		Type _type = UNKNOWN_TYPE;
 		Mode _mode = UNKNOWN_MODE;
 		int _nPoles = 0;
-		double _frequency = -1.0f;
-		double _qbw = -1.0f;
+		DspFloatType _frequency = -1.0f;
+		DspFloatType _qbw = -1.0f;
 		BandwidthMode _bandwidthMode = UNKNOWN_BANDWIDTH_MODE;
 		DelayMode _delayMode = UNKNOWN_DELAY_MODE;
 		Pole _poles[maxPoles / 2];
 		int _nBiquads = 0;
 
-		double effectiveMinimumFrequency();
+		DspFloatType effectiveMinimumFrequency();
 		void setParams(
 			BiquadBank<T, N>& biquads,
-			double& outGain,
-			double sampleRate,
+			DspFloatType& outGain,
+			DspFloatType sampleRate,
 			Type type,
 			int poles,
 			Mode mode,
-			double frequency,
-			double qbw,
+			DspFloatType frequency,
+			DspFloatType qbw,
 			BandwidthMode bwm = PITCH_BANDWIDTH_MODE,
 			DelayMode dm = FIXED_DELAY_MODE
 		);
@@ -222,12 +222,12 @@ namespace DSP::BogAudio
     
 	struct MultimodeFilter : MultimodeTypes, ResetableFilter {
 		virtual void setParams(
-			double sampleRate,
+			DspFloatType sampleRate,
 			Type type,
 			int poles,
 			Mode mode,
-			double frequency,
-			double qbw,
+			DspFloatType frequency,
+			DspFloatType qbw,
 			BandwidthMode bwm = PITCH_BANDWIDTH_MODE,
 			DelayMode dm = FIXED_DELAY_MODE
 		) = 0;
@@ -237,20 +237,20 @@ namespace DSP::BogAudio
 	struct MultimodeBase : MultimodeFilter {
 		MultimodeDesigner<N> _designer;
 		BiquadBank<T, N> _biquads;
-		double _outGain = 1.0f;
+		DspFloatType _outGain = 1.0f;
 
-		inline double effectiveMinimumFrequency() { return _designer.effectiveMinimumFrequency(); }
+		inline DspFloatType effectiveMinimumFrequency() { return _designer.effectiveMinimumFrequency(); }
 		void setParams(
-			double sampleRate,
+			DspFloatType sampleRate,
 			Type type,
 			int poles,
 			Mode mode,
-			double frequency,
-			double qbw,
+			DspFloatType frequency,
+			DspFloatType qbw,
 			BandwidthMode bwm = PITCH_BANDWIDTH_MODE,
 			DelayMode dm = FIXED_DELAY_MODE
 		) override;
-		double next(double sample) override;
+		DspFloatType next(DspFloatType sample) override;
 		void reset() override;
 	};
 
@@ -264,9 +264,9 @@ namespace DSP::BogAudio
 		MultimodeFilter4 _filter;
 
 		inline void setParams(
-			double sampleRate,
-			double frequency,
-			double q
+			DspFloatType sampleRate,
+			DspFloatType frequency,
+			DspFloatType q
 		) {
 			_filter.setParams(
 				sampleRate,
@@ -277,7 +277,7 @@ namespace DSP::BogAudio
 				q
 			);
 		}
-		inline double next(double sample) { return _filter.next(sample); }
+		inline DspFloatType next(DspFloatType sample) { return _filter.next(sample); }
 		inline void reset() { _filter.reset(); }
 	};
 
@@ -285,9 +285,9 @@ namespace DSP::BogAudio
 		MultimodeFilter4 _filter;
 
 		inline void setParams(
-			double sampleRate,
-			double frequency,
-			double q
+			DspFloatType sampleRate,
+			DspFloatType frequency,
+			DspFloatType q
 		) {
 			_filter.setParams(
 				sampleRate,
@@ -298,7 +298,7 @@ namespace DSP::BogAudio
 				q
 			);
 		}
-		inline double next(double sample) { return _filter.next(sample); }
+		inline DspFloatType next(DspFloatType sample) { return _filter.next(sample); }
 		inline void reset() { _filter.reset(); }
 	};
 
@@ -308,9 +308,9 @@ namespace DSP::BogAudio
 		MultimodeFilter4 _filter;
 
 		inline void setParams(
-			double sampleRate,
-			double frequency,
-			double bw,
+			DspFloatType sampleRate,
+			DspFloatType frequency,
+			DspFloatType bw,
 			MultimodeFilter::BandwidthMode bwm = MultimodeFilter::PITCH_BANDWIDTH_MODE
 		) {
 			_filter.setParams(
@@ -323,7 +323,7 @@ namespace DSP::BogAudio
 				bwm
 			);
 		}
-		inline double next(double sample) { return _filter.next(sample); }
+		inline DspFloatType next(DspFloatType sample) { return _filter.next(sample); }
 		inline void reset() { _filter.reset(); }
 	};
 
@@ -332,9 +332,9 @@ namespace DSP::BogAudio
 		MultimodeFilter4 _filter;
 
 		inline void setParams(
-			double sampleRate,
-			double frequency,
-			double bw,
+			DspFloatType sampleRate,
+			DspFloatType frequency,
+			DspFloatType bw,
 			MultimodeFilter::BandwidthMode bwm = MultimodeFilter::PITCH_BANDWIDTH_MODE
 		) {
 			_filter.setParams(
@@ -347,7 +347,7 @@ namespace DSP::BogAudio
 				bwm
 			);
 		}
-		inline double next(double sample) { return _filter.next(sample); }
+		inline DspFloatType next(DspFloatType sample) { return _filter.next(sample); }
 		inline void reset() { _filter.reset(); }
 	};
 
@@ -370,7 +370,7 @@ namespace DSP::BogAudio
 		}
 	}
 
-	template<typename T, int N> double BiquadBank<T, N>::next(double sample) {
+	template<typename T, int N> DspFloatType BiquadBank<T, N>::next(DspFloatType sample) {
 		for (int i = 0; i < _n; ++i) {
 			sample = _biquads[i].next(sample);
 		}
@@ -390,29 +390,29 @@ namespace DSP::BogAudio
 	constexpr int MultimodeTypes::minPoles;
 	constexpr int MultimodeTypes::maxPoles;
 	constexpr int MultimodeTypes::modPoles;
-	constexpr double MultimodeTypes::minFrequency;
-	constexpr double MultimodeTypes::maxFrequency;
-	constexpr double MultimodeTypes::minQbw;
-	constexpr double MultimodeTypes::maxQbw;
-	constexpr double MultimodeTypes::minBWLinear;
-	constexpr double MultimodeTypes::maxBWLinear;
-	constexpr double MultimodeTypes::minBWPitch;
-	constexpr double MultimodeTypes::maxBWPitch;
+	constexpr DspFloatType MultimodeTypes::minFrequency;
+	constexpr DspFloatType MultimodeTypes::maxFrequency;
+	constexpr DspFloatType MultimodeTypes::minQbw;
+	constexpr DspFloatType MultimodeTypes::maxQbw;
+	constexpr DspFloatType MultimodeTypes::minBWLinear;
+	constexpr DspFloatType MultimodeTypes::maxBWLinear;
+	constexpr DspFloatType MultimodeTypes::minBWPitch;
+	constexpr DspFloatType MultimodeTypes::maxBWPitch;
 
 
-	template<int N> double MultimodeDesigner<N>::effectiveMinimumFrequency() {
+	template<int N> DspFloatType MultimodeDesigner<N>::effectiveMinimumFrequency() {
 		return minFrequency * std::max(1.0f, roundf(_sampleRate / 44100.0f));
 	}
 
 	template<int N> void MultimodeDesigner<N>::setParams(
 		BiquadBank<T, N>& biquads,
-		double& outGain,
-		double sampleRate,
+		DspFloatType& outGain,
+		DspFloatType sampleRate,
 		Type type,
 		int poles,
 		Mode mode,
-		double frequency,
-		double qbw,
+		DspFloatType frequency,
+		DspFloatType qbw,
 		BandwidthMode bwm,
 		DelayMode dm
 	) {
@@ -460,7 +460,7 @@ namespace DSP::BogAudio
 					e = std::pow((T)10.0, e);
 					e -= (T)1.0;
 					e = std::sqrt(e);
-					T ef = std::asinh((T)1.0 / e) / (double)_nPoles;
+					T ef = std::asinh((T)1.0 / e) / (DspFloatType)_nPoles;
 					T efr = -std::sinh(ef);
 					T efi = std::cosh(ef);
 
@@ -554,15 +554,15 @@ namespace DSP::BogAudio
 					T wdh = 0.0;
 					switch (_bandwidthMode) {
 						case LINEAR_BANDWIDTH_MODE: {
-							double bandwidth = std::max(minBWLinear, maxBWLinear * _qbw);
+							DspFloatType bandwidth = std::max(minBWLinear, maxBWLinear * _qbw);
 							wdl = std::max(minFrequency, _frequency - 0.5f * bandwidth);
-							wdh = std::min(maxFrequency, std::max((double)wdl + 10.0f, _frequency + 0.5f * bandwidth));
+							wdh = std::min(maxFrequency, std::max((DspFloatType)wdl + 10.0f, _frequency + 0.5f * bandwidth));
 							break;
 						}
 						case PITCH_BANDWIDTH_MODE: {
-							double bandwidth = std::max(minBWPitch, maxBWPitch * _qbw);
+							DspFloatType bandwidth = std::max(minBWPitch, maxBWPitch * _qbw);
 							wdl = std::max(minFrequency, powf(2.0f, -bandwidth) * _frequency);
-							wdh = std::min(maxFrequency, std::max((double)wdl + 10.0f, powf(2.0f, bandwidth) * _frequency));
+							wdh = std::min(maxFrequency, std::max((DspFloatType)wdl + 10.0f, powf(2.0f, bandwidth) * _frequency));
 							break;
 						}
 						default: {
@@ -704,12 +704,12 @@ namespace DSP::BogAudio
 
 
 	template<int N> void MultimodeBase<N>::setParams(
-		double sampleRate,
+		DspFloatType sampleRate,
 		Type type,
 		int poles,
 		Mode mode,
-		double frequency,
-		double qbw,
+		DspFloatType frequency,
+		DspFloatType qbw,
 		BandwidthMode bwm,
 		DelayMode dm
 	) {
@@ -727,7 +727,7 @@ namespace DSP::BogAudio
 		);
 	}
 
-	template<int N> double MultimodeBase<N>::next(double sample) {
+	template<int N> DspFloatType MultimodeBase<N>::next(DspFloatType sample) {
 		return _outGain * _biquads.next(sample);
 	}
 
@@ -745,23 +745,23 @@ namespace DSP::BogAudio
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Experiments
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////
-	struct ComplexBiquadFilter : BiquadFilter<double> {
-		double _gain = 1.0f;
-		double _zeroRadius = 1.0f;
-		double _zeroTheta = M_PI;
-		double _poleRadius = 0.9f;
-		double _poleTheta = 0.0f;
+	struct ComplexBiquadFilter : BiquadFilter<DspFloatType> {
+		DspFloatType _gain = 1.0f;
+		DspFloatType _zeroRadius = 1.0f;
+		DspFloatType _zeroTheta = M_PI;
+		DspFloatType _poleRadius = 0.9f;
+		DspFloatType _poleTheta = 0.0f;
 
 		ComplexBiquadFilter() {
 			updateParams();
 		}
 
 		void setComplexParams(
-			double gain,
-			double zeroRadius,
-			double zeroTheta,
-			double poleRadius,
-			double poleTheta
+			DspFloatType gain,
+			DspFloatType zeroRadius,
+			DspFloatType zeroTheta,
+			DspFloatType poleRadius,
+			DspFloatType poleTheta
 		);
 		void updateParams();
 	};
@@ -773,32 +773,40 @@ namespace DSP::BogAudio
 		};
 
 		static constexpr int maxPoles = 20;
-		static constexpr double maxRipple = 0.29f;
+		static constexpr DspFloatType maxRipple = 0.29f;
 		Type _type = LP_TYPE;
 		int _poles = 1;
-		double _sampleRate = 0.0f;
-		double _cutoff = 0.0f;
-		double _ripple = 0.0f;
-		BiquadFilter<double> _biquads[maxPoles / 2];
+		DspFloatType _sampleRate = 0.0f;
+		DspFloatType _cutoff = 0.0f;
+		DspFloatType _ripple = 0.0f;
+		BiquadFilter<DspFloatType> _biquads[maxPoles / 2];
 
 		MultipoleFilter() {}
 
 		void setParams(
 			Type type,
 			int poles,
-			double sampleRate,
-			double cutoff,
-			double ripple // FIXME: using this with more than two poles creates large gain, need compensation.
+			DspFloatType sampleRate,
+			DspFloatType cutoff,
+			DspFloatType ripple // FIXME: using this with more than two poles creates large gain, need compensation.
 		);
-		double next(double sample) override;
+		DspFloatType next(DspFloatType sample) override;
+		
+		DspFloatType Tick(DspFloatType I=1, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {
+			return A*_next();
+		}
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
 	};
 
 	void ComplexBiquadFilter::setComplexParams(
-		double gain,
-		double zeroRadius,
-		double zeroTheta,
-		double poleRadius,
-		double poleTheta
+		DspFloatType gain,
+		DspFloatType zeroRadius,
+		DspFloatType zeroTheta,
+		DspFloatType poleRadius,
+		DspFloatType poleTheta
 	) {
 		if (
 			_gain != gain ||
@@ -837,9 +845,9 @@ namespace DSP::BogAudio
 	void MultipoleFilter::setParams(
 		Type type,
 		int poles,
-		double sampleRate,
-		double cutoff,
-		double ripple
+		DspFloatType sampleRate,
+		DspFloatType cutoff,
+		DspFloatType ripple
 	) {
 		if (
 			_type == type &&
@@ -862,47 +870,47 @@ namespace DSP::BogAudio
 		_ripple = ripple;
 
 		for (int p = 0, pn = _poles / 2; p < pn; ++p) {
-			double a0 = 0.0;
-			double a1 = 0.0;
-			double a2 = 0.0;
-			double b1 = 0.0;
-			double b2 = 0.0;
+			DspFloatType a0 = 0.0;
+			DspFloatType a1 = 0.0;
+			DspFloatType a2 = 0.0;
+			DspFloatType b1 = 0.0;
+			DspFloatType b2 = 0.0;
 			{
-				double angle = M_PI/(_poles*2.0) + p*M_PI/_poles;
-				double rp = -cos(angle);
-				double ip = sin(angle);
+				DspFloatType angle = M_PI/(_poles*2.0) + p*M_PI/_poles;
+				DspFloatType rp = -cos(angle);
+				DspFloatType ip = sin(angle);
 
 				if (_ripple > 0.01f) {
-					double es = sqrt(pow(1.0 / (1.0 - _ripple), 2.0) - 1.0);
-					double esi = 1.0 / es;
-					double esis = esi * esi;
-					double polesi = 1.0 / (double)_poles;
-					double vx = polesi * log(esi + sqrt(esis + 1.0));
-					double kx = polesi * log(esi + sqrt(esis - 1.0));
+					DspFloatType es = sqrt(pow(1.0 / (1.0 - _ripple), 2.0) - 1.0);
+					DspFloatType esi = 1.0 / es;
+					DspFloatType esis = esi * esi;
+					DspFloatType polesi = 1.0 / (DspFloatType)_poles;
+					DspFloatType vx = polesi * log(esi + sqrt(esis + 1.0));
+					DspFloatType kx = polesi * log(esi + sqrt(esis - 1.0));
 					kx = (exp(kx) + exp(-kx)) / 2.0;
 					rp *= ((exp(vx) - exp(-vx)) / 2.0) / kx;
 					ip *= ((exp(vx) + exp(-vx)) / 2.0) / kx;
 					// printf("\n\n\ncheb p=%d pn=%d rip=%f rp=%f ip=%f es=%f vx=%f kx=%f\n", p, pn, _ripple, rp, ip, es, vx, kx);
 				}
 
-				const double t = 2.0 * tan(0.5);
-				const double ts = t * t;
+				const DspFloatType t = 2.0 * tan(0.5);
+				const DspFloatType ts = t * t;
 				// printf("\n\nco=%f sr=%f fc=%f\n", _cutoff, _sampleRate, _cutoff / _sampleRate);
-				double m = rp*rp + ip*ip;
-				double mts = m * ts;
-				double d = 4.0 - 4.0*rp*t + mts;
-				double x0 = ts / d;
-				double x1 = 2.0 * x0;
-				double x2 = x0;
-				double y1 = (8.0 - 2.0*mts) / d;
-				double y2 = (-4.0 - 4.0*rp*t - mts) / d;
+				DspFloatType m = rp*rp + ip*ip;
+				DspFloatType mts = m * ts;
+				DspFloatType d = 4.0 - 4.0*rp*t + mts;
+				DspFloatType x0 = ts / d;
+				DspFloatType x1 = 2.0 * x0;
+				DspFloatType x2 = x0;
+				DspFloatType y1 = (8.0 - 2.0*mts) / d;
+				DspFloatType y2 = (-4.0 - 4.0*rp*t - mts) / d;
 				// printf("vs p=%d t=%f w=%f m=%f d=%f x0=%f x1=%f x2=%f y1=%f y2=%f\n", p, t, w, m, d, x0, x1, x2, y1, y2);
 
 				// FIXME: optimization: everything above here only depends on type, poles and ripple.
 
-				double w = 2.0 * M_PI * (_cutoff / _sampleRate);
-				double w2 = w / 2.0;
-				double k = 0.0;
+				DspFloatType w = 2.0 * M_PI * (_cutoff / _sampleRate);
+				DspFloatType w2 = w / 2.0;
+				DspFloatType k = 0.0;
 				switch (_type) {
 					case LP_TYPE: {
 						k = sin(0.5 - w2) / sin(0.5 + w2);
@@ -913,7 +921,7 @@ namespace DSP::BogAudio
 						break;
 					}
 				}
-				double ks = k * k;
+				DspFloatType ks = k * k;
 				d = 1.0 + y1*k - y2*ks;
 				a0 = (x0 - x1*k + x2*ks) / d;
 				a1 = (-2.0*x0*k + x1 + x1*ks - 2.0*x2*k) / d;
@@ -931,7 +939,7 @@ namespace DSP::BogAudio
 		}
 	}
 
-	double MultipoleFilter::next(double sample) {
+	DspFloatType MultipoleFilter::next(DspFloatType sample) {
 		for (int p = 0, pn = _poles / 2; p < pn; ++p) {
 			sample = _biquads[p].next(sample);
 		}

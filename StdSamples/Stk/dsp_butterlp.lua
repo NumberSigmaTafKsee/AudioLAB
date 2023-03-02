@@ -1,7 +1,0 @@
-require('dspfilters')
-require('kfr2')
-fmt = kfr2.audio_format()
-wav = kfr2.wav_load('baby_elephant.wav',fmt)
-filt= dspfilters.ButterworthLowPassFilter(4,500,fmt.samplerate)
-filt:ProcessBlock(wav:size(),wav:data(),wav:data())
-kfr2.wav_save(wav,"test.wav",fmt.channels, fmt.samplerate)

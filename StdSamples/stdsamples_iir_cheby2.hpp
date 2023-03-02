@@ -1,6 +1,6 @@
 #pragma once
 
-#include "audio_iir_biquads.hpp"
+#include "stdsamples_iir_biquads.hpp"
 
 /*
 function genfilter(order)
@@ -15,7 +15,7 @@ endfunction
 */
 namespace IIRFilters::Chebyshev2
 {
-    std::complex<DspFloatType> cheby2_2_gain(0.8913,0);
+    std::complex<DspFloatType> cheby2_2_gain = std::complex<DspFloatType>(0.8913,0);
     std::complex<DspFloatType> cheby2_2_zeros[] = {
         std::complex<DspFloatType>(0.000000,1.414214),
         std::complex<DspFloatType>(-0.000000,-1.414214),
@@ -24,17 +24,17 @@ namespace IIRFilters::Chebyshev2
         std::complex<DspFloatType>(-0.311324,-1.298299),
         std::complex<DspFloatType>(-0.311324,1.298299),
     };
-    std::complex<DspFloatType> cheby2_3_gain(5.8957,0);
+    std::complex<DspFloatType> cheby2_3_gain = std::complex<DspFloatType>(5.8957,0);
     std::complex<DspFloatType> cheby2_3_zeros[] = {
         std::complex<DspFloatType>(0.000000,1.154701),
         std::complex<DspFloatType>(-0.000000,-1.154701),
-    }
+    };
     std::complex<DspFloatType> cheby2_3_poles[] = {
         std::complex<DspFloatType>(-6.106489,-0.000000),
         std::complex<DspFloatType>(-0.105405,-1.129687),        
         std::complex<DspFloatType>(-0.105405,1.129687),
     };
-    std::complex<DspFloatType> cheby2_4_gain(0.8913,0);
+    std::complex<DspFloatType> cheby2_4_gain = std::complex<DspFloatType>(0.8913,0);
     std::complex<DspFloatType> cheby2_4_zeros[] = {
         std::complex<DspFloatType>(0.000000,1.082392),
         std::complex<DspFloatType>(0.000000,2.613126),
@@ -47,7 +47,7 @@ namespace IIRFilters::Chebyshev2
         std::complex<DspFloatType>(-0.701365,2.387691),
         std::complex<DspFloatType>(-0.054008,1.071629),
     };
-    std::complex<DspFloatType> cheby2_5_gain(9.8261,0);
+    std::complex<DspFloatType> cheby2_5_gain = std::complex<DspFloatType>(9.8261,0);
     std::complex<DspFloatType> cheby2_5_zeros[] = {
         std::complex<DspFloatType>(0.000000,1.051462),
         std::complex<DspFloatType>(0.000000,1.701302),
@@ -61,7 +61,7 @@ namespace IIRFilters::Chebyshev2
         std::complex<DspFloatType>(-0.223227,1.663234),
         std::complex<DspFloatType>(-0.033122,1.045402),
     };
-    std::complex<DspFloatType> cheby2_6_gain(0.8913,0);
+    std::complex<DspFloatType> cheby2_6_gain = std::complex<DspFloatType>(0.8913,0);
     std::complex<DspFloatType> cheby2_6_zeros[] = {
         std::complex<DspFloatType>(0.000000,1.035276),
         std::complex<DspFloatType>(0.000000,1.414214),
@@ -78,7 +78,7 @@ namespace IIRFilters::Chebyshev2
         std::complex<DspFloatType>(-0.113895,1.400264),
         std::complex<DspFloatType>(-0.022478,1.031356),
     };
-    std::complex<DspFloatType> cheby2_7_gain(13.757,0);
+    std::complex<DspFloatType> cheby2_7_gain = std::complex<DspFloatType>(13.757,0);
     std::complex<DspFloatType> cheby2_7_zeros[] = {
         std::complex<DspFloatType>(0.000000,1.025717),
         std::complex<DspFloatType>(0.000000,1.279048),
@@ -96,7 +96,7 @@ namespace IIRFilters::Chebyshev2
         std::complex<DspFloatType>(-0.070763,1.271995),
         std::complex<DspFloatType>(-0.016288,1.022959),
     };
-    std::complex<DspFloatType> cheby2_8_gain(0.8913,0);
+    std::complex<DspFloatType> cheby2_8_gain = std::complex<DspFloatType>(0.8913,0);
     std::complex<DspFloatType> cheby2_8_zeros[] = {
         std::complex<DspFloatType>(0.000000,1.019591),
         std::complex<DspFloatType>(0.000000,1.202690),
@@ -154,8 +154,8 @@ namespace IIRFilters::Chebyshev2
         BiquadSOS sos;  
         if(order < 2) order = 2;
         if(order > 8) order = 8;
-        std::complex<DspFloatType> * czeros[] = cheby2_zeros[order-1];          
-        std::complex<DspFloatType> * cpoles[] = cheby2_poles[order-1];          
+        std::complex<DspFloatType> * czeros = cheby2_zeros[order-1];          
+        std::complex<DspFloatType> * cpoles = cheby2_poles[order-1];          
         size_t n = 0;
         if(order %2 != 0) {
             BiquadSection c;

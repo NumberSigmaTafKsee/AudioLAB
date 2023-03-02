@@ -26,6 +26,7 @@ public:
     void UpdateWorkingState();
     bool IsWorking();
         
+	
 private:
     DspFloatType threasholdDb;
     DspFloatType kneeWidthDb;

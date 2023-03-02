@@ -74,6 +74,7 @@ namespace FXDSP
                 ClearBuffer(outBuffer, declen);
 
                 T temp[n];
+                #pragma omp simd aligned(inBuffer,outBuffer)
                 for (unsigned filt = 0; filt < factor; ++filt)
                 {
                     CopyBufferStride(temp, 1, inBuffer, factor, declen);

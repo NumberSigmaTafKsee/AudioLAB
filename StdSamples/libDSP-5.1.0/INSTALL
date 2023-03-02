@@ -1,4 +1,0 @@
-
-First install libcommoncpp from http://sourceforge.net/projects/libcommoncpp
-and then do 'make ; make install' in this directory.
-

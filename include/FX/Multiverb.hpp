@@ -77,6 +77,25 @@ namespace Reverb::Multiverb
 	void Reset(void);
 	void ClockProcess(DspFloatType* LeftSample, DspFloatType* RightSample); 
 
+	DspFloatType Tick(DspFloatType IL, DspFloatType IR, DspFloatType &oL, DspFloatType &oR, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1)
+	{
+		oL = IL;
+		oR = IR;
+		ClockProcess(&oL,&oR);
+		return (oL + oR) * 0.5;
+	}
+	void ProcessSIMD(size_t n, DspFloatType * inL, DspFloatType * inR, DspFloatType * outL, DspFloatType * outR) {
+		#pragma omp simd aligned(in,out)
+		for(size_t i = 0; i < n; i++) {			
+			Tick(inL[i],inR[i],outL[i],outR[i]);
+		}
+	}
+	void ProcessBlock(size_t n, DspFloatType * inL, DspFloatType * inR, DspFloatType * outL, DspFloatType * outR) {
+		ProcessSIMD(n,inL,inR,outL,outR);
+	}
+	void ProcessInplace(size_t n, DspFloatType * outL, DspFloatType * outR) {
+		ProcessSIMD(n,outL,outR,outL,outR);
+	}
 	private:
 	DspFloatType sampRate; // obtained from host
 	// user set parameters

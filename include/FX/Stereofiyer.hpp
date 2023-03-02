@@ -31,6 +31,7 @@ namespace FX
         }
         void ProcessBuffer(size_t n, DspFloatType ** inputs, DspFloatType ** outputs) 
         {            
+			#pragma omp simd aligned(inputs,outputs)
             for(size_t i = 0; i < n; i++)
             {
                 DspFloatType inL,inR;

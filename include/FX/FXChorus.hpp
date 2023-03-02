@@ -157,7 +157,7 @@ struct Chorus {
             
             localWritePosition[channel] = delayWritePosition[channel];            
             phase = lfoPhase;
-            #pragma omp simd aligned(input,output)
+            #pragma omp simd aligned(input,output,channelData,delayData)
             for (int sample = 0; sample < numSamples; ++sample) 
             {                
                 size_t input_index  = numInputChannels*sample + channel;

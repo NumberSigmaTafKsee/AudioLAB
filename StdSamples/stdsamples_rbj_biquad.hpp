@@ -6,7 +6,7 @@
 #include <cmath>
 #include <iostream>
 
-namespace Filters::IIR::Biquad
+namespace Filters::IIR::RBJBiquadFilter
 {
 
     ///////////////////////////////////////////////////
@@ -24,7 +24,7 @@ namespace Filters::IIR::Biquad
         OnePoleZeroHP,        
     };
 
-    struct Parameters
+    struct RBJParameters
     {
         FilterType filterType;
         DspFloatType fs;
@@ -33,12 +33,12 @@ namespace Filters::IIR::Biquad
         DspFloatType dBGain;
     };
 
-    class Biquad : public FilterProcessor
+    class RBJBiquadFilter : public FilterProcessor
     {
     private:
         FilterType mfilterType;
         
-        Parameters mparams;
+        RBJParameters mparams;
 
         // coefficients
         DspFloatType ma0, ma1, ma2, mb0, mb1, mb2;
@@ -52,10 +52,10 @@ namespace Filters::IIR::Biquad
         void calculateCoeffs();
         
     public:
-        Biquad(){};
-        ~Biquad(){};
-        void setParams(const Parameters& params);
-        Parameters getParams();
+        RBJBiquadFilter(){};
+        ~RBJBiquadFilter(){};
+        void setParams(const RBJParameters& params);
+        RBJParameters getParams();
         DspFloatType process(DspFloatType x);
         void setFilterType(FilterType type) {
             mparams.filterType = type;
@@ -91,7 +91,7 @@ namespace Filters::IIR::Biquad
         DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0) {
             return process(I);
         }
-        void morph(Biquad & other, float f = 0.5)
+        void morph(RBJBiquadFilter & other, float f = 0.5)
         {
             ma0 = ma0 + f*(other.ma0 - ma0);
             ma1 = ma1 + f*(other.ma1 - ma1);
@@ -103,22 +103,39 @@ namespace Filters::IIR::Biquad
             mparams.Q = mparams.Q + f*(other.mparams.Q - mparams.Q);
             mparams.dBGain = mparams.dBGain + f*(other.mparams.dBGain - mparams.dBGain);
         }
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+			Undenormal denormal;
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) 
+			{			
+				const DspFloatType x = in[i];	
+				DspFloatType y = (mb0 / ma0) * x + (mb1 / ma0) * mx_z1 + (mb2 / ma0) * mx_z2 - (ma1 / ma0) * my_z1 - (ma2 / ma0) * my_z2;
+
+				mx_z2 = mx_z1;
+				mx_z1 = x;
+
+				my_z2 = my_z1;
+				my_z1 = y;
+
+				out[i] = y;
+			}
+		}
     };
 
 
 
-    inline void Biquad::setParams(const Parameters& params)
+    inline void RBJBiquadFilter::setParams(const RBJParameters& params)
     {
         mparams = params;
         calculateCoeffs();
     }
 
-    inline Parameters Biquad::getParams()
+    inline RBJParameters RBJBiquadFilter::getParams()
     {
         return mparams;
     }
 
-    inline void Biquad::calculateCoeffs()
+    inline void RBJBiquadFilter::calculateCoeffs()
     {
         DspFloatType omega0 = 2.0f * M_PI * (mparams.f0 / mparams.fs);
         DspFloatType alpha = std::sin(omega0) / (2.0 * mparams.Q);
@@ -210,7 +227,7 @@ namespace Filters::IIR::Biquad
         }
     }
 
-    inline DspFloatType Biquad::process(DspFloatType x)
+    inline DspFloatType RBJBiquadFilter::process(DspFloatType x)
     {    
         Undenormal denormal;
         DspFloatType y = (mb0 / ma0) * x + (mb1 / ma0) * mx_z1 + (mb2 / ma0) * mx_z2 - (ma1 / ma0) * my_z1 - (ma2 / ma0) * my_z2;

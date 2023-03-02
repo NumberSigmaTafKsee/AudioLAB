@@ -35,7 +35,8 @@ namespace OutputLimiter
     template<class T, int skip>
     void EnvelopeFollower::Process( size_t count, const T *src )
     {
-        while( count-- )
+		#pragma omp simd aligned(src)
+        for(size_t i = 0; i < count; i++)
         {
                 DspFloatType v=::fabs( *src );
                 src+=skip;
@@ -69,7 +70,8 @@ namespace OutputLimiter
     template<class T, int skip>
     void Limiter::Process( size_t count, T *dest )
     {
-        while( count-- )
+        #pragma omp simd aligned(dst)
+        for(size_t i = 0; i < count; i++)
         {
                 T v=*dest;
                 // don't worry, this should get optimized

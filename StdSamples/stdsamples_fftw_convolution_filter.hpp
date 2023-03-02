@@ -25,7 +25,7 @@ namespace Spectrum::ConvolutionFilter
         
     private:
         
-        fftw_complex    *data, *fft_result, *ifft_result,;	
+        fftw_complex    *data, *fft_result, *ifft_result;	
         fftw_plan       plan_forward, plan_backward;
         int             i;
         
@@ -48,7 +48,7 @@ namespace Spectrum::ConvolutionFilter
             
             // NFFT for convolution
             if (samplesPerBlock>filterLength) {
-            nfft=samplesPerBlock *2 ; 
+				nfft=samplesPerBlock *2 ; 
             }
             else {
                 nfft = filterLength *2 ;

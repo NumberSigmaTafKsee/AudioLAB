@@ -56,6 +56,7 @@ class PinkNoise {
     void *  operator new( size_t );
     void  pinkclear( );
     short int  pinkrand( );
+        
 } ;
 
 

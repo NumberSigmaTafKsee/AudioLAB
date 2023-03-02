@@ -8,11 +8,11 @@ namespace DSP::BogAudio
 
 
     struct CrossFader : public Parameter2Processor {
-		double _mix = 2.0f;
-		double _curve = 1.0f;
+		DspFloatType _mix = 2.0f;
+		DspFloatType _curve = 1.0f;
 		bool _linear = true;
-		double _aMix;
-		double _bMix;
+		DspFloatType _aMix;
+		DspFloatType _bMix;
 		Amplifier _aAmp;
 		Amplifier _bAmp;
 
@@ -21,32 +21,40 @@ namespace DSP::BogAudio
 		}
 
 		void setParams(
-			double mix, // -1 to 1, 0 for equal output of both inputs.
-			double curve = 1.0f, // -1 to 1: at -1, A will cut fully as mix goes to 0; at 0, A cuts over full mix; at 1, A cuts from 0 to 1.  B symmetric.
+			DspFloatType mix, // -1 to 1, 0 for equal output of both inputs.
+			DspFloatType curve = 1.0f, // -1 to 1: at -1, A will cut fully as mix goes to 0; at 0, A cuts over full mix; at 1, A cuts from 0 to 1.  B symmetric.
 			bool linear = true// cut is linear in amplitude if true; linear in decibels otherwise.
 		);
-		double next(double a, double b);
+		DspFloatType next(DspFloatType a, DspFloatType b);
 		enum {
 			PORT_MIX,
 			PORT_CURVE,
 			PORT_LINEAR
 		};
-		void setPort(int port, double v) {
+		void setPort(int port, DspFloatType v) {
 			switch(port) {
 				case PORT_MIX: setParams(v); break;
 				case PORT_CURVE: setParams(_mix,v); break;
 				case PORT_LINEAR: setParams(_mix,_curve,(bool)v); break;
 			}
 		}
-		double Tick(double a, double b) {			
+		DspFloatType Tick(DspFloatType a, DspFloatType b) {			
 			return next(a,b);
 		}
+		void ProcessSIMD(size_t n, DspFloatType * a, DspFloatType * b, DspFloatType * out)
+		{
+			#pragma omp simd aligned(a,b,out)
+			for(size_t i = 0; i < n; i++) {
+				out[i] = _linear? _aMix * a + _bMix * b : _aAmp.next(a) + _bAmp.next(b);
+			}
+		}
+		
 	};
 
 	struct Panner : public StereoSplitterProcessor {
-		double _pan = 2.0f;
-		double _lLevel = 0.0f;
-		double _rLevel = 0.0f;
+		DspFloatType _pan = 2.0f;
+		DspFloatType _lLevel = 0.0f;
+		DspFloatType _rLevel = 0.0f;
 		const Table& _sineTable;
 
 		Panner() : 
@@ -55,20 +63,20 @@ namespace DSP::BogAudio
 			setPan(0.0f);
 		}
 
-		void setPan(double pan); // -1.0 full left, 0.0 even, 1.0f full right.
-		void next(double sample, double& l, double& r);
+		void setPan(DspFloatType pan); // -1.0 full left, 0.0 even, 1.0f full right.
+		void next(DspFloatType sample, DspFloatType& l, DspFloatType& r);
 
 		enum {
 			PORT_PAN,			
 		};
-		void setPort(int port, double v) {
+		void setPort(int port, DspFloatType v) {
 			switch(port) {
 				case PORT_PAN: setPan(v); break;
 			}
 		}
-		double Tick(double in, double &L, double &R) {
-			double l=0;
-			double r=0;
+		DspFloatType Tick(DspFloatType in, DspFloatType &L, DspFloatType &R) {
+			DspFloatType l=0;
+			DspFloatType r=0;
 			next(in,l,r);
 			L = l;
 			R = r;
@@ -76,7 +84,7 @@ namespace DSP::BogAudio
 		}
 	};
 
-    void CrossFader::setParams(double mix, double curve, bool linear) {
+    void CrossFader::setParams(DspFloatType mix, DspFloatType curve, bool linear) {
 		assert(mix >= -1.0f && mix <= 1.0f);
 		assert(curve >= -1.0f && curve <= 1.0f);
 		if (_mix != mix || _curve != curve || _linear != linear) {
@@ -84,8 +92,8 @@ namespace DSP::BogAudio
 			_curve = curve;
 			_linear = linear;
 
-			double aMax, aMin;
-			double bMax, bMin;
+			DspFloatType aMax, aMin;
+			DspFloatType bMax, bMin;
 			if (_curve < 0.0f) {
 				aMax = 0.0f;
 				aMin = _curve + 2.0f;
@@ -99,7 +107,7 @@ namespace DSP::BogAudio
 				bMin = 0.0f;
 			}
 
-			double m = _mix + 1.0f;
+			DspFloatType m = _mix + 1.0f;
 			if (m < aMax) {
 				_aMix = 1.0f;
 			}
@@ -127,7 +135,7 @@ namespace DSP::BogAudio
 		}
 	}
 
-	double CrossFader::next(double a, double b) {
+	DspFloatType CrossFader::next(DspFloatType a, DspFloatType b) {
 		if (_linear) {
 			return _aMix * a + _bMix * b;
 		}
@@ -135,7 +143,7 @@ namespace DSP::BogAudio
 	}
 
 
-	void Panner::setPan(double pan) {
+	void Panner::setPan(DspFloatType pan) {
 		assert(pan >= -1.0f);
 		assert(pan <= 1.0f);
 		if (_pan != pan) {
@@ -145,7 +153,7 @@ namespace DSP::BogAudio
 		}
 	}
 
-	void Panner::next(double sample, double& l, double& r) {
+	void Panner::next(DspFloatType sample, DspFloatType& l, DspFloatType& r) {
 		l = _lLevel * sample;
 		r = _rLevel * sample;
 	}

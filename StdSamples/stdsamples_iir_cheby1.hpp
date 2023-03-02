@@ -1,5 +1,6 @@
 #pragma once
-#include "audio_iir_biquads.hpp"
+#include "stdsamples_iir_biquads.hpp"
+#include <complex>
 
 /*
 function genfilter(order)
@@ -10,26 +11,26 @@ function genfilter(order)
 endfunction
 */
 namespace IIRFilters::Chebyshev1
-{
-    std::complex<DSPFloatType> cheby1_2_gain(0.9826,0);
+{	
+    std::complex<DspFloatType> cheby1_2_gain = std::complex<DspFloatType>(0.9826,0);
     std::complex<DspFloatType> cheby1_2_poles[] = {
         std::complex<DspFloatType>(-0.548867,-0.895129),
         std::complex<DspFloatType>(-0.548867,0.895129),
     };
-    std::complex<DSPFloatType> cheby1_3_gain(0.4913,0);
+    std::complex<DspFloatType> cheby1_3_gain = std::complex<DspFloatType>(0.4913,0);
     std::complex<DspFloatType> cheby1_3_poles[] = {
         std::complex<DspFloatType>(-0.494171,0.000000),
         std::complex<DspFloatType>(-0.247085,-0.965999),        
         std::complex<DspFloatType>(-0.247085,0.965999),
     };
-    std::complex<DSPFloatType> cheby1_4_gain(2.4565e-01,6.1843e-18);
+    std::complex<DspFloatType> cheby1_4_gain = std::complex<DspFloatType>(2.4565e-01,6.1843e-18);
     std::complex<DspFloatType> cheby1_4_poles[] = {
         std::complex<DspFloatType>(-0.139536,-0.983379),
         std::complex<DspFloatType>(-0.336870,-0.407329),
         std::complex<DspFloatType>(-0.336870,0.407329),
         std::complex<DspFloatType>(-0.139536,0.983379),
     };
-    std::complex<DSPFloatType> cheby1_5_gain(1.2283e-01,8.6736e-18);
+    std::complex<DspFloatType> cheby1_5_gain = std::complex<DspFloatType>(1.2283e-01,8.6736e-18);
     std::complex<DspFloatType> cheby1_5_poles[] = {
         std::complex<DspFloatType>(-0.089458,-0.990107),
         std::complex<DspFloatType>(-0.234205,-0.611920),
@@ -37,7 +38,7 @@ namespace IIRFilters::Chebyshev1
         std::complex<DspFloatType>(-0.234205,0.611920),
         std::complex<DspFloatType>(-0.089458,0.990107),
     };
-    std::complex<DSPFloatType> cheby1_6_gain(6.1413e-02,-4.6382e-18);
+    std::complex<DspFloatType> cheby1_6_gain = std::complex<DspFloatType>(6.1413e-02,-4.6382e-18);
     std::complex<DspFloatType> cheby1_6_poles[] = {
         std::complex<DspFloatType>(-0.062181,-0.993411),
         std::complex<DspFloatType>(-0.169882,-0.727227),
@@ -46,7 +47,7 @@ namespace IIRFilters::Chebyshev1
         std::complex<DspFloatType>(-0.169882,0.727227),
         std::complex<DspFloatType>(-0.062181,0.993411),
     };
-    std::complex<DSPFloatType> cheby1_7_gain(3.0707e-02, 1.3010e-18);
+    std::complex<DspFloatType> cheby1_7_gain = std::complex<DspFloatType>(3.0707e-02, 1.3010e-18);
     std::complex<DspFloatType> cheby1_7_poles[] = {
         std::complex<DspFloatType>(-0.205414,0.000000),
         std::complex<DspFloatType>(-0.045709,-0.995284),
@@ -56,7 +57,7 @@ namespace IIRFilters::Chebyshev1
         std::complex<DspFloatType>(-0.128074,0.798156),
         std::complex<DspFloatType>(-0.045709,0.995284),
     };
-    std::complex<DSPFloatType> cheby1_8_gain(1.5353e-02,8.6967e-19);
+    std::complex<DspFloatType> cheby1_8_gain = std::complex<DspFloatType>(1.5353e-02,8.6967e-19);
     std::complex<DspFloatType> cheby1_8_poles[] = {
         std::complex<DspFloatType>(-0.035008,-0.996451),
         std::complex<DspFloatType>(-0.099695,-0.844751),
@@ -65,7 +66,7 @@ namespace IIRFilters::Chebyshev1
         std::complex<DspFloatType>(-0.175998,0.198206),
         std::complex<DspFloatType>(-0.149204,0.564444),
     };
-    std::complex<DSPFloatType> cheby1_gains[] = {
+    std::complex<DspFloatType> cheby1_gains[] = {
         cheby1_2_gain,
         cheby1_3_gain,
         cheby1_4_gain,
@@ -74,7 +75,7 @@ namespace IIRFilters::Chebyshev1
         cheby1_7_gain,
         cheby1_8_gain,
     };
-    std::complex<DSPFloatType> *cheby1_poles[] = {
+    std::complex<DspFloatType> *cheby1_poles[] = {
         cheby1_2_poles,
         cheby1_3_poles,
         cheby1_4_poles,
@@ -175,3 +176,4 @@ namespace IIRFilters::Chebyshev1
         }
         return sos;
     }
+}

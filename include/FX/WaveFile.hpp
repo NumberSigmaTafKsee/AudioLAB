@@ -34,6 +34,7 @@ struct WaveFile
         if(cur_pos >= buffer.size()) 
             if(loop) cur_pos = 0;
             else return;
+		#pragma omp simd aligned(buf)
         for(size_t i = cur_pos; i < cur_pos+n; i++)
         {
             if(cur_pos >= buffer.size()) break;

@@ -114,7 +114,7 @@ namespace FXDSP
             if (meter)
             {
                 *loudness = 0.0;
-
+				#pragma omp simd aligned(peaks,samples)
                 for (unsigned i = 0; i < n_channels; ++i)
                 {
                     // Calculate peak for each channel

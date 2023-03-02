@@ -1,10 +1,10 @@
 #pragma once
 
-#include "audio_iir_biquads.hpp"
+#include "stdsamples_iir_biquads.hpp"
 
 namespace IIRFilters::Ellliptic
 {
-    std::complex<DspFloatType> ellip_2_gain(3.1620e-03,0);
+    std::complex<DspFloatType> ellip_2_gain = std::complex<DspFloatType>(3.1620e-03,0);
     std::complex<DspFloatType> ellip_2_zeros[] = {
         std::complex<DspFloatType>(0.000000,7.294427),
         std::complex<DspFloatType>(-0.000000,-7.294427),
@@ -13,7 +13,7 @@ namespace IIRFilters::Ellliptic
         std::complex<DspFloatType>(-0.115703,0.720179),
         std::complex<DspFloatType>(-0.115703,-0.720179),
     };
-    std::complex<DspFloatType> ellip_3_gain(0.017775,0);
+    std::complex<DspFloatType> ellip_3_gain = std::complex<DspFloatType>(0.017775,0);
     std::complex<DspFloatType> ellip_3_zeros[] = {
         std::complex<DspFloatType>(0.000000,2.280738),
         std::complex<DspFloatType>(-0.000000,-2.280738),
@@ -23,7 +23,7 @@ namespace IIRFilters::Ellliptic
         std::complex<DspFloatType>(-0.049807,0.886094),
         std::complex<DspFloatType>(-0.049807,-0.886094),        
     };
-    std::complex<DspFloatType> ellip_4_gain(3.1620e-03,0);
+    std::complex<DspFloatType> ellip_4_gain = std::complex<DspFloatType>(3.1620e-03,0);
     std::complex<DspFloatType> ellip_4_zeros[] = {
         std::complex<DspFloatType>(0.000000,3.035120),
         std::complex<DspFloatType>(0.000000,1.433499),
@@ -36,7 +36,7 @@ namespace IIRFilters::Ellliptic
         std::complex<DspFloatType>(-0.083369,-0.450273),
         std::complex<DspFloatType>(-0.022592,-0.949851),
     };
-    std::complex<DspFloatType> ellip_5_gain(0.013033,0);
+    std::complex<DspFloatType> ellip_5_gain = std::complex<DspFloatType>(0.013033,0);
     std::complex<DspFloatType> ellip_5_zeros[] = {
         std::complex<DspFloatType>(0.000000,1.594131),
         std::complex<DspFloatType>(0.000000,1.172108),
@@ -44,13 +44,13 @@ namespace IIRFilters::Ellliptic
         std::complex<DspFloatType>(-0.000000,-1.172108),
     };
     std::complex<DspFloatType> ellip_5_poles[] = {  
-        std::complex<DspFloatType>(-0.091161,0.000000)
+        std::complex<DspFloatType>(-0.091161,0.000000),
         std::complex<DspFloatType>(-0.049256,0.720872),
         std::complex<DspFloatType>(-0.010192,0.977717),
         std::complex<DspFloatType>(-0.049256,-0.720872),
         std::complex<DspFloatType>(-0.010192,-0.977717),
     };
-    std::complex<DspFloatType> ellip_6_gain(3.1628e-03,0);
+    std::complex<DspFloatType> ellip_6_gain = std::complex<DspFloatType>(3.1628e-03,0);
     std::complex<DspFloatType> ellip_6_zeros[] = {
         std::complex<DspFloatType>(0.000000,2.663135),
         std::complex<DspFloatType>(0.000000,1.226580),
@@ -67,7 +67,7 @@ namespace IIRFilters::Ellliptic
         std::complex<DspFloatType>(-0.025369,-0.867234),
         std::complex<DspFloatType>(-0.004554,-0.990115),
     };
-    std::complex<DspFloatType> ellip_7_gain(0.012329,0);
+    std::complex<DspFloatType> ellip_7_gain = std::complex<DspFloatType>(0.012329,0);
     std::complex<DspFloatType> ellip_7_zeros[] = {
         std::complex<DspFloatType>(0.000000,1.505495),
         std::complex<DspFloatType>(0.000000,1.094314),
@@ -75,7 +75,7 @@ namespace IIRFilters::Ellliptic
         std::complex<DspFloatType>(-0.000000,-1.505495),
         std::complex<DspFloatType>(-0.000000,-1.094314),
         std::complex<DspFloatType>(-0.000000,-1.031498),
-    }
+    };
     std::complex<DspFloatType> ellip_7_poles[] = {  
         std::complex<DspFloatType>(-0.086432,0.000000),
         std::complex<DspFloatType>(-0.047099,0.684688),
@@ -85,7 +85,7 @@ namespace IIRFilters::Ellliptic
         std::complex<DspFloatType>(-0.012071,-0.939200),
         std::complex<DspFloatType>(-0.002024,-0.995621),        
     };
-    std::complex<DspFloatType> ellip_8_gain(3.1628e-03,0);
+    std::complex<DspFloatType> ellip_8_gain = std::complex<DspFloatType>(3.1628e-03,0);
     std::complex<DspFloatType> ellip_8_zeros[] = {
         std::complex<DspFloatType>(0.000000,2.599225),
         std::complex<DspFloatType>(0.000000,1.196001),
@@ -95,7 +95,7 @@ namespace IIRFilters::Ellliptic
         std::complex<DspFloatType>(-0.000000,-1.196001),
         std::complex<DspFloatType>(-0.000000,-1.040615),
         std::complex<DspFloatType>(-0.000000,-1.013796),
-    }
+    };
     std::complex<DspFloatType> ellip_8_poles[] = {  
         std::complex<DspFloatType>(-0.072877,0.391644),
         std::complex<DspFloatType>(-0.024974,0.847710),
@@ -143,8 +143,8 @@ namespace IIRFilters::Ellliptic
         BiquadSOS sos;  
         if(order < 2) order = 2;
         if(order > 8) order = 8;
-        std::complex<DspFloatType> * czeros[] = ellip_zeros[order-1];          
-        std::complex<DspFloatType> * cpoles[] = ellip_poles[order-1];          
+        std::complex<DspFloatType> * czeros = ellip_zeros[order-1];          
+        std::complex<DspFloatType> * cpoles = ellip_poles[order-1];          
         size_t n = 0;
         if(order %2 != 0) {
             BiquadSection c;

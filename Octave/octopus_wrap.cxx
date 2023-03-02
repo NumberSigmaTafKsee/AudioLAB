@@ -2909,17 +2909,17 @@ using namespace Octopus;
     }    
 
 
-#include <string>
-#include <algorithm>
-#include <iostream>
-
-
 SWIGINTERN int SWIG_lua_isnilstring(lua_State *L, int idx) {
   int ret = lua_isstring(L, idx);
   if (!ret)
    ret = lua_isnil(L, idx);
   return ret;
 }
+
+
+#include <string>
+#include <algorithm>
+#include <iostream>
 
 SWIGINTERN char std_string___getitem____SWIG(std::string *self,size_t i){ return (*self)[i]; }
 SWIGINTERN void std_string___setitem____SWIG(std::string *self,size_t i,char c){ (*self)[i] = c; }
@@ -2996,25 +2996,25 @@ namespace std {
         void set_value(const T& val) { *iter = val; }
     };
 }
-SWIGINTERN float std_vector_Sl_float_Sg____getitem____SWIG(std::vector< float > *self,size_t i){ return (*self)[i-1]; }
-SWIGINTERN void std_vector_Sl_float_Sg____setitem____SWIG(std::vector< float > *self,size_t i,float val){ (*self)[i-1] = val; }
-SWIGINTERN std::vector_iterator< float,std::allocator< float > > std_vector_Sl_float_Sg__ibegin__SWIG(std::vector< float > *self){
+SWIGINTERN float std_vector_Sl_float_Sg____paren____SWIG(std::vector< float > *self,size_t i){ return (*self)[i-1]; }
+SWIGINTERN void std_vector_Sl_float_Sg____paren_asgn____SWIG(std::vector< float > *self,size_t i,float val){ (*self)[i-1] = val; }
+SWIGINTERN std::vector_iterator< float,std::allocator< float > > std_vector_Sl_float_Sg__iter_begin__SWIG(std::vector< float > *self){
                 std::vector_iterator<float,std::allocator< float >> r(*self,self->begin());                
                 return r;
             }
-SWIGINTERN std::vector_iterator< float,std::allocator< float > > std_vector_Sl_float_Sg__iend__SWIG(std::vector< float > *self){
+SWIGINTERN std::vector_iterator< float,std::allocator< float > > std_vector_Sl_float_Sg__iter_end__SWIG(std::vector< float > *self){
                 std::vector_iterator<float,std::allocator< float >> r(*self,self->end());                
                 return r;
             }
 SWIGINTERN void std_vector_Sl_float_Sg__erase__SWIG_0(std::vector< float > *self,size_t i){ self->erase(self->begin()+i-1); }
 SWIGINTERN void std_vector_Sl_float_Sg__erase__SWIG_1(std::vector< float > *self,size_t i,size_t n){ self->erase(self->begin()+i-1,self->begin()+n-1); }
-SWIGINTERN double std_vector_Sl_double_Sg____getitem____SWIG(std::vector< double > *self,size_t i){ return (*self)[i-1]; }
-SWIGINTERN void std_vector_Sl_double_Sg____setitem____SWIG(std::vector< double > *self,size_t i,double val){ (*self)[i-1] = val; }
-SWIGINTERN std::vector_iterator< double,std::allocator< double > > std_vector_Sl_double_Sg__ibegin__SWIG(std::vector< double > *self){
+SWIGINTERN double std_vector_Sl_double_Sg____paren____SWIG(std::vector< double > *self,size_t i){ return (*self)[i-1]; }
+SWIGINTERN void std_vector_Sl_double_Sg____paren_asgn____SWIG(std::vector< double > *self,size_t i,double val){ (*self)[i-1] = val; }
+SWIGINTERN std::vector_iterator< double,std::allocator< double > > std_vector_Sl_double_Sg__iter_begin__SWIG(std::vector< double > *self){
                 std::vector_iterator<double,std::allocator< double >> r(*self,self->begin());                
                 return r;
             }
-SWIGINTERN std::vector_iterator< double,std::allocator< double > > std_vector_Sl_double_Sg__iend__SWIG(std::vector< double > *self){
+SWIGINTERN std::vector_iterator< double,std::allocator< double > > std_vector_Sl_double_Sg__iter_end__SWIG(std::vector< double > *self){
                 std::vector_iterator<double,std::allocator< double >> r(*self,self->end());                
                 return r;
             }
@@ -4164,6 +4164,568 @@ Octopus::OctopusValueList* convert_octave_value_list(lua_State * L)
 #ifdef __cplusplus
 extern "C" {
 #endif
+static int _wrap_crealf(lua_State* L) {
+  int SWIG_arg = 0;
+  std::complex< float > *arg1 = 0 ;
+  float result;
+  
+  SWIG_check_num_args("std::real< float >",1,1)
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::real< float >",1,"std::complex< float > const &");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("crealf",1,SWIGTYPE_p_std__complexT_float_t);
+  }
+  
+  result = (float)std::SWIGTEMPLATEDISAMBIGUATOR real< float >((std::complex< float > const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_cimagf(lua_State* L) {
+  int SWIG_arg = 0;
+  std::complex< float > *arg1 = 0 ;
+  float result;
+  
+  SWIG_check_num_args("std::imag< float >",1,1)
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::imag< float >",1,"std::complex< float > const &");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("cimagf",1,SWIGTYPE_p_std__complexT_float_t);
+  }
+  
+  result = (float)std::SWIGTEMPLATEDISAMBIGUATOR imag< float >((std::complex< float > const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_cabsf(lua_State* L) {
+  int SWIG_arg = 0;
+  std::complex< float > *arg1 = 0 ;
+  float result;
+  
+  SWIG_check_num_args("std::abs< float >",1,1)
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::abs< float >",1,"std::complex< float > const &");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("cabsf",1,SWIGTYPE_p_std__complexT_float_t);
+  }
+  
+  result = (float)std::SWIGTEMPLATEDISAMBIGUATOR abs< float >((std::complex< float > const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_cargf(lua_State* L) {
+  int SWIG_arg = 0;
+  std::complex< float > *arg1 = 0 ;
+  float result;
+  
+  SWIG_check_num_args("std::arg< float >",1,1)
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::arg< float >",1,"std::complex< float > const &");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("cargf",1,SWIGTYPE_p_std__complexT_float_t);
+  }
+  
+  result = (float)std::SWIGTEMPLATEDISAMBIGUATOR arg< float >((std::complex< float > const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_cnormf(lua_State* L) {
+  int SWIG_arg = 0;
+  std::complex< float > *arg1 = 0 ;
+  float result;
+  
+  SWIG_check_num_args("std::norm< float >",1,1)
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::norm< float >",1,"std::complex< float > const &");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("cnormf",1,SWIGTYPE_p_std__complexT_float_t);
+  }
+  
+  result = (float)std::SWIGTEMPLATEDISAMBIGUATOR norm< float >((std::complex< float > const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_cprojf(lua_State* L) {
+  int SWIG_arg = 0;
+  std::complex< float > *arg1 = 0 ;
+  std::complex< float > result;
+  
+  SWIG_check_num_args("std::proj< float >",1,1)
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::proj< float >",1,"std::complex< float > const &");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("cprojf",1,SWIGTYPE_p_std__complexT_float_t);
+  }
+  
+  result = std::SWIGTEMPLATEDISAMBIGUATOR proj< float >((std::complex< float > const &)*arg1);
+  {
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
+  }
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_cpolarf__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  std::complex< float > result;
+  
+  SWIG_check_num_args("std::polar< float >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("std::polar< float >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("std::polar< float >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = std::SWIGTEMPLATEDISAMBIGUATOR polar< float >((float const &)*arg1,(float const &)*arg2);
+  {
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
+  }
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_cpolarf__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  std::complex< float > result;
+  
+  SWIG_check_num_args("std::polar< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("std::polar< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = std::SWIGTEMPLATEDISAMBIGUATOR polar< float >((float const &)*arg1);
+  {
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
+  }
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_cpolarf(lua_State* L) {
+  int argc;
+  int argv[3]={
+    1,2,3
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 1) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      return _wrap_cpolarf__SWIG_1(L);
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    {
+      _v = lua_isnumber(L,argv[0]);
+    }
+    if (_v) {
+      {
+        _v = lua_isnumber(L,argv[1]);
+      }
+      if (_v) {
+        return _wrap_cpolarf__SWIG_0(L);
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'cpolarf'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    std::polar< float >(float const &,float const &)\n"
+    "    std::polar< float >(float const &)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_csinf(lua_State* L) {
+  int SWIG_arg = 0;
+  std::complex< float > *arg1 = 0 ;
+  std::complex< float > result;
+  
+  SWIG_check_num_args("std::sin< float >",1,1)
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::sin< float >",1,"std::complex< float > const &");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("csinf",1,SWIGTYPE_p_std__complexT_float_t);
+  }
+  
+  result = std::SWIGTEMPLATEDISAMBIGUATOR sin< float >((std::complex< float > const &)*arg1);
+  {
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
+  }
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_ccosf(lua_State* L) {
+  int SWIG_arg = 0;
+  std::complex< float > *arg1 = 0 ;
+  std::complex< float > result;
+  
+  SWIG_check_num_args("std::cos< float >",1,1)
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::cos< float >",1,"std::complex< float > const &");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("ccosf",1,SWIGTYPE_p_std__complexT_float_t);
+  }
+  
+  result = std::SWIGTEMPLATEDISAMBIGUATOR cos< float >((std::complex< float > const &)*arg1);
+  {
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
+  }
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_ctanf(lua_State* L) {
+  int SWIG_arg = 0;
+  std::complex< float > *arg1 = 0 ;
+  std::complex< float > result;
+  
+  SWIG_check_num_args("std::tan< float >",1,1)
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::tan< float >",1,"std::complex< float > const &");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("ctanf",1,SWIGTYPE_p_std__complexT_float_t);
+  }
+  
+  result = std::SWIGTEMPLATEDISAMBIGUATOR tan< float >((std::complex< float > const &)*arg1);
+  {
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
+  }
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_casinf(lua_State* L) {
+  int SWIG_arg = 0;
+  std::complex< float > *arg1 = 0 ;
+  std::complex< float > result;
+  
+  SWIG_check_num_args("std::asin< float >",1,1)
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::asin< float >",1,"std::complex< float > const &");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("casinf",1,SWIGTYPE_p_std__complexT_float_t);
+  }
+  
+  result = std::SWIGTEMPLATEDISAMBIGUATOR asin< float >((std::complex< float > const &)*arg1);
+  {
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
+  }
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_cacosf(lua_State* L) {
+  int SWIG_arg = 0;
+  std::complex< float > *arg1 = 0 ;
+  std::complex< float > result;
+  
+  SWIG_check_num_args("std::acos< float >",1,1)
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::acos< float >",1,"std::complex< float > const &");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("cacosf",1,SWIGTYPE_p_std__complexT_float_t);
+  }
+  
+  result = std::SWIGTEMPLATEDISAMBIGUATOR acos< float >((std::complex< float > const &)*arg1);
+  {
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
+  }
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_catanf(lua_State* L) {
+  int SWIG_arg = 0;
+  std::complex< float > *arg1 = 0 ;
+  std::complex< float > result;
+  
+  SWIG_check_num_args("std::atan< float >",1,1)
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::atan< float >",1,"std::complex< float > const &");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("catanf",1,SWIGTYPE_p_std__complexT_float_t);
+  }
+  
+  result = std::SWIGTEMPLATEDISAMBIGUATOR atan< float >((std::complex< float > const &)*arg1);
+  {
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
+  }
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_csinhf(lua_State* L) {
+  int SWIG_arg = 0;
+  std::complex< float > *arg1 = 0 ;
+  std::complex< float > result;
+  
+  SWIG_check_num_args("std::sinh< float >",1,1)
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::sinh< float >",1,"std::complex< float > const &");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("csinhf",1,SWIGTYPE_p_std__complexT_float_t);
+  }
+  
+  result = std::SWIGTEMPLATEDISAMBIGUATOR sinh< float >((std::complex< float > const &)*arg1);
+  {
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
+  }
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_ccoshf(lua_State* L) {
+  int SWIG_arg = 0;
+  std::complex< float > *arg1 = 0 ;
+  std::complex< float > result;
+  
+  SWIG_check_num_args("std::cosh< float >",1,1)
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::cosh< float >",1,"std::complex< float > const &");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("ccoshf",1,SWIGTYPE_p_std__complexT_float_t);
+  }
+  
+  result = std::SWIGTEMPLATEDISAMBIGUATOR cosh< float >((std::complex< float > const &)*arg1);
+  {
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
+  }
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_ctanhf(lua_State* L) {
+  int SWIG_arg = 0;
+  std::complex< float > *arg1 = 0 ;
+  std::complex< float > result;
+  
+  SWIG_check_num_args("std::tanh< float >",1,1)
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::tanh< float >",1,"std::complex< float > const &");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("ctanhf",1,SWIGTYPE_p_std__complexT_float_t);
+  }
+  
+  result = std::SWIGTEMPLATEDISAMBIGUATOR tanh< float >((std::complex< float > const &)*arg1);
+  {
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
+  }
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_casinhf(lua_State* L) {
+  int SWIG_arg = 0;
+  std::complex< float > *arg1 = 0 ;
+  std::complex< float > result;
+  
+  SWIG_check_num_args("std::asinh< float >",1,1)
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::asinh< float >",1,"std::complex< float > const &");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("casinhf",1,SWIGTYPE_p_std__complexT_float_t);
+  }
+  
+  result = std::SWIGTEMPLATEDISAMBIGUATOR asinh< float >((std::complex< float > const &)*arg1);
+  {
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
+  }
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_cacoshf(lua_State* L) {
+  int SWIG_arg = 0;
+  std::complex< float > *arg1 = 0 ;
+  std::complex< float > result;
+  
+  SWIG_check_num_args("std::acosh< float >",1,1)
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::acosh< float >",1,"std::complex< float > const &");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("cacoshf",1,SWIGTYPE_p_std__complexT_float_t);
+  }
+  
+  result = std::SWIGTEMPLATEDISAMBIGUATOR acosh< float >((std::complex< float > const &)*arg1);
+  {
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
+  }
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_catanhf(lua_State* L) {
+  int SWIG_arg = 0;
+  std::complex< float > *arg1 = 0 ;
+  std::complex< float > result;
+  
+  SWIG_check_num_args("std::atanh< float >",1,1)
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::atanh< float >",1,"std::complex< float > const &");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("catanhf",1,SWIGTYPE_p_std__complexT_float_t);
+  }
+  
+  result = std::SWIGTEMPLATEDISAMBIGUATOR atanh< float >((std::complex< float > const &)*arg1);
+  {
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
+  }
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static int _wrap_float_numeric_limits_min(lua_State* L) {
   int SWIG_arg = 0;
   std::numeric_limits< float > *arg1 = (std::numeric_limits< float > *) 0 ;
@@ -7042,6 +7604,2997 @@ fail:
 }
 
 
+static int _wrap_absf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::abs< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::abs< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR abs< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_cubef(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::cube< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::cube< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR cube< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_sqrtf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::sqrt< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::sqrt< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR sqrt< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_expf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::exp< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::exp< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR exp< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_exp2f(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::exp2< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::exp2< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR exp2< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_logf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::log< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::log< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR log< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_log10f(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::log10< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::log10< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR log10< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_log2f(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::log2< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::log2< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR log2< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_logbf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::logb< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::logb< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR logb< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_powf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::pow< float >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::pow< float >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::pow< float >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR pow< float >((float const &)*arg1,(float const &)*arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_floorf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::floor< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::floor< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR floor< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_acosf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::acos< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::acos< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR acos< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_asinf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::asin< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::asin< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR asin< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_atanf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::atan< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::atan< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR atan< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_atan2f(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::atan2< float >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::atan2< float >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::atan2< float >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR atan2< float >((float const &)*arg1,(float const &)*arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_cosf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::cos< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::cos< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR cos< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_sinf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::sin< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::sin< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR sin< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_tanf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::tan< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::tan< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR tan< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_coshf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::cosh< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::cosh< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR cosh< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_sinhf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::sinh< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::sinh< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR sinh< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_tanhf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::tanh< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::tanh< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR tanh< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_lgammaf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::lgamma< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::lgamma< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR lgamma< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_acoshf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::acosh< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::acosh< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR acosh< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_asinhf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::asinh< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::asinh< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR asinh< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_atanhf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::atanh< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::atanh< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR atanh< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_cbrtf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::cbrt< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::cbrt< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR cbrt< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_ceilf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::cbrt< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::cbrt< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR cbrt< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_copysignf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::copysign< float >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::copysign< float >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::copysign< float >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR copysign< float >((float const &)*arg1,(float const &)*arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_erff(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::erf< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::erf< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR erf< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_erfcf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::erfc< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::erfc< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR erfc< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_expm1f(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::expm1< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::expm1< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR expm1< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_fdimf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::fdim< float >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::fdim< float >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::fdim< float >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR fdim< float >((float const &)*arg1,(float const &)*arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_fmaf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float *arg3 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  float temp3 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::fma< float >",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::fma< float >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::fma< float >",2,"float const &");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("Ops::fma< float >",3,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  temp3=(float)lua_tonumber(L,3); arg3=&temp3;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR fma< float >((float const &)*arg1,(float const &)*arg2,(float const &)*arg3);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_fmaxf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::fmax< float >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::fmax< float >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::fmax< float >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR fmax< float >((float const &)*arg1,(float const &)*arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_fminf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::fmin< float >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::fmin< float >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::fmin< float >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR fmin< float >((float const &)*arg1,(float const &)*arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_fmodf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::fmod< float >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::fmod< float >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::fmod< float >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR fmod< float >((float const &)*arg1,(float const &)*arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_fpclassifyf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  int result;
+  
+  SWIG_check_num_args("Ops::fpclassify< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::fpclassify< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (int)Ops::SWIGTEMPLATEDISAMBIGUATOR fpclassify< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_hypotf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::hypot< float >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::hypot< float >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::hypot< float >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR hypot< float >((float const &)*arg1,(float const &)*arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_ilogbf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  int result;
+  
+  SWIG_check_num_args("Ops::ilogb< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::ilogb< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (int)Ops::SWIGTEMPLATEDISAMBIGUATOR ilogb< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_isfinitef(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  bool result;
+  
+  SWIG_check_num_args("Ops::isfinite< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isfinite< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isfinite< float >((float const &)*arg1);
+  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_isgreaterf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  bool result;
+  
+  SWIG_check_num_args("Ops::isgreater< float >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isgreater< float >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::isgreater< float >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isgreater< float >((float const &)*arg1,(float const &)*arg2);
+  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_isgreaterequalf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  bool result;
+  
+  SWIG_check_num_args("Ops::isgreaterequal< float >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isgreaterequal< float >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::isgreaterequal< float >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isgreaterequal< float >((float const &)*arg1,(float const &)*arg2);
+  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_isinff(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  bool result;
+  
+  SWIG_check_num_args("Ops::isinf< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isinf< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isinf< float >((float const &)*arg1);
+  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_islessf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  bool result;
+  
+  SWIG_check_num_args("Ops::isless< float >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isless< float >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::isless< float >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isless< float >((float const &)*arg1,(float const &)*arg2);
+  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_islessequalf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  bool result;
+  
+  SWIG_check_num_args("Ops::islessequal< float >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::islessequal< float >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::islessequal< float >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR islessequal< float >((float const &)*arg1,(float const &)*arg2);
+  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_isnanf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  bool result;
+  
+  SWIG_check_num_args("Ops::isnan< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isnan< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isnan< float >((float const &)*arg1);
+  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_isnormalf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  bool result;
+  
+  SWIG_check_num_args("Ops::isnormal< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isnormal< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isnormal< float >((float const &)*arg1);
+  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_isunorderedf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  bool result;
+  
+  SWIG_check_num_args("Ops::isunordered< float >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isunordered< float >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::isunordered< float >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isunordered< float >((float const &)*arg1,(float const &)*arg2);
+  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_ldexpf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  int arg2 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::ldexp< float >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::ldexp< float >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::ldexp< float >",2,"int");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  arg2 = (int)lua_tonumber(L, 2);
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR ldexp< float >((float const &)*arg1,arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_llrintf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::llrint< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::llrint< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR llrint< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_llroundf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::llround< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::llround< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR llround< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_log1pf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::log1p< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::log1p< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR log1p< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_lrintf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::lrint< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::lrint< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR lrint< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_lroundf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::lround< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::lround< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR lround< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_nanf(lua_State* L) {
+  int SWIG_arg = 0;
+  char *arg1 = (char *) 0 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::nan< float >",1,1)
+  if(!SWIG_lua_isnilstring(L,1)) SWIG_fail_arg("Ops::nan< float >",1,"char const *");
+  arg1 = (char *)lua_tostring(L, 1);
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR nan< float >((char const *)arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_nanff(lua_State* L) {
+  int SWIG_arg = 0;
+  char *arg1 = (char *) 0 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::nanf< float >",1,1)
+  if(!SWIG_lua_isnilstring(L,1)) SWIG_fail_arg("Ops::nanf< float >",1,"char const *");
+  arg1 = (char *)lua_tostring(L, 1);
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR nanf< float >((char const *)arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_nanlf(lua_State* L) {
+  int SWIG_arg = 0;
+  char *arg1 = (char *) 0 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::nanl< float >",1,1)
+  if(!SWIG_lua_isnilstring(L,1)) SWIG_fail_arg("Ops::nanl< float >",1,"char const *");
+  arg1 = (char *)lua_tostring(L, 1);
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR nanl< float >((char const *)arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_nearbyintf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::nearbyint< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::nearbyint< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR nearbyint< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_nextafterf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::nextafter< float >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::nextafter< float >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::nextafter< float >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR nextafter< float >((float const &)*arg1,(float const &)*arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_nexttowardf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::nexttoward< float >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::nexttoward< float >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::nexttoward< float >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR nexttoward< float >((float const &)*arg1,(float const &)*arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_remainderf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::remainder< float >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::remainder< float >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::remainder< float >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR remainder< float >((float const &)*arg1,(float const &)*arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_rintf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::rint< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::rint< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR rint< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_roundf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::round< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::round< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR round< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_scalblnf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  long arg2 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::scalbln< float >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::scalbln< float >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::scalbln< float >",2,"long");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  arg2 = (long)lua_tonumber(L, 2);
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR scalbln< float >((float const &)*arg1,arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_scalbnf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  int arg2 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::scalbn< float >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::scalbn< float >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::scalbn< float >",2,"int");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  arg2 = (int)lua_tonumber(L, 2);
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR scalbn< float >((float const &)*arg1,arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_squaref(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::square< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::square< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR square< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_tgammaf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::tgamma< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::tgamma< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR tgamma< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_truncf(lua_State* L) {
+  int SWIG_arg = 0;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
+  
+  SWIG_check_num_args("Ops::trunc< float >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::trunc< float >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR trunc< float >((float const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_absd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::abs< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::abs< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR abs< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_sqrtd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::sqrt< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::sqrt< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR sqrt< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_expd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::exp< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::exp< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR exp< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_exp2d(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::exp2< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::exp2< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR exp2< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_logd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::log< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::log< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR log< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_log10d(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::log10< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::log10< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR log10< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_log2d(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::log2< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::log2< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR log2< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_logbd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::logb< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::logb< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR logb< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_powd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double *arg2 = 0 ;
+  double temp1 ;
+  double temp2 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::pow< double >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::pow< double >",1,"double const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::pow< double >",2,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR pow< double >((double const &)*arg1,(double const &)*arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_floord(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::floor< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::floor< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR floor< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_acosd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::acos< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::acos< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR acos< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_asind(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::asin< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::asin< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR asin< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_atand(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::atan< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::atan< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR atan< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_atan2d(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double *arg2 = 0 ;
+  double temp1 ;
+  double temp2 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::atan2< double >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::atan2< double >",1,"double const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::atan2< double >",2,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR atan2< double >((double const &)*arg1,(double const &)*arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_cosd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::cos< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::cos< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR cos< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_sind(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::sin< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::sin< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR sin< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_tand(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::tan< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::tan< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR tan< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_coshd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::cosh< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::cosh< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR cosh< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_sinhd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::sinh< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::sinh< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR sinh< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_tanhd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::tanh< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::tanh< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR tanh< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_lgammad(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::lgamma< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::lgamma< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR lgamma< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_acoshd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::acosh< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::acosh< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR acosh< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_asinhd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::asinh< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::asinh< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR asinh< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_atanhd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::atanh< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::atanh< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR atanh< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_cbrtd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::cbrt< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::cbrt< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR cbrt< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_ceild(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::cbrt< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::cbrt< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR cbrt< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_copysignd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double *arg2 = 0 ;
+  double temp1 ;
+  double temp2 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::copysign< double >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::copysign< double >",1,"double const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::copysign< double >",2,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR copysign< double >((double const &)*arg1,(double const &)*arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_erfd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::erf< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::erf< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR erf< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_erfcd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::erfc< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::erfc< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR erfc< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_expm1d(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::expm1< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::expm1< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR expm1< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_fdimd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double *arg2 = 0 ;
+  double temp1 ;
+  double temp2 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::fdim< double >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::fdim< double >",1,"double const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::fdim< double >",2,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR fdim< double >((double const &)*arg1,(double const &)*arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_fmad(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double *arg2 = 0 ;
+  double *arg3 = 0 ;
+  double temp1 ;
+  double temp2 ;
+  double temp3 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::fma< double >",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::fma< double >",1,"double const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::fma< double >",2,"double const &");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("Ops::fma< double >",3,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
+  temp3=(double)lua_tonumber(L,3); arg3=&temp3;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR fma< double >((double const &)*arg1,(double const &)*arg2,(double const &)*arg3);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_fmaxd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double *arg2 = 0 ;
+  double temp1 ;
+  double temp2 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::fmax< double >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::fmax< double >",1,"double const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::fmax< double >",2,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR fmax< double >((double const &)*arg1,(double const &)*arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_fmind(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double *arg2 = 0 ;
+  double temp1 ;
+  double temp2 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::fmin< double >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::fmin< double >",1,"double const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::fmin< double >",2,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR fmin< double >((double const &)*arg1,(double const &)*arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_fmodd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double *arg2 = 0 ;
+  double temp1 ;
+  double temp2 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::fmod< double >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::fmod< double >",1,"double const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::fmod< double >",2,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR fmod< double >((double const &)*arg1,(double const &)*arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_fpclassifyd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  int result;
+  
+  SWIG_check_num_args("Ops::fpclassify< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::fpclassify< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (int)Ops::SWIGTEMPLATEDISAMBIGUATOR fpclassify< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_hypotd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double *arg2 = 0 ;
+  double temp1 ;
+  double temp2 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::hypot< double >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::hypot< double >",1,"double const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::hypot< double >",2,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR hypot< double >((double const &)*arg1,(double const &)*arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_ilogbd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  int result;
+  
+  SWIG_check_num_args("Ops::ilogb< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::ilogb< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (int)Ops::SWIGTEMPLATEDISAMBIGUATOR ilogb< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_isfinited(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  bool result;
+  
+  SWIG_check_num_args("Ops::isfinite< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isfinite< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isfinite< double >((double const &)*arg1);
+  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_isgreaterd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double *arg2 = 0 ;
+  double temp1 ;
+  double temp2 ;
+  bool result;
+  
+  SWIG_check_num_args("Ops::isgreater< double >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isgreater< double >",1,"double const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::isgreater< double >",2,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isgreater< double >((double const &)*arg1,(double const &)*arg2);
+  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_isgreaterequald(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double *arg2 = 0 ;
+  double temp1 ;
+  double temp2 ;
+  bool result;
+  
+  SWIG_check_num_args("Ops::isgreaterequal< double >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isgreaterequal< double >",1,"double const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::isgreaterequal< double >",2,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isgreaterequal< double >((double const &)*arg1,(double const &)*arg2);
+  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_isinfd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  bool result;
+  
+  SWIG_check_num_args("Ops::isinf< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isinf< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isinf< double >((double const &)*arg1);
+  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_islessd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double *arg2 = 0 ;
+  double temp1 ;
+  double temp2 ;
+  bool result;
+  
+  SWIG_check_num_args("Ops::isless< double >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isless< double >",1,"double const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::isless< double >",2,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isless< double >((double const &)*arg1,(double const &)*arg2);
+  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_islessequald(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double *arg2 = 0 ;
+  double temp1 ;
+  double temp2 ;
+  bool result;
+  
+  SWIG_check_num_args("Ops::islessequal< double >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::islessequal< double >",1,"double const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::islessequal< double >",2,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR islessequal< double >((double const &)*arg1,(double const &)*arg2);
+  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_isnand(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  bool result;
+  
+  SWIG_check_num_args("Ops::isnan< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isnan< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isnan< double >((double const &)*arg1);
+  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_isnormald(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  bool result;
+  
+  SWIG_check_num_args("Ops::isnormal< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isnormal< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isnormal< double >((double const &)*arg1);
+  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_isunorderedd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double *arg2 = 0 ;
+  double temp1 ;
+  double temp2 ;
+  bool result;
+  
+  SWIG_check_num_args("Ops::isunordered< double >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isunordered< double >",1,"double const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::isunordered< double >",2,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isunordered< double >((double const &)*arg1,(double const &)*arg2);
+  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_ldexpd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  int arg2 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::ldexp< double >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::ldexp< double >",1,"double const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::ldexp< double >",2,"int");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  arg2 = (int)lua_tonumber(L, 2);
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR ldexp< double >((double const &)*arg1,arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_llrintd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::llrint< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::llrint< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR llrint< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_llroundd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::llround< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::llround< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR llround< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_log1pd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::log1p< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::log1p< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR log1p< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_lrintd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::lrint< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::lrint< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR lrint< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_lroundd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::lround< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::lround< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR lround< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_nand(lua_State* L) {
+  int SWIG_arg = 0;
+  char *arg1 = (char *) 0 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::nan< double >",1,1)
+  if(!SWIG_lua_isnilstring(L,1)) SWIG_fail_arg("Ops::nan< double >",1,"char const *");
+  arg1 = (char *)lua_tostring(L, 1);
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR nan< double >((char const *)arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_nanfd(lua_State* L) {
+  int SWIG_arg = 0;
+  char *arg1 = (char *) 0 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::nanf< double >",1,1)
+  if(!SWIG_lua_isnilstring(L,1)) SWIG_fail_arg("Ops::nanf< double >",1,"char const *");
+  arg1 = (char *)lua_tostring(L, 1);
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR nanf< double >((char const *)arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_nanld(lua_State* L) {
+  int SWIG_arg = 0;
+  char *arg1 = (char *) 0 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::nanl< double >",1,1)
+  if(!SWIG_lua_isnilstring(L,1)) SWIG_fail_arg("Ops::nanl< double >",1,"char const *");
+  arg1 = (char *)lua_tostring(L, 1);
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR nanl< double >((char const *)arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_nearbyintd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::nearbyint< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::nearbyint< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR nearbyint< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_nextafterd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double *arg2 = 0 ;
+  double temp1 ;
+  double temp2 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::nextafter< double >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::nextafter< double >",1,"double const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::nextafter< double >",2,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR nextafter< double >((double const &)*arg1,(double const &)*arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_nexttowardd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double *arg2 = 0 ;
+  double temp1 ;
+  double temp2 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::nexttoward< double >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::nexttoward< double >",1,"double const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::nexttoward< double >",2,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR nexttoward< double >((double const &)*arg1,(double const &)*arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_remainderd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double *arg2 = 0 ;
+  double temp1 ;
+  double temp2 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::remainder< double >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::remainder< double >",1,"double const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::remainder< double >",2,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR remainder< double >((double const &)*arg1,(double const &)*arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_rintd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::rint< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::rint< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR rint< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_roundd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::round< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::round< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR round< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_scalblnd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  long arg2 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::scalbln< double >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::scalbln< double >",1,"double const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::scalbln< double >",2,"long");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  arg2 = (long)lua_tonumber(L, 2);
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR scalbln< double >((double const &)*arg1,arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_scalbnd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  int arg2 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::scalbn< double >",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::scalbn< double >",1,"double const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::scalbn< double >",2,"int");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  arg2 = (int)lua_tonumber(L, 2);
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR scalbn< double >((double const &)*arg1,arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_squared(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::square< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::square< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR square< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_tgammad(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::tgamma< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::tgamma< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR tgamma< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_truncd(lua_State* L) {
+  int SWIG_arg = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double result;
+  
+  SWIG_check_num_args("Ops::trunc< double >",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::trunc< double >",1,"double const &");
+  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR trunc< double >((double const &)*arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static int _wrap_new_string__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
   std::string *result = 0 ;
@@ -8445,23 +11998,23 @@ static int _wrap_new_float_vector(lua_State* L) {
 }
 
 
-static int _wrap_float_vector___getitem(lua_State* L) {
+static int _wrap_float_vector___paren__(lua_State* L) {
   int SWIG_arg = 0;
   std::vector< float > *arg1 = (std::vector< float > *) 0 ;
   size_t arg2 ;
   float result;
   
-  SWIG_check_num_args("std::vector< float >::__getitem__",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("std::vector< float >::__getitem__",1,"std::vector< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("std::vector< float >::__getitem__",2,"size_t");
+  SWIG_check_num_args("std::vector< float >::__paren__",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("std::vector< float >::__paren__",1,"std::vector< float > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("std::vector< float >::__paren__",2,"size_t");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t,0))){
-    SWIG_fail_ptr("float_vector___getitem",1,SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t);
+    SWIG_fail_ptr("float_vector___paren__",1,SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
-  result = (float)std_vector_Sl_float_Sg____getitem____SWIG(arg1,arg2);
+  result = (float)std_vector_Sl_float_Sg____paren____SWIG(arg1,arg2);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -8473,25 +12026,25 @@ fail:
 }
 
 
-static int _wrap_float_vector___setitem(lua_State* L) {
+static int _wrap_float_vector___paren_asgn__(lua_State* L) {
   int SWIG_arg = 0;
   std::vector< float > *arg1 = (std::vector< float > *) 0 ;
   size_t arg2 ;
   float arg3 ;
   
-  SWIG_check_num_args("std::vector< float >::__setitem__",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("std::vector< float >::__setitem__",1,"std::vector< float > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("std::vector< float >::__setitem__",2,"size_t");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("std::vector< float >::__setitem__",3,"float");
+  SWIG_check_num_args("std::vector< float >::__paren_asgn__",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("std::vector< float >::__paren_asgn__",1,"std::vector< float > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("std::vector< float >::__paren_asgn__",2,"size_t");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("std::vector< float >::__paren_asgn__",3,"float");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t,0))){
-    SWIG_fail_ptr("float_vector___setitem",1,SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t);
+    SWIG_fail_ptr("float_vector___paren_asgn__",1,SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   arg3 = (float)lua_tonumber(L, 3);
-  std_vector_Sl_float_Sg____setitem____SWIG(arg1,arg2,arg3);
+  std_vector_Sl_float_Sg____paren_asgn____SWIG(arg1,arg2,arg3);
   
   return SWIG_arg;
   
@@ -8503,19 +12056,19 @@ fail:
 }
 
 
-static int _wrap_float_vector_ibegin(lua_State* L) {
+static int _wrap_float_vector_iter_begin(lua_State* L) {
   int SWIG_arg = 0;
   std::vector< float > *arg1 = (std::vector< float > *) 0 ;
   SwigValueWrapper< std::vector_iterator< float,std::allocator< float > > > result;
   
-  SWIG_check_num_args("std::vector< float >::ibegin",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("std::vector< float >::ibegin",1,"std::vector< float > *");
+  SWIG_check_num_args("std::vector< float >::iter_begin",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("std::vector< float >::iter_begin",1,"std::vector< float > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t,0))){
-    SWIG_fail_ptr("float_vector_ibegin",1,SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t);
+    SWIG_fail_ptr("float_vector_iter_begin",1,SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t);
   }
   
-  result = std_vector_Sl_float_Sg__ibegin__SWIG(arg1);
+  result = std_vector_Sl_float_Sg__iter_begin__SWIG(arg1);
   {
     std::vector_iterator< float,std::allocator< float > > * resultptr = new std::vector_iterator< float,std::allocator< float > >((const std::vector_iterator< float,std::allocator< float > > &) result);
     SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__vector_iteratorT_float_std__allocatorT_float_t_t,1); SWIG_arg++;
@@ -8530,19 +12083,19 @@ fail:
 }
 
 
-static int _wrap_float_vector_iend(lua_State* L) {
+static int _wrap_float_vector_iter_end(lua_State* L) {
   int SWIG_arg = 0;
   std::vector< float > *arg1 = (std::vector< float > *) 0 ;
   SwigValueWrapper< std::vector_iterator< float,std::allocator< float > > > result;
   
-  SWIG_check_num_args("std::vector< float >::iend",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("std::vector< float >::iend",1,"std::vector< float > *");
+  SWIG_check_num_args("std::vector< float >::iter_end",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("std::vector< float >::iter_end",1,"std::vector< float > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t,0))){
-    SWIG_fail_ptr("float_vector_iend",1,SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t);
+    SWIG_fail_ptr("float_vector_iter_end",1,SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t);
   }
   
-  result = std_vector_Sl_float_Sg__iend__SWIG(arg1);
+  result = std_vector_Sl_float_Sg__iter_end__SWIG(arg1);
   {
     std::vector_iterator< float,std::allocator< float > > * resultptr = new std::vector_iterator< float,std::allocator< float > >((const std::vector_iterator< float,std::allocator< float > > &) result);
     SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__vector_iteratorT_float_std__allocatorT_float_t_t,1); SWIG_arg++;
@@ -9097,10 +12650,10 @@ static swig_lua_attribute swig_float_vector_attributes[] = {
     {0,0,0}
 };
 static swig_lua_method swig_float_vector_methods[]= {
-    { "__getitem", _wrap_float_vector___getitem},
-    { "__setitem", _wrap_float_vector___setitem},
-    { "ibegin", _wrap_float_vector_ibegin},
-    { "iend", _wrap_float_vector_iend},
+    { "__paren__", _wrap_float_vector___paren__},
+    { "__paren_asgn__", _wrap_float_vector___paren_asgn__},
+    { "iter_begin", _wrap_float_vector_iter_begin},
+    { "iter_end", _wrap_float_vector_iter_end},
     { "erase", _wrap_float_vector_erase},
     { "front", _wrap_float_vector_front},
     { "back", _wrap_float_vector_back},
@@ -9121,8 +12674,8 @@ static swig_lua_method swig_float_vector_methods[]= {
     {0,0}
 };
 static swig_lua_method swig_float_vector_meta[] = {
-    { "__getitem", _wrap_float_vector___getitem},
-    { "__setitem", _wrap_float_vector___setitem},
+    { "__paren__", _wrap_float_vector___paren__},
+    { "__paren_asgn__", _wrap_float_vector___paren_asgn__},
     {0,0}
 };
 
@@ -9296,23 +12849,23 @@ static int _wrap_new_double_vector(lua_State* L) {
 }
 
 
-static int _wrap_double_vector___getitem(lua_State* L) {
+static int _wrap_double_vector___paren__(lua_State* L) {
   int SWIG_arg = 0;
   std::vector< double > *arg1 = (std::vector< double > *) 0 ;
   size_t arg2 ;
   double result;
   
-  SWIG_check_num_args("std::vector< double >::__getitem__",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("std::vector< double >::__getitem__",1,"std::vector< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("std::vector< double >::__getitem__",2,"size_t");
+  SWIG_check_num_args("std::vector< double >::__paren__",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("std::vector< double >::__paren__",1,"std::vector< double > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("std::vector< double >::__paren__",2,"size_t");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t,0))){
-    SWIG_fail_ptr("double_vector___getitem",1,SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t);
+    SWIG_fail_ptr("double_vector___paren__",1,SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
-  result = (double)std_vector_Sl_double_Sg____getitem____SWIG(arg1,arg2);
+  result = (double)std_vector_Sl_double_Sg____paren____SWIG(arg1,arg2);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -9324,25 +12877,25 @@ fail:
 }
 
 
-static int _wrap_double_vector___setitem(lua_State* L) {
+static int _wrap_double_vector___paren_asgn__(lua_State* L) {
   int SWIG_arg = 0;
   std::vector< double > *arg1 = (std::vector< double > *) 0 ;
   size_t arg2 ;
   double arg3 ;
   
-  SWIG_check_num_args("std::vector< double >::__setitem__",3,3)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("std::vector< double >::__setitem__",1,"std::vector< double > *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("std::vector< double >::__setitem__",2,"size_t");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("std::vector< double >::__setitem__",3,"double");
+  SWIG_check_num_args("std::vector< double >::__paren_asgn__",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("std::vector< double >::__paren_asgn__",1,"std::vector< double > *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("std::vector< double >::__paren_asgn__",2,"size_t");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("std::vector< double >::__paren_asgn__",3,"double");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t,0))){
-    SWIG_fail_ptr("double_vector___setitem",1,SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t);
+    SWIG_fail_ptr("double_vector___paren_asgn__",1,SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   arg3 = (double)lua_tonumber(L, 3);
-  std_vector_Sl_double_Sg____setitem____SWIG(arg1,arg2,arg3);
+  std_vector_Sl_double_Sg____paren_asgn____SWIG(arg1,arg2,arg3);
   
   return SWIG_arg;
   
@@ -9354,19 +12907,19 @@ fail:
 }
 
 
-static int _wrap_double_vector_ibegin(lua_State* L) {
+static int _wrap_double_vector_iter_begin(lua_State* L) {
   int SWIG_arg = 0;
   std::vector< double > *arg1 = (std::vector< double > *) 0 ;
   SwigValueWrapper< std::vector_iterator< double,std::allocator< double > > > result;
   
-  SWIG_check_num_args("std::vector< double >::ibegin",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("std::vector< double >::ibegin",1,"std::vector< double > *");
+  SWIG_check_num_args("std::vector< double >::iter_begin",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("std::vector< double >::iter_begin",1,"std::vector< double > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t,0))){
-    SWIG_fail_ptr("double_vector_ibegin",1,SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t);
+    SWIG_fail_ptr("double_vector_iter_begin",1,SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t);
   }
   
-  result = std_vector_Sl_double_Sg__ibegin__SWIG(arg1);
+  result = std_vector_Sl_double_Sg__iter_begin__SWIG(arg1);
   {
     std::vector_iterator< double,std::allocator< double > > * resultptr = new std::vector_iterator< double,std::allocator< double > >((const std::vector_iterator< double,std::allocator< double > > &) result);
     SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__vector_iteratorT_double_std__allocatorT_double_t_t,1); SWIG_arg++;
@@ -9381,19 +12934,19 @@ fail:
 }
 
 
-static int _wrap_double_vector_iend(lua_State* L) {
+static int _wrap_double_vector_iter_end(lua_State* L) {
   int SWIG_arg = 0;
   std::vector< double > *arg1 = (std::vector< double > *) 0 ;
   SwigValueWrapper< std::vector_iterator< double,std::allocator< double > > > result;
   
-  SWIG_check_num_args("std::vector< double >::iend",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("std::vector< double >::iend",1,"std::vector< double > *");
+  SWIG_check_num_args("std::vector< double >::iter_end",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("std::vector< double >::iter_end",1,"std::vector< double > *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t,0))){
-    SWIG_fail_ptr("double_vector_iend",1,SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t);
+    SWIG_fail_ptr("double_vector_iter_end",1,SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t);
   }
   
-  result = std_vector_Sl_double_Sg__iend__SWIG(arg1);
+  result = std_vector_Sl_double_Sg__iter_end__SWIG(arg1);
   {
     std::vector_iterator< double,std::allocator< double > > * resultptr = new std::vector_iterator< double,std::allocator< double > >((const std::vector_iterator< double,std::allocator< double > > &) result);
     SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__vector_iteratorT_double_std__allocatorT_double_t_t,1); SWIG_arg++;
@@ -9948,10 +13501,10 @@ static swig_lua_attribute swig_double_vector_attributes[] = {
     {0,0,0}
 };
 static swig_lua_method swig_double_vector_methods[]= {
-    { "__getitem", _wrap_double_vector___getitem},
-    { "__setitem", _wrap_double_vector___setitem},
-    { "ibegin", _wrap_double_vector_ibegin},
-    { "iend", _wrap_double_vector_iend},
+    { "__paren__", _wrap_double_vector___paren__},
+    { "__paren_asgn__", _wrap_double_vector___paren_asgn__},
+    { "iter_begin", _wrap_double_vector_iter_begin},
+    { "iter_end", _wrap_double_vector_iter_end},
     { "erase", _wrap_double_vector_erase},
     { "front", _wrap_double_vector_front},
     { "back", _wrap_double_vector_back},
@@ -9972,8 +13525,8 @@ static swig_lua_method swig_double_vector_methods[]= {
     {0,0}
 };
 static swig_lua_method swig_double_vector_meta[] = {
-    { "__getitem", _wrap_double_vector___getitem},
-    { "__setitem", _wrap_double_vector___setitem},
+    { "__paren__", _wrap_double_vector___paren__},
+    { "__paren_asgn__", _wrap_double_vector___paren_asgn__},
     {0,0}
 };
 
@@ -71350,10 +74903,164 @@ static swig_lua_const_info swig_SwigModule_constants[]= {
     {0,0,0,0,0,0}
 };
 static swig_lua_method swig_SwigModule_methods[]= {
+    { "crealf", _wrap_crealf},
+    { "cimagf", _wrap_cimagf},
+    { "cabsf", _wrap_cabsf},
+    { "cargf", _wrap_cargf},
+    { "cnormf", _wrap_cnormf},
+    { "cprojf", _wrap_cprojf},
+    { "cpolarf", _wrap_cpolarf},
+    { "csinf", _wrap_csinf},
+    { "ccosf", _wrap_ccosf},
+    { "ctanf", _wrap_ctanf},
+    { "casinf", _wrap_casinf},
+    { "cacosf", _wrap_cacosf},
+    { "catanf", _wrap_catanf},
+    { "csinhf", _wrap_csinhf},
+    { "ccoshf", _wrap_ccoshf},
+    { "ctanhf", _wrap_ctanhf},
+    { "casinhf", _wrap_casinhf},
+    { "cacoshf", _wrap_cacoshf},
+    { "catanhf", _wrap_catanhf},
     { "Huge", _wrap_Huge},
     { "Hugef", _wrap_Hugef},
     { "Infinity", _wrap_Infinity},
     { "NaN", _wrap_NaN},
+    { "absf", _wrap_absf},
+    { "cubef", _wrap_cubef},
+    { "sqrtf", _wrap_sqrtf},
+    { "expf", _wrap_expf},
+    { "exp2f", _wrap_exp2f},
+    { "logf", _wrap_logf},
+    { "log10f", _wrap_log10f},
+    { "log2f", _wrap_log2f},
+    { "logbf", _wrap_logbf},
+    { "powf", _wrap_powf},
+    { "floorf", _wrap_floorf},
+    { "acosf", _wrap_acosf},
+    { "asinf", _wrap_asinf},
+    { "atanf", _wrap_atanf},
+    { "atan2f", _wrap_atan2f},
+    { "cosf", _wrap_cosf},
+    { "sinf", _wrap_sinf},
+    { "tanf", _wrap_tanf},
+    { "coshf", _wrap_coshf},
+    { "sinhf", _wrap_sinhf},
+    { "tanhf", _wrap_tanhf},
+    { "lgammaf", _wrap_lgammaf},
+    { "acoshf", _wrap_acoshf},
+    { "asinhf", _wrap_asinhf},
+    { "atanhf", _wrap_atanhf},
+    { "cbrtf", _wrap_cbrtf},
+    { "ceilf", _wrap_ceilf},
+    { "copysignf", _wrap_copysignf},
+    { "erff", _wrap_erff},
+    { "erfcf", _wrap_erfcf},
+    { "expm1f", _wrap_expm1f},
+    { "fdimf", _wrap_fdimf},
+    { "fmaf", _wrap_fmaf},
+    { "fmaxf", _wrap_fmaxf},
+    { "fminf", _wrap_fminf},
+    { "fmodf", _wrap_fmodf},
+    { "fpclassifyf", _wrap_fpclassifyf},
+    { "hypotf", _wrap_hypotf},
+    { "ilogbf", _wrap_ilogbf},
+    { "isfinitef", _wrap_isfinitef},
+    { "isgreaterf", _wrap_isgreaterf},
+    { "isgreaterequalf", _wrap_isgreaterequalf},
+    { "isinff", _wrap_isinff},
+    { "islessf", _wrap_islessf},
+    { "islessequalf", _wrap_islessequalf},
+    { "isnanf", _wrap_isnanf},
+    { "isnormalf", _wrap_isnormalf},
+    { "isunorderedf", _wrap_isunorderedf},
+    { "ldexpf", _wrap_ldexpf},
+    { "llrintf", _wrap_llrintf},
+    { "llroundf", _wrap_llroundf},
+    { "log1pf", _wrap_log1pf},
+    { "lrintf", _wrap_lrintf},
+    { "lroundf", _wrap_lroundf},
+    { "nanf", _wrap_nanf},
+    { "nanff", _wrap_nanff},
+    { "nanlf", _wrap_nanlf},
+    { "nearbyintf", _wrap_nearbyintf},
+    { "nextafterf", _wrap_nextafterf},
+    { "nexttowardf", _wrap_nexttowardf},
+    { "remainderf", _wrap_remainderf},
+    { "rintf", _wrap_rintf},
+    { "roundf", _wrap_roundf},
+    { "scalblnf", _wrap_scalblnf},
+    { "scalbnf", _wrap_scalbnf},
+    { "squaref", _wrap_squaref},
+    { "tgammaf", _wrap_tgammaf},
+    { "truncf", _wrap_truncf},
+    { "absd", _wrap_absd},
+    { "sqrtd", _wrap_sqrtd},
+    { "expd", _wrap_expd},
+    { "exp2d", _wrap_exp2d},
+    { "logd", _wrap_logd},
+    { "log10d", _wrap_log10d},
+    { "log2d", _wrap_log2d},
+    { "logbd", _wrap_logbd},
+    { "powd", _wrap_powd},
+    { "floord", _wrap_floord},
+    { "acosd", _wrap_acosd},
+    { "asind", _wrap_asind},
+    { "atand", _wrap_atand},
+    { "atan2d", _wrap_atan2d},
+    { "cosd", _wrap_cosd},
+    { "sind", _wrap_sind},
+    { "tand", _wrap_tand},
+    { "coshd", _wrap_coshd},
+    { "sinhd", _wrap_sinhd},
+    { "tanhd", _wrap_tanhd},
+    { "lgammad", _wrap_lgammad},
+    { "acoshd", _wrap_acoshd},
+    { "asinhd", _wrap_asinhd},
+    { "atanhd", _wrap_atanhd},
+    { "cbrtd", _wrap_cbrtd},
+    { "ceild", _wrap_ceild},
+    { "copysignd", _wrap_copysignd},
+    { "erfd", _wrap_erfd},
+    { "erfcd", _wrap_erfcd},
+    { "expm1d", _wrap_expm1d},
+    { "fdimd", _wrap_fdimd},
+    { "fmad", _wrap_fmad},
+    { "fmaxd", _wrap_fmaxd},
+    { "fmind", _wrap_fmind},
+    { "fmodd", _wrap_fmodd},
+    { "fpclassifyd", _wrap_fpclassifyd},
+    { "hypotd", _wrap_hypotd},
+    { "ilogbd", _wrap_ilogbd},
+    { "isfinited", _wrap_isfinited},
+    { "isgreaterd", _wrap_isgreaterd},
+    { "isgreaterequald", _wrap_isgreaterequald},
+    { "isinfd", _wrap_isinfd},
+    { "islessd", _wrap_islessd},
+    { "islessequald", _wrap_islessequald},
+    { "isnand", _wrap_isnand},
+    { "isnormald", _wrap_isnormald},
+    { "isunorderedd", _wrap_isunorderedd},
+    { "ldexpd", _wrap_ldexpd},
+    { "llrintd", _wrap_llrintd},
+    { "llroundd", _wrap_llroundd},
+    { "log1pd", _wrap_log1pd},
+    { "lrintd", _wrap_lrintd},
+    { "lroundd", _wrap_lroundd},
+    { "nand", _wrap_nand},
+    { "nanfd", _wrap_nanfd},
+    { "nanld", _wrap_nanld},
+    { "nearbyintd", _wrap_nearbyintd},
+    { "nextafterd", _wrap_nextafterd},
+    { "nexttowardd", _wrap_nexttowardd},
+    { "remainderd", _wrap_remainderd},
+    { "rintd", _wrap_rintd},
+    { "roundd", _wrap_roundd},
+    { "scalblnd", _wrap_scalblnd},
+    { "scalbnd", _wrap_scalbnd},
+    { "squared", _wrap_squared},
+    { "tgammad", _wrap_tgammad},
+    { "truncd", _wrap_truncd},
     { "evalFunc", _wrap_evalFunc},
     { "convert_octave_value_list", _wrap_convert_octave_value_list},
     {0,0}

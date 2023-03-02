@@ -31,8 +31,7 @@ struct FourierWave : public OscillatorProcessor
     void SetSaw(DspFloatType f) {
         size_t max_harmonics = (sr/2)/f;
         memset(F,0,n*sizeof(DspFloatType));
-        memset(A,0,n*sizeof(DspFloatType));   
-        #pragma omp simd     
+        memset(A,0,n*sizeof(DspFloatType));           
         for(size_t i = 1; i < max_harmonics; i++)
         {
             F[i-1] = i*f;
@@ -42,8 +41,7 @@ struct FourierWave : public OscillatorProcessor
     void SetSquare(DspFloatType f) {
         size_t max_harmonics = (sr/2)/f;
         memset(F,0,n*sizeof(DspFloatType));
-        memset(A,0,n*sizeof(DspFloatType));        
-        #pragma omp simd
+        memset(A,0,n*sizeof(DspFloatType));                
         for(size_t i = 1; i < max_harmonics; i++)
         {                
             F[i-1] = i*f;
@@ -54,8 +52,7 @@ struct FourierWave : public OscillatorProcessor
     void SetTriangle(DspFloatType f) {
         size_t max_harmonics = (sr/2)/f;
         memset(F,0,n*sizeof(DspFloatType));
-        memset(A,0,n*sizeof(DspFloatType));        
-        #pragma omp simd
+        memset(A,0,n*sizeof(DspFloatType));                
         for(size_t i = 1; i < max_harmonics; i++)
         {                
             F[i-1] = i*f;
@@ -71,8 +68,7 @@ struct FourierWave : public OscillatorProcessor
         A[0] = 1.0f;
     }
     DspFloatType Tick(DspFloatType Index=1, DspFloatType G=1, DspFloatType FM=1, DspFloatType PM=1) {
-        DspFloatType r = 0.0f;
-        #pragma omp simd
+        DspFloatType r = 0.0f;        
         for(size_t i = 0; i < n; i++) {
             if(F[i] == 0.0f) break;       
             wave.SetPhase(P[i]);                         
@@ -82,7 +78,23 @@ struct FourierWave : public OscillatorProcessor
         }
         return G*r;
     }
-    void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+    void ProcessSIMD(size_t n(size_t n, DspFloatType * in, DspFloatType * out) {
+        #pragma omp simd aligned(in,out)
+        for(size_t s = 0; s < n; s++)
+        {
+			DspFloatType r = 0.0f;        
+			for(size_t i = 0; i < n; i++) {
+				if(F[i] == 0.0f) break;       
+				wave.SetPhase(P[i]);                         
+				P[i] += F[i]/sr;
+				if(P[i] >= 1.0f) P[i] -= 1.0f;                
+				r += Index*wave.Tick();
+			}
+			out[i] = r;
+			if(in) out[i] *= in[i];
+		}
+	}
+    void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {		
         #pragma omp simd aligned(in,out)
         for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
     }

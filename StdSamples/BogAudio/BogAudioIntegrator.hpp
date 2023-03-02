@@ -7,28 +7,32 @@ namespace DSP::BogAudio
 
 
 	struct Integrator : public FunctionProcessor{
-		double _alpha = 0.0f;
-		double _last = 0.0f;
+		DspFloatType _alpha = 0.0f;
+		DspFloatType _last = 0.0f;
 
-		Integrator(double alpha = 1.0f) : FunctionProcessor() {
+		Integrator(DspFloatType alpha = 1.0f) : FunctionProcessor() {
 			setParams(alpha);
 		}
 
-		void setParams(double alpha);
-		double next(double sample);
+		void setParams(DspFloatType alpha);
+		DspFloatType next(DspFloatType sample);
 
-		double Tick(double I, double A=1, double X=1, double  Y=1) {
+		DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType  Y=1) {
 			return next(I);
+		}		
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
 		}
 	};
 
- 	void Integrator::setParams(double alpha) {
+ 	void Integrator::setParams(DspFloatType alpha) {
 		assert(alpha >= 0.0f);
 		assert(alpha <= 1.0f);
 		_alpha = alpha;
 	}
 
-	double Integrator::next(double sample) {
+	DspFloatType Integrator::next(DspFloatType sample) {
 		// "leaky integrator"
 		return _last = (1.0f - _alpha)*_last + _alpha*sample;
 	}

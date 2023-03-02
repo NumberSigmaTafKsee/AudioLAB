@@ -35,7 +35,7 @@ namespace FXDSP
         T rsq = (T)0.0;
         T denom = (T)0.0;
 
-        #pragma omp simd
+        #pragma omp simd aligned(left,right)
         for (unsigned i = 0; i < n_samples; ++i)
         {
             T left_sample = left[i];

@@ -67,7 +67,6 @@ namespace JoonasFX
 			#pragma omp simd aligned(input,output)
 			for (auto sample = 0; sample < numSamples; ++sample)
 			{
-
 				inputValue = input[sample];
 				DspFloatType b0 = (1.f + p) / 2.f;
 				DspFloatType b2 = -1.f * b0;

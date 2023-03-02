@@ -100,6 +100,14 @@ namespace DSP::BogAudio
 
 		inline static phase_delta_t radiansToPhase(double radians) { return (radians / twoPI) * cyclePhase; }
 		inline static double phaseToRadians(phase_t phase) { return (phase / (double)cyclePhase) * twoPI; }
+		
+		DspFloatType Tick(DspFloatType I=1, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {
+			return A*_next();
+		}
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
 	};
 
 
@@ -150,6 +158,14 @@ namespace DSP::BogAudio
 		void setPhase(double phase);
 		void update();
 		double _next() override;
+		
+		DspFloatType Tick(DspFloatType I=1, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {
+			return A*_next();
+		}
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
 	};
 
     
@@ -357,6 +373,14 @@ namespace DSP::BogAudio
 		void _sampleRateChanged() override;
 		void _frequencyChanged() override;
 		double next(Phasor::phase_t phaseOffset = 0.0f);
+		
+		DspFloatType Tick(DspFloatType I=1, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {
+			return A*next();
+		}
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
 	};
 
 
@@ -394,6 +418,14 @@ namespace DSP::BogAudio
 		void _sampleRateChanged() override;
 		double _next() override;
 		void reset();
+		
+		DspFloatType Tick(DspFloatType I=1, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {
+			return A*_next();
+		}
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
 	};
 
     
@@ -431,6 +463,14 @@ namespace DSP::BogAudio
 		void update();
 		double _next() override;
 		void reset();
+		
+		DspFloatType Tick(DspFloatType I=1, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {
+			return A*_next();
+		}
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
 	};
 
 	void Phasor::setSampleWidth(double sw) {

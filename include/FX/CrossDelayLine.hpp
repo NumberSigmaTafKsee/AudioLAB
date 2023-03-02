@@ -68,11 +68,8 @@ namespace FX::Delays
             // Y = writePos modulation
             return A*next(I);
         }
-        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
-        {
-			#pragma omp simd aligned(in,out)
-            for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
-        }
+     
+     
     private:
         int writePos, readPosA, MAX_DELAY_SAMPLES;
         DspFloatType delay_ms, delay_samples, fraction, feedback, mixLevel, MAX_DELAY_MS, feedbackIn;

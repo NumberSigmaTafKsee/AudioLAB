@@ -11,6 +11,7 @@ endfunction
 */
 
 #include "stdsamples_iir_biquads.hpp"
+
 namespace IIRFilters::Butterworth
 {
     std::complex<DspFloatType> butter_2_poles[] = {
@@ -320,76 +321,5 @@ namespace IIRFilters::Butterworth
             c.p[2] = 1.0/x1;        
 
             return c;
-        }
-        BiquadSection butterlp2hp2(double Q=1.0)
-        {    
-            std::complex<DspFloatType> * bpoles = butter_poles[0];
-
-            std::complex<DspFloatType> p1  = bpoles[0];
-            std::complex<DspFloatType> p2  = bpoles[1];
-        
-            std::vector<std::complex<DspFloatType>> zeros,poles;
-            poles.push_back(p1);
-            poles.push_back(p2);
-            DspFloatType gain;
-            lp2hp(zeros,poles,1.0,gain);
-            // (1-z)(1-z) = 1 -z1-z2 +z1z2
-            BiquadSection c;        
-            DspFloatType x1 = abs(poles[0]*poles[1]);
-            c.z[0] = gain*abs(zeros[0]*zeros[1])/x1;
-            c.z[1] = gain*abs(-zeros[0]-zeros[1])/x1;
-            c.z[2] = 1.0/x1;
-            c.p[0] = 1.0;
-            c.p[1] = (1.0/Q)*abs(-poles[0]-poles[1])/x1;
-            c.p[2] = 1.0/x1;
-
-            return c;
-        }
-        BiquadSection butterlp2bp2(double Q=1.0)
-        {    
-            std::complex<DspFloatType> * bpoles = butter_poles[0];
-
-            std::complex<DspFloatType> p1  = bpoles[0];
-            std::complex<DspFloatType> p2  = bpoles[1];
-        
-            std::vector<std::complex<DspFloatType>> zeros,poles;
-            poles.push_back(p1);
-            poles.push_back(p2);
-            DspFloatType gain;
-            // i dont not really know what this should be normalized 1.0,0 or 1.0,0.5?
-            lp2bp(zeros,poles,1.0,0.5,gain);
-            // (1-z)(1-z) = 1 -z1-z2 +z1z2
-            BiquadSection c;        
-            DspFloatType x1 = abs(poles[0]*poles[1]);
-            c.z[0] = gain*abs(zeros[0]*zeros[1])/x1;
-            c.z[1] = gain*abs(-zeros[0]-zeros[1])/x1;
-            c.z[2] = 1.0/x1;
-            c.p[0] = 1.0;
-            c.p[1] = (1.0/Q)*abs(-poles[0]-poles[1])/x1;
-            c.p[2] = 1.0/x1;
-            return c;
-        }
-        BiquadSection butterlp2bs2(double Q=1.0)
-        {    
-            std::complex<DspFloatType> * bpoles = butter_poles[0];
-
-            std::complex<DspFloatType> p1  = bpoles[0];
-            std::complex<DspFloatType> p2  = bpoles[1];
-        
-            std::vector<std::complex<DspFloatType>> zeros,poles;
-            poles.push_back(p1);
-            poles.push_back(p2);
-            DspFloatType gain;
-            lp2bs(zeros,poles,1.0,0.5,gain);
-            // (1-z)(1-z) = 1 -z1-z2 +z1z2
-            BiquadSection c;        
-            DspFloatType x1 = abs(poles[0]*poles[1]);
-            c.z[0] = gain*abs(zeros[0]*zeros[1])/x1;
-            c.z[1] = gain*abs(-zeros[0]-zeros[1])/x1;
-            c.z[2] = 1.0/x1;
-            c.p[0] = 1.0;
-            c.p[1] = (1.0/Q)*abs(-poles[0]-poles[1])/x1;
-            c.p[2] = 1.0/x1;
-            return c;
-        }
+        }      
 }

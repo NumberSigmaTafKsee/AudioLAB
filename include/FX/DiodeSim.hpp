@@ -111,8 +111,7 @@ namespace FX::Distortion::Diode
 	{
 		DspFloatType dIf = 1.0f;
 		DspFloatType fOverId = 1.0f / Id;
-
-		#pragma omp simd
+		
 		for(uint uiDiode = 0; uiDiode < nDiodes; uiDiode++)
 			if(Id > aafDiodeParams[0][uiDiode])
 				dIf += fOverId * aafCachedParams[1][uiDiode] * fOverR2;

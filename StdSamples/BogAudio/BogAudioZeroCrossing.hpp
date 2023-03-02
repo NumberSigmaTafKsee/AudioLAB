@@ -6,8 +6,8 @@
 namespace DSP::BogAudio
 {
 	struct PositiveZeroCrossing {
-		const float positiveThreshold = 0.01f;
-		const float negativeThreshold = -positiveThreshold;
+		const DspFloatType positiveThreshold = 0.01f;
+		const DspFloatType negativeThreshold = -positiveThreshold;
 		const int zeroesForReset = 20;
 
 		enum State {
@@ -26,11 +26,11 @@ namespace DSP::BogAudio
 			reset();
 		}
 
-		bool next(float sample);
+		bool next(DspFloatType sample);
 		void reset();
 	};
 
-    	bool PositiveZeroCrossing::next(float sample) {
+    	bool PositiveZeroCrossing::next(DspFloatType sample) {
 		switch (_state) {
 			case NEGATIVE_STATE: {
 				if (sample > positiveThreshold) {

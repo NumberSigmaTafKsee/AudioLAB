@@ -47,8 +47,8 @@ namespace FXDSP
             T TWO_VT_INV = 1.0 / (2 * Vt);
             T TWO_VT_G = 2 * Vt * (1 - exp(-TWO_PI * cutoff / sample_rate));
             
-            // Filter audio
-            #pragma omp simd
+            // Filter audio 
+            #pragma omp simd aligned(inBuffer,outBuffer)
             for (unsigned i = 0; i < n; ++i)
             {
 

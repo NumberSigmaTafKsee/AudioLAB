@@ -1,0 +1,3 @@
+/home/james5/Audio/AudioLAB/Electric-Frankenstein/build/CMakeFiles/frankentorch.dir
+/home/james5/Audio/AudioLAB/Electric-Frankenstein/build/CMakeFiles/edit_cache.dir
+/home/james5/Audio/AudioLAB/Electric-Frankenstein/build/CMakeFiles/rebuild_cache.dir

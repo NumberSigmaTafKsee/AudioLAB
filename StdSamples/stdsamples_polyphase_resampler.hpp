@@ -5,7 +5,7 @@
 #include <string.h>
 #include <math.h>
 
-namespace Resampler::Polyphase
+namespace Polyphase
 {
     typedef enum {
         FIR_LOWPASS,

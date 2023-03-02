@@ -1,7 +1,8 @@
 typedef float DspFloatType;
 #include "StdSamples/stdsamples.hpp"
-#include "StdSamples/stdsamples_fvec.hpp"
 #include "StdSamples/stdsamples_vectorize.hpp"
+#include "StdSamples/stdsamples_vector_funcs.hpp"
+#include "StdSamples/stdsamples_vector_ptr.hpp"
 #include "StdSamples/stdsamples_hirestimer.hpp"
 #include <iomanip>
 

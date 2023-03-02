@@ -222,145 +222,72 @@ void Chorus::setSweep()
 inline
 void Chorus::process(DspFloatType &inL, DspFloatType &inR)
 {
-		// assemble input value and store it in circle queue
-		_bufferL[writeIndex] = inL;
-		_bufferR[writeIndex] = inR;
-		
-		writeIndex = (writeIndex + 1) & (MAXBUFFERSIZE-1);
+	// assemble input value and store it in circle queue
+	_bufferL[writeIndex] = inL;
+	_bufferR[writeIndex] = inR;
+	
+	writeIndex = (writeIndex + 1) & (MAXBUFFERSIZE-1);
 
-		// build the two emptying pointers and do linear interpolation
-		int ep1, ep2;
-		DspFloatType w1, w2;
-		DspFloatType ep = writeIndex - _sweep;
-		
-		MODF(ep, ep1, w2);
-		
-		ep1 &= (MAXBUFFERSIZE-1);
-		ep2 = ep1 + 1;
-		ep2 &= (MAXBUFFERSIZE-1);
-		
-		w1 = 1.0 - w2;
-		
-		DspFloatType outL = _bufferL[ep1] * w1 + _bufferL[ep2] * w2;
-		DspFloatType outR = _bufferL[ep1] *w1 + _bufferR[ep2] * w2;
+	// build the two emptying pointers and do linear interpolation
+	int ep1, ep2;
+	DspFloatType w1, w2;
+	DspFloatType ep = writeIndex - _sweep;
+	
+	MODF(ep, ep1, w2);
+	
+	ep1 &= (MAXBUFFERSIZE-1);
+	ep2 = ep1 + 1;
+	ep2 &= (MAXBUFFERSIZE-1);
+	
+	w1 = 1.0 - w2;
+	
+	DspFloatType outL = _bufferL[ep1] * w1 + _bufferL[ep2] * w2;
+	DspFloatType outR = _bufferL[ep1] *w1 + _bufferR[ep2] * w2;
 
-		// develop output wet
-		inL = (DspFloatType)(paramWetLevel * outL + (1 - paramWetLevel) * inL);
-		inR = (DspFloatType)(paramWetLevel * outR + (1 - paramWetLevel) * inR);
+	// develop output wet
+	inL = (DspFloatType)(paramWetLevel * outL + (1 - paramWetLevel) * inL);
+	inR = (DspFloatType)(paramWetLevel * outR + (1 - paramWetLevel) * inR);
 
-		// increment the sweep
-		_sweep += _step;
-		if( _sweep >= _maxSweepSamples || _sweep <= _minSweepSamples )
-		{
-			_step = -_step;
-		}
-
+	// increment the sweep
+	_sweep += _step;
+	if( _sweep >= _maxSweepSamples || _sweep <= _minSweepSamples )
+	{
+		_step = -_step;
+	}
 }
 
 inline
 void Chorus::process(DspFloatType &in)
 {
-		// assemble input value and store it in circle queue
-		_bufferL[writeIndex] = in;
-		
-		writeIndex = (writeIndex + 1) & (MAXBUFFERSIZE-1);
+	// assemble input value and store it in circle queue
+	_bufferL[writeIndex] = in;
+	
+	writeIndex = (writeIndex + 1) & (MAXBUFFERSIZE-1);
 
-		// build the two emptying pointers and do linear interpolation
-		int ep1, ep2;
-		DspFloatType w1, w2;
-		DspFloatType ep = writeIndex - _sweep;
-		
-		MODF(ep, ep1, w2);
-		
-		ep1 &= (MAXBUFFERSIZE-1);
-		ep2 = ep1 + 1;
-		ep2 &= (MAXBUFFERSIZE-1);
-		
-		w1 = 1.0 - w2;
-		
-		DspFloatType outL = _bufferL[ep1] * w1 + _bufferL[ep2] * w2;
-		DspFloatType outR = _bufferL[ep1] *w1 + _bufferR[ep2] * w2;
+	// build the two emptying pointers and do linear interpolation
+	int ep1, ep2;
+	DspFloatType w1, w2;
+	DspFloatType ep = writeIndex - _sweep;
+	
+	MODF(ep, ep1, w2);
+	
+	ep1 &= (MAXBUFFERSIZE-1);
+	ep2 = ep1 + 1;
+	ep2 &= (MAXBUFFERSIZE-1);
+	
+	w1 = 1.0 - w2;
+	
+	DspFloatType outL = _bufferL[ep1] * w1 + _bufferL[ep2] * w2;
+	DspFloatType outR = _bufferL[ep1] *w1 + _bufferR[ep2] * w2;
 
-		// develop output wet
-		in = (DspFloatType)(paramWetLevel * outL + (1 - paramWetLevel) * in);
+	// develop output wet
+	in = (DspFloatType)(paramWetLevel * outL + (1 - paramWetLevel) * in);
 
-		// increment the sweep
-		_sweep += _step;
-		if( _sweep >= _maxSweepSamples || _sweep <= _minSweepSamples )
-		{
-			_step = -_step;
-		}
+	// increment the sweep
+	_sweep += _step;
+	if( _sweep >= _maxSweepSamples || _sweep <= _minSweepSamples )
+	{
+		_step = -_step;
+	}
 }
 
-inline
-void Chorus::process(DspFloatType &in)
-{
-		// assemble input value and store it in circle queue
-		_bufferL[writeIndex] = in;
-		
-		writeIndex = (writeIndex + 1) & (MAXBUFFERSIZE-1);
-
-		// build the two emptying pointers and do linear interpolation
-		int ep1, ep2;
-		DspFloatType w1, w2;
-		DspFloatType ep = writeIndex - _sweep;
-		
-		MODF(ep, ep1, w2);
-		
-		ep1 &= (MAXBUFFERSIZE-1);
-		ep2 = ep1 + 1;
-		ep2 &= (MAXBUFFERSIZE-1);
-		
-		w1 = 1.0 - w2;
-		
-		DspFloatType outL = _bufferL[ep1] * w1 + _bufferL[ep2] * w2;
-		DspFloatType outR = _bufferL[ep1] *w1 + _bufferR[ep2] * w2;
-
-		// develop output wet
-		in = paramWetLevel * outL + (1 - paramWetLevel) * in;
-
-		// increment the sweep
-		_sweep += _step;
-		if( _sweep >= _maxSweepSamples || _sweep <= _minSweepSamples )
-		{
-			_step = -_step;
-		}
-}
-
-
-inline
-void Chorus::process(DspFloatType &inL, DspFloatType &inR)
-{
-		// assemble input value and store it in circle queue
-		_bufferL[writeIndex] = inL;
-		_bufferR[writeIndex] = inR;
-		
-		writeIndex = (writeIndex + 1) & (MAXBUFFERSIZE-1);
-
-		// build the two emptying pointers and do linear interpolation
-		int ep1, ep2;
-		DspFloatType w1, w2;
-		DspFloatType ep = writeIndex - _sweep;
-		
-		MODF(ep, ep1, w2);
-		
-		ep1 &= (MAXBUFFERSIZE-1);
-		ep2 = ep1 + 1;
-		ep2 &= (MAXBUFFERSIZE-1);
-		
-		w1 = 1.0 - w2;
-		
-		DspFloatType outL = _bufferL[ep1] * w1 + _bufferL[ep2] * w2;
-		DspFloatType outR = _bufferL[ep1] *w1 + _bufferR[ep2] * w2;
-
-		// develop output wet
-		inL = paramWetLevel * outL + (1 - paramWetLevel) * inL;
-		inR = paramWetLevel * outR + (1 - paramWetLevel) * inR;
-
-		// increment the sweep
-		_sweep += _step;
-		if( _sweep >= _maxSweepSamples || _sweep <= _minSweepSamples )
-		{
-			_step = -_step;
-		}
-}

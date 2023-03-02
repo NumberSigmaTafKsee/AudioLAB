@@ -1,0 +1,37 @@
+void midi_msg_print(MidiMsg * msg) {
+    printf("%d %d %d\n",msg->msg,msg->data1,msg->data2);
+}
+
+double last_frequency;
+double last_q=0;
+double fcutoff=0;
+
+void note_on(MidiMsg * msg) {
+    double freq = midi_to_freq(msg->data1);
+    double velocity = msg->data2/127.0f;
+    
+    last_frequency = freq;
+}
+
+void note_off(MidiMsg * msg) {
+    double freq = midi_to_freq(msg->data1);
+    double velocity = msg->data2/127.0f;
+
+}
+
+void control_change(MidiMsg * msg) {
+    midi_msg_print(msg);
+
+    if(msg->data1 == 102)
+    {
+        double fc = sampleRate*std::log(1 + (double)msg->data2/127.0f)/std::log(2);
+        fcutoff=fc;
+
+    }
+    if(msg->data1 == 103)
+    {
+        double q = std::log(1 + (double)msg->data2/127.0f)/std::log(2);
+
+        last_q   = q;
+    }
+}

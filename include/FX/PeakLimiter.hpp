@@ -348,7 +348,7 @@ int PeakLimiter::applyLimiter_E_I(DspFloatType *samples, int nSamples)
 {
    int i, j;
     DspFloatType tmp, gain, maximum;
-
+	#pragma omp simd aligned(samples)
     for (i = 0; i < nSamples; i++) {
         /* get maximum absolute sample value of all channels that are greater in absoulte value to m_threshold */
         m_pMaxBuffer[m_maxBufferIndex] = m_threshold;
@@ -504,6 +504,7 @@ int PeakLimiter::applyLimiter_E_I(DspFloatType *samples, int nSamples)
 int PeakLimiter::applyLimiter(const DspFloatType **samplesIn,DspFloatType **samplesOut, int nSamples)
 {
 	int ind;
+	#pragma omp simd aligned(samplesIn,samplesOut)
 	for(ind=0;ind<m_channels;ind++)
 	{
 		memcpy(samplesOut[ind],samplesIn[ind],nSamples*sizeof(DspFloatType));
@@ -517,7 +518,7 @@ int PeakLimiter::applyLimiter_I( DspFloatType **samples,int nSamples)
 {
    int i, j;
     DspFloatType tmp, gain, maximum;
-    
+    #pragma omp simd aligned(samples)
     for (i = 0; i < nSamples; i++) {
         /* get maximum absolute sample value of all channels that are greater in absoulte value to m_threshold */
         m_pMaxBuffer[m_maxBufferIndex] = m_threshold;

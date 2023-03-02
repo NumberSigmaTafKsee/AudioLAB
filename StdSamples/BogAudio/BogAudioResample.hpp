@@ -14,19 +14,19 @@ namespace DSP::BogAudio
 		Decimator() {}
 		virtual ~Decimator() {}
 
-		virtual void setParams(double sampleRate, int factor) = 0;
-		virtual double next(const float* buf) = 0;
+		virtual void setParams(DspFloatType sampleRate, int factor) = 0;
+		virtual DspFloatType next(const DspFloatType* buf) = 0;
 	};
 
 	struct LPFDecimator : Decimator {
 		int _factor;
 		MultipoleFilter _filter;
 
-		LPFDecimator(double sampleRate = 1000.0f, int factor = 8) {
+		LPFDecimator(DspFloatType sampleRate = 1000.0f, int factor = 8) {
 			setParams(sampleRate, factor);
 		}
-		void setParams(double sampleRate, int factor) override;
-		double next(const float* buf) override;
+		void setParams(DspFloatType sampleRate, int factor) override;
+		DspFloatType next(const DspFloatType* buf) override;
 	};
 
 	struct CICDecimator : Decimator {
@@ -36,13 +36,13 @@ namespace DSP::BogAudio
 		T* _integrators;
 		T* _combs;
 		int _factor = 0;
-		double _gainCorrection;
+		DspFloatType _gainCorrection;
 
 		CICDecimator(int stages = 4, int factor = 8);
 		virtual ~CICDecimator();
 
-		void setParams(double sampleRate, int factor) override;
-		double next(const float* buf) override;
+		void setParams(DspFloatType sampleRate, int factor) override;
+		DspFloatType next(const DspFloatType* buf) override;
 	};
 
 
@@ -50,8 +50,8 @@ namespace DSP::BogAudio
 		Interpolator() {}
 		virtual ~Interpolator() {}
 
-		virtual void setParams(double sampleRate, int factor) = 0;
-		virtual void next(double sample, float* buf) = 0;
+		virtual void setParams(DspFloatType sampleRate, int factor) = 0;
+		virtual void next(DspFloatType sample, DspFloatType* buf) = 0;
 	};
 
 	struct CICInterpolator : Interpolator {
@@ -62,16 +62,16 @@ namespace DSP::BogAudio
 		T* _combs;
 		T* _buffer;
 		int _factor = 0;
-		double _gainCorrection;
+		DspFloatType _gainCorrection;
 
 		CICInterpolator(int stages = 4, int factor = 8);
 		virtual ~CICInterpolator();
 
-		void setParams(double sampleRate, int factor) override;
-		void next(double sample, float* buf) override;
+		void setParams(DspFloatType sampleRate, int factor) override;
+		void next(DspFloatType sample, DspFloatType* buf) override;
 	};
 
-	void LPFDecimator::setParams(float sampleRate, int factor) {
+	void LPFDecimator::setParams(DspFloatType sampleRate, int factor) {
 		_factor = factor;
 		_filter.setParams(
 			MultipoleFilter::LP_TYPE,
@@ -82,8 +82,8 @@ namespace DSP::BogAudio
 		);
 	}
 
-	float LPFDecimator::next(const float* buf) {
-		float s = 0.0f;
+	DspFloatType LPFDecimator::next(const DspFloatType* buf) {
+		DspFloatType s = 0.0f;
 		for (int i = 0; i < _factor; ++i) {
 			s = _filter.next(buf[i]);
 		}
@@ -105,15 +105,15 @@ namespace DSP::BogAudio
 		delete[] _combs;
 	}
 
-	void CICDecimator::setParams(float _sampleRate, int factor) {
+	void CICDecimator::setParams(DspFloatType _sampleRate, int factor) {
 		assert(factor > 0);
 		if (_factor != factor) {
 			_factor = factor;
-			_gainCorrection = 1.0f / (float)(pow(_factor, _stages));
+			_gainCorrection = 1.0f / (DspFloatType)(pow(_factor, _stages));
 		}
 	}
 
-	float CICDecimator::next(const float* buf) {
+	DspFloatType CICDecimator::next(const DspFloatType* buf) {
 		for (int i = 0; i < _factor; ++i) {
 			_integrators[0] = buf[i] * scale;
 			for (int j = 1; j <= _stages; ++j) {
@@ -126,7 +126,7 @@ namespace DSP::BogAudio
 			s -= _combs[i];
 			_combs[i] = t;
 		}
-		return _gainCorrection * (s / (float)scale);
+		return _gainCorrection * (s / (DspFloatType)scale);
 	}
 
 
@@ -145,11 +145,11 @@ namespace DSP::BogAudio
 		delete[] _buffer;
 	}
 
-	void CICInterpolator::setParams(float _sampleRate, int factor) {
+	void CICInterpolator::setParams(DspFloatType _sampleRate, int factor) {
 		assert(factor > 0);
 		if (_factor != factor) {
 			_factor = factor;
-			_gainCorrection = 1.0f / 512.0f; // (float)(pow(_factor, _stages / 2));
+			_gainCorrection = 1.0f / 512.0f; // (DspFloatType)(pow(_factor, _stages / 2));
 			if (_buffer) {
 				delete[] _buffer;
 			}
@@ -157,7 +157,7 @@ namespace DSP::BogAudio
 		}
 	}
 
-	void CICInterpolator::next(float sample, float* buf) {
+	void CICInterpolator::next(DspFloatType sample, DspFloatType* buf) {
 		T s = sample * scale;
 		for (int i = 0; i < _stages; ++i) {
 			T t = s;
@@ -172,7 +172,7 @@ namespace DSP::BogAudio
 			for (int j = 1; j <= _stages; ++j) {
 				_integrators[j] += _integrators[j - 1];
 			}
-			buf[i] = _gainCorrection * (_integrators[_stages] / (float)scale);
+			buf[i] = _gainCorrection * (_integrators[_stages] / (DspFloatType)scale);
 		}
 	}
 }

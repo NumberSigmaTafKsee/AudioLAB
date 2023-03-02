@@ -1,2 +1,0 @@
-# Jam
-Python embedder

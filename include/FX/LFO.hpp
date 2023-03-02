@@ -113,7 +113,7 @@ inline DspFloatType LFO::tick()
   return table[i]*(1.0f-frac) + table[i+1]*frac; // linear interpolation
 }
 void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out ) {
-  #pragma omp simd
+  #pragma omp simd aligned(in,out)
   for(size_t i = 0; i < n; i++) {
     // the 8 MSB are the index in the table in the range 0-255 
     int i = phase >> 24;     

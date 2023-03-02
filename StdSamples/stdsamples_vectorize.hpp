@@ -1,5 +1,7 @@
 #pragma once
 
+namespace AudioDSP
+{
     void vectorize(size_t n, DspFloatType g,DspFloatType * in, DspFloatType * out, DspFloatType (*func)(DspFloatType,DspFloatType))
     {
         #pragma omp simd aligned(in,out)
@@ -208,4 +210,5 @@
         for(size_t i = 0; i < m; i++)
             for(size_t j = 0; j < n; j++)
                 r[i*n+j] = a[j*m + i];
-    }
+    }	
+}

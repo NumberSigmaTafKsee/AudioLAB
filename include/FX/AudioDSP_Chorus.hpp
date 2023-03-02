@@ -165,7 +165,7 @@ namespace JoonasFX
         mRightDelay.ProcessBlock(n,rightInput,rightOutput);
 
         DspFloatType volume = getVolume();
-        #pragma omp simd aligned(input,outputs)
+        #pragma omp simd aligned(outputs)
         for(size_t i = 0; i < n; i++)
         {
             outputs[0][i] += centerOutput[n];

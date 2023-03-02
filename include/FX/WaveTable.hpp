@@ -57,19 +57,10 @@ public:
         phasor = temp;
         return out;
     }
-    void Process(size_t n, double * input, double * output) {
-        for(size_t i = 0; i < n; i++) output[i] = input[i]*Tick();
-    }
-    void Process(double * samples, size_t n) {
-        for(size_t i = 0; i < n; i++) samples[i] = Tick();
-    }
-    void Process(size_t n, double * input, double * fm, double * output) {
-        for(size_t i = 0; i < n; i++) output[i] = input[i]*Tick(fm[i]);
-    }
-    void Process(double * samples, double * fm, size_t n) {
-        for(size_t i = 0; i < n; i++) samples[i] = Tick(fm[i]);
-    }
-
+    void ProcessBlock(size_t n, double * output) {
+		#pragma omp simd aligned(output)
+        for(size_t i = 0; i < n; i++) output[i] = Tick();
+    }    
 };
 
 

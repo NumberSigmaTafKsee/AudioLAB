@@ -120,24 +120,24 @@ namespace FX::Dynamics
 
         void process(DspFloatType *input_left, DspFloatType *input_right,DspFloatType *output_left, DspFloatType *output_right,       int frames)
         {
-                DspFloatType det, transfer_gain;
-                #pragma omp simd aligned(input_left,input_right,output_left,output_right)
-                for(int i=0; i<frames; i++)
-                {
-                        det = std::max(std::fabs(input_left[i]),std::fabs(input_right[i]));
-                        det += 10e-30f; /* add tiny DC offset (-600dB) to prevent denormals */
+			DspFloatType det, transfer_gain;
+			#pragma omp simd aligned(input_left,input_right,output_left,output_right)
+			for(int i=0; i<frames; i++)
+			{
+					det = std::max(std::fabs(input_left[i]),std::fabs(input_right[i]));
+					det += 10e-30f; /* add tiny DC offset (-600dB) to prevent denormals */
 
-                        env = det >= env ? det : det+envelope_decay*(env-det);
+					env = det >= env ? det : det+envelope_decay*(env-det);
 
-                        transfer_gain = env > threshold ? std::pow(env,transfer_A)*transfer_B:output;
+					transfer_gain = env > threshold ? std::pow(env,transfer_A)*transfer_B:output;
 
-                        gain = transfer_gain < gain ?
-                                                        transfer_gain+attack *(gain-transfer_gain):
-                                                        transfer_gain+release*(gain-transfer_gain);
+					gain = transfer_gain < gain ?
+													transfer_gain+attack *(gain-transfer_gain):
+													transfer_gain+release*(gain-transfer_gain);
 
-                        output_left[i] = input_left[i] * gain;
-                        output_right[i] = input_right[i] * gain;
-                }
+					output_left[i] = input_left[i] * gain;
+					output_right[i] = input_right[i] * gain;
+			}
         }
         void ProcessBlock(size_t n, DspFloatType ** in, DspFloatType ** out)
         {

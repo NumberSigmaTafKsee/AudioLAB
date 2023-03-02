@@ -34,7 +34,7 @@ namespace FXDSP
         }
         void ProcessBlock(size_t n_samples, T * inBuffer, T * outBuffer)
         {
-            #pragma omp simd
+            #pragma omp simd aligned(inBuffer,outBuffer)
             for (unsigned i = 0; i < n_samples; ++i)
             {
                 RMS += avgCoeff * ((f_abs(inBuffer[i])/RMS) - RMS);

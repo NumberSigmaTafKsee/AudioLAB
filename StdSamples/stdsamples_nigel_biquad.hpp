@@ -18,11 +18,11 @@ namespace Filters::IIR::Nigel
     bq_type_highshelf
     };
 
-    class Biquad {
+    class NigelBiquadFilter {
     public:
-        Biquad();
-        Biquad(int type, DspFloatType Fc, DspFloatType Q, DspFloatType peakGainDB);
-        ~Biquad();
+        NigelBiquadFilter();
+        NigelBiquadFilter(int type, DspFloatType Fc, DspFloatType Q, DspFloatType peakGainDB);
+        ~NigelBiquadFilter();
 
         void setType(int type);
         void setQ(DspFloatType Q);
@@ -57,14 +57,14 @@ namespace Filters::IIR::Nigel
         DspFloatType z1, z2;
     };
 
-    inline float Biquad::process(float in) {
+    inline float NigelBiquadFilter::process(float in) {
         DspFloatType out = in * a0 + z1;
         z1 = in * a1 + z2 - b1 * out;
         z2 = in * a2 - b2 * out;
         return out;
     }
 
-    Biquad::Biquad() {
+    NigelBiquadFilter::NigelBiquadFilter() {
         type = bq_type_lowpass;
         a0 = 1.0;
         a1 = a2 = b1 = b2 = 0.0;
@@ -74,42 +74,42 @@ namespace Filters::IIR::Nigel
         z1 = z2 = 0.0;
     }
 
-    Biquad::Biquad(int type, DspFloatType Fc, DspFloatType Q, DspFloatType peakGainDB) {
+    NigelBiquadFilter::NigelBiquadFilter(int type, DspFloatType Fc, DspFloatType Q, DspFloatType peakGainDB) {
         setBiquad(type, Fc, Q, peakGainDB);
         z1 = z2 = 0.0;
     }
 
-    Biquad::~Biquad() {
+    NigelBiquadFilter::~NigelBiquadFilter() {
     }
 
-    void Biquad::setType(int type) {
+    void NigelBiquadFilter::setType(int type) {
         this->type = type;
         calcBiquad();
     }
 
-    void Biquad::setQ(DspFloatType Q) {
+    void NigelBiquadFilter::setQ(DspFloatType Q) {
         this->Q = Q;
         calcBiquad();
     }
 
-    void Biquad::setFc(DspFloatType Fc) {
+    void NigelBiquadFilter::setFc(DspFloatType Fc) {
         this->Fc = Fc;
         calcBiquad();
     }
 
-    void Biquad::setPeakGain(DspFloatType peakGainDB) {
+    void NigelBiquadFilter::setPeakGain(DspFloatType peakGainDB) {
         this->peakGain = peakGainDB;
         calcBiquad();
     }
         
-    void Biquad::setBiquad(int type, DspFloatType Fc, DspFloatType Q, DspFloatType peakGainDB) {
+    void NigelBiquadFilter::setBiquad(int type, DspFloatType Fc, DspFloatType Q, DspFloatType peakGainDB) {
         this->type = type;
         this->Q = Q;
         this->Fc = Fc;
         setPeakGain(peakGainDB);
     }
 
-    void Biquad::calcBiquad(void) {
+    void NigelBiquadFilter::calcBiquad(void) {
         DspFloatType norm;
         DspFloatType V = pow(10, fabs(peakGain) / 20.0);
         DspFloatType K = tan(M_PI * Fc);

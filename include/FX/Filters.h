@@ -44,7 +44,7 @@ namespace Filters
 		}
 		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * Out) {
 			Undenormal abinormals;
-			#pragma omp simd #pragma omp simd aligned(in,Out)
+			#pragma omp simd aligned(in,Out)
 			for(size_t i = 0; i < n; i++) {
 				const DspFloatType s = in[i];
 				DspFloatType out = bCoef[0] * s + w[0];

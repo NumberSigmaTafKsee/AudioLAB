@@ -769,7 +769,7 @@ namespace Analog::minBLEP
 	}
 
 	void minBLEP::ProcessSIMD(size_t n, DspFloatType * buffer) {
-		#pragma omp simd
+		#pragma omp simd aligned(buffer)
 		for(size_t i = 0; i < n; i++) {
 			DspFloatType v;
 			DspFloatType fs=lpO->f / lpO->s_rate;

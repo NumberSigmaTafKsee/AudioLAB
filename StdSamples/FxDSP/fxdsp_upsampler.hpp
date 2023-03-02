@@ -78,6 +78,7 @@ namespace FXDSP
         void ProcessBlock(size_t n, T * inBuffer, T * outBuffer)
         {
             T tempbuf[n];
+            #pragma omp simd aligned(inBuffer,outBuffer)
             for (unsigned filt = 0; filt < factor; ++filt)
             {
                 polyphase[filt]->ProcessBlock(n, inBuffer, tempbuf);

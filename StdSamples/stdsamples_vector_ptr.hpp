@@ -4,13 +4,15 @@
 #include <cstdint>
 #include <cmath>
 #include <iostream>
-#include "SndFile.hpp"
+
 #include "SoundObject.hpp"
-#include "audio_function_generator.hpp"
-#include "audio_functions.hpp"
+#include "stdsamples_sndfile.hpp"
+#include "stdsamples_function_generator.hpp"
+#include "stdsamples_functions.hpp"
 
 namespace AudioDSP
 {    
+	/*
     struct wav_data {
         int64_t frames;
         size_t  size;
@@ -19,8 +21,7 @@ namespace AudioDSP
         int     format;
         int     sections;
     };
-
-
+	*/
     void load_wave(const char* file, wav_data & info, size_t n, float * wav)
     {
         SndFileReaderFloat r(file);        
@@ -97,7 +98,7 @@ namespace AudioDSP
     template<typename T>
     void set_right_channel(const size_t n, T * right, T * out) {
         size_t x = 0;
-        #pragma omp simd alighend(right, out)
+        #pragma omp simd aligned(right, out)
         for(size_t i = 1; i < out.size(); i+=2) out[i] = right[x++];
     }
     template<typename T>

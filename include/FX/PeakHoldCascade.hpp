@@ -76,6 +76,7 @@ void PeakHoldCascade<stages, real>::Process(real* xVec, real* yVec, size_t vecLe
         real input = std::fabs(xVec[n]);
 
         /* Compute a series of peak-holders in an inner for-loop. */
+        #pragma omp simd aligned(xVec,yVec)
         for (size_t stage = 0; stage < stages; stage++) { // level-1 for-loop
 
             /* Compute the necessary Boolean conditions to determine whether 

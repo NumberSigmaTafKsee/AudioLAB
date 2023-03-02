@@ -9,14 +9,14 @@ namespace DSP::BogAudio
 	// Envelope
 	////////////////////////////////////////////////////////////////////////////////////////
 	struct EnvelopeGenerator : Generator {
-		double _sampleRate = -1.0f;
-		double _sampleTime;
+		DspFloatType _sampleRate = -1.0f;
+		DspFloatType _sampleTime;
 
-		EnvelopeGenerator(double sampleRate = 1000.0f) : Generator() {
+		EnvelopeGenerator(DspFloatType sampleRate = 1000.0f) : Generator() {
 			setSampleRate(std::max(1.0f, sampleRate));
 		}
 
-		void setSampleRate(double sampleRate);
+		void setSampleRate(DspFloatType sampleRate);
 		virtual void _sampleRateChanged() {}
 	};
 
@@ -33,29 +33,29 @@ namespace DSP::BogAudio
 
 		Stage _stage = STOPPED_STAGE;
 		bool _gated = false;
-		double _attack = 0.0f;
-		double _decay = 0.0f;
-		double _sustain = 1.0f;
-		double _release = 0.0f;
-		double _attackShape;
-		double _decayShape;
-		double _releaseShape;
-		double _stageProgress = 0.0f;
-		double _releaseLevel = 0.0f;
-		double _envelope = 0.0f;
+		DspFloatType _attack = 0.0f;
+		DspFloatType _decay = 0.0f;
+		DspFloatType _sustain = 1.0f;
+		DspFloatType _release = 0.0f;
+		DspFloatType _attackShape;
+		DspFloatType _decayShape;
+		DspFloatType _releaseShape;
+		DspFloatType _stageProgress = 0.0f;
+		DspFloatType _releaseLevel = 0.0f;
+		DspFloatType _envelope = 0.0f;
 
-		ADSR(bool linear = false, double sampleRate = 1000.0f) : EnvelopeGenerator(sampleRate) {
+		ADSR(bool linear = false, DspFloatType sampleRate = 1000.0f) : EnvelopeGenerator(sampleRate) {
 			setLinearShape(linear);
 		}
 
 		void reset();
 		void setGate(bool high);
-		void setAttack(double seconds);
-		void setDecay(double seconds);
-		void setSustain(double level);
-		void setRelease(double seconds);
+		void setAttack(DspFloatType seconds);
+		void setDecay(DspFloatType seconds);
+		void setSustain(DspFloatType level);
+		void setRelease(DspFloatType seconds);
 		void setLinearShape(bool linear);
-		void setShapes(double attackShape, double decayShape, double releaseShape);
+		void setShapes(DspFloatType attackShape, DspFloatType decayShape, DspFloatType releaseShape);
 		bool isStage(Stage stage) { return _stage == stage; }
 		void retrigger();
 
@@ -72,7 +72,7 @@ namespace DSP::BogAudio
 			PORT_RELEASESHAPE,
 			PORT_RETRUGGER,
 		};
-		void setPort(int port, double v) {
+		void setPort(int port, DspFloatType v) {
 			switch(port) {
 				case PORT_RESET: reset(); break;
 				case PORT_GATE: setGate((bool)v); break;
@@ -87,11 +87,19 @@ namespace DSP::BogAudio
 
 			}
 		}
-		double _next() override;
+		DspFloatType _next() override;
+		
+		DspFloatType Tick(DspFloatType I=1, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1) {
+			return A*_next();
+		}
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+		}
 	};
 
 
-	void EnvelopeGenerator::setSampleRate(double sampleRate) {
+	void EnvelopeGenerator::setSampleRate(DspFloatType sampleRate) {
 		assert(sampleRate >= 1.0f);
 		if (_sampleRate != sampleRate) {
 			_sampleRate = sampleRate;
@@ -111,23 +119,23 @@ namespace DSP::BogAudio
 		_gated = high;
 	}
 
-	void ADSR::setAttack(double seconds) {
+	void ADSR::setAttack(DspFloatType seconds) {
 		assert(_attack >= 0.0f);
 		_attack = std::max(seconds, 0.001f);
 	}
 
-	void ADSR::setDecay(double seconds) {
+	void ADSR::setDecay(DspFloatType seconds) {
 		assert(_decay >= 0.0f);
 		_decay = std::max(seconds, 0.001f);
 	}
 
-	void ADSR::setSustain(double level) {
+	void ADSR::setSustain(DspFloatType level) {
 		assert(_sustain >= 0.0f);
 		assert(_sustain <= 1.0f);
 		_sustain = level;
 	}
 
-	void ADSR::setRelease(double seconds) {
+	void ADSR::setRelease(DspFloatType seconds) {
 		assert(_release >= 0.0f);
 		_release = std::max(seconds, 0.001f);
 	}
@@ -141,7 +149,7 @@ namespace DSP::BogAudio
 		}
 	}
 
-	void ADSR::setShapes(double attackShape, double decayShape, double releaseShape) {
+	void ADSR::setShapes(DspFloatType attackShape, DspFloatType decayShape, DspFloatType releaseShape) {
 		assert(attackShape >= 0.1f && attackShape <= 10.0f);
 		assert(decayShape >= 0.0f && decayShape <= 10.0f);
 		assert(releaseShape >= 0.0f && releaseShape <= 10.0f);
@@ -159,13 +167,13 @@ namespace DSP::BogAudio
 			}
 			default: {
 				_stage = ATTACK_STAGE;
-				double e = powf(_envelope, 1.0f / _attackShape);
+				DspFloatType e = powf(_envelope, 1.0f / _attackShape);
 				_stageProgress = e * _attack;
 			}
 		}
 	}
 
-	double ADSR::_next() {
+	DspFloatType ADSR::_next() {
 		if (_gated) {
 			switch (_stage) {
 				case STOPPED_STAGE: {

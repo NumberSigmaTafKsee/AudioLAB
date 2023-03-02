@@ -15518,3 +15518,45 @@
 [submodule "AtomSynth"]
 	path = AtomSynth
 	url = https://github.com/TheRealCodeCube/AtomSynth
+[submodule "Synth/Cardinal"]
+	path = Synth/Cardinal
+	url = https://github.com/DISTRHO/Cardinal
+[submodule "AudioDSP/Genetic/vita"]
+	path = Genetic/vita
+	url = https://github.com/morinim/vita
+[submodule "AudioDSP/Genetic/GALGO-2.0"]
+	path = Genetic/GALGO-2.0
+	url = https://github.com/olmallet81/GALGO-2.0
+[submodule "AudioDSP/Genetic/openGA"]
+	path = Genetic/openGA
+	url = https://github.com/Arash-codedev/openGA
+[submodule "AudioDSP/Genetic/MachineLearning"]
+	path = Genetic/MachineLearning
+	url = https://github.com/flashpixx/MachineLearning
+[submodule "Neural/ANNT"]
+	path = Neural/ANNT
+	url = https://github.com/cvsandbox/ANNT
+[submodule "Neural/haste"]
+	path = Neural/haste
+	url = https://github.com/lmnt-com/haste
+[submodule "Neural/tiny-dnn"]
+	path = Neural/tiny-dnn
+	url = https://github.com/tiny-dnn/tiny-dnn
+[submodule "Neural/MiniDNN"]
+	path = Neural/MiniDNN
+	url = https://github.com/yixuan/MiniDNN
+[submodule "Evolver/genetic-algorithms"]
+	path = Evolver/genetic-algorithms
+	url = https://github.com/KRM7/genetic-algorithms
+[submodule "Evolver/GALGO-2.0"]
+	path = Evolver/GALGO-2.0
+	url = https://github.com/olmallet81/GALGO-2.0
+[submodule "Evolver/openGA"]
+	path = Evolver/openGA
+	url = https://github.com/Arash-codedev/openGA
+[submodule "Evolver/crsga"]
+	path = Evolver/crsga
+	url = https://github.com/rafagaitan/crsga
+[submodule "Evolver/quile"]
+	path = Evolver/quile
+	url = https://github.com/ttarkowski/quile

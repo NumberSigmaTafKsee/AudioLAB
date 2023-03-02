@@ -216,7 +216,7 @@ namespace FX
                 for(size_t m = 0; m < 2; m++)
                 if ( (threshold< 0) )
                 {                
-                    compressor(inputBuffer.data());
+                    compressor(inbuf);
                     // apply control voltage to the audio signal
                     for (int i = 0 ; i < numSamples ; ++i)
                     {

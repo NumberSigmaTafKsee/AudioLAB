@@ -45,7 +45,7 @@ namespace Analog::Envelopes
                 }
             }        
             return r;
-        }
+        }        
     };
 
     struct F2PASR

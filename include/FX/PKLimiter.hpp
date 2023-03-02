@@ -53,7 +53,7 @@ void Limiter::process( SampleType** outputBuffer, int bufferSize, int numOutChan
     if ( pKnee > 0.5 )
     {
         // soft knee
-
+		#pragma omp simd aligned(outputBuffer)
         for ( int i = 0; i < bufferSize; ++i ) {
 
             ol  = leftBuffer[ i ];
@@ -76,6 +76,7 @@ void Limiter::process( SampleType** outputBuffer, int bufferSize, int numOutChan
     }
     else
     {
+		#pragma omp simd aligned(outputBuffer)
         for ( int i = 0; i < bufferSize; ++i ) {
 
             ol  = leftBuffer[ i ];

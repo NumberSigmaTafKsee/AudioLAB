@@ -76,7 +76,7 @@ namespace FXDSP
                 VectorScalarMultiply(scratch, in_buffer, inv_vt, n_samples);
             }
             VectorScalarAdd(scratch, >scratch, -1.0, n_samples);
-            #pragma omp simd
+            #pragma omp simd aligned(in_buffer,out_buffer)
             for (unsigned i = 0; i < n; ++i)
             {
                 out_buffer[i] = std::exp(scratch[i]) * scale;
@@ -108,7 +108,7 @@ namespace FXDSP
         }
         void ProcessBlock(size_t n, T * in_buffer, T *out_buffer)
         {
-            #pragma omp simd
+            #pragma omp simd aligned(in_buffer,out_buffer)
             for (unsigned i = 0; i < n; ++i)
             {
                 out_buffer[i] = in_buffer[i] - (amount * (F_EXP((in_buffer[i]/0.7) - 1.0) + E_INV));

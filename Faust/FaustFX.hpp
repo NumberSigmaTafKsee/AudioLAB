@@ -10,6 +10,8 @@
 #include "faust/dsp/proxy-dsp.h"
 #include "faust/dsp/poly-llvm-dsp.h"
 
+#include <cstdlib>
+#include <ctime>
 
 namespace FX
 {
@@ -38,7 +40,7 @@ namespace FX
             fMax = kaka.fMax;
             fStep = kaka.fStep;        
             return *this;
-        }
+        }        
     };
 
     struct DummyUI : public GenericUI 
@@ -89,6 +91,7 @@ namespace FX
             kaka.fMax = 1;
             kaka.fStep = 1;        
             controls[label] = kaka;
+            names.push_back(label);
         }
         void addVerticalSlider(const char* label, FAUSTFLOAT* zone, FAUSTFLOAT init, FAUSTFLOAT min, FAUSTFLOAT max, FAUSTFLOAT step)
         {
@@ -99,6 +102,7 @@ namespace FX
             kaka.fMax = max;
             kaka.fStep = step;        
             controls[label] = kaka;
+            names.push_back(label);
         }
         void addHorizontalSlider(const char* label, FAUSTFLOAT* zone, FAUSTFLOAT init, FAUSTFLOAT min, FAUSTFLOAT max, FAUSTFLOAT step)
         {
@@ -133,10 +137,23 @@ namespace FX
             if( controls.find(name) == controls.end()) return -99999999999;
             return *controls[name].zone;
         }
+        void printControls() {            
+            for(size_t i = 0; i < names.size(); i++)
+                std::cout << "Control #" << i << "= " << names[i] << std::endl;
+        }
+        void randomize() {
+            auto i = controls.begin();
+            while(i != controls.end())
+            {
+                float f = (float)rand()/(float)RAND_MAX;
+                *(i->second.zone) = i->second.fMin + (i->second.fMax- i->second.fMin)*f;
+                i++;
+            }
+        }
     };
 
 
-    struct FaustFX : public StereoFXProcessor
+    struct FaustFX 
     {
         float ** input;
         float ** output;
@@ -144,21 +161,10 @@ namespace FX
         llvm_dsp_factory* m_factory;
         dsp* m_dsp;
 
-        std::string read_file(const char * filename)
-        {
-            FILE * f = fopen(filename,"r");
-            std::string r;
-            char buffer[1024];
-            char * c;
-            while((c = fgets(buffer,1024,f)) != NULL) {    
-                r += c;
-            }
-            return r;
-        }
 
-        FaustFX(const char * file, size_t n = 256) 
-        : StereoFXProcessor()
+        FaustFX(const char * file, size_t sample_rate=44100, size_t n = 256)         
         {
+            srand(time(NULL));
             input = (float**)calloc(2,sizeof(float*));
             output = (float**)calloc(2,sizeof(float*));
             for(size_t i = 0; i < 2; i++)
@@ -167,23 +173,27 @@ namespace FX
                 output[i] = (float*)calloc(n,sizeof(float*));
             }
 
-            // the Faust code to compile as a string (could be in a file too)
-            std::string theCode = read_file(file);
-            //std::cout << theCode << std::endl;
-            // compiling in memory (createDSPFactoryFromFile could be used alternatively)
-            int argc=0;
-            const char *argv[] = {NULL};
+			
             std::string m_errorString;
             bool optimize=true;
-            m_factory = createDSPFactoryFromString("faust", theCode, 0, NULL, "", m_errorString, optimize);
-            std::cout << m_errorString;
-            // creating the DSP instance for interfacing
+            
+            m_factory = createDSPFactoryFromFile(file, 0, NULL, "", m_errorString, optimize);
+            if(m_factory == NULL) {
+                std::cout << "ERROR = " << m_errorString;
+                return;
+            }
+            
             m_dsp = m_factory->createDSPInstance();
-            interface = new DummyUI();
+            assert(m_dsp != NULL);
+            
+            interface = new DummyUI;
+            
             m_dsp->buildUserInterface(interface);
             
             // initializing the DSP instance with the SR
-            m_dsp->init(44100);
+            
+            m_dsp->init(sample_rate);
+            
             m_dsp->instanceResetUserInterface();
             //Thread gui(gui_thread,interface);
         }
@@ -222,20 +232,26 @@ namespace FX
             memcpy(input[1],in,framesPerBuffer*sizeof(float));
             m_dsp->compute(framesPerBuffer, input, out);        
         }
+        void printControls() {
+            interface->printControls();
+        }
         void setControl(const std::string & name, float value) {
             interface->setControl(name,value);
         }
         float getControl(const std::string & name) {
             return interface->getControl(name);
         }
-
+        void randomControls()
+        {
+            interface->randomize();
+        }
         void ProcessBlock(size_t n, float ** input, float ** output) {
             Run(n,input,output);
         }
     };
 
 
-    struct FaustPolyFX : public StereoFXProcessor
+    struct FaustPolyFX 
     {
         float ** input;
         float ** output;
@@ -243,21 +259,7 @@ namespace FX
         llvm_dsp_poly_factory* m_factory;
         dsp_poly* m_dsp;
 
-
-        std::string read_file(const char * filename)
-        {
-            FILE * f = fopen(filename,"r");
-            std::string r;
-            char buffer[1024];
-            char * c;
-            while((c = fgets(buffer,1024,f)) != NULL) {    
-                r += c;
-            }
-            return r;
-        }
-
-        FaustPolyFX(const char * file, size_t n = 256) 
-        : StereoFXProcessor()
+        FaustPolyFX(const char * file, size_t n = 256)         
         {
             input = (float**)calloc(2,sizeof(float*));
             output = (float**)calloc(2,sizeof(float*));
@@ -266,17 +268,15 @@ namespace FX
                 input[i] = (float*)calloc(n,sizeof(float*));            
                 output[i] = (float*)calloc(n,sizeof(float*));
             }
-
-            // the Faust code to compile as a string (could be in a file too)
-            std::string theCode = read_file(file);
-            //std::cout << theCode << std::endl;
-            // compiling in memory (createDSPFactoryFromFile could be used alternatively)
-            int argc=0;
-            const char *argv[] = {NULL};
+            
             std::string m_errorString;
             bool optimize=true;
-            m_factory = createPolyDSPFactoryFromString("faust", theCode, argc, argv, "", m_errorString, optimize);
-            std::cout << m_errorString;
+            m_factory = createPolyDSPFactoryFromFile(file, 0, NULL, "", m_errorString, optimize);
+            
+            if(m_factory == NULL) {
+                std::cout << "ERROR = " << m_errorString;
+                return;
+            }
             
             m_dsp = m_factory->createPolyDSPInstance(8,true,true,false);
             interface = new DummyUI();        
@@ -345,8 +345,5 @@ namespace FX
             Run(n,input,output);
         }
     };
-
-    std::list<GUI*> GUI::fGuiList;
-    ztimedmap GUI::gTimedZoneMap;
-
 }
+

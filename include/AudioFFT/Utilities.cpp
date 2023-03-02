@@ -41,6 +41,7 @@ void Sum(Sample* FFTCONVOLVER_RESTRICT result,
          size_t len)
 {
   const size_t end4 = 4 * (len / 4);
+  #pragma omp simd(result,a,b)
   for (size_t i=0; i<end4; i+=4)
   {
     result[i+0] = a[i+0] + b[i+0];
@@ -48,6 +49,7 @@ void Sum(Sample* FFTCONVOLVER_RESTRICT result,
     result[i+2] = a[i+2] + b[i+2];
     result[i+3] = a[i+3] + b[i+3];
   }
+  #pragma omp simd(result,a,b)
   for (size_t i=end4; i<len; ++i)
   {
     result[i] = a[i] + b[i];
@@ -88,6 +90,7 @@ void ComplexMultiplyAccumulate(Sample* FFTCONVOLVER_RESTRICT re,
     imag = _mm_add_ps(imag, _mm_mul_ps(ia, rb));
     _mm_store_ps(&im[i], imag);
   }
+  #pragma omp simd(re,im,reA,reB,imA,imB)
   for (size_t i=end4; i<len; ++i)
   {
     re[i] += reA[i] * reB[i] - imA[i] * imB[i];
@@ -95,6 +98,7 @@ void ComplexMultiplyAccumulate(Sample* FFTCONVOLVER_RESTRICT re,
   }
 #else
   const size_t end4 = 4 * (len / 4);
+  #pragma omp simd(re,im,reA,reB,imA,imB)
   for (size_t i=0; i<end4; i+=4)
   {
     re[i+0] += reA[i+0] * reB[i+0] - imA[i+0] * imB[i+0];
@@ -106,6 +110,7 @@ void ComplexMultiplyAccumulate(Sample* FFTCONVOLVER_RESTRICT re,
     im[i+2] += reA[i+2] * imB[i+2] + imA[i+2] * reB[i+2];
     im[i+3] += reA[i+3] * imB[i+3] + imA[i+3] * reB[i+3];
   }
+  #pragma omp simd(re,im,reA,reB,imA,imB)
   for (size_t i=end4; i<len; ++i)
   {
     re[i] += reA[i] * reB[i] - imA[i] * imB[i];

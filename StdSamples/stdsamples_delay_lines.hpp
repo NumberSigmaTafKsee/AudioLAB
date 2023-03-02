@@ -70,7 +70,7 @@ namespace AudioDSP
             DspFloatType x1 = buffer[read_cursor++];
             read_cursor %= buffer.size();
             DspFloatType x2 = buffer[read_cursor];
-            DspFloatType frac = x1 - floor(x1);
+            DspFloatType frac = x1 - std::floor(x1);
             DspFloatType out = x1 + frac * (x2-x1);        
             return out;
         }
@@ -169,7 +169,7 @@ namespace AudioDSP
             size_t n = read_cursor;
             DspFloatType output = delay.read(read_cursor++);            
             DspFloatType d1 = A*(I - Y*output*feedback);                
-            DspFloatType f= d1 - floor(d1); //(int)d1;        
+            DspFloatType f= d1 - std::floor(d1); //(int)d1;        
             read_cursor  %= delayLen;
             output = Interpolate(n,f);            
             delay.write(write_cursor++, I*Y + feedback*output);                    
@@ -197,7 +197,7 @@ namespace AudioDSP
         }
         DspFloatType NearestNeighborInterpolate(size_t n,DspFloatType frac)
         {
-            int   x  = round(frac);
+            int   x  = std::round(frac);
             DspFloatType x1 = delay[ (n + x) % delayLen];
             return x1;
         }
@@ -381,7 +381,7 @@ namespace AudioDSP
             {                            
                 read = tap_reads[i];                                
                 output = delay.read(read);                        
-                DspFloatType f  = output - floor(output); //(int)output;                                        
+                DspFloatType f  = output - std::floor(output); //(int)output;                                        
                 DspFloatType x1 = output;
                 read = read  % delayLen;
                 DspFloatType x2 = delay[read];
@@ -421,7 +421,7 @@ namespace AudioDSP
         }
         DspFloatType NearestNeighborInterpolate(size_t n,DspFloatType frac)
         {
-            int   x  = round(frac);
+            int   x  = std::round(frac);
             DspFloatType x1 = delay[ (n + x) % delayLen];
             return x1;
         }
@@ -821,207 +821,5 @@ namespace AudioDSP
         }
     };
 
-    
-    struct BiquadDelayFilter : public FilterProcessor
-    {
-        enum FilterType
-        {
-            LowPass = 1,
-            HighPass,
-            BandPass,
-            Notch,
-            AllPass,
-            Peaking,
-            LowShelf,
-            HighShelf,
-        };
-
-        struct Parameters
-        {
-            FilterType filterType;
-            DspFloatType fs;
-            DspFloatType f0;
-            DspFloatType Q;
-            DspFloatType dBGain;
-        };
-
-        DelayLine  delayin,delayout;
-        
-        Parameters mparams;
-        
-        DspFloatType ma0, ma1, ma2, mb0, mb1, mb2;        
-        DspFloatType mx_z1, mx_z2, my_z1, my_z2;
-        
-        void calculateCoeffs();
-        
-        BiquadDelayFilter(DspFloatType inDelayTime, DspFloatType outDelayTime)
-        :   FilterProcessor(),
-            delayin(inDelayTime),
-            delayout(outDelayTime)
-        {
-            ma0 = ma1 = ma2 = mb0 = mb1 = mb2 = 0;
-            mx_z1 = mx_z2 = my_z1 = my_z2 = 0;
-            mparams.fs = sampleRate;
-            mparams.f0 = 1000.0f;
-            mparams.Q  = 0.5;
-            mparams.dBGain = 1;
-            mparams.filterType = LowPass;        
-            calculateCoeffs();
-        };
-
-        void setCutoff(DspFloatType f0) {
-            mparams.f0 = f0;
-            calculateCoeffs();
-        }
-        void setQ(DspFloatType q) {
-            mparams.Q = q;
-            calculateCoeffs();
-        }
-        void setGain(DspFloatType g) {
-            mparams.dBGain = g;
-            calculateCoeffs();
-        }
-        void setSampleRate(DspFloatType sr)
-        {
-            mparams.fs = sr;
-            calculateCoeffs();
-        }
-        ~BiquadDelayFilter(){};
-        void setParams(const Parameters& params);
-        Parameters getParams();
-        DspFloatType process(DspFloatType x);    
-
-        DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1)
-        {
-            return A*process(I);
-        }
-    };
-
-
-    void BiquadDelayFilter::setParams(const Parameters& params)
-    {
-        mparams = params;
-        calculateCoeffs();
-    }
-
-    BiquadDelayFilter::Parameters BiquadDelayFilter::getParams()
-    {
-        return mparams;
-    }
-
-    void BiquadDelayFilter::calculateCoeffs()
-    {
-        DspFloatType omega0 = 2.0f * M_PI * (mparams.f0 / mparams.fs);
-        DspFloatType alpha = std::sin(omega0) / (2.0 * mparams.Q);
-        DspFloatType A = std::pow(10, mparams.dBGain / 40.0);
-        switch (mparams.filterType)
-        {
-        case FilterType::LowPass:
-        {
-            ma0 = 1.0 + alpha;
-            ma1 = -2.0 * std::cos(omega0);
-            ma2 = 1.0 - alpha;
-            mb0 = (1.0 - std::cos(omega0)) / 2.0;
-            mb1 = 1.0 - std::cos(omega0);
-            mb2 = (1.0 - std::cos(omega0)) / 2.0;            
-            break;
-        }
-        case FilterType::HighPass:
-        {
-            ma0 = 1.0 + alpha;
-            ma1 = -2.0 * std::cos(omega0);
-            ma2 = 1.0 - alpha;
-            mb0 = (1.0 + std::cos(omega0)) / 2.0;
-            mb1 = -(1.0 + std::cos(omega0));
-            mb2 = (1.0 + std::cos(omega0)) / 2.0;
-            break;
-        }
-        case FilterType::BandPass:
-        {
-            ma0 = 1.0 + alpha;
-            ma1 = -2.0 * std::cos(omega0);
-            ma2 = 1.0 - alpha;
-            mb0 = alpha;
-            mb1 = 0;
-            mb2 = -alpha;
-            break;
-        }
-        case FilterType::Notch:
-        {
-            ma0 = 1.0 + alpha;
-            ma1 = -2.0 * std::cos(omega0);
-            ma2 = 1.0 - alpha;
-            mb0 = 1.0;
-            mb1 = -2.0 * std::cos(omega0);
-            mb2 = 1.0;
-            break;
-        }
-        case FilterType::AllPass:
-        {
-            ma0 = 1.0 + alpha;
-            ma1 = -2.0 * std::cos(omega0);
-            ma2 = 1.0 - alpha;
-            mb0 = 1.0 - alpha;
-            mb1 = -2.0 * std::cos(omega0);
-            mb2 = 1.0 + alpha;
-            break;
-        }
-        case FilterType::Peaking:
-        {
-            ma0 = 1.0 + alpha / A;
-            ma1 = -2.0 * std::cos(omega0);
-            ma2 = 1.0 - alpha / A;
-            mb0 = 1.0 + alpha * A;
-            mb1 = -2.0 * std::cos(omega0);
-            mb2 = 1.0 - alpha * A;
-            break;
-        }
-        case FilterType::LowShelf:
-        {
-            ma0 = (A + 1.0) + (A - 1.0) * std::cos(omega0) + 2.0 * std::sqrt(A) * alpha;
-            ma1 = -2.0 * ((A - 1.0) + (A + 1.0) * std::cos(omega0));
-            ma2 = (A + 1.0) + (A - 1.0) * std::cos(omega0) - 2.0 * std::sqrt(A) * alpha;
-            mb0 = A * ((A + 1.0) - (A - 1.0) * std::cos(omega0) + 2.0 * std::sqrt(A) * alpha);
-            mb1 = 2.0 * A * ((A - 1.0) - (A + 1.0) * std::cos(omega0));
-            mb2 = A * ((A + 1.0) - (A - 1.0) * std::cos(omega0) - 2.0 * std::sqrt(A) * alpha);
-            break;
-        }
-        case FilterType::HighShelf:
-        {
-            ma0 = (A + 1.0) - (A - 1.0) * std::cos(omega0) + 2.0 * std::sqrt(A) * alpha;
-            ma1 = 2.0 * ((A - 1.0) - (A + 1.0) * std::cos(omega0));
-            ma2 = (A + 1.0) - (A - 1.0) * std::cos(omega0) - 2.0 * std::sqrt(A) * alpha;
-            mb0 = A * ((A + 1.0) + (A - 1.0) * std::cos(omega0) + 2.0 * std::sqrt(A) * alpha);
-            mb1 = -2.0 * A * ((A - 1.0) + (A + 1.0) * std::cos(omega0));
-            mb2 = A * ((A + 1.0) + (A - 1.0) * std::cos(omega0) - 2.0 * std::sqrt(A) * alpha);
-            break;
-        }
-        default:
-            break;
-        }
-        if(ma0 != 0.0f)
-        {
-            mb0 /= ma0;
-            mb1 /= ma0;
-            mb2 /= ma0;
-            ma1 /= ma0;
-            ma2 /= ma0;
-        }
-    }
-
-    DspFloatType BiquadDelayFilter::process(DspFloatType x)
-    {
-        Undenormal denormals;
-        x = delayin.Tick(x);
-        DspFloatType y = mb0 * x + mb1 * mx_z1 + mb2 * mx_z2 - ma1 * my_z1 - ma2 * my_z2;
-
-        mx_z2 = mx_z1;
-        mx_z1 = x;
-
-        my_z2 = my_z1;
-        my_z1 = y;
-        
-        return delayout.Tick(y);
-    }
-
+	
 }

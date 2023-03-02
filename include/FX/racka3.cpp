@@ -140,12 +140,10 @@ FilterParams::defaults ()
     Pcategory = 0;
 
     Pnumformants = 3;
-    Pformantslowness = 64;
-    #pragma omp simd
+    Pformantslowness = 64;    
     for (int j = 0; j < FF_MAX_VOWELS; j++) {
         defaults (j);
-    };
-    #pragma omp simd
+    };    
     Psequencesize = 3;
     for (int i = 0; i < FF_MAX_SEQUENCE; i++)
         Psequence[i].nvowel = (unsigned char) i % FF_MAX_VOWELS;
@@ -160,8 +158,7 @@ FilterParams::defaults ()
 void
 FilterParams::defaults (int n)
 {
-    int j = n;
-    #pragma omp simd
+    int j = n;    
     for (int i = 0; i < FF_MAX_FORMANTS; i++) {
         Pvowels[j].formants[i].freq = (unsigned char) (RND*127.0);	//some random freqs
         Pvowels[j].formants[i].q = 64;
@@ -192,8 +189,7 @@ FilterParams::getfromFilterParams (FilterParams * pars)
     Pcategory = pars->Pcategory;
 
     Pnumformants = pars->Pnumformants;
-    Pformantslowness = pars->Pformantslowness;
-    #pragma omp simd
+    Pformantslowness = pars->Pformantslowness;    
     for (int j = 0; j < FF_MAX_VOWELS; j++) {
         for (int i = 0; i < FF_MAX_FORMANTS; i++) {
             Pvowels[j].formants[i].freq = pars->Pvowels[j].formants[i].freq;
@@ -202,8 +198,7 @@ FilterParams::getfromFilterParams (FilterParams * pars)
         };
     };
 
-    Psequencesize = pars->Psequencesize;
-    #pragma omp simd
+    Psequencesize = pars->Psequencesize;    
     for (int i = 0; i < FF_MAX_SEQUENCE; i++)
         Psequence[i].nvowel = pars->Psequence[i].nvowel;
 
@@ -285,13 +280,11 @@ FilterParams::formantfilterH (int nvowel, int nfreqs, DspFloatType * freqs)
 {
     DspFloatType c[3], d[3];
     DspFloatType filter_freq, filter_q, filter_amp;
-    DspFloatType omega, sn, cs, alpha;
-    #pragma omp simd
+    DspFloatType omega, sn, cs, alpha;    
     for (int i = 0; i < nfreqs; i++)
         freqs[i] = 0.0;
 
-    //for each formant...
-    #pragma omp simd
+    //for each formant...    
     for (int nformant = 0; nformant < Pnumformants; nformant++) {
         //compute formant parameters(frequency,amplitude,etc.)
         filter_freq = getformantfreq (Pvowels[nvowel].formants[nformant].freq);
@@ -342,8 +335,7 @@ FilterParams::formantfilterH (int nvowel, int nfreqs, DspFloatType * freqs)
 
             freqs[i] += std::pow (h, ((DspFloatType)Pstages + 1.0f) / 2.0f) * filter_amp;
         };
-    };
-    #pragma omp simd
+    };    
     for (int i = 0; i < nfreqs; i++) {
         if (freqs[i] > 0.000000001f)
             freqs[i] = rap2dB (freqs[i]) + getgain ();
@@ -487,8 +479,7 @@ AnalogFilter::~AnalogFilter ()
 
 void
 AnalogFilter::cleanup ()
-{
-    #pragma omp simd
+{    
     for (int i = 0; i < MAX_FILTER_STAGES + 1; i++) {
         x[i].c1 = 0.0;
         x[i].c2 = 0.0;
@@ -748,13 +739,11 @@ AnalogFilter::setfreq (DspFloatType frequency)
 
 
     if ((rap > 3.0) || (nyquistthresh != 0)) {
-        //if the frequency is changed fast, it needs interpolation (now, filter and coeficients backup)
-        #pragma omp simd
+        //if the frequency is changed fast, it needs interpolation (now, filter and coeficients backup) 
         for (int i = 0; i < 3; i++) {
             oldc[i] = c[i];
             oldd[i] = d[i];
-        };
-        #pragma omp simd
+        };        
         for (int i = 0; i < MAX_FILTER_STAGES + 1; i++) {
             oldx[i] = x[i];
             oldy[i] = y[i];
@@ -825,8 +814,7 @@ AnalogFilter::singlefilterout (DspFloatType * smp, fstage & x, fstage & y,
     int i;
     DspFloatType y0;
     if (order == 1) {
-        //First order filter
-        #pragma omp simd
+        //First order filter        
         for (i = 0; i < PERIOD; i++) {
 
             y0 = smp[i] * c[0] + x.c1 * c[1] + y.c1 * d[1];
@@ -837,8 +825,7 @@ AnalogFilter::singlefilterout (DspFloatType * smp, fstage & x, fstage & y,
         };
     };
     if (order == 2) {
-        //Second order filter
-        #pragma omp simd
+        //Second order filter        
         for (i = 0; i < PERIOD; i++) {
             y0 =
                 (smp[i] * c[0]) + (x.c1 * c[1]) + (x.c2 * c[2]) + (y.c1 * d[1]) +
@@ -859,11 +846,9 @@ AnalogFilter::filterout (DspFloatType * smp)
     int i;
     DspFloatType *ismp = NULL;	//used if it needs interpolation
     if (needsinterpolation != 0) {
-        ismp = new DspFloatType[PERIOD];
-        #pragma omp simd
+        ismp = new DspFloatType[PERIOD];        
         for (i = 0; i < PERIOD; i++)
-            ismp[i] = smp[i];
-        #pragma omp simd
+            ismp[i] = smp[i];        
         for (i = 0; i < stages + 1; i++)
             singlefilterout (ismp, oldx[i], oldy[i], oldc, oldd);
     };
@@ -871,8 +856,7 @@ AnalogFilter::filterout (DspFloatType * smp)
     for (i = 0; i < stages + 1; i++)
         singlefilterout (smp, x[i], y[i], c, d);
 
-    if (needsinterpolation != 0) {
-        #pragma omp simd
+    if (needsinterpolation != 0) {        
         for (i = 0; i < PERIOD; i++) {
             DspFloatType x = (DspFloatType) i / fPERIOD;
             smp[i] = ismp[i] * (1.0f - x) + smp[i] * x;
@@ -888,12 +872,10 @@ DspFloatType
 AnalogFilter::filterout_s(DspFloatType smp)
 {
     int i;
-    if (needsinterpolation != 0) {
-        #pragma omp simd
+    if (needsinterpolation != 0) {        
         for (i = 0; i < stages + 1; i++)
             smp=singlefilterout_s(smp, oldx[i], oldy[i], oldc, oldd);
-    }
-    #pragma omp simd
+    }    
     for (i = 0; i < stages + 1; i++)
         smp=singlefilterout_s(smp, x[i], y[i], c, d);
 
@@ -963,7 +945,6 @@ DspFloatType AnalogFilter::H (DspFloatType freq)
     fr = freq / ifSAMPLE_RATE * D_PI;
     DspFloatType
     x = c[0], y = 0.0;
-    #pragma omp simd
     for (int n = 1; n < 3; n++) {
         x += std::cos ((DspFloatType)n * fr) * c[n];
         y -= std::sin ((DspFloatType)n * fr) * c[n];
@@ -971,8 +952,7 @@ DspFloatType AnalogFilter::H (DspFloatType freq)
     DspFloatType
     h = x * x + y * y;
     x = 1.0;
-    y = 0.0;
-    #pragma omp simd
+    y = 0.0;    
     for (int n = 1; n < 3; n++) {
         x -= std::cos ((DspFloatType)n * fr) * d[n];
         y += std::sin ((DspFloatType)n * fr) * d[n];
@@ -1102,8 +1082,7 @@ DspFloatType EffectLFO::getlfoshape (DspFloatType x)
         break;
     case 8:                       //Lorenz Fractal, faster, using X,Y outputs
         iterations = 4;
-    case 7:			// Lorenz Fractal
-        #pragma omp simd
+    case 7:			// Lorenz Fractal        
         for(int j=0; j<iterations; j++) {
             x1 = x0 + h * a * (y0 - x0);
             y1 = y0 + h * (x0 * (b - z0) - y0);
@@ -1249,7 +1228,6 @@ Analog_Phaser::Analog_Phaser (DspFloatType * efxoutl_, DspFloatType * efxoutr_)
     CFs = 2.0f*sampleRate*C;
     invperiod = 1.0f / fPERIOD;
 
-
     Ppreset = 0;
     setpreset (Ppreset);
     cleanup ();
@@ -1303,8 +1281,7 @@ Analog_Phaser::out (DspFloatType * smpsl, DspFloatType * smpsr)
     gr = oldrgain;
 
     oldlgain = lmod;
-    oldrgain = rmod;
-    #pragma omp simd
+    oldrgain = rmod;    
     for (i = 0; i < PERIOD; i++) {
 
         gl += ldiff;	// Linear interpolation between LFO samples
@@ -1474,12 +1451,10 @@ Analog_Phaser::setpreset (int npreset)
 
     if(npreset>NUM_PRESETS-1) {
 
-        Fpre->ReadPreset(18,npreset-NUM_PRESETS+1);
-        #pragma omp simd
+        Fpre->ReadPreset(18,npreset-NUM_PRESETS+1);        
         for (int n = 0; n < PRESET_SIZE; n++)
             changepar (n, pdata[n]);
-    } else {
-        #pragma omp simd
+    } else {        
         for (int n = 0; n < PRESET_SIZE; n++)
             changepar (n, presets[npreset][n]);
     }
@@ -1636,8 +1611,7 @@ Alienwah::out (DspFloatType * smpsl, DspFloatType * smpsr)
     clfol.a = std::cos (lfol + phase) * fb;
     clfol.b = std::sin (lfol + phase) * fb;
     clfor.a = std::cos (lfor + phase) * fb;
-    clfor.b = std::sin (lfor + phase) * fb;
-    #pragma omp simd
+    clfor.b = std::sin (lfor + phase) * fb;    
     for (i = 0; i < PERIOD; i++) {
         DspFloatType x = (DspFloatType)i / fPERIOD;
         DspFloatType x1 = 1.0f - x;
@@ -1774,12 +1748,10 @@ Alienwah::setpreset (int npreset)
 
     if(npreset>NUM_PRESETS-1) {
 
-        Fpre->ReadPreset(11,npreset-NUM_PRESETS+1);
-        #pragma omp simd
+        Fpre->ReadPreset(11,npreset-NUM_PRESETS+1);        
         for (int n = 0; n < PRESET_SIZE; n++)
             changepar (n, pdata[n]);
-    } else {
-        #pragma omp simd
+    } else {        
         for (int n = 0; n < PRESET_SIZE; n++)
             changepar (n, presets[npreset][n]);
     }
@@ -1891,7 +1863,7 @@ FormantFilter::FormantFilter (FilterParams * pars)
     inbuffer = new DspFloatType[PERIOD];
     tmpbuf = new DspFloatType[PERIOD];
 
-    #pragma omp simd
+    
     for (int j = 0; j < FF_MAX_VOWELS; j++)
         for (int i = 0; i < numformants; i++) {
             formantpar[j][i].freq =
@@ -1901,10 +1873,10 @@ FormantFilter::FormantFilter (FilterParams * pars)
             formantpar[j][i].q =
                 pars->getformantq (pars->Pvowels[j].formants[i].q);
         };
-    #pragma omp simd        
+    
     for (int i = 0; i < FF_MAX_FORMANTS; i++)
         oldformantamp[i] = 1.0;
-    #pragma omp simd
+    
     for (int i = 0; i < numformants; i++) {
         currentformants[i].freq = 1000.0f;
         currentformants[i].amp = 1.0f;
@@ -1916,7 +1888,7 @@ FormantFilter::FormantFilter (FilterParams * pars)
     sequencesize = pars->Psequencesize;
     if (sequencesize == 0)
         sequencesize = 1;
-    #pragma omp simd
+    
     for (int k = 0; k < sequencesize; k++)
         sequence[k].nvowel = pars->Psequence[k].nvowel;
 
@@ -1993,8 +1965,7 @@ FormantFilter::setpos (DspFloatType input)
     p1 = sequence[p1].nvowel;
     p2 = sequence[p2].nvowel;
 
-    if (firsttime != 0) {
-        #pragma omp simd
+    if (firsttime != 0) {    
         for (int i = 0; i < numformants; i++) {
             currentformants[i].freq =
                 formantpar[p1][i].freq * (1.0f - pos) +
@@ -2008,8 +1979,7 @@ FormantFilter::setpos (DspFloatType input)
             oldformantamp[i] = currentformants[i].amp;
         };
         firsttime = 0;
-    } else {
-        #pragma omp simd
+    } else {        
         for (int i = 0; i < numformants; i++) {
             currentformants[i].freq =
                 currentformants[i].freq * (1.0f - formantslowness) +
@@ -2059,13 +2029,11 @@ FormantFilter::setfreq_and_q (DspFloatType frequency, DspFloatType q_)
 void
 FormantFilter::filterout (DspFloatType * smp)
 {
-    int i, j;
-    #pragma omp simd
+    int i, j;    
     for (i = 0; i < PERIOD; i++) {
         inbuffer[i] = smp[i];
         smp[i] = 0.0;
-    };
-    #pragma omp simd
+    };    
     for (j = 0; j < numformants; j++) {
         for (i = 0; i < PERIOD; i++)
             tmpbuf[i] = inbuffer[i] * outgain;
@@ -2220,7 +2188,7 @@ SVFilter::singlefilterout (DspFloatType * smp, fstage & x, parameters & par)
         out = &x.notch;
         break;
     };
-    #pragma omp simd
+    
     for (i = 0; i < PERIOD; i++) {
         x.low = x.low + par.f * x.band;
         x.high = par.q_sqrt * smp[i] - x.low - par.q * x.band;
@@ -2239,19 +2207,19 @@ SVFilter::filterout (DspFloatType * smp)
 
     if (needsinterpolation != 0) {
         ismp = new DspFloatType[PERIOD];
-        #pragma omp simd
+        
         for (i = 0; i < PERIOD; i++)
             ismp[i] = smp[i];
-        #pragma omp simd
+        
         for (i = 0; i < stages + 1; i++)
             singlefilterout (ismp, st[i], ipar);
     };
-    #pragma omp simd
+    
     for (i = 0; i < stages + 1; i++)
         singlefilterout (smp, st[i], par);
 
     if (needsinterpolation != 0) {
-        #pragma omp simd
+        
         for (i = 0; i < PERIOD; i++) {
             DspFloatType x = (DspFloatType) i / fPERIOD;
             smp[i] = ismp[i] * (1.0f - x) + smp[i] * x;
@@ -2259,7 +2227,7 @@ SVFilter::filterout (DspFloatType * smp)
         delete (ismp);
         needsinterpolation = 0;
     };
-    #pragma omp simd
+    
     for (i = 0; i < PERIOD; i++)
         smp[i] *= outgain;
 
@@ -2394,10 +2362,10 @@ Arpie::initdelays ()
     Srate_Attack_Coeff = 15.0f / (dl + dr);   // Set swell time to 1/10th of average delay time
     fade = (dl+dr)/5;
 
-    #pragma omp simd
+    
     for (i = dl; i < maxx_delay; i++)
         ldelay[i] = 0.0;
-    #pragma omp simd
+    
     for (i = dr; i < maxx_delay; i++)
         rdelay[i] = 0.0;
     oldl = 0.0;
@@ -2413,7 +2381,7 @@ Arpie::out (DspFloatType * smpsl, DspFloatType * smpsr)
 {
     int i;
     DspFloatType l, r, ldl, rdl, rswell, lswell;
-    #pragma omp simd
+    
     for (i = 0; i < PERIOD; i++) {
         ldl = ldelay[kl];
         rdl = rdelay[kr];
@@ -2786,7 +2754,7 @@ Chorus::out (DspFloatType * smpsl, DspFloatType * smpsr)
         dr2 = delay + lfor * depth;
         if (Poutsub != 0) tmpsub = -1.0f;
         else tmpsub = 1.0f;
-        #pragma omp simd
+        
         for (i = 0; i < PERIOD; i++) {
             //Left
             mdel = (dl1 * (DspFloatType)(PERIOD - i) + dl2 * (DspFloatType)i) / fPERIOD;
@@ -2805,7 +2773,7 @@ Chorus::out (DspFloatType * smpsl, DspFloatType * smpsr)
 
         dl2 = getdelay (lfol);
         dr2 = getdelay (lfor);
-        #pragma omp simd
+        
         for (i = 0; i < PERIOD; i++) {
             DspFloatType inl = smpsl[i];
             DspFloatType inr = smpsr[i];
@@ -2856,7 +2824,7 @@ Chorus::out (DspFloatType * smpsl, DspFloatType * smpsr)
                 efxoutr[i] *= -1.0f;
             };
 
-        #pragma omp simd
+        
         for (int i = 0; i < PERIOD; i++) {
             efxoutl[i] *= panning;
             efxoutr[i] *= (1.0f - panning);
@@ -3128,10 +3096,10 @@ delayline::cleanup()
 {
     zero_index = 0;
     int i, k;
-    #pragma omp simd
+    
     for (i = 0; i < maxdelaysmps; i++)
         ringbuffer[i] = 0.0;
-    #pragma omp simd
+    
     for (i = 0; i < maxtaps; i++) {
         avgtime[i] = 0.0;
         time[i] = 0.0;
@@ -3145,7 +3113,7 @@ delayline::cleanup()
 
         }
     }
-    #pragma omp simd
+    
     for (i = 0; i < maxtaps; i++) {
         avgtime[i] = 0.0f;
         newtime[i] = 0;
@@ -3387,7 +3355,7 @@ delayline::phaser(DspFloatType fxn)	//All-pass interpolation
 {
 
     DspFloatType xn = fxn;
-    #pragma omp simd
+    
     for (int st = 0; st < pstruct[tap].stages; st++) {
         pstruct[tap].yn1[st] =
             pstruct[tap].xn1[st] - pstruct[tap].gain[st] * (xn +
@@ -3577,13 +3545,13 @@ HarmEnhancer::chebpc (DspFloatType c[], DspFloatType d[])
     int j,k;
 
     DspFloatType sv, dd[HARMONICS];
-    #pragma omp simd
+    
     for (j = 0; j < HARMONICS; j++) {
         d[j] = dd[j] = 0.0;
     }
 
     d[0] = c[HARMONICS - 1];
-    #pragma omp simd
+    
     for (j = HARMONICS - 2; j >= 1; j--) {
         for (k = HARMONICS - j; k >= 1; k--) {
             sv = d[k];
@@ -3594,7 +3562,7 @@ HarmEnhancer::chebpc (DspFloatType c[], DspFloatType d[])
         d[0] = -dd[0] + c[j];
         dd[0] = sv;
     }
-    #pragma omp simd
+    
     for (j = HARMONICS - 1; j >= 1; j--) {
         d[j] = d[j - 1] - dd[j];
     }
@@ -3655,7 +3623,7 @@ HarmEnhancer::harm_out(DspFloatType *smpsl, DspFloatType *smpsr)
     hpfr->filterout(inputr);
 
     limiter->out(inputl,inputr);
-    #pragma omp simd
+    
     for (i=0; i<PERIOD; i++) {
         DspFloatType xl = inputl[i];
         DspFloatType xr = inputr[i];
@@ -3685,7 +3653,7 @@ HarmEnhancer::harm_out(DspFloatType *smpsl, DspFloatType *smpsr)
 
     lpfl->filterout(inputl);
     lpfr->filterout(inputr);
-    #pragma omp simd
+    
     for (i=0; i<PERIOD; i++) {
         smpsl[i] =(smpsl[i]+inputl[i]*vol);
         smpsr[i] =(smpsr[i]+inputr[i]*vol);
@@ -3784,7 +3752,7 @@ CoilCrafter::out (DspFloatType * smpsl, DspFloatType * smpsr)
     if(Ppo>0) {
         RB1l->filterout(smpsl);
         RB1r->filterout(smpsr);
-        #pragma omp simd
+        
         for (i=0; i<PERIOD; i++) {
             smpsl[i]*=att;
             smpsr[i]*=att;
@@ -3798,7 +3766,7 @@ CoilCrafter::out (DspFloatType * smpsl, DspFloatType * smpsr)
 
     if(Pmode) harm->harm_out(smpsl,smpsr);
 
-    #pragma omp simd
+    
     for (i=0; i<PERIOD; i++) {
         smpsl[i]*=outvolume;
         smpsr[i]*=outvolume;
@@ -4211,7 +4179,7 @@ Compressor::out (DspFloatType *efxoutl, DspFloatType *efxoutr)
 
     int i;
 
-    #pragma omp simd
+    
     for (i = 0; i < PERIOD; i++) {
         DspFloatType rdelta = 0.0f;
         DspFloatType ldelta = 0.0f;
@@ -4479,7 +4447,7 @@ CompBand::out (DspFloatType * smpsl, DspFloatType * smpsr)
     CMH->out(midhl,midhr);
     CH->out(highl,highr);
 
-    #pragma omp simd
+    
     for (i = 0; i < PERIOD; i++) {
         efxoutl[i]=(lowl[i]+midll[i]+midhl[i]+highl[i])*level;
         efxoutr[i]=(lowr[i]+midlr[i]+midhr[i]+highr[i])*level;
@@ -4851,7 +4819,7 @@ void fft_filter::mayer_fht(DspFloatType *fz, int n)
     int  k,k1,k2,k3,k4,kx;
     DspFloatType *fi,*fn,*gi;
     TRIG_VARS;
-    #pragma omp simd
+    
     for (k1=1,k2=0; k1<n; k1++) {
         DspFloatType aa;
         for (k=n>>1; (!((k2^=k)&k)); k>>=1);
@@ -4861,11 +4829,11 @@ void fft_filter::mayer_fht(DspFloatType *fz, int n)
             fz[k2]=aa;
         }
     }
-    #pragma omp simd
+    
     for ( k=0 ; (1<<k)<n ; k++ );
     k  &= 1;    
     if (k==0) {
-        #pragma omp simd
+        
         for (fi=fz,fn=fz+n; fi<fn; fi+=4) {
             DspFloatType f0,f1,f2,f3;
             f1     = fi[0 ]-fi[1 ];
@@ -4878,7 +4846,7 @@ void fft_filter::mayer_fht(DspFloatType *fz, int n)
             fi[1 ] = (f1+f3);
         }
     } else {
-        #pragma omp simd
+        
         for (fi=fz,fn=fz+n,gi=fi+1; fi<fn; fi+=8,gi+=8) {
             DspFloatType bs1,bc1,bs2,bc2,bs3,bc3,bs4,bc4,
                   bg0,bf0,bf1,bg1,bf2,bg2,bf3,bg3;
@@ -4944,7 +4912,7 @@ void fft_filter::mayer_fht(DspFloatType *fz, int n)
             fi     += k4;
         } while (fi<fn);
         TRIG_INIT(k,c1,s1);
-        #pragma omp simd
+        
         for (ii=1; ii<kx; ii++) {
             DspFloatType c2,s2;
             TRIG_NEXT(k,c1,s1);
@@ -4992,7 +4960,7 @@ void fft_filter::mayer_fft(int n, DspFloatType *real, DspFloatType *imag)
     DspFloatType a,b,c,d;
     DspFloatType q,r,s,t;
     int i,j,k;
-    #pragma omp simd
+    
     for (i=1,j=n-1,k=n/2; i<k; i++,j--) {
         a = real[i];
         b = real[j];
@@ -5018,7 +4986,7 @@ void fft_filter::mayer_ifft(int n, DspFloatType *real, DspFloatType *imag)
     int i,j,k;
     mayer_fht(real,n);
     mayer_fht(imag,n);
-    #pragma omp simd
+    
     for (i=1,j=n-1,k=n/2; i<k; i++,j--) {
         a = real[i];
         b = real[j];
@@ -5041,7 +5009,7 @@ void fft_filter::mayer_realfft(int n, DspFloatType *real)
     int i,j,k;
 
     mayer_fht(real,n);
-    #pragma omp simd
+    
     for (i=1,j=n-1,k=n/2; i<k; i++,j--) {
         a = real[i];
         b = real[j];
@@ -5096,7 +5064,7 @@ fft_filter::realfft(int n, DspFloatType *real)
     mayer_realfft(n, real);
     real[n/2] = 0.0f;
 //unwrap this thing into something easier to index
-    #pragma omp simd
+    
     for (i=1+(n/2),j=n-1,k=(n - n/4); i<k; i++,j--) {
         tmp = real[j];
         real[j] = real[i];
@@ -5112,7 +5080,7 @@ void fft_filter::make_window(int n, DspFloatType *window)
     DspFloatType Ts = 1.0f/((DspFloatType) n);
     DspFloatType x = 2.0f*M_PI*Ts;
     DspFloatType tt = 0.0f;
-    #pragma omp simd
+    
     for(i=0; i<n; i++) {
         window[i] = 0.5f - 0.5f*std::cos(tt);
         tt+=x;
@@ -5136,7 +5104,7 @@ void fft_filter::resample_impulse(int size, DspFloatType* ir)
     memcpy(fftBuf, ir, size*sizeof(DspFloatType));
 
     realfft(fftLength, fftBuf);
-    #pragma omp simd
+    
     for(i=0,j=fftLength/2; i<fftLength/2; i++, j++) {
         fftBuf[i]*=ratio;
         fftBuf[j]*=ratio;

@@ -10,44 +10,44 @@ namespace DSP::BogAudio
 
 	
 	struct Amplifier {
-		static const float minDecibels;
-		static const float maxDecibels;
-		static const float decibelsRange;
+		static const DspFloatType minDecibels;
+		static const DspFloatType maxDecibels;
+		static const DspFloatType decibelsRange;
 		struct LevelTable : Table {
 			LevelTable(int n) : Table(n) {}
 			void _generate() override;
 		};
 		struct StaticLevelTable : StaticTable<LevelTable, 13> {};
 
-		float _db = 0.0f;
-		float _level;
+		DspFloatType _db = 0.0f;
+		DspFloatType _level;
 		const Table& _table;
 
 		Amplifier() : _table(StaticLevelTable::table())	{
 			setLevel(minDecibels);
 		}
 
-		void setLevel(float db);
-		float next(float s);
+		void setLevel(DspFloatType db);
+		DspFloatType next(DspFloatType s);
 	};
 
 
 
 	struct RunningAverage {
-		float _maxDelayMS;
-		float _sampleRate = -1.0f;
-		float _sensitivity = -1.0f;
+		DspFloatType _maxDelayMS;
+		DspFloatType _sampleRate = -1.0f;
+		DspFloatType _sensitivity = -1.0f;
 
 		bool _initialized = false;
-		float* _buffer = NULL;
+		DspFloatType* _buffer = NULL;
 		int _bufferN = 0;
 		int _sumN = 0;
-		float _invSumN = 0.0f;
+		DspFloatType _invSumN = 0.0f;
 		int _leadI = 0;
 		int _trailI = 0;
-		double _sum = 0;
+		DspFloatType _sum = 0;
 
-		RunningAverage(float sampleRate = 1000.0f, float sensitivity = 1.0f, float maxDelayMS = 300.0f) : _maxDelayMS(maxDelayMS) {
+		RunningAverage(DspFloatType sampleRate = 1000.0f, DspFloatType sensitivity = 1.0f, DspFloatType maxDelayMS = 300.0f) : _maxDelayMS(maxDelayMS) {
 			setSampleRate(sampleRate);
 			setSensitivity(sensitivity);
 		}
@@ -57,25 +57,25 @@ namespace DSP::BogAudio
 			}
 		}
 
-		void setSampleRate(float sampleRate);
-		void setSensitivity(float sensitivity);
+		void setSampleRate(DspFloatType sampleRate);
+		void setSensitivity(DspFloatType sensitivity);
 		void reset();
-		virtual float next(float sample);
+		virtual DspFloatType next(DspFloatType sample);
 	};
 
 
         
-	const float Amplifier::minDecibels = -60.0f;
-	const float Amplifier::maxDecibels = 20.0f;
-	const float Amplifier::decibelsRange = maxDecibels - minDecibels;
+	const DspFloatType Amplifier::minDecibels = -60.0f;
+	const DspFloatType Amplifier::maxDecibels = 20.0f;
+	const DspFloatType Amplifier::decibelsRange = maxDecibels - minDecibels;
 
 	void Amplifier::LevelTable::_generate() {
-		const float rdb = 6.0f;
-		const float tdb = Amplifier::minDecibels + rdb;
-		const float ta = decibelsToAmplitude(tdb);
+		const DspFloatType rdb = 6.0f;
+		const DspFloatType tdb = Amplifier::minDecibels + rdb;
+		const DspFloatType ta = decibelsToAmplitude(tdb);
 		_table[0] = 0.0f;
 		for (int i = 1; i < _length; ++i) {
-			float db = Amplifier::minDecibels + (i / (float)_length) * Amplifier::decibelsRange;
+			DspFloatType db = Amplifier::minDecibels + (i / (DspFloatType)_length) * Amplifier::decibelsRange;
 			if (db <= tdb) {
 				_table[i] = ((db - minDecibels) / rdb) * ta;
 			}
@@ -85,7 +85,7 @@ namespace DSP::BogAudio
 		}
 	}
 
-	void Amplifier::setLevel(float db) {
+	void Amplifier::setLevel(DspFloatType db) {
 		if (_db != db) {
 			_db = db;
 			if (_db > minDecibels) {
@@ -102,12 +102,12 @@ namespace DSP::BogAudio
 		}
 	}
 
-	float Amplifier::next(float s) {
+	DspFloatType Amplifier::next(DspFloatType s) {
 		return _level * s;
 	}
 
 
-	void RunningAverage::setSampleRate(float sampleRate) {
+	void RunningAverage::setSampleRate(DspFloatType sampleRate) {
 		assert(sampleRate > 0.0f);
 		if (_sampleRate != sampleRate) {
 			_sampleRate = sampleRate;
@@ -115,7 +115,7 @@ namespace DSP::BogAudio
 				delete[] _buffer;
 			}
 			_bufferN = (_maxDelayMS / 1000.0f) * _sampleRate;
-			_buffer = new float[_bufferN] {};
+			_buffer = new DspFloatType[_bufferN] {};
 			if (_initialized) {
 				_initialized = false;
 				setSensitivity(_sensitivity);
@@ -123,7 +123,7 @@ namespace DSP::BogAudio
 		}
 	}
 
-	void RunningAverage::setSensitivity(float sensitivity) {
+	void RunningAverage::setSensitivity(DspFloatType sensitivity) {
 		assert(sensitivity >= 0.0f);
 		assert(sensitivity <= 1.0f);
 		if (_initialized) {
@@ -156,7 +156,7 @@ namespace DSP::BogAudio
 			_trailI = _bufferN - _sumN;
 			_sum = 0.0;
 		}
-		_invSumN = 1.0f / (float)_sumN;
+		_invSumN = 1.0f / (DspFloatType)_sumN;
 	}
 
 	void RunningAverage::reset() {
@@ -164,13 +164,13 @@ namespace DSP::BogAudio
 		std::fill(_buffer, _buffer + _bufferN, 0.0);
 	}
 
-	float RunningAverage::next(float sample) {
+	DspFloatType RunningAverage::next(DspFloatType sample) {
 		_sum -= _buffer[_trailI];
 		++_trailI;
 		_trailI %= _bufferN;
 		_sum += _buffer[_leadI] = sample;
 		++_leadI;
 		_leadI %= _bufferN;
-		return (float)_sum * _invSumN;
+		return (DspFloatType)_sum * _invSumN;
 	}
 }

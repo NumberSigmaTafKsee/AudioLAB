@@ -10,12 +10,12 @@ namespace DSP::BogAudio
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////
 	struct Window {
 		int _size;
-		float* _window;
-		float _sum;
+		DspFloatType* _window;
+		DspFloatType _sum;
 
 		Window(int size)
 		: _size(size)
-		, _window(new float[_size] {})
+		, _window(new DspFloatType[_size] {})
 		, _sum(0.0)
 		{}
 		virtual ~Window() {
@@ -23,13 +23,13 @@ namespace DSP::BogAudio
 		}
 
 		inline int size() { return _size; }
-		inline float at(int i) { assert(i >= 0 && i < _size); return _window[i]; }
-		inline float sum() { return _sum; }
-		void apply(float* in, float* out);
+		inline DspFloatType at(int i) { assert(i >= 0 && i < _size); return _window[i]; }
+		inline DspFloatType sum() { return _sum; }
+		void apply(DspFloatType* in, DspFloatType* out);
 	};
 
 	struct HanningWindow : Window {
-		HanningWindow(int size, float alpha = 0.5);
+		HanningWindow(int size, DspFloatType alpha = 0.5);
 	};
 
 	struct HammingWindow : HanningWindow {
@@ -37,9 +37,9 @@ namespace DSP::BogAudio
 	};
 
 	struct KaiserWindow : Window {
-		KaiserWindow(int size, float alpha = 7.865f);
+		KaiserWindow(int size, DspFloatType alpha = 7.865f);
 
-		float i0(float x);
+		DspFloatType i0(DspFloatType x);
 	};
 
 	struct PlanckTaperWindow : Window {
@@ -52,7 +52,7 @@ namespace DSP::BogAudio
 		FFT1024();
 		~FFT1024();
 
-		void do_fft(float* out, float* in);
+		void do_fft(DspFloatType* out, DspFloatType* in);
 	};
 
 	struct FFT4096 {
@@ -60,7 +60,7 @@ namespace DSP::BogAudio
 		FFT4096();
 		~FFT4096();
 
-		void do_fft(float* out, float* in);
+		void do_fft(DspFloatType* out, DspFloatType* in);
 	};
 
 	struct FFT8192 {
@@ -68,7 +68,7 @@ namespace DSP::BogAudio
 		FFT8192();
 		~FFT8192();
 
-		void do_fft(float* out, float* in);
+		void do_fft(DspFloatType* out, DspFloatType* in);
 	};
 
 	struct FFT16384 {
@@ -76,7 +76,7 @@ namespace DSP::BogAudio
 		FFT16384();
 		~FFT16384();
 
-		void do_fft(float* out, float* in);
+		void do_fft(DspFloatType* out, DspFloatType* in);
 	};
 
 	struct FFT32768 {
@@ -84,11 +84,11 @@ namespace DSP::BogAudio
 		FFT32768();
 		~FFT32768();
 
-		void do_fft(float* out, float* in);
+		void do_fft(DspFloatType* out, DspFloatType* in);
 	};
 
 
-	struct SpectrumAnalyzer : OverlappingBuffer<float> {
+	struct SpectrumAnalyzer : OverlappingBuffer<DspFloatType> {
 		enum Size {
 			SIZE_128 = 128,
 			SIZE_256 = 256,
@@ -116,43 +116,43 @@ namespace DSP::BogAudio
 			WINDOW_KAISER
 		};
 
-		const float _sampleRate;
-		ffft::FFTReal<float>* _fft = NULL;
+		const DspFloatType _sampleRate;
+		ffft::FFTReal<DspFloatType>* _fft = NULL;
 		FFT1024* _fft1024 = NULL;
 		FFT4096* _fft4096 = NULL;
 		FFT8192* _fft8192 = NULL;
 		FFT16384* _fft16384 = NULL;
 		FFT32768* _fft32768 = NULL;
 		Window* _window = NULL;
-		float* _windowOut = NULL;
-		float* _fftOut = NULL;
+		DspFloatType* _windowOut = NULL;
+		DspFloatType* _fftOut = NULL;
 
 		SpectrumAnalyzer(
 			Size size,
 			Overlap overlap,
 			WindowType windowType,
-			float sampleRate,
+			DspFloatType sampleRate,
 			bool autoProcess = true
 		);
 		virtual ~SpectrumAnalyzer();
 
-		void processBuffer(float* samples) override;
-		void getMagnitudes(float* bins, int nBins);
+		void processBuffer(DspFloatType* samples) override;
+		void getMagnitudes(DspFloatType* bins, int nBins);
 	};
 
 
 	void Table::generate() {
 		if (!_table) {
-			_table = new float[_length] {};
+			_table = new DspFloatType[_length] {};
 			_generate();
 		}
 	}
 
 
 	void SineTable::_generate() {
-		const float twoPI = 2.0f * M_PI;
+		const DspFloatType twoPI = 2.0f * M_PI;
 		for (int i = 0, j = _length / 4; i <= j; ++i) {
-			_table[i] = sinf(twoPI * (i / (float)_length));
+			_table[i] = sinf(twoPI * (i / (DspFloatType)_length));
 		}
 		for (int i = 1, j = _length / 4; i < j; ++i) {
 			_table[i + j] = _table[j - i];
@@ -165,16 +165,16 @@ namespace DSP::BogAudio
 
 	void BlepTable::_generate() {
 		// some amount of a sinc function.
-		const float scaledPi = M_PI * 10.0f;
+		const DspFloatType scaledPi = M_PI * 10.0f;
 		_table[_length / 2] = 0.0f;
 		for (int i = 1, j = _length / 2; i < j; ++i) {
-			float radians = scaledPi * (i / (float)j);
+			DspFloatType radians = scaledPi * (i / (DspFloatType)j);
 			_table[j + i] = sinf(radians) / radians;
 		}
 
 		// "integrate": FIXME: avoid magic normalization value.
-		const float norm = _length / 40.0f;
-		float sum = 0.0f;
+		const DspFloatType norm = _length / 40.0f;
+		DspFloatType sum = 0.0f;
 		for (int i = _length / 2; i < _length; ++i) {
 			sum += _table[i];
 			_table[i] = sum / norm;
@@ -195,27 +195,27 @@ namespace DSP::BogAudio
 		hw.apply(_table, _table);
 	}
 
-    void Window::apply(float* in, float* out) {
+    void Window::apply(DspFloatType* in, DspFloatType* out) {
 	for (int i = 0; i < _size; ++i) {
 		out[i] = in[i] * _window[i];
 	}
 }
 
     
-HanningWindow::HanningWindow(int size, float alpha) : Window(size) {
-	const float invAlpha = 1.0 - alpha;
-	const float twoPIEtc = 2.0 * M_PI / (float)size;
+HanningWindow::HanningWindow(int size, DspFloatType alpha) : Window(size) {
+	const DspFloatType invAlpha = 1.0 - alpha;
+	const DspFloatType twoPIEtc = 2.0 * M_PI / (DspFloatType)size;
 	for (int i = 0; i < _size; ++i) {
-		_sum += _window[i] = invAlpha*cos(twoPIEtc*(float)i + M_PI) + alpha;
+		_sum += _window[i] = invAlpha*cos(twoPIEtc*(DspFloatType)i + M_PI) + alpha;
 	}
 }
 
 
-KaiserWindow::KaiserWindow(int size, float alpha) : Window(size) {
-	float ii0a = 1.0f / i0(alpha);
-	float ism1 = 1.0f / (float)(size - 1);
+KaiserWindow::KaiserWindow(int size, DspFloatType alpha) : Window(size) {
+	DspFloatType ii0a = 1.0f / i0(alpha);
+	DspFloatType ism1 = 1.0f / (DspFloatType)(size - 1);
 	for (int i = 0; i < _size; ++i) {
-		float x = i * 2.0f;
+		DspFloatType x = i * 2.0f;
 		x *= ism1;
 		x -= 1.0f;
 		x *= x;
@@ -227,16 +227,16 @@ KaiserWindow::KaiserWindow(int size, float alpha) : Window(size) {
 }
 
 // Rabiner, Gold: "The Theory and Application of Digital Signal Processing", 1975, page 103.
-float KaiserWindow::i0(float x) {
+DspFloatType KaiserWindow::i0(DspFloatType x) {
 	assert(x >= 0.0f);
 	assert(x < 20.0f);
-	float y = 0.5f * x;
-	float t = .1e-8f;
-	float e = 1.0f;
-	float de = 1.0f;
+	DspFloatType y = 0.5f * x;
+	DspFloatType t = .1e-8f;
+	DspFloatType e = 1.0f;
+	DspFloatType de = 1.0f;
 	for (int i = 1; i <= 25; ++i) {
-		de = de * y / (float)i;
-		float sde = de * de;
+		de = de * y / (DspFloatType)i;
+		DspFloatType sde = de * de;
 		e += sde;
 		if (e * t - sde > 0.0f) {
 			break;
@@ -251,7 +251,7 @@ PlanckTaperWindow::PlanckTaperWindow(int size, int taperSamples) : Window(size) 
 	_sum += _window[size - 1] = 1.0f;
 
 	for (int i = 1; i < taperSamples; ++i) {
-		float x = ((float)taperSamples / (float)i) - ((float)taperSamples / (float)(taperSamples - i));
+		DspFloatType x = ((DspFloatType)taperSamples / (DspFloatType)i) - ((DspFloatType)taperSamples / (DspFloatType)(taperSamples - i));
 		x = 1.0f + exp(x);
 		x = 1.0f / x;
 		_sum += _window[i] = x;
@@ -275,7 +275,7 @@ FFT1024::~FFT1024() {
 	delete (FIXED_FFT1024*)_fft;
 }
 
-void FFT1024::do_fft(float* out, float* in) {
+void FFT1024::do_fft(DspFloatType* out, DspFloatType* in) {
 	((FIXED_FFT1024*)_fft)->do_fft(out, in);
 }
 
@@ -290,7 +290,7 @@ FFT4096::~FFT4096() {
 	delete (FIXED_FFT4096*)_fft;
 }
 
-void FFT4096::do_fft(float* out, float* in) {
+void FFT4096::do_fft(DspFloatType* out, DspFloatType* in) {
 	((FIXED_FFT4096*)_fft)->do_fft(out, in);
 }
 
@@ -305,7 +305,7 @@ FFT8192::~FFT8192() {
 	delete (FIXED_FFT8192*)_fft;
 }
 
-void FFT8192::do_fft(float* out, float* in) {
+void FFT8192::do_fft(DspFloatType* out, DspFloatType* in) {
 	((FIXED_FFT8192*)_fft)->do_fft(out, in);
 }
 
@@ -320,7 +320,7 @@ FFT16384::~FFT16384() {
 	delete (FIXED_FFT16384*)_fft;
 }
 
-void FFT16384::do_fft(float* out, float* in) {
+void FFT16384::do_fft(DspFloatType* out, DspFloatType* in) {
 	((FIXED_FFT16384*)_fft)->do_fft(out, in);
 }
 
@@ -335,7 +335,7 @@ FFT32768::~FFT32768() {
 	delete (FIXED_FFT32768*)_fft;
 }
 
-void FFT32768::do_fft(float* out, float* in) {
+void FFT32768::do_fft(DspFloatType* out, DspFloatType* in) {
 	((FIXED_FFT32768*)_fft)->do_fft(out, in);
 }
 
@@ -344,7 +344,7 @@ SpectrumAnalyzer::SpectrumAnalyzer(
 	Size size,
 	Overlap overlap,
 	WindowType windowType,
-	float sampleRate,
+	DspFloatType sampleRate,
 	bool autoProcess
 )
 : OverlappingBuffer(size, overlap, autoProcess)
@@ -375,7 +375,7 @@ SpectrumAnalyzer::SpectrumAnalyzer(
 			break;
 		}
 		default: {
-			_fft = new ffft::FFTReal<float>(size);
+			_fft = new ffft::FFTReal<DspFloatType>(size);
 		}
 	}
 
@@ -385,22 +385,22 @@ SpectrumAnalyzer::SpectrumAnalyzer(
 		}
 		case WINDOW_HANNING: {
 			_window = new HanningWindow(size);
-			_windowOut = new float[size];
+			_windowOut = new DspFloatType[size];
 			break;
 		}
 		case WINDOW_HAMMING: {
 			_window = new HammingWindow(size);
-			_windowOut = new float[size];
+			_windowOut = new DspFloatType[size];
 			break;
 		}
 		case WINDOW_KAISER: {
 			_window = new KaiserWindow(size);
-			_windowOut = new float[size];
+			_windowOut = new DspFloatType[size];
 			break;
 		}
 	}
 
-	_fftOut = new float[_size];
+	_fftOut = new DspFloatType[_size];
 }
 
 SpectrumAnalyzer::~SpectrumAnalyzer() {
@@ -431,8 +431,8 @@ SpectrumAnalyzer::~SpectrumAnalyzer() {
 	delete[] _fftOut;
 }
 
-void SpectrumAnalyzer::processBuffer(float* samples) {
-	float* input = samples;
+void SpectrumAnalyzer::processBuffer(DspFloatType* samples) {
+	DspFloatType* input = samples;
 	if (_window) {
 		_window->apply(samples, _windowOut);
 		input = _windowOut;
@@ -457,16 +457,16 @@ void SpectrumAnalyzer::processBuffer(float* samples) {
 	}
 }
 
-void SpectrumAnalyzer::getMagnitudes(float* bins, int nBins) {
+void SpectrumAnalyzer::getMagnitudes(DspFloatType* bins, int nBins) {
 	assert(nBins <= _size / 2);
 	assert(_size % nBins == 0);
 
 	const int bands = _size / 2;
 	const int binWidth = bands / nBins;
-	const float invBinWidth = 1.0 / (float)binWidth;
-	const float normalization = 2.0 / powf(_window ? _window->sum() : _size, 2.0);
+	const DspFloatType invBinWidth = 1.0 / (DspFloatType)binWidth;
+	const DspFloatType normalization = 2.0 / powf(_window ? _window->sum() : _size, 2.0);
 	for (int bin = 0; bin < nBins; ++bin) {
-		float sum = 0.0;
+		DspFloatType sum = 0.0;
 		int binEnd = bin * binWidth + binWidth;
 		for (int i = binEnd - binWidth; i < binEnd; ++i) {
 			sum += (_fftOut[i]*_fftOut[i] + _fftOut[i + bands]*_fftOut[i + bands]) * normalization;

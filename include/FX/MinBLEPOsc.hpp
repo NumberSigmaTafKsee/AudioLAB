@@ -596,6 +596,14 @@ namespace Analog::Oscillators::minBLEPOsc
 		{
 			return osc_Play(lpO[(int)I]);
 		}
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out);
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+			ProcessSIMD(n,in,out);
+		}
+		void ProcessBlock(size_t n, DspFloatType * out) {
+			ProcessSIMD(n,out,out);
+		}
+		
 		// call when main oscillator resets
 		void sync(osc_t * lpO)
 		{        
@@ -758,6 +766,68 @@ namespace Analog::Oscillators::minBLEPOsc
 			return lpO->sine;
 
 		return (2*v-1);
+	}
+	
+	void MinBLEPOsc::ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
+	{
+		#pragma omp simd aligned(in,out)
+		for(size_t i = 0; i < n; i++)
+		{
+			DspFloatType v;
+			DspFloatType fs=lpO->f / lpO->s_rate;
+			static DspFloatType phase = 0;
+
+			// create waveform
+			lpO->p=lpO->p+fs;
+				
+			// add BLEP at end of waveform
+			if (lpO->p>=1)
+			{
+				lpO->p=lpO->p-1.0;
+				lpO->v=0.0f;
+				osc_AddBLEP(lpO, lpO->p/fs,1.0f);
+			}
+			
+			// add BLEP in middle of wavefor for squarewave
+			if (!lpO->v && lpO->p>lpO->fPWM && lpO->type==OT_SQUARE)
+			{
+				lpO->v=1.0f;
+				osc_AddBLEP(lpO, (lpO->p-lpO->fPWM)/fs,-1.0f);
+			}
+
+			
+
+			// these fruities are only positive 
+			lpO->saw  = lpO->p;     
+			lpO->rsaw = 1.0-lpO->saw;
+			lpO->square = lpO->v;
+			lpO->triangle += (2*lpO->square-1)*fs;        
+			lpO->sine = std::sin(2*M_PI*lpO->p);
+
+			// sample value
+			if (lpO->type==OT_SAW)
+			{
+				v = lpO->saw;    
+				blepAdd(lpO,v);
+			}
+			else if(lpO->type == OT_RSAW)
+			{
+				v = lpO->rsaw;
+				blepAdd(lpO,v);
+			}
+			else
+			{
+				v = lpO->square;
+				blepAdd(lpO,v);
+			}
+						
+			if(lpO->type == OT_TRIANGLE)
+				out[i] = 4*(lpO->triangle-0.25);
+			else if(lpO->type == OT_SINE)
+				out[i] =  lpO->sine;
+			else
+				out[i] = (2*v-1);			
+		}
 	}
 }
 #undef KTABLE

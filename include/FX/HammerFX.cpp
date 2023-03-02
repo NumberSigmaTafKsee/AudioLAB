@@ -96,7 +96,7 @@ static void RC_filter(size_t numSamples, DspFloatType * buffer, int mode, int fi
     DspFloatType     *sound = buffer;
     int channels = 1;
 
-    #pragma omp simd
+    #pragma omp simd aligned(sound,buffer)
     for (t = 0; t < numSamples; t++) {
 	if(isnan(*sound))
 	    *sound=0;
@@ -129,17 +129,17 @@ static void RC_filter(size_t numSamples, DspFloatType * buffer, int mode, int fi
 void RC_bandpass(size_t n, DspFloatType * buffer, struct filter_data *pp)
 {
     int             a;
-
+	#pragma omp simd(buffer)
     for (a = 0; a < pp->max; a++) {
-	RC_filter(n, buffer, HIGHPASS, a, pp);
-	RC_filter(n, buffer, LOWPASS, a, pp);
+		RC_filter(n, buffer, HIGHPASS, a, pp);
+		RC_filter(n, buffer, LOWPASS, a, pp);
     }
 }
 
 void RC_highpass(size_t n, DspFloatType * buffer, struct filter_data *pp)
 {
     int             a;
-
+	#pragma omp simd(buffer)
     for (a = 0; a < pp->max; a++)
 	RC_filter(n, buffer, HIGHPASS, a, pp);
 }
@@ -147,7 +147,7 @@ void RC_highpass(size_t n, DspFloatType * buffer, struct filter_data *pp)
 void RC_lowpass(size_t n, DspFloatType * buffer, struct filter_data *pp)
 {
     int             a;
-
+	#pragma omp simd(buffer)
     for (a = 0; a < pp->max; a++)
 	    RC_filter(n, buffer, LOWPASS, a, pp);
 }
@@ -229,242 +229,6 @@ static DspFloatType power2db(DspFloatType power)
 
 #define MAX_sampleRate 192000
 #define MAX_SAMPLE (32767 << 8)
-//#define MAX_CHANNELS 8
-
-/*
-static const char *methods[] = {
-    "Lowpass",
-    "Bandpass",
-    "Moog ladder",
-    "TB-303 style",
-    NULL
-};
-
-static const char *syncs[] = {
-    "Envelope",
-    "Continuous",
-    "MIDI continous control",
-    NULL
-};
-
-static void
-update_wah_speed(GtkAdjustment *adj, struct autowah_params *params)
-{
-    params->sweep_time = adj->value;
-}
-
-static void
-update_wah_freqlow(GtkAdjustment *adj, struct autowah_params *params)
-{
-    params->freq_low = adj->value;
-}
-
-static void
-update_wah_freqhi(GtkAdjustment *adj, struct autowah_params *params)
-{
-    params->freq_high = adj->value;
-}
-
-static void
-update_wah_drywet(GtkAdjustment *adj, struct autowah_params *params)
-{
-    params->drywet = adj->value;
-}
-
-static void
-update_wah_res(GtkAdjustment *adj, struct autowah_params *params)
-{
-    params->res = adj->value;
-}
-
-static void
-update_wah_sync(GtkWidget *w, struct autowah_params *params)
-{
-    int i;
-    const char *tmp;
-    
-    tmp = gtk_entry_get_text(GTK_ENTRY(w));
-    if (tmp == NULL)
-        return;
-
-    for (i = 0; syncs[i] != NULL; i += 1) {
-	if (strcmp(tmp, syncs[i]) == 0) {
-	    params->sync = i;
-	    break;
-	}
-    }
-
-    
-    gtk_widget_set_sensitive(GTK_WIDGET(params->w_sweep), params->sync != 2);
-}
-
-static void
-update_method(GtkWidget *w, struct autowah_params *params)
-{
-    int i;
-    const char *tmp;
-    
-    tmp = gtk_entry_get_text(GTK_ENTRY(w));
-    if (tmp == NULL)
-        return;
-
-    for (i = 0; methods[i] != NULL; i += 1) {
-	if (strcmp(tmp, methods[i]) == 0) {
-	    params->method = i;
-	    break;
-	}
-    }
-    
-    gtk_widget_set_sensitive(GTK_WIDGET(params->w_resonance), params->method != 1);
-}
-
-static void toggle_effect_custom(GtkWidget *w, effect_t *p) {
-    struct autowah_params *params = p->params;
-    toggle_effect(w, p);
-    gtk_widget_set_sensitive(GTK_WIDGET(params->w_control), p->toggle);
-}
-
-static void tblattach(GtkWidget *table, GtkWidget *widget, int x, int y) {
-    int attachopts = GTK_EXPAND;
-    if ((x == 0 || x == 2)
-        && !(y == 0 && x == 2)) { 
-        attachopts = 0;
-        gtk_misc_set_alignment(GTK_MISC(widget), 0, 0.5);
-    }
-
-    gtk_table_attach(GTK_TABLE(table), (widget), (x), (x)+1, (y), (y)+1,
-                     __GTKATTACHOPTIONS(GTK_FILL | GTK_SHRINK | attachopts),
-                     __GTKATTACHOPTIONS(GTK_FILL | GTK_SHRINK), 3, 3);
-}
-
-autowah_init(struct effect *p)
-{
-    int i;
-    struct autowah_params *params = p->params;
-
-    GtkWidget      *label;
-    GtkWidget      *widget;
-    GtkObject      *adj;
-
-    GtkWidget      *button;
-    GtkWidget      *table;
-
-    GList          *glist_methods = NULL;
-    
-    p->control = gtk_window_new(GTK_WINDOW_DIALOG);
-    gtk_signal_connect(GTK_OBJECT(p->control), "delete_event",
-		       GTK_SIGNAL_FUNC(delete_event), p);
-    table = gtk_table_new(3, 6, FALSE);
-    
-    label = gtk_label_new("Wah control:");
-    tblattach(table, label, 0, 0);
-    for (i = 0; syncs[i] != NULL; i += 1)
-        glist_methods = g_list_append(glist_methods, (gchar *) syncs[i]);
-    widget = gtk_combo_new();
-    gtk_combo_set_popdown_strings(GTK_COMBO(widget), glist_methods);
-    g_list_free(glist_methods);
-    gtk_entry_set_editable(GTK_ENTRY(GTK_COMBO(widget)->entry), FALSE);
-    gtk_entry_set_text(GTK_ENTRY(GTK_COMBO(widget)->entry), syncs[params->sync]);
-    gtk_signal_connect(GTK_OBJECT(GTK_COMBO(widget)->entry),
-		       "changed", GTK_SIGNAL_FUNC(update_wah_sync), params);
-    tblattach(table, widget, 1, 0);
-
-    params->w_control = widget;
-    
-    button = gtk_check_button_new_with_label("On");
-    if (p->toggle)
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button), TRUE);
-    gtk_signal_connect(GTK_OBJECT(button), "toggled",
-		       GTK_SIGNAL_FUNC(toggle_effect_custom), p);
-    tblattach(table, button, 2, 0);
-    gtk_widget_set_sensitive(GTK_WIDGET(params->w_control), p->toggle);
-
-    label = gtk_label_new("Period:");
-    tblattach(table, label, 0, 1);
-    adj = gtk_adjustment_new(params->sweep_time, 100.0,
-                             10000.0, 1.0, 10.0, 0.0);
-    gtk_signal_connect(GTK_OBJECT(adj), "value_changed",
-		       GTK_SIGNAL_FUNC(update_wah_speed), params);
-    widget = gtk_hscale_new(GTK_ADJUSTMENT(adj));
-    gtk_scale_set_value_pos(GTK_SCALE(widget), GTK_POS_RIGHT);
-    tblattach(table, widget, 1, 1);
-    label = gtk_label_new("ms");
-    tblattach(table, label, 2, 1);
-    
-    params->w_sweep = widget; 
-    gtk_widget_set_sensitive(GTK_WIDGET(params->w_sweep), params->sync != 2);
-
-    label = gtk_label_new("First frequency:");
-    tblattach(table, label, 0, 3);
-    adj = gtk_adjustment_new(params->freq_high,
-			     80.0, 5000.0, 1.0, 1.0, 0.0);
-    gtk_signal_connect(GTK_OBJECT(adj), "value_changed",
-		       GTK_SIGNAL_FUNC(update_wah_freqhi), params);
-    widget = gtk_hscale_new(GTK_ADJUSTMENT(adj));
-    gtk_scale_set_value_pos(GTK_SCALE(widget), GTK_POS_RIGHT);
-    tblattach(table, widget, 1, 3);
-    label = gtk_label_new("Hz");
-    tblattach(table, label, 2, 3);
-
-    label = gtk_label_new("Last frequency:");
-    tblattach(table, label, 0, 2);
-    adj = gtk_adjustment_new(params->freq_low,
-			     80.0, 5000.0, 1.0, 1.0, 0.0);
-    gtk_signal_connect(GTK_OBJECT(adj), "value_changed",
-		       GTK_SIGNAL_FUNC(update_wah_freqlow), params);
-    widget = gtk_hscale_new(GTK_ADJUSTMENT(adj));
-    gtk_scale_set_value_pos(GTK_SCALE(widget), GTK_POS_RIGHT);
-    tblattach(table, widget, 1, 2);
-    label = gtk_label_new("Hz");
-    tblattach(table, label, 2, 2);
-
-    label = gtk_label_new("Wah type:");
-    tblattach(table, label, 0, 4);
-    glist_methods = NULL;
-    for (i = 0; methods[i] != NULL; i += 1)
-        glist_methods = g_list_append(glist_methods, (gchar *) methods[i]);
-    widget = gtk_combo_new();
-    gtk_combo_set_popdown_strings(GTK_COMBO(widget), glist_methods);
-    g_list_free(glist_methods);
-    gtk_entry_set_editable(GTK_ENTRY(GTK_COMBO(widget)->entry), FALSE);
-    gtk_entry_set_text(GTK_ENTRY(GTK_COMBO(widget)->entry), methods[params->method]);
-    gtk_signal_connect(GTK_OBJECT(GTK_COMBO(widget)->entry),
-		       "changed", GTK_SIGNAL_FUNC(update_method), params);
-    tblattach(table, widget, 1, 4);
-
-    label = gtk_label_new("Filter resonance:");
-    tblattach(table, label, 0, 5);
-    adj = gtk_adjustment_new(params->res,
-			     30.0, 100.0, 10, 30, 0.0);
-    widget = gtk_hscale_new(GTK_ADJUSTMENT(adj));
-    gtk_scale_set_value_pos(GTK_SCALE(widget), GTK_POS_RIGHT);
-    gtk_signal_connect(GTK_OBJECT(adj), "value_changed",
-		       GTK_SIGNAL_FUNC(update_wah_res), params);
-    tblattach(table, widget, 1, 5);
-    label = gtk_label_new("%");
-    tblattach(table, label, 2, 5);
-    
-    params->w_resonance = widget;
-    gtk_widget_set_sensitive(GTK_WIDGET(params->w_resonance), params->method != 1);
-    
-    label = gtk_label_new("Dry / Wet:");
-    tblattach(table, label, 0, 6);
-    adj = gtk_adjustment_new(params->drywet,
-		             0.0, 100.0, 1.0, 5.0, 0.0);
-    widget = gtk_hscale_new(GTK_ADJUSTMENT(adj));
-    gtk_scale_set_value_pos(GTK_SCALE(widget), GTK_POS_RIGHT);
-    gtk_signal_connect(GTK_OBJECT(widget), "value_changed",
-		       GTK_SIGNAL_FUNC(update_wah_drywet), params);
-    tblattach(table, widget, 1, 6);
-    label = gtk_label_new("%");
-    tblattach(table, label, 2, 6);
-    
-    gtk_window_set_title(GTK_WINDOW(p->control), "Autowah");
-    gtk_container_add(GTK_CONTAINER(p->control), table);
-
-    gtk_widget_show_all(p->control);
-}
-*/
 
 
 void autowah_init(autowah_params * ap) {        
@@ -487,7 +251,6 @@ DspFloatType sin_lookup_table[SIN_LOOKUP_SIZE+1];
 
 static void init_sin_lookup_table(void) {
     int i = 0;
-    #pragma omp simd
     for (i = 0; i < SIN_LOOKUP_SIZE + 1; i += 1)
         sin_lookup_table[i] = sin(2 * M_PI * i / SIN_LOOKUP_SIZE);
 }
@@ -540,7 +303,7 @@ void autowah_filter(autowah_params *ap, size_t numSamples, DspFloatType * inputs
          * We just skip all channels but the first presently. */
         
         
-        #pragma omp simd
+        #pragma omp simd aligned(inputs,outputs)
         for (i = 0; i < numSamples; i++) { 
             outputs[i] = inputs[i];
             if (curr_channel == 0) {
@@ -697,7 +460,8 @@ void chorus_filter_mono(chorus_params * cp, size_t numSamples, DspFloatType * in
     Depth = cp->depth / 1000.0 * sampleRate;
     BaseDelay = cp->basedelay / 1000.0 * sampleRate;
 
-    while (count) {
+	#pragma omp simd aligned(inputs,outputs,s)
+    for(size_t k = 0; k < count; k++) {
         tmp = 0.0;
         tmp_ang = cp->ang;
         #pragma omp simd
@@ -727,8 +491,7 @@ void chorus_filter_mono(chorus_params * cp, size_t numSamples, DspFloatType * in
                 cp->ang -= 1.0;
         }
 
-	    s++;
-	    count--;
+	    s++;	    
     }
 }
 
@@ -801,7 +564,8 @@ void delay_filter_mono(delay_params * dp, size_t n, DspFloatType * inputs, DspFl
     s = inputs;
     t = outputs;
     /* this is a simple mono version that treats all channels separately */
-    while (count) {
+    #pragma omp simd aligned(inputs,outputs,s,t)
+    for(size_t k = 0; k < count; k++) {
         newval = 0;
         current_delay = 0;
         current_decay = 1.0;
@@ -819,8 +583,7 @@ void delay_filter_mono(delay_params * dp, size_t n, DspFloatType * inputs, DspFl
 
         curr_channel = (curr_channel + 1) % dp->numChannels;
         s++;
-        t++;
-        count--;
+        t++;        
     }
 }
 
@@ -850,7 +613,8 @@ void distort_filter(struct distort_params * dp, size_t numSamples, DspFloatType 
 
     RC_highpass(numSamples, s, &(dp->fd));
 
-    while (count) {
+	#pragma omp simd aligned(inputs,outputs,s,t)
+    for(size_t k = 0; k < count; k++) {
 	/*
 	 * apply drive  
 	 */
@@ -878,8 +642,7 @@ void distort_filter(struct distort_params * dp, size_t numSamples, DspFloatType 
 	    t=0;
 	*s=t;
     in++;
-	s++;
-	count--;
+	s++;	
     }
 
     LC_filter(numSamples, s, 0, dp->lowpass, &(dp->noise));
@@ -969,7 +732,9 @@ distort2_filter(struct distort2_params *dp, size_t numSamples, DspFloatType * in
     /*
      * process signal; x - input, in the range -1, 1
      */
-    while (count) {
+    #pragma omp simd aligned(inputs,outputs,s,o)
+    for(size_t k = 0; k < count; k++) 
+    {
         /* "properly" interpolate previous input at positions 0 and 2 */
         fir_interpolate_2x(dp->interpolate_firmem[curr_channel],
                            *s, &upsample[2], &upsample[0]);
@@ -1038,7 +803,7 @@ distort2_filter(struct distort2_params *dp, size_t numSamples, DspFloatType * in
 
         s++;
         o++;
-        count--;
+    
 
         curr_channel = (curr_channel + 1) % channels;
     }
@@ -1113,7 +878,8 @@ void echo_filter(struct echo_params  *params, size_t numSamples, DspFloatType * 
         decay_lookup[i] = pow(echo_decay, params->decay_factor[i]);
     }
 
-    while (count) {
+	#pragma omp simd aligned(inputs,outputs,s,outs)
+    for(size_t k = 0; k < count; k++) {
         /* mix current input into the various echo buffers at their
          * expected delays */
         in = *s;
@@ -1174,8 +940,7 @@ void echo_create(struct echo_params *params)
     }
     /* build history buffers, one per channel per echo */
     /* with 20 voices, 0.5 s max buffer, 48 kHz sample rate
-     * and 4 bytes per sample we need approx. 1 MB */
-     #pragma omp simd
+     * and 4 bytes per sample we need approx. 1 MB */     
     for (i = 0; i < MAX_ECHO_COUNT; i += 1) {
         for (j = 0; j < MAX_CHANNELS; j += 1) {
             params->history[j][i] = new_Backbuf(MAX_ECHO_LENGTH / 1000.0 * MAX_sampleRate * params->size_factor[i]);
@@ -1216,7 +981,8 @@ void eqbank_filter(struct eqbank_params *params, size_t numSamples, DspFloatType
     s = inputs;
 
     ocoeff = pow(10, params->volume / 20.0);
-    while (count) {
+    #pragma omp simd aligned(inputs,outputs,s,o)
+    for(size_t k = 0; k < count; k++) {
         int i;
         DspFloatType out1, out2;
         /* using 2x upsampling */
@@ -1232,8 +998,7 @@ void eqbank_filter(struct eqbank_params *params, size_t numSamples, DspFloatType
 
 	cchannel = (cchannel + 1) % channels;
 	s++;
-    o++;
-	count--;
+    o++;	
     }
 }
 
@@ -1267,7 +1032,8 @@ void phasor_filter_mono(struct phasor_params *params, size_t numSamples, DspFloa
     Dry = 1.f - Wet;
     f = params->f;
 
-    while (count) {
+    #pragma omp simd aligned(inputs,outputs,s,out)
+    for(size_t k = 0; k < count; k++) {
         if (curr_channel == 0 && count % PHASOR_UPDATE_INTERVAL == 0) { 
             f += 1000.0f / params->sweep_time / sampleRate * PHASOR_UPDATE_INTERVAL;
             if (f >= 1.0f)
@@ -1289,8 +1055,7 @@ void phasor_filter_mono(struct phasor_params *params, size_t numSamples, DspFloa
         
         curr_channel = (curr_channel + 1) % channels;
         s++;
-        out++;
-        count--;
+        out++;        
     }
     params->f += 1000.0 / params->sweep_time / sampleRate * (numSamples/ channels);
     if (params->f >= 1.0)
@@ -1401,7 +1166,8 @@ void tremolo_filter(struct tremolo_params *tp, size_t numSamples, DspFloatType *
     
     speed = tp->tremolo_speed / 1000.0 * sampleRate;;
     
-    while (count) {
+    #pragma omp simd aligned(inputs,outputs,s,o)
+    for(size_t k = 0; k < count; k++) {
 
         *o = *s;
         if (tp->tremolo_phase >= speed)
@@ -1417,8 +1183,7 @@ void tremolo_filter(struct tremolo_params *tp, size_t numSamples, DspFloatType *
             tp->tremolo_phase++;
 
         s++;
-        o++;
-        count--;
+        o++;        
     }
 }
 
@@ -1618,7 +1383,7 @@ static DspFloatType convolve(const DspFloatType *a, const DspFloatType *b, int l
     int i;
     /* a long int type would be needed to hold the value in integer dsp */
     DspFloatType dot = 0;
-    #pragma omp simd
+    #pragma omp simd aligned(a,b)    
     for (i = 0; i < len; i += 1)
             dot += (DspFloatType) a[i] * (DspFloatType) b[i];
     return dot;
@@ -1645,7 +1410,7 @@ void tubeamp_filter(struct tubeamp_params *params, size_t numSamples, DspFloatTy
     gain = pow(10.f, params->gain / 20.f);
     
     /* highpass -> low shelf eq -> lowpass -> waveshaper */
-    #pragma omp simd
+    #pragma omp simd aligned(ptr1,o,inputs,outputs)
     for (i = 0; i < numSamples; i += 1) {
         DspFloatType result;
         for (k = 0; k < UPSAMPLE_RATIO; k += 1) {
@@ -1747,7 +1512,7 @@ void tubeamp_create(struct tubeamp_params *params)
 #define NONLINEARITY_MAX 1024           /* normalize table between -1 .. 1 */
 
     DspFloatType y = 0.0;
-    #pragma omp simd
+    
     for (i = 0; i < NONLINEARITY_SIZE; i += 1) {
         int iter = 10000;
         /* Solve implicit equation
@@ -1807,7 +1572,8 @@ void vibrato_filter(struct vibrato_params *vp, size_t numSamples, DspFloatType *
      * The f_mod is the speed of modulation, stored in variables speed. The speed
      * itself is modulated by the period and depth parameters. */
     
-    while (count) {
+    #pragma omp simd aligned(inputs,outputs,s,o)
+    for(size_t k = 0; k < count; k++) {
         DspFloatType x0, x1;
         DspFloatType sinval, cosval;
         hilbert_transform(*s, &x0, &x1, &vp->hilbert, curr_channel);
@@ -1830,8 +1596,7 @@ void vibrato_filter(struct vibrato_params *vp, size_t numSamples, DspFloatType *
         }
 
 	    s++;
-        o++;
-	    count--;
+        o++;	    
     }
 }
 
@@ -1882,7 +1647,7 @@ estimate_best_correlation(DspFloatType *data, const int frames, const int aligno
     apprx = best;
 
     /* now look around the estimated maximum for the best match */
-    #pragma omp simd
+    #pragma omp simd aligned(data,ref)
     for (i = std::max(best - 3, 0); i < std::min(best + 4, frames - looplen); i += 1) {
         /* don't recompute the convolution we already know */
         if (i == apprx)
@@ -1907,8 +1672,7 @@ copy_to_output_buffer(DspFloatType *in, DspFloatType *out, DspFloatType *wp, con
     int16_t i;
 
     /* sum the first half with the tail of previous buffer, but overwrite
-     * with the second half because the data on that side is old. */
-     #pragma omp simd
+     * with the second half because the data on that side is old. */     
     for (i = 0; i < length / 2 / 4; i += 1) {
         __m128 w = wp4[i];
         /* unfortunately we must take the performance hit of unaligned load */
@@ -1925,7 +1689,7 @@ copy_to_output_buffer(DspFloatType *in, DspFloatType *out, DspFloatType *wp, con
 
     /* sum the first half with the tail of previous buffer, but overwrite
      * with the second half because the data on that side is old. */
-    #pragma omp simd
+    #pragma omp simd aligned(wp,in,out)
     for (i = 0; i < length / 2; i += 1) {
         DspFloatType w = wp[i];
         out[i] = w * in[i] + (1.f - w) * out[i + length/2];
@@ -1949,6 +1713,7 @@ resample_to_output(Backbuf_t *history, const int deststart, const int destend, D
     DspFloatType factor = (DspFloatType) sourcelength / destlength, pos = 0;
 
     /* very primitive resampler but it should be good enough for now */
+    #pragma omp simd aligned(input)
     for (i = 0; i < destlength; i += 1) {
         int idx;
         pos += factor;
@@ -2013,8 +1778,7 @@ void pitch_filter(struct pitch_params * params, size_t n, DspFloatType * inputs,
          * the data mixed with the "tail" of the previous buffer and
          * pristine input data. At each iteration, we use only half of the
          * output buffer for actual output, and copy the latter half as the
-         * first half for next iteration. */
-        #pragma omp simd
+         * first half for next iteration. */        
         for (i = 0; i < channels; i += 1) {
             int bestpos = estimate_best_correlation(
                 params->channel_memory[i] + params->memory_index,
@@ -2124,7 +1888,7 @@ void rotary_filter(struct rotary_params *params, size_t numSamples, DspFloatType
     
 
     pha = params->phase;
-    #pragma omp simd
+    #pragma omp simd aligned(inputs,outputs,tmp,o)
     for (i = 0; i < numSamples; i += 1) {
         DspFloatType x0, x1, y0, y1;
 

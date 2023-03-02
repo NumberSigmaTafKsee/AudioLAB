@@ -14,13 +14,6 @@
 #include "Analog/VABandLimitedOscillators.hpp"
 #include "Analog/VABlitOscillators.hpp"
 #include "Analog/VADPWOscillators.hpp"
-//#include "Analog/VAOscillators.hpp"
-//#include "Analog/VAPolyBLEPOscillator.hpp"
-//#include "Analog/VAPolyBlepOscillators.hpp"
-
-#include "Analog/VADiode.hpp"
-#include "Analog/VADiodeClipper.hpp"
-
 
 #include "Analog/VAImprovedMoogFilter.hpp"
 #include "Analog/VAKrajeskiMoogFilter.hpp"
@@ -72,11 +65,7 @@
 #include "Analog/VASstFilters.hpp"
 #include "Analog/VAVCS3DiodeFilter.hpp"
 #include "Analog/VAVCS3Filter.hpp"
-#include "Analog/VAVoltageControlledFilter.hpp"
 #include "Analog/VAXodFilters.hpp"
-#include "Analog/VirtualAnalogDiodeLadderFilter.hpp"
-#include "Analog/VirtualAnalogStateVariableFilter.hpp"
-#include "Analog/VoltageControlledFilter.hpp"
 
 %}
 
@@ -171,8 +160,6 @@
 
 // other filters
 %include "Analog/VADinkyFilter.hpp"
-%include "Analog/VADiode.hpp"
-%include "Analog/VADiodeClipper.hpp"
 %include "Analog/VADiodeLadderFilter2.hpp"
 %ignore FirstOrderFilter;
 %include "Analog/VAMorphableFilter.hpp"
@@ -191,33 +178,6 @@
 %include "Analog/VAVCS3Filter.hpp"
 %include "Analog/VAXodFilters.hpp"
 
-// Voltage Controlled
-//%include "Analog/VCA.hpp"
-//%include "Analog/VCF.hpp"
-//%include "Analog/VCO.hpp"
-
-//%include "Analog/VADiodeLadderFilter.hpp"
-//%include "Analog/VAOberheimFilter.hpp"
-
-// it is just the musicdsp moog
-//%include "Analog/VAHybridCurtisVCF.hpp"
-//%include "Analog/VAKorg35HPFFilter.hpp"
-//%include "Analog/VAKorg35LPFFilter.hpp"
-//%include "Analog/VAMoogHalfLadderFilter.hpp"
-//%include "Analog/VAMoogLadder.hpp"
-//%rename Analog::Filters::MoogLadder::MoogLadder MoogLadder1;
-//%include "Analog/VAMoogLadderFilter.hpp"
-
-//%include "Analog/VAPolyBlepOscillators.hpp"
-//%include "Analog/VASVStateVariableFilter.hpp"
-//%include "Analog/VAStateVariableFilters.hpp"
-//%include "Analog/VAPolygonalOscillator.hpp"
-//%include "Analog/VASVStateVariableFilter.hpp"
-//%include "Analog/VAWDFCompressor.hpp"
-//%include "Analog/VAWDFDiodeClipper.hpp"
-//%include "Analog/VAWDFPassiveLPF.hpp"
-//%include "Analog/VAWDFSallenKey.hpp"
-/*
 %rename Analog::Filters::VirtualAnalogDiodeLadderFilter VADiodeLadderFilter;
 %include "Analog/VirtualAnalogDiodeLadderFilter.hpp"
 %include "Analog/VirtualAnalogStateVariableFilter.hpp"

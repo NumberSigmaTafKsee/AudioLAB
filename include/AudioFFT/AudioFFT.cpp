@@ -70,6 +70,7 @@ namespace audiofft
     template<typename TypeDest, typename TypeSrc>
     void ConvertBuffer(TypeDest* dest, const TypeSrc* src, size_t len)
     {
+		#pragma omp simd(dest,src)
       for (size_t i=0; i<len; ++i)
       {
         dest[i] = static_cast<TypeDest>(src[i]);
@@ -80,6 +81,7 @@ namespace audiofft
     template<typename TypeDest, typename TypeSrc, typename TypeFactor>
     void ScaleBuffer(TypeDest* dest, const TypeSrc* src, const TypeFactor factor, size_t len)
     {
+		#pragma omp simd(dest,src)
       for (size_t i=0; i<len; ++i)
       {
         dest[i] = static_cast<TypeDest>(static_cast<TypeFactor>(src[i]) * factor);

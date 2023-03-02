@@ -2701,7 +2701,7 @@ SWIG_Lua_dostring(lua_State *L, const char *str) {
 #define SWIGTYPE_p_Batch swig_types[1]
 #define SWIGTYPE_p_BoxMuller swig_types[2]
 #define SWIGTYPE_p_Connection swig_types[3]
-#define SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t swig_types[4]
+#define SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t swig_types[4]
 #define SWIGTYPE_p_Layer swig_types[5]
 #define SWIGTYPE_p_Network swig_types[6]
 #define SWIGTYPE_p_NeuralNetwork swig_types[7]
@@ -2709,36 +2709,37 @@ SWIG_Lua_dostring(lua_State *L, const char *str) {
 #define SWIGTYPE_p_RandomNumbers swig_types[9]
 #define SWIGTYPE_p_boost__math__differentiation__detail__fvarT_floatType_2_t swig_types[10]
 #define SWIGTYPE_p_double swig_types[11]
-#define SWIGTYPE_p_f_r_Eigen__Matrix__double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void swig_types[12]
+#define SWIGTYPE_p_f_r_Eigen__Matrix__floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void swig_types[12]
 #define SWIGTYPE_p_float swig_types[13]
 #define SWIGTYPE_p_myclock swig_types[14]
-#define SWIGTYPE_p_std__complexT_double_t swig_types[15]
+#define SWIGTYPE_p_std__complexT_float_t swig_types[15]
 #define SWIGTYPE_p_std__default_random_engine swig_types[16]
-#define SWIGTYPE_p_std__numeric_limitsT_double_t swig_types[17]
-#define SWIGTYPE_p_std__numeric_limitsT_float_t swig_types[18]
-#define SWIGTYPE_p_std__numeric_limitsT_int_t swig_types[19]
-#define SWIGTYPE_p_std__numeric_limitsT_long_long_t swig_types[20]
-#define SWIGTYPE_p_std__numeric_limitsT_long_t swig_types[21]
-#define SWIGTYPE_p_std__numeric_limitsT_short_t swig_types[22]
-#define SWIGTYPE_p_std__numeric_limitsT_unsigned_int_t swig_types[23]
-#define SWIGTYPE_p_std__numeric_limitsT_unsigned_long_long_t swig_types[24]
-#define SWIGTYPE_p_std__numeric_limitsT_unsigned_long_t swig_types[25]
-#define SWIGTYPE_p_std__numeric_limitsT_unsigned_short_t swig_types[26]
-#define SWIGTYPE_p_std__string swig_types[27]
-#define SWIGTYPE_p_std__vectorT_ActivationType_std__allocatorT_ActivationType_t_t swig_types[28]
-#define SWIGTYPE_p_std__vectorT_Connection_p_std__allocatorT_Connection_p_t_t swig_types[29]
-#define SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t swig_types[30]
-#define SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t swig_types[31]
-#define SWIGTYPE_p_std__vectorT_Layer_p_std__allocatorT_Layer_p_t_t swig_types[32]
-#define SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t swig_types[33]
-#define SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t swig_types[34]
-#define SWIGTYPE_p_std__vectorT_int64_t_std__allocatorT_int64_t_t_t swig_types[35]
-#define SWIGTYPE_p_std__vectorT_int_std__allocatorT_int_t_t swig_types[36]
-#define SWIGTYPE_p_std__vectorT_std__vectorT_Batch_std__allocatorT_Batch_t_t_std__allocatorT_std__vectorT_Batch_std__allocatorT_Batch_t_t_t_t swig_types[37]
-#define SWIGTYPE_p_std__vector_iteratorT_double_std__allocatorT_double_t_t swig_types[38]
-#define SWIGTYPE_p_std__vector_iteratorT_float_std__allocatorT_float_t_t swig_types[39]
-static swig_type_info *swig_types[41];
-static swig_module_info swig_module = {swig_types, 40, 0, 0, 0, 0};
+#define SWIGTYPE_p_std__ifstream swig_types[17]
+#define SWIGTYPE_p_std__numeric_limitsT_double_t swig_types[18]
+#define SWIGTYPE_p_std__numeric_limitsT_float_t swig_types[19]
+#define SWIGTYPE_p_std__numeric_limitsT_int_t swig_types[20]
+#define SWIGTYPE_p_std__numeric_limitsT_long_long_t swig_types[21]
+#define SWIGTYPE_p_std__numeric_limitsT_long_t swig_types[22]
+#define SWIGTYPE_p_std__numeric_limitsT_short_t swig_types[23]
+#define SWIGTYPE_p_std__numeric_limitsT_unsigned_int_t swig_types[24]
+#define SWIGTYPE_p_std__numeric_limitsT_unsigned_long_long_t swig_types[25]
+#define SWIGTYPE_p_std__numeric_limitsT_unsigned_long_t swig_types[26]
+#define SWIGTYPE_p_std__numeric_limitsT_unsigned_short_t swig_types[27]
+#define SWIGTYPE_p_std__ofstream swig_types[28]
+#define SWIGTYPE_p_std__vectorT_ActivationType_std__allocatorT_ActivationType_t_t swig_types[29]
+#define SWIGTYPE_p_std__vectorT_Connection_p_std__allocatorT_Connection_p_t_t swig_types[30]
+#define SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t swig_types[31]
+#define SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t swig_types[32]
+#define SWIGTYPE_p_std__vectorT_Layer_p_std__allocatorT_Layer_p_t_t swig_types[33]
+#define SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t swig_types[34]
+#define SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t swig_types[35]
+#define SWIGTYPE_p_std__vectorT_int64_t_std__allocatorT_int64_t_t_t swig_types[36]
+#define SWIGTYPE_p_std__vectorT_int_std__allocatorT_int_t_t swig_types[37]
+#define SWIGTYPE_p_std__vectorT_std__vectorT_Batch_std__allocatorT_Batch_t_t_std__allocatorT_std__vectorT_Batch_std__allocatorT_Batch_t_t_t_t swig_types[38]
+#define SWIGTYPE_p_std__vector_iteratorT_double_std__allocatorT_double_t_t swig_types[39]
+#define SWIGTYPE_p_std__vector_iteratorT_float_std__allocatorT_float_t_t swig_types[40]
+static swig_type_info *swig_types[42];
+static swig_module_info swig_module = {swig_types, 41, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -7383,14 +7384,14 @@ static int _wrap_matrix_new(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
   arg2 = (size_t)lua_tonumber(L, 2);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t,0))){
-    SWIG_fail_ptr("matrix_new",3,SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t,0))){
+    SWIG_fail_ptr("matrix_new",3,SWIGTYPE_p_std__vectorT_float_std__allocatorT_float_t_t);
   }
   
   result = matrix_new(arg1,arg2,*arg3);
   {
     Matrix * resultptr = new Matrix((const Matrix &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -7418,7 +7419,7 @@ static int _wrap_matrix_create(lua_State* L) {
   result = matrix_create(arg1,arg2);
   {
     Matrix * resultptr = new Matrix((const Matrix &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -7446,7 +7447,7 @@ static int _wrap_createMatrixZeros(lua_State* L) {
   result = createMatrixZeros(arg1,arg2);
   {
     Matrix * resultptr = new Matrix((const Matrix &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -7468,19 +7469,19 @@ static int _wrap_hadamard(lua_State* L) {
   if(!lua_isuserdata(L,1)) SWIG_fail_arg("hadamard",1,"Matrix &");
   if(!lua_isuserdata(L,2)) SWIG_fail_arg("hadamard",2,"Matrix &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("hadamard",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("hadamard",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("hadamard",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("hadamard",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   result = hadamard(*arg1,*arg2);
   {
     Matrix * resultptr = new Matrix((const Matrix &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -7499,8 +7500,8 @@ static int _wrap_linear(lua_State* L) {
   SWIG_check_num_args("linear",1,1)
   if(!lua_isuserdata(L,1)) SWIG_fail_arg("linear",1,"Matrix &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("linear",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("linear",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   linear(*arg1);
@@ -7522,8 +7523,8 @@ static int _wrap_linear_grad(lua_State* L) {
   SWIG_check_num_args("linear_grad",1,1)
   if(!lua_isuserdata(L,1)) SWIG_fail_arg("linear_grad",1,"Matrix &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("linear_grad",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("linear_grad",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   linear_grad(*arg1);
@@ -7545,8 +7546,8 @@ static int _wrap_sigmoid(lua_State* L) {
   SWIG_check_num_args("sigmoid",1,1)
   if(!lua_isuserdata(L,1)) SWIG_fail_arg("sigmoid",1,"Matrix &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("sigmoid",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("sigmoid",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   sigmoid(*arg1);
@@ -7568,8 +7569,8 @@ static int _wrap_fullwave_sigmoid(lua_State* L) {
   SWIG_check_num_args("fullwave_sigmoid",1,1)
   if(!lua_isuserdata(L,1)) SWIG_fail_arg("fullwave_sigmoid",1,"Matrix &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("fullwave_sigmoid",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("fullwave_sigmoid",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   fullwave_sigmoid(*arg1);
@@ -7591,8 +7592,8 @@ static int _wrap_sigmoid_grad(lua_State* L) {
   SWIG_check_num_args("sigmoid_grad",1,1)
   if(!lua_isuserdata(L,1)) SWIG_fail_arg("sigmoid_grad",1,"Matrix &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("sigmoid_grad",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("sigmoid_grad",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   sigmoid_grad(*arg1);
@@ -7614,8 +7615,8 @@ static int _wrap_tanh(lua_State* L) {
   SWIG_check_num_args("tanh",1,1)
   if(!lua_isuserdata(L,1)) SWIG_fail_arg("tanh",1,"Matrix &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("tanh",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("tanh",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   tanh(*arg1);
@@ -7637,8 +7638,8 @@ static int _wrap_tanh_grad(lua_State* L) {
   SWIG_check_num_args("tanh_grad",1,1)
   if(!lua_isuserdata(L,1)) SWIG_fail_arg("tanh_grad",1,"Matrix &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("tanh_grad",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("tanh_grad",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   tanh_grad(*arg1);
@@ -7660,8 +7661,8 @@ static int _wrap_atan(lua_State* L) {
   SWIG_check_num_args("atan",1,1)
   if(!lua_isuserdata(L,1)) SWIG_fail_arg("atan",1,"Matrix &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("atan",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("atan",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   atan(*arg1);
@@ -7683,8 +7684,8 @@ static int _wrap_atan_grad(lua_State* L) {
   SWIG_check_num_args("atan_grad",1,1)
   if(!lua_isuserdata(L,1)) SWIG_fail_arg("atan_grad",1,"Matrix &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("atan_grad",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("atan_grad",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   atan_grad(*arg1);
@@ -7706,8 +7707,8 @@ static int _wrap_balls(lua_State* L) {
   SWIG_check_num_args("balls",1,1)
   if(!lua_isuserdata(L,1)) SWIG_fail_arg("balls",1,"Matrix &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("balls",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("balls",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   balls(*arg1);
@@ -7729,8 +7730,8 @@ static int _wrap_algebra(lua_State* L) {
   SWIG_check_num_args("algebra",1,1)
   if(!lua_isuserdata(L,1)) SWIG_fail_arg("algebra",1,"Matrix &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("algebra",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("algebra",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   algebra(*arg1);
@@ -7752,8 +7753,8 @@ static int _wrap_relu(lua_State* L) {
   SWIG_check_num_args("relu",1,1)
   if(!lua_isuserdata(L,1)) SWIG_fail_arg("relu",1,"Matrix &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("relu",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("relu",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   relu(*arg1);
@@ -7775,8 +7776,8 @@ static int _wrap_fullwave_relu(lua_State* L) {
   SWIG_check_num_args("fullwave_relu",1,1)
   if(!lua_isuserdata(L,1)) SWIG_fail_arg("fullwave_relu",1,"Matrix &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("fullwave_relu",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("fullwave_relu",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   fullwave_relu(*arg1);
@@ -7798,8 +7799,8 @@ static int _wrap_relu_grad(lua_State* L) {
   SWIG_check_num_args("relu_grad",1,1)
   if(!lua_isuserdata(L,1)) SWIG_fail_arg("relu_grad",1,"Matrix &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("relu_grad",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("relu_grad",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   relu_grad(*arg1);
@@ -7821,8 +7822,8 @@ static int _wrap_softmax(lua_State* L) {
   SWIG_check_num_args("softmax",1,1)
   if(!lua_isuserdata(L,1)) SWIG_fail_arg("softmax",1,"Matrix &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("softmax",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("softmax",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   softmax(*arg1);
@@ -7844,8 +7845,8 @@ static int _wrap_sinwave(lua_State* L) {
   SWIG_check_num_args("sinwave",1,1)
   if(!lua_isuserdata(L,1)) SWIG_fail_arg("sinwave",1,"Matrix &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("sinwave",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("sinwave",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   sinwave(*arg1);
@@ -8658,8 +8659,8 @@ static int _wrap_Activator_activate_f_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_f_r_Eigen__Matrix__double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void,0))){
-    SWIG_fail_ptr("Activator_activate_f_set",2,SWIGTYPE_p_f_r_Eigen__Matrix__double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_f_r_Eigen__Matrix__floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void,0))){
+    SWIG_fail_ptr("Activator_activate_f_set",2,SWIGTYPE_p_f_r_Eigen__Matrix__floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void);
   }
   
   if (arg1) (arg1)->activate_f = arg2;
@@ -8687,7 +8688,7 @@ static int _wrap_Activator_activate_f_get(lua_State* L) {
   }
   
   result = (activation) ((arg1)->activate_f);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_f_r_Eigen__Matrix__double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void,0); SWIG_arg++; 
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_f_r_Eigen__Matrix__floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void,0); SWIG_arg++; 
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -8712,8 +8713,8 @@ static int _wrap_Activator_activate_grad_f_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_f_r_Eigen__Matrix__double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void,0))){
-    SWIG_fail_ptr("Activator_activate_grad_f_set",2,SWIGTYPE_p_f_r_Eigen__Matrix__double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_f_r_Eigen__Matrix__floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void,0))){
+    SWIG_fail_ptr("Activator_activate_grad_f_set",2,SWIGTYPE_p_f_r_Eigen__Matrix__floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void);
   }
   
   if (arg1) (arg1)->activate_grad_f = arg2;
@@ -8741,7 +8742,7 @@ static int _wrap_Activator_activate_grad_f_get(lua_State* L) {
   }
   
   result = (activation_grad) ((arg1)->activate_grad_f);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_f_r_Eigen__Matrix__double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void,0); SWIG_arg++; 
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_f_r_Eigen__Matrix__floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void,0); SWIG_arg++; 
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -8831,13 +8832,13 @@ static int _wrap_new_Activator__SWIG_1(lua_State* L) {
   if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("Activator::Activator",2,"activation_grad");
   if(!lua_isboolean(L,3)) SWIG_fail_arg("Activator::Activator",3,"bool");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_f_r_Eigen__Matrix__double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void,0))){
-    SWIG_fail_ptr("new_Activator",1,SWIGTYPE_p_f_r_Eigen__Matrix__double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_f_r_Eigen__Matrix__floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void,0))){
+    SWIG_fail_ptr("new_Activator",1,SWIGTYPE_p_f_r_Eigen__Matrix__floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_f_r_Eigen__Matrix__double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void,0))){
-    SWIG_fail_ptr("new_Activator",2,SWIGTYPE_p_f_r_Eigen__Matrix__double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_f_r_Eigen__Matrix__floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void,0))){
+    SWIG_fail_ptr("new_Activator",2,SWIGTYPE_p_f_r_Eigen__Matrix__floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void);
   }
   
   arg3 = (lua_toboolean(L, 3)!=0);
@@ -8867,7 +8868,7 @@ static int _wrap_new_Activator(lua_State* L) {
     int _v = 0;
     {
       void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_f_r_Eigen__Matrix__double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void, 0)) {
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_f_r_Eigen__Matrix__floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void, 0)) {
         _v = 0;
       } else {
         _v = 1;
@@ -8876,7 +8877,7 @@ static int _wrap_new_Activator(lua_State* L) {
     if (_v) {
       {
         void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_f_r_Eigen__Matrix__double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void, 0)) {
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_f_r_Eigen__Matrix__floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void, 0)) {
           _v = 0;
         } else {
           _v = 1;
@@ -8915,8 +8916,8 @@ static int _wrap_Activator_autodiff(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("Activator_autodiff",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Activator_autodiff",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   (arg1)->autodiff(*arg2);
@@ -8945,8 +8946,8 @@ static int _wrap_Activator_Activate(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("Activator_Activate",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Activator_Activate",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   (arg1)->Activate(*arg2);
@@ -8975,8 +8976,8 @@ static int _wrap_Activator_Grad(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("Activator_Grad",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Activator_Grad",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   (arg1)->Grad(*arg2);
@@ -9109,8 +9110,8 @@ static int _wrap_Layer_input_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("Layer_input_set",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Layer_input_set",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   arg2 = *argp2;
   
@@ -9141,7 +9142,7 @@ static int _wrap_Layer_input_get(lua_State* L) {
   result =  ((arg1)->input);
   {
     Matrix * resultptr = new Matrix((const Matrix &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -9168,8 +9169,8 @@ static int _wrap_Layer_loss_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("Layer_loss_set",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Layer_loss_set",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   arg2 = *argp2;
   
@@ -9200,7 +9201,7 @@ static int _wrap_Layer_loss_get(lua_State* L) {
   result =  ((arg1)->loss);
   {
     Matrix * resultptr = new Matrix((const Matrix &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -9212,22 +9213,27 @@ fail:
 }
 
 
-static int _wrap_Layer_size_set(lua_State* L) {
+static int _wrap_Layer_output_set(lua_State* L) {
   int SWIG_arg = 0;
   Layer *arg1 = (Layer *) 0 ;
-  size_t arg2 ;
+  Matrix arg2 ;
+  Matrix *argp2 ;
   
-  SWIG_check_num_args("Layer::size",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Layer::size",1,"Layer *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Layer::size",2,"size_t");
+  SWIG_check_num_args("Layer::output",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Layer::output",1,"Layer *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Layer::output",2,"Matrix");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Layer,0))){
-    SWIG_fail_ptr("Layer_size_set",1,SWIGTYPE_p_Layer);
+    SWIG_fail_ptr("Layer_output_set",1,SWIGTYPE_p_Layer);
   }
   
-  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-  arg2 = (size_t)lua_tonumber(L, 2);
-  if (arg1) (arg1)->size = arg2;
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Layer_output_set",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  }
+  arg2 = *argp2;
+  
+  if (arg1) (arg1)->output = arg2;
   
   return SWIG_arg;
   
@@ -9239,20 +9245,82 @@ fail:
 }
 
 
-static int _wrap_Layer_size_get(lua_State* L) {
+static int _wrap_Layer_output_get(lua_State* L) {
   int SWIG_arg = 0;
   Layer *arg1 = (Layer *) 0 ;
-  size_t result;
+  Matrix result;
   
-  SWIG_check_num_args("Layer::size",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Layer::size",1,"Layer *");
+  SWIG_check_num_args("Layer::output",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Layer::output",1,"Layer *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Layer,0))){
-    SWIG_fail_ptr("Layer_size_get",1,SWIGTYPE_p_Layer);
+    SWIG_fail_ptr("Layer_output_get",1,SWIGTYPE_p_Layer);
   }
   
-  result =  ((arg1)->size);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  result =  ((arg1)->output);
+  {
+    Matrix * resultptr = new Matrix((const Matrix &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
+  }
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_Layer_temp_set(lua_State* L) {
+  int SWIG_arg = 0;
+  Layer *arg1 = (Layer *) 0 ;
+  Matrix arg2 ;
+  Matrix *argp2 ;
+  
+  SWIG_check_num_args("Layer::temp",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Layer::temp",1,"Layer *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Layer::temp",2,"Matrix");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Layer,0))){
+    SWIG_fail_ptr("Layer_temp_set",1,SWIGTYPE_p_Layer);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Layer_temp_set",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  }
+  arg2 = *argp2;
+  
+  if (arg1) (arg1)->temp = arg2;
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_Layer_temp_get(lua_State* L) {
+  int SWIG_arg = 0;
+  Layer *arg1 = (Layer *) 0 ;
+  Matrix result;
+  
+  SWIG_check_num_args("Layer::temp",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Layer::temp",1,"Layer *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Layer,0))){
+    SWIG_fail_ptr("Layer_temp_get",1,SWIGTYPE_p_Layer);
+  }
+  
+  result =  ((arg1)->temp);
+  {
+    Matrix * resultptr = new Matrix((const Matrix &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
+  }
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -9367,7 +9435,75 @@ fail:
 }
 
 
+static int _wrap_Layer_size_set(lua_State* L) {
+  int SWIG_arg = 0;
+  Layer *arg1 = (Layer *) 0 ;
+  size_t arg2 ;
+  
+  SWIG_check_num_args("Layer::size",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Layer::size",1,"Layer *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Layer::size",2,"size_t");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Layer,0))){
+    SWIG_fail_ptr("Layer_size_set",1,SWIGTYPE_p_Layer);
+  }
+  
+  SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+  arg2 = (size_t)lua_tonumber(L, 2);
+  if (arg1) (arg1)->size = arg2;
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_Layer_size_get(lua_State* L) {
+  int SWIG_arg = 0;
+  Layer *arg1 = (Layer *) 0 ;
+  size_t result;
+  
+  SWIG_check_num_args("Layer::size",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Layer::size",1,"Layer *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Layer,0))){
+    SWIG_fail_ptr("Layer_size_get",1,SWIGTYPE_p_Layer);
+  }
+  
+  result =  ((arg1)->size);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static int _wrap_new_Layer__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  Layer *result = 0 ;
+  
+  SWIG_check_num_args("Layer::Layer",0,0)
+  result = (Layer *)new Layer();
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_Layer,1); SWIG_arg++; 
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_new_Layer__SWIG_1(lua_State* L) {
   int SWIG_arg = 0;
   LayerType arg1 ;
   size_t arg2 ;
@@ -9397,7 +9533,7 @@ fail:
 }
 
 
-static int _wrap_new_Layer__SWIG_1(lua_State* L) {
+static int _wrap_new_Layer__SWIG_2(lua_State* L) {
   int SWIG_arg = 0;
   LayerType arg1 ;
   size_t arg2 ;
@@ -9431,6 +9567,9 @@ static int _wrap_new_Layer(lua_State* L) {
   };
   
   argc = lua_gettop(L);
+  if (argc == 0) {
+    return _wrap_new_Layer__SWIG_0(L);
+  }
   if (argc == 3) {
     int _v = 0;
     {
@@ -9445,7 +9584,7 @@ static int _wrap_new_Layer(lua_State* L) {
           _v = lua_isnumber(L,argv[2]);
         }
         if (_v) {
-          return _wrap_new_Layer__SWIG_1(L);
+          return _wrap_new_Layer__SWIG_2(L);
         }
       }
     }
@@ -9468,7 +9607,7 @@ static int _wrap_new_Layer(lua_State* L) {
             _v = lua_isboolean(L,argv[3]);
           }
           if (_v) {
-            return _wrap_new_Layer__SWIG_0(L);
+            return _wrap_new_Layer__SWIG_1(L);
           }
         }
       }
@@ -9477,6 +9616,7 @@ static int _wrap_new_Layer(lua_State* L) {
   
   SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'new_Layer'\n"
     "  Possible C/C++ prototypes are:\n"
+    "    Layer::Layer()\n"
     "    Layer::Layer(LayerType,size_t,ActivationType,bool)\n"
     "    Layer::Layer(LayerType,size_t,ActivationType)\n");
   lua_error(L);return 0;
@@ -9497,8 +9637,8 @@ static int _wrap_Layer_Activate(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("Layer_Activate",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Layer_Activate",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   (arg1)->Activate(*arg2);
@@ -9527,8 +9667,8 @@ static int _wrap_Layer_Grad(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("Layer_Grad",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Layer_Grad",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   (arg1)->Grad(*arg2);
@@ -9560,20 +9700,50 @@ static int _wrap_Layer_Loss(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("Layer_Loss",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Layer_Loss",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("Layer_Loss",3,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Layer_Loss",3,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   result = (arg1)->Loss(*arg2,*arg3);
   {
     Matrix * resultptr = new Matrix((const Matrix &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
   }
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_Layer_getInput(lua_State* L) {
+  int SWIG_arg = 0;
+  Layer *arg1 = (Layer *) 0 ;
+  Matrix *arg2 = 0 ;
+  
+  SWIG_check_num_args("Layer::getInput",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Layer::getInput",1,"Layer *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Layer::getInput",2,"Matrix &");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Layer,0))){
+    SWIG_fail_ptr("Layer_getInput",1,SWIGTYPE_p_Layer);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Layer_getInput",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  }
+  
+  (arg1)->getInput(*arg2);
+  
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -9587,17 +9757,23 @@ fail:
 static int _wrap_Layer_getOutput(lua_State* L) {
   int SWIG_arg = 0;
   Layer *arg1 = (Layer *) 0 ;
-  Matrix *result = 0 ;
+  Matrix *arg2 = 0 ;
   
-  SWIG_check_num_args("Layer::getOutput",1,1)
+  SWIG_check_num_args("Layer::getOutput",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Layer::getOutput",1,"Layer *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Layer::getOutput",2,"Matrix &");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Layer,0))){
     SWIG_fail_ptr("Layer_getOutput",1,SWIGTYPE_p_Layer);
   }
   
-  result = (Matrix *) &(arg1)->getOutput();
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0); SWIG_arg++; 
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Layer_getOutput",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  }
+  
+  (arg1)->getOutput(*arg2);
+  
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -9611,17 +9787,83 @@ fail:
 static int _wrap_Layer_getLoss(lua_State* L) {
   int SWIG_arg = 0;
   Layer *arg1 = (Layer *) 0 ;
-  Matrix *result = 0 ;
+  Matrix *arg2 = 0 ;
   
-  SWIG_check_num_args("Layer::getLoss",1,1)
+  SWIG_check_num_args("Layer::getLoss",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Layer::getLoss",1,"Layer *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Layer::getLoss",2,"Matrix &");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Layer,0))){
     SWIG_fail_ptr("Layer_getLoss",1,SWIGTYPE_p_Layer);
   }
   
-  result = (Matrix *) &(arg1)->getLoss();
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0); SWIG_arg++; 
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Layer_getLoss",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  }
+  
+  (arg1)->getLoss(*arg2);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_Layer_Update(lua_State* L) {
+  int SWIG_arg = 0;
+  Layer *arg1 = (Layer *) 0 ;
+  Matrix *arg2 = 0 ;
+  
+  SWIG_check_num_args("Layer::Update",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Layer::Update",1,"Layer *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Layer::Update",2,"Matrix &");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Layer,0))){
+    SWIG_fail_ptr("Layer_Update",1,SWIGTYPE_p_Layer);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Layer_Update",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  }
+  
+  (arg1)->Update(*arg2);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_Layer_write(lua_State* L) {
+  int SWIG_arg = 0;
+  Layer *arg1 = (Layer *) 0 ;
+  std::ofstream *arg2 = 0 ;
+  
+  SWIG_check_num_args("Layer::write",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Layer::write",1,"Layer *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Layer::write",2,"std::ofstream &");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Layer,0))){
+    SWIG_fail_ptr("Layer_write",1,SWIGTYPE_p_Layer);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__ofstream,0))){
+    SWIG_fail_ptr("Layer_write",2,SWIGTYPE_p_std__ofstream);
+  }
+  
+  (arg1)->write(*arg2);
+  
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -9648,17 +9890,22 @@ static swig_lua_attribute swig_Layer_attributes[] = {
     { "type", _wrap_Layer_type_get, _wrap_Layer_type_set },
     { "input", _wrap_Layer_input_get, _wrap_Layer_input_set },
     { "loss", _wrap_Layer_loss_get, _wrap_Layer_loss_set },
-    { "size", _wrap_Layer_size_get, _wrap_Layer_size_set },
+    { "output", _wrap_Layer_output_get, _wrap_Layer_output_set },
+    { "temp", _wrap_Layer_temp_get, _wrap_Layer_temp_set },
     { "atype", _wrap_Layer_atype_get, _wrap_Layer_atype_set },
     { "activator", _wrap_Layer_activator_get, _wrap_Layer_activator_set },
+    { "size", _wrap_Layer_size_get, _wrap_Layer_size_set },
     {0,0,0}
 };
 static swig_lua_method swig_Layer_methods[]= {
     { "Activate", _wrap_Layer_Activate},
     { "Grad", _wrap_Layer_Grad},
     { "Loss", _wrap_Layer_Loss},
+    { "getInput", _wrap_Layer_getInput},
     { "getOutput", _wrap_Layer_getOutput},
     { "getLoss", _wrap_Layer_getLoss},
+    { "Update", _wrap_Layer_Update},
+    { "write", _wrap_Layer_write},
     {0,0}
 };
 static swig_lua_method swig_Layer_meta[] = {
@@ -9813,8 +10060,8 @@ static int _wrap_Connection_weights_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("Connection_weights_set",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Connection_weights_set",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   arg2 = *argp2;
   
@@ -9845,7 +10092,7 @@ static int _wrap_Connection_weights_get(lua_State* L) {
   result =  ((arg1)->weights);
   {
     Matrix * resultptr = new Matrix((const Matrix &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -9872,8 +10119,8 @@ static int _wrap_Connection_bias_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("Connection_bias_set",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Connection_bias_set",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   arg2 = *argp2;
   
@@ -9904,7 +10151,7 @@ static int _wrap_Connection_bias_get(lua_State* L) {
   result =  ((arg1)->bias);
   {
     Matrix * resultptr = new Matrix((const Matrix &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -9916,7 +10163,45 @@ fail:
 }
 
 
-static int _wrap_new_Connection(lua_State* L) {
+static int _wrap_new_Connection__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  std::ifstream *arg1 = 0 ;
+  Layer *arg2 = (Layer *) 0 ;
+  Layer *arg3 = (Layer *) 0 ;
+  Connection *result = 0 ;
+  
+  SWIG_check_num_args("Connection::Connection",3,3)
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("Connection::Connection",1,"std::ifstream &");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("Connection::Connection",2,"Layer *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("Connection::Connection",3,"Layer *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__ifstream,0))){
+    SWIG_fail_ptr("new_Connection",1,SWIGTYPE_p_std__ifstream);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Layer,0))){
+    SWIG_fail_ptr("new_Connection",2,SWIGTYPE_p_Layer);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_Layer,0))){
+    SWIG_fail_ptr("new_Connection",3,SWIGTYPE_p_Layer);
+  }
+  
+  result = (Connection *)new Connection(*arg1,arg2,arg3);
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_Connection,1); SWIG_arg++; 
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_new_Connection__SWIG_1(lua_State* L) {
   int SWIG_arg = 0;
   Layer *arg1 = (Layer *) 0 ;
   Layer *arg2 = (Layer *) 0 ;
@@ -9947,6 +10232,110 @@ fail:
 }
 
 
+static int _wrap_new_Connection(lua_State* L) {
+  int argc;
+  int argv[4]={
+    1,2,3,4
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 2) {
+    int _v = 0;
+    {
+      void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Layer, 0)) {
+        _v = 0;
+      } else {
+        _v = 1;
+      }
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_Layer, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_new_Connection__SWIG_1(L);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v = 0;
+    {
+      void *ptr;
+      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_std__ifstream, SWIG_POINTER_NO_NULL)) {
+        _v = 0;
+      } else {
+        _v = 1;
+      }
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_Layer, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_Layer, 0)) {
+            _v = 0;
+          } else {
+            _v = 1;
+          }
+        }
+        if (_v) {
+          return _wrap_new_Connection__SWIG_0(L);
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'new_Connection'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    Connection::Connection(std::ifstream &,Layer *,Layer *)\n"
+    "    Connection::Connection(Layer *,Layer *)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_Connection_write(lua_State* L) {
+  int SWIG_arg = 0;
+  Connection *arg1 = (Connection *) 0 ;
+  std::ofstream *arg2 = 0 ;
+  
+  SWIG_check_num_args("Connection::write",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Connection::write",1,"Connection *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Connection::write",2,"std::ofstream &");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Connection,0))){
+    SWIG_fail_ptr("Connection_write",1,SWIGTYPE_p_Connection);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__ofstream,0))){
+    SWIG_fail_ptr("Connection_write",2,SWIGTYPE_p_std__ofstream);
+  }
+  
+  (arg1)->write(*arg2);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static void swig_delete_Connection(void *obj) {
 Connection *arg1 = (Connection *) obj;
 delete arg1;
@@ -9967,6 +10356,7 @@ static swig_lua_attribute swig_Connection_attributes[] = {
     {0,0,0}
 };
 static swig_lua_method swig_Connection_methods[]= {
+    { "write", _wrap_Connection_write},
     {0,0}
 };
 static swig_lua_method swig_Connection_meta[] = {
@@ -9998,33 +10388,6 @@ static swig_lua_class *swig_Connection_bases[] = {0};
 static const char *swig_Connection_base_names[] = {0};
 static swig_lua_class _wrap_class_Connection = { "Connection", "Connection", &SWIGTYPE_p_Connection,_proxy__wrap_new_Connection, swig_delete_Connection, swig_Connection_methods, swig_Connection_attributes, &swig_Connection_Sf_SwigStatic, swig_Connection_meta, swig_Connection_bases, swig_Connection_base_names };
 
-static int _wrap_stringify(lua_State* L) {
-  int SWIG_arg = 0;
-  Matrix *arg1 = 0 ;
-  std::string result;
-  
-  SWIG_check_num_args("stringify",1,1)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("stringify",1,"Matrix &");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("stringify",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
-  }
-  
-  result = stringify(*arg1);
-  {
-    std::string * resultptr = new std::string((const std::string &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__string,1); SWIG_arg++;
-  }
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
 static int _wrap_ParameterSet_data_set(lua_State* L) {
   int SWIG_arg = 0;
   ParameterSet *arg1 = (ParameterSet *) 0 ;
@@ -10040,8 +10403,8 @@ static int _wrap_ParameterSet_data_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("ParameterSet_data_set",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("ParameterSet_data_set",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   arg2 = *argp2;
   
@@ -10072,7 +10435,7 @@ static int _wrap_ParameterSet_data_get(lua_State* L) {
   result =  ((arg1)->data);
   {
     Matrix * resultptr = new Matrix((const Matrix &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -10099,8 +10462,8 @@ static int _wrap_ParameterSet_classes_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("ParameterSet_classes_set",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("ParameterSet_classes_set",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   arg2 = *argp2;
   
@@ -10131,7 +10494,7 @@ static int _wrap_ParameterSet_classes_get(lua_State* L) {
   result =  ((arg1)->classes);
   {
     Matrix * resultptr = new Matrix((const Matrix &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -10874,13 +11237,13 @@ static int _wrap_new_ParameterSet__SWIG_0(lua_State* L) {
   if(!lua_isboolean(L,10)) SWIG_fail_arg("ParameterSet::ParameterSet",10,"bool");
   if(!lua_isboolean(L,11)) SWIG_fail_arg("ParameterSet::ParameterSet",11,"bool");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("new_ParameterSet",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("new_ParameterSet",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("new_ParameterSet",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("new_ParameterSet",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
@@ -10932,13 +11295,13 @@ static int _wrap_new_ParameterSet__SWIG_1(lua_State* L) {
   if(!lua_isnumber(L,9)) SWIG_fail_arg("ParameterSet::ParameterSet",9,"floatType");
   if(!lua_isboolean(L,10)) SWIG_fail_arg("ParameterSet::ParameterSet",10,"bool");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("new_ParameterSet",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("new_ParameterSet",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("new_ParameterSet",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("new_ParameterSet",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
@@ -10987,13 +11350,13 @@ static int _wrap_new_ParameterSet__SWIG_2(lua_State* L) {
   if(!lua_isnumber(L,8)) SWIG_fail_arg("ParameterSet::ParameterSet",8,"floatType");
   if(!lua_isnumber(L,9)) SWIG_fail_arg("ParameterSet::ParameterSet",9,"floatType");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("new_ParameterSet",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("new_ParameterSet",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("new_ParameterSet",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("new_ParameterSet",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
@@ -11039,13 +11402,13 @@ static int _wrap_new_ParameterSet__SWIG_3(lua_State* L) {
   if(!lua_isnumber(L,7)) SWIG_fail_arg("ParameterSet::ParameterSet",7,"floatType");
   if(!lua_isnumber(L,8)) SWIG_fail_arg("ParameterSet::ParameterSet",8,"floatType");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("new_ParameterSet",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("new_ParameterSet",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("new_ParameterSet",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("new_ParameterSet",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
@@ -11088,13 +11451,13 @@ static int _wrap_new_ParameterSet__SWIG_4(lua_State* L) {
   if(!lua_isnumber(L,6)) SWIG_fail_arg("ParameterSet::ParameterSet",6,"floatType");
   if(!lua_isnumber(L,7)) SWIG_fail_arg("ParameterSet::ParameterSet",7,"floatType");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("new_ParameterSet",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("new_ParameterSet",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("new_ParameterSet",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("new_ParameterSet",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
@@ -11134,13 +11497,13 @@ static int _wrap_new_ParameterSet__SWIG_5(lua_State* L) {
   if(!lua_isnumber(L,5)) SWIG_fail_arg("ParameterSet::ParameterSet",5,"LossFunctionType");
   if(!lua_isnumber(L,6)) SWIG_fail_arg("ParameterSet::ParameterSet",6,"floatType");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("new_ParameterSet",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("new_ParameterSet",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("new_ParameterSet",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("new_ParameterSet",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
@@ -11177,13 +11540,13 @@ static int _wrap_new_ParameterSet__SWIG_6(lua_State* L) {
   if(!lua_isnumber(L,4)) SWIG_fail_arg("ParameterSet::ParameterSet",4,"size_t");
   if(!lua_isnumber(L,5)) SWIG_fail_arg("ParameterSet::ParameterSet",5,"LossFunctionType");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("new_ParameterSet",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("new_ParameterSet",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("new_ParameterSet",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("new_ParameterSet",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
@@ -11217,13 +11580,13 @@ static int _wrap_new_ParameterSet__SWIG_7(lua_State* L) {
   if(!lua_isnumber(L,3)) SWIG_fail_arg("ParameterSet::ParameterSet",3,"size_t");
   if(!lua_isnumber(L,4)) SWIG_fail_arg("ParameterSet::ParameterSet",4,"size_t");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("new_ParameterSet",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("new_ParameterSet",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("new_ParameterSet",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("new_ParameterSet",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
@@ -11253,7 +11616,7 @@ static int _wrap_new_ParameterSet(lua_State* L) {
     int _v = 0;
     {
       void *ptr;
-      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
+      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
         _v = 0;
       } else {
         _v = 1;
@@ -11262,7 +11625,7 @@ static int _wrap_new_ParameterSet(lua_State* L) {
     if (_v) {
       {
         void *ptr;
-        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
+        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
           _v = 0;
         } else {
           _v = 1;
@@ -11287,7 +11650,7 @@ static int _wrap_new_ParameterSet(lua_State* L) {
     int _v = 0;
     {
       void *ptr;
-      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
+      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
         _v = 0;
       } else {
         _v = 1;
@@ -11296,7 +11659,7 @@ static int _wrap_new_ParameterSet(lua_State* L) {
     if (_v) {
       {
         void *ptr;
-        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
+        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
           _v = 0;
         } else {
           _v = 1;
@@ -11326,7 +11689,7 @@ static int _wrap_new_ParameterSet(lua_State* L) {
     int _v = 0;
     {
       void *ptr;
-      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
+      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
         _v = 0;
       } else {
         _v = 1;
@@ -11335,7 +11698,7 @@ static int _wrap_new_ParameterSet(lua_State* L) {
     if (_v) {
       {
         void *ptr;
-        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
+        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
           _v = 0;
         } else {
           _v = 1;
@@ -11370,7 +11733,7 @@ static int _wrap_new_ParameterSet(lua_State* L) {
     int _v = 0;
     {
       void *ptr;
-      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
+      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
         _v = 0;
       } else {
         _v = 1;
@@ -11379,7 +11742,7 @@ static int _wrap_new_ParameterSet(lua_State* L) {
     if (_v) {
       {
         void *ptr;
-        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
+        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
           _v = 0;
         } else {
           _v = 1;
@@ -11419,7 +11782,7 @@ static int _wrap_new_ParameterSet(lua_State* L) {
     int _v = 0;
     {
       void *ptr;
-      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
+      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
         _v = 0;
       } else {
         _v = 1;
@@ -11428,7 +11791,7 @@ static int _wrap_new_ParameterSet(lua_State* L) {
     if (_v) {
       {
         void *ptr;
-        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
+        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
           _v = 0;
         } else {
           _v = 1;
@@ -11473,7 +11836,7 @@ static int _wrap_new_ParameterSet(lua_State* L) {
     int _v = 0;
     {
       void *ptr;
-      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
+      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
         _v = 0;
       } else {
         _v = 1;
@@ -11482,7 +11845,7 @@ static int _wrap_new_ParameterSet(lua_State* L) {
     if (_v) {
       {
         void *ptr;
-        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
+        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
           _v = 0;
         } else {
           _v = 1;
@@ -11532,7 +11895,7 @@ static int _wrap_new_ParameterSet(lua_State* L) {
     int _v = 0;
     {
       void *ptr;
-      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
+      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
         _v = 0;
       } else {
         _v = 1;
@@ -11541,7 +11904,7 @@ static int _wrap_new_ParameterSet(lua_State* L) {
     if (_v) {
       {
         void *ptr;
-        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
+        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
           _v = 0;
         } else {
           _v = 1;
@@ -11596,7 +11959,7 @@ static int _wrap_new_ParameterSet(lua_State* L) {
     int _v = 0;
     {
       void *ptr;
-      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
+      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
         _v = 0;
       } else {
         _v = 1;
@@ -11605,7 +11968,7 @@ static int _wrap_new_ParameterSet(lua_State* L) {
     if (_v) {
       {
         void *ptr;
-        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
+        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
           _v = 0;
         } else {
           _v = 1;
@@ -11754,8 +12117,8 @@ static int _wrap_Batch_example_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("Batch_example_set",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Batch_example_set",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   arg2 = *argp2;
   
@@ -11786,7 +12149,7 @@ static int _wrap_Batch_example_get(lua_State* L) {
   result =  ((arg1)->example);
   {
     Matrix * resultptr = new Matrix((const Matrix &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -11813,8 +12176,8 @@ static int _wrap_Batch_training_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("Batch_training_set",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Batch_training_set",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   arg2 = *argp2;
   
@@ -11845,7 +12208,7 @@ static int _wrap_Batch_training_get(lua_State* L) {
   result =  ((arg1)->training);
   {
     Matrix * resultptr = new Matrix((const Matrix &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -11867,13 +12230,13 @@ static int _wrap_new_Batch__SWIG_0(lua_State* L) {
   if(!lua_isuserdata(L,1)) SWIG_fail_arg("Batch::Batch",1,"Matrix &");
   if(!lua_isuserdata(L,2)) SWIG_fail_arg("Batch::Batch",2,"Matrix &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("new_Batch",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("new_Batch",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("new_Batch",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("new_Batch",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   result = (Batch *)new Batch(*arg1,*arg2);
@@ -11937,7 +12300,7 @@ static int _wrap_new_Batch(lua_State* L) {
     int _v = 0;
     {
       void *ptr;
-      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
+      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
         _v = 0;
       } else {
         _v = 1;
@@ -11946,7 +12309,7 @@ static int _wrap_new_Batch(lua_State* L) {
     if (_v) {
       {
         void *ptr;
-        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
+        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
           _v = 0;
         } else {
           _v = 1;
@@ -12025,19 +12388,19 @@ static int _wrap_addToEachRow(lua_State* L) {
   if(!lua_isuserdata(L,1)) SWIG_fail_arg("addToEachRow",1,"Matrix const &");
   if(!lua_isuserdata(L,2)) SWIG_fail_arg("addToEachRow",2,"Matrix const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("addToEachRow",1,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("addToEachRow",1,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("addToEachRow",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("addToEachRow",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
-  result = addToEachRow((Eigen::Matrix< double,Eigen::Dynamic,Eigen::Dynamic,Eigen::RowMajor > const &)*arg1,(Eigen::Matrix< double,Eigen::Dynamic,Eigen::Dynamic,Eigen::RowMajor > const &)*arg2);
+  result = addToEachRow((Eigen::Matrix< floatType,Eigen::Dynamic,Eigen::Dynamic,Eigen::RowMajor > const &)*arg1,(Eigen::Matrix< floatType,Eigen::Dynamic,Eigen::Dynamic,Eigen::RowMajor > const &)*arg2);
   {
     Matrix * resultptr = new Matrix((const Matrix &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -12327,8 +12690,8 @@ static int _wrap_Network_errori_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
-    SWIG_fail_ptr("Network_errori_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
+    SWIG_fail_ptr("Network_errori_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
   }
   
   if (arg1) (arg1)->errori = *arg2;
@@ -12356,7 +12719,7 @@ static int _wrap_Network_errori_get(lua_State* L) {
   }
   
   result = (std::vector< Matrix,std::allocator< Matrix > > *)& ((arg1)->errori);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -12381,8 +12744,8 @@ static int _wrap_Network_weights_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t,0))){
-    SWIG_fail_ptr("Network_weights_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t,0))){
+    SWIG_fail_ptr("Network_weights_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t);
   }
   
   if (arg1) (arg1)->weights = *arg2;
@@ -12410,7 +12773,7 @@ static int _wrap_Network_weights_get(lua_State* L) {
   }
   
   result = (std::vector< Matrix *,std::allocator< Matrix * > > *)& ((arg1)->weights);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t,0); SWIG_arg++; 
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t,0); SWIG_arg++; 
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -12435,8 +12798,8 @@ static int _wrap_Network_bias_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t,0))){
-    SWIG_fail_ptr("Network_bias_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t,0))){
+    SWIG_fail_ptr("Network_bias_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t);
   }
   
   if (arg1) (arg1)->bias = *arg2;
@@ -12464,7 +12827,7 @@ static int _wrap_Network_bias_get(lua_State* L) {
   }
   
   result = (std::vector< Matrix *,std::allocator< Matrix * > > *)& ((arg1)->bias);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t,0); SWIG_arg++; 
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t,0); SWIG_arg++; 
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -12489,8 +12852,8 @@ static int _wrap_Network_dWi_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
-    SWIG_fail_ptr("Network_dWi_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
+    SWIG_fail_ptr("Network_dWi_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
   }
   
   if (arg1) (arg1)->dWi = *arg2;
@@ -12518,7 +12881,7 @@ static int _wrap_Network_dWi_get(lua_State* L) {
   }
   
   result = (std::vector< Matrix,std::allocator< Matrix > > *)& ((arg1)->dWi);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -12543,8 +12906,8 @@ static int _wrap_Network_dbi_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
-    SWIG_fail_ptr("Network_dbi_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
+    SWIG_fail_ptr("Network_dbi_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
   }
   
   if (arg1) (arg1)->dbi = *arg2;
@@ -12572,7 +12935,7 @@ static int _wrap_Network_dbi_get(lua_State* L) {
   }
   
   result = (std::vector< Matrix,std::allocator< Matrix > > *)& ((arg1)->dbi);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -12597,8 +12960,8 @@ static int _wrap_Network_sdw_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
-    SWIG_fail_ptr("Network_sdw_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
+    SWIG_fail_ptr("Network_sdw_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
   }
   
   if (arg1) (arg1)->sdw = *arg2;
@@ -12626,7 +12989,7 @@ static int _wrap_Network_sdw_get(lua_State* L) {
   }
   
   result = (std::vector< Matrix,std::allocator< Matrix > > *)& ((arg1)->sdw);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -12651,8 +13014,8 @@ static int _wrap_Network_sdb_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
-    SWIG_fail_ptr("Network_sdb_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
+    SWIG_fail_ptr("Network_sdb_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
   }
   
   if (arg1) (arg1)->sdb = *arg2;
@@ -12680,7 +13043,7 @@ static int _wrap_Network_sdb_get(lua_State* L) {
   }
   
   result = (std::vector< Matrix,std::allocator< Matrix > > *)& ((arg1)->sdb);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -12705,8 +13068,8 @@ static int _wrap_Network_vdw_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
-    SWIG_fail_ptr("Network_vdw_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
+    SWIG_fail_ptr("Network_vdw_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
   }
   
   if (arg1) (arg1)->vdw = *arg2;
@@ -12734,7 +13097,7 @@ static int _wrap_Network_vdw_get(lua_State* L) {
   }
   
   result = (std::vector< Matrix,std::allocator< Matrix > > *)& ((arg1)->vdw);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -12759,8 +13122,8 @@ static int _wrap_Network_vdb_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
-    SWIG_fail_ptr("Network_vdb_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
+    SWIG_fail_ptr("Network_vdb_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
   }
   
   if (arg1) (arg1)->vdb = *arg2;
@@ -12788,7 +13151,7 @@ static int _wrap_Network_vdb_get(lua_State* L) {
   }
   
   result = (std::vector< Matrix,std::allocator< Matrix > > *)& ((arg1)->vdb);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -12813,8 +13176,8 @@ static int _wrap_Network_regi_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
-    SWIG_fail_ptr("Network_regi_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
+    SWIG_fail_ptr("Network_regi_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
   }
   
   if (arg1) (arg1)->regi = *arg2;
@@ -12842,7 +13205,7 @@ static int _wrap_Network_regi_get(lua_State* L) {
   }
   
   result = (std::vector< Matrix,std::allocator< Matrix > > *)& ((arg1)->regi);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -12867,8 +13230,8 @@ static int _wrap_Network_wTi_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
-    SWIG_fail_ptr("Network_wTi_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
+    SWIG_fail_ptr("Network_wTi_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
   }
   
   if (arg1) (arg1)->wTi = *arg2;
@@ -12896,7 +13259,7 @@ static int _wrap_Network_wTi_get(lua_State* L) {
   }
   
   result = (std::vector< Matrix,std::allocator< Matrix > > *)& ((arg1)->wTi);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -12921,8 +13284,8 @@ static int _wrap_Network_errorLastTi_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
-    SWIG_fail_ptr("Network_errorLastTi_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
+    SWIG_fail_ptr("Network_errorLastTi_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
   }
   
   if (arg1) (arg1)->errorLastTi = *arg2;
@@ -12950,7 +13313,7 @@ static int _wrap_Network_errorLastTi_get(lua_State* L) {
   }
   
   result = (std::vector< Matrix,std::allocator< Matrix > > *)& ((arg1)->errorLastTi);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -12975,8 +13338,8 @@ static int _wrap_Network_fprimei_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
-    SWIG_fail_ptr("Network_fprimei_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
+    SWIG_fail_ptr("Network_fprimei_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
   }
   
   if (arg1) (arg1)->fprimei = *arg2;
@@ -13004,7 +13367,7 @@ static int _wrap_Network_fprimei_get(lua_State* L) {
   }
   
   result = (std::vector< Matrix,std::allocator< Matrix > > *)& ((arg1)->fprimei);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -13029,8 +13392,8 @@ static int _wrap_Network_inputTi_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
-    SWIG_fail_ptr("Network_inputTi_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
+    SWIG_fail_ptr("Network_inputTi_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
   }
   
   if (arg1) (arg1)->inputTi = *arg2;
@@ -13058,7 +13421,7 @@ static int _wrap_Network_inputTi_get(lua_State* L) {
   }
   
   result = (std::vector< Matrix,std::allocator< Matrix > > *)& ((arg1)->inputTi);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -13083,8 +13446,8 @@ static int _wrap_Network_dWi_avg_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
-    SWIG_fail_ptr("Network_dWi_avg_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
+    SWIG_fail_ptr("Network_dWi_avg_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
   }
   
   if (arg1) (arg1)->dWi_avg = *arg2;
@@ -13112,7 +13475,7 @@ static int _wrap_Network_dWi_avg_get(lua_State* L) {
   }
   
   result = (std::vector< Matrix,std::allocator< Matrix > > *)& ((arg1)->dWi_avg);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -13137,8 +13500,8 @@ static int _wrap_Network_dbi_avg_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
-    SWIG_fail_ptr("Network_dbi_avg_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
+    SWIG_fail_ptr("Network_dbi_avg_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
   }
   
   if (arg1) (arg1)->dbi_avg = *arg2;
@@ -13166,7 +13529,7 @@ static int _wrap_Network_dbi_avg_get(lua_State* L) {
   }
   
   result = (std::vector< Matrix,std::allocator< Matrix > > *)& ((arg1)->dbi_avg);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -13191,8 +13554,8 @@ static int _wrap_Network_dWi_last_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
-    SWIG_fail_ptr("Network_dWi_last_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
+    SWIG_fail_ptr("Network_dWi_last_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
   }
   
   if (arg1) (arg1)->dWi_last = *arg2;
@@ -13220,7 +13583,7 @@ static int _wrap_Network_dWi_last_get(lua_State* L) {
   }
   
   result = (std::vector< Matrix,std::allocator< Matrix > > *)& ((arg1)->dWi_last);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -13245,8 +13608,8 @@ static int _wrap_Network_dbi_last_set(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
-    SWIG_fail_ptr("Network_dbi_last_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0))){
+    SWIG_fail_ptr("Network_dbi_last_set",2,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t);
   }
   
   if (arg1) (arg1)->dbi_last = *arg2;
@@ -13274,7 +13637,7 @@ static int _wrap_Network_dbi_last_get(lua_State* L) {
   }
   
   result = (std::vector< Matrix,std::allocator< Matrix > > *)& ((arg1)->dbi_last);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,0); SWIG_arg++; 
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -13627,30 +13990,6 @@ fail:
 }
 
 
-static int _wrap_Network_LastLayer(lua_State* L) {
-  int SWIG_arg = 0;
-  Network *arg1 = (Network *) 0 ;
-  size_t result;
-  
-  SWIG_check_num_args("Network::LastLayer",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Network::LastLayer",1,"Network const *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Network,0))){
-    SWIG_fail_ptr("Network_LastLayer",1,SWIGTYPE_p_Network);
-  }
-  
-  result = ((Network const *)arg1)->LastLayer();
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
 static int _wrap_Network_ForwardPass(lua_State* L) {
   int SWIG_arg = 0;
   Network *arg1 = (Network *) 0 ;
@@ -13665,8 +14004,8 @@ static int _wrap_Network_ForwardPass(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("Network_ForwardPass",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Network_ForwardPass",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   (arg1)->ForwardPass(*arg2);
@@ -13678,6 +14017,142 @@ static int _wrap_Network_ForwardPass(lua_State* L) {
 fail:
   lua_error(L);
   return SWIG_arg;
+}
+
+
+static int _wrap_Network_BackwardPass__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  Network *arg1 = (Network *) 0 ;
+  Matrix arg2 ;
+  floatType arg3 ;
+  Matrix *argp2 ;
+  
+  SWIG_check_num_args("Network::BackwardPass",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Network::BackwardPass",1,"Network *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Network::BackwardPass",2,"Matrix");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("Network::BackwardPass",3,"floatType");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Network,0))){
+    SWIG_fail_ptr("Network_BackwardPass",1,SWIGTYPE_p_Network);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Network_BackwardPass",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  }
+  arg2 = *argp2;
+  
+  arg3 = (floatType)lua_tonumber(L, 3);
+  (arg1)->BackwardPass(arg2,arg3);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_Network_BackwardPass__SWIG_1(lua_State* L) {
+  int SWIG_arg = 0;
+  Network *arg1 = (Network *) 0 ;
+  Matrix arg2 ;
+  Matrix *argp2 ;
+  
+  SWIG_check_num_args("Network::BackwardPass",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Network::BackwardPass",1,"Network *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Network::BackwardPass",2,"Matrix");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Network,0))){
+    SWIG_fail_ptr("Network_BackwardPass",1,SWIGTYPE_p_Network);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Network_BackwardPass",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  }
+  arg2 = *argp2;
+  
+  (arg1)->BackwardPass(arg2);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_Network_BackwardPass(lua_State* L) {
+  int argc;
+  int argv[4]={
+    1,2,3,4
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 2) {
+    int _v = 0;
+    {
+      void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Network, 0)) {
+        _v = 0;
+      } else {
+        _v = 1;
+      }
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_Network_BackwardPass__SWIG_1(L);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v = 0;
+    {
+      void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_Network, 0)) {
+        _v = 0;
+      } else {
+        _v = 1;
+      }
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, SWIG_POINTER_NO_NULL)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        {
+          _v = lua_isnumber(L,argv[2]);
+        }
+        if (_v) {
+          return _wrap_Network_BackwardPass__SWIG_0(L);
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'Network_BackwardPass'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    Network::BackwardPass(Matrix,floatType)\n"
+    "    Network::BackwardPass(Matrix)\n");
+  lua_error(L);return 0;
 }
 
 
@@ -13700,13 +14175,13 @@ static int _wrap_Network_CrossEntropyLoss(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("Network_CrossEntropyLoss",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Network_CrossEntropyLoss",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("Network_CrossEntropyLoss",3,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Network_CrossEntropyLoss",3,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   arg4 = (floatType)lua_tonumber(L, 4);
@@ -13739,8 +14214,8 @@ static int _wrap_Network_MeanSquaredError(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("Network_MeanSquaredError",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Network_MeanSquaredError",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   arg3 = (floatType)lua_tonumber(L, 3);
@@ -13759,17 +14234,23 @@ fail:
 static int _wrap_Network_GetInput(lua_State* L) {
   int SWIG_arg = 0;
   Network *arg1 = (Network *) 0 ;
-  Matrix *result = 0 ;
+  Matrix *arg2 = 0 ;
   
-  SWIG_check_num_args("Network::GetInput",1,1)
+  SWIG_check_num_args("Network::GetInput",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Network::GetInput",1,"Network *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Network::GetInput",2,"Matrix &");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Network,0))){
     SWIG_fail_ptr("Network_GetInput",1,SWIGTYPE_p_Network);
   }
   
-  result = (Matrix *) &(arg1)->GetInput();
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0); SWIG_arg++; 
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Network_GetInput",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  }
+  
+  (arg1)->GetInput(*arg2);
+  
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -13783,17 +14264,23 @@ fail:
 static int _wrap_Network_GetOutput(lua_State* L) {
   int SWIG_arg = 0;
   Network *arg1 = (Network *) 0 ;
-  Matrix *result = 0 ;
+  Matrix *arg2 = 0 ;
   
-  SWIG_check_num_args("Network::GetOutput",1,1)
+  SWIG_check_num_args("Network::GetOutput",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Network::GetOutput",1,"Network *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Network::GetOutput",2,"Matrix &");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Network,0))){
     SWIG_fail_ptr("Network_GetOutput",1,SWIGTYPE_p_Network);
   }
   
-  result = (Matrix *) &(arg1)->GetOutput();
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0); SWIG_arg++; 
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Network_GetOutput",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  }
+  
+  (arg1)->GetOutput(*arg2);
+  
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -13807,17 +14294,71 @@ fail:
 static int _wrap_Network_GetLoss(lua_State* L) {
   int SWIG_arg = 0;
   Network *arg1 = (Network *) 0 ;
-  Matrix *result = 0 ;
+  Matrix *arg2 = 0 ;
   
-  SWIG_check_num_args("Network::GetLoss",1,1)
+  SWIG_check_num_args("Network::GetLoss",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Network::GetLoss",1,"Network *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Network::GetLoss",2,"Matrix &");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Network,0))){
     SWIG_fail_ptr("Network_GetLoss",1,SWIGTYPE_p_Network);
   }
   
-  result = (Matrix *) &(arg1)->GetLoss();
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0); SWIG_arg++; 
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Network_GetLoss",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  }
+  
+  (arg1)->GetLoss(*arg2);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_Network_LastConnection(lua_State* L) {
+  int SWIG_arg = 0;
+  Network *arg1 = (Network *) 0 ;
+  Connection *result = 0 ;
+  
+  SWIG_check_num_args("Network::LastConnection",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Network::LastConnection",1,"Network *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Network,0))){
+    SWIG_fail_ptr("Network_LastConnection",1,SWIGTYPE_p_Network);
+  }
+  
+  result = (Connection *)(arg1)->LastConnection();
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_Connection,0); SWIG_arg++; 
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_Network_LastLayer(lua_State* L) {
+  int SWIG_arg = 0;
+  Network *arg1 = (Network *) 0 ;
+  Layer *result = 0 ;
+  
+  SWIG_check_num_args("Network::LastLayer",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Network::LastLayer",1,"Network const *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Network,0))){
+    SWIG_fail_ptr("Network_LastLayer",1,SWIGTYPE_p_Network);
+  }
+  
+  result = (Layer *)((Network const *)arg1)->LastLayer();
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_Layer,0); SWIG_arg++; 
   return SWIG_arg;
   
   if(0) SWIG_fail;
@@ -13872,13 +14413,13 @@ static int _wrap_Network_accuracy(lua_State* L) {
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("Network_accuracy",2,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Network_accuracy",2,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("Network_accuracy",3,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Network_accuracy",3,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   result = (floatType)(arg1)->accuracy(*arg2,*arg3);
@@ -13942,13 +14483,13 @@ static int _wrap_Network_generate_batches(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
   arg3 = (size_t)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("Network_generate_batches",4,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Network_generate_batches",4,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("Network_generate_batches",5,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Network_generate_batches",5,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   arg6 = (lua_toboolean(L, 6)!=0);
@@ -14136,13 +14677,13 @@ static int _wrap_Network_verbosity(lua_State* L) {
   SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
   arg3 = (size_t)lua_tonumber(L, 3);
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("Network_verbosity",4,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Network_verbosity",4,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
-    SWIG_fail_ptr("Network_verbosity",5,SWIGTYPE_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,0))){
+    SWIG_fail_ptr("Network_verbosity",5,SWIGTYPE_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t);
   }
   
   (arg1)->verbosity((ParameterSet const &)*arg2,arg3,*arg4,*arg5);
@@ -14273,6 +14814,58 @@ fail:
 }
 
 
+static int _wrap_Network_save(lua_State* L) {
+  int SWIG_arg = 0;
+  Network *arg1 = (Network *) 0 ;
+  char *arg2 = (char *) 0 ;
+  
+  SWIG_check_num_args("Network::save",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Network::save",1,"Network *");
+  if(!SWIG_lua_isnilstring(L,2)) SWIG_fail_arg("Network::save",2,"char const *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Network,0))){
+    SWIG_fail_ptr("Network_save",1,SWIGTYPE_p_Network);
+  }
+  
+  arg2 = (char *)lua_tostring(L, 2);
+  (arg1)->save((char const *)arg2);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_Network_load(lua_State* L) {
+  int SWIG_arg = 0;
+  Network *arg1 = (Network *) 0 ;
+  char *arg2 = (char *) 0 ;
+  
+  SWIG_check_num_args("Network::load",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Network::load",1,"Network *");
+  if(!SWIG_lua_isnilstring(L,2)) SWIG_fail_arg("Network::load",2,"char const *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Network,0))){
+    SWIG_fail_ptr("Network_load",1,SWIGTYPE_p_Network);
+  }
+  
+  arg2 = (char *)lua_tostring(L, 2);
+  (arg1)->load((char const *)arg2);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static void swig_delete_Network(void *obj) {
 Network *arg1 = (Network *) obj;
 delete arg1;
@@ -14319,13 +14912,15 @@ static swig_lua_method swig_Network_methods[]= {
     { "NumConnections", _wrap_Network_NumConnections},
     { "NumInputs", _wrap_Network_NumInputs},
     { "NumOutputs", _wrap_Network_NumOutputs},
-    { "LastLayer", _wrap_Network_LastLayer},
     { "ForwardPass", _wrap_Network_ForwardPass},
+    { "BackwardPass", _wrap_Network_BackwardPass},
     { "CrossEntropyLoss", _wrap_Network_CrossEntropyLoss},
     { "MeanSquaredError", _wrap_Network_MeanSquaredError},
     { "GetInput", _wrap_Network_GetInput},
     { "GetOutput", _wrap_Network_GetOutput},
     { "GetLoss", _wrap_Network_GetLoss},
+    { "LastConnection", _wrap_Network_LastConnection},
+    { "LastLayer", _wrap_Network_LastLayer},
     { "predict", _wrap_Network_predict},
     { "accuracy", _wrap_Network_accuracy},
     { "shuffle_batches", _wrap_Network_shuffle_batches},
@@ -14339,6 +14934,8 @@ static swig_lua_method swig_Network_methods[]= {
     { "stochastic", _wrap_Network_stochastic},
     { "nonstochastic", _wrap_Network_nonstochastic},
     { "train", _wrap_Network_train},
+    { "save", _wrap_Network_save},
+    { "load", _wrap_Network_load},
     {0,0}
 };
 static swig_lua_method swig_Network_meta[] = {
@@ -14491,14 +15088,14 @@ static swig_lua_class _wrap_class_NeuralNetwork = { "NeuralNetwork", "NeuralNetw
 
 static int _wrap_absf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::abs< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::abs< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR abs< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::abs< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR abs< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -14512,14 +15109,14 @@ fail:
 
 static int _wrap_cubef(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::cube< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::cube< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR cube< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::cube< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR cube< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -14533,14 +15130,14 @@ fail:
 
 static int _wrap_sqrtf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::sqrt< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::sqrt< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR sqrt< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::sqrt< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR sqrt< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -14554,14 +15151,14 @@ fail:
 
 static int _wrap_expf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::exp< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::exp< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR exp< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::exp< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR exp< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -14575,14 +15172,14 @@ fail:
 
 static int _wrap_exp2f(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::exp2< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::exp2< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR exp2< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::exp2< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR exp2< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -14596,14 +15193,14 @@ fail:
 
 static int _wrap_logf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::log< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::log< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR log< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::log< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR log< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -14617,14 +15214,14 @@ fail:
 
 static int _wrap_log10f(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::log10< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::log10< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR log10< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::log10< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR log10< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -14638,14 +15235,14 @@ fail:
 
 static int _wrap_log2f(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::log2< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::log2< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR log2< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::log2< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR log2< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -14659,14 +15256,14 @@ fail:
 
 static int _wrap_logbf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::logb< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::logb< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR logb< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::logb< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR logb< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -14680,18 +15277,18 @@ fail:
 
 static int _wrap_powf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double temp1 ;
-  double temp2 ;
-  double result;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  float result;
   
   SWIG_check_num_args("Ops::pow< floatType >",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::pow< floatType >",1,"double const &");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::pow< floatType >",2,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR pow< floatType >((double const &)*arg1,(double const &)*arg2);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::pow< floatType >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::pow< floatType >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR pow< floatType >((float const &)*arg1,(float const &)*arg2);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -14705,14 +15302,14 @@ fail:
 
 static int _wrap_floorf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::floor< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::floor< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR floor< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::floor< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR floor< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -14726,14 +15323,14 @@ fail:
 
 static int _wrap_acosf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::acos< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::acos< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR acos< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::acos< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR acos< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -14747,14 +15344,14 @@ fail:
 
 static int _wrap_asinf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::asin< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::asin< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR asin< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::asin< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR asin< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -14768,14 +15365,14 @@ fail:
 
 static int _wrap_atanf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::atan< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::atan< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR atan< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::atan< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR atan< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -14789,18 +15386,18 @@ fail:
 
 static int _wrap_atan2f(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double temp1 ;
-  double temp2 ;
-  double result;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  float result;
   
   SWIG_check_num_args("Ops::atan2< floatType >",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::atan2< floatType >",1,"double const &");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::atan2< floatType >",2,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR atan2< floatType >((double const &)*arg1,(double const &)*arg2);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::atan2< floatType >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::atan2< floatType >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR atan2< floatType >((float const &)*arg1,(float const &)*arg2);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -14814,14 +15411,14 @@ fail:
 
 static int _wrap_cosf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::cos< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::cos< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR cos< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::cos< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR cos< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -14835,14 +15432,14 @@ fail:
 
 static int _wrap_sinf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::sin< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::sin< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR sin< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::sin< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR sin< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -14856,14 +15453,14 @@ fail:
 
 static int _wrap_tanf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::tan< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::tan< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR tan< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::tan< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR tan< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -14877,14 +15474,14 @@ fail:
 
 static int _wrap_coshf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::cosh< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::cosh< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR cosh< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::cosh< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR cosh< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -14898,14 +15495,14 @@ fail:
 
 static int _wrap_sinhf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::sinh< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::sinh< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR sinh< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::sinh< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR sinh< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -14919,14 +15516,14 @@ fail:
 
 static int _wrap_tanhf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::tanh< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::tanh< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR tanh< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::tanh< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR tanh< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -14940,14 +15537,14 @@ fail:
 
 static int _wrap_lgammaf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::lgamma< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::lgamma< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR lgamma< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::lgamma< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR lgamma< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -14961,14 +15558,14 @@ fail:
 
 static int _wrap_acoshf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::acosh< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::acosh< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR acosh< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::acosh< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR acosh< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -14982,14 +15579,14 @@ fail:
 
 static int _wrap_asinhf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::asinh< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::asinh< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR asinh< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::asinh< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR asinh< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15003,14 +15600,14 @@ fail:
 
 static int _wrap_atanhf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::atanh< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::atanh< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR atanh< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::atanh< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR atanh< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15024,14 +15621,14 @@ fail:
 
 static int _wrap_cbrtf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::cbrt< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::cbrt< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR cbrt< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::cbrt< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR cbrt< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15045,14 +15642,14 @@ fail:
 
 static int _wrap_ceilf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::cbrt< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::cbrt< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR cbrt< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::cbrt< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR cbrt< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15066,18 +15663,18 @@ fail:
 
 static int _wrap_copysignf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double temp1 ;
-  double temp2 ;
-  double result;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  float result;
   
   SWIG_check_num_args("Ops::copysign< floatType >",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::copysign< floatType >",1,"double const &");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::copysign< floatType >",2,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR copysign< floatType >((double const &)*arg1,(double const &)*arg2);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::copysign< floatType >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::copysign< floatType >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR copysign< floatType >((float const &)*arg1,(float const &)*arg2);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15091,14 +15688,14 @@ fail:
 
 static int _wrap_erff(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::erf< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::erf< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR erf< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::erf< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR erf< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15112,14 +15709,14 @@ fail:
 
 static int _wrap_erfcf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::erfc< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::erfc< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR erfc< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::erfc< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR erfc< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15133,14 +15730,14 @@ fail:
 
 static int _wrap_expm1f(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::expm1< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::expm1< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR expm1< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::expm1< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR expm1< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15154,18 +15751,18 @@ fail:
 
 static int _wrap_fdimf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double temp1 ;
-  double temp2 ;
-  double result;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  float result;
   
   SWIG_check_num_args("Ops::fdim< floatType >",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::fdim< floatType >",1,"double const &");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::fdim< floatType >",2,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR fdim< floatType >((double const &)*arg1,(double const &)*arg2);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::fdim< floatType >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::fdim< floatType >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR fdim< floatType >((float const &)*arg1,(float const &)*arg2);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15179,22 +15776,22 @@ fail:
 
 static int _wrap_fmaf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double *arg3 = 0 ;
-  double temp1 ;
-  double temp2 ;
-  double temp3 ;
-  double result;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float *arg3 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  float temp3 ;
+  float result;
   
   SWIG_check_num_args("Ops::fma< floatType >",3,3)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::fma< floatType >",1,"double const &");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::fma< floatType >",2,"double const &");
-  if(!lua_isnumber(L,3)) SWIG_fail_arg("Ops::fma< floatType >",3,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
-  temp3=(double)lua_tonumber(L,3); arg3=&temp3;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR fma< floatType >((double const &)*arg1,(double const &)*arg2,(double const &)*arg3);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::fma< floatType >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::fma< floatType >",2,"float const &");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("Ops::fma< floatType >",3,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  temp3=(float)lua_tonumber(L,3); arg3=&temp3;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR fma< floatType >((float const &)*arg1,(float const &)*arg2,(float const &)*arg3);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15208,18 +15805,18 @@ fail:
 
 static int _wrap_fmaxf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double temp1 ;
-  double temp2 ;
-  double result;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  float result;
   
   SWIG_check_num_args("Ops::fmax< floatType >",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::fmax< floatType >",1,"double const &");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::fmax< floatType >",2,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR fmax< floatType >((double const &)*arg1,(double const &)*arg2);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::fmax< floatType >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::fmax< floatType >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR fmax< floatType >((float const &)*arg1,(float const &)*arg2);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15233,18 +15830,18 @@ fail:
 
 static int _wrap_fminf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double temp1 ;
-  double temp2 ;
-  double result;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  float result;
   
   SWIG_check_num_args("Ops::fmin< floatType >",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::fmin< floatType >",1,"double const &");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::fmin< floatType >",2,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR fmin< floatType >((double const &)*arg1,(double const &)*arg2);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::fmin< floatType >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::fmin< floatType >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR fmin< floatType >((float const &)*arg1,(float const &)*arg2);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15258,18 +15855,18 @@ fail:
 
 static int _wrap_fmodf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double temp1 ;
-  double temp2 ;
-  double result;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  float result;
   
   SWIG_check_num_args("Ops::fmod< floatType >",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::fmod< floatType >",1,"double const &");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::fmod< floatType >",2,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR fmod< floatType >((double const &)*arg1,(double const &)*arg2);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::fmod< floatType >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::fmod< floatType >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR fmod< floatType >((float const &)*arg1,(float const &)*arg2);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15283,14 +15880,14 @@ fail:
 
 static int _wrap_fpclassifyf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
+  float *arg1 = 0 ;
+  float temp1 ;
   int result;
   
   SWIG_check_num_args("Ops::fpclassify< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::fpclassify< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (int)Ops::SWIGTEMPLATEDISAMBIGUATOR fpclassify< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::fpclassify< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (int)Ops::SWIGTEMPLATEDISAMBIGUATOR fpclassify< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15304,18 +15901,18 @@ fail:
 
 static int _wrap_hypotf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double temp1 ;
-  double temp2 ;
-  double result;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  float result;
   
   SWIG_check_num_args("Ops::hypot< floatType >",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::hypot< floatType >",1,"double const &");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::hypot< floatType >",2,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR hypot< floatType >((double const &)*arg1,(double const &)*arg2);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::hypot< floatType >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::hypot< floatType >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR hypot< floatType >((float const &)*arg1,(float const &)*arg2);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15329,14 +15926,14 @@ fail:
 
 static int _wrap_ilogbf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
+  float *arg1 = 0 ;
+  float temp1 ;
   int result;
   
   SWIG_check_num_args("Ops::ilogb< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::ilogb< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (int)Ops::SWIGTEMPLATEDISAMBIGUATOR ilogb< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::ilogb< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (int)Ops::SWIGTEMPLATEDISAMBIGUATOR ilogb< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15350,14 +15947,14 @@ fail:
 
 static int _wrap_isfinitef(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
+  float *arg1 = 0 ;
+  float temp1 ;
   bool result;
   
   SWIG_check_num_args("Ops::isfinite< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isfinite< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isfinite< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isfinite< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isfinite< floatType >((float const &)*arg1);
   lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
   return SWIG_arg;
   
@@ -15371,18 +15968,18 @@ fail:
 
 static int _wrap_isgreaterf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double temp1 ;
-  double temp2 ;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
   bool result;
   
   SWIG_check_num_args("Ops::isgreater< floatType >",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isgreater< floatType >",1,"double const &");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::isgreater< floatType >",2,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
-  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isgreater< floatType >((double const &)*arg1,(double const &)*arg2);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isgreater< floatType >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::isgreater< floatType >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isgreater< floatType >((float const &)*arg1,(float const &)*arg2);
   lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
   return SWIG_arg;
   
@@ -15396,18 +15993,18 @@ fail:
 
 static int _wrap_isgreaterequalf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double temp1 ;
-  double temp2 ;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
   bool result;
   
   SWIG_check_num_args("Ops::isgreaterequal< floatType >",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isgreaterequal< floatType >",1,"double const &");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::isgreaterequal< floatType >",2,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
-  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isgreaterequal< floatType >((double const &)*arg1,(double const &)*arg2);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isgreaterequal< floatType >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::isgreaterequal< floatType >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isgreaterequal< floatType >((float const &)*arg1,(float const &)*arg2);
   lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
   return SWIG_arg;
   
@@ -15421,14 +16018,14 @@ fail:
 
 static int _wrap_isinff(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
+  float *arg1 = 0 ;
+  float temp1 ;
   bool result;
   
   SWIG_check_num_args("Ops::isinf< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isinf< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isinf< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isinf< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isinf< floatType >((float const &)*arg1);
   lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
   return SWIG_arg;
   
@@ -15442,18 +16039,18 @@ fail:
 
 static int _wrap_islessf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double temp1 ;
-  double temp2 ;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
   bool result;
   
   SWIG_check_num_args("Ops::isless< floatType >",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isless< floatType >",1,"double const &");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::isless< floatType >",2,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
-  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isless< floatType >((double const &)*arg1,(double const &)*arg2);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isless< floatType >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::isless< floatType >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isless< floatType >((float const &)*arg1,(float const &)*arg2);
   lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
   return SWIG_arg;
   
@@ -15467,18 +16064,18 @@ fail:
 
 static int _wrap_islessequalf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double temp1 ;
-  double temp2 ;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
   bool result;
   
   SWIG_check_num_args("Ops::islessequal< floatType >",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::islessequal< floatType >",1,"double const &");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::islessequal< floatType >",2,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
-  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR islessequal< floatType >((double const &)*arg1,(double const &)*arg2);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::islessequal< floatType >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::islessequal< floatType >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR islessequal< floatType >((float const &)*arg1,(float const &)*arg2);
   lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
   return SWIG_arg;
   
@@ -15492,14 +16089,14 @@ fail:
 
 static int _wrap_isnanf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
+  float *arg1 = 0 ;
+  float temp1 ;
   bool result;
   
   SWIG_check_num_args("Ops::isnan< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isnan< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isnan< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isnan< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isnan< floatType >((float const &)*arg1);
   lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
   return SWIG_arg;
   
@@ -15513,14 +16110,14 @@ fail:
 
 static int _wrap_isnormalf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
+  float *arg1 = 0 ;
+  float temp1 ;
   bool result;
   
   SWIG_check_num_args("Ops::isnormal< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isnormal< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isnormal< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isnormal< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isnormal< floatType >((float const &)*arg1);
   lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
   return SWIG_arg;
   
@@ -15534,18 +16131,18 @@ fail:
 
 static int _wrap_isunorderedf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double temp1 ;
-  double temp2 ;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
   bool result;
   
   SWIG_check_num_args("Ops::isunordered< floatType >",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isunordered< floatType >",1,"double const &");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::isunordered< floatType >",2,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
-  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isunordered< floatType >((double const &)*arg1,(double const &)*arg2);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::isunordered< floatType >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::isunordered< floatType >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (bool)Ops::SWIGTEMPLATEDISAMBIGUATOR isunordered< floatType >((float const &)*arg1,(float const &)*arg2);
   lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
   return SWIG_arg;
   
@@ -15559,17 +16156,17 @@ fail:
 
 static int _wrap_ldexpf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
+  float *arg1 = 0 ;
   int arg2 ;
-  double temp1 ;
-  double result;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::ldexp< floatType >",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::ldexp< floatType >",1,"double const &");
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::ldexp< floatType >",1,"float const &");
   if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::ldexp< floatType >",2,"int");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
   arg2 = (int)lua_tonumber(L, 2);
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR ldexp< floatType >((double const &)*arg1,arg2);
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR ldexp< floatType >((float const &)*arg1,arg2);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15583,14 +16180,14 @@ fail:
 
 static int _wrap_llrintf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::llrint< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::llrint< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR llrint< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::llrint< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR llrint< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15604,14 +16201,14 @@ fail:
 
 static int _wrap_llroundf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::llround< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::llround< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR llround< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::llround< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR llround< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15625,14 +16222,14 @@ fail:
 
 static int _wrap_log1pf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::log1p< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::log1p< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR log1p< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::log1p< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR log1p< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15646,14 +16243,14 @@ fail:
 
 static int _wrap_lrintf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::lrint< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::lrint< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR lrint< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::lrint< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR lrint< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15667,14 +16264,14 @@ fail:
 
 static int _wrap_lroundf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::lround< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::lround< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR lround< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::lround< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR lround< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15689,12 +16286,12 @@ fail:
 static int _wrap_nanf(lua_State* L) {
   int SWIG_arg = 0;
   char *arg1 = (char *) 0 ;
-  double result;
+  float result;
   
   SWIG_check_num_args("Ops::nan< floatType >",1,1)
   if(!SWIG_lua_isnilstring(L,1)) SWIG_fail_arg("Ops::nan< floatType >",1,"char const *");
   arg1 = (char *)lua_tostring(L, 1);
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR nan< floatType >((char const *)arg1);
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR nan< floatType >((char const *)arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15709,12 +16306,12 @@ fail:
 static int _wrap_nanff(lua_State* L) {
   int SWIG_arg = 0;
   char *arg1 = (char *) 0 ;
-  double result;
+  float result;
   
   SWIG_check_num_args("Ops::nanf< floatType >",1,1)
   if(!SWIG_lua_isnilstring(L,1)) SWIG_fail_arg("Ops::nanf< floatType >",1,"char const *");
   arg1 = (char *)lua_tostring(L, 1);
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR nanf< floatType >((char const *)arg1);
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR nanf< floatType >((char const *)arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15729,12 +16326,12 @@ fail:
 static int _wrap_nanlf(lua_State* L) {
   int SWIG_arg = 0;
   char *arg1 = (char *) 0 ;
-  double result;
+  float result;
   
   SWIG_check_num_args("Ops::nanl< floatType >",1,1)
   if(!SWIG_lua_isnilstring(L,1)) SWIG_fail_arg("Ops::nanl< floatType >",1,"char const *");
   arg1 = (char *)lua_tostring(L, 1);
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR nanl< floatType >((char const *)arg1);
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR nanl< floatType >((char const *)arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15748,14 +16345,14 @@ fail:
 
 static int _wrap_nearbyintf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::nearbyint< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::nearbyint< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR nearbyint< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::nearbyint< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR nearbyint< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15769,18 +16366,18 @@ fail:
 
 static int _wrap_nextafterf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double temp1 ;
-  double temp2 ;
-  double result;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  float result;
   
   SWIG_check_num_args("Ops::nextafter< floatType >",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::nextafter< floatType >",1,"double const &");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::nextafter< floatType >",2,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR nextafter< floatType >((double const &)*arg1,(double const &)*arg2);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::nextafter< floatType >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::nextafter< floatType >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR nextafter< floatType >((float const &)*arg1,(float const &)*arg2);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15794,18 +16391,18 @@ fail:
 
 static int _wrap_nexttowardf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double temp1 ;
-  double temp2 ;
-  double result;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  float result;
   
   SWIG_check_num_args("Ops::nexttoward< floatType >",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::nexttoward< floatType >",1,"double const &");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::nexttoward< floatType >",2,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR nexttoward< floatType >((double const &)*arg1,(double const &)*arg2);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::nexttoward< floatType >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::nexttoward< floatType >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR nexttoward< floatType >((float const &)*arg1,(float const &)*arg2);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15819,18 +16416,18 @@ fail:
 
 static int _wrap_remainderf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double temp1 ;
-  double temp2 ;
-  double result;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  float result;
   
   SWIG_check_num_args("Ops::remainder< floatType >",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::remainder< floatType >",1,"double const &");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::remainder< floatType >",2,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR remainder< floatType >((double const &)*arg1,(double const &)*arg2);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::remainder< floatType >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::remainder< floatType >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR remainder< floatType >((float const &)*arg1,(float const &)*arg2);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15844,14 +16441,14 @@ fail:
 
 static int _wrap_rintf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::rint< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::rint< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR rint< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::rint< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR rint< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15865,14 +16462,14 @@ fail:
 
 static int _wrap_roundf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::round< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::round< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR round< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::round< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR round< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15886,17 +16483,17 @@ fail:
 
 static int _wrap_scalblnf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
+  float *arg1 = 0 ;
   long arg2 ;
-  double temp1 ;
-  double result;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::scalbln< floatType >",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::scalbln< floatType >",1,"double const &");
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::scalbln< floatType >",1,"float const &");
   if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::scalbln< floatType >",2,"long");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
   arg2 = (long)lua_tonumber(L, 2);
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR scalbln< floatType >((double const &)*arg1,arg2);
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR scalbln< floatType >((float const &)*arg1,arg2);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15910,17 +16507,17 @@ fail:
 
 static int _wrap_scalbnf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
+  float *arg1 = 0 ;
   int arg2 ;
-  double temp1 ;
-  double result;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::scalbn< floatType >",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::scalbn< floatType >",1,"double const &");
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::scalbn< floatType >",1,"float const &");
   if(!lua_isnumber(L,2)) SWIG_fail_arg("Ops::scalbn< floatType >",2,"int");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
   arg2 = (int)lua_tonumber(L, 2);
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR scalbn< floatType >((double const &)*arg1,arg2);
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR scalbn< floatType >((float const &)*arg1,arg2);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15934,14 +16531,14 @@ fail:
 
 static int _wrap_squaref(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::square< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::square< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR square< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::square< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR square< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15955,14 +16552,14 @@ fail:
 
 static int _wrap_tgammaf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::tgamma< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::tgamma< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR tgamma< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::tgamma< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR tgamma< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15976,14 +16573,14 @@ fail:
 
 static int _wrap_truncf(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  float result;
   
   SWIG_check_num_args("Ops::trunc< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::trunc< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = (double)Ops::SWIGTEMPLATEDISAMBIGUATOR trunc< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("Ops::trunc< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = (float)Ops::SWIGTEMPLATEDISAMBIGUATOR trunc< floatType >((float const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -15997,17 +16594,17 @@ fail:
 
 static int _wrap_crealf(lua_State* L) {
   int SWIG_arg = 0;
-  std::complex< double > *arg1 = 0 ;
-  double result;
+  std::complex< float > *arg1 = 0 ;
+  float result;
   
   SWIG_check_num_args("std::real< floatType >",1,1)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::real< floatType >",1,"std::complex< double > const &");
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::real< floatType >",1,"std::complex< float > const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("crealf",1,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("crealf",1,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  result = (double)std::SWIGTEMPLATEDISAMBIGUATOR real< floatType >((std::complex< double > const &)*arg1);
+  result = (float)std::SWIGTEMPLATEDISAMBIGUATOR real< floatType >((std::complex< float > const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -16021,17 +16618,17 @@ fail:
 
 static int _wrap_cimagf(lua_State* L) {
   int SWIG_arg = 0;
-  std::complex< double > *arg1 = 0 ;
-  double result;
+  std::complex< float > *arg1 = 0 ;
+  float result;
   
   SWIG_check_num_args("std::imag< floatType >",1,1)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::imag< floatType >",1,"std::complex< double > const &");
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::imag< floatType >",1,"std::complex< float > const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("cimagf",1,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("cimagf",1,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  result = (double)std::SWIGTEMPLATEDISAMBIGUATOR imag< floatType >((std::complex< double > const &)*arg1);
+  result = (float)std::SWIGTEMPLATEDISAMBIGUATOR imag< floatType >((std::complex< float > const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -16045,17 +16642,17 @@ fail:
 
 static int _wrap_cabsf(lua_State* L) {
   int SWIG_arg = 0;
-  std::complex< double > *arg1 = 0 ;
-  double result;
+  std::complex< float > *arg1 = 0 ;
+  float result;
   
   SWIG_check_num_args("std::abs< floatType >",1,1)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::abs< floatType >",1,"std::complex< double > const &");
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::abs< floatType >",1,"std::complex< float > const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("cabsf",1,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("cabsf",1,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  result = (double)std::SWIGTEMPLATEDISAMBIGUATOR abs< floatType >((std::complex< double > const &)*arg1);
+  result = (float)std::SWIGTEMPLATEDISAMBIGUATOR abs< floatType >((std::complex< float > const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -16069,17 +16666,17 @@ fail:
 
 static int _wrap_cargf(lua_State* L) {
   int SWIG_arg = 0;
-  std::complex< double > *arg1 = 0 ;
-  double result;
+  std::complex< float > *arg1 = 0 ;
+  float result;
   
   SWIG_check_num_args("std::arg< floatType >",1,1)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::arg< floatType >",1,"std::complex< double > const &");
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::arg< floatType >",1,"std::complex< float > const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("cargf",1,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("cargf",1,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  result = (double)std::SWIGTEMPLATEDISAMBIGUATOR arg< floatType >((std::complex< double > const &)*arg1);
+  result = (float)std::SWIGTEMPLATEDISAMBIGUATOR arg< floatType >((std::complex< float > const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -16093,20 +16690,20 @@ fail:
 
 static int _wrap_cexpf(lua_State* L) {
   int SWIG_arg = 0;
-  std::complex< double > *arg1 = 0 ;
-  SwigValueWrapper< std::complex< double > > result;
+  std::complex< float > *arg1 = 0 ;
+  SwigValueWrapper< std::complex< float > > result;
   
   SWIG_check_num_args("std::exp< floatType >",1,1)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::exp< floatType >",1,"std::complex< double > const &");
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::exp< floatType >",1,"std::complex< float > const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("cexpf",1,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("cexpf",1,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  result = std::SWIGTEMPLATEDISAMBIGUATOR exp< floatType >((std::complex< double > const &)*arg1);
+  result = std::SWIGTEMPLATEDISAMBIGUATOR exp< floatType >((std::complex< float > const &)*arg1);
   {
-    std::complex< double > * resultptr = new std::complex< double >((const std::complex< double > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_double_t,1); SWIG_arg++;
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -16120,20 +16717,20 @@ fail:
 
 static int _wrap_clogf(lua_State* L) {
   int SWIG_arg = 0;
-  std::complex< double > *arg1 = 0 ;
-  SwigValueWrapper< std::complex< double > > result;
+  std::complex< float > *arg1 = 0 ;
+  SwigValueWrapper< std::complex< float > > result;
   
   SWIG_check_num_args("std::log< floatType >",1,1)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::log< floatType >",1,"std::complex< double > const &");
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::log< floatType >",1,"std::complex< float > const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("clogf",1,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("clogf",1,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  result = std::SWIGTEMPLATEDISAMBIGUATOR log< floatType >((std::complex< double > const &)*arg1);
+  result = std::SWIGTEMPLATEDISAMBIGUATOR log< floatType >((std::complex< float > const &)*arg1);
   {
-    std::complex< double > * resultptr = new std::complex< double >((const std::complex< double > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_double_t,1); SWIG_arg++;
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -16147,20 +16744,20 @@ fail:
 
 static int _wrap_clog10f(lua_State* L) {
   int SWIG_arg = 0;
-  std::complex< double > *arg1 = 0 ;
-  SwigValueWrapper< std::complex< double > > result;
+  std::complex< float > *arg1 = 0 ;
+  SwigValueWrapper< std::complex< float > > result;
   
   SWIG_check_num_args("std::log10< floatType >",1,1)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::log10< floatType >",1,"std::complex< double > const &");
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::log10< floatType >",1,"std::complex< float > const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("clog10f",1,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("clog10f",1,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  result = std::SWIGTEMPLATEDISAMBIGUATOR log10< floatType >((std::complex< double > const &)*arg1);
+  result = std::SWIGTEMPLATEDISAMBIGUATOR log10< floatType >((std::complex< float > const &)*arg1);
   {
-    std::complex< double > * resultptr = new std::complex< double >((const std::complex< double > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_double_t,1); SWIG_arg++;
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -16174,27 +16771,27 @@ fail:
 
 static int _wrap_cpowf__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
-  std::complex< double > *arg1 = 0 ;
-  std::complex< double > *arg2 = 0 ;
-  SwigValueWrapper< std::complex< double > > result;
+  std::complex< float > *arg1 = 0 ;
+  std::complex< float > *arg2 = 0 ;
+  SwigValueWrapper< std::complex< float > > result;
   
   SWIG_check_num_args("std::pow< floatType >",2,2)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::pow< floatType >",1,"std::complex< double > const &");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("std::pow< floatType >",2,"std::complex< double > const &");
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::pow< floatType >",1,"std::complex< float > const &");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("std::pow< floatType >",2,"std::complex< float > const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("cpowf",1,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("cpowf",1,SWIGTYPE_p_std__complexT_float_t);
   }
   
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("cpowf",2,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("cpowf",2,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  result = std::SWIGTEMPLATEDISAMBIGUATOR pow< floatType >((std::complex< double > const &)*arg1,(std::complex< double > const &)*arg2);
+  result = std::SWIGTEMPLATEDISAMBIGUATOR pow< floatType >((std::complex< float > const &)*arg1,(std::complex< float > const &)*arg2);
   {
-    std::complex< double > * resultptr = new std::complex< double >((const std::complex< double > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_double_t,1); SWIG_arg++;
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -16208,24 +16805,24 @@ fail:
 
 static int _wrap_cpowf__SWIG_1(lua_State* L) {
   int SWIG_arg = 0;
-  std::complex< double > *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double temp2 ;
-  SwigValueWrapper< std::complex< double > > result;
+  std::complex< float > *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp2 ;
+  SwigValueWrapper< std::complex< float > > result;
   
   SWIG_check_num_args("std::pow< floatType >",2,2)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::pow< floatType >",1,"std::complex< double > const &");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("std::pow< floatType >",2,"double const &");
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::pow< floatType >",1,"std::complex< float > const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("std::pow< floatType >",2,"float const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("cpowf",1,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("cpowf",1,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
-  result = std::SWIGTEMPLATEDISAMBIGUATOR pow< floatType >((std::complex< double > const &)*arg1,(double const &)*arg2);
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = std::SWIGTEMPLATEDISAMBIGUATOR pow< floatType >((std::complex< float > const &)*arg1,(float const &)*arg2);
   {
-    std::complex< double > * resultptr = new std::complex< double >((const std::complex< double > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_double_t,1); SWIG_arg++;
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -16239,24 +16836,24 @@ fail:
 
 static int _wrap_cpowf__SWIG_2(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  std::complex< double > *arg2 = 0 ;
-  double temp1 ;
-  SwigValueWrapper< std::complex< double > > result;
+  float *arg1 = 0 ;
+  std::complex< float > *arg2 = 0 ;
+  float temp1 ;
+  SwigValueWrapper< std::complex< float > > result;
   
   SWIG_check_num_args("std::pow< floatType >",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("std::pow< floatType >",1,"double const &");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("std::pow< floatType >",2,"std::complex< double > const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("std::pow< floatType >",1,"float const &");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("std::pow< floatType >",2,"std::complex< float > const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("cpowf",2,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("cpowf",2,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  result = std::SWIGTEMPLATEDISAMBIGUATOR pow< floatType >((double const &)*arg1,(std::complex< double > const &)*arg2);
+  result = std::SWIGTEMPLATEDISAMBIGUATOR pow< floatType >((float const &)*arg1,(std::complex< float > const &)*arg2);
   {
-    std::complex< double > * resultptr = new std::complex< double >((const std::complex< double > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_double_t,1); SWIG_arg++;
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -16279,7 +16876,7 @@ static int _wrap_cpowf(lua_State* L) {
     int _v = 0;
     {
       void *ptr;
-      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_std__complexT_double_t, SWIG_POINTER_NO_NULL)) {
+      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_std__complexT_float_t, SWIG_POINTER_NO_NULL)) {
         _v = 0;
       } else {
         _v = 1;
@@ -16288,7 +16885,7 @@ static int _wrap_cpowf(lua_State* L) {
     if (_v) {
       {
         void *ptr;
-        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_std__complexT_double_t, SWIG_POINTER_NO_NULL)) {
+        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_std__complexT_float_t, SWIG_POINTER_NO_NULL)) {
           _v = 0;
         } else {
           _v = 1;
@@ -16303,7 +16900,7 @@ static int _wrap_cpowf(lua_State* L) {
     int _v = 0;
     {
       void *ptr;
-      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_std__complexT_double_t, SWIG_POINTER_NO_NULL)) {
+      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_std__complexT_float_t, SWIG_POINTER_NO_NULL)) {
         _v = 0;
       } else {
         _v = 1;
@@ -16326,7 +16923,7 @@ static int _wrap_cpowf(lua_State* L) {
     if (_v) {
       {
         void *ptr;
-        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_std__complexT_double_t, SWIG_POINTER_NO_NULL)) {
+        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_std__complexT_float_t, SWIG_POINTER_NO_NULL)) {
           _v = 0;
         } else {
           _v = 1;
@@ -16340,29 +16937,29 @@ static int _wrap_cpowf(lua_State* L) {
   
   SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'cpowf'\n"
     "  Possible C/C++ prototypes are:\n"
-    "    std::pow< floatType >(std::complex< double > const &,std::complex< double > const &)\n"
-    "    std::pow< floatType >(std::complex< double > const &,double const &)\n"
-    "    std::pow< floatType >(double const &,std::complex< double > const &)\n");
+    "    std::pow< floatType >(std::complex< float > const &,std::complex< float > const &)\n"
+    "    std::pow< floatType >(std::complex< float > const &,float const &)\n"
+    "    std::pow< floatType >(float const &,std::complex< float > const &)\n");
   lua_error(L);return 0;
 }
 
 
 static int _wrap_csqrtf(lua_State* L) {
   int SWIG_arg = 0;
-  std::complex< double > *arg1 = 0 ;
-  SwigValueWrapper< std::complex< double > > result;
+  std::complex< float > *arg1 = 0 ;
+  SwigValueWrapper< std::complex< float > > result;
   
   SWIG_check_num_args("std::sqrt< floatType >",1,1)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::sqrt< floatType >",1,"std::complex< double > const &");
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::sqrt< floatType >",1,"std::complex< float > const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("csqrtf",1,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("csqrtf",1,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  result = std::SWIGTEMPLATEDISAMBIGUATOR sqrt< floatType >((std::complex< double > const &)*arg1);
+  result = std::SWIGTEMPLATEDISAMBIGUATOR sqrt< floatType >((std::complex< float > const &)*arg1);
   {
-    std::complex< double > * resultptr = new std::complex< double >((const std::complex< double > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_double_t,1); SWIG_arg++;
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -16376,17 +16973,17 @@ fail:
 
 static int _wrap_cnormf(lua_State* L) {
   int SWIG_arg = 0;
-  std::complex< double > *arg1 = 0 ;
-  double result;
+  std::complex< float > *arg1 = 0 ;
+  float result;
   
   SWIG_check_num_args("std::norm< floatType >",1,1)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::norm< floatType >",1,"std::complex< double > const &");
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::norm< floatType >",1,"std::complex< float > const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("cnormf",1,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("cnormf",1,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  result = (double)std::SWIGTEMPLATEDISAMBIGUATOR norm< floatType >((std::complex< double > const &)*arg1);
+  result = (float)std::SWIGTEMPLATEDISAMBIGUATOR norm< floatType >((std::complex< float > const &)*arg1);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -16400,20 +16997,20 @@ fail:
 
 static int _wrap_cprojf(lua_State* L) {
   int SWIG_arg = 0;
-  std::complex< double > *arg1 = 0 ;
-  SwigValueWrapper< std::complex< double > > result;
+  std::complex< float > *arg1 = 0 ;
+  SwigValueWrapper< std::complex< float > > result;
   
   SWIG_check_num_args("std::proj< floatType >",1,1)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::proj< floatType >",1,"std::complex< double > const &");
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::proj< floatType >",1,"std::complex< float > const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("cprojf",1,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("cprojf",1,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  result = std::SWIGTEMPLATEDISAMBIGUATOR proj< floatType >((std::complex< double > const &)*arg1);
+  result = std::SWIGTEMPLATEDISAMBIGUATOR proj< floatType >((std::complex< float > const &)*arg1);
   {
-    std::complex< double > * resultptr = new std::complex< double >((const std::complex< double > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_double_t,1); SWIG_arg++;
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -16427,21 +17024,21 @@ fail:
 
 static int _wrap_cpolarf__SWIG_0(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double temp1 ;
-  double temp2 ;
-  SwigValueWrapper< std::complex< double > > result;
+  float *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float temp1 ;
+  float temp2 ;
+  SwigValueWrapper< std::complex< float > > result;
   
   SWIG_check_num_args("std::polar< floatType >",2,2)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("std::polar< floatType >",1,"double const &");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("std::polar< floatType >",2,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  temp2=(double)lua_tonumber(L,2); arg2=&temp2;
-  result = std::SWIGTEMPLATEDISAMBIGUATOR polar< floatType >((double const &)*arg1,(double const &)*arg2);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("std::polar< floatType >",1,"float const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("std::polar< floatType >",2,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  temp2=(float)lua_tonumber(L,2); arg2=&temp2;
+  result = std::SWIGTEMPLATEDISAMBIGUATOR polar< floatType >((float const &)*arg1,(float const &)*arg2);
   {
-    std::complex< double > * resultptr = new std::complex< double >((const std::complex< double > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_double_t,1); SWIG_arg++;
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -16455,17 +17052,17 @@ fail:
 
 static int _wrap_cpolarf__SWIG_1(lua_State* L) {
   int SWIG_arg = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  SwigValueWrapper< std::complex< double > > result;
+  float *arg1 = 0 ;
+  float temp1 ;
+  SwigValueWrapper< std::complex< float > > result;
   
   SWIG_check_num_args("std::polar< floatType >",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("std::polar< floatType >",1,"double const &");
-  temp1=(double)lua_tonumber(L,1); arg1=&temp1;
-  result = std::SWIGTEMPLATEDISAMBIGUATOR polar< floatType >((double const &)*arg1);
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("std::polar< floatType >",1,"float const &");
+  temp1=(float)lua_tonumber(L,1); arg1=&temp1;
+  result = std::SWIGTEMPLATEDISAMBIGUATOR polar< floatType >((float const &)*arg1);
   {
-    std::complex< double > * resultptr = new std::complex< double >((const std::complex< double > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_double_t,1); SWIG_arg++;
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -16510,28 +17107,28 @@ static int _wrap_cpolarf(lua_State* L) {
   
   SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'cpolarf'\n"
     "  Possible C/C++ prototypes are:\n"
-    "    std::polar< floatType >(double const &,double const &)\n"
-    "    std::polar< floatType >(double const &)\n");
+    "    std::polar< floatType >(float const &,float const &)\n"
+    "    std::polar< floatType >(float const &)\n");
   lua_error(L);return 0;
 }
 
 
 static int _wrap_csinf(lua_State* L) {
   int SWIG_arg = 0;
-  std::complex< double > *arg1 = 0 ;
-  SwigValueWrapper< std::complex< double > > result;
+  std::complex< float > *arg1 = 0 ;
+  SwigValueWrapper< std::complex< float > > result;
   
   SWIG_check_num_args("std::sin< floatType >",1,1)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::sin< floatType >",1,"std::complex< double > const &");
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::sin< floatType >",1,"std::complex< float > const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("csinf",1,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("csinf",1,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  result = std::SWIGTEMPLATEDISAMBIGUATOR sin< floatType >((std::complex< double > const &)*arg1);
+  result = std::SWIGTEMPLATEDISAMBIGUATOR sin< floatType >((std::complex< float > const &)*arg1);
   {
-    std::complex< double > * resultptr = new std::complex< double >((const std::complex< double > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_double_t,1); SWIG_arg++;
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -16545,20 +17142,20 @@ fail:
 
 static int _wrap_ccosf(lua_State* L) {
   int SWIG_arg = 0;
-  std::complex< double > *arg1 = 0 ;
-  SwigValueWrapper< std::complex< double > > result;
+  std::complex< float > *arg1 = 0 ;
+  SwigValueWrapper< std::complex< float > > result;
   
   SWIG_check_num_args("std::cos< floatType >",1,1)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::cos< floatType >",1,"std::complex< double > const &");
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::cos< floatType >",1,"std::complex< float > const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("ccosf",1,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("ccosf",1,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  result = std::SWIGTEMPLATEDISAMBIGUATOR cos< floatType >((std::complex< double > const &)*arg1);
+  result = std::SWIGTEMPLATEDISAMBIGUATOR cos< floatType >((std::complex< float > const &)*arg1);
   {
-    std::complex< double > * resultptr = new std::complex< double >((const std::complex< double > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_double_t,1); SWIG_arg++;
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -16572,20 +17169,20 @@ fail:
 
 static int _wrap_ctanf(lua_State* L) {
   int SWIG_arg = 0;
-  std::complex< double > *arg1 = 0 ;
-  SwigValueWrapper< std::complex< double > > result;
+  std::complex< float > *arg1 = 0 ;
+  SwigValueWrapper< std::complex< float > > result;
   
   SWIG_check_num_args("std::tan< floatType >",1,1)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::tan< floatType >",1,"std::complex< double > const &");
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::tan< floatType >",1,"std::complex< float > const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("ctanf",1,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("ctanf",1,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  result = std::SWIGTEMPLATEDISAMBIGUATOR tan< floatType >((std::complex< double > const &)*arg1);
+  result = std::SWIGTEMPLATEDISAMBIGUATOR tan< floatType >((std::complex< float > const &)*arg1);
   {
-    std::complex< double > * resultptr = new std::complex< double >((const std::complex< double > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_double_t,1); SWIG_arg++;
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -16599,20 +17196,20 @@ fail:
 
 static int _wrap_casinf(lua_State* L) {
   int SWIG_arg = 0;
-  std::complex< double > *arg1 = 0 ;
-  SwigValueWrapper< std::complex< double > > result;
+  std::complex< float > *arg1 = 0 ;
+  SwigValueWrapper< std::complex< float > > result;
   
   SWIG_check_num_args("std::asin< floatType >",1,1)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::asin< floatType >",1,"std::complex< double > const &");
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::asin< floatType >",1,"std::complex< float > const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("casinf",1,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("casinf",1,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  result = std::SWIGTEMPLATEDISAMBIGUATOR asin< floatType >((std::complex< double > const &)*arg1);
+  result = std::SWIGTEMPLATEDISAMBIGUATOR asin< floatType >((std::complex< float > const &)*arg1);
   {
-    std::complex< double > * resultptr = new std::complex< double >((const std::complex< double > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_double_t,1); SWIG_arg++;
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -16626,20 +17223,20 @@ fail:
 
 static int _wrap_cacosf(lua_State* L) {
   int SWIG_arg = 0;
-  std::complex< double > *arg1 = 0 ;
-  SwigValueWrapper< std::complex< double > > result;
+  std::complex< float > *arg1 = 0 ;
+  SwigValueWrapper< std::complex< float > > result;
   
   SWIG_check_num_args("std::acos< floatType >",1,1)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::acos< floatType >",1,"std::complex< double > const &");
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::acos< floatType >",1,"std::complex< float > const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("cacosf",1,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("cacosf",1,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  result = std::SWIGTEMPLATEDISAMBIGUATOR acos< floatType >((std::complex< double > const &)*arg1);
+  result = std::SWIGTEMPLATEDISAMBIGUATOR acos< floatType >((std::complex< float > const &)*arg1);
   {
-    std::complex< double > * resultptr = new std::complex< double >((const std::complex< double > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_double_t,1); SWIG_arg++;
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -16653,20 +17250,20 @@ fail:
 
 static int _wrap_catanf(lua_State* L) {
   int SWIG_arg = 0;
-  std::complex< double > *arg1 = 0 ;
-  SwigValueWrapper< std::complex< double > > result;
+  std::complex< float > *arg1 = 0 ;
+  SwigValueWrapper< std::complex< float > > result;
   
   SWIG_check_num_args("std::atan< floatType >",1,1)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::atan< floatType >",1,"std::complex< double > const &");
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::atan< floatType >",1,"std::complex< float > const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("catanf",1,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("catanf",1,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  result = std::SWIGTEMPLATEDISAMBIGUATOR atan< floatType >((std::complex< double > const &)*arg1);
+  result = std::SWIGTEMPLATEDISAMBIGUATOR atan< floatType >((std::complex< float > const &)*arg1);
   {
-    std::complex< double > * resultptr = new std::complex< double >((const std::complex< double > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_double_t,1); SWIG_arg++;
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -16680,20 +17277,20 @@ fail:
 
 static int _wrap_csinhf(lua_State* L) {
   int SWIG_arg = 0;
-  std::complex< double > *arg1 = 0 ;
-  SwigValueWrapper< std::complex< double > > result;
+  std::complex< float > *arg1 = 0 ;
+  SwigValueWrapper< std::complex< float > > result;
   
   SWIG_check_num_args("std::sinh< floatType >",1,1)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::sinh< floatType >",1,"std::complex< double > const &");
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::sinh< floatType >",1,"std::complex< float > const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("csinhf",1,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("csinhf",1,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  result = std::SWIGTEMPLATEDISAMBIGUATOR sinh< floatType >((std::complex< double > const &)*arg1);
+  result = std::SWIGTEMPLATEDISAMBIGUATOR sinh< floatType >((std::complex< float > const &)*arg1);
   {
-    std::complex< double > * resultptr = new std::complex< double >((const std::complex< double > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_double_t,1); SWIG_arg++;
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -16707,20 +17304,20 @@ fail:
 
 static int _wrap_ccoshf(lua_State* L) {
   int SWIG_arg = 0;
-  std::complex< double > *arg1 = 0 ;
-  SwigValueWrapper< std::complex< double > > result;
+  std::complex< float > *arg1 = 0 ;
+  SwigValueWrapper< std::complex< float > > result;
   
   SWIG_check_num_args("std::cosh< floatType >",1,1)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::cosh< floatType >",1,"std::complex< double > const &");
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::cosh< floatType >",1,"std::complex< float > const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("ccoshf",1,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("ccoshf",1,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  result = std::SWIGTEMPLATEDISAMBIGUATOR cosh< floatType >((std::complex< double > const &)*arg1);
+  result = std::SWIGTEMPLATEDISAMBIGUATOR cosh< floatType >((std::complex< float > const &)*arg1);
   {
-    std::complex< double > * resultptr = new std::complex< double >((const std::complex< double > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_double_t,1); SWIG_arg++;
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -16734,20 +17331,20 @@ fail:
 
 static int _wrap_ctanhf(lua_State* L) {
   int SWIG_arg = 0;
-  std::complex< double > *arg1 = 0 ;
-  SwigValueWrapper< std::complex< double > > result;
+  std::complex< float > *arg1 = 0 ;
+  SwigValueWrapper< std::complex< float > > result;
   
   SWIG_check_num_args("std::tanh< floatType >",1,1)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::tanh< floatType >",1,"std::complex< double > const &");
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::tanh< floatType >",1,"std::complex< float > const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("ctanhf",1,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("ctanhf",1,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  result = std::SWIGTEMPLATEDISAMBIGUATOR tanh< floatType >((std::complex< double > const &)*arg1);
+  result = std::SWIGTEMPLATEDISAMBIGUATOR tanh< floatType >((std::complex< float > const &)*arg1);
   {
-    std::complex< double > * resultptr = new std::complex< double >((const std::complex< double > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_double_t,1); SWIG_arg++;
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -16761,20 +17358,20 @@ fail:
 
 static int _wrap_casinhf(lua_State* L) {
   int SWIG_arg = 0;
-  std::complex< double > *arg1 = 0 ;
-  SwigValueWrapper< std::complex< double > > result;
+  std::complex< float > *arg1 = 0 ;
+  SwigValueWrapper< std::complex< float > > result;
   
   SWIG_check_num_args("std::asinh< floatType >",1,1)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::asinh< floatType >",1,"std::complex< double > const &");
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::asinh< floatType >",1,"std::complex< float > const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("casinhf",1,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("casinhf",1,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  result = std::SWIGTEMPLATEDISAMBIGUATOR asinh< floatType >((std::complex< double > const &)*arg1);
+  result = std::SWIGTEMPLATEDISAMBIGUATOR asinh< floatType >((std::complex< float > const &)*arg1);
   {
-    std::complex< double > * resultptr = new std::complex< double >((const std::complex< double > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_double_t,1); SWIG_arg++;
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -16788,20 +17385,20 @@ fail:
 
 static int _wrap_cacoshf(lua_State* L) {
   int SWIG_arg = 0;
-  std::complex< double > *arg1 = 0 ;
-  SwigValueWrapper< std::complex< double > > result;
+  std::complex< float > *arg1 = 0 ;
+  SwigValueWrapper< std::complex< float > > result;
   
   SWIG_check_num_args("std::acosh< floatType >",1,1)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::acosh< floatType >",1,"std::complex< double > const &");
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::acosh< floatType >",1,"std::complex< float > const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("cacoshf",1,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("cacoshf",1,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  result = std::SWIGTEMPLATEDISAMBIGUATOR acosh< floatType >((std::complex< double > const &)*arg1);
+  result = std::SWIGTEMPLATEDISAMBIGUATOR acosh< floatType >((std::complex< float > const &)*arg1);
   {
-    std::complex< double > * resultptr = new std::complex< double >((const std::complex< double > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_double_t,1); SWIG_arg++;
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -16815,20 +17412,20 @@ fail:
 
 static int _wrap_catanhf(lua_State* L) {
   int SWIG_arg = 0;
-  std::complex< double > *arg1 = 0 ;
-  SwigValueWrapper< std::complex< double > > result;
+  std::complex< float > *arg1 = 0 ;
+  SwigValueWrapper< std::complex< float > > result;
   
   SWIG_check_num_args("std::atanh< floatType >",1,1)
-  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::atanh< floatType >",1,"std::complex< double > const &");
+  if(!lua_isuserdata(L,1)) SWIG_fail_arg("std::atanh< floatType >",1,"std::complex< float > const &");
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_double_t,0))){
-    SWIG_fail_ptr("catanhf",1,SWIGTYPE_p_std__complexT_double_t);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__complexT_float_t,0))){
+    SWIG_fail_ptr("catanhf",1,SWIGTYPE_p_std__complexT_float_t);
   }
   
-  result = std::SWIGTEMPLATEDISAMBIGUATOR atanh< floatType >((std::complex< double > const &)*arg1);
+  result = std::SWIGTEMPLATEDISAMBIGUATOR atanh< floatType >((std::complex< float > const &)*arg1);
   {
-    std::complex< double > * resultptr = new std::complex< double >((const std::complex< double > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_double_t,1); SWIG_arg++;
+    std::complex< float > * resultptr = new std::complex< float >((const std::complex< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__complexT_float_t,1); SWIG_arg++;
   }
   return SWIG_arg;
   
@@ -16882,6 +17479,7 @@ static swig_lua_const_info swig_SwigModule_constants[]= {
     {SWIG_LUA_CONSTTAB_INT("SINWAVE", SINWAVE)},
     {SWIG_LUA_CONSTTAB_INT("FULLWAVE_SIGMOID", FULLWAVE_SIGMOID)},
     {SWIG_LUA_CONSTTAB_INT("FULLWAVE_RELU", FULLWAVE_RELU)},
+    {SWIG_LUA_CONSTTAB_INT("AUTO", AUTO)},
     {SWIG_LUA_CONSTTAB_INT("NONSTOCHASTIC", NONSTOCHASTIC)},
     {SWIG_LUA_CONSTTAB_INT("STOCHASTIC", STOCHASTIC)},
     {0,0,0,0,0,0}
@@ -16912,7 +17510,6 @@ static swig_lua_method swig_SwigModule_methods[]= {
     { "softmax", _wrap_softmax},
     { "sinwave", _wrap_sinwave},
     { "randr", _wrap_randr},
-    { "stringify", _wrap_stringify},
     { "addToEachRow", _wrap_addToEachRow},
     { "absf", _wrap_absf},
     { "cubef", _wrap_cubef},
@@ -17057,19 +17654,20 @@ static swig_type_info _swigt__p_Activator = {"_p_Activator", "Activator *", 0, 0
 static swig_type_info _swigt__p_Batch = {"_p_Batch", "Batch *", 0, 0, (void*)&_wrap_class_Batch, 0};
 static swig_type_info _swigt__p_BoxMuller = {"_p_BoxMuller", "BoxMuller *", 0, 0, (void*)&_wrap_class_BoxMuller, 0};
 static swig_type_info _swigt__p_Connection = {"_p_Connection", "Connection *", 0, 0, (void*)&_wrap_class_Connection, 0};
-static swig_type_info _swigt__p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t = {"_p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t", "Eigen::Matrix< double,Eigen::Dynamic,Eigen::Dynamic,Eigen::RowMajor > *|Matrix *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t = {"_p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t", "Matrix *|Eigen::Matrix< floatType,Eigen::Dynamic,Eigen::Dynamic,Eigen::RowMajor > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Layer = {"_p_Layer", "Layer *", 0, 0, (void*)&_wrap_class_Layer, 0};
 static swig_type_info _swigt__p_Network = {"_p_Network", "Network *", 0, 0, (void*)&_wrap_class_Network, 0};
 static swig_type_info _swigt__p_NeuralNetwork = {"_p_NeuralNetwork", "NeuralNetwork *", 0, 0, (void*)&_wrap_class_NeuralNetwork, 0};
 static swig_type_info _swigt__p_ParameterSet = {"_p_ParameterSet", "ParameterSet *", 0, 0, (void*)&_wrap_class_ParameterSet, 0};
 static swig_type_info _swigt__p_RandomNumbers = {"_p_RandomNumbers", "RandomNumbers *", 0, 0, (void*)&_wrap_class_RandomNumbers, 0};
 static swig_type_info _swigt__p_boost__math__differentiation__detail__fvarT_floatType_2_t = {"_p_boost__math__differentiation__detail__fvarT_floatType_2_t", "fvar *|boost::math::differentiation::detail::fvar< floatType,2 > *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_double = {"_p_double", "floatType *|double *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_r_Eigen__Matrix__double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void = {"_p_f_r_Eigen__Matrix__double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void", "void (*)(Eigen::Matrix< double,Eigen::Dynamic,Eigen::Dynamic,Eigen::RowMajor > &)|activation_grad|activation", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_float = {"_p_float", "float *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_double = {"_p_double", "double *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_r_Eigen__Matrix__floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void = {"_p_f_r_Eigen__Matrix__floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void", "void (*)(Eigen::Matrix< floatType,Eigen::Dynamic,Eigen::Dynamic,Eigen::RowMajor > &)|activation_grad|activation", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_float = {"_p_float", "floatType *|float *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_myclock = {"_p_myclock", "myclock *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_std__complexT_double_t = {"_p_std__complexT_double_t", "std::complex< double > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__complexT_float_t = {"_p_std__complexT_float_t", "std::complex< float > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__default_random_engine = {"_p_std__default_random_engine", "std::default_random_engine *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__ifstream = {"_p_std__ifstream", "std::ifstream *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__numeric_limitsT_double_t = {"_p_std__numeric_limitsT_double_t", "std::numeric_limits< double > *", 0, 0, (void*)&_wrap_class_double_numeric_limits, 0};
 static swig_type_info _swigt__p_std__numeric_limitsT_float_t = {"_p_std__numeric_limitsT_float_t", "std::numeric_limits< float > *", 0, 0, (void*)&_wrap_class_float_numeric_limits, 0};
 static swig_type_info _swigt__p_std__numeric_limitsT_int_t = {"_p_std__numeric_limitsT_int_t", "std::numeric_limits< int > *", 0, 0, (void*)&_wrap_class_int_numeric_limits, 0};
@@ -17080,14 +17678,14 @@ static swig_type_info _swigt__p_std__numeric_limitsT_unsigned_int_t = {"_p_std__
 static swig_type_info _swigt__p_std__numeric_limitsT_unsigned_long_long_t = {"_p_std__numeric_limitsT_unsigned_long_long_t", "std::numeric_limits< unsigned long long > *", 0, 0, (void*)&_wrap_class_ullong_numeric_limits, 0};
 static swig_type_info _swigt__p_std__numeric_limitsT_unsigned_long_t = {"_p_std__numeric_limitsT_unsigned_long_t", "std::numeric_limits< unsigned long > *", 0, 0, (void*)&_wrap_class_ulong_numeric_limits, 0};
 static swig_type_info _swigt__p_std__numeric_limitsT_unsigned_short_t = {"_p_std__numeric_limitsT_unsigned_short_t", "std::numeric_limits< unsigned short > *", 0, 0, (void*)&_wrap_class_ushort_numeric_limits, 0};
-static swig_type_info _swigt__p_std__string = {"_p_std__string", "std::string *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__ofstream = {"_p_std__ofstream", "std::ofstream *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_ActivationType_std__allocatorT_ActivationType_t_t = {"_p_std__vectorT_ActivationType_std__allocatorT_ActivationType_t_t", "std::vector< enum ActivationType,std::allocator< enum ActivationType > > *|std::vector< ActivationType,std::allocator< ActivationType > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_Connection_p_std__allocatorT_Connection_p_t_t = {"_p_std__vectorT_Connection_p_std__allocatorT_Connection_p_t_t", "std::vector< Connection *,std::allocator< Connection * > > *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t = {"_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t", "std::vector< Matrix *,std::allocator< Matrix * > > *|std::vector< Eigen::Matrix< double,Eigen::Dynamic,Eigen::Dynamic,Eigen::RowMajor > *,std::allocator< Eigen::Matrix< double,Eigen::Dynamic,Eigen::Dynamic,Eigen::RowMajor > * > > *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t = {"_p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t", "std::vector< Matrix,std::allocator< Matrix > > *|std::vector< Eigen::Matrix< double,Eigen::Dynamic,Eigen::Dynamic,Eigen::RowMajor >,std::allocator< Eigen::Matrix< double,Eigen::Dynamic,Eigen::Dynamic,Eigen::RowMajor > > > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t = {"_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t", "std::vector< Eigen::Matrix< floatType,Eigen::Dynamic,Eigen::Dynamic,Eigen::RowMajor > *,std::allocator< Eigen::Matrix< floatType,Eigen::Dynamic,Eigen::Dynamic,Eigen::RowMajor > * > > *|std::vector< Matrix *,std::allocator< Matrix * > > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t = {"_p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t", "std::vector< Eigen::Matrix< floatType,Eigen::Dynamic,Eigen::Dynamic,Eigen::RowMajor >,std::allocator< Eigen::Matrix< floatType,Eigen::Dynamic,Eigen::Dynamic,Eigen::RowMajor > > > *|std::vector< Matrix,std::allocator< Matrix > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_Layer_p_std__allocatorT_Layer_p_t_t = {"_p_std__vectorT_Layer_p_std__allocatorT_Layer_p_t_t", "std::vector< Layer *,std::allocator< Layer * > > *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_std__vectorT_double_std__allocatorT_double_t_t = {"_p_std__vectorT_double_std__allocatorT_double_t_t", "std::vector< double,std::allocator< double > > *|std::vector< double > *|std::vector< floatType,std::allocator< floatType > > *", 0, 0, (void*)&_wrap_class_double_vector, 0};
-static swig_type_info _swigt__p_std__vectorT_float_std__allocatorT_float_t_t = {"_p_std__vectorT_float_std__allocatorT_float_t_t", "std::vector< float > *|std::vector< float,std::allocator< float > > *", 0, 0, (void*)&_wrap_class_float_vector, 0};
+static swig_type_info _swigt__p_std__vectorT_double_std__allocatorT_double_t_t = {"_p_std__vectorT_double_std__allocatorT_double_t_t", "std::vector< double,std::allocator< double > > *|std::vector< double > *", 0, 0, (void*)&_wrap_class_double_vector, 0};
+static swig_type_info _swigt__p_std__vectorT_float_std__allocatorT_float_t_t = {"_p_std__vectorT_float_std__allocatorT_float_t_t", "std::vector< float > *|std::vector< float,std::allocator< float > > *|std::vector< floatType,std::allocator< floatType > > *", 0, 0, (void*)&_wrap_class_float_vector, 0};
 static swig_type_info _swigt__p_std__vectorT_int64_t_std__allocatorT_int64_t_t_t = {"_p_std__vectorT_int64_t_std__allocatorT_int64_t_t_t", "std::vector< int64_t,std::allocator< int64_t > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_int_std__allocatorT_int_t_t = {"_p_std__vectorT_int_std__allocatorT_int_t_t", "std::vector< int,std::allocator< int > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_std__vectorT_Batch_std__allocatorT_Batch_t_t_std__allocatorT_std__vectorT_Batch_std__allocatorT_Batch_t_t_t_t = {"_p_std__vectorT_std__vectorT_Batch_std__allocatorT_Batch_t_t_std__allocatorT_std__vectorT_Batch_std__allocatorT_Batch_t_t_t_t", "std::vector< std::vector< Batch,std::allocator< Batch > >,std::allocator< std::vector< Batch,std::allocator< Batch > > > > *", 0, 0, (void*)0, 0};
@@ -17099,7 +17697,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_Batch,
   &_swigt__p_BoxMuller,
   &_swigt__p_Connection,
-  &_swigt__p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,
+  &_swigt__p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,
   &_swigt__p_Layer,
   &_swigt__p_Network,
   &_swigt__p_NeuralNetwork,
@@ -17107,11 +17705,12 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_RandomNumbers,
   &_swigt__p_boost__math__differentiation__detail__fvarT_floatType_2_t,
   &_swigt__p_double,
-  &_swigt__p_f_r_Eigen__Matrix__double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void,
+  &_swigt__p_f_r_Eigen__Matrix__floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void,
   &_swigt__p_float,
   &_swigt__p_myclock,
-  &_swigt__p_std__complexT_double_t,
+  &_swigt__p_std__complexT_float_t,
   &_swigt__p_std__default_random_engine,
+  &_swigt__p_std__ifstream,
   &_swigt__p_std__numeric_limitsT_double_t,
   &_swigt__p_std__numeric_limitsT_float_t,
   &_swigt__p_std__numeric_limitsT_int_t,
@@ -17122,11 +17721,11 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_std__numeric_limitsT_unsigned_long_long_t,
   &_swigt__p_std__numeric_limitsT_unsigned_long_t,
   &_swigt__p_std__numeric_limitsT_unsigned_short_t,
-  &_swigt__p_std__string,
+  &_swigt__p_std__ofstream,
   &_swigt__p_std__vectorT_ActivationType_std__allocatorT_ActivationType_t_t,
   &_swigt__p_std__vectorT_Connection_p_std__allocatorT_Connection_p_t_t,
-  &_swigt__p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t,
-  &_swigt__p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,
+  &_swigt__p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t,
+  &_swigt__p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,
   &_swigt__p_std__vectorT_Layer_p_std__allocatorT_Layer_p_t_t,
   &_swigt__p_std__vectorT_double_std__allocatorT_double_t_t,
   &_swigt__p_std__vectorT_float_std__allocatorT_float_t_t,
@@ -17141,7 +17740,7 @@ static swig_cast_info _swigc__p_Activator[] = {  {&_swigt__p_Activator, 0, 0, 0}
 static swig_cast_info _swigc__p_Batch[] = {  {&_swigt__p_Batch, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_BoxMuller[] = {  {&_swigt__p_BoxMuller, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Connection[] = {  {&_swigt__p_Connection, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t[] = {  {&_swigt__p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t[] = {  {&_swigt__p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Layer[] = {  {&_swigt__p_Layer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Network[] = {  {&_swigt__p_Network, 0, 0, 0},  {&_swigt__p_NeuralNetwork, _p_NeuralNetworkTo_p_Network, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_NeuralNetwork[] = {  {&_swigt__p_NeuralNetwork, 0, 0, 0},{0, 0, 0, 0}};
@@ -17149,11 +17748,12 @@ static swig_cast_info _swigc__p_ParameterSet[] = {  {&_swigt__p_ParameterSet, 0,
 static swig_cast_info _swigc__p_RandomNumbers[] = {  {&_swigt__p_RandomNumbers, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_boost__math__differentiation__detail__fvarT_floatType_2_t[] = {  {&_swigt__p_boost__math__differentiation__detail__fvarT_floatType_2_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_double[] = {  {&_swigt__p_double, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_r_Eigen__Matrix__double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void[] = {  {&_swigt__p_f_r_Eigen__Matrix__double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_r_Eigen__Matrix__floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void[] = {  {&_swigt__p_f_r_Eigen__Matrix__floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_float[] = {  {&_swigt__p_float, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_myclock[] = {  {&_swigt__p_myclock, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_std__complexT_double_t[] = {  {&_swigt__p_std__complexT_double_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__complexT_float_t[] = {  {&_swigt__p_std__complexT_float_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__default_random_engine[] = {  {&_swigt__p_std__default_random_engine, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__ifstream[] = {  {&_swigt__p_std__ifstream, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__numeric_limitsT_double_t[] = {  {&_swigt__p_std__numeric_limitsT_double_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__numeric_limitsT_float_t[] = {  {&_swigt__p_std__numeric_limitsT_float_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__numeric_limitsT_int_t[] = {  {&_swigt__p_std__numeric_limitsT_int_t, 0, 0, 0},{0, 0, 0, 0}};
@@ -17164,11 +17764,11 @@ static swig_cast_info _swigc__p_std__numeric_limitsT_unsigned_int_t[] = {  {&_sw
 static swig_cast_info _swigc__p_std__numeric_limitsT_unsigned_long_long_t[] = {  {&_swigt__p_std__numeric_limitsT_unsigned_long_long_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__numeric_limitsT_unsigned_long_t[] = {  {&_swigt__p_std__numeric_limitsT_unsigned_long_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__numeric_limitsT_unsigned_short_t[] = {  {&_swigt__p_std__numeric_limitsT_unsigned_short_t, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_std__string[] = {  {&_swigt__p_std__string, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__ofstream[] = {  {&_swigt__p_std__ofstream, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_ActivationType_std__allocatorT_ActivationType_t_t[] = {  {&_swigt__p_std__vectorT_ActivationType_std__allocatorT_ActivationType_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_Connection_p_std__allocatorT_Connection_p_t_t[] = {  {&_swigt__p_std__vectorT_Connection_p_std__allocatorT_Connection_p_t_t, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t[] = {  {&_swigt__p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t[] = {  {&_swigt__p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t[] = {  {&_swigt__p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t[] = {  {&_swigt__p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_Layer_p_std__allocatorT_Layer_p_t_t[] = {  {&_swigt__p_std__vectorT_Layer_p_std__allocatorT_Layer_p_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_double_std__allocatorT_double_t_t[] = {  {&_swigt__p_std__vectorT_double_std__allocatorT_double_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_float_std__allocatorT_float_t_t[] = {  {&_swigt__p_std__vectorT_float_std__allocatorT_float_t_t, 0, 0, 0},{0, 0, 0, 0}};
@@ -17183,7 +17783,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_Batch,
   _swigc__p_BoxMuller,
   _swigc__p_Connection,
-  _swigc__p_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,
+  _swigc__p_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t,
   _swigc__p_Layer,
   _swigc__p_Network,
   _swigc__p_NeuralNetwork,
@@ -17191,11 +17791,12 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_RandomNumbers,
   _swigc__p_boost__math__differentiation__detail__fvarT_floatType_2_t,
   _swigc__p_double,
-  _swigc__p_f_r_Eigen__Matrix__double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void,
+  _swigc__p_f_r_Eigen__Matrix__floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor____void,
   _swigc__p_float,
   _swigc__p_myclock,
-  _swigc__p_std__complexT_double_t,
+  _swigc__p_std__complexT_float_t,
   _swigc__p_std__default_random_engine,
+  _swigc__p_std__ifstream,
   _swigc__p_std__numeric_limitsT_double_t,
   _swigc__p_std__numeric_limitsT_float_t,
   _swigc__p_std__numeric_limitsT_int_t,
@@ -17206,11 +17807,11 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_std__numeric_limitsT_unsigned_long_long_t,
   _swigc__p_std__numeric_limitsT_unsigned_long_t,
   _swigc__p_std__numeric_limitsT_unsigned_short_t,
-  _swigc__p_std__string,
+  _swigc__p_std__ofstream,
   _swigc__p_std__vectorT_ActivationType_std__allocatorT_ActivationType_t_t,
   _swigc__p_std__vectorT_Connection_p_std__allocatorT_Connection_p_t_t,
-  _swigc__p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t,
-  _swigc__p_std__vectorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_double_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,
+  _swigc__p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_p_t_t,
+  _swigc__p_std__vectorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_std__allocatorT_Eigen__MatrixT_floatType_Eigen__Dynamic_Eigen__Dynamic_Eigen__RowMajor_t_t_t,
   _swigc__p_std__vectorT_Layer_p_std__allocatorT_Layer_p_t_t,
   _swigc__p_std__vectorT_double_std__allocatorT_double_t_t,
   _swigc__p_std__vectorT_float_std__allocatorT_float_t_t,

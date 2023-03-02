@@ -291,8 +291,9 @@ namespace FXDSP
 
     #else
         // Otherwise do it manually
-        unsigned i;
+        unsigned i;        
         const unsigned end = 4 * (length / 4);
+        #pragma omp simd aligned(dest,src)
         for (i = 0; i < end; i+=4)
         {
             dest[i] = floatToInt16(*src++);
@@ -300,6 +301,7 @@ namespace FXDSP
             dest[i + 2] = floatToInt16(*src++);
             dest[i + 3] = floatToInt16(*src++);
         }
+        #pragma omp simd aligned(dest,src)
         for (i = end; i < length; ++i)
         {
             dest[i] = floatToInt16(*src++);
@@ -324,6 +326,7 @@ namespace FXDSP
         // Otherwise do it manually
         unsigned i;
         const unsigned end = 4 * (length / 4);
+        #pragma omp simd aligned(dest,src)
         for (i = 0; i < end; i+=4)
         {
             dest[i] = floatToInt16(*src++);
@@ -331,6 +334,7 @@ namespace FXDSP
             dest[i + 2] = floatToInt16(*src++);
             dest[i + 3] = floatToInt16(*src++);
         }
+        #pragma omp simd aligned(dest,src)
         for (i = end; i < length; ++i)
         {
             dest[i] = floatToInt16(*src++);
@@ -354,6 +358,7 @@ namespace FXDSP
     #else
         // Otherwise do it manually
         unsigned i;
+        #pragma omp simd aligned(dest,src)
         const unsigned end = 4 * (length / 4);
         for (i = 0; i < end; i+=4)
         {
@@ -362,6 +367,7 @@ namespace FXDSP
             dest[i + 2] = int16ToFloat(*src++);
             dest[i + 3] = int16ToFloat(*src++);
         }
+        #pragma omp simd aligned(dest,src)
         for (i = end; i < length; ++i)
         {
             dest[i] = int16ToFloat(*src++);
@@ -386,6 +392,7 @@ namespace FXDSP
         // Otherwise do it manually
         unsigned i;
         const unsigned end = 4 * (length / 4);
+        #pragma omp simd aligned(dest,src)
         for (i = 0; i < end; i+=4)
         {
             dest[i] = int16ToFloat(*src++);
@@ -393,6 +400,7 @@ namespace FXDSP
             dest[i + 2] = int16ToFloat(*src++);
             dest[i + 3] = int16ToFloat(*src++);
         }
+        #pragma omp simd aligned(dest,src)
         for (i = end; i < length; ++i)
         {
             dest[i] = int16ToFloat(*src++);
@@ -413,6 +421,7 @@ namespace FXDSP
         // Otherwise do it manually
         unsigned i;
         const unsigned end = 4 * (length / 4);
+        #pragma omp simd aligned(dest,src)
         for (i = 0; i < end; i+=4)
         {
             dest[i] = (float)src[i];
@@ -420,6 +429,7 @@ namespace FXDSP
             dest[i + 2] = (float)src[i + 2];
             dest[i + 3] = (float)src[i + 3];
         }
+        #pragma omp simd aligned(dest,src)
         for (i = end; i < length; ++i)
         {
             dest[i] = (float)src[i];
@@ -462,7 +472,7 @@ namespace FXDSP
     void FillBuffer(T *dest, unsigned length, T value)
     {        
         unsigned i = 0;        
-        #pragma omp simd
+        #pragma omp simd aligned(dest)
         for (i = 0; i < length; ++i)
         {
             dest[i] = value;     
@@ -499,7 +509,7 @@ namespace FXDSP
     #if defined(USE_BLAS)        
         cblas_scopy(length, src, src_stride, dest, dest_stride);
     #else
-        #pragma omp simd
+        #pragma omp simd aligned(dest,src)
         for (unsigned i = 0; i < length; ++i)
         {
             dest[i * dest_stride] = src[i * src_stride];
@@ -518,7 +528,7 @@ namespace FXDSP
     #else
         unsigned i;
         unsigned i2;      
-        #pragma omp simd
+        #pragma omp simd aligned(dest,real,imag)
         for (i = 0; i < length; ++i)
         {
             i2 = i * 2;
@@ -540,7 +550,7 @@ namespace FXDSP
     #else
         unsigned i;
         unsigned i2;
-        #pragma omp simd
+        #pragma omp simd aligned(real,imag,input)
         for (i = 0; i < length; ++i)
         {
             i2 = i * 2;
@@ -571,7 +581,7 @@ namespace FXDSP
                 unsigned       length)
     {
         unsigned i;
-        #pragma omp simd
+        #pragma omp simd aligned(dest,in)
         for (i = 0; i < length; ++i)
         {
             dest[i] = -in[i];
@@ -584,7 +594,7 @@ namespace FXDSP
     T VectorSum(const T* src, unsigned length)
     {
         float res = 0.0;
-        #pragma omp simd
+        #pragma omp simd aligned(src)
         for (unsigned i = 0; i < length; ++i)
         {
             res += src[i];
@@ -598,7 +608,7 @@ namespace FXDSP
     T VectorMax(const T* src, unsigned length)
     {
         float res = FLT_MIN;
-        #pragma omp simd
+        #pragma omp simd aligned(src)
         for (unsigned i = 0; i < length; ++i)
         {
             if (src[i] > res)
@@ -615,7 +625,7 @@ namespace FXDSP
     void VectorMaxVI(T* value, unsigned* index, const T* src, unsigned length)
     {
         float res = FLT_MIN;
-        #pragma omp simd
+        #pragma omp simd aligned(src,value,index)
         for (unsigned i = 0; i < length; ++i)
         {
             if (src[i] > res)
@@ -632,7 +642,7 @@ namespace FXDSP
     T VectorMin(const T* src, unsigned length)
     {
         float res = FLT_MAX;
-        #pragma omp simd
+        #pragma omp simd aligned(src)
         for (unsigned i = 0; i < length; ++i)
         {
             if (src[i] < res)
@@ -650,7 +660,7 @@ namespace FXDSP
     {
 
         float res = src[0];
-        #pragma omp simd
+        #pragma omp simd aligned(src,value,index)
         for (unsigned i = 0; i < length; ++i)
         {
             if (src[i] < res)
@@ -670,7 +680,7 @@ namespace FXDSP
                     unsigned      length)
     {     
         unsigned i;
-        #pragma omp simd
+        #pragma omp simd aligned(dest,in1,in2)
         for (i = 0; i < length; ++i)
         {
             dest[i] = in1[i] + in2[i];
@@ -686,7 +696,7 @@ namespace FXDSP
                     unsigned      length)
     {
         unsigned i;
-        #pragma omp simd
+        #pragma omp simd aligned(dest,in1,in2)
         for (i = 0; i < length; ++i)
         {
             dest[i] = in2[i] - in1[i];
@@ -702,7 +712,7 @@ namespace FXDSP
                     unsigned        length)
     {
         unsigned i;
-        #pragma omp simd
+        #pragma omp simd aligned(dest,in1)
         for (i = 0; i < length; ++i)
         {
             dest[i] = in1[i] + scalar;
@@ -718,7 +728,7 @@ namespace FXDSP
                         unsigned       length)
     {
         unsigned i;
-        #pragma omp simd
+        #pragma omp simd aligned(dest,in1,in2)
         for (i = 0; i < length; ++i)
         {
             dest[i] = in1[i] * in2[i];
@@ -734,7 +744,7 @@ namespace FXDSP
                         unsigned       length)
     {    
         unsigned i;
-        #pragma omp simd
+        #pragma omp simd aligned(dest,in1)
         for (i = 0; i < length; ++i)
         {
             dest[i] = in1[i] * scalar;
@@ -753,7 +763,7 @@ namespace FXDSP
                     unsigned     length)
     {    
         unsigned i;
-        #pragma omp simd
+        #pragma omp simd aligned(dest,in1,in2)
         for (i = 0; i < length; ++i)
         {
             dest[i] = (in1[i] * (*scalar1)) + (in2[i] * (*scalar2));
@@ -768,7 +778,7 @@ namespace FXDSP
                         unsigned     length)
     {    
         unsigned i;
-        #pragma omp simd
+        #pragma omp simd aligned(dest,in1,in2)
         for (i = 0; i < length; ++i)
         {
             dest[i] = (in1[i] + in2[i]) * (*scalar);
@@ -781,7 +791,7 @@ namespace FXDSP
     void VectorPower(T* dest, const T* in, T power, unsigned length)
     {    
         unsigned i;
-        #pragma omp simd
+        #pragma omp simd aligned(dest,in)
         for (i = 0; i < length; ++i)
         {
             dest[i] = powf(in[i], power);
@@ -800,7 +810,7 @@ namespace FXDSP
 
         unsigned resultLength = in1_length + (in2_length - 1);            
         unsigned i;
-        #pragma omp simd 
+        #pragma omp simd aligned(dest,in1,in2)
         for (i = 0; i <resultLength; ++i)
         {
             unsigned kmin, kmax, k;
@@ -822,7 +832,7 @@ namespace FXDSP
                     const T* in,
                     unsigned length)
     {
-        #pragma omp simd
+        #pragma omp simd aligned(dest,in)
         for (unsigned i = 0; i < length; ++i)
         {
             dest[i] = AMP_TO_DB(in[i]);
@@ -840,7 +850,7 @@ namespace FXDSP
                     const T*    im2,
                     unsigned        length)
     {
-        #pragma omp simd
+        #pragma omp simd aligned(re,im,re1,im1,re2,im2)
         for (unsigned i = 0; i < length; ++i)
         {
             float ire1 = re1[i];
@@ -863,7 +873,7 @@ namespace FXDSP
     {
         unsigned i;
         // might not do anything
-        #pragma omp simd        
+        #pragma omp simd         aligned(magnitude,phase,real,imaginary)
         for (i = 0; i < length; ++i)
         {
             RectToPolar(real[i], imaginary[i], &magnitude[i], &phase[i]);

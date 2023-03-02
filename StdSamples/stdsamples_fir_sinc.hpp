@@ -255,3 +255,4 @@ namespace Filters::FIR
 
         return result;
     }
+}

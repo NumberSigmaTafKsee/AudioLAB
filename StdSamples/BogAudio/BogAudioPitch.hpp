@@ -8,33 +8,33 @@ namespace DSP::BogAudio
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Pitch
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////
-	const double referenceFrequency = 261.626; // C4; frequency at which Rack 1v/octave CVs are zero.
-	const double referenceSemitone = 60.0; // C4; value of C4 in semitones is arbitrary here, so have it match midi note numbers when rounded to integer.
-	const double twelfthRootTwo = 1.0594630943592953;
-	const double logTwelfthRootTwo = logf(1.0594630943592953);
+	const DspFloatType referenceFrequency = 261.626; // C4; frequency at which Rack 1v/octave CVs are zero.
+	const DspFloatType referenceSemitone = 60.0; // C4; value of C4 in semitones is arbitrary here, so have it match midi note numbers when rounded to integer.
+	const DspFloatType twelfthRootTwo = 1.0594630943592953;
+	const DspFloatType logTwelfthRootTwo = logf(1.0594630943592953);
 
 
-	inline double frequencyToSemitone(double frequency) {
+	inline DspFloatType frequencyToSemitone(DspFloatType frequency) {
 		return logf(frequency / referenceFrequency) / logTwelfthRootTwo + referenceSemitone;
 	}
 
-	inline double semitoneToFrequency(double semitone) {
+	inline DspFloatType semitoneToFrequency(DspFloatType semitone) {
 		return powf(twelfthRootTwo, semitone - referenceSemitone) * referenceFrequency;
 	}
 
-	inline double frequencyToCV(double frequency) {
+	inline DspFloatType frequencyToCV(DspFloatType frequency) {
 		return log2f(frequency / referenceFrequency);
 	}
 
-	inline double cvToFrequency(double cv) {
+	inline DspFloatType cvToFrequency(DspFloatType cv) {
 		return powf(2.0, cv) * referenceFrequency;
 	}
 
-	inline double cvToSemitone(double cv) {
+	inline DspFloatType cvToSemitone(DspFloatType cv) {
 		return frequencyToSemitone(cvToFrequency(cv));
 	}
 
-	inline double semitoneToCV(double semitone) {
+	inline DspFloatType semitoneToCV(DspFloatType semitone) {
 		return frequencyToCV(semitoneToFrequency(semitone));
 	}
 }

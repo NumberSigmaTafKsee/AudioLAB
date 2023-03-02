@@ -90,7 +90,23 @@ namespace FX::Delays
         //business methods
         DspFloatType next(const DspFloatType in);
         
-        
+        DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1)
+        {
+			return A*next(I);
+		}
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) {
+				out[i] = Tick(in[i]);
+			}
+		}
+		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
+			ProcessSIMD(n,in,out);
+		}
+		void ProcessInplace(size_t n, DspFloatType * out) {
+			ProcessSIMD(n,out,out);
+		}
+		
         private:
         DspFloatType decayFactor, ALLPASS_GAIN_LIMIT = 0.707f, lp_freq, lateDelay; // GAIN LIMIT to keep the allpasses from exploding
         bool bypass;

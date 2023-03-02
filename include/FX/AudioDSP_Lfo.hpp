@@ -55,6 +55,7 @@ namespace JoonasFX
 			#pragma omp simd aligned(out)
 			for(size_t i = 0; i < n; i++)
 				out[i] = getValue();
+				if(in) out[i] *= in[i];
 		}
 		DspFloatType getValueAndAdvance() {
 			DspFloatType out = getValue();

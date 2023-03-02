@@ -6205,7 +6205,7 @@ DecimatorProcess(Decimator      *decimator,
         unsigned declen = n_samples / decimator->factor;
         float temp_buf[declen];
         ClearBuffer(outBuffer, declen);
-		
+		#pragma omp simd aligned(outBuffer,inBuffer)
         for (unsigned filt = 0; filt < decimator->factor; ++filt)
         {
             CopyBufferStride(temp_buf, 1, inBuffer, decimator->factor, declen);
@@ -6232,7 +6232,7 @@ DecimatorProcessD(DecimatorD*   decimator,
         unsigned declen = n_samples / decimator->factor;
         double temp_buf[declen];
         ClearBufferD(outBuffer, declen);
-
+		#pragma omp simd aligned(outBuffer,inBuffer)
         for (unsigned filt = 0; filt < decimator->factor; ++filt)
         {
             CopyBufferStrideD(temp_buf, 1, inBuffer, decimator->factor, declen);
@@ -6401,6 +6401,7 @@ DiodeRectifierProcess(DiodeRectifier*   diode,
         VectorScalarMultiply(diode->scratch, in_buffer, inv_vt, n_samples);
     }
     VectorScalarAdd(diode->scratch, diode->scratch, -1.0, n_samples);
+    #pragma omp simd aligned(out_buffer,in_buffer)
     for (unsigned i = 0; i < n_samples; ++i)
     {
         out_buffer[i] = expf(diode->scratch[i]) * scale;
@@ -6426,6 +6427,7 @@ DiodeRectifierProcessD(DiodeRectifierD* diode,
         VectorScalarMultiplyD(diode->scratch, in_buffer, inv_vt, n_samples);
     }
     VectorScalarAddD(diode->scratch, diode->scratch, -1.0, n_samples);
+    #pragma omp simd aligned(out_buffer,in_buffer)
     for (unsigned i = 0; i < n_samples; ++i)
     {
         out_buffer[i] = exp(diode->scratch[i]) * scale;
@@ -7720,7 +7722,7 @@ phase_correlation(float* left, float* right, unsigned n_samples)
     float lsq = 0.0;
     float rsq = 0.0;
     float denom = 0.0;
-
+	#pragma omp simd aligned(left,right)
     for (unsigned i = 0; i < n_samples; ++i)
     {
         float left_sample = left[i];
@@ -7751,7 +7753,7 @@ phase_correlationD(double* left, double* right, unsigned n_samples)
     double lsq = 0.0;
     double rsq = 0.0;
     double denom = 0.0;
-
+	#pragma omp simd aligned(left,right)
     for (unsigned i = 0; i < n_samples; ++i)
     {
         double left_sample = left[i];
@@ -9364,6 +9366,7 @@ RMSEstimatorProcess(RMSEstimator*   rms,
                         const float*        inBuffer,
                         unsigned            n_samples)
 {
+	#pragma omp simd aligned(outBuffer,inBuffer)
     for (unsigned i = 0; i < n_samples; ++i)
     {
         rms->RMS += rms->avgCoeff * ((f_abs(inBuffer[i])/rms->RMS) - rms->RMS);
@@ -9378,6 +9381,7 @@ RMSEstimatorProcessD(RMSEstimatorD* rms,
                      const double*  inBuffer,
                      unsigned       n_samples)
 {
+	#pragma omp simd aligned(outBuffer,inBuffer)
     for (unsigned i = 0; i < n_samples; ++i)
     {
         rms->RMS += rms->avgCoeff * ((f_abs(inBuffer[i])/rms->RMS) - rms->RMS);
@@ -10221,7 +10225,7 @@ UpsamplerProcess(Upsampler      *upsampler,
 {
     float tempbuf[n_samples];
     if (upsampler && outBuffer)
-    {
+    {		
         for (unsigned filt = 0; filt < upsampler->factor; ++filt)
         {
             FIRFilterProcess(upsampler->polyphase[filt], tempbuf, inBuffer, n_samples);

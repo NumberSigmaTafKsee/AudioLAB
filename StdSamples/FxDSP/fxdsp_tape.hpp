@@ -179,6 +179,7 @@ namespace FXDSP
         }
         void ProcessBlock(size_t n, T * in, T * out)
         {
+			#pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
                 out[i] = Tick(in[i]);
         }

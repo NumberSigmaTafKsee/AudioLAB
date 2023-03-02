@@ -14,7 +14,21 @@ typedef float DspFloatType;
 
 typedef float DspFloatType;
 %include "SoundObject.hpp"
-%include "audiodsp_amplifiers.hpp"
+%include "FX/ClipFunctions.hpp"
+%include "FX/Amplifier.hpp"
+%include "FX/AmplifierFold.hpp"
+%include "FX/Amplifiers.hpp"
+%include "FX/AmplifiersUdo1.hpp"
+%include "FX/ClipperCircuit.hpp"
+%include "FX/ClippingFunctions.hpp"
+%include "FX/ClipSerpentCurve.hpp"
+%include "FX/ChebyDistortion.hpp"
+%include "FX/DistortionCompressor.hpp"
+%include "FX/DistortionFunctions.hpp"
+%include "FX/WaveShaperATanSoftClip.hpp"
+%include "FX/Waveshapers.hpp"
+%include "FX/Waveshaping.hpp"
+%include "FX/SstWaveshaper.hpp"
 
 %template(float_vector) std::vector<float>;
 %template(double_vector) std::vector<double>;

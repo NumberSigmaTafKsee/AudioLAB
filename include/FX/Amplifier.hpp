@@ -625,8 +625,8 @@ namespace FX::Distortion::Amplifier
             #pragma omp simd aligned(input,output)
             for(size_t i = 0; i < n; i++) output[i] = Tick(input[i]);
         }
-        void ProcessInplace(size_t n, DspFloatType * input) {
-            #pragma omp simd aligned(input,output)
+        void ProcessInplace(size_t n, DspFloatType * output) {
+            #pragma omp simd aligned(output)
             for(size_t i = 0; i < n; i++) output[i] = Tick(output[i]);
         }        
     };
@@ -747,8 +747,8 @@ namespace FX::Distortion::Amplifier
             #pragma omp simd aligned(input,output)
             for(size_t i = 0; i < n; i++) output[i] = Tick(input[i]);
         }
-        void ProcessInplace(size_t n, DspFloatType * input) {
-            #pragma omp simd aligned(input,output)
+        void ProcessInplace(size_t n, DspFloatType * output) {
+            #pragma omp simd aligned(output)
             for(size_t i = 0; i < n; i++) output[i] = Tick(output[i]);
         }        
     };
@@ -806,7 +806,7 @@ namespace FX::Distortion::Amplifier
             tone.processSample(r);
             return A*r;
         }
-        void ProcessSIMD(size_t n, DspFloatType * out) {            
+        void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {            
             clipper.setKnob(Drive);
             clipper.ProcessSIMD(n,out);
             tone.setKnobs(Tone,Output);

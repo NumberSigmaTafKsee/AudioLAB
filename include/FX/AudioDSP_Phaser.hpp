@@ -207,8 +207,7 @@ namespace JoonasFX {
 		// DC Blocker ============================	
 		mDCBlocker.ProcessBlock(numSamples,inputs,outputs);
 
-		// Copy current buffer to dry buffer =====
-		#pragma omp simd
+		// Copy current buffer to dry buffer =====		
 		for (auto channel = 0; channel < numChannels; ++channel)
 		{
 			mDryBuffer.setChannel(channel,numSamples, outputs[channel]);

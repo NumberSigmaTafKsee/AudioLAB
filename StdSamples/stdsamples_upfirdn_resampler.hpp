@@ -40,14 +40,14 @@ using namespace std;
 #include <vector>
 
 template<class S1, class S2, class C>
-class Resampler{
+class UpFirDn{
 public:
     typedef    S1 inputType;
     typedef    S2 outputType;
     typedef    C coefType;
 
-    Resampler(int upRate, int downRate, C *coefs, int coefCount);
-    virtual ~Resampler();
+    UpFirDn(int upRate, int downRate, C *coefs, int coefCount);
+    virtual ~UpFirDn();
 
     int        apply(S1* in, int inCount, S2* out, int outCount);
     int        neededOutCount(int inCount);
@@ -84,7 +84,7 @@ using std::copy;
 using std::invalid_argument;
 
 template<class S1, class S2, class C>
-Resampler<S1, S2, C>::Resampler(int upRate, int downRate, C *coefs,
+UpFirDn<S1, S2, C>::UpFirDn(int upRate, int downRate, C *coefs,
                                 int coefCount):
   _upRate(upRate), _downRate(downRate), _t(0), _xOffset(0)
 /*
@@ -125,13 +125,13 @@ Resampler<S1, S2, C>::Resampler(int upRate, int downRate, C *coefs,
 }
 
 template<class S1, class S2, class C>
-Resampler<S1, S2, C>::~Resampler() {
+UpFirDn<S1, S2, C>::~UpFirDn() {
     delete [] _transposedCoefs;
     delete [] _state;
 }
 
 template<class S1, class S2, class C>
-int Resampler<S1, S2, C>::neededOutCount(int inCount)
+int UpFirDn<S1, S2, C>::neededOutCount(int inCount)
 /* compute how many outputs will be generated for inCount inputs  */
 {
     int np = inCount * _upRate;
@@ -142,7 +142,7 @@ int Resampler<S1, S2, C>::neededOutCount(int inCount)
 }
 
 template<class S1, class S2, class C>
-int Resampler<S1, S2, C>::apply(S1* in, int inCount, 
+int UpFirDn<S1, S2, C>::apply(S1* in, int inCount, 
                                 S2* out, int outCount) {
     if (outCount < neededOutCount(inCount)) 
         throw invalid_argument("Not enough output samples");
@@ -214,8 +214,8 @@ Thanks to Lewis Anderson (lkanders@ucsd.edu) at UCSD for
 the original version of this function.
 */
 {
-    // Create the Resampler
-    Resampler<S1, S2, C> theResampler(upRate, downRate, filter, filterLength);
+    // Create the UpFirDn
+    UpFirDn<S1, S2, C> theResampler(upRate, downRate, filter, filterLength);
 
     // pad input by length of one polyphase of filter to flush all values out
     int padding = theResampler.coefsPerPhase() - 1;

@@ -1,0 +1,38 @@
+#pragma once
+
+void mix2(size_t n, DspFloatType mix, DspFloatType * a, DspFloatType * b, DspFloatType * o) {
+    for(size_t i = 0; i < n; i++) o[i] = mix*a[i] + (1.0-mix)*b[i];
+}
+
+void mix2_add(size_t n, DspFloatType mix, DspFloatType * a, DspFloatType * b, DspFloatType * o) {
+    for(size_t i = 0; i < n; i++) o[i] += mix*a[i] + (1.0-mix)*b[i];
+}
+
+void mix4(size_t n, DspFloatType mix, DspFloatType * a, DspFloatType * b, DspFloatType * c, DspFloatType * d, DspFloatType * o) {
+    mix2(n,mix,a,b,o);
+    mix2_add(n,mix,c,d,o);
+}
+
+void mix4_add(size_t n, DspFloatType mix, DspFloatType * a, DspFloatType * b, DspFloatType * c, DspFloatType * d, DspFloatType * o) {
+    mix2_add(n,mix,a,b,o);
+    mix2_add(n,mix,c,d,o);
+}
+
+void morph_signals(size_t n, DspFloatType frac, DspFloatType * a, DspFloatType * b, DspFloatType * out) {
+    for(size_t i = 0; i < n; i++) out[i] = a[i] + frac*(b[i]-a[i]);
+}
+void morph_signals_add(size_t n, DspFloatType frac, DspFloatType * a, DspFloatType * b, DspFloatType * out) {
+    for(size_t i = 0; i < n; i++) out[i] += a[i] + frac*(b[i]-a[i]);
+}
+void run_monoprocessor(size_t n, MonoProcessor * p, DspFloatType * out) {
+    for(size_t i = 0; i < n; i++) out[i] = p->Tick();
+}
+void run_monoprocessor_add(size_t n, MonoProcessor * p, DspFloatType * out) {
+    for(size_t i = 0; i < n; i++) out[i] += p->Tick();
+}
+void run_monoprocessor(size_t n, MonoProcessor * p, DspFloatType *in, DspFloatType * out) {
+    for(size_t i = 0; i < n; i++) out[i] = p->Tick(in[i]);
+}
+void run_monoprocessor_add(size_t n, MonoProcessor * p, DspFloatType *in, DspFloatType * out) {
+    for(size_t i = 0; i < n; i++) out[i] += p->Tick(in[i]);
+}

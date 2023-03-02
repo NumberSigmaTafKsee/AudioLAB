@@ -5,10 +5,10 @@
 
 namespace Delays
 {
-    class RingBuffer : public FunctionProcessor
+    class CRingBuffer : public FunctionProcessor
     {
     public:
-        RingBuffer(size_t max_length) :
+        CRingBuffer(size_t max_length) :
             FunctionProcessor(),
             max_length(max_length),
             current_length(max_length),

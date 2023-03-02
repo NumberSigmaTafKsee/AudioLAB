@@ -47,6 +47,10 @@ namespace Envelopes
             }        
             return r;
         }
+        void ProcessBlock(size_t n, DspFloatType * buffer) {
+			#pragma omp simd aligned(buffer)
+			for(size_t i = 0; i < n; i++) buffer[i] = Tick();
+		}
     };
 
     struct FASR
@@ -98,6 +102,10 @@ namespace Envelopes
             }
             return r;
         }
+        void ProcessBlock(size_t n, DspFloatType * buffer) {
+			#pragma omp simd aligned(buffer)
+			for(size_t i = 0; i < n; i++) buffer[i] = Tick();
+		}
     };
 
     struct FADSR
@@ -157,5 +165,9 @@ namespace Envelopes
             }
             return r;
         }
+        void ProcessBlock(size_t n, DspFloatType * buffer) {
+			#pragma omp simd aligned(buffer)
+			for(size_t i = 0; i < n; i++) buffer[i] = Tick();
+		}
     };
 }

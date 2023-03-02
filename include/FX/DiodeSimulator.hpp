@@ -2,6 +2,7 @@
 
 #include "FX/Diode.hpp"
 #include "FX/DiodeSim.hpp"
+#include "FX/CSmoothFilters.hpp"
 
 namespace FX::Distortion::Diode
 {

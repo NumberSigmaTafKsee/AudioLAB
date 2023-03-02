@@ -45,7 +45,7 @@ std::vector<DspFloatType> qn(size_t n)
     return r;
 }
 
-
+// doesn't work
 int TestLaguerre()
 {
   std::vector<DspFloatType> bessel = qn(7);
@@ -84,6 +84,7 @@ int TestLaguerre()
   return 0;
 }
 
+// works
 void TestEigen()
 {
 	std::vector<DspFloatType> bessel = qn(7);	

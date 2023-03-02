@@ -1,24 +1,26 @@
 #pragma once 
 #include <cmath>
 
-
+/*
 DspFloatType signum(DspFloatType x)
 {
     if(x < 0) return -1.0f;
     return 1.0f;
 }
+*/
 DspFloatType sgn(DspFloatType x) {
     return signum(x);
 }
 DspFloatType sign(DspFloatType x) {
     return signum(x);
 }
+/*
 DspFloatType clamp(DspFloatType x, DspFloatType min, DspFloatType max) {
     if(x < min) return min;
     if(x > max) return max;
     return x;
 }
-
+*/
 namespace FX::Distortion
 {
 
