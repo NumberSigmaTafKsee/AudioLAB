@@ -1,6 +1,6 @@
 #pragma once
 #include <cmath>
-#include "FX/ClipFunctions.hpp"
+#include "ClipFunctions.hpp"
 
 namespace Analog::Filters::SVF
 {

@@ -1,7 +1,7 @@
 #pragma once 
 #include <cmath>
 #include "SoundObject.hpp"
-#include "FX/ClipFunctions.hpp"
+#include "ClipFunctions.hpp"
 #include "Undenormal.hpp"
 
 namespace Analog::MoogFilters::MoogFilter1

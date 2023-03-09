@@ -1,3 +1,0 @@
-    swig -lua -c++ -I../include -I../include WaveguideLibrary.swg
-    gcc -Wfatal-errors -std=c++17 -I.. -I../include -O2 -fPIC -march=native -mavx2 -fopenmp -pthread -shared -o WaveguideLibrary.so WaveguideLibrary_wrap.cxx -lstdc++ -lm -lluajit 
-    

@@ -7,12 +7,22 @@
 #include <iostream>
 #include <map>
 #include <string>
+#include <vector>
+
 using namespace std;
+
+// this loads the plugins and only need 1
+class LV2Plugins;
 
 
 // a loaded lv2 plugin
-struct LV2Plugin ///: public MonoFXProcessor
+class LV2Plugin ///: public MonoFXProcessor
 {
+// needs to be to hide Lilv from swig
+protected:
+
+	friend class LV2Plugins;
+	
     size_t controls,audios,ins,outs,total;
     size_t input_port,output_port;
     
@@ -27,6 +37,8 @@ struct LV2Plugin ///: public MonoFXProcessor
     std::vector<std::vector<float>> connections;    
     std::vector<float> port_min, port_max, port_default;    
     std::vector<std::string>  port_names;
+
+public:
     
     LV2Plugin() : /*MonoFXProcessor(),*/ plugin(NULL) {
         instance = NULL;
@@ -50,9 +62,9 @@ struct LV2Plugin ///: public MonoFXProcessor
     }
     DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1)
 	{
-		input_port[0] = I;
+		connections[input_port][0] = I;
 		instance->run(1);
-		return output_port[0];
+		return connections[output_port][0];
 	}
     void ProcessBlock(size_t n, float * in, float * out)
     {        
@@ -74,6 +86,7 @@ struct LV2Plugin ///: public MonoFXProcessor
         ProcessBlock(n,buffer,buffer);
     }
     void Randomize() {
+		Random noise;
         for(size_t i = 0; i < connections.size(); i++)
         {
             if(i == input_port || i == output_port) continue;
@@ -84,14 +97,17 @@ struct LV2Plugin ///: public MonoFXProcessor
 };
 
 
-struct LV2Plugins
+class LV2Plugins
 {
+protected:
     map<std::string,std::string> plugin_map;
     std::vector<std::string> plugin_names;
     Lilv::World world;            
     Lilv::Plugins plugins;    
     URITable uri_table;
   
+public:
+
     LV2Plugins() : plugins(NULL)
     {        
         world.load_all();

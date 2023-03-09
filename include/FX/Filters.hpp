@@ -5,7 +5,7 @@
 #include <vector>
 #include <cmath>
 #include "Undenormal.hpp"
-#include "FX/ClipFunctions.hpp"
+#include "ClipFunctions.hpp"
 
 namespace FX::Filters
 {    
@@ -1044,7 +1044,7 @@ namespace FX::Filters
                 y1 = y;
                 x2 = x2;
                 x1 = x;
-                output[i =] y;
+                output[i] = y;
             }
         }
         

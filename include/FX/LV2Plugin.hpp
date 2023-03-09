@@ -50,9 +50,9 @@ struct LV2Plugin ///: public MonoFXProcessor
     }
     DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1)
 	{
-		input_port[0] = I;
+		connections[input_port][0] = I;
 		instance->run(1);
-		return output_port[0];
+		return connections[output_port][0];
 	}
     void ProcessBlock(size_t n, float * in, float * out)
     {        
@@ -74,6 +74,7 @@ struct LV2Plugin ///: public MonoFXProcessor
         ProcessBlock(n,buffer,buffer);
     }
     void Randomize() {
+		Random noise;
         for(size_t i = 0; i < connections.size(); i++)
         {
             if(i == input_port || i == output_port) continue;

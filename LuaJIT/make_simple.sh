@@ -1,1 +1,0 @@
-gcc -std=c++17 -Iinclude -Iinclude/samples -fmax-errors=1 -o simple simple.cpp audiosystem.c Oscillators/PolyBLEP.cpp Oscillators/LFO.cpp lib/libGamma.a lib/libstk.a -lstdc++ -lm -lportaudio -lpthread -lportmidi -lkfr_dft -lkfr_io

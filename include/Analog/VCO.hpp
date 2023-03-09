@@ -795,15 +795,7 @@ namespace Analog
         }        
     };
 
-    enum {
-        SAWTOOTH,
-        SQUARE,
-        TRIANGLE,
-        SINE,
-        // other waveforms vary to the oscillator 
-        // use the oscillator to change it
-    };
-
+    
     // PolyBLEP
     // Blip
     // minBLEP
@@ -811,9 +803,18 @@ namespace Analog
     struct VCO
     {
         VCOPolyBLEP polyblep;
+		enum {
+				SAWTOOTH,
+				SQUARE,
+				TRIANGLE,
+				SINE,
+				// other waveforms vary to the oscillator 
+				// use the oscillator to change it
+			};
 
-        VCO(DspFloatType sr) {
+        VCO(DspFloatType sr,int waveform) {
             polyblep.init(sr);
+            setWaveForm(waveform);
         }
         void setWaveForm(int type) {            
             switch(type) {

@@ -85,16 +85,12 @@ namespace Oscillators::Generators
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
             #pragma omp simd aligned(in,out)
-            for)size_t i = 0; i < n; i++)
+            for(size_t i = 0; i < n; i++)
             {
                 DspFloatType A = in? in[i] : 1.0;
-                DspFloatType r = A*function();
-                DspFloatType p = phase;
-                phase = phasor(Index*(frequency + X*frequency)) + (Y*phase);
-                phase = std::fmod(phase,1);        
+                DspFloatType r = A*function();                               
                 if(polarity == POSITIVE) r = std::abs(r);
-                else if(polarity == NEGATIVE) r = -std::abs(r);
-                phase = p;
+                else if(polarity == NEGATIVE) r = -std::abs(r);                
                 phaseIncrement();      
                 r = (max-min)*r + min;
                 out[i] = r;
@@ -170,16 +166,12 @@ namespace Oscillators::Generators
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
             #pragma omp simd aligned(in,out)
-            for)size_t i = 0; i < n; i++)
+            for(size_t i = 0; i < n; i++)
             {
                 DspFloatType A = in? in[i] : 1.0;
-                DspFloatType r = A*phase;
-                DspFloatType p = phase;
-                phase = phasor(I*(frequency*X)) + (Y*phase);
-                phase = std::fmod(phase,1);        
+                DspFloatType r = A*phase;                
                 if(polarity == POSITIVE) r = std::abs(r);
-                else if(polarity == NEGATIVE) r = -std::abs(r);
-                phase = p;
+                else if(polarity == NEGATIVE) r = -std::abs(r);                
                 phaseIncrement();      
                 out[i] = r;
             }
@@ -264,7 +256,7 @@ namespace Oscillators::Generators
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
             #pragma omp simd aligned(in,out)
-            for)size_t i = 0; i < n; i++)
+            for(size_t i = 0; i < n; i++)
             {
                 DspFloatType A = in? in[i] : 1.0;
                 DspFloatType r = func(phase);
@@ -487,14 +479,14 @@ namespace Oscillators::Functions
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
             #pragma omp simd aligned(in,out)
-            for)size_t i = 0; i < n; i++)
+            for(size_t i = 0; i < n; i++)
             {
                 DspFloatType A = in? in[i] : 1.0;
                 DspFloatType r = function();            
                 phaseIncrement();      
                 r = (max-min)*r + min;
-                if(polarity == POSITIVE) return std::abs(r);
-                else if(polarity == NEGATIVE) return -std::abs(r);
+                if(polarity == POSITIVE) r= std::abs(r);
+                else if(polarity == NEGATIVE) r -std::abs(r);
                 else r = 2*r-1;
                 out[i] = A*r;
             }

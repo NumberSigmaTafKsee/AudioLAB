@@ -957,7 +957,7 @@ public:
     DspFloatType get(DspFloatType offset = 0u)
     {
         DspFloatType integerPart;
-        DspFloatType fracPart = modf(offset, &integerPart);
+        DspFloatType fracPart = std::modf(offset, &integerPart);
 
         return (1.f - fracPart) * buffer[(tail + (uint8_t)offset) % current_length] +
             (fracPart)*buffer[(tail + (uint8_t)offset + 1u) % current_length];

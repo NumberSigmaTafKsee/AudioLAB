@@ -24,7 +24,7 @@ typedef float DspFloatType;
 #include "Undenormal.hpp"
 #include "StdNoise.hpp"
 #include "MusicFunctions.hpp"
-#include "FX/ClipFunctions.hpp"
+#include "ClipFunctions.hpp"
 
 
 /*

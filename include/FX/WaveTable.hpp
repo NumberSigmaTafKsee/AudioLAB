@@ -9,18 +9,18 @@
 
 //TODO: use vectors instead of an array
 typedef struct {
-    double topFreq;
+    DspFloatType topFreq;
     int waveTableLen;
-    double *waveTable;
+    DspFloatType *waveTable;
 } waveTable;
 
 const int numWaveTableSlots = 32;
 
 class WaveTableOsc {
 protected:
-    double phasor;      // phase accumulator
-    double phaseInc;    // phase increment
-    double phaseOfs;    // phase offset for PWM
+    DspFloatType phasor;      // phase accumulator
+    DspFloatType phaseInc;    // phase increment
+    DspFloatType phaseOfs;    // phase offset for PWM
     
 
     // list of wavetables
@@ -31,33 +31,33 @@ public:
     WaveTableOsc(void);
     ~WaveTableOsc(void);
 
-    void  setFrequency(double inc);
-    void  setPhaseOffset(double offset);
+    void  setFrequency(DspFloatType inc);
+    void  setPhaseOffset(DspFloatType offset);
     void  updatePhase(void);
-    double getOutput(void);
-    double getOutputMinusOffset(void);
-    int   addWaveTable(int len, std::vector<double> waveTableIn, double topFreq);
+    DspFloatType getOutput(void);
+    DspFloatType getOutputMinusOffset(void);
+    int   addWaveTable(int len, std::vector<DspFloatType> waveTableIn, DspFloatType topFreq);
 
-    void SetPhase(double f) { phasor = f; }
+    void SetPhase(DspFloatType f) { phasor = f; }
 
-    double Tick()
+    DspFloatType Tick()
     {
-        double out = getOutput();
+        DspFloatType out = getOutput();
         updatePhase();
         return out;
     }
-    double Tick(double fm)
+    DspFloatType Tick(DspFloatType fm)
     {
-        double temp = phasor;
+        DspFloatType temp = phasor;
         phasor += fm;
         while(phasor < 0) phasor += 1.0f;
         while(phasor > 1) phasor -= 1.0f;
-        double out = getOutput();
+        DspFloatType out = getOutput();
         updatePhase();
         phasor = temp;
         return out;
     }
-    void ProcessBlock(size_t n, double * output) {
+    void ProcessBlock(size_t n, DspFloatType * output) {
 		#pragma omp simd aligned(output)
         for(size_t i = 0; i < n; i++) output[i] = Tick();
     }    
@@ -65,12 +65,12 @@ public:
 
 
 // note: if you don't keep this in the range of 0-1, you'll need to make changes elsewhere
-inline void WaveTableOsc::setFrequency(double inc) {
+inline void WaveTableOsc::setFrequency(DspFloatType inc) {
     phaseInc = inc;
 }
 
 // note: if you don't keep this in the range of 0-1, you'll need to make changes elsewhere
-inline void WaveTableOsc::setPhaseOffset(double offset) {
+inline void WaveTableOsc::setPhaseOffset(DspFloatType offset) {
     phaseOfs = offset;
 }
 
@@ -83,71 +83,71 @@ inline void WaveTableOsc::updatePhase() {
 
 
 // added by macho charlie
-inline void MakeSineTable(std::vector<double> & in, size_t n, double fn, double sr) {
+inline void MakeSineTable(std::vector<DspFloatType> & in, size_t n, DspFloatType fn, DspFloatType sr) {
     in.resize(n);        
-    double inc   = 1.0f/n;
+    DspFloatType inc   = 1.0f/n;
     for(size_t i = 0; i < n; i++)
     {
-        in[i] = std::sin(2.0*M_PI*(fn/sr+(double)i*inc));
+        in[i] = std::sin(2.0*M_PI*(fn/sr+(DspFloatType)i*inc));
         
     }        
 }
 
 
-inline void MakeSawTable(std::vector<double> & in, size_t n, double fn, double sr) {
+inline void MakeSawTable(std::vector<DspFloatType> & in, size_t n, DspFloatType fn, DspFloatType sr) {
     in.resize(n);
     size_t max_harmonics = (sr/2)/fn;
     if(max_harmonics <= 1 ) {            
         MakeSineTable(in,n,fn,sr);
         return;
     }
-    double inc   = 1.0f/(double)n;        
+    DspFloatType inc   = 1.0f/(DspFloatType)n;        
     for(size_t i = 0; i < n; i++)
     {                   
-        double t= i*inc;
+        DspFloatType t= i*inc;
         in[i] = 0.0;
         for(size_t k = 1; k < max_harmonics; k++) {                       
-            double x = std::pow(-1,k)*std::sin(2*M_PI*k*t)/k;
+            DspFloatType x = std::pow(-1,k)*std::sin(2*M_PI*k*t)/k;
             in[i] += x;
         }                       
     }
     //adjust_table(in);
 }
 
-inline void MakeReverseSawTable(std::vector<double> & in, size_t n, double fn, double sr) {
+inline void MakeReverseSawTable(std::vector<DspFloatType> & in, size_t n, DspFloatType fn, DspFloatType sr) {
     in.resize(n);
     size_t max_harmonics = (sr/2)/fn;        
     if(max_harmonics <= 1 ) {            
         MakeSineTable(in,n,fn,sr);
         return;
     }
-    double inc   = 1.0f/(double)n;        
+    DspFloatType inc   = 1.0f/(DspFloatType)n;        
     for(size_t i = 0; i < n; i++)
     {                   
-        double t= i*inc;
+        DspFloatType t= i*inc;
         in[i] = 0.0;
         for(size_t k = 1; k < max_harmonics; k++) {                       
-            double x = std::pow(-1,k)*std::sin(2*M_PI*k*t)/k;
+            DspFloatType x = std::pow(-1,k)*std::sin(2*M_PI*k*t)/k;
             in[i] += x;
         }                                   
     }        
     std::reverse(in.begin(),in.end());
 }
 
-inline void MakeSquareTable(std::vector<double> & in, size_t n, double fn, double sr) {
+inline void MakeSquareTable(std::vector<DspFloatType> & in, size_t n, DspFloatType fn, DspFloatType sr) {
     in.resize(n);                
     size_t max_harmonics = (sr/2)/fn;                        
     if(max_harmonics <= 1 ) {            
         MakeSineTable(in,n,fn,sr);
         return;
     }
-    double inc   = 1.0f/(double)n;        
+    DspFloatType inc   = 1.0f/(DspFloatType)n;        
     for(size_t i = 0; i < n; i++)
     {                   
-        double t= i*inc;
+        DspFloatType t= i*inc;
         in[i] = 0.0;
         for(size_t k = 1; k < max_harmonics; k += 2) {                                                       
-            double x = std::sin(2*M_PI*k*t)/k;
+            DspFloatType x = std::sin(2*M_PI*k*t)/k;
             in[i] += x;
         }                                           
         in[i] = 4/M_PI*in[i];
@@ -156,41 +156,41 @@ inline void MakeSquareTable(std::vector<double> & in, size_t n, double fn, doubl
     //adjust_table(in);        
 }
 
-inline void MakePulseTable(std::vector<double> & in, size_t n, double fn, double sr, double d) {
+inline void MakePulseTable(std::vector<DspFloatType> & in, size_t n, DspFloatType fn, DspFloatType sr, DspFloatType d) {
     in.resize(n);
     size_t max_harmonics = (sr/2)/fn;
     if(max_harmonics <= 1 ) {            
         MakeSineTable(in,n,fn,sr);
         return;
     }
-    double inc   = 1.0f/(double)n;        
+    DspFloatType inc   = 1.0f/(DspFloatType)n;        
     for(size_t i = 0; i < n; i++)
     {                   
-        double t= i*inc;
+        DspFloatType t= i*inc;
         in[i] = 0.0;
         for(size_t k = 1; k < max_harmonics; k++) {                       
-            double x = (std::sin(M_PI*k*d)/(M_PI*k*d))*std::cos(2*M_PI*k*t);
+            DspFloatType x = (std::sin(M_PI*k*d)/(M_PI*k*d))*std::cos(2*M_PI*k*t);
             in[i] += x;
         }            
         in[i] = d*(1 + 2*in[i]);
     }
     //adjust_table(in);
 }
-inline void MakeTriangleTable(std::vector<double> & in, size_t n, double fn, double sr) {
+inline void MakeTriangleTable(std::vector<DspFloatType> & in, size_t n, DspFloatType fn, DspFloatType sr) {
     in.resize(n);        
     size_t max_harmonics = (sr/2)/fn;                        
     if(max_harmonics <= 1 ) {            
         MakeSineTable(in,n,fn,sr);
         return;
     }
-    double inc   = 1.0f/(double)n;        
+    DspFloatType inc   = 1.0f/(DspFloatType)n;        
     for(size_t i = 0; i < n; i++)
     {                   
-        double t= i*inc;
+        DspFloatType t= i*inc;
         in[i] = 0.0;
         for(size_t k = 0; k < max_harmonics; k++) {                                                                                       
-            double n = 2*k+1;
-            double x = std::sin(2*M_PI*n*t)*std::pow(-1,k)/(n*n);
+            DspFloatType n = 2*k+1;
+            DspFloatType x = std::sin(2*M_PI*n*t)*std::pow(-1,k)/(n*n);
             in[i] += x;
         }                                           
         in[i] = (8.0/(M_PI*M_PI))*in[i];
@@ -217,7 +217,7 @@ inline WaveTableOsc::WaveTableOsc(void) {
 
 inline WaveTableOsc::~WaveTableOsc(void) {
     for (int idx = 0; idx < numWaveTableSlots; idx++) {
-        double *temp = waveTables[idx].waveTable;
+        DspFloatType *temp = waveTables[idx].waveTable;
         if (temp != 0)
             delete [] temp;
     }
@@ -233,9 +233,9 @@ inline WaveTableOsc::~WaveTableOsc(void) {
 //
 // returns 0 upon success, or the number of wavetables if no more room is available
 //
-inline int WaveTableOsc::addWaveTable(int len, std::vector<double> waveTableIn, double topFreq) {
+inline int WaveTableOsc::addWaveTable(int len, std::vector<DspFloatType> waveTableIn, DspFloatType topFreq) {
     if (numWaveTables < numWaveTableSlots) {
-        double *waveTable = waveTables[numWaveTables].waveTable = new double[len];
+        DspFloatType *waveTable = waveTables[numWaveTables].waveTable = new DspFloatType[len];
         waveTables[numWaveTables].waveTableLen = len;
         waveTables[numWaveTables].topFreq = topFreq;
         ++numWaveTables;
@@ -255,7 +255,7 @@ inline int WaveTableOsc::addWaveTable(int len, std::vector<double> waveTableIn, 
 //
 // returns the current oscillator output
 //
-inline double WaveTableOsc::getOutput() {
+inline DspFloatType WaveTableOsc::getOutput() {
     // grab the appropriate wavetable
     int waveTableIdx = 0;
 	//TODO: why is phaseInc compared to the topFreq?
@@ -269,13 +269,13 @@ inline double WaveTableOsc::getOutput() {
     return waveTable->waveTable[int(phasor * waveTable->waveTableLen)];
 #else
     // linear interpolation
-    double temp = phasor * waveTable->waveTableLen;
+    DspFloatType temp = phasor * waveTable->waveTableLen;
     int intPart = temp;
-    double fracPart = temp - intPart;
-    double samp0 = waveTable->waveTable[intPart];
+    DspFloatType fracPart = temp - intPart;
+    DspFloatType samp0 = waveTable->waveTable[intPart];
     if (++intPart >= waveTable->waveTableLen)
         intPart = 0;
-    double samp1 = waveTable->waveTable[intPart];
+    DspFloatType samp1 = waveTable->waveTable[intPart];
     
     return samp0 + (samp1 - samp0) * fracPart;
 #endif
@@ -290,7 +290,7 @@ inline double WaveTableOsc::getOutput() {
 //
 // returns the current oscillator output
 //
-inline double WaveTableOsc::getOutputMinusOffset() {
+inline DspFloatType WaveTableOsc::getOutputMinusOffset() {
     // grab the appropriate wavetable
     int waveTableIdx = 0;
     while ((this->phaseInc >= this->waveTables[waveTableIdx].topFreq) && (waveTableIdx < (this->numWaveTables - 1))) {
@@ -300,23 +300,23 @@ inline double WaveTableOsc::getOutputMinusOffset() {
     
 #if !doLinearInterp
     // truncate
-    double offsetPhasor = this->phasor + this->phaseOfs;
+    DspFloatType offsetPhasor = this->phasor + this->phaseOfs;
     if (offsetPhasor >= 1.0)
         offsetPhasor -= 1.0;
     return waveTable->waveTable[int(this->phasor * waveTable->waveTableLen)] - waveTable->waveTable[int(offsetPhasor * waveTable->waveTableLen)];
 #else
     // linear
-    double temp = this->phasor * waveTable->waveTableLen;
+    DspFloatType temp = this->phasor * waveTable->waveTableLen;
     int intPart = temp;
-    double fracPart = temp - intPart;
-    double samp0 = waveTable->waveTable[intPart];
+    DspFloatType fracPart = temp - intPart;
+    DspFloatType samp0 = waveTable->waveTable[intPart];
     if (++intPart >= waveTable->waveTableLen)
         intPart = 0;
-    double samp1 = waveTable->waveTable[intPart];
-    double samp = samp0 + (samp1 - samp0) * fracPart;
+    DspFloatType samp1 = waveTable->waveTable[intPart];
+    DspFloatType samp = samp0 + (samp1 - samp0) * fracPart;
     
     // and linear again for the offset part
-    double offsetPhasor = this->phasor + this->phaseOfs;
+    DspFloatType offsetPhasor = this->phasor + this->phaseOfs;
     if (offsetPhasor > 1.0)
         offsetPhasor -= 1.0;
     temp = offsetPhasor * waveTable->waveTableLen;

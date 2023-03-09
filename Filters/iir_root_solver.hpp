@@ -6,7 +6,7 @@
 
 namespace iir_filters
 {
-	struct IIRRootsFilter
+	struct RootSolver
 	{
 		// will solve any polynomial transfer function into a filter
 		// H(s) = Y(s) / X(s)
@@ -15,7 +15,7 @@ namespace iir_filters
 		
 		std::vector<DspFloatType> z,p,xd,yd;
 		
-		IIRRootsFilter(size_t n) {
+		RootSolver(size_t n) {
 			z.resize(n);
 			p.resize(n);
 			xd.resize(n);

@@ -1,0 +1,108 @@
+/*! ****************************************************************************
+
+\page getting_started_toolchain Install DSPLIB toolchain on Windows
+
+\section dec_getting_started_toolchain Install DSPLIB toolchain on Windows
+
+
+\subsection download_toolchain_windows DSPLIB toolchain installer
+Building libdspl-2.0 on a Windows system requires installation 
+of a compiler, Unix utilities, and Gnuplot package. 
+It is also advisable to install the console file manager Far 
+and IDE for developing and debugging programs. \n
+
+DSPLIB toolchain is complete set of utilities necessary 
+for working with libdspl-2.0 on a Windows system. 
+\n
+\n
+<a href = "http://ru.dsplib.org/dsplib_toolchain_20_04_win_x64.exe">
+<b>Download dsplib_toolchain_20_04_win_x64.exe</b>
+</a>(~219 MB).
+\n
+\n
+<b>DSPLIB toolchain 20.04 contains:</b> \n
+<a href = "https://sourceforge.net/projects/mingw-w64/files/mingw-w64/">
+MinGW-W64-builds-4.3.5 (GCC compiler v. 8.1.0)
+</a>
+\n
+<a href = "http://www.codeblocks.org">
+IDE CodeBlocks 20.03-r11983
+</a>
+\n
+<a href = "http://www.gnuplot.info/">
+gnuplot 5.2 patchlevel 8 
+</a>
+\n
+<a href = "https://www.farmanager.com/">
+Far manager v.3.0.5577 x86
+</a>
+\n
+<a href = "https://sourceforge.net/projects/unxutils/files/">
+Native Win32 ports of some GNU utilities
+</a>
+\n
+\n
+
+
+
+
+
+\subsection install_gcc Install DSPLIB toolchain on Windows
+Run the installer and select the path directory.
+\n
+\n
+\image html toolchain_1.png
+\n
+\n
+Default path is `C:\dsplib`.
+
+\note
+It is highly recommended that all components be installed in a directory.
+`C:\dsplib` because IDE CodeBlocks and other programs are configured to
+work from this directory.
+
+Press `[Install]` button and the process will copy packages to
+specified directory.
+\n
+\n
+\image html toolchain_2.png
+\n
+\n
+Upon completion of file copying, the specified paths will be written 
+in the `PATH` variable, and the FarManager and IDE CodeBlocks icons will 
+be created on the desktop. \n
+To complete the installation, click `[Close]`.
+\n
+\n
+\image html toolchain_3.png
+\n
+\n
+In the `C:\dsplib` directory we can see follow packages:
+\n
+\n
+\image html toolchain_4.png
+\n
+\n
+`codeblocks`    --- IDE CodeBlocks \n
+
+`farmanager`    --- Console file manager. \n
+
+`gnuplot`       --- Portable command-line driven graphing utility. \n
+
+`mingw64`       --- GCC comliler for C, C++ and FORTRAN 
+                    (needs for BLAS and LAPACK). \n 
+                
+`UnxUtils`      --- Windows interface for Unix utilities. \n 
+
+`Uninstall.exe` --- Uninstaller that can remove everything
+                    components and `PATH` variables.
+
+
+After the full set of utilities and programs is installed, you can compile and
+run libdspl-2.0. \n
+
+\ref getting_started_make \n
+\ref getting_started_codeblocks \n
+***************************************************************************** */
+
+

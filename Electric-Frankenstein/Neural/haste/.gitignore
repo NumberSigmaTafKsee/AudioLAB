@@ -1,8 +1,0 @@
-*.a
-*.o
-*.so
-*.whl
-benchmark_lstm
-benchmark_gru
-haste_lstm
-haste_gru

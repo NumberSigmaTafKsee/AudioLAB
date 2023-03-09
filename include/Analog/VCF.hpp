@@ -5,7 +5,7 @@
 
 #include "FX/LiquidNeuron.hpp"
 #include "FX/Amplifiers.hpp"
-#include "FX/ClipFunctions.hpp"
+#include "ClipFunctions.hpp"
 
 #include "Analog/VAAnalogSVF.hpp"
 

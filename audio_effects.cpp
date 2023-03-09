@@ -9,20 +9,11 @@
 #include "SoundObject.hpp"
 #include "SndFile.hpp"
 #include "AudioMidi/audiosystem.h"
-#include "samples/sample.hpp"
-#include "samples/sample_dsp.hpp"
 #include "Threads.hpp"
 #include "MusicFunctions.hpp"
+#include "ClipFunctions.hpp"
+#include "interpolate.hpp"
 
-///////////////////////////////////////
-// Samples/DSP
-///////////////////////////////////////
-
-
-//#include "DSP/KfrDSP1.hpp"
-#include "DSP/DSPResamplers.hpp"
-
-#include "FX/Modulation.hpp"
 #include "FX/ADSR.hpp"
 #include "FX/GammaEnvelope.hpp"
 #include "FX/FunctionGenerator.hpp"
@@ -41,7 +32,6 @@
 #include "FX/Delays.hpp"
 #include "FX/Amplifiers.hpp"
 #include "FX/Amplifier.hpp"
-#include "FX/ClipFunctions.hpp"
 #include "FX/DistortionFunctions.hpp"
 #include "FX/Waveshapers.hpp"
 #include "FX/Waveshaping.hpp"
@@ -366,102 +356,6 @@ Filters::IIR::ChebyshevFilters::ChebyshevIILowPassFilter12db c2lp;
 // Bessel
 ///////////////////////////////////////////////////////////////
 
-
-///////////////////////////////////////////////////////////////
-// KFR 
-///////////////////////////////////////////////////////////////
-// IIR
-// FIR
-// Biquad
-// Convolution Filter
-// Digital Convolution Filter
-///////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////
-// OctaveFilters
-// butter
-// cheby1
-// cheby2
-// bessel
-// elliptical
-///////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////
-// Poles
-// Analog IIR
-// Filter Designer Handbook
-// C++ DSP
-// Analog Filters
-// VA Filter Design
-// IIR Filter Design
-// DSPFilters
-// Spuce
-// CppFilters
-///////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////
-// FIR
-// FIR.hpp
-// frequency sampling = https://github.com/devtibo/FilterDesign
-// firpm = parks-mclellans
-// Fir1  = https://github.com/berndporr/fir1
-// kiss_fastfir
-// Stk::Fir
-// AudioTK::FIRFilter
-// fast filters = https://github.com/jpcima/fast-filters
-// https://github.com/jontio/FastFIR
-///////////////////////////////////////////////////////////////
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Spectrum
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Gamma = DFT,STFT,SDFT,CFFT,RFFT
-// audiofft+fftconvolver
-// pffft+pffastconv
-// vcvfft = pffft
-// rackdsp = convolution + dsp
-// fftwpp = fftw3 + convolution
-// Matx   = GPU
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// https://github.com/Flixor/IRBaboon
-// https://github.com/grahman/RTConvolve
-// https://github.com/GuillaumeLeNost/ConvolutionFilter
-// https://github.com/deddy11/test_overlap_add
-// https://github.com/fbdp1202/DSP_Overlap-Save_Overlap_Add
-// https://github.com/ybdarrenwang/PhaseVocoder
-// https://github.com/ljtrevor/PhaseVocoder
-// https://github.com/stekyne/PhaseVocoder
-// https://github.com/sevagh/pitch-detection
-// https://github.com/xstreck1/LibPyin
-// https://github.com/fftune/fftune
-// https://github.com/karlmess/pitch-detection
-// #include "OverlapAddBuffer.hpp"
-// #include "SimpleOverlapAddProcessor.hpp"
-// #include "ConvolutionProcessors.hpp"
-// #include "ConvolutionFilter.hpp"
-// #include "CxxConvolver.hpp"
-// #include "OverlappingFFTProcessor.hpp"
-// #include "STFTProcessors.hpp"
-// #include "FIRConvolutionFilters.hpp"
-// ConvolutionMatrix.hpp
-// FFTConvolver.hpp
-// ImpulseResponse.hpp = SpectrumConvolutionFilters.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#include "Spectrum/Spectrum.hpp"
-#include "Spectrum/FFTProcessors.hpp"
-
-
-////////////////////////////////////////////////////////
-// Convolution
-////////////////////////////////////////////////////////
-#include "Spectrum/SpectrumConvolutionFilters.hpp"
-
-////////////////////////////////////////////////////////
-// Correlation
-////////////////////////////////////////////////////////
-
-Spectrum::FFT::FFTShifter fftL,fftR;
 
 
 struct Resampler2x

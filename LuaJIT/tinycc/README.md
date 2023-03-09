@@ -1,2 +1,0 @@
-# LuaJIT-TinyCC
-Embed TinyCC

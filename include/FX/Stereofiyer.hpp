@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Oscillators/WaveGenerators.hpp"
+#include "FX/WaveGenerators.hpp"
 
 namespace FX
 {
@@ -12,7 +12,7 @@ namespace FX
         DspFloatType rotAmt = 0.5;
         DspFloatType lfoFreq = 0.01;
 
-        Stereofyier() : lfo(lfoFreq,sampleRate)
+        Stereofyier(DspFloatType sampleRate=44100) : lfo(lfoFreq,sampleRate)
         {
             
         }

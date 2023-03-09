@@ -109,7 +109,9 @@ namespace Lua
         {
             lua_pushstring(L, str.c_str());
         }
-
+		void PushLightUserData(void * ptr) {
+			lua_pushlightuserdata(L,ptr);
+		}
         void SetTableValue(double index, double value)
         {
             PushNumber(index);

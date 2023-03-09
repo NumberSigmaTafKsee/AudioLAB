@@ -1,0 +1,75 @@
+/*! ****************************************************************************
+\page getting_started_make Build libdspl-2.0 by make program
+
+\section sec_getting_started_make Build libdspl-2.0 by make program
+
+You must first install all the necessary utilities.
+If this step is not done, see section: \n 
+\ref getting_started_toolchain
+\n
+
+
+\subsection sec_make_download Download libdspl-2.0 source code
+
+Download libdspl-2.0 source code from
+<a href="https://github.com/Dsplib/libdspl-2.0">
+Github.com:
+</a>
+\n
+\n
+\image html dspl_github.png
+\n
+\n
+You can clone project by Git or just download zip-archive.
+
+Unzip or clone project to the folder.
+
+You can unzip to any directory, here `libdspl-2.0` will be
+indicate the directory in which the source codes are unzipped.
+
+As an example, the source codes were unzipped to
+directory `J:\libdspl-2.0`.
+
+
+
+
+
+\subsection sec_make_compile Build libdspl-2.0 and run test program
+Open the `libdspl-2.0` directory:
+\n
+\n
+\image html libdspl_dir.png
+\n
+\n
+Select address line and type `cmd`: 
+\n
+\n
+\image html libdspl_cmd.png
+\n
+\n
+The Windows console opens and we can write command `ming32-make`:\n
+\n
+\n
+\image html winconsole_1.png
+\n
+\n
+Press`[Enter]` and library compilation will begin. 
+\note 
+First build time depends on computer performance and may
+take a few minutes. Subsequent builds will be significantly
+faster because the BLA and LAPACK libraries are compiled during the
+ first build and are later linked from ready-made object files. \n
+
+
+After building the project, you can go to the `bin` directory in which keeps
+program examples. Also in this directory you can find a ready-made library
+`libdspl.dll`:
+\n
+\n
+\image html libdspl_bin.png
+\n
+\n
+`libdspl.dll` building completes  \n
+
+See also: \ref getting_started_codeblocks \n
+***************************************************************************** */

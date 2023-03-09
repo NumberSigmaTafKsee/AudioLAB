@@ -512,7 +512,7 @@ namespace FX
 
         
 
-        ChorusDelay()
+        ChorusDelay(DspFloatType sampleRate = 44100.0)
         {
             fs = sampleRate;
             curDelayL = prevDelayL = curDelayR = prevDelayR =
@@ -543,8 +543,7 @@ namespace FX
         }
         void calcAlgorithmParams()
         {
-            fs = sampleRate; // samples per second
-            
+                       
             DspFloatType leftDelayMsec  = delayTime;
             DspFloatType rightDelayMsec = delayTime;
             

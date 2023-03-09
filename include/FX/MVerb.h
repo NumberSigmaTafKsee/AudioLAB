@@ -173,7 +173,7 @@ public:
 
     void ProcessInplace(size_t n, DspFloatType ** buf)
     {
-        process(n,buf,buf);
+        ProcessBlock(n,buf,buf);
     }
 
     void reset(){
@@ -237,6 +237,7 @@ public:
     }
 
     void randomize() {
+		Random noise;
         setParameter(DAMPINGFREQ,noise.rand());
         setParameter(DENSITY,noise.rand());
         setParameter(BANDWIDTHFREQ,noise.rand());

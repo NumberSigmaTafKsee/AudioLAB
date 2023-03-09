@@ -1,7 +1,7 @@
 #pragma once 
 #include <cmath>
 #include "Undenormal.hpp"
-#include "FX/ClipFunctions.hpp"
+#include "ClipFunctions.hpp"
 
 namespace Analog::Filters::Moog::StilsonMoog
 {

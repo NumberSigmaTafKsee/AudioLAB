@@ -1,6 +1,6 @@
 #pragma once
 #include <cmath>
-#include "FX/ClipFunctions.hpp"
+#include "ClipFunctions.hpp"
 
 struct FunctionLFO : public GeneratorProcessor
 {
@@ -113,8 +113,7 @@ struct FunctionLFO : public GeneratorProcessor
             DspFloatType d = duty;
             DspFloatType r = 0;
 
-            //duty = clamp(duty+D,0,1);        
-            phase = std::fmod(I*(lfoFreqHz + X*lfoFreqHz*0.5)/sampleRate + phase + Y,1);        
+            
             switch (lfoWaveform)
             {
             case kWaveformRandomPhase:

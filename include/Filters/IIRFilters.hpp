@@ -9,7 +9,7 @@
 #include "DspFilters/Dsp.h"
 
 #include "Undenormal.hpp"
-#include "FX/ClipFunctions.hpp"
+#include "ClipFunctions.hpp"
 
 // Have Transfer Function = analog iir, zpk/sos
 // Don't have Transfer Function but have Impulse/Frequency Response = machine learning
@@ -1507,7 +1507,7 @@ namespace Filters
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
         {
-			out = ProcessSIMD(n,in,out);
+			biquads[0].ProcessSIMD(n,in,out);
 			for(size_t i = 1; i < biquads.size(); i++)
 				biquads[i].ProcessSIMD(n,out,out);
 		}
@@ -1543,7 +1543,7 @@ namespace Filters
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
         {			
-			out = ProcessSIMD(n,in,out);
+			biquads[0].ProcessSIMD(n,in,out);
 			for(size_t i = 1; i < biquads.size(); i++)
 				biquads[i].ProcessSIMD(n,out,out);
 		}
@@ -1579,7 +1579,7 @@ namespace Filters
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
         {
-			out = ProcessSIMD(n,in,out);
+			biquads[0].ProcessSIMD(n,in,out);
 			for(size_t i = 1; i < biquads.size(); i++)
 				biquads[i].ProcessSIMD(n,out,out);
 		}
@@ -1615,7 +1615,7 @@ namespace Filters
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
         {
-			out = ProcessSIMD(n,in,out);
+			biquads[0].ProcessSIMD(n,in,out);
 			for(size_t i = 1; i < biquads.size(); i++)
 				biquads[i].ProcessSIMD(n,out,out);
 		}

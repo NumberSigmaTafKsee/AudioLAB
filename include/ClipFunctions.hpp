@@ -7,6 +7,7 @@ DspFloatType signum(DspFloatType x)
     if(x < 0) return -1.0f;
     return 1.0f;
 }
+
 DspFloatType clamp(DspFloatType x, DspFloatType min, DspFloatType max) {
     if(x < min) return min;
     if(x > max) return max;

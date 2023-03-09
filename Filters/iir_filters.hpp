@@ -2,6 +2,12 @@
 
 namespace iir_filters
 {
+	
+    struct FilterCoefficients
+    {
+        DspFloatType a[2];
+        DspFloatType b[3];
+    };
 	// Simple Direct Form I
 	struct Biquad
 	{
@@ -30,7 +36,7 @@ namespace iir_filters
 		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
 		{
 			#pragma unroll(8)
-			#pragma omp simd aligned(in.out)
+			#pragma omp simd aligned(in,out)
 			for(size_t  i = 0; i < n; i++)
 			{
 				const DspFloatType I = in[i];
@@ -229,7 +235,7 @@ namespace iir_filters
 		}
 		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
 			biquads[0].ProcessSIMD(n,in,out);
-			for(size_t = 1; i < biquads.size(); i++) biquads[i].ProcessSIMD(n,out,out);
+			for(size_t i = 1; i < biquads.size(); i++) biquads[i].ProcessSIMD(n,out,out);
 		}		
 	};
 	
@@ -371,14 +377,14 @@ namespace iir_filters
 		{
 			if(abs(poles[i])) {
 				std::complex<DspFloatType> first = DspFloatType(0.5) * poles[i] * bw;
-				std::complex<DspFloatType> second= DspFloatType(0.5) * sqrt(bw*bw) * (poles[i]*poles[i]-DspFloatType(4.0)*wc*wc);
+				std::complex<DspFloatType> second= DspFloatType(0.5) * std::sqrt(bw*bw) * (poles[i]*poles[i]-DspFloatType(4.0)*wc*wc);
 				temp.push_back(first + second);
 			}
 		}
 		for(size_t i = 0; i < poles.size(); i++) {
 			if(abs(poles[i])) {
 				std::complex<DspFloatType> first = DspFloatType(0.5) * poles[i] * bw;
-				std::complex<DspFloatType> second= DspFloatType(0.5) * sqrt(bw*bw) * (poles[i]*poles[i]-DspFloatType(4.0)*wc*wc);
+				std::complex<DspFloatType> second= DspFloatType(0.5) * std::sqrt(bw*bw) * (poles[i]*poles[i]-DspFloatType(4.0)*wc*wc);
 				temp.push_back(first - second);
 			}
 		}

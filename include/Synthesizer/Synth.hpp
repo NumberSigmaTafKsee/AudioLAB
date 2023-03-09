@@ -1,2 +1,0 @@
-// SynthComponents
-#pragma once

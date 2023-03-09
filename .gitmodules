@@ -15560,3 +15560,354 @@
 [submodule "Evolver/quile"]
 	path = Evolver/quile
 	url = https://github.com/ttarkowski/quile
+[submodule "QPong/relearn"]
+	path = QPong/relearn
+	url = https://github.com/alexge233/relearn
+[submodule "QPong/q-learning"]
+	path = QPong/q-learning
+	url = https://github.com/sababot/q-learning
+[submodule "QPong/Coeus"]
+	path = QPong/Coeus
+	url = https://github.com/Iskandor/Coeus
+[submodule "Electric-Frankenstein/blackcat_tensors"]
+	path = Electric-Frankenstein/blackcat_tensors
+	url = https://github.com/josephjaspers/blackcat_tensors
+[submodule "Faust/Library/guitarix"]
+	path = Faust/Library/guitarix
+	url = https://github.com/brummer10/guitarix
+[submodule "Faust/Library/ModularAmpToolKit.lv2"]
+	path = Faust/Library/ModularAmpToolKit.lv2
+	url = https://github.com/brummer10/ModularAmpToolKit.lv2
+[submodule "Analog/RTspice"]
+	path = Analog/RTspice
+	url = https://github.com/thadeuluiz/RTspice
+[submodule "Analog/genac"]
+	path = Analog/genac
+	url = https://github.com/gokhanettin/genac
+[submodule "Analog/SPICE"]
+	path = Analog/SPICE
+	url = https://github.com/s94285/SPICE
+[submodule "Analog/cspice"]
+	path = Analog/cspice
+	url = https://github.com/andrewytliu/cspice
+[submodule "Analog/spiceAmp"]
+	path = Analog/spiceAmp
+	url = https://github.com/olegkapitonov/spiceAmp
+[submodule "Analog/symac"]
+	path = Analog/symac
+	url = https://github.com/patrickschulz/symac
+[submodule "Analog/CUDA-SPICE-Circuit-Sim"]
+	path = Analog/CUDA-SPICE-Circuit-Sim
+	url = https://github.com/risia/CUDA-SPICE-Circuit-Sim
+[submodule "Analog/spiceplus"]
+	path = Analog/spiceplus
+	url = https://github.com/Stevie-O/spiceplus
+[submodule "Analog/SpiceSim"]
+	path = Analog/SpiceSim
+	url = https://github.com/TubeSound/SpiceSim
+[submodule "Matlab/ltfat"]
+	path = Matlab/ltfat
+	url = https://github.com/ltfat/ltfat
+[submodule "Loris/CUDA-Additive-Synthesis"]
+	path = Loris/CUDA-Additive-Synthesis
+	url = https://github.com/davispolito/CUDA-Additive-Synthesis
+[submodule "Loris/fast-additive-comparison"]
+	path = Loris/fast-additive-comparison
+	url = https://github.com/goldenrockefeller/fast-additive-comparison
+[submodule "Loris/loris"]
+	path = Loris/loris
+	url = https://github.com/tractal/loris
+[submodule "Stk/stk"]
+	path = Stk/stk
+	url = https://github.com/thestk/stk
+[submodule "FM/dexed"]
+	path = FM/dexed
+	url = https://github.com/asb2m10/dexed
+[submodule "Distortion/temper"]
+	path = Distortion/temper
+	url = https://github.com/creativeintent/temper
+[submodule "FX/airwave"]
+	path = FX/airwave
+	url = https://github.com/psycha0s/airwave
+[submodule "RyukuFX/VSTPlugins"]
+	path = RyukuFX/VSTPlugins
+	url = https://github.com/ryukau/VSTPlugins
+[submodule "KHDelays/VSTPlugins"]
+	path = KHDelays/VSTPlugins
+	url = https://github.com/keithhearne/VSTPlugins
+[submodule "FX/binaural-vst"]
+	path = FX/binaural-vst
+	url = https://github.com/twoz/binaural-vst
+[submodule "FX/Audio-Effects"]
+	path = FX/Audio-Effects
+	url = https://github.com/juandagilc/Audio-Effects
+[submodule "Distortion/wolf-shaper"]
+	path = Distortion/wolf-shaper
+	url = https://github.com/wolf-plugins/wolf-shaper
+[submodule "FX/Frequalizer"]
+	path = FX/Frequalizer
+	url = https://github.com/ffAudio/Frequalizer
+[submodule "Reverb/roboverb"]
+	path = Reverb/roboverb
+	url = https://github.com/kushview/roboverb
+[submodule "Dynamics/roboverb"]
+	path = Dynamics/roboverb
+	url = https://github.com/kushview/roboverb
+[submodule "Dynamics/chunkware-simple-dynamics"]
+	path = Dynamics/chunkware-simple-dynamics
+	url = https://github.com/music-dsp-collection/chunkware-simple-dynamics
+[submodule "Dynamics/MXComp"]
+	path = Dynamics/MXComp
+	url = https://github.com/liuanlin-mx/MXComp
+[submodule "LV2/lsp-plugins"]
+	path = LV2/lsp-plugins
+	url = https://github.com/sadko4u/lsp-plugins
+[submodule "Amplifier/tamgamp.lv2"]
+	path = Amplifier/tamgamp.lv2
+	url = https://github.com/sadko4u/tamgamp.lv2
+[submodule "Amplifier/guitarix"]
+	path = Amplifier/guitarix
+	url = https://github.com/brummer10/guitarix
+[submodule "Amplifier/ModularAmpToolKit.lv2"]
+	path = Amplifier/ModularAmpToolKit.lv2
+	url = https://github.com/brummer10/ModularAmpToolKit.lv2
+[submodule "Amplifier/GxPlugins.lv2"]
+	path = Amplifier/GxPlugins.lv2
+	url = https://github.com/brummer10/GxPlugins.lv2
+[submodule "Amplifier/XPlugs.lv2"]
+	path = Amplifier/XPlugs.lv2
+	url = https://github.com/brummer10/XPlugs.lv2
+[submodule "Amplifier/SmartGuitarAmp"]
+	path = Amplifier/SmartGuitarAmp
+	url = https://github.com/GuitarML/SmartGuitarAmp
+[submodule "Amplifier/SmartGuitarPedal"]
+	path = Amplifier/SmartGuitarPedal
+	url = https://github.com/GuitarML/SmartGuitarPedal
+[submodule "Amplifier/SmartAmpPro"]
+	path = Amplifier/SmartAmpPro
+	url = https://github.com/GuitarML/SmartAmpPro
+[submodule "Amplifier/TS-M1N3"]
+	path = Amplifier/TS-M1N3
+	url = https://github.com/GuitarML/TS-M1N3
+[submodule "Amplifier/Chameleon"]
+	path = Amplifier/Chameleon
+	url = https://github.com/GuitarML/Chameleon
+[submodule "Amplifier/PedalNetRT"]
+	path = Amplifier/PedalNetRT
+	url = https://github.com/GuitarML/PedalNetRT
+[submodule "Amplifier/ToobAmp"]
+	path = Amplifier/ToobAmp
+	url = https://github.com/rerdavies/ToobAmp
+[submodule "Amplifier/Proteus"]
+	path = Amplifier/Proteus
+	url = https://github.com/GuitarML/Proteus
+[submodule "Amplifier/GuitarLSTM"]
+	path = Amplifier/GuitarLSTM
+	url = https://github.com/GuitarML/GuitarLSTM
+[submodule "Amplifier/WaveNetVA"]
+	path = Amplifier/WaveNetVA
+	url = https://github.com/GuitarML/WaveNetVA
+[submodule "Distortion/BYOD"]
+	path = Distortion/BYOD
+	url = https://github.com/Chowdhury-DSP/BYOD
+[submodule "Distortion/Fire"]
+	path = Distortion/Fire
+	url = https://github.com/jerryuhoo/Fire
+[submodule "Distortion/CHOW"]
+	path = Distortion/CHOW
+	url = https://github.com/Chowdhury-DSP/CHOW
+[submodule "Dynamics/LimiterClass"]
+	path = Dynamics/LimiterClass
+	url = https://github.com/dariosanfilippo/LimiterClass
+[submodule "Synthesizer/phantom"]
+	path = FM/phantom
+	url = https://github.com/blackboxdsp/phantom
+[submodule "FX/ykchorus"]
+	path = FX/ykchorus
+	url = https://github.com/SpotlightKid/ykchorus
+[submodule "FX/StereoChorus"]
+	path = FX/StereoChorus
+	url = https://github.com/marcwilhite/StereoChorus
+[submodule "FX/Chorus"]
+	path = FX/Chorus
+	url = https://github.com/joonastuo/Chorus
+[submodule "FX/VibraFlanger"]
+	path = FX/VibraFlanger
+	url = https://github.com/joonastuo/VibraFlanger
+[submodule "FX/Phaser"]
+	path = FX/Phaser
+	url = https://github.com/joonastuo/Phaser
+[submodule "FX/Delay"]
+	path = FX/Delay
+	url = https://github.com/joonastuo/Delay
+[submodule "FX/Erosion-Delay"]
+	path = FX/Erosion-Delay
+	url = https://github.com/stuartroland/Erosion-Delay
+[submodule "FX/ladspa"]
+	path = FX/ladspa
+	url = https://github.com/swh/ladspa
+[submodule "FX/lv2"]
+	path = FX/lv2
+	url = https://github.com/swh/lv2
+[submodule "FX/tap-plugins"]
+	path = FX/tap-plugins
+	url = https://github.com/tomscii/tap-plugins
+[submodule "FX/lsp-plugins"]
+	path = FX/lsp-plugins
+	url = https://github.com/sadko4u/lsp-plugins
+[submodule "FX/zam-plugins"]
+	path = FX/zam-plugins
+	url = https://github.com/zamaudio/zam-plugins
+[submodule "FX/x42-plugins"]
+	path = FX/x42-plugins
+	url = https://github.com/x42/x42-plugins
+[submodule "FX/XUiDesigner"]
+	path = FX/XUiDesigner
+	url = https://github.com/brummer10/XUiDesigner
+[submodule "FX/infamousPlugins"]
+	path = FX/infamousPlugins
+	url = https://github.com/ssj71/infamousPlugins
+[submodule "FX/fil4.lv2"]
+	path = FX/fil4.lv2
+	url = https://github.com/x42/fil4.lv2
+[submodule "FX/fat1.lv2"]
+	path = FX/fat1.lv2
+	url = https://github.com/x42/fat1.lv2
+[submodule "FX/rkrlv2"]
+	path = FX/rkrlv2
+	url = https://github.com/ssj71/rkrlv2
+[submodule "FX/BSEQuencer"]
+	path = FX/BSEQuencer
+	url = https://github.com/sjaehn/BSEQuencer
+[submodule "FX/ir.lv2"]
+	path = FX/ir.lv2
+	url = https://github.com/Anchakor/ir.lv2
+[submodule "FX/convoLV2"]
+	path = FX/convoLV2
+	url = https://github.com/x42/convoLV2
+[submodule "FX/darc.lv2"]
+	path = FX/darc.lv2
+	url = https://github.com/x42/darc.lv2
+[submodule "FX/airwindows-lv2"]
+	path = FX/airwindows-lv2
+	url = https://github.com/hannesbraun/airwindows-lv2
+[submodule "FX/mda-lv2"]
+	path = FX/mda-lv2
+	url = https://github.com/moddevices/mda-lv2
+[submodule "FX/mod-host"]
+	path = FX/mod-host
+	url = https://github.com/moddevices/mod-host
+[submodule "FX/aidadsp-lv2"]
+	path = FX/aidadsp-lv2
+	url = https://github.com/moddevices/aidadsp-lv2
+[submodule "FX/dm-GrainDelay"]
+	path = FX/dm-GrainDelay
+	url = https://github.com/moddevices/dm-GrainDelay
+[submodule "FX/mod-pitchshifter"]
+	path = FX/mod-pitchshifter
+	url = https://github.com/moddevices/mod-pitchshifter
+[submodule "FX/Schrammel_OJD"]
+	path = FX/Schrammel_OJD
+	url = https://github.com/moddevices/Schrammel_OJD
+[submodule "FX/mod-cv-plugins"]
+	path = FX/mod-cv-plugins
+	url = https://github.com/moddevices/mod-cv-plugins
+[submodule "FX/crypt"]
+	path = FX/crypt
+	url = https://github.com/moddevices/crypt
+[submodule "FX/mod-cabsim-IR-loader"]
+	path = FX/mod-cabsim-IR-loader
+	url = https://github.com/moddevices/mod-cabsim-IR-loader
+[submodule "FX/mod-arpeggiator-lv2"]
+	path = FX/mod-arpeggiator-lv2
+	url = https://github.com/moddevices/mod-arpeggiator-lv2
+[submodule "FX/mod-step-sequencer-lv2"]
+	path = FX/mod-step-sequencer-lv2
+	url = https://github.com/moddevices/mod-step-sequencer-lv2
+[submodule "FX/mod-ams-lv2"]
+	path = FX/mod-ams-lv2
+	url = https://github.com/moddevices/mod-ams-lv2
+[submodule "FX/mod-tal-noisemaker"]
+	path = FX/mod-tal-noisemaker
+	url = https://github.com/moddevices/mod-tal-noisemaker
+[submodule "FX/sooperlooper-lv2-plugin"]
+	path = FX/sooperlooper-lv2-plugin
+	url = https://github.com/moddevices/sooperlooper-lv2-plugin
+[submodule "FX/mod-distortion"]
+	path = FX/mod-distortion
+	url = https://github.com/moddevices/mod-distortion
+[submodule "FX/tap-lv2"]
+	path = FX/tap-lv2
+	url = https://github.com/moddevices/tap-lv2
+[submodule "FX/pedalboard"]
+	path = FX/pedalboard
+	url = https://github.com/spotify/pedalboard
+[submodule "FX/vampy"]
+	path = FX/vampy
+	url = https://github.com/c4dm/vampy
+[submodule "FX/vampy-host"]
+	path = FX/vampy-host
+	url = https://github.com/c4dm/vampy-host
+[submodule "FX/vamphost"]
+	path = FX/vamphost
+	url = https://github.com/gesellkammer/vamphost
+[submodule "FX/stegosaurus"]
+	path = FX/stegosaurus
+	url = https://github.com/thunderox/stegosaurus
+[submodule "FX/Fluida.lv2"]
+	path = FX/Fluida.lv2
+	url = https://github.com/brummer10/Fluida.lv2
+[submodule "Faust/mephisto.lv2"]
+	path = Faust/mephisto.lv2
+	url = https://github.com/OpenMusicKontrollers/mephisto.lv2
+[submodule "FX/dpl.lv2"]
+	path = FX/dpl.lv2
+	url = https://github.com/x42/dpl.lv2
+[submodule "LV2/avldrums.lv2"]
+	path = LV2/avldrums.lv2
+	url = https://github.com/x42/avldrums.lv2
+[submodule "LV2/stepseq.lv2"]
+	path = LV2/stepseq.lv2
+	url = https://github.com/x42/stepseq.lv2
+[submodule "LV2/spectra.lv2"]
+	path = LV2/spectra.lv2
+	url = https://github.com/x42/spectra.lv2
+[submodule "LV2/sisco.lv2"]
+	path = LV2/sisco.lv2
+	url = https://github.com/x42/sisco.lv2
+[submodule "LV2/fil4.lv2"]
+	path = LV2/fil4.lv2
+	url = https://github.com/x42/fil4.lv2
+[submodule "LV2/darc.lv2"]
+	path = LV2/darc.lv2
+	url = https://github.com/x42/darc.lv2
+[submodule "LV2/zconvo.lv2"]
+	path = LV2/zconvo.lv2
+	url = https://github.com/x42/zconvo.lv2
+[submodule "LV2/mclk.lv2"]
+	path = LV2/mclk.lv2
+	url = https://github.com/x42/mclk.lv2
+[submodule "FX/Kapitonov-Plugins-Pack"]
+	path = FX/Kapitonov-Plugins-Pack
+	url = https://github.com/olegkapitonov/Kapitonov-Plugins-Pack
+[submodule "LV2/skeleton.lv2"]
+	path = LV2/skeleton.lv2
+	url = https://github.com/jpcima/skeleton.lv2
+[submodule "LV2/lv2tutorial"]
+	path = LV2/lv2tutorial
+	url = https://github.com/sjaehn/lv2tutorial
+[submodule "HammerFX/effects"]
+	path = HammerFX/effects
+	url = https://github.com/hermeszhang/effects
+[submodule "Amplifier/HighGain"]
+	path = Amplifier/HighGain
+	url = https://github.com/kaktus3000/HighGain
+[submodule "FLTK/lua-fltk4lua"]
+	path = FLTK/lua-fltk4lua
+	url = https://github.com/siffiejoe/lua-fltk4lua
+[submodule "FLTK/moonfltk"]
+	path = FLTK/moonfltk
+	url = https://github.com/stetre/moonfltk
+[submodule "FLTK/flw"]
+	path = FLTK/flw
+	url = https://github.com/gnuwimp/flw

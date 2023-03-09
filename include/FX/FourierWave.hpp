@@ -78,7 +78,7 @@ struct FourierWave : public OscillatorProcessor
         }
         return G*r;
     }
-    void ProcessSIMD(size_t n(size_t n, DspFloatType * in, DspFloatType * out) {
+    void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) {
         #pragma omp simd aligned(in,out)
         for(size_t s = 0; s < n; s++)
         {
@@ -88,10 +88,10 @@ struct FourierWave : public OscillatorProcessor
 				wave.SetPhase(P[i]);                         
 				P[i] += F[i]/sr;
 				if(P[i] >= 1.0f) P[i] -= 1.0f;                
-				r += Index*wave.Tick();
+				r += wave.Tick();
 			}
-			out[i] = r;
-			if(in) out[i] *= in[i];
+			out[s] = r;
+			if(in) out[s] *= in[s];
 		}
 	}
     void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {		
