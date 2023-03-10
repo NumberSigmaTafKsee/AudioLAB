@@ -30,3 +30,10 @@
 
 # TAPSV-9000
 * Dual SVF Tap Filter
+
+# CALCULUS-9000
+* Slew Rate Limiter, Integrator, Trapezoid Integrate, 1 pole, 1 zero, 1 pole/1 zero, Differentitator, Differentiabl Amplifier, Comparator
+
+# ANALYTIC-9000
+* Zero Cross Rate, Peak Detector, Peak Follow, Envelope Follow, Hilbert Transformer, Complex Stereo, Min, Max, Mean, StdDev, RMS
+
