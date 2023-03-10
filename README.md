@@ -4,6 +4,9 @@
 # It contains all the reference c++ codes
 * All the C++ is maintanenaced in here
 
+# It is meant to be used in script languages
+* Thus, it is an insanely impossible thing to maintain and keep sane about it
+
 # I do not make anything in here
 * Everything is linked to the headers and such in one place
 * If there is bug in the C++ it is fixed here
