@@ -54,3 +54,12 @@
 
 # HEQ-9000
 * Higher Order Equalizer
+
+# IIR-9900
+* General Purpose IIR Filters
+
+# DSPF-9000
+* DSP Filters Filters
+
+# SPUC-9000
+* Spuce Filters Filters
