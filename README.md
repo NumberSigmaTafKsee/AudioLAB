@@ -11,3 +11,7 @@
 * Want to make your own host you will punch it in the face
 * Want to send midi to a LV2 plugin you will punch it in the face
 
+# It should not be very hard to load a plugin and use it
+* It is what make Ladspa good for experimenter
+* The LV2 does not explain anything of how you use it
+* Only some useless things about the API that are useless unless you can find example of how it works
