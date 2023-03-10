@@ -10,6 +10,18 @@
 * Plugin
 * Not strange mac-like of 1982
 
+# Lv2 super collider theories
+* It is possible
+
+# Lv2 Csound theories
+* Already done
+
+# Lv2 VCV Rack Theories
+* Cardinal
+
+# LV2 Chuck theories
+* poassible
+
 # Lv2 Graph Theory
 * Carla
 * ModHost
