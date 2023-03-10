@@ -58,6 +58,10 @@
 # OSCSV-9000
 * State Variable Oscillators
 
+# FIAXYSV-9000
+* Quadratic FIAXY complex unit circle State Variable Modulation Theory
+
+
 # CALCULUS-9000
 * Slew Rate Limiter, Integrator, Trapezoid Integrate, 1 pole, 1 zero, 1 pole/1 zero, Differentitator, Differentiabl Amplifier, Comparator
 
