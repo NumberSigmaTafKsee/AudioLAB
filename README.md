@@ -21,3 +21,6 @@
 
 # ACSV-9000
 * Differentiable State Variable Filter Comparator
+
+# VOCSV-9000
+* State Variable Channel Vocoder
