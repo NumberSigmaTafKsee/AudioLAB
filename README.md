@@ -18,3 +18,17 @@
 * the meaning of the thing is meaningless without the context of what it works where
 * Well, it is not really a very difficult thing at all
 * But the documents are shit
+
+# You do not really have to
+* Modhost
+* Jalv
+
+# But you need to do experiment
+* That thing is being a pain in the ass
+* I need to do this and it won't
+
+# You have alsa keyboard
+* There is no bridge in Jack to make it work with Jalv
+
+# Modhost is good though
+* Just, I only want to do some specific thing
