@@ -81,3 +81,5 @@
 * SSt-Waveshapers
 * LibXtract
 * Loudia
+* World
+* SPTK
