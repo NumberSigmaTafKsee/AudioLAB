@@ -6,6 +6,12 @@
 * Filter
 * Oscillator
 
+# Lv2 Graph Theory
+* Carla
+* ModHost
+* Jalv
+* Ingen
+
 # Sound Processor Theories
 * Amplifier 
 * Analog
