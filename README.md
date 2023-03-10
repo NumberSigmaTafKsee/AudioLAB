@@ -49,3 +49,8 @@
 # ANALYTIC-9000
 * Zero Cross Rate, Peak Detector, Peak Follow, Envelope Follow, Hilbert Transformer, Complex Stereo, Min, Max, Mean, StdDev, RMS
 
+# MBF-9000
+* Massberg Multiband Filter
+
+# HEQ-9000
+* Higher Order Equalizer
