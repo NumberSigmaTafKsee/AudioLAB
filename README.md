@@ -43,6 +43,13 @@
 # FQSV-9000
 * Frequency Sampled State Variable FIR Filter
 
+# RQUATSV-9000
+* Recursive Foldback State Variable Distortion Filter
+
+# CSVFIAXY-9000
+* Complex Stereo Image State Variable Filter
+
+
 # CALCULUS-9000
 * Slew Rate Limiter, Integrator, Trapezoid Integrate, 1 pole, 1 zero, 1 pole/1 zero, Differentitator, Differentiabl Amplifier, Comparator
 
