@@ -27,3 +27,6 @@
 
 # SMSV-9000
 * State Variable Smoother
+
+# TAPSV-9000
+* Dual SVF Tap Filter
