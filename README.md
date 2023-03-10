@@ -31,6 +31,12 @@
 # TAPSV-9000
 * Dual SVF Tap Filter
 
+# ASVF-9000
+* Adaptive Search State Variable Filter
+
+# NSVF-9000
+* Neuron controlled State Variable Filter nerve
+
 # CALCULUS-9000
 * Slew Rate Limiter, Integrator, Trapezoid Integrate, 1 pole, 1 zero, 1 pole/1 zero, Differentitator, Differentiabl Amplifier, Comparator
 
