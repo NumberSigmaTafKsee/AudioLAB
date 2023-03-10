@@ -15,3 +15,6 @@
 * It is what make Ladspa good for experimenter
 * The LV2 does not explain anything of how you use it
 * Only some useless things about the API that are useless unless you can find example of how it works
+* the meaning of the thing is meaningless without the context of what it works where
+* Well, it is not really a very difficult thing at all
+* But the documents are shit
