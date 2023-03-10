@@ -10,6 +10,15 @@
 * The computer synthesize it and put in github
 * It is unknown what peopel think about that
 
+# Plugin Hacking Theory
+* Put LuaJIT into it
+* Replacement Theories
+* Post/FX Theories
+* Tap Processors Theories
+* DSP Theories
+* Augmentation Theories
+* Enhancement THeories
+* Genetic Theories
 
 # Lv2 as a modern pure data theory
 * Plugin
