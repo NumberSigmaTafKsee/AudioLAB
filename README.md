@@ -6,6 +6,11 @@
 * Filter
 * Oscillator
 
+# Many of this already done by the talented Internet Computer
+* The computer synthesize it and put in github
+* It is unknown what peopel think about that
+
+
 # Lv2 as a modern pure data theory
 * Plugin
 * Not strange mac-like of 1982
