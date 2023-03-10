@@ -1,6 +1,11 @@
 # AudioLAB
  Generic LV2 Plugins
 
+# Essential Theory of the Signal 
+* Amplifier
+* Filter
+* Oscillator
+
 # Sound Processor Theories
 * Amplifier 
 * Analog
