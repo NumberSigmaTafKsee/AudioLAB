@@ -49,6 +49,8 @@
 # CSVFIAXY-9000
 * Complex Stereo Image State Variable Filter
 
+# RESO-9000
+* State Variable Resonators
 
 # CALCULUS-9000
 * Slew Rate Limiter, Integrator, Trapezoid Integrate, 1 pole, 1 zero, 1 pole/1 zero, Differentitator, Differentiabl Amplifier, Comparator
