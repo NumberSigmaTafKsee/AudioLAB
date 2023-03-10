@@ -40,6 +40,34 @@
 * sst-filters
 * sst-waveshapers
 
+# FX
+* Delay
+* Comb Filter
+* Allpass Delay
+* Multitaps Delay
+* Filters
+* Envelopes
+* Functions
+* Chorus
+* Flanger
+* Phaser
+* Pitch Shifter
+* Phase Vocoder
+* Channel Vocoder
+* Compressor
+* Limiter
+* Expander
+* Gate
+* Exciter
+* Distortion
+* Non-Linear Memory
+* Non-Linear Memoryless
+* Tremolo
+* Vibrato
+* Doppler Effects
+* FFT Effects
+* DAFX
+
 
 
 
