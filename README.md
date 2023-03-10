@@ -10,6 +10,9 @@
 # SVF64-9000
 * 64 channel programmable state variable filter bank
 
+# 2PACSV-9000
+* State Variable Multiband Equalizer
+
 # SHSV-9000
 * Sample/Hold State Variable Integrator
 
