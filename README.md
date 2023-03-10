@@ -6,6 +6,10 @@
 * Filter
 * Oscillator
 
+# Lv2 as a modern pure data theory
+* Plugin
+* Not strange mac-like of 1982
+
 # Lv2 Graph Theory
 * Carla
 * ModHost
