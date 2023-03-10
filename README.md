@@ -24,3 +24,6 @@
 
 # VOCSV-9000
 * State Variable Channel Vocoder
+
+# SMSV-9000
+* State Variable Smoother
