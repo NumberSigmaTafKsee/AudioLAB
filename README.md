@@ -1,6 +1,12 @@
 # AudioLAB
  Generic LV2 Plugins
 
+# They are the theories
+* Some of it, gauranteed and proven to work
+* Some of it, theory of scientific research
+* Some of it, nobody even heard of it before
+
+
 # AnalogSVF
 * General Purpose State Variable Filter
 
@@ -70,6 +76,12 @@
 
 # SPCSV-9000
 * RTSpice State Variable Filter Circuit
+
+# FZZLLSV-9000
+* Fuzzy Logic State Variable Filter Gates
+
+# CXLLSV-9000
+* Complex State Variable Filter Logic Gates
 
 # CALCULUS-9000
 * Slew Rate Limiter, Integrator, Trapezoid Integrate, 1 pole, 1 zero, 1 pole/1 zero, Differentitator, Differentiabl Amplifier, Comparator
