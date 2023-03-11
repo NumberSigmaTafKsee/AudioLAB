@@ -165,3 +165,6 @@
 
 # Electric-Frankenstein
 * Neural Network Integrated DSP for the Cybernetic Theory
+
+# Evolver
+* Genetic Algorithm for the Acquisition of the Coefficient of the Symbolic Reality
