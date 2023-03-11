@@ -162,3 +162,6 @@
 * Moog Ladder filters of the internet
 * The original MusicDSP equations
 * RTSpice Moog Ladder Filter Circuit
+
+# Electric-Frankenstein
+* Neural Network Integrated DSP for the Cybernetic Theory
