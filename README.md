@@ -109,17 +109,11 @@
 # FMGSV-9000
 * Force Mass Gravity State Variable Filter Integrator
 
-# Utilities
+# RNNSVF-9000
+* Recurrent Neural Network for theory of the non-linear memory transfer of the state variable filter
 
-# CALCULUS-9000
-* Slew Rate Limiter, Integrator, Trapezoid Integrate, 1 pole, 1 zero, 1 pole/1 zero, Differentitator, Differentiabl Amplifier, Comparator
-
-# ANALYTIC-9000
-* Zero Cross Rate, Peak Detector, Peak Follow, Envelope Follow, Hilbert Transformer, Complex Stereo, Min, Max, Mean, StdDev, RMS
-
-# FFT-9000
-* Fourier and Inverse Fourier as embedded audio theory
-
+# CNNSVF-9000
+* WavenetVA autoregression for the theory of the non-linear memory transfer of the state variable filter
 
 # General Filters
 
@@ -152,8 +146,6 @@
 # ReissFilter-9000
 * The Filter theory in Audio Effects explain the transformion in the Z domain
 
-
-
 # Moog Ladder Filters
 * To find an IIR of the Moog Ladder Filter for frequency transformation
 * Frequency Sampled Moog Ladder
@@ -163,8 +155,14 @@
 * The original MusicDSP equations
 * RTSpice Moog Ladder Filter Circuit
 
-# Electric-Frankenstein
-* Neural Network Integrated DSP for the Cybernetic Theory
+# Utilities
 
-# Evolver
-* Genetic Algorithm for the Acquisition of the Coefficient of the Symbolic Reality
+# CALCULUS-9000
+* Slew Rate Limiter, Integrator, Trapezoid Integrate, 1 pole, 1 zero, 1 pole/1 zero, Differentitator, Differentiabl Amplifier, Comparator
+
+# ANALYTIC-9000
+* Zero Cross Rate, Peak Detector, Peak Follow, Envelope Follow, Hilbert Transformer, Complex Stereo, Min, Max, Mean, StdDev, RMS
+
+# FFT-9000
+* Fourier and Inverse Fourier as embedded audio theory
+
