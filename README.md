@@ -43,14 +43,18 @@
 * floating error
 * input, weight, target
 
-# EnvelopeSVF
+## EnvelopeSVF
 * 2-pole envelope integrator
 
-# ResonatorSVF
+## ResonatorSVF
 * SVF oscillators
 
-# SpiceSVF
+## SpiceSVF
 * Spice Model of State Variable Filter for RTSpice experiment
+
+## EvolverSVF
+* Genetical Adapting the State Variable to the Frequency Response
+
 
 # 9000 series Modular Concept
 ## SVF
