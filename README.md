@@ -23,6 +23,10 @@
 # Circuits
 * https://www.idc-online.com/technical_references/pdfs/electronic_engineering/State_Variable_Filters.pdf
 * https://www.analog.com/media/en/training-seminars/tutorials/MT-223.pdf
+<image src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F2.bp.blogspot.com%2F-OZcQtNKp1ko%2FWxVtmKuTNiI%2FAAAAAAALrp8%2FVX99PXAkeNUShlLqsUEJAodKUgJ8mtvqgCLcBGAs%2Fs640%2Ft_svf_147.jpg&f=1&nofb=1&ipt=1d76e94a4cfab2172f0f70b24eefa75ac1cb6298b53219f6ddc27762b80b1ad6&ipo=images"></image>
+<image src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.38Nq5zQpcTlquF_7j35W3wHaDR%26pid%3DApi&f=1&ipt=bc66d6d4ab49323e71642b98695baeeed8b9524d97c5a8466647ec5618f53040&ipo=images"></image>
+<image src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.edn.com%2Fwp-content%2Fuploads%2Fcontenteetimes-images-01mdunn-di-di5480f1.png%3Fis-pending-load%3D1&f=1&nofb=1&ipt=0fe072c9cf7cd37bdb9807b7bfd84ac3d3825b5cac534a338e0a9a53979b0a51&ipo=images"></image>
+<image src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnorthcoastsynthesis.com%2Fnews%2Fmodular-synthesis-intro-part-8-statevariable-filters%2Fhaible-wasp.png&f=1&nofb=1&ipt=d21dcc0926cd9a9a677a3b58d389ef7ec319b2354904ace67fb9bdb86cf2d352&ipo=images"></image>
 
 # Why you want that
 * You probably dont
