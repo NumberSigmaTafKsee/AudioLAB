@@ -61,6 +61,11 @@
 # FIAXYSV-9000
 * Quadratic FIAXY complex unit circle State Variable Modulation Theory
 
+# LIQSV-9000
+* Liquid State Variable Filter
+
+# SPCSV-9000
+* RTSpice State Variable Filter Circuit
 
 # CALCULUS-9000
 * Slew Rate Limiter, Integrator, Trapezoid Integrate, 1 pole, 1 zero, 1 pole/1 zero, Differentitator, Differentiabl Amplifier, Comparator
