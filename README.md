@@ -14,3 +14,14 @@
 
 # FrankensteinSVF
 * ELectric-Frankenstein State Variable Filter is now
+
+# GliderSVF
+* Sample/Hold
+* Glide to target
+* Integrator
+
+# XorSvf
+* dual rail state variable filters
+* floating error
+* input, weight, target
+
