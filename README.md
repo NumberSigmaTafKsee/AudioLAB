@@ -214,3 +214,6 @@
 
 # SOMA-9000
 * Analog Self-Organizing Maps
+
+# Fuzz-9000
+* Fuzzy Logic Guitar Pedal Distortion Logic
