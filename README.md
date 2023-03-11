@@ -8,6 +8,14 @@
 
 # State Variable
 
+# State-105
+* All the state variable filter theories of the internet
+* Chamberlin
+* Will Pirkin
+* VA Analog Filter Design
+* Github
+
+
 # SVF
 * General Purpose normalized State Variable Filter in frequency 
 
