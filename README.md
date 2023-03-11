@@ -1,6 +1,26 @@
 # AudioLAB
  Generic LV2 Plugins
 
+# Tap
+* Plus
+* Minus
+* Multiply
+* Modulus
+* Function
+* Filter
+* Morph
+* Interpolate
+* Blend
+* Cut
+* Boost
+* Merge
+* Combine
+* Isolate
+* Seperate
+* Fuzzy Logic Gate
+* Digital Logic Gate
+* Neuron Gate
+
 # Mixing
 * Morphing Mixer
 * Blending Mixer
