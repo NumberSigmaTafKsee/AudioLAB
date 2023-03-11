@@ -8,8 +8,12 @@
 
 # State Variable
 
+# SVF
+* General Purpose normalized State Variable Filter in frequency 
+
 # AnalogSVF
-* General Purpose State Variable Filter
+* General Purpose State Variable Filter w/Control Voltage
+
 
 # VectorSVF
 * Multichannel Parallel State Variable Filter
