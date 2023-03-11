@@ -154,6 +154,9 @@
 # SymboticTF-9000
 * Symbolic Solution of the transfer function in the difference equation of the Z domain
 
+# DerivativeFitler-9000
+* You put the function it will output the derivatives at the points
+
 
 # RBJFilter-9000
 * The universal standard equaizer filter of internet fame and history
