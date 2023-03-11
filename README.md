@@ -13,7 +13,7 @@
 * Chamberlin
 * Will Pirkin
 * VA Analog Filter Design - http://www.willpirkle.com/Downloads/AN-4VirtualAnalogFilters.pdf
-* Datorro FX
+* Datorro FX - https://ccrma.stanford.edu/~dattorro/EffectDesignPart1.pdf https://ccrma.stanford.edu/~dattorro/EffectDesignPart2.pdf https://ccrma.stanford.edu/~dattorro/EffectDesignPart3.pdf
 * Julius Orion Theories - https://ccrma.stanford.edu/~jos/svf/svf.pdf
 * DAFX - https://www.researchgate.net/publication/356125961_Improving_the_Chamberlin_Digital_State_Variable_Filter
 * DAFX - http://dafx14.fau.de/papers/dafx14_aaron_wishnick_time_varying_filters_for_.pdf
