@@ -21,22 +21,23 @@
 * https://www.idc-online.com/technical_references/pdfs/electronic_engineering/State_Variable_Filters.pdf
 * https://www.analog.com/media/en/training-seminars/tutorials/MT-223.pdf
 
-# AnalogSVF
+# Code Theory
+## AnalogSVF
 * control voltage state variable filter
 * adaline adaptive neuron 
 * smoothing input regulators
 * LuaJIT embeddeable Tap processor
 * Midi/CC NRPN control map
 
-# FrankensteinSVF
+## FrankensteinSVF
 * ELectric-Frankenstein State Variable Filter is now
 
-# GliderSVF
+## GliderSVF
 * Sample/Hold
 * Glide to target
 * Integrator
 
-# XorSvf
+## XorSvf
 * dual rail state variable filters
 * floating error
 * input, weight, target
