@@ -19,6 +19,10 @@
 # 2ESV-9000
 * 2-pole State Variable Enevelope
 
+# 2GLSV-9000
+* 2-pole State Variable Filter glider
+
+
 # DVSV-9000
 * Differetiable State Variable Derivative Filter
 
