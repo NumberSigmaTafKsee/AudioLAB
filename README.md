@@ -4,6 +4,11 @@
 # I am hacker
 * There is no one of science who can explain how it is I know how to do this stuff
 
+# Why
+* I am searching for the Illuminator within the Darkmatter equations of the Universe
+* I want to know the answer
+* I want to know the truth
+* If I need money I will get some so I can continue to live
 
 # They are the theories
 * Some of it, gauranteed and proven to work
