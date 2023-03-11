@@ -6,6 +6,7 @@
 * Some of it, theory of scientific research
 * Some of it, nobody even heard of it before
 
+# State Variable
 
 # AnalogSVF
 * General Purpose State Variable Filter
@@ -86,6 +87,10 @@
 # CXLLSV-9000
 * Complex State Variable Filter Logic Gates
 
+
+
+# Utilities
+
 # CALCULUS-9000
 * Slew Rate Limiter, Integrator, Trapezoid Integrate, 1 pole, 1 zero, 1 pole/1 zero, Differentitator, Differentiabl Amplifier, Comparator
 
@@ -95,6 +100,8 @@
 # FFT-9000
 * Fourier and Inverse Fourier as embedded audio theory
 
+
+# General Filters
 
 # MBF-9000
 * Massberg Multiband Filter
