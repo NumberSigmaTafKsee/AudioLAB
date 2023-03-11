@@ -74,6 +74,9 @@
 # LIQSV-9000
 * Liquid State Variable Filter
 
+# 5XORSV-9000
+* Xor Neuron Dual Rail Stare Variable Filter Opamp Neuron Nerve
+
 # SPCSV-9000
 * RTSpice State Variable Filter Circuit
 
