@@ -161,4 +161,4 @@
 * Moog is a non-linear memory theory
 * Moog Ladder filters of the internet
 * The original MusicDSP equations
-
+* RTSpice Moog Ladder Filter Circuit
