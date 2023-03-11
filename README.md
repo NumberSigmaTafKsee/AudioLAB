@@ -136,3 +136,7 @@
 
 # SPUC-9000
 * Spuce Filters Filters
+
+# POLYROOT-9000
+* Polynomial Transfer Function Root Solver to ZPK to Biquad
+* Any polynomial theory in frequency domain
