@@ -190,3 +190,27 @@
 
 # CHIAPET5-9000
 * 3 layer analog voltage controlled real-time neural network for signal weird
+
+# ADALINE-9000
+* Analog Adaline Neuron
+
+# PERPTRON-9000
+* Analog Perceptron Neuron
+
+# BAM-9000
+* Analog Bidirectional Associtiative Memory
+
+# HOPBERG-9001
+* Analog Hopfield Network
+
+# FUZZBOMB-9000
+* Fuzzy Logic Neuron Field
+
+# MACRBERG-9000
+* MCulloch Pitt Analog Neuron THeory
+
+# FART-9000
+* Analog Adaptive Resonance Theory
+
+# SOMA-9000
+* Analog Self-Organizing Maps
