@@ -14,6 +14,9 @@
 * Will Pirkin
 * VA Analog Filter Design
 * Datorro FX
+* Julius Orion Theories
+* DAFX
+* Fons Adrianson Theories
 * Github
 
 
