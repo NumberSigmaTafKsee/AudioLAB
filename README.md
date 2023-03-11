@@ -10,6 +10,12 @@
 * I want to know the truth
 * If I need money I will get some so I can continue to live
 
+# There is the epileptic trance
+* It is not something people wish to experience
+* A complete schizm from the normal flow of the connection to space and time
+* Thus, there is a molecular medical theory of treatment for the condition
+
+
 # They are the theories
 * Some of it, gauranteed and proven to work
 * Some of it, theory of scientific research
