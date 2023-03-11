@@ -12,3 +12,5 @@
 * LuaJIT embeddeable Tap processor
 * Midi/CC NRPN control map
 
+# FrankensteinSVF
+* ELectric-Frankenstein State Variable Filter is now
