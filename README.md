@@ -13,6 +13,7 @@
 * Chamberlin
 * Will Pirkin
 * VA Analog Filter Design
+* Datorro FX
 * Github
 
 
