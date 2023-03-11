@@ -12,12 +12,21 @@
 * All the state variable filter theories of the internet
 * Chamberlin
 * Will Pirkin
-* VA Analog Filter Design
+* VA Analog Filter Design - http://www.willpirkle.com/Downloads/AN-4VirtualAnalogFilters.pdf
 * Datorro FX
-* Julius Orion Theories
-* DAFX
-* Fons Adrianson Theories
+* Julius Orion Theories - https://ccrma.stanford.edu/~jos/svf/svf.pdf
+* DAFX - https://www.researchgate.net/publication/356125961_Improving_the_Chamberlin_Digital_State_Variable_Filter
+* DAFX - http://dafx14.fau.de/papers/dafx14_aaron_wishnick_time_varying_filters_for_.pdf
+* Fons Adrianson Theories - http://kokkinizita.linuxaudio.org/papers/digsvfilt.pdf
 * Github
+
+# Circuits
+* https://www.idc-online.com/technical_references/pdfs/electronic_engineering/State_Variable_Filters.pdf
+* https://www.analog.com/media/en/training-seminars/tutorials/MT-223.pdf
+
+# Why you want that
+* You probably dont
+* It is there if for some reason you do
 
 
 # SVF
