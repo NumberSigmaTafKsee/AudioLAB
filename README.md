@@ -140,3 +140,24 @@
 # POLYROOT-9000
 * Polynomial Transfer Function Root Solver to ZPK to Biquad
 * Any polynomial theory in frequency domain
+
+# RBJFilter-9000
+* The universal standard equaizer filter of internet fame and history
+* There is so many of these it is not really necessary
+
+# Zolzer-9000
+* The biquad solutions in the DAFX book
+
+# ReissFilter-9000
+* The Filter theory in Audio Effects explain the transformion in the Z domain
+
+
+
+# Moog Ladder Filters
+* To find an IIR of the Moog Ladder Filter for frequency transformation
+* Frequency Sampled Moog Ladder
+* Moog Impulse and Frequency Responses
+* Moog is a non-linear memory theory
+* Moog Ladder filters of the internet
+* The original MusicDSP equations
+
