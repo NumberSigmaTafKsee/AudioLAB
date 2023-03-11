@@ -1,6 +1,21 @@
 # AudioLAB
  Generic LV2 Plugins
 
+# Mixing
+* Morphing Mixer
+* Blending Mixer
+* Functional Mixer
+* Combiner
+* Seperator
+* Isolator
+* Parallel Splitter
+* Subband Mixer
+* Vocoder Mixer
+* Integrated FX Mixer
+* Tap Mixer
+* Recurrent Delay Mixer
+
+
 # State Variable
 
 # State-105
