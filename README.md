@@ -14,6 +14,7 @@
 * Julius Orion Theories - https://ccrma.stanford.edu/~jos/svf/svf.pdf
 * DAFX - https://www.researchgate.net/publication/356125961_Improving_the_Chamberlin_Digital_State_Variable_Filter
 * DAFX - http://dafx14.fau.de/papers/dafx14_aaron_wishnick_time_varying_filters_for_.pdf
+* DAFX - https://www.dafx.de/paper-archive/2020/proceedings/papers/DAFx2020_paper_70.pdf
 * Fons Adrianson Theories - http://kokkinizita.linuxaudio.org/papers/digsvfilt.pdf
 * Cytomic - https://cytomic.com/technical-papers/
 
