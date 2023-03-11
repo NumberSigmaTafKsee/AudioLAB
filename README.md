@@ -49,3 +49,101 @@
 
 # SpiceSVF
 * Spice Model of State Variable Filter for RTSpice experiment
+
+# 9000 series Modular Concept
+## SVF
+* General Purpose normalized State Variable Filter in frequency 
+
+## AnalogSVF
+* General Purpose State Variable Filter w/Control Voltage
+
+
+## VectorSVF
+* Multichannel Parallel State Variable Filter
+
+## GPUSVF
+* Multi-Streaming GPU State Variable Filter for the filtering of massive amount of data in parallel on many channels at a time
+
+## SVF64-9000
+* 64 channel programmable state variable filter bank
+
+## 2PACSV-9000
+* State Variable Multiband Equalizer
+
+## SHSV-9000
+* Sample/Hold State Variable Integrator
+
+## 2ESV-9000
+* 2-pole State Variable Enevelope
+
+## 2GLSV-9000
+* 2-pole State Variable Filter glider
+
+## 24SVLOGICBOMB-9000
+* 24-second tap state variable filter delay theory
+
+## DVSV-9000
+* Differetiable State Variable Derivative Filter
+
+## ACSV-9000
+* Differentiable State Variable Filter Comparator
+
+## VOCSV-9000
+* State Variable Channel Vocoder
+
+## SMSV-9000
+* State Variable Smoother
+
+## TAPSV-9000
+* Dual SVF Tap Filter
+
+## ASVF-9000
+* Adaptive Search State Variable Filter
+
+## NSVF-9000
+* Neuron controlled State Variable Filter nerve
+
+## FQSV-9000
+* Frequency Sampled State Variable FIR Filter
+
+## RQUATSV-9000
+* Recursive Foldback State Variable Distortion Filter
+
+## CSVFIAXY-9000
+* Complex Stereo Image State Variable Filter
+
+## RESO-9000
+* State Variable Resonators
+
+## LUCASV-9000
+* Lua programmable State Variable Filter
+
+## OSCSV-9000
+* State Variable Oscillators
+
+## FIAXYSV-9000
+* Quadratic FIAXY complex unit circle State Variable Modulation Theory
+
+## LIQSV-9000
+* Liquid State Variable Filter
+
+## 5XORSV-9000
+* Xor Neuron Dual Rail Stare Variable Filter Opamp Neuron Nerve
+
+## SPCSV-9000
+* RTSpice State Variable Filter Circuit
+
+## FZZLLSV-9000
+* Fuzzy Logic State Variable Filter Gates
+
+## CXLLSV-9000
+* Complex State Variable Filter Logic Gates
+
+## FMGSV-9000
+* Force Mass Gravity State Variable Filter Integrator
+
+## RNNSVF-9000
+* Recurrent Neural Network for theory of the non-linear memory transfer of the state variable filter
+
+## CNNSVF-9000
+* WavenetVA autoregression for the theory of the non-linear memory transfer of the state variable filter
