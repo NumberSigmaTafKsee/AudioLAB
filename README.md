@@ -18,7 +18,7 @@
 * DAFX - https://www.researchgate.net/publication/356125961_Improving_the_Chamberlin_Digital_State_Variable_Filter
 * DAFX - http://dafx14.fau.de/papers/dafx14_aaron_wishnick_time_varying_filters_for_.pdf
 * Fons Adrianson Theories - http://kokkinizita.linuxaudio.org/papers/digsvfilt.pdf
-* Github
+* Cytomic - https://cytomic.com/technical-papers/
 
 # Circuits
 * https://www.idc-online.com/technical_references/pdfs/electronic_engineering/State_Variable_Filters.pdf
