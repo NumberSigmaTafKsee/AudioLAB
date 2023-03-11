@@ -77,6 +77,10 @@
 # ANALYTIC-9000
 * Zero Cross Rate, Peak Detector, Peak Follow, Envelope Follow, Hilbert Transformer, Complex Stereo, Min, Max, Mean, StdDev, RMS
 
+# FFT-9000
+* Fourier and Inverse Fourier as embedded audio theory
+
+
 # MBF-9000
 * Massberg Multiband Filter
 
