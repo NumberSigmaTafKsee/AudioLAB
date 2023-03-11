@@ -14,6 +14,9 @@
 # VectorSVF
 * Multichannel Parallel State Variable Filter
 
+# GPUSVF
+* Multi-Streaming GPU State Variable Filter for the filtering of massive amount of data in parallel on many channels at a time
+
 # SVF64-9000
 * 64 channel programmable state variable filter bank
 
