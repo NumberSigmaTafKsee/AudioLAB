@@ -72,6 +72,11 @@ namespace Lua
             PCall();
             return 0;
         }
+        int Call(const string& func,int n, int r) {
+            GetGlobal(func);
+            pcall(n,r);
+            return 0;
+        }
         void pcall(int n, int r)
         {
             if(lua_pcall(L, n,r, 0) != 0)

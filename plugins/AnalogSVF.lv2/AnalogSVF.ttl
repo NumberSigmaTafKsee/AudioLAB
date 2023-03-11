@@ -1,0 +1,131 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
+@prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix urid: <http://lv2plug.in/ns/ext/urid#> .
+@prefix midi: <http://lv2plug.in/ns/ext/midi#> .
+
+
+<urn:james5:AnalogSVF> a lv2:Plugin , lv2:FilterPlugin , doap:Project ;
+    lv2:binary <AnalogSVF.so> ;
+    doap:name "AnalogSVF" ;
+    lv2:optionalFeature lv2:hardRTCapable ;
+    lv2:requiredFeature urid:map ;
+    lv2:minorVersion 2 ;
+    lv2:microVersion 0 ; 
+    
+    lv2:port 
+        [
+            a lv2:InputPort , lv2:AudioPort ;
+            lv2:index 0 ;
+            lv2:symbol "audio_in" ;
+            lv2:name "Audio input" ;
+        ] ,
+        [
+            a lv2:OutputPort , lv2:AudioPort ;
+            lv2:index 1 ;
+            lv2:symbol "audio_out" ;
+            lv2:name "Audio output" ;
+        ] ,
+        [
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 2 ;
+            lv2:symbol "cutoff" ;
+            lv2:name "Cutoff" ;
+            lv2:default 1000;
+            lv2:minimum 30;
+            lv2:maximum 20000;            
+            lv2:portProperty pprops:logarithmic ;
+        ] ,
+        [
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 3 ;
+            lv2:symbol "q" ;
+            lv2:name "Q" ;
+            lv2:default 0.5;
+            lv2:minimum 0.5;
+            lv2:maximum 20.0;            
+            lv2:portProperty pprops:logarithmic ;
+        ] ,        
+        [
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 4;
+            lv2:symbol "type";
+            lv2:name "Type";
+            lv2:portProperty lv2:integer, lv2:enumeration;
+            lv2:scalePoint [ rdfs:label "LP" ; rdf:value 0 ] ;
+            lv2:scalePoint [ rdfs:label "HP" ; rdf:value 1 ] ;
+            lv2:scalePoint [ rdfs:label "BP" ; rdf:value 2 ] ;
+            lv2:scalePoint [ rdfs:label "UBP" ; rdf:value 3 ] ;
+            lv2:scalePoint [ rdfs:label "SHELF" ; rdf:value 4 ] ;
+            lv2:scalePoint [ rdfs:label "NOTCH" ; rdf:value 5 ] ;
+            lv2:scalePoint [ rdfs:label "APF" ; rdf:value 6 ] ;
+            lv2:scalePoint [ rdfs:label "PEAK" ; rdf:value 7 ] ;
+            
+            lv2:default 0;
+            lv2:minimum 0;
+            lv2:maximum 7;
+        ] ,
+        [
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 5 ;
+            lv2:symbol "gain" ;
+            lv2:name "Gain" ;
+            lv2:default 0;
+            lv2:minimum -24.0;
+            lv2:maximum 6.0;            
+            lv2:portProperty pprops:logarithmic ;
+        ] ,
+        [
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 6 ;
+            lv2:symbol "minclip" ;
+            lv2:name "minClip" ;
+            lv2:default -1.0;
+            lv2:minimum -1.0;
+            lv2:maximum 1.0;            
+            lv2:portProperty pprops:logarithmic ;
+        ] ,
+        [
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 7 ;
+            lv2:symbol "maxclip" ;
+            lv2:name "maxClip" ;
+            lv2:default 1.0;
+            lv2:minimum -1.0;
+            lv2:maximum 1.0;            
+            lv2:portProperty pprops:logarithmic ;
+        ] ,
+        [
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 8 ;
+            lv2:symbol "A" ;
+            lv2:name "A" ;
+            lv2:default 1.0;
+            lv2:minimum -1.0;
+            lv2:maximum 1.0;            
+            lv2:portProperty pprops:logarithmic ;
+        ] ,[
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 9 ;
+            lv2:symbol "X" ;
+            lv2:name "X" ;
+            lv2:default 1.0;
+            lv2:minimum -1.0;
+            lv2:maximum 1.0;            
+            lv2:portProperty pprops:logarithmic ;
+        ] ,[
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 10 ;
+            lv2:symbol "Y" ;
+            lv2:name "Y" ;
+            lv2:default 1.0;
+            lv2:minimum -1.0;
+            lv2:maximum 1.0;            
+            lv2:portProperty pprops:logarithmic ;
+        ] .
+        
+        

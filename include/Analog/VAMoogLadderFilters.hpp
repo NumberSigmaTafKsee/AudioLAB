@@ -31,7 +31,7 @@ namespace Analog::Moog
 	struct MoogLadderFilter : public FilterProcessor
 	{
 		LadderFilterBase * moog;
-		DspFloatType sr;
+		DspFloatType sr;	
 		
 		MoogLadderFilter(MoogModelType type, DspFloatType sample_rate=44100) : FilterProcessor() {
 			sr = sample_rate;

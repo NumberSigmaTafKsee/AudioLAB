@@ -1,0 +1,71 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
+@prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix urid: <http://lv2plug.in/ns/ext/urid#> .
+@prefix midi: <http://lv2plug.in/ns/ext/midi#> .
+
+
+<urn:james5:MoogLadder> a lv2:Plugin , lv2:FilterPlugin , doap:Project ;
+    lv2:binary <MoogLadder.so> ;
+    doap:name "MoogLadder" ;
+    lv2:optionalFeature lv2:hardRTCapable ;
+    lv2:requiredFeature urid:map ;
+    lv2:minorVersion 2 ;
+    lv2:microVersion 0 ; 
+    
+    lv2:port 
+        [
+            a lv2:InputPort , lv2:AudioPort ;
+            lv2:index 0 ;
+            lv2:symbol "audio_in" ;
+            lv2:name "Audio input" ;
+        ] ,
+        [
+            a lv2:OutputPort , lv2:AudioPort ;
+            lv2:index 1 ;
+            lv2:symbol "audio_out" ;
+            lv2:name "Audio output" ;
+        ] ,
+        [
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 2 ;
+            lv2:symbol "cutoff" ;
+            lv2:name "Cutoff" ;
+            lv2:default 1000;
+            lv2:minimum 30;
+            lv2:maximum 20000;            
+            lv2:portProperty pprops:logarithmic ;
+        ] ,
+        [
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 3 ;
+            lv2:symbol "q" ;
+            lv2:name "Q" ;
+            lv2:default 0.5;
+            lv2:minimum 0.001;
+            lv2:maximum 0.996;            
+            lv2:portProperty pprops:logarithmic ;
+        ] ,                
+        [
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 4;
+            lv2:symbol "type";
+            lv2:name "Type";
+            lv2:portProperty lv2:integer, lv2:enumeration;
+            lv2:scalePoint [ rdfs:label "Houivilainen" ; rdf:value 0 ] ;
+            lv2:scalePoint [ rdfs:label "Improved" ; rdf:value 1 ] ;
+            lv2:scalePoint [ rdfs:label "Krajeski" ; rdf:value 2 ] ;
+            lv2:scalePoint [ rdfs:label "Microtracker" ; rdf:value 3 ] ;
+            lv2:scalePoint [ rdfs:label "MusicDSP" ; rdf:value 4 ] ;
+            lv2:scalePoint [ rdfs:label "Oberheim" ; rdf:value 5 ] ;
+            lv2:scalePoint [ rdfs:label "RK" ; rdf:value 6 ] ;
+            lv2:scalePoint [ rdfs:label "Simplified" ; rdf:value 7 ] ;
+            lv2:scalePoint [ rdfs:label "Stilson" ; rdf:value 8 ] ;            
+            lv2:default 0;
+            lv2:minimum 0;
+            lv2:maximum 8;
+        ] .

@@ -15911,3 +15911,9 @@
 [submodule "FLTK/flw"]
 	path = FLTK/flw
 	url = https://github.com/gnuwimp/flw
+[submodule "Conbrenner"]
+	path = Conbrenner
+	url = https://github.com/NumberSigmaTafKsee/Conbrenner
+[submodule "Volterastein"]
+	path = Volterastein
+	url = https://github.com/NumberSigmaTafKsee/Volterastein

@@ -31,8 +31,9 @@ namespace FX::Filters::Smoothers
             return fabs(z1 - target) < 1e-3;
         }	    	
         DspFloatType process()
-        {
-            return z1 = target * a0 + z1 * b1;
+        {			
+            z1 = target * a0 + z1 * b1;                        
+            return z1;
         }        
         DspFloatType process(DspFloatType in) {            
             return z1 = in * a0 + z1 * b1;

@@ -49,7 +49,6 @@ namespace Analog::Moog
 		}
 		DspFloatType Tick(DspFloatType _input) {		
 			// Oversample
-			#pragma omp simd
 			for (int j = 0; j < 2; j++)
 			{
 				DspFloatType input = _input - resQuad * delay[5];

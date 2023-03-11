@@ -9,34 +9,39 @@
 #include <string>
 using namespace std;
 
+class LV2Plugins;
 
 // a loaded lv2 plugin
-struct LV2Plugin ///: public MonoFXProcessor
+class LV2Plugin 
 {
+protected:
+	friend class LV2Plugins;
+	
     size_t controls,audios,ins,outs,total;
-    size_t input_port,output_port;
-    
-    size_t input_port_L = 0;
-    size_t input_port_R = 0;
-    size_t output_port_L = 0;
-    size_t output_port_R = 0;
-    
+    size_t input_port,output_port;        
     Lilv::Plugin   plugin;
     Lilv::Instance * instance;
     Lilv::World *world;
     std::vector<std::vector<float>> connections;    
+    std::vector<float> audio_input,audio_output;    
     std::vector<float> port_min, port_max, port_default;    
     std::vector<std::string>  port_names;
-    
+	
+public:
+   
     LV2Plugin() : /*MonoFXProcessor(),*/ plugin(NULL) {
         instance = NULL;
     }
     ~LV2Plugin() {
         if(instance) delete instance;
     }
-    void setControl(int port, float value) {
-        connections[port][0] = value;
+    
+    void setControl(int port, int i, float value) {
+        connections[port][i] = value;
     }
+    float getControl(int port, int i = 0) {
+		return connections[port][i];
+	}
     float& operator[](size_t index) {
         return connections[index][0];
     }
@@ -49,14 +54,14 @@ struct LV2Plugin ///: public MonoFXProcessor
         return -1;
     }
     void ProcessBlock(size_t n, float * in, float * out)
-    {        
+    {		
         memcpy(connections[input_port].data(),in,n*sizeof(float));
         instance->run(n);
         memcpy(out,connections[output_port].data(),n*sizeof(float));
     } 
     
     void Run(size_t n, float ** in, float ** out)
-    {        
+    {   		
         memcpy(connections[input_port_L].data(),in[0],n*sizeof(float));
         memcpy(connections[input_port_R].data(),in[1],n*sizeof(float));
         instance->run(n);
@@ -68,24 +73,27 @@ struct LV2Plugin ///: public MonoFXProcessor
         ProcessBlock(n,buffer,buffer);
     }
     void Randomize() {
+		Random noise;
         for(size_t i = 0; i < connections.size(); i++)
         {
             if(i == input_port || i == output_port) continue;
             float r = port_min[i] + (port_max[i]-port_min[i])*noise.rand();
             connections[i][0] = r;
         }
-    }
+    }        
 };
 
 
-struct LV2Plugins
+class LV2Plugins
 {
+protected:	
     map<std::string,std::string> plugin_map;
     std::vector<std::string> plugin_names;
     Lilv::World world;            
     Lilv::Plugins plugins;    
     URITable uri_table;
   
+public:
     LV2Plugins() : plugins(NULL)
     {        
         world.load_all();
@@ -204,6 +212,7 @@ struct LV2Plugins
         lv2->world  = &world;
 
         Lilv::Node audio_class = world.new_uri("http://lv2plug.in/ns/lv2core#AudioPort");
+        Lilv::Node midi_class = world.new_uri("http://lv2plug.in/ns/lv2core#MIDIPort");
         Lilv::Node control_class = world.new_uri("http://lv2plug.in/ns/lv2core#ControlPort");
         Lilv::Node in_class = world.new_uri("http://lv2plug.in/ns/lv2core#InputPort");
         Lilv::Node out_class = world.new_uri("http://lv2plug.in/ns/lv2core#OutputPort");
@@ -228,12 +237,8 @@ struct LV2Plugins
             Lilv::Port port =  lv2->plugin.get_port_by_index(i);
             std::cout << "Port#" << i << "," << Lilv::Node(port.get_name()).as_string() << std::endl;            
             lv2->port_names[i] = Lilv::Node(port.get_name()).as_string();            
-            //if(!strcmp(port.get_symbol().as_string(),"in_l") lv2->input_port_L = i; 
-            //else if(!strcmp(port.get_symbol().as_string(),"in_R") lv2->input_port_R = i; 
-            //else if(!strcmp(port.get_symbol().as_string(),"out_l") lv2->output_port_L = i; 
-            //else if(!strcmp(port.get_symbol().as_string(),"out_R") lv2->output_port_R = i; 
-            if(port.is_a(in_class))  lv2->input_port = i;
-            else if(port.is_a(out_class)) lv2->output_port = i;
+            if(port.is_a(in_class) && port.is_a(audio_class))  lv2->input_port = i;
+            else if(port.is_a(out_class) && port.is_a(audio_class)) lv2->output_port = i;                                    
         }       
         
         Lilv::Nodes nodes = lv2->plugin.get_required_features();
