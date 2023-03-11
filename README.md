@@ -55,6 +55,8 @@
 ## EvolverSVF
 * Genetical Adapting the State Variable to the Frequency Response
 
+## Liquid
+* Liquid Neuron as the State Variable Filter Theory of Activations
 
 # 9000 series Modular Concept
 ## SVF
