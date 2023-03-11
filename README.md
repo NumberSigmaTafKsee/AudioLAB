@@ -1,6 +1,10 @@
 # AudioLAB
  Generic LV2 Plugins
 
+# I am hacker
+* There is no one of science who can explain how it is I know how to do this stuff
+
+
 # They are the theories
 * Some of it, gauranteed and proven to work
 * Some of it, theory of scientific research
