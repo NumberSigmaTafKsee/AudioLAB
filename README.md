@@ -177,3 +177,5 @@
 # FFT-9000
 * Fourier and Inverse Fourier as embedded audio theory
 
+# CHIAPET5-9000
+* 3 layer analog voltage controlled real-time neural network for signal weird
