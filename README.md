@@ -58,6 +58,9 @@
 ## Liquid
 * Liquid Neuron as the State Variable Filter Theory of Activations
 
+## Formantula
+* State Variable Filter for formant synthesis
+
 # 9000 series Modular Concept
 ## SVF
 * General Purpose normalized State Variable Filter in frequency 
