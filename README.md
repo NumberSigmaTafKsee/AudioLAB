@@ -10,8 +10,8 @@
 
 # State-105
 * All the state variable filter theories of the internet
-* Chamberlin
-* Will Pirkin
+* Chamberlin - https://www.earlevel.com/main/2003/03/02/the-digital-state-variable-filter/
+* Will Pirkin - http://willpirkle.com/Downloads/
 * VA Analog Filter Design - http://www.willpirkle.com/Downloads/AN-4VirtualAnalogFilters.pdf
 * Datorro FX - https://ccrma.stanford.edu/~dattorro/EffectDesignPart1.pdf https://ccrma.stanford.edu/~dattorro/EffectDesignPart2.pdf https://ccrma.stanford.edu/~dattorro/EffectDesignPart3.pdf
 * Julius Orion Theories - https://ccrma.stanford.edu/~jos/svf/svf.pdf
