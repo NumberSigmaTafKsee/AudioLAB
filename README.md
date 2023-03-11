@@ -151,6 +151,10 @@
 * Polynomial Transfer Function Root Solver to ZPK to Biquad
 * Any polynomial theory in frequency domain
 
+# SymboticTF-9000
+* Symbolic Solution of the transfer function in the difference equation of the Z domain
+
+
 # RBJFilter-9000
 * The universal standard equaizer filter of internet fame and history
 * There is so many of these it is not really necessary
