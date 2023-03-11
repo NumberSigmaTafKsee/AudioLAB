@@ -1,26 +1,6 @@
 # AudioLAB
  Generic LV2 Plugins
 
-# I am hacker
-* There is no one of science who can explain how it is I know how to do this stuff
-
-# Why
-* I am searching for the Illuminator within the Darkmatter equations of the Universe
-* I want to know the answer
-* I want to know the truth
-* If I need money I will get some so I can continue to live
-
-# There is the epileptic trance
-* It is not something people wish to experience
-* A complete schizm from the normal flow of the connection to space and time
-* Thus, there is a molecular medical theory of treatment for the condition
-
-
-# They are the theories
-* Some of it, gauranteed and proven to work
-* Some of it, theory of scientific research
-* Some of it, nobody even heard of it before
-
 # State Variable
 
 # State-105
@@ -47,6 +27,7 @@
 * You probably dont
 * It is there if for some reason you do
 
+# State-105
 
 # SVF
 * General Purpose normalized State Variable Filter in frequency 
