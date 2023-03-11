@@ -48,6 +48,8 @@
 # 2GLSV-9000
 * 2-pole State Variable Filter glider
 
+# 24SVLOGICBOMB-9000
+* 24-second tap state variable filter delay theory
 
 # DVSV-9000
 * Differetiable State Variable Derivative Filter
