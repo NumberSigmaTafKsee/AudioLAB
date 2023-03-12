@@ -109,3 +109,4 @@
 * It has a built in ADSR that can be bipass
 * It can be phase modulated
 * It can be oversamples 2x,4x,6x,8x
+* This one only has impulse train, saw and square output
