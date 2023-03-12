@@ -133,3 +133,16 @@
 
 # IFFT
 * This will take the special fourier channel and put it back into audio synthesis if it works
+
+# StkFilters
+* OnePole
+* OneZero
+* TwoPole
+* TwoZero
+* OnePole/OneZero
+* Biquad
+* FIR
+* IIR
+
+# GammaFilters
+* From the Gamma toolkit
