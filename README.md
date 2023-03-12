@@ -78,6 +78,7 @@
 * Can use the functions in signal or can design anything in ZPK or however you want
 * It must fit in Biquad or it must fit in TransferFunction
 * It can not use Octave Tf2Sos in realtime it is not fast enough to do that
+* Generally you can just do this offline but habing it in a plugin can be interesting thing to do
 
 # OctopusFIR
 * It will let you run GNU octave script to generate FIR filter coefficients if you want to
