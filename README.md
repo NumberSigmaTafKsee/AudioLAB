@@ -125,4 +125,11 @@
 * It has a special oversample port that is like audio in
 * You connect it from an oversampled port and it will downsample it back to the normal sample rate
 
+# FFT
+* FFT has a special fourier channel
+* The coefficients will be transmitted to it if it works
+* if the LV2 will let you send them to the port, it will work
+* It has no actualy purpose for audio only for analyzer stream
 
+# IFFT
+* This will take the special fourier channel and put it back into audio synthesis if it works
