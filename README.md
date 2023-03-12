@@ -7,17 +7,18 @@
 # Current Plugin
 * AnalogSVF
 * MoogLadderFilters
+* AmpClipper
 
-# AmpClipper
-* I had found this in the bargain bin
-* Now, it has alot of problems and doesn't work right
-* First, it has a capacitor so it was a filter
-* Thus, I do not know what circuit he made this for
-* However, it has potential to use it for the experiments
+# AnalogSVF
+* Just your kind of svf
+* From the Will Pirkin Theory Society
+* Has a built in ADSR envelope that can be midi trigger
+* Has a built in LFO
 
-# The AmpClipperCircuit only have some significance to Druidery
-* The normal society will not care much about the observation of non-linear memory
+# MoogLadderFilters
+* All of them are from github
+* Has built in ADSR and LFO
 
-# I still think it is very cool
-* We dont know what he observed to make an amplifier clipper circuit
-* But what he made was a didoe filter 
+# AmpClipperCircuit
+* It is something I found which doesn't have alot of practical purpose at this time for anything
+* It is supposed to be a diode clipper but it is like a diode filter instead
