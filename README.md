@@ -77,5 +77,10 @@
 * It must fit in Biquad or it must fit in TransferFunction
 * It can not use Octave Tf2Sos in realtime it is not fast enough to do that
 
+# OctopusFIR
+* It will let you run GNU octave script to generate FIR filter coefficients if you want to
+* If the GNU octave function is to slow you can not do this inreal time
+* firpm may not be fast enough for realtime so you put it into a file instead
+
 # Plotonic
 * when you push the button it will draw the sample in gnuplot 
