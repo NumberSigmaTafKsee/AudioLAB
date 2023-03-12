@@ -28,3 +28,9 @@
 * It is something I found which doesn't have alot of practical purpose at this time for anything
 * It is supposed to be a diode clipper but it is like a diode filter instead
 * It has significance as it demonstrate the theory of a non-linear memory algorithm despite it wasn't supposed to
+
+# LiquidSVF
+* It is the AnalogSVF but it uses liquid neurons for the coefficients
+
+# AdalineSVF
+* It uses adaptive adaline neuron coefficients
