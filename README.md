@@ -87,3 +87,6 @@
 
 # Plotonic
 * when you push the button it will draw the sample in gnuplot 
+
+# BlitOscillators
+* It is the same thing adapted from the Stk algorithms
