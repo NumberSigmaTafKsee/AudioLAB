@@ -62,5 +62,14 @@
 # RbjFilter
 * The standard RBJ equations
 
+# PolyRoot
+* It will sovle any polynomials in the frequency domain and create a SoS Biquad cascade for you
+
+# IPPTransferFunc
+* It uses the IIR filter in Intel IPP for any arbtrrary transfer function
+
+# IPPBiquad
+* It uses the IIR filter for coefficients in biquad sos cascade form
+
 # Plotonic
 * when you push the button it will draw the sample in gnuplot 
