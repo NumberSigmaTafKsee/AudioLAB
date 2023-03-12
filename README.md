@@ -152,4 +152,14 @@
 * The theory is the compiler will optimize it to work on simd very fast
 * It might but it depends if the compiler wants to
 * So it is just a polyblep that happens to run in a loop very fast
+* It also has many other bandlimited wave theories I have been integrating into it
+* There is not anything really analog because it has to be done this way so it won't alias
+
+# VCF
+* It will have the RTSpice equations sometime soon
+
+# VCA
+* It will have RTSpice equations soon
+
+
 
