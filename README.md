@@ -17,12 +17,14 @@
 * It will work in frequency or it can be set to control-voltage
 * It will have a built in LuaJIT interpreter for control-midi-matrix theory and tap alchemy
 * It should be possible to modulate it per sample by the FIAXY equations
+* It can be oversampled 2x,4x,6x,8x
 
 # MoogLadderFilters
-* All of them are from github
+* All of them are from github : houvilainen,stilson,musicdsp,krajeski,microtrack,don phillips runge kut, more
 * Has built in ADSR and LFO
 * It will have a built in LuaJIT interpreter for control-midi-matrix theory and tap alchemy
 * It will work in frequency or it can be set to control-voltage
+* It can be oversampled 2x,4x,6x,8x
 
 # AmpClipperCircuit
 * It is something I found which doesn't have alot of practical purpose at this time for anything
@@ -90,3 +92,8 @@
 
 # BlitOscillators
 * It is the same thing adapted from the Stk algorithms
+* You can control it with MIDI
+* You can let it run free as frequency 
+* It has a built in ADSR that can be bipass
+* It can be phase modulated
+* It can be oversamples 2x,4x,6x,8x
