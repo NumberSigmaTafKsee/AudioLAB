@@ -15,3 +15,5 @@
 * Thus, I do not know what circuit he made this for
 * However, it has potential to use it for the experiments
 
+# The AmpClipperCircuit only have some significance to Druidery
+* The normal society will not care much about the observation of non-linear memory
