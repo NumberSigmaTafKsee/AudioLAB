@@ -62,3 +62,5 @@
 # RbjFilter
 * The standard RBJ equations
 
+# Plotonic
+* when you push the button it will draw the sample in gnuplot 
