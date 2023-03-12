@@ -71,5 +71,11 @@
 # IPPBiquad
 * It uses the IIR filter for coefficients in biquad sos cascade form
 
+# OctopusIIR
+* It will let you run GNU Octave script to generate IIR filters for ZPK or as A,B
+* Can use the functions in signal or can design anything in ZPK or however you want
+* It must fit in Biquad or it must fit in TransferFunction
+* It can not use Octave Tf2Sos in realtime it is not fast enough to do that
+
 # Plotonic
 * when you push the button it will draw the sample in gnuplot 
