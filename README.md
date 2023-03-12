@@ -18,6 +18,8 @@
 * It will have a built in LuaJIT interpreter for control-midi-matrix theory and tap alchemy
 * It should be possible to modulate it per sample by the FIAXY equations
 * It can be oversampled 2x,4x,6x,8x
+* It has input smoothing regulators
+
 
 # MoogLadderFilters
 * All of them are from github : houvilainen,stilson,musicdsp,krajeski,microtrack,don phillips runge kut, more
@@ -25,6 +27,7 @@
 * It will have a built in LuaJIT interpreter for control-midi-matrix theory and tap alchemy
 * It will work in frequency or it can be set to control-voltage
 * It can be oversampled 2x,4x,6x,8x
+* It has input smoothing regulators
 
 # AmpClipperCircuit
 * It is something I found which doesn't have alot of practical purpose at this time for anything
