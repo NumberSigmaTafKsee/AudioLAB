@@ -146,3 +146,10 @@
 
 # GammaFilters
 * From the Gamma toolkit
+
+# VCO
+* This has a polyblep I vectorized
+* The theory is the compiler will optimize it to work on simd very fast
+* It might but it depends if the compiler wants to
+* So it is just a polyblep that happens to run in a loop very fast
+
