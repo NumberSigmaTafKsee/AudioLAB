@@ -37,6 +37,18 @@
 # AdalineSVF
 * It uses adaptive adaline neuron coefficients
 
+# FIRFilter
+* Your typical general purpose FIR filter with the window sinc equations built into it
+
+# IPPFIRSR
+* Just uses the IPP Fir filter
+
+# IPPFIRMR
+* For multirate
+
+# IPPFIRLMS
+* For LMS Adaptive
+
 # FIRSvf
 * It uses frequency sampling of the state variable filter
 
