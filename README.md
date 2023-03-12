@@ -17,3 +17,7 @@
 
 # The AmpClipperCircuit only have some significance to Druidery
 * The normal society will not care much about the observation of non-linear memory
+
+# I still think it is very cool
+* We dont know what he observed to make an amplifier clipper circuit
+* But what he made was a didoe filter 
