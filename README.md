@@ -34,3 +34,10 @@
 
 # AdalineSVF
 * It uses adaptive adaline neuron coefficients
+
+# FIRSvf
+* It uses frequency sampling of the state variable filter
+
+# FIRMoog
+* It uses frequency sampling of the moog filters
+
