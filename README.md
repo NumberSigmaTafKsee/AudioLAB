@@ -113,3 +113,5 @@
 * It can be phase modulated
 * It can be oversamples 2x,4x,6x,8x
 * This one only has impulse train, saw and square output
+* Generally, you can not do anything with oversample unless you use the oversample port
+* The oversample port require a downsampler to put it back into the sample rate stream
