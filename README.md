@@ -41,3 +41,24 @@
 # FIRMoog
 * It uses frequency sampling of the moog filters
 
+# IIRFilters
+* general purpose IIR filters
+
+# DSPFilters
+* general purpose DSPfilters
+
+# SpuceFilters
+* general purpose Filters
+
+# CppFilters
+* Generatel purpose biquad filters
+
+# MultiMassberg
+* General purpose multibands massberg
+
+# ZolzerFilter
+* Biquads from DAFX books
+
+# RbjFilter
+* The standard RBJ equations
+
