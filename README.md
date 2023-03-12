@@ -115,3 +115,14 @@
 * This one only has impulse train, saw and square output
 * Generally, you can not do anything with oversample unless you use the oversample port
 * The oversample port require a downsampler to put it back into the sample rate stream
+
+# Upsampler
+* It has a special oversample port that is the same thing as audio output
+* The normal port just passes the audio through it
+* Then you can connect oversampled ports to oversampled dsp streams
+
+# Downsampler
+* It has a special oversample port that is like audio in
+* You connect it from an oversampled port and it will downsample it back to the normal sample rate
+
+
