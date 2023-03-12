@@ -64,6 +64,8 @@
 
 # PolyRoot
 * It will sovle any polynomials in the frequency domain and create a SoS Biquad cascade for you
+* You can inject transformation into the S or Z domain
+* It can work in S or Z
 
 # IPPTransferFunc
 * It uses the IIR filter in Intel IPP for any arbtrrary transfer function
