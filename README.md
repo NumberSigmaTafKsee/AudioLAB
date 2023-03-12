@@ -14,13 +14,14 @@
 * From the Will Pirkin Theory Society
 * Has a built in ADSR envelope that can be midi trigger
 * Has a built in LFO
+* It will work in frequency or it can be set to control-voltage
 * It will have a built in LuaJIT interpreter for control-midi-matrix theory and tap alchemy
 
 # MoogLadderFilters
 * All of them are from github
 * Has built in ADSR and LFO
 * It will have a built in LuaJIT interpreter for control-midi-matrix theory and tap alchemy
-
+* It will work in frequency or it can be set to control-voltage
 
 # AmpClipperCircuit
 * It is something I found which doesn't have alot of practical purpose at this time for anything
