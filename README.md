@@ -157,6 +157,7 @@
 
 # VCF
 * It will have the RTSpice equations sometime soon
+* There is a pecuiar moog bastard equation that was just for inventing the theory of tap alchemist
 
 # VCA
 * It will have RTSpice equations soon
