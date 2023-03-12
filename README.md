@@ -16,6 +16,7 @@
 * Has a built in LFO
 * It will work in frequency or it can be set to control-voltage
 * It will have a built in LuaJIT interpreter for control-midi-matrix theory and tap alchemy
+* It should be possible to modulate it per sample by the FIAXY equations
 
 # MoogLadderFilters
 * All of them are from github
