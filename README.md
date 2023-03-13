@@ -28,7 +28,15 @@
 * Glider
 * Sample/Hold filter
 * Filter Integrator
- 
+
+# Generators
+* DX7
+* P81Z
+* Fluidlite
+* Fluidsynth
+* libfmsynth
+* gslib
+
 # Plugins
 * AnalogSVF   = will pickle analog equations
 * MoogLadders = all the moog ladder githubs
