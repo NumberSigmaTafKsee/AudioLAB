@@ -5,6 +5,8 @@
 * They are all the stuff you will need to make your Carla host an analog modular synthesizer
 * All the code is working it just needs to have the LV2 framework attached to make it work
 
+# You can get alot of this as plugins
+* This is just like a shot of heroin
 
 # GUI
 * Frankenstein FLTK
@@ -57,7 +59,7 @@
 * VCA = has dummy and will load RTSpice
 * MDFM
 
-# SoundProcessors (not completed yet)
+# SoundProcessors 
 * Analog/
 * FX/
 * Filters/
