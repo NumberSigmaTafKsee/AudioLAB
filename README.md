@@ -1,6 +1,10 @@
 # AudioLAB
  Generic LV2 Plugins
 
+# These will be a huge pile of generic plugins
+* They are all the stuff you will need to make your Carla host an analog modular synthesizer
+
+
 # GUI
 * Frankenstein FLTK
 * FLTK is a programmer GUI not really pretty but it is simple 
