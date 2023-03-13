@@ -6,14 +6,19 @@
 * Morphing Mixer Blender
 * Wavecycle Sequencer
 * Fourier Additive Waves
+* Wavetable
 * LFO
 * ADSR
 * Summing Neuron
 * 3-layer neural network
 * Cv2Midi
 * Midi2Cv
-* Combiner
-* Isolater
+* Combiner Filter Mixer
+* Isolater Filter
+* Seperator Filter
+* Cut Filter
+* Boost Filter
+* Parallel Splitter
 * RBJFilter
 * ZolzerFilter
 * IIRFilters
@@ -51,3 +56,4 @@
 * Amplifiers
 * Analog Spice
 * Distortion 
+* FX
