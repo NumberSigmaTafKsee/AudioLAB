@@ -64,9 +64,25 @@
 * AudioTK
 * DaisySP
 * CSound
+* Freeverb3
+* Gamma
+* HammerFX
+* JoonasFX
+* KHDelays
+* Loris
+* RackFX
+* ReissFX
+* Reverb
+* RukuFX
+* SoundPipe
+* Stk
+* Synthesizer
+
 
 # Plugins
 * Amplifiers
 * Analog Spice
 * Distortion 
 * FX
+* Dynamics
+
