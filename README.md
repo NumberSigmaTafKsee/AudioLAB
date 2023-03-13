@@ -3,6 +3,7 @@
 
 # These will be a huge pile of generic plugins
 * They are all the stuff you will need to make your Carla host an analog modular synthesizer
+* All the code is working it just needs to have the LV2 framework attached to make it work
 
 
 # GUI
