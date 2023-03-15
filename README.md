@@ -11,7 +11,6 @@
 # AnalogSVF
 * Will pirkins equations
 * mono audio channel
-* stereo audio channels
 * midi input , cc103 = cutoff, cc104 = resonance
 * midi output (for control)
 * built in adsr
@@ -21,7 +20,6 @@
 # Moog Ladder Filter
 * From Github repo
 * mono audio
-* stereo channel audio
 * midi input (note,controls), cc103=cutoff, cc104=resonance
 * midi output (to cc etc)
 * built in adsr
@@ -53,3 +51,46 @@
 * cv envelope modulation input
 * logic trigger on/off
 
+# StereoAnalogSVF
+* 2 channel SVF
+* Does not have all outputs like the mono
+
+# StereoMoogLadder
+* 2 channel Moog Ladder Filter
+
+# BlitOscillator
+* Some blit saw and square tooth
+* mix saw, square and impulse
+* integrator input cv
+* differentiator output cv
+* comparator wave output cv
+* impulse train cv
+
+# QuadraphonicBlit
+* 4 x Blit oscillator
+* mixed or paralle
+
+# OctaphonicBlit
+* 8 x Blit Oscillator
+* mixed or parallel
+
+# Blit2Oscillator
+* a better blit
+* Saw, Triangle, Square
+
+# VCO
+* Vectorized PolyBlep
+* many waveforms
+
+# QuadVCO
+* 4x VCO mixed or parallel
+
+* OctaVCO
+* 8x VCO mixed or parallel
+
+# VCO9000
+* 8x8 VCO terrain
+* Matrix sequencing equation theories
+
+# LFO9000
+* Deep Tesla LFO Frequency Terrain
