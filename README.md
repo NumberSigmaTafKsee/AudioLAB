@@ -9,7 +9,7 @@
 * Will pirkins equations
 * mono audio channel
 * stereo audio channels
-* midi input 
+* midi input , cc103 = cutoff, cc104 = resonance
 * midi output (for control)
 * built in adsr
 * built in lfo
@@ -19,7 +19,7 @@
 * From Github repo
 * mono audio
 * stereo channel audio
-* midi input (note,controls)
+* midi input (note,controls), cc103=cutoff, cc104=resonance
 * midi output (to cc etc)
 * built in adsr
 * built in lfo to cutoff, q
@@ -28,7 +28,7 @@
 # RBJFilter
 * all equations of RBJ
 * mono and stereo
-* midi input can set the keyboard frequency
+* midi input can set the keyboard frequency, cc103=cutoff,cc104=q,cc105=bandwidth,cc106=slope
 * midi output to control synthesizer
 * cv ports for everybody
 
