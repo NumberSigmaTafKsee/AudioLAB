@@ -114,3 +114,61 @@
 * DspFilters
 * Spuce Filters
 * IPP Filters
+
+# 2PACRBJ12
+* 12-band RBJ filter equalizer
+* It is not a typical audio equalizer but for experiment with vocoder
+* Can be resonant or not
+* Can be fixed or you can move the frequencies
+
+# 2PACSV3
+* 3-band State Variable Filter Bank
+* Serial or Parallel
+* Can be equalizer or formant filter
+
+# 2PACSV4
+* Same but has 4 filters in series/parallel
+
+# 2PACSV8
+* Same but has 8 filters in series/parallel
+
+# AdalineSVF
+* Adaline neuron coefficient filter
+
+# BasicSynth
+* Basic 2 oscillator filter amplifier
+* Lot's of cv theory
+
+# Biquad
+* some other biquad theories
+
+# Massberg
+* Massberg LPF
+* Will try to get hp,bp,bs bands from frequency transform
+
+# CppFilters
+* Biquads from Github
+
+# DistortionBox
+* Load RTSpice circuit equations
+
+# DSPFilters
+* DspFilters
+
+# FADSR
+* Filter based envelope
+
+# FAR
+* Filter based envelope
+
+# FASR
+* Filter based envelope
+
+# FaustFX
+* can run faust scripts in LLVM
+
+# PolyFaust
+* can run polyphonic faust llvm
+
+# FFSV3
+* State Variable 3-band formant filter
