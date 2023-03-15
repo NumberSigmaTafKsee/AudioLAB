@@ -32,4 +32,21 @@
 * midi output to control synthesizer
 * cv ports for everybody
 
+# AR
+* Attack Release envelope
+* Midi note on
+* Midi output to control etc
+* CV Envelope output
+* Audio in * envelope
+
+# ASR
+* Attack Sustain Release envelope
+* Same as AR but sustains
+
+# ADSR
+* Attack Decay Sustain Release Envelope
+* audio input * envelope
+* cv envelope output
+* cv envelope modulation input
+* logic trigger on/off
 
