@@ -1,4 +1,5 @@
 #pragma once
+#include "Filters/IIRFilters.hpp"
 
 namespace Filters::IIR::ZolzerFilters
 {
@@ -9,11 +10,28 @@ namespace Filters::IIR::ZolzerFilters
 
     struct ZolzerBiquadFilter : public BiquadTransposedTypeII
     {
+		enum ZolzerType {
+			LOWPASS,
+			LOWPASS1P,
+			HIGHPASS,
+			HIGHPASS1P,
+			BANDPASS,
+			NOTCH,
+			PEAKBOOST,
+			PEAKCUT,
+			LOWSHELFBOOST,
+			LOWSHELFCUT,
+			HIGHSHELFBOOST,
+			HIGHSHELFCUT,
+			ALLPASS,
+			ALLPASS1P
+		};
+		
 
-        FilterType filter_type;
+        ZolzerType filter_type;
         DspFloatType Fc, Fs, Q, G, R;
 
-        ZolzerBiquadFilter(FilterType type = LOWPASS,DspFloatType sampleRate = 44100.0) : BiquadTransposedTypeII()
+        ZolzerBiquadFilter(ZolzerType type = LOWPASS,DspFloatType sampleRate = 44100.0) : BiquadTransposedTypeII()
         {
             Fc = 1000.0;
             Fs = sampleRate;
@@ -22,7 +40,7 @@ namespace Filters::IIR::ZolzerFilters
             filter_type = type;
             setCoefficients(Fc, Q, G);
         }
-        ZolzerBiquadFilter(FilterType type, DspFloatType fc, DspFloatType sr, DspFloatType q = 0.5, DspFloatType g = 1) : BiquadTransposedTypeII()
+        ZolzerBiquadFilter(ZolzerType type, DspFloatType fc, DspFloatType sr, DspFloatType q = 0.5, DspFloatType g = 1) : BiquadTransposedTypeII()
         {
             filter_type = type;
             Fs = sr;
@@ -30,11 +48,11 @@ namespace Filters::IIR::ZolzerFilters
             G = g;
             setCoefficients(Fc, Q, G);
         }        
+        
         void setCoefficients(DspFloatType fc, DspFloatType q, DspFloatType g=1.0)
-        {            
-            return;
-            FilterCoefficients c;
-            Fc = fc/4.0;
+        {                    
+            FilterCoefficients c;   
+            Fc =fc;         
             Q = q;
             G = g;
             
@@ -85,6 +103,9 @@ namespace Filters::IIR::ZolzerFilters
             }
             biquad.setCoefficients(c);
         }
+        void setType(ZolzerType t) {
+			filter_type = t;
+		}
         void setCutoff(DspFloatType fc)
         {
             if(fc < 0 || fc >= Fs/2.0) return;

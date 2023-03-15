@@ -89,16 +89,15 @@ namespace Filters
     {
         BiquadSection biquad;
         DspFloatType x, y, d1, d2;
-
+		
+		
         BiquadTransposedTypeII() 
         {
-            x = y = 0;
-            d1 = d2 = 0;
+			reset();
         }
         BiquadTransposedTypeII(const BiquadSection &b) : biquad(b)
         {
-            x = y = 0;
-            d1 = d2 = 0;
+			reset();            
         }
         BiquadTransposedTypeII &operator=(const BiquadTransposedTypeII &b)
         {
@@ -109,6 +108,15 @@ namespace Filters
             d2 = b.d2;
             return *this;
         }
+        void reset() { 
+			x = y = 0;
+            d1 = d2 = 0;
+            LOOP(i,0,1024) {
+				A_a[i] = 1.0;
+				X_a[i] = 1.0;
+				Y_a[i] = 1.0;
+			}
+		}
         void setCoefficients(const BiquadSection &b)
         {
             biquad = b;
@@ -117,8 +125,7 @@ namespace Filters
         {
             biquad = b;
         }
-
-        // transposed is just flip - to +
+				       
         DspFloatType Tick(DspFloatType I, DspFloatType A = 1, DspFloatType X = 0, DspFloatType Y = 0)
         {
             Undenormal denormal;
@@ -128,6 +135,22 @@ namespace Filters
             d2 = biquad.z[2] * x - biquad.p[1] * y;
             return A * y;
         }
+        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out)
+        {
+			Undenormal denormal;
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++)
+			{			
+				x = in[i];
+				y = biquad.z[0] * x + d1;
+				d1 = biquad.z[1] * x - biquad.p[0] * y + d2;
+				d2 = biquad.z[2] * x - biquad.p[1] * y;
+				out[i] = y;
+			}
+		}
+		void ProcessInplace(size_t n, float * buffer) {
+			ProcessBlock(n,buffer,buffer);
+		}
     };
 
     struct FilterBase
@@ -137,7 +160,7 @@ namespace Filters
         size_t order;
         DspFloatType fc,sr,R,q,bw,g,ripple,rolloff,stop,pass;
         bool init = false;
-
+				
         FilterBase() 
         {
         }
@@ -158,26 +181,22 @@ namespace Filters
             }
             init = true;
         }
-        DspFloatType Tick(DspFloatType I, DspFloatType A = 1, DspFloatType X = 0, DspFloatType Y = 0)
+        
+        DspFloatType Tick(DspFloatType I, DspFloatType A = 1, DspFloatType X = 1, DspFloatType Y = 1)
         {
             if(!init) return 0;
-            DspFloatType o = biquads[0].Tick(I, A, X, Y);
+            DspFloatType o = biquads[0].Tick(I, A, X, Y);            
             for (size_t i = 1; i < biquads.size(); i++)
+            {				
                 o = biquads[i].Tick(o, A, X, Y);
+            }
             return A * o;
         }
 
         void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) {
-            for(size_t i = 0; i < n; i++) out[i] = Tick(in[i]);
+            for(size_t i = 0; i < n; i++) { 				
+				out[i] = Tick(in[i]);
         }
-        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out, DspFloatType * A) {
-            for(size_t i = 0; i < n; i++) out[i] = Tick(in[i],A[i]);
-        }
-        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out, DspFloatType * A, DspFloatType * X) {
-            for(size_t i = 0; i < n; i++) out[i] = Tick(in[i],A[i],X[i]);
-        }
-        void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out, DspFloatType * A, DspFloatType * X, DspFloatType * Y) {
-            for(size_t i = 0; i < n; i++) out[i] = Tick(in[i],A[i],X[i],Y[i]);
-        }
+        
     };
 }

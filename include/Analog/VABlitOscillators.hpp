@@ -9,89 +9,94 @@
 
 namespace Analog::Oscillators::Blit
 {
-    class Blit : public OscillatorProcessor
-    {
-    public:
-      //! Default constructor that initializes BLIT frequency to 220 Hz.
-      Blit( DspFloatType frequency = 220.0, DspFloatType sampleRate=44100 );
+	class Blit : public OscillatorProcessor { public:
+		//! Default constructor that initializes BLIT frequency to 220 Hz.
+		Blit( DspFloatType frequency = 220.0, DspFloatType sampleRate=44100 );
 
-      //! Class destructor.
-      ~Blit();
+		//! Class destructor.
+		~Blit();
 
-      //! Resets the oscillator state and phase to 0.
-      void reset();
+		//! Resets the oscillator state and phase to 0.
+		void reset();
 
-      //! Set the phase of the signal.
-      /*!
-        Set the phase of the signal, in the range 0 to 1.
-      */
-      void setPhase( DspFloatType phase ) { phase_ = M_PI * phase; };
+		//! Set the phase of the signal.
+		/*!
+		Set the phase of the signal, in the range 0 to 1.
+		*/
+		void setPhase( DspFloatType phase ) { phase_ = M_PI * phase; };
 
-      //! Get the current phase of the signal.
-      /*!
-        Get the phase of the signal, in the range [0 to 1.0).
-      */
-      DspFloatType getPhase() const { return phase_ / M_PI; };
+		void savePhase() {
+			temp_phase_ = phase_;
+		}
+		void restorePhase() {
+			phase_ = temp_phase_;
+		}
+		//! Get the current phase of the signal.
+		/*!
+		Get the phase of the signal, in the range [0 to 1.0).
+		*/
+		DspFloatType getPhase() const { return phase_ / M_PI; };
 
-      //! Set the impulse train rate in terms of a frequency in Hz.
-      void setFrequency( DspFloatType frequency );
+		//! Set the impulse train rate in terms of a frequency in Hz.
+		void setFrequency( DspFloatType frequency );
 
-      //! Set the number of harmonics generated in the signal.
-      /*!
-        This function sets the number of harmonics contained in the
-        resulting signal.  It is equivalent to (2 * M) + 1 in the BLIT
-        algorithm.  The default value of 0 sets the algorithm for maximum
-        harmonic content (harmonics up to half the sample rate).  This
-        parameter is not checked against the current sample rate and
-        fundamental frequency.  Thus, aliasing can result if one or more
-        harmonics for a given fundamental frequency exceeds fs / 2.  This
-        behavior was chosen over the potentially more problematic solution
-        of automatically modifying the M parameter, which can produce
-        audible clicks in the signal.
-      */
-      void setHarmonics( unsigned int nHarmonics = 0 );
-      
-      //! Compute and return one output sample.
-      DspFloatType tick( void );
+		//! Set the number of harmonics generated in the signal.
+		/*!
+		This function sets the number of harmonics contained in the
+		resulting signal.  It is equivalent to (2 * M) + 1 in the BLIT
+		algorithm.  The default value of 0 sets the algorithm for maximum
+		harmonic content (harmonics up to half the sample rate).  This
+		parameter is not checked against the current sample rate and
+		fundamental frequency.  Thus, aliasing can result if one or more
+		harmonics for a given fundamental frequency exceeds fs / 2.  This
+		behavior was chosen over the potentially more problematic solution
+		of automatically modifying the M parameter, which can produce
+		audible clicks in the signal.
+		*/
+		void setHarmonics( unsigned int nHarmonics = 0 );
 
-      DspFloatType Tick(DspFloatType I=1, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0) {
-        return tick();
-      }
-      void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * buffer);
-      void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
-            ProcessSIMD(n,input,output);
-        }
-        
-        void ProcessInplace(size_t n, DspFloatType * input) {
-            ProcessBlock(n,nullptr,input);
-        }
+		//! Compute and return one output sample.
+		DspFloatType tick( void );
 
-      enum {
-          PORT_FREQ,
-          PORT_PHASE,
-          PORT_HARMONICS,
-          PORT_RESET,
-      };
-      void setPort(int port, DspFloatType v) {
-          switch(port) {
-              case PORT_FREQ: setFrequency(v); break;
-              case PORT_PHASE: setPhase(v); break;
-              case PORT_HARMONICS: setHarmonics(v); break;
-              case PORT_RESET: reset(); break;
-              default: printf("No port %d\n", port);
-          }
-      }
-    
-      void updateHarmonics( void );
+		DspFloatType Tick(DspFloatType I=1, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0) {
+		return tick();
+		}
+		void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * buffer);
+		void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
+			ProcessSIMD(n,input,output);
+		}
 
-      unsigned int nHarmonics_;
-      unsigned int m_;
-      DspFloatType rate_;
-      DspFloatType phase_;
-      DspFloatType p_;
-      
-      DspFloatType y;
-      DspFloatType sampleRate;
+		void ProcessInplace(size_t n, DspFloatType * input) {
+			ProcessBlock(n,nullptr,input);
+		}
+
+		enum {
+		  PORT_FREQ,
+		  PORT_PHASE,
+		  PORT_HARMONICS,
+		  PORT_RESET,
+		};
+		void setPort(int port, DspFloatType v) {
+		  switch(port) {
+			  case PORT_FREQ: setFrequency(v); break;
+			  case PORT_PHASE: setPhase(v); break;
+			  case PORT_HARMONICS: setHarmonics(v); break;
+			  case PORT_RESET: reset(); break;
+			  default: printf("No port %d\n", port);
+		  }
+		}
+
+		void updateHarmonics( void );
+
+		unsigned int nHarmonics_;
+		unsigned int m_;
+		DspFloatType rate_;
+		DspFloatType phase_;
+		DspFloatType temp_phase_;
+		DspFloatType p_;
+
+		DspFloatType y;
+		DspFloatType sampleRate;
     };
 
     inline DspFloatType Blit :: tick( void )
@@ -134,7 +139,7 @@ namespace Analog::Oscillators::Blit
           tmp /= m_ * denominator;
         }
         phase_ += rate_;
-        if ( phase_ >= M_PI ) phase_ -= M_PI;        
+        if ( phase_ >= M_PI ) phase_ -= M_PI;
         buffer[i] = tmp;
         if(in) buffer[i] *= in[i];
       }
@@ -212,6 +217,16 @@ namespace Analog::Oscillators::Blit
     */
     void setHarmonics( unsigned int nHarmonics = 0 );
 
+	void setPhase(DspFloatType p) {
+		phase_ = M_PI*p;
+	}
+	void savePhase() {
+		temp_phase_ = phase_;
+	}
+	void restorePhase() {
+		phase_ = temp_phase_;
+	}
+
     void setPhaseOffset(DspFloatType o) {
       offset = o;
     }
@@ -229,7 +244,7 @@ namespace Analog::Oscillators::Blit
     void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
         ProcessSIMD(n,input,output);
       }
-        
+
     void ProcessInplace(size_t n, DspFloatType * input) {
         ProcessBlock(n,nullptr,input);
     }
@@ -256,6 +271,7 @@ namespace Analog::Oscillators::Blit
     unsigned int m_;
     DspFloatType rate_;
     DspFloatType phase_;
+    DspFloatType temp_phase_;
     DspFloatType offset;
     DspFloatType p_;
     DspFloatType C2_;
@@ -266,7 +282,7 @@ namespace Analog::Oscillators::Blit
   };
 
   inline DspFloatType BlitSaw :: tick( void )
-  {  
+  {
     //DspFloatType x = phase_;
     //phase_ += offset;
     DspFloatType tmp, denominator = sin( phase_ );
@@ -282,7 +298,7 @@ namespace Analog::Oscillators::Blit
     //phase_   = x;
     phase_ += rate_;
     if ( phase_ >= M_PI ) phase_ -= M_PI;
-      
+
     y = tmp;
     return 2*y;
   }
@@ -305,9 +321,9 @@ namespace Analog::Oscillators::Blit
       //phase_   = x;
       phase_ += rate_;
       if ( phase_ >= M_PI ) phase_ -= M_PI;
-        
+
       y = tmp;
-      out[i] = 2*y;      
+      out[i] = 2*y;
       if(in) out[i] *= in[i];
     }
   }
@@ -387,6 +403,13 @@ namespace Analog::Oscillators::Blit
     */
     void setPhase( DspFloatType phase ) { phase_ = M_PI * phase; };
 
+	void savePhase() {
+		temp_phase_ = phase_;
+	}
+	void restorePhase() {
+		phase_ = temp_phase_;
+	}
+
     //! Get the current phase of the signal.
     /*!
       Get the phase of the signal, in the range [0 to 1.0).
@@ -443,17 +466,18 @@ namespace Analog::Oscillators::Blit
     void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output) {
         ProcessSIMD(n,input,output);
       }
-        
+
     void ProcessInplace(size_t n, DspFloatType * input) {
         ProcessBlock(n,nullptr,input);
     }
-    
+
     void updateHarmonics( void );
 
     unsigned int nHarmonics_;
     unsigned int m_;
     DspFloatType rate_;
     DspFloatType phase_;
+    DspFloatType temp_phase_;
     DspFloatType k;
     DspFloatType p_;
     DspFloatType a_;
@@ -468,15 +492,15 @@ namespace Analog::Oscillators::Blit
     DspFloatType temp = lastBlitOutput_;
 
     // A fully  optimized version of this would replace the two sin calls
-    // with a pair of fast sin oscillators, for which stable fast 
+    // with a pair of fast sin oscillators, for which stable fast
     // two-multiply algorithms are well known. In the spirit of STK,
-    // which favors clarity over performance, the optimization has 
+    // which favors clarity over performance, the optimization has
     // not been made here.
 
     // Avoid a divide by zero, or use of a denomralized divisor
     // at the sinc peak, which has a limiting value of 1.0.
     DspFloatType denominator = sin( phase_ );
-    
+
     if ( fabs( denominator )  < std::numeric_limits<DspFloatType>::epsilon()) {
       // Inexact comparison safely distinguishes betwen *close to zero*, and *close to M_PI*.
       if ( phase_ < 0.1f || phase_ > 2*M_PI - 0.1f )
@@ -485,13 +509,13 @@ namespace Analog::Oscillators::Blit
         lastBlitOutput_ = -a_;
     }
     else {
-      lastBlitOutput_ =  sin( m_ * phase_ );        
+      lastBlitOutput_ =  sin( m_ * phase_ );
       lastBlitOutput_ /= (p_ * denominator);
-      
+
     }
-    
+
     lastBlitOutput_ += temp;
-    
+
     // Now apply DC blocker.
     y = lastBlitOutput_ - dcbState_ + 0.999 * y;
     dcbState_ = lastBlitOutput_;
@@ -510,15 +534,15 @@ namespace Analog::Oscillators::Blit
       DspFloatType temp = lastBlitOutput_;
 
       // A fully  optimized version of this would replace the two sin calls
-      // with a pair of fast sin oscillators, for which stable fast 
+      // with a pair of fast sin oscillators, for which stable fast
       // two-multiply algorithms are well known. In the spirit of STK,
-      // which favors clarity over performance, the optimization has 
+      // which favors clarity over performance, the optimization has
       // not been made here.
 
       // Avoid a divide by zero, or use of a denomralized divisor
       // at the sinc peak, which has a limiting value of 1.0.
       DspFloatType denominator = sin( phase_ );
-      
+
       if ( fabs( denominator )  < std::numeric_limits<DspFloatType>::epsilon()) {
         // Inexact comparison safely distinguishes betwen *close to zero*, and *close to M_PI*.
         if ( phase_ < 0.1f || phase_ > 2*M_PI - 0.1f )
@@ -527,13 +551,13 @@ namespace Analog::Oscillators::Blit
           lastBlitOutput_ = -a_;
       }
       else {
-        lastBlitOutput_ =  sin( m_ * phase_ );        
+        lastBlitOutput_ =  sin( m_ * phase_ );
         lastBlitOutput_ /= (p_ * denominator);
-        
+
       }
-      
+
       lastBlitOutput_ += temp;
-      
+
       // Now apply DC blocker.
       y = lastBlitOutput_ - dcbState_ + 0.999 * y;
       dcbState_ = lastBlitOutput_;
@@ -544,7 +568,7 @@ namespace Analog::Oscillators::Blit
       out[i] = 0.9*y/2.0;
     }
   }
-  
+
   BlitSquare:: BlitSquare( DspFloatType frequency,DspFloatType sampleRate ) : OscillatorProcessor()
   {
     this->sampleRate = sampleRate;

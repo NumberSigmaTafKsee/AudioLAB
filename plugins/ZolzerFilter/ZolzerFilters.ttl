@@ -1,0 +1,152 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
+@prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix urid: <http://lv2plug.in/ns/ext/urid#> .
+@prefix midi: <http://lv2plug.in/ns/ext/midi#> .
+
+
+<urn:james5:ZolzerFilters> a lv2:Plugin , lv2:FilterPlugin , doap:Project ;
+    lv2:binary <ZolzerFilters.so> ;
+    doap:name "ZolzerFilters" ;
+    lv2:optionalFeature lv2:hardRTCapable ;
+    lv2:requiredFeature urid:map ;
+    lv2:minorVersion 2 ;
+    lv2:microVersion 0 ; 
+    
+    lv2:port 
+        [
+            a lv2:InputPort , lv2:AudioPort ;
+            lv2:index 0 ;
+            lv2:symbol "audio_in" ;
+            lv2:name "Audio input" ;
+        ],[
+            a lv2:OutputPort , lv2:AudioPort ;
+            lv2:index 1 ;
+            lv2:symbol "audio_out" ;
+            lv2:name "Audio output" ;
+        ],[
+            a lv2:InputPort , atom:AtomPort ;
+            lv2:index 2 ;
+            lv2:symbol "midi_in" ;
+            lv2:name "MIDI in" ;
+            atom:bufferType atom:Sequence ;
+            atom:supports midi:MidiEvent ;
+        ],[
+            a lv2:OutputPort , atom:AtomPort ;
+            lv2:index 3 ;
+            lv2:symbol "midi_out" ;
+            lv2:name "MIDI out" ;
+            atom:bufferType atom:Sequence ;
+            atom:supports midi:MidiEvent ;
+        ],[
+            a lv2:InputPort , lv2:AudioPort ;
+            lv2:index 4 ;
+            lv2:symbol "audio_in_left" ;
+            lv2:name "In Left" ;
+        ],[
+            a lv2:InputPort , lv2:AudioPort ;
+            lv2:index 5 ;
+            lv2:symbol "audio_in_right" ;
+            lv2:name "In Right" ;
+        ],[
+            a lv2:OutputPort , lv2:AudioPort ;
+            lv2:index 6 ;
+            lv2:symbol "audio_out_left" ;
+            lv2:name "Out Left" ;
+        ],[
+            a lv2:OutputPort , lv2:AudioPort ;
+            lv2:index 7 ;
+            lv2:symbol "audio_out_right" ;
+            lv2:name "Out Right" ;
+        ],[
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 8;
+            lv2:symbol "panlaw" ;
+            lv2:name "Pan" ;
+            lv2:default 0.0;
+            lv2:minimum -1.0;
+            lv2:maximum 1.0;            
+            lv2:portProperty pprops:logarithmic ;
+        ],[
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 9;
+            lv2:symbol "type";
+            lv2:name "Type";
+            lv2:portProperty lv2:integer, lv2:enumeration;
+            lv2:scalePoint [ rdfs:label "LP" ; rdf:value 0 ] ;            
+            lv2:scalePoint [ rdfs:label "LP1P" ; rdf:value 1 ] ;            
+            lv2:scalePoint [ rdfs:label "HP" ; rdf:value 2 ] ;
+            lv2:scalePoint [ rdfs:label "HP1P" ; rdf:value 3 ] ;
+            lv2:scalePoint [ rdfs:label "BP" ; rdf:value 4 ] ;
+            lv2:scalePoint [ rdfs:label "NOTCH" ; rdf:value 5 ] ;
+            lv2:scalePoint [ rdfs:label "PEAKBOOST" ; rdf:value 6 ] ;
+            lv2:scalePoint [ rdfs:label "PEAKCUT" ; rdf:value 7 ] ;
+            lv2:scalePoint [ rdfs:label "LOWSHELFBOOST" ; rdf:value 8 ] ;
+            lv2:scalePoint [ rdfs:label "LOWSHELFCUT" ; rdf:value 9 ] ;            
+            lv2:scalePoint [ rdfs:label "HIGHSHELFBOOST" ; rdf:value 10 ] ;
+            lv2:scalePoint [ rdfs:label "HIGHSHELFCUT" ; rdf:value 11 ] ;            
+            lv2:scalePoint [ rdfs:label "APF" ; rdf:value 12 ] ;
+            lv2:scalePoint [ rdfs:label "APF1P" ; rdf:value 13 ] ;            
+            lv2:default 0;
+            lv2:minimum 0;
+            lv2:maximum 13;
+        ],[
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 10;
+            lv2:symbol "cutoff" ;
+            lv2:name "Cutoff" ;
+            lv2:default 1000;
+            lv2:minimum 30;
+            lv2:maximum 20000;            
+            lv2:portProperty pprops:logarithmic ;
+        ],[
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 11;
+            lv2:symbol "q" ;
+            lv2:name "Q" ;
+            lv2:default 0.5;
+            lv2:minimum 0.5;
+            lv2:maximum 20.0;            
+            lv2:portProperty pprops:logarithmic ;
+        ],[                
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 12;
+            lv2:symbol "gain" ;
+            lv2:name "Gain" ;
+            lv2:default 0;
+            lv2:minimum -12.0;
+            lv2:maximum 12.0;            
+            lv2:portProperty pprops:logarithmic ;
+        ],[
+            a lv2:InputPort , lv2:CVPort ;
+            lv2:index 13;
+            lv2:symbol "cv_cutoff" ;
+            lv2:name "CutoffCV" ;
+            lv2:default 0;
+            lv2:minimum -1.0;
+            lv2:maximum 1.0;            
+            lv2:portProperty pprops:logarithmic ;
+        ],[
+            a lv2:InputPort , lv2:CVPort ;
+            lv2:index 14;
+            lv2:symbol "cv_q" ;
+            lv2:name "QCV" ;
+            lv2:default 0;
+            lv2:minimum -1.0;
+            lv2:maximum 1.0;            
+            lv2:portProperty pprops:logarithmic ;
+        ],[
+            a lv2:InputPort , lv2:CVPort ;
+            lv2:index 15;
+            lv2:symbol "pan_cv" ;
+            lv2:name "PanCV" ;
+            lv2:default 0;
+            lv2:minimum -1.0;
+            lv2:maximum 1.0;            
+            lv2:portProperty pprops:logarithmic ;
+        ] .
+        

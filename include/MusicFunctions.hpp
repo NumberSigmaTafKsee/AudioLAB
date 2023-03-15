@@ -6,10 +6,17 @@ namespace MusicFunctions
     {
         return 12.0 * log2(f / 440.0) + 69.0;
     }
+    double freq2midi(double f)
+    {
+        return 12.0 * log2(f / 440.0) + 69.0;
+    }
     double midi_to_freq(double m)
     {
         return pow(2.0, (m - 69.0) / 12.0) * 440.0;
     }
+    double midi2freq(double m) {
+		return pow(2.0, (m - 69.0) / 12.0) * 440.0;
+    }	
     double semitone(double semi, double f1)
     {
         double f2 = f1 * pow(2.0, semi / 12.0);

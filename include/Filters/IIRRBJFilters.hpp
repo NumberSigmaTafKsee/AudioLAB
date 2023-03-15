@@ -1,7 +1,7 @@
 
 #pragma once
 
-// todo: invididual filter classes for each type(lp,hp,etc..)
+#include "Filters/IIRFilters.hpp"
 
 namespace Filters::IIR::RBJFilters
 {
@@ -12,32 +12,57 @@ namespace Filters::IIR::RBJFilters
     struct RBJBiquadFilter : public BiquadTransposedTypeII
     {
 
-        FilterType filter_type;
-        DspFloatType Fc, Fs, Q, G, R;
-
-        RBJBiquadFilter(FilterType type = LOWPASS, DspFloatType sampleRate = 44100.0) : BiquadTransposedTypeII()
+		enum RBJType {
+			LOWPASS,
+			HIGHPASS,
+			BANDPASS,
+			ZERODB,
+			SKIRT,
+			NOTCH,
+			PEAK,
+			LOWSHELF,
+			HIGHSHELF,
+			ALLPASS,
+			LPBW,
+			HPBW,
+			LPR,
+			HPR,
+			SKIRTBW,
+			ZERODBBW,
+			NOTCHBW,			
+			APFBW,
+			PEAKBW,
+			LOWSHELFSLOPE,
+			HIGHSHELFSLOPE,			
+		};
+		
+        RBJType filter_type;
+        DspFloatType Fc, Fs, Q, G, R,S,BW;
+		
+        RBJBiquadFilter(RBJType type = LOWPASS, DspFloatType sampleRate = 44100.0) : BiquadTransposedTypeII()
         {
             Fc = 1000.0;
             Fs = sampleRate;
             Q = 0.5;
             G = 1.0;
+            S = 0.0;
+            BW=0.0;
             filter_type = type;
-            setCoefficients(Fc, Q, G);
+            setCoefficients(Fc);
         }        
-        RBJBiquadFilter(FilterType type, DspFloatType fc, DspFloatType sr, DspFloatType q = 0.5, DspFloatType g = 1) : BiquadTransposedTypeII()
+        RBJBiquadFilter(RBJType type, DspFloatType fc, DspFloatType sr, DspFloatType q = 0.5, DspFloatType g = 1) : BiquadTransposedTypeII()
         {
             filter_type = type;
-            Fs = sr;
+            Fs = sr/2.0;
             Q = q;
             G = g;
-            setCoefficients(Fc, Q, G);
+            setCoefficients(Fc);
         }
-        void setCoefficients(DspFloatType fc, DspFloatType q, DspFloatType g = 1)
+        void setCoefficients(DspFloatType fc)
         {            
-            FilterCoefficients c;
-            Fc = fc/4.0;
-            Q = q;
-            G = g;            
+            FilterCoefficients c;            
+            Fc = fc;
+            
             switch (filter_type)
             {
             case LOWPASS:
@@ -47,10 +72,12 @@ namespace Filters::IIR::RBJFilters
                 c = RBJHighpassBiquad(Fc, Fs, Q);
                 break;
             case BANDPASS:
-            case ZERODBBANDPASS:
+				c = RBJBandpassConstant0dbBiquadBW(Fc, Fs, Q);
+				break;
+            case ZERODB:
                 c = RBJBandpassConstant0dbBiquad(Fc, Fs, Q);
                 break;
-            case SKIRTBANDPASS:            
+            case SKIRT:            
                 c = RBJBandpassConstantSkirtBiquad(Fc, Fs, Q);
                 break;
             case NOTCH:
@@ -68,29 +95,75 @@ namespace Filters::IIR::RBJFilters
             case ALLPASS:
                 c = RBJAllpassBiquad(Fc, Fs, Q);
                 break;
+            case LPBW:
+				c = RBJLowpassBiquadBW(Fc,Fs,BW);
+				break;
+			case HPBW:
+				c = RBJHighpassBiquadBW(Fc,Fs,BW);
+				break;
+			case LPR:
+				c = RBJLowpassBiquadR(Fc,Fs,Q,R);
+				break;
+			case HPR:
+				c = RBJHighpassBiquadR(Fc,Fs,Q,R);
+				break;
+			case SKIRTBW:
+				c = RBJBandpassConstantSkirtBiquadBW(Fc,Fs,BW);
+				break;
+			case ZERODBBW:
+				c = RBJBandpassConstant0dbBiquadBW(Fc,Fs,BW);
+				break;
+			case NOTCHBW:
+				c = RBJNotchBiquadBW(Fc,Fs,BW);
+				break;
+			case APFBW:
+				c = RBJAllpassBiquadBW(Fc,Fs,BW);
+				break;
+			case PEAKBW:
+				c = RBJPeakBiquadBW(Fc,Fs,BW,G);
+				break;
+			case LOWSHELFSLOPE:
+				c = RBJLowshelfBiquadSlope(Fc,Fs,S,G);
+				break;
+			case HIGHSHELFSLOPE:
+				c = RBJHighshelfBiquadSlope(Fc,Fs,S,G);
+				break;
             }
             biquad.setCoefficients(c);
         }
+        void setType(RBJType type) {
+			filter_type = type;
+		}
         void setCutoff(DspFloatType fc)
         {
             if(fc < 0 || fc >= Fs/2.0) return;
-            setCoefficients(fc, Q, G);
+            Fc = fc;
+            setCoefficients(fc);
         }
         void setQ(DspFloatType q)
         {
-            if(q < 0 || q > 1000.0) return;
-            setCoefficients(Fc, q, G);
-        }
-        void setRadius(DspFloatType r)
-        {
-            if(r < 0 || r >= 1.0) return;
-            //setCoefficientsRadius(Fc, Q, (1 - r), G);
-        }
+			Q = q;            
+            setCoefficients(Fc);
+        }        
         void setGain(DspFloatType g)
-        {
-            if(g < 0 || g > 10.0) return;
-            setCoefficients(Fc, Q, g);
+        {            
+            G = g;
+            setCoefficients(Fc);
         }
+        void setBandWidth(DspFloatType bw) {
+			BW = bw;
+			setCoefficients(Fc);
+		}
+        void setSlope(DspFloatType s) {
+			S = s;
+			setCoefficients(Fc);
+		}
+		
+        float getCutoff() const { return Fc; }
+        float getQ() const { return Q; }
+        float getGain() const { return G; }
+        float getSlope() const { return S; }
+        
     };
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -169,11 +242,11 @@ namespace Filters::IIR::RBJFilters
     {        
         DspFloatType Fc, Fs, Q, G, R;
 
-        RBJSkirtBandPassFilter(DspFloatType sampleRate = 44100.0) : RBJBiquadFilter(SKIRTBANDPASS,sampleRate)
+        RBJSkirtBandPassFilter(DspFloatType sampleRate = 44100.0) : RBJBiquadFilter(SKIRT,sampleRate)
         {
         }
         RBJSkirtBandPassFilter(DspFloatType fc, DspFloatType sr, DspFloatType q = 0.5, DspFloatType g = 1) 
-        : RBJBiquadFilter(SKIRTBANDPASS,fc,sr,q,g)
+        : RBJBiquadFilter(SKIRT,fc,sr,q,g)
         {
         }
     };   

@@ -41,7 +41,7 @@ public:
     ProcessSIMD(n,in,out);
   }
   void ProcessInplace(size_t n, DspFloatType * in) {
-    ProcessSIMD(n,in);
+    ProcessSIMD(n,nullptr,in);
   }
   /** change the current rate
       @param rate new rate in Hz */
@@ -112,17 +112,17 @@ inline DspFloatType LFO::tick()
 
   return table[i]*(1.0f-frac) + table[i+1]*frac; // linear interpolation
 }
-void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out ) {
+void LFO::ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out ) {
   #pragma omp simd aligned(in,out)
-  for(size_t i = 0; i < n; i++) {
+  for(size_t s = 0; s < n; s++) {
     // the 8 MSB are the index in the table in the range 0-255 
     int i = phase >> 24;     
     // and the 24 LSB are the fractionnal part
     DspFloatType frac = (phase & 0x00FFFFFF) * k1Div24lowerBits;
     // increment the phase for the next tick
     phase += inc; // the phase overflow itself
-    out[i] =  table[i]*(1.0f-frac) + table[i+1]*frac; // linear interpolation
-    if(in) out[i] *= in[i];
+    out[s] =  table[i]*(1.0f-frac) + table[i+1]*frac; // linear interpolation
+    if(in) out[i] *= in[s];
   }
 }
 inline void LFO::setRate(DspFloatType rate)
@@ -141,7 +141,7 @@ inline void LFO::setWaveform(waveform_t index)
     	DspFloatType pi = 4.0 * atan(1.0);
 
 	int i;
-  #pragma omp simd
+  
 	for(i=0;i<=256;i++)
 	  table[i] = sin(2.0f*pi*(i/256.0f));
 
@@ -150,7 +150,7 @@ inline void LFO::setWaveform(waveform_t index)
     case triangle:
       {
 	int i;
-  #pragma omp simd
+
 	for(i=0;i<64;i++)
 	  {
 	    table[i]     =        i / 64.0f;
@@ -164,7 +164,7 @@ inline void LFO::setWaveform(waveform_t index)
     case sawtooth:
       {
 	int i;
-  #pragma omp simd
+
 	for(i=0;i<256;i++)
 	  {
 	    table[i] = 2.0f*(i/255.0f) - 1.0f;
@@ -175,7 +175,7 @@ inline void LFO::setWaveform(waveform_t index)
     case square:
       {
 	int i;
-  #pragma omp simd
+
 	for(i=0;i<128;i++)
 	  {
 	    table[i]     =  1.0f;

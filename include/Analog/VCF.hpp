@@ -69,80 +69,6 @@ namespace Analog
         bool sigd2=false;
         bool invertP = false;
                 
-        /*
-        DspFloatType m_cutoff = 1.0f;
-        DspFloatType m_resonance = 0.5f;
-        DspFloatType m_q = 0.5;
-        DspFloatType m_bw = 1;
-        DspFloatType m_gain = 1;
-        DspFloatType m_slope = 1;
-        DspFloatType m_A = 1;
-        DspFloatType m_X = 0;
-        DspFloatType m_Y = 0;
-        DspFloatType m_cMin = -1.0f;
-        DspFloatType m_cMax = 1.0f;
-        DspFloatType m_dc   = 0.0f;
-        DspFloatType m_distDB = 0.0f;
-        DspFloatType m_pre = 1.0f;
-        DspFloatType m_post = 1.0f;
-
-        virtual void updateTick(DspFloatType A = 1, DspFloatType X = 0, DspFloatType Y = 0) {
-            m_A = A;
-            m_X = X;
-            m_Y = Y;
-        }
-        virtual void setA(DspFloatType A) {
-            m_A = A;
-        }
-        virtual void setX(DspFloatType X) {
-            m_X = X;        
-        }
-        virtual void setY(DspFloatType Y) {
-            m_Y = Y;
-        }
-        virtual void setDC(DspFloatType dc) {
-            m_dc = dc;
-        }
-        virtual void setMin(DspFloatType min) {
-            m_cMin = min;
-        }
-        virtual void setMax(DspFloatType max) {
-            m_cMax = max;
-        }
-        virtual void setDistDB(DspFloatType db) {
-            m_distDB = db;
-        }
-        virtual void setPre(DspFloatType p) {
-            m_pre = p;
-        }
-        virtual void setPost(DspFloatType p) {
-            m_post = p;
-        }
-        virtual void setCutoff(DspFloatType c) {
-            m_cutoff = c;
-        }
-        virtual void setResonance(DspFloatType r) {
-            m_resonance = r;
-        }
-        virtual void setCutoffCV(DspFloatType f) {
-            m_cutoff = cv2freq(f);
-        }
-        virtual void setResonanceCV(DspFloatType r) {
-            m_resonance  = r/10.0;
-        }
-        virtual void setQ(DspFloatType q) {
-            m_q = q;
-        }
-        virtual void setBW(DspFloatType bw) {
-            m_bw = bw;
-        }
-        virtual void setSlope(DspFloatType s) {
-            m_slope = s;
-        }
-        virtual void setGain(DspFloatType g) {
-            m_gain = g;
-        }
-        */
                         
         enum {
             ONEPOLE,
@@ -167,10 +93,6 @@ namespace Analog
             PORT_TWOPOLE,
             PORT_THREEPOLE,
             PORT_FOURPOLE,
-            PORT_APF,
-            PORT_UBS,
-            PORT_PEAK,
-            PORT_SHELF,
             PORT_DCBIAS,
             PORT_OVERSAMPLE,
             PORT_ENVSCALE,
@@ -341,7 +263,7 @@ namespace Analog
                     }
                 }
                 */                
-            out *= A;
+            out *= std::pow(10.0,post_gain/20.0);
             if(sigd2) out = FX::Distortion::serpent_curve(out);
             //for(size_t i = 0; i < oversample/2; i++) out = decimator.Tick(out);
             return out;

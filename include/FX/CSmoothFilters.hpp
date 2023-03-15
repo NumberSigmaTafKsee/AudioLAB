@@ -1,17 +1,16 @@
 #pragma once
 
-
 #include <cmath>
-#include "SoundObject.hpp"
+
 
 namespace FX::Filters::Smoothers
 {
     // is just the one pole again
-    class CSmoothFilter : public FilterProcessor
+    class CSmoothFilter
     {
     public:
                 
-        CSmoothFilter(DspFloatType Fs=44100.0f, DspFloatType Fc=0.1f) : FilterProcessor() {
+        CSmoothFilter(DspFloatType Fs=44100.0f, DspFloatType Fc=0.1f) {
             a0 = 1.0; b1 = 0.0; z1 = 0.0;
             fs = Fs;            
             setCutoff(Fc);        
@@ -46,10 +45,10 @@ namespace FX::Filters::Smoothers
         DspFloatType target = 1.0;
     };
 
-    class CParamSmooth : public FilterProcessor
+    class CParamSmooth 
     {
     public:
-        CParamSmooth() : FilterProcessor() { a = 0.99f; b = 1.f - a; z = 0; };
+        CParamSmooth() { a = 0.99f; b = 1.f - a; z = 0; };
         ~CParamSmooth();
         inline DspFloatType Process(DspFloatType in) { z = (in * b) + (z * a); return z; }
 
@@ -60,12 +59,11 @@ namespace FX::Filters::Smoothers
         DspFloatType a, b, z;
     };
 
-    class CSmoothTime : public FilterProcessor
+    class CSmoothTime 
     {
     public:
 
-        CSmoothTime(DspFloatType smoothingTimeInMs, DspFloatType samplingRate)
-        : FilterProcessor()
+        CSmoothTime(DspFloatType smoothingTimeInMs, DspFloatType samplingRate)        
         {
             const DspFloatType c_twoPi = 6.283185307179586476925286766559f;
 

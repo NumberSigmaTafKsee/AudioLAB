@@ -91,7 +91,17 @@ static LV2_Handle instantiate (const struct LV2_Descriptor *descriptor, double s
 enum {
 	CUTOFF,
 	Q,
-	TYPE,	
+	TYPE,		
+	ATTACK,
+	DECAY,
+	SUSTAIN,
+	RELEASE,
+	CUTOFF_ENV,
+	Q_ENV,
+	LFO_TYPE,
+	LFO_FREQ,
+	CUTOFF_LFO,
+	Q_LFO,
 	LAST
 };
 
@@ -99,6 +109,7 @@ enum PortGroups
 {
     PORT_AUDIO_IN   = 0,    
     PORT_AUDIO_OUT,
+    PORT_MIDI_IN,
     PORT_CUTOFF,    
     PORT_Q,
     PORT_TYPE,    

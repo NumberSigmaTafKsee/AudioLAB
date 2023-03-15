@@ -19,6 +19,7 @@ namespace Liquid
         DspFloatType time = 10.0f;
         DspFloatType range = 1.0f;
         DspFloatType sr;
+        DspFloatType target = 1.f;
         
         LiquidNeuron(DspFloatType sample_rate = 44100.0, DspFloatType ms = 10.0f, DspFloatType limit=1.0f) :
             limiter(sample_rate,10.0f,1)
@@ -39,12 +40,18 @@ namespace Liquid
             range = R;
             limiter.setParams(sr,time,range);
         }
+        void setTarget(DspFloatType t) {
+			target = t;
+		}
         void setSampleRate(DspFloatType s)
         {
             sr = s;
             limiter.setParams(sr,time,range);
         }
-
+		DspFloatType Tick() {
+            prev = limiter.next(target);
+            return prev;
+        }
         DspFloatType Tick(DspFloatType target) {
             prev = limiter.next(target);
             return prev;

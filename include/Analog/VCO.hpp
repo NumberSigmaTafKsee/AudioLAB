@@ -5,52 +5,9 @@
 
 namespace Analog
 {
-    enum {
-        POLYBLEP,
-        BLIT,
-        MINBLEP,
-        DPW,
-    };
-
     const DspFloatType TWO_PI = 2 * M_PI;
 
-    template<typename T>
-    inline T square_number(const T &x) {
-        return x * x;
-    }
-
-    // Adapted from "Phaseshaping Oscillator Algorithms for Musical Sound
-    // Synthesis" by Jari Kleimola, Victor Lazzarini, Joseph Timoney, and Vesa
-    // Valimaki.
-    // http://www.acoustics.hut.fi/publications/papers/smc2010-phaseshaping/
-    inline DspFloatType blep(DspFloatType t, DspFloatType dt) {
-        if (t < dt) {
-            return -square_number(t / dt - 1);
-        } else if (t > 1 - dt) {
-            return square_number((t - 1) / dt + 1);
-        } else {
-            return 0;
-        }
-    }
-
-    // Derived from blep().
-    inline DspFloatType blamp(DspFloatType t, DspFloatType dt) {
-        if (t < dt) {
-            t = t / dt - 1;
-            return -1 / 3.0 * square_number(t) * t;
-        } else if (t > 1 - dt) {
-            t = (t - 1) / dt + 1;
-            return 1 / 3.0 * square_number(t) * t;
-        } else {
-            return 0;
-        }
-    }
-
-    template<typename T>
-    inline int64_t bitwiseOrZero(const T &t) {
-        return static_cast<int64_t>(t) | 0;
-    }
-
+    
     // this is vectorized
     struct VCOPolyBLEP : public OscillatorProcessor
     {
@@ -98,6 +55,41 @@ namespace Analog
         DspFloatType pulseWidth; // [0.0..1.0]
         DspFloatType t; // The current phase [0.0..1.0) of the oscillator.
 
+		
+		inline DspFloatType square_number(const DspFloatType &x) {
+			return x * x;
+		}
+
+		// Adapted from "Phaseshaping Oscillator Algorithms for Musical Sound
+		// Synthesis" by Jari Kleimola, Victor Lazzarini, Joseph Timoney, and Vesa
+		// Valimaki.
+		// http://www.acoustics.hut.fi/publications/papers/smc2010-phaseshaping/
+		inline DspFloatType blep(DspFloatType t, DspFloatType dt) {
+			if (t < dt) {
+				return -square_number(t / dt - 1);
+			} else if (t > 1 - dt) {
+				return square_number((t - 1) / dt + 1);
+			} else {
+				return 0;
+			}
+		}
+
+		// Derived from blep().
+		inline DspFloatType blamp(DspFloatType t, DspFloatType dt) {
+			if (t < dt) {
+				t = t / dt - 1;
+				return -1 / 3.0 * square_number(t) * t;
+			} else if (t > 1 - dt) {
+				t = (t - 1) / dt + 1;
+				return 1 / 3.0 * square_number(t) * t;
+			} else {
+				return 0;
+			}
+		}
+		
+		inline int64_t bitwiseOrZero(const DspFloatType &t) {
+			return static_cast<int64_t>(t) | 0;
+		}
 
         VCOPolyBLEP(DspFloatType sampleRate, Waveform wave = SINE)
         : sampleRate(sampleRate), amplitude(1.0), t(0.0), OscillatorProcessor()
@@ -800,39 +792,21 @@ namespace Analog
     // Blip
     // minBLEP
     // DPW
-    struct VCO
+    struct VCO : public OscillatorProcessor
     {
         VCOPolyBLEP polyblep;
-		enum {
-				SAWTOOTH,
-				SQUARE,
-				TRIANGLE,
-				SINE,
-				// other waveforms vary to the oscillator 
-				// use the oscillator to change it
-			};
-
-        VCO(DspFloatType sr,int waveform) {
+		DspFloatType octave=0,semi=0,tune=0, freq=220.0;
+		
+		
+        VCO(DspFloatType sr,VCOPolyBLEP::Waveform waveform) : OscillatorProcessor() {
             polyblep.init(sr);
             setWaveForm(waveform);
         }
-        void setWaveForm(int type) {            
-            switch(type) {
-                case SAWTOOTH:
-                    polyblep.setWaveform(VCOPolyBLEP::Waveform::SAWTOOTH); 
-                    break;
-                case SQUARE:
-                    polyblep.setWaveform(VCOPolyBLEP::Waveform::SQUARE); 
-                    break;
-                case TRIANGLE:
-                    polyblep.setWaveform(VCOPolyBLEP::Waveform::TRIANGLE); 
-                    break;
-                case SINE:
-                    polyblep.setWaveform(VCOPolyBLEP::Waveform::SINE); 
-                    break;        
-            }
+        void setWaveForm(VCOPolyBLEP::Waveform  type) {            
+            polyblep.setWaveform(type);
         }
         void setFrequency(DspFloatType f) {
+			freq = f;
             polyblep.setFrequency(f);
         }
         void setSampleRate(DspFloatType sr) {
@@ -841,16 +815,46 @@ namespace Analog
         void setDuty(DspFloatType d) {
             polyblep.setPulseWidth(d);
         }
-
+		void setFineTune(DspFloatType f) {
+			fine = f;
+		}
+		void setSemiTone(DspFloatType f) {
+			semi = MusicFunctions::semitone(f);
+		}
+		void setOctave(DspFloatType o) {
+			oct = MusicFunction::semitone(f*12.0);
+		}
+		enum { 
+			PORT_WAVEFORM,
+			PORT_FREQ,
+			PORT_DUTY,
+			PORT_FINE,
+			PORT_SEMI,
+			PORT_OCTAVE,
+		};
+		void setPort(int port, DspFloatType v)
+		{
+			switch(port) {
+			case PORT_WAVEFORM: setWaveform((VCOPolyBLEP::Waveform)v); break;
+			case PORT_FREQ: setFrequency(v); break;
+			case PORT_DUTY: setDuty(v); break;
+			case PORT_FINE: setFineTune(v); break;
+			case PORT_SEMI: setSemiTone(v); break;
+			case PORT_OCTAVE: setOctave(v); break;
+			}
+		}
         DspFloatType Tick(DspFloatType I=1, DspFloatType A=1, DspFloatType X=1, DspFloatType Y=1)
         {
+			polyblep.setFrequency(freq + semi + tune);					
             return polyblep.Tick(I,A,X,Y);
         }
         void ProcessBlock(size_t n, DspFloatType *in, DspFloatType * out) {
+			polyblep.setFrequency(freq + semi + tune);					
             polyblep.ProcessSIMD(n,in,out);
         }
-	void ProcessInplace(size_t n, DspFloatType * in) {
-		polyblep.ProcessSIMD(n,nullptr,in);
-	}
-    };
+		void ProcessInplace(size_t n, DspFloatType * in) {
+			polyblep.setFrequency(freq + semi + tune);					
+			polyblep.ProcessSIMD(n,nullptr,in);
+		}
+	};
 }

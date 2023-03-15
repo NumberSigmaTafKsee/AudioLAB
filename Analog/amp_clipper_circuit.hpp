@@ -4,26 +4,26 @@
 // License: GPL v3.0
 
 // A class that implements a diode clipper circuits
-
+#pragma once
 #include <cmath>
 #include "GenericSoundObject.hpp"
 
 namespace FX::Distortion::ClipperCircuit
 {
     template<class T>
-    class clipperCircuit : public GSSoundProcessor<T>
+    class ClipperCircuit : public GSSoundProcessor<T>
     {
     public:
         
         // Default public constructor
-        clipperCircuit() : clipperCircuit(48e3) {};
+        ClipperCircuit() : ClipperCircuit(48e3) {};
         
         // Delegated constructor for use with Sample Rate
-        clipperCircuit(T fs)
-        : clipperCircuit(fs, 1., 1.) {};
+        ClipperCircuit(T fs)
+        : ClipperCircuit(fs, 1., 1.) {};
         
         // Constructor for
-        clipperCircuit(T fs, T ideality, T asymmetry)
+        ClipperCircuit(T fs, T ideality, T asymmetry)
         : sFreq(fs), Is(1e-7), C1(1e-6), asym(asymmetry),
         state(0.), yn1(0.), GSSoundProcessor<T>()
         {
@@ -31,7 +31,7 @@ namespace FX::Distortion::ClipperCircuit
         }
         
         // Destructor
-        ~clipperCircuit(){};
+        ~ClipperCircuit(){};
         
         // Single sample calculation
         T run(const T uVal)
@@ -54,8 +54,8 @@ namespace FX::Distortion::ClipperCircuit
             while ((residual>tolerance) && (numIters < maximumIters))
             {
                 // Precalculate exponentials as they are used twice.
-                ePos = fastExp(yCur/(NVt));
-                eNeg = fastExp(-yCur/(asym*NVt));
+                ePos = std::exp(yCur/(NVt));
+                eNeg = std::exp(-yCur/(asym*NVt));
                 
                 // Calculate step
                 funcValue = pConst - (yCur/R1)
@@ -84,23 +84,23 @@ namespace FX::Distortion::ClipperCircuit
             state = (4.*C1*sFreq)*yCur - state;
             yn1 = yCur;
             
-            return yCur;
+            return yCur * getForwardVoltage();
         }
         void ProcessSIMD(size_t n, T * in, T * out)
-	{
-		#pragma omp simd
-		for(size_t i = 0; i < n; i++) out[i] = run(in[i]);
-	}
-	void ProcessBlock(size_t n, T * in, T * out)
-	{
-		#pragma omp simd
-		for(size_t i = 0; i < n; i++) out[i] = run(in[i]);
-	}
-	void ProcessInplace(size_t n, T * buffer)
-	{
-		#pragma omp simd
-		for(size_t i = 0; i < n; i++) buffer[i] = run(buffer[i]);
-	}
+		{
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = run(in[i]);
+		}
+		void ProcessBlock(size_t n, T * in, T * out)
+		{
+			#pragma omp simd aligned(in,out)
+			for(size_t i = 0; i < n; i++) out[i] = run(in[i]);
+		}
+		void ProcessInplace(size_t n, T * buffer)
+		{
+			#pragma omp simd aligned(buffer)
+			for(size_t i = 0; i < n; i++) buffer[i] = run(buffer[i]);
+		}
 	
         // Set ideality factor, combined with thermal voltage
         void setIdeality(const T idealityFactor)

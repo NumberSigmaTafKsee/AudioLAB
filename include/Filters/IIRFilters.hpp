@@ -148,7 +148,7 @@ namespace Filters
         return arg(r);
     }
     std::vector<DspFloatType> impulseResponse(size_t n, FilterProcessor * filter) {
-        
+
         std::vector<DspFloatType> ir(n);
         DspFloatType r = filter->Tick(1.0);
         ir[0] = r;
@@ -163,7 +163,7 @@ namespace Filters
 //////////////////////////////////////////////////////////////////////////////////////////
 // FilterBase
 //////////////////////////////////////////////////////////////////////////////////////////
-    
+
     struct FilterBase : public FilterProcessor
     {
         enum FilterType
@@ -188,29 +188,29 @@ namespace Filters
             PEAKBOOST,
             PEAKCUT,
         };
-    
+
 
         FilterType filter_type = LOWPASS;
         DspFloatType Fc,Fs,Q;
 
-    
+
         FilterBase() : FilterProcessor()
         {
 
         }
-        FilterBase(FilterType type, DspFloatType freq, DspFloatType sample_rate, DspFloatType resonance) 
+        FilterBase(FilterType type, DspFloatType freq, DspFloatType sample_rate, DspFloatType resonance)
         : FilterProcessor(),Fc(freq),Fs(sample_rate),Q(resonance),filter_type(type)
         {
 
         }
         virtual ~FilterBase() = default;
-        
+
         virtual DspFloatType Tick(DspFloatType I, DspFloatType A=1, DspFloatType X=0, DspFloatType Y=0) = 0;
 
         virtual void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out) = 0;
 		void ProcessBlock(size_t n, DspFloatType * in, DspFloatType * out) { ProcessSIMD(n,in,out); }
 		void ProcessInplace(size_t n, DspFloatType * in, DspFloatType * out) { ProcessSIMD(n,out,out); }
-		
+
         virtual void setCutoff(DspFloatType fc) {
             printf("Virtual function setCutoff\n");
         }
@@ -221,7 +221,7 @@ namespace Filters
             printf("Virtual function setGain\n");
         }
 
-        
+
     };
 
     inline FilterCoefficients LowpassOnePole(DspFloatType fc, DspFloatType fs) {
@@ -278,13 +278,13 @@ namespace Filters
         return c;
     }
 
-    
+
     inline FilterCoefficients LowpassBiquad(DspFloatType fc, DspFloatType fs, DspFloatType Q)
     {
         //DspFloatType V = std::pow(10, std::abs(peakGain) / 20);
         DspFloatType K = std::tan(M_PI * fc / fs);
         DspFloatType norm = 1 / ( 1 + K/Q + K*K);
-        FilterCoefficients c;    
+        FilterCoefficients c;
         c.b[0] = K*K*norm;
         c.b[1] = 2 * c.b[0];
         c.b[2] = c.b[0];
@@ -297,7 +297,7 @@ namespace Filters
         //DspFloatType V = std::pow(10, std::abs(peakGain) / 20);
         DspFloatType K = std::tan(M_PI * fc / fs);
         DspFloatType norm = 1 / ( 1 + K/Q + K*K);
-        FilterCoefficients c;        
+        FilterCoefficients c;
         c.b[0] = 1 * norm;
         c.b[1] = -2 * c.b[0];
         c.b[2] = c.b[0];
@@ -305,7 +305,7 @@ namespace Filters
         c.a[1] = (1 - K / Q + K * K) * norm;
         return c;
     }
-    
+
 
     inline FilterCoefficients AllpassBiquad(DspFloatType fc, DspFloatType fs, DspFloatType Q)
     {
@@ -316,7 +316,7 @@ namespace Filters
         DspFloatType DE = 1 + K/Q + W;
         DspFloatType norm =  1 + alpha;
         DspFloatType ccos = (-2*std::cos(2*M_PI*fc/fs))/norm;
-        FilterCoefficients c;            
+        FilterCoefficients c;
         c.b[0] = (1-alpha)/norm;
         c.b[1] = ccos;
         c.b[2] = (1+alpha)/norm;
@@ -326,13 +326,13 @@ namespace Filters
     }
 
 
-    
+
     inline FilterCoefficients BandpassBiquad(DspFloatType fc, DspFloatType fs, DspFloatType Q)
     {
         //DspFloatType V = std::pow(10, std::abs(peakGain) / 20);
         DspFloatType K = std::tan(M_PI * fc / fs);
         DspFloatType norm = 1 / ( 1 + K/Q + K*K);
-        FilterCoefficients c;        
+        FilterCoefficients c;
         norm = 1 / (1 + K / Q + K * K);
         c.b[0] = K / Q * norm;
         c.b[1] = 0;
@@ -348,7 +348,7 @@ namespace Filters
         //DspFloatType V = std::pow(10, std::abs(peakGain) / 20);
         DspFloatType K = std::tan(M_PI * fc / fs);
         DspFloatType norm = 1 / ( 1 + K/Q + K*K);
-        FilterCoefficients c;        
+        FilterCoefficients c;
         c.b[0] = (1 + K * K) * norm;
         c.b[1] = 2 * (K * K - 1) * norm;
         c.b[2] = c.b[0];
@@ -357,14 +357,14 @@ namespace Filters
         return c;
     }
 
-    
+
     inline FilterCoefficients PeakBiquad(DspFloatType fc, DspFloatType fs, DspFloatType Q, DspFloatType peakGain = 0)
     {
         DspFloatType V = std::pow(10, std::abs(peakGain) / 20);
         DspFloatType K = std::tan(M_PI * fc / fs);
         DspFloatType norm;
-        FilterCoefficients c;        
-        if (peakGain >= 0) {    // boost        
+        FilterCoefficients c;
+        if (peakGain >= 0) {    // boost
             norm = 1 / (1 + 1/Q * K + K * K);
             c.b[0] = (1 + V/Q * K + K * K) * norm;
             c.b[1] = 2 * (K * K - 1) * norm;
@@ -372,8 +372,8 @@ namespace Filters
             c.a[0] = c.b[1];
             c.a[2] = (1 - 1/Q * K + K * K) * norm;
         }
-        else {    // cut  
-            norm = 1 / (1 + V/Q * K + K * K);      
+        else {    // cut
+            norm = 1 / (1 + V/Q * K + K * K);
             c.b[0] = (1 + 1/Q * K + K * K) * norm;
             c.b[1] = 2 * (K * K - 1) * norm;
             c.b[2] = (1 - 1/Q * K + K * K) * norm;
@@ -384,7 +384,7 @@ namespace Filters
         return c;
     }
 
-    
+
     inline FilterCoefficients LowshelfBiquad(DspFloatType fc, DspFloatType fs, DspFloatType Q, DspFloatType peakGain = 0)
     {
         DspFloatType V = std::pow(10, std::abs(peakGain) / 20);
@@ -393,7 +393,7 @@ namespace Filters
         #undef sqrt2
         DspFloatType sqrt2  = std::sqrt(2);
         DspFloatType sqrtv2 = std::sqrt(2*V);
-        FilterCoefficients c;        
+        FilterCoefficients c;
         if (peakGain >= 0) {    // boost
             norm = 1 / (1 + sqrt2 * K + K * K);
             c.b[0] = (1 + sqrtv2 * K + V * K * K) * norm;
@@ -419,7 +419,7 @@ namespace Filters
         DspFloatType norm;
         DspFloatType sqrt2 = std::sqrt(2);
         DspFloatType sqrtv2 = std::sqrt(2*V);
-        FilterCoefficients c;        
+        FilterCoefficients c;
         if (peakGain >= 0) {    // boost
             norm = 1 / (1 + sqrt2 * K + K * K);
             c.b[0] = ((V + sqrtv2) * K + K * K) * norm;
@@ -435,7 +435,7 @@ namespace Filters
             c.b[2] = (1 - sqrt2 * K + K * K) * norm;
             c.a[0] = 2 * (K * K - V) * norm;
             c.a[1] = (V - sqrtv2 * K + K * K) * norm;
-        }    
+        }
         return c;
     }
 
@@ -443,127 +443,137 @@ namespace Filters
     {
         DspFloatType w0 = 2*M_PI*fc/fs;
         DspFloatType alpha= std::sin(w0)/(2*Q);
-        DspFloatType cc = std::cos(w0);
-        DspFloatType sc = std::sin(w0);
-        FilterCoefficients c;   
-        DspFloatType n = 1+alpha;
-        c.b[0] = ((1.0 - cc)/2)/n;
-        c.b[1] = (1 - cc)/n;
-        c.b[2] = ((1.0 - cc)/2)/n;    
-        c.a[0] = (-2*cc)/n;
-        c.a[1] = (1-alpha)/n;
+        DspFloatType cc = std::cos(w0);        
+        FilterCoefficients c;
+        DspFloatType a0 = 1+alpha;
+        c.b[0] = ((1.0 - cc)/2)/a0;
+        c.b[1] = (1 - cc)/a0;
+        c.b[2] = ((1.0 - cc)/2)/a0;
+        c.a[0] = (-2*cc)/a0;
+        c.a[1] = (1-alpha)/a0;
         return c;
     }
     inline FilterCoefficients RBJLowpassBiquadR(DspFloatType fc, DspFloatType fs, DspFloatType Q, DspFloatType R)
     {
         DspFloatType w0 = 2*M_PI*fc/fs;
         DspFloatType alpha= R*std::sin(w0)/(2*Q);
-        DspFloatType cc = std::cos(w0);
-        DspFloatType sc = std::sin(w0);
-        FilterCoefficients c;   
-        DspFloatType n = 1+alpha;
-        c.b[0] = ((1.0 - cc)/2)/n;
-        c.b[1] = (1 - cc)/n;
-        c.b[2] = ((1.0 - cc)/2)/n;    
-        c.a[0] = (-2*cc)/n;
-        c.a[1] = (1-alpha)/n;
+        DspFloatType cc = std::cos(w0);        
+        FilterCoefficients c;
+        DspFloatType a0 = 1+alpha;
+        c.b[0] = ((1.0 - cc)/2)/a0;
+        c.b[1] = (1 - cc)/a0;
+        c.b[2] = ((1.0 - cc)/2)/a0;
+        c.a[0] = (-2*cc)/a0;
+        c.a[1] = (1-alpha)/a0;
         return c;
     }
     inline FilterCoefficients RBJLowpassBiquadBW(DspFloatType fc, DspFloatType fs, DspFloatType BW)
     {
         DspFloatType w0 = 2*M_PI*fc/fs;
-        DspFloatType Q = 1.0 / (2*sinh(log(2)/2*BW*w0/sin(w0)));        
+        DspFloatType Q = 1.0 / (2*sinh(log(2)/2*BW*w0/sin(w0)));
         DspFloatType alpha= std::sin(w0)/(2*Q);
-        DspFloatType cc = std::cos(w0);
-        DspFloatType sc = std::sin(w0);
-        FilterCoefficients c;   
-        DspFloatType n = 1+alpha;
-        c.b[0] = ((1.0 - cc)/2)/n;
-        c.b[1] = (1 - cc)/n;
-        c.b[2] = ((1.0 - cc)/2)/n;    
-        c.a[0] = (-2*cc)/n;
-        c.a[1] = (1-alpha)/n;
+        DspFloatType cc = std::cos(w0);        
+        FilterCoefficients c;
+        DspFloatType a0 = 1+alpha;
+        c.b[0] = ((1.0 - cc)/2)/a0;
+        c.b[1] = (1 - cc)/a0;
+        c.b[2] = ((1.0 - cc)/2)/a0;
+        c.a[0] = (-2*cc)/a0;
+        c.a[1] = (1-alpha)/a0;
         return c;
     }
     inline FilterCoefficients RBJHighpassBiquad(DspFloatType fc, DspFloatType fs, DspFloatType Q)
     {
         DspFloatType w0 = 2*M_PI*fc/fs;
         DspFloatType alpha= std::sin(w0)/(2*Q);
+        DspFloatType cc = std::cos(w0);        
+        FilterCoefficients c;
+        DspFloatType a0 = 1+alpha;
+        c.b[0] = ((1.0 + cc)/2)/a0;
+        c.b[1] = (-(1 + cc))/a0;
+        c.b[2] = ((1.0 + cc)/2)/a0;
+        c.a[0] = (-2*cc)/a0;
+        c.a[1] = (1-alpha)/a0;
+        return c;
+    }
+	inline FilterCoefficients RBJHighpassBiquadR(DspFloatType fc, DspFloatType fs, DspFloatType Q, DspFloatType R)
+    {
+        DspFloatType w0 = 2*M_PI*fc/fs;
+        DspFloatType alpha= R*std::sin(w0)/(2*Q);
         DspFloatType cc = std::cos(w0);
         DspFloatType sc = std::sin(w0);
-        FilterCoefficients c;   
-        DspFloatType n = 1+alpha;
-        c.b[0] = ((1.0 + cc)/2)/n;
-        c.b[1] = -(1 - cc)/n;
-        c.b[2] = ((1.0 + cc)/2)/n;    
-        c.a[0] = (-2*cc)/n;
-        c.a[1] = (1-alpha)/n;
+        FilterCoefficients c;
+        DspFloatType a0 = 1+alpha;
+        c.b[0] = ((1.0 + cc)/2)/a0;
+        c.b[1] = (-(1 + cc))/a0;
+        c.b[2] = ((1.0 + cc)/2)/a0;
+        c.a[0] = (-2*cc)/a0;
+        c.a[1] = (1-alpha)/a0;
         return c;
-    }    
-
+    }
     inline FilterCoefficients RBJHighpassBiquadBW(DspFloatType fc, DspFloatType fs, DspFloatType BW)
     {
         DspFloatType w0 = 2*M_PI*fc/fs;
-        DspFloatType Q = 1.0 / (2*sinh(log(2)/2*BW*w0/sin(w0)));        
+        DspFloatType Q = 1.0 / (2*sinh(log(2)/2*BW*w0/sin(w0)));
         DspFloatType alpha= std::sin(w0)/(2*Q);
         DspFloatType cc = std::cos(w0);
         DspFloatType sc = std::sin(w0);
-        FilterCoefficients c;   
-        DspFloatType n = 1+alpha;
-        c.b[0] = ((1.0 + cc)/2)/n;
-        c.b[1] = -(1 - cc)/n;
-        c.b[2] = ((1.0 + cc)/2)/n;    
-        c.a[0] = (-2*cc)/n;
-        c.a[1] = (1-alpha)/n;
+        FilterCoefficients c;
+        DspFloatType a0 = 1+alpha;
+        c.b[0] = ((1.0 + cc)/2)/a0;
+        c.b[1] = -(1 - cc)/a0;
+        c.b[2] = ((1.0 + cc)/2)/a0;
+        c.a[0] = (-2*cc)/a0;
+        c.a[1] = (1-alpha)/a0;
         return c;
     }
 
-    
+
     inline FilterCoefficients RBJBandpassConstantSkirtBiquad(DspFloatType fc, DspFloatType fs, DspFloatType Q)
     {
         DspFloatType w0 = 2*M_PI*fc/fs;
         DspFloatType alpha= std::sin(w0)/(2*Q);
         DspFloatType cc = std::cos(w0);
         DspFloatType sc = std::sin(w0);
-        FilterCoefficients c;   
-        DspFloatType n = 1+alpha;
-        c.b[0] = (sc/2)/n;
+        FilterCoefficients c;
+        DspFloatType a0 = 1+alpha;
+        c.b[0] = (sc/2)/a0;
         c.b[1] = 0;
-        c.b[2] = -(sc/2)/n;    
-        c.a[0] = (-2*cc)/n;
-        c.a[1] = (1-alpha)/n;
-        return c;
-    }
-    
-    inline FilterCoefficients RBJBandpassConstantSkirtBiquadBW(DspFloatType fc, DspFloatType fs, DspFloatType BW)
-    {
-        DspFloatType w0 = 2*M_PI*fc/fs;
-        DspFloatType Q = 1.0 / (2*sinh(log(2)/2*BW*w0/sin(w0)));        
-        DspFloatType alpha= std::sin(w0)/(2*Q);
-        DspFloatType cc = std::cos(w0);
-        DspFloatType sc = std::sin(w0);
-        FilterCoefficients c;   
-        DspFloatType n = 1+alpha;
-        c.b[0] = (sc/2)/n;
-        c.b[1] = 0;
-        c.b[2] = -(sc/2)/n;    
-        c.a[0] = (-2*cc)/n;
-        c.a[1] = (1-alpha)/n;
+        c.b[2] = (-sc/2)/a0;
+        c.a[0] = (-2*cc)/a0;
+        c.a[1] = (1-alpha)/a0;
         return c;
     }
 
-    
+    inline FilterCoefficients RBJBandpassConstantSkirtBiquadBW(DspFloatType fc, DspFloatType fs, DspFloatType BW)
+    {
+        DspFloatType w0 = 2*M_PI*fc/fs;
+        DspFloatType Q = 1.0 / (2*sinh(log(2)/2*BW*w0/sin(w0)));
+        DspFloatType alpha= std::sin(w0)/(2*Q);
+        DspFloatType cc = std::cos(w0);
+        DspFloatType sc = std::sin(w0);
+        FilterCoefficients c;
+        DspFloatType a0 = 1+alpha;
+        c.b[0] = (sc/2)/a0;
+        c.b[1] = 0;
+        c.b[2] = -(sc/2)/a0;
+        c.a[0] = (-2*cc)/a0;
+        c.a[1] = (1-alpha)/a0;
+        return c;
+    }
+
+
     inline FilterCoefficients RBJBandpassConstant0dbBiquad(DspFloatType fc, DspFloatType fs, DspFloatType Q)
     {
         DspFloatType w0 = 2*M_PI*fc/fs;
         DspFloatType alpha= std::sin(w0)/(2*Q);
         DspFloatType cc = std::cos(w0);
         DspFloatType sc = std::sin(w0);
-        FilterCoefficients c;   
+        FilterCoefficients c;
         DspFloatType n = 1+alpha;
         c.b[0] = alpha/n;
         c.b[1] = 0;
-        c.b[2] = -alpha/n;    
+        c.b[2] = -alpha/n;
         c.a[0] = (-2*cc)/n;
         c.a[1] = (1-alpha)/n;
         return c;
@@ -571,17 +581,17 @@ namespace Filters
     inline FilterCoefficients RBJBandpassConstant0dbBiquadBW(DspFloatType fc, DspFloatType fs, DspFloatType BW)
     {
         DspFloatType w0 = 2*M_PI*fc/fs;
-        DspFloatType Q = 1.0 / (2*sinh(log(2)/2*BW*w0/sin(w0)));   
+        DspFloatType Q = 1.0 / (2*sinh(log(2)/2*BW*w0/sin(w0)));
         DspFloatType alpha= std::sin(w0)/(2*Q);
         DspFloatType cc = std::cos(w0);
         DspFloatType sc = std::sin(w0);
-        FilterCoefficients c;   
-        DspFloatType n = 1+alpha;
-        c.b[0] = alpha/n;
+        FilterCoefficients c;
+        DspFloatType a0 = 1+alpha;
+        c.b[0] = alpha/a0;
         c.b[1] = 0;
-        c.b[2] = -alpha/n;    
-        c.a[0] = (-2*cc)/n;
-        c.a[1] = (1-alpha)/n;
+        c.b[2] = -alpha/a0;
+        c.a[0] = (-2*cc)/a0;
+        c.a[1] = (1-alpha)/a0;
         return c;
     }
     inline FilterCoefficients RBJNotchBiquad(DspFloatType fc, DspFloatType fs, DspFloatType Q)
@@ -590,68 +600,68 @@ namespace Filters
         DspFloatType alpha= std::sin(w0)/(2*Q);
         DspFloatType cc = std::cos(w0);
         DspFloatType sc = std::sin(w0);
-        FilterCoefficients c;   
-        DspFloatType n = 1+alpha;
-        c.b[0] = 1/n;
-        c.b[1] = (-2*cc)/n;
-        c.b[2] = 1/n;
-        c.a[0] = (-2*cc)/n;
-        c.a[1] = (1-alpha)/n;
+        FilterCoefficients c;
+        DspFloatType a0 = 1+alpha;
+        c.b[0] = 1/a0;
+        c.b[1] = (-2*cc)/a0;
+        c.b[2] = 1/a0;
+        c.a[0] = (-2*cc)/a0;
+        c.a[1] = (1-alpha)/a0;
         return c;
     }
 
-    
+
     inline FilterCoefficients RBJNotchBiquadBW(DspFloatType fc, DspFloatType fs, DspFloatType BW)
     {
         DspFloatType w0 = 2*M_PI*fc/fs;
-        DspFloatType Q = 1.0 / (2*sinh(log(2)/2*BW*w0/sin(w0)));   
+        DspFloatType Q = 1.0 / (2*sinh(log(2)/2*BW*w0/sin(w0)));
         DspFloatType alpha= std::sin(w0)/(2*Q);
         DspFloatType cc = std::cos(w0);
         DspFloatType sc = std::sin(w0);
-        FilterCoefficients c;   
-        DspFloatType n = 1+alpha;
-        c.b[0] = 1/n;
-        c.b[1] = (-2*cc)/n;
-        c.b[2] = 1/n;
-        c.a[0] = (-2*cc)/n;
-        c.a[1] = (1-alpha)/n;
+        FilterCoefficients c;
+        DspFloatType a0 = 1+alpha;
+        c.b[0] = 1/a0;
+        c.b[1] = (-2*cc)/a0;
+        c.b[2] = 1/a0;
+        c.a[0] = (-2*cc)/a0;
+        c.a[1] = (1-alpha)/a0;
         return c;
     }
-    
-    
+
+
     inline FilterCoefficients RBJAllpassBiquad(DspFloatType fc, DspFloatType fs, DspFloatType Q)
     {
         DspFloatType w0 = 2*M_PI*fc/fs;
         DspFloatType alpha= std::sin(w0)/(2*Q);
         DspFloatType cc = std::cos(w0);
         DspFloatType sc = std::sin(w0);
-        FilterCoefficients c;   
-        DspFloatType n = 1+alpha;
-        c.b[0] = (1-alpha)/n;
-        c.b[1] = (-2*cc)/n;
-        c.b[2] = (1+alpha)/n;
-        c.a[0] = (-2*cc)/n;
-        c.a[1] = (1-alpha)/n;
+        FilterCoefficients c;
+        DspFloatType a0 = 1+alpha;
+        c.b[0] = (1-alpha)/a0;
+        c.b[1] = (-2*cc)/a0;
+        c.b[2] = (1+alpha)/a0;
+        c.a[0] = (-2*cc)/a0;
+        c.a[1] = (1-alpha)/a0;
         return c;
     }
     inline FilterCoefficients RBJAllpassBiquadBW(DspFloatType fc, DspFloatType fs, DspFloatType BW)
     {
         DspFloatType w0 = 2*M_PI*fc/fs;
-        DspFloatType Q = 1.0 / (2*sinh(log(2)/2*BW*w0/sin(w0)));   
+        DspFloatType Q = 1.0 / (2*sinh(log(2)/2*BW*w0/sin(w0)));
         DspFloatType alpha= std::sin(w0)/(2*Q);
         DspFloatType cc = std::cos(w0);
         DspFloatType sc = std::sin(w0);
-        FilterCoefficients c;   
-        DspFloatType n = 1+alpha;
-        c.b[0] = (1-alpha)/n;
-        c.b[1] = (-2*cc)/n;
-        c.b[2] = (1+alpha)/n;
-        c.a[0] = (-2*cc)/n;
-        c.a[1] = (1-alpha)/n;
+        FilterCoefficients c;
+        DspFloatType a0 = 1+alpha;
+        c.b[0] = (1-alpha)/a0;
+        c.b[1] = (-2*cc)/a0;
+        c.b[2] = (1+alpha)/a0;
+        c.a[0] = (-2*cc)/a0;
+        c.a[1] = (1-alpha)/a0;
         return c;
     }
 
-    
+
     inline FilterCoefficients RBJPeakBiquad(DspFloatType fc, DspFloatType fs, DspFloatType Q, DspFloatType peakDb)
     {
         DspFloatType A  = std::pow(10,peakDb/40.0f);
@@ -659,35 +669,35 @@ namespace Filters
         DspFloatType alpha= std::sin(w0)/(2*Q);
         DspFloatType cc = std::cos(w0);
         DspFloatType sc = std::sin(w0);
-        FilterCoefficients c;   
-        DspFloatType n = 1+alpha/A;
-        c.b[0] = (1-alpha*A)/n;
-        c.b[1] = (-2*cc)/n;
-        c.b[2] = (1+alpha*A)/n;
-        c.a[0] = (-2*cc)/n;
-        c.a[1] = (1-alpha*A)/n;
+        FilterCoefficients c;
+        DspFloatType a0 = 1+alpha/A;
+        c.b[0] = (1-alpha*A)/a0;
+        c.b[1] = (-2*cc)/a0;
+        c.b[2] = (1+alpha*A)/a0;
+        c.a[0] = (-2*cc)/a0;
+        c.a[1] = (1-alpha*A)/a0;
         return c;
     }
-    
+
     inline FilterCoefficients RBJPeakBiquadBW(DspFloatType fc, DspFloatType fs, DspFloatType BW, DspFloatType peakDb)
     {
         DspFloatType A  = std::pow(10,peakDb/40.0f);
         DspFloatType w0 = 2*M_PI*fc/fs;
-        DspFloatType Q = 1.0 / (2*sinh(log(2)/2*BW*w0/sin(w0)));   
+        DspFloatType Q = 1.0 / (2*sinh(log(2)/2*BW*w0/sin(w0)));
         DspFloatType alpha= std::sin(w0)/(2*Q);
         DspFloatType cc = std::cos(w0);
         DspFloatType sc = std::sin(w0);
-        FilterCoefficients c;   
-        DspFloatType n = 1+alpha/A;
-        c.b[0] = (1-alpha*A)/n;
-        c.b[1] = (-2*cc)/n;
-        c.b[2] = (1+alpha*A)/n;
-        c.a[0] = (-2*cc)/n;
-        c.a[1] = (1-alpha*A)/n;
+        FilterCoefficients c;
+        DspFloatType a0 = 1+alpha/A;
+        c.b[0] = (1-alpha*A)/a0;
+        c.b[1] = (-2*cc)/a0;
+        c.b[2] = (1+alpha*A)/a0;
+        c.a[0] = (-2*cc)/a0;
+        c.a[1] = (1-alpha*A)/a0;
         return c;
     }
 
-    
+
     inline FilterCoefficients RBJLowshelfBiquad(DspFloatType fc, DspFloatType fs, DspFloatType Q, DspFloatType peakDb)
     {
         DspFloatType A  = std::pow(10,peakDb/40.0f);
@@ -695,18 +705,18 @@ namespace Filters
         DspFloatType alpha= std::sin(w0)/(2*Q);
         DspFloatType cc = std::cos(w0);
         DspFloatType sc = std::sin(w0);
-        FilterCoefficients c;       
-        DspFloatType sa = 2*std::sqrt(A);
-        DspFloatType n = A*((A+1) - (A-1)*cc + sa);
-        c.b[0] = (A*((A+1)-(A-1)*cc + sa*alpha))/n;
-        c.b[1] = (2*A*((A-1) - (A+1)*cc))/n;
-        c.b[2] = (A*((A+1) - (A-1)*cc - sa*alpha))/n;
-        c.a[0] = (-2*((A+1)+(A+1)*cc))/n;
-        c.a[1] = ((A+1) + (A-1)*cc - sa*alpha)/n;
+        FilterCoefficients c;
+        DspFloatType sa = 2*std::sqrt(A)*alpha;        
+        DspFloatType a0 = ((A+1) + (A-1)*cc + sa);
+        c.b[0] = (A*((A+1)-(A-1)*cc + sa))/a0;
+        c.b[1] = (2*A*((A-1)-(A+1)*cc))/a0;
+        c.b[2] = (A*((A+1)-(A-1)*cc +sa))/a0;
+        c.a[0] = (-2*((A-1)+(A+1)*cc))/a0;
+        c.a[1] = ((A+1)+(A-1)*cc - sa)/a0;
         return c;
     }
 
-    
+
     inline FilterCoefficients RBJLowshelfBiquadSlope(DspFloatType fc, DspFloatType fs, DspFloatType S, DspFloatType peakDb)
     {
         DspFloatType A  = std::pow(10,peakDb/40.0f);
@@ -715,18 +725,18 @@ namespace Filters
         DspFloatType alpha= std::sin(w0)/(2*Q);
         DspFloatType cc = std::cos(w0);
         DspFloatType sc = std::sin(w0);
-        FilterCoefficients c;       
+        FilterCoefficients c;
         DspFloatType sa = 2*std::sqrt(A);
-        DspFloatType n = A*((A+1) - (A-1)*cc + sa);
-        c.b[0] = (A*((A+1)-(A-1)*cc + sa*alpha))/n;
-        c.b[1] = (2*A*((A-1) - (A+1)*cc))/n;
-        c.b[2] = (A*((A+1) - (A-1)*cc - sa*alpha))/n;
-        c.a[0] = (-2*((A+1)+(A+1)*cc))/n;
-        c.a[1] = ((A+1) + (A-1)*cc - sa*alpha)/n;
+        DspFloatType a0 = ((A+1) + (A-1)*cc + sa);
+        c.b[0] = (A*((A+1)-(A-1)*cc + sa*alpha))/a0;
+        c.b[1] = (2*A*((A-1) - (A+1)*cc))/a0;
+        c.b[2] = (A*((A+1) - (A-1)*cc - sa*alpha))/a0;
+        c.a[0] = (-2*((A+1)+(A+1)*cc))/a0;
+        c.a[1] = 1.0;
         return c;
     }
 
-    
+
     inline FilterCoefficients RBJHighshelfBiquad(DspFloatType fc, DspFloatType fs, DspFloatType Q, DspFloatType peakDb)
     {
         DspFloatType A  = std::pow(10,peakDb/40.0f);
@@ -734,14 +744,15 @@ namespace Filters
         DspFloatType alpha= std::sin(w0)/(2*Q);
         DspFloatType cc = std::cos(w0);
         DspFloatType sc = std::sin(w0);
-        FilterCoefficients c;       
-        DspFloatType sa = 2*std::sqrt(A);
-        DspFloatType n = A*((A+1) - (A-1)*cc + sa);
-        c.b[0] = (A*((A+1)+(A-1)*cc + sa*alpha))/n;
-        c.b[1] = (-2*A*((A-1) + (A+1)*cc))/n;
-        c.b[2] = (A*((A+1) + (A-1)*cc - sa*alpha))/n;
-        c.a[0] = (2*((A+1)-(A+1)*cc))/n;
-        c.a[1] = ((A+1) - (A-1)*cc - sa*alpha)/n;
+        FilterCoefficients c;
+        DspFloatType sa = 2*std::sqrt(A)*alpha;
+        DspFloatType a0 = ((A+1) - (A-1)*cc + sa);
+        
+        c.b[0] = (A*((A+1)-(A-1)*cc+sa))/a0;
+        c.b[1] = (2*A*((A-1)+(A+1)*cc))/a0;
+        c.b[2] = (A*((A+1)-(A-1)*cc-sa))/a0;
+        c.a[0] = (-2*((A-1)-(A+1)*cc))/a0;
+        c.a[1] = ((A+1) - (A-1)*cc - sa)/a0;
         return c;
     }
 
@@ -754,17 +765,17 @@ namespace Filters
         DspFloatType alpha= std::sin(w0)/(2*Q);
         DspFloatType cc = std::cos(w0);
         DspFloatType sc = std::sin(w0);
-        FilterCoefficients c;       
+        FilterCoefficients c;
         DspFloatType sa = 2*std::sqrt(A);
-        DspFloatType n = A*((A+1) - (A-1)*cc + sa);
-        c.b[0] = (A*((A+1)+(A-1)*cc + sa*alpha))/n;
-        c.b[1] = (-2*A*((A-1) + (A+1)*cc))/n;
-        c.b[2] = (A*((A+1) + (A-1)*cc - sa*alpha))/n;
-        c.a[0] = (2*((A+1)-(A+1)*cc))/n;
-        c.a[1] = ((A+1) - (A-1)*cc - sa*alpha)/n;
+        DspFloatType a0 = ((A+1) - (A-1)*cc + sa);
+        c.b[0] = (A*((A+1)+(A-1)*cc + sa*alpha))/a0;
+        c.b[1] = (-2*A*((A-1) + (A+1)*cc))/a0;
+        c.b[2] = (A*((A+1) + (A-1)*cc - sa*alpha))/a0;
+        c.a[0] = (2*((A+1)-(A+1)*cc))/a0;
+        c.a[1] = ((A+1) - (A-1)*cc - sa*alpha)/a0;
         return c;
     }
-    
+
 
     inline FilterCoefficients MassbergLowpassBiquad(DspFloatType fCutoffFreq, DspFloatType fs, DspFloatType fQ)
     {
@@ -832,7 +843,7 @@ namespace Filters
         bet2 = std::pow(bOms, 2) - ((1/Qp) * bOms) + 1;
 
         FilterCoefficients c;
-        
+
         c.b[0] = alp0/gam0;
         c.b[1] = alp1/gam0;
         c.b[2] = alp2/gam0;
@@ -840,14 +851,14 @@ namespace Filters
         c.a[1] = bet2/gam0;
 
         return c;
-    }  
+    }
 
 
     inline FilterCoefficients ZolzerNotch(DspFloatType f, DspFloatType fs, DspFloatType Q) {
         DspFloatType K  = tan(M_PI*f/fs);
         DspFloatType Kq = Q*(1+K*K) ;
-        DspFloatType Kk = (K*K*Q+K+Q); 
-        FilterCoefficients c;       
+        DspFloatType Kk = (K*K*Q+K+Q);
+        FilterCoefficients c;
         c.b[0] = Kq/Kk;
         c.b[1] = (2*Kq)/Kk;
         c.b[2] = Kq/Kk;
@@ -856,7 +867,7 @@ namespace Filters
         return c;
     }
     inline FilterCoefficients ZolzerLowpass1p(DspFloatType f, DspFloatType fs)
-    {            
+    {
         DspFloatType K = tan(M_PI*f/fs);
         FilterCoefficients c;
         c.b[0] = K/(K+1);
@@ -867,7 +878,7 @@ namespace Filters
         return c;
     }
     inline FilterCoefficients ZolzerHighpass1p(DspFloatType f,DspFloatType fs)
-    {        
+    {
         DspFloatType K = tan(M_PI*f/fs);
         FilterCoefficients c;
         c.b[0] = 1/(K+1);
@@ -878,7 +889,7 @@ namespace Filters
         return c;
     }
     inline FilterCoefficients ZolzerAllpass1p(DspFloatType f, DspFloatType fs)
-    {        
+    {
         DspFloatType K = tan(M_PI*f/fs);
         FilterCoefficients c;
         c.b[0] = (K-1)/(K+1);
@@ -888,9 +899,9 @@ namespace Filters
         c.a[1] = 0;
         return c;
     }
-    inline FilterCoefficients ZolzerLowpass(DspFloatType f, DspFloatType fs, DspFloatType Q) {        
+    inline FilterCoefficients ZolzerLowpass(DspFloatType f, DspFloatType fs, DspFloatType Q) {
         DspFloatType K = tan(M_PI*f/fs);
-        DspFloatType Kk = (K*K*Q+K+Q);        
+        DspFloatType Kk = (K*K*Q+K+Q);
         DspFloatType Kq = (K*K*Q);
         FilterCoefficients c;
         c.b[0] = Kq/Kk;
@@ -900,39 +911,39 @@ namespace Filters
         c.a[1] = (K*K*Q-K+Q)/Kk;
         return c;
     }
-    
-    inline FilterCoefficients ZolzerAllpass(DspFloatType f, DspFloatType fs, DspFloatType Q) {        
+
+    inline FilterCoefficients ZolzerAllpass(DspFloatType f, DspFloatType fs, DspFloatType Q) {
         DspFloatType K = tan(M_PI*f/fs);
-        DspFloatType Kk = (K*K*Q+K+Q);        
+        DspFloatType Kk = (K*K*Q+K+Q);
         DspFloatType Km = (K*K*Q-K+Q);
         DspFloatType Kq = 2*Q*(K*K-1);
         FilterCoefficients c;
-        c.b[0] = Km/Kk;        
+        c.b[0] = Km/Kk;
         c.b[1] = Kq/Kk;
         c.b[2] = 1.0f;
         c.a[0] = Kq/Kk;
         c.a[1] = Km/Kk;
         return c;
     }
-    inline FilterCoefficients ZolzerHighpass(DspFloatType f, DspFloatType fs, DspFloatType Q) {        
+    inline FilterCoefficients ZolzerHighpass(DspFloatType f, DspFloatType fs, DspFloatType Q) {
         DspFloatType K = tan(M_PI*f/fs);
-        DspFloatType Kk = (K*K*Q+K+Q); 
+        DspFloatType Kk = (K*K*Q+K+Q);
         DspFloatType Kq = 2*Q*(K*K-1);
         DspFloatType Km = (K*K*Q-K+Q);
         FilterCoefficients c;
         c.b[0] = Q / Kk;
         c.b[1] = -(2*Q)/Kk;
         c.b[2] = Q / Kk;
-        c.a[1] = Kq/Kk;
-        c.a[2] = Km/Kk;
+        c.a[0] = Kq/Kk;
+        c.a[1] = Km/Kk;
         return c;
-    }    
+    }
 
 
-    
-    inline FilterCoefficients ZolzerBandpass(DspFloatType f, DspFloatType fs, DspFloatType Q) {        
+
+    inline FilterCoefficients ZolzerBandpass(DspFloatType f, DspFloatType fs, DspFloatType Q) {
         DspFloatType K = tan(M_PI*f/fs);
-        DspFloatType Kk = (K*K*Q+K+Q); 
+        DspFloatType Kk = (K*K*Q+K+Q);
         FilterCoefficients c;
         c.b[0] = K / Kk;
         c.b[1] = 0;
@@ -943,7 +954,7 @@ namespace Filters
     }
     // lowshelf
     inline FilterCoefficients ZolzerLFBoost(DspFloatType f, DspFloatType fs, DspFloatType G)
-    {        
+    {
         DspFloatType K = tan(M_PI*f/fs);
         DspFloatType V0= pow(10,G/20.0);
         DspFloatType Kaka1 = sqrt(2*V0) * K + V0*K*K;
@@ -958,7 +969,7 @@ namespace Filters
     }
     // lowshelf
     inline FilterCoefficients ZolzerLFCut(DspFloatType f, DspFloatType fs, DspFloatType G)
-    {        
+    {
         DspFloatType K = tan(M_PI*f/fs);
         DspFloatType V0= pow(10,G/20.0);
         DspFloatType Kaka = V0 + sqrt(2*V0)*K + K*K;
@@ -970,12 +981,12 @@ namespace Filters
         c.a[1] = (V0-sqrt(2*V0)*K+K*K)/Kaka;
         return c;
     }
-    
+
     // hishelf
     inline FilterCoefficients ZolzerHFBoost(DspFloatType f, DspFloatType fs, DspFloatType G)
-    {        
+    {
         DspFloatType K = tan(M_PI*f/fs);
-        DspFloatType V0= pow(10,G/20.0);            
+        DspFloatType V0= pow(10,G/20.0);
         DspFloatType Kaka = 1 + sqrt(2)*K + K*K;
         FilterCoefficients c;
         c.b[0] = (V0 + sqrt(2*V0)*K + K*K)/Kaka;
@@ -987,9 +998,9 @@ namespace Filters
     }
     // hishelf
     inline FilterCoefficients ZolzerHFCut(DspFloatType f, DspFloatType fs, DspFloatType G)
-    {        
+    {
         DspFloatType K = tan(M_PI*f/fs);
-        DspFloatType V0= pow(10,G/20.0);            
+        DspFloatType V0= pow(10,G/20.0);
         DspFloatType Kaka = 1 + sqrt(2*V0)*K + V0*K*K;
         FilterCoefficients c;
         c.b[0] = (V0*(1 + sqrt(2)*K + K*K))/Kaka;
@@ -1001,9 +1012,9 @@ namespace Filters
     }
     // peak
     inline FilterCoefficients ZolzerBoost(DspFloatType f, DspFloatType fs, DspFloatType Q, DspFloatType G)
-    {        
+    {
         DspFloatType K = tan(M_PI*f/fs);
-        DspFloatType V0= pow(10,G/20.0);            
+        DspFloatType V0= pow(10,G/20.0);
         DspFloatType Kaka = 1 + (1/Q)*K + K*K;
         FilterCoefficients c;
         c.b[0] = (1+(V0/Q)*K + K*K)/Kaka;
@@ -1013,12 +1024,12 @@ namespace Filters
         c.a[1] = (1 - (1/Q)*K + K*K)/Kaka;
         return c;
     }
-    
+
     //peak
     inline FilterCoefficients ZolzerCut(DspFloatType f, DspFloatType fs, DspFloatType Q, DspFloatType G)
-    {        
+    {
         DspFloatType K = tan(M_PI*f/fs);
-        DspFloatType V0= pow(10,G/20.0);            
+        DspFloatType V0= pow(10,G/20.0);
         DspFloatType Kaka = 1 + (1/(V0*Q)*K + K*K);
         FilterCoefficients c;
         c.b[0] = (1 + (1/Q)*K + K*K)/Kaka;
@@ -1043,14 +1054,14 @@ namespace Filters
         DspFloatType fc,sr,q,gain;
         FilterBase::FilterType type;
 
-        BiquadFilter(DspFloatType sample_rate) : 
+        BiquadFilter(DspFloatType sample_rate) :
         FilterBase(FilterBase::FilterType::LOWPASS,1000,sample_rate,0.5)
         {
             setCoefficients();
         }
-        BiquadFilter(FilterType _type, DspFloatType freq, DspFloatType sample_rate, DspFloatType resonance, DspFloatType dbGain=0) 
+        BiquadFilter(FilterType _type, DspFloatType freq, DspFloatType sample_rate, DspFloatType resonance, DspFloatType dbGain=0)
         : FilterBase(type,freq,sample_rate,resonance)
-        {            
+        {
             setCoefficients();
         }
 
@@ -1081,7 +1092,7 @@ namespace Filters
             b0 = c.b[0];
             b1 = c.b[1];
             b2 = c.b[2];
-        }        
+        }
         void setCutoff(DspFloatType f)
         {
             fc = f;
@@ -1090,7 +1101,7 @@ namespace Filters
         }
         void setQ(DspFloatType Q)
         {
-            if(Q < 0.01) Q = 0.01;                  
+            if(Q < 0.01) Q = 0.01;
             if(Q > 999) Q = 999;
             q = Q;
             setCoefficients();
@@ -1119,8 +1130,8 @@ namespace Filters
         void ProcessBlock(size_t n, DspFloatType * input, DspFloatType * output)
         {
             Undenormal denormal;
-            #pragma omp simd            
-            for(size_t i = 0; i < n; i++) {                            
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
                 x = input[i];
                 y = b0*x + b1*x1 + b2*x2 - a1*y1 - a2*y2;
                 y2 = y1;
@@ -1133,8 +1144,8 @@ namespace Filters
         void InplaceProcess(size_t n, DspFloatType * buffer)
         {
             Undenormal denormal;
-            #pragma omp simd            
-            for(size_t i = 0; i < n; i++) {                            
+            #pragma omp simd
+            for(size_t i = 0; i < n; i++) {
                 x = buffer[i];
                 y = b0*x + b1*x1 + b2*x2 - a1*y1 - a2*y2;
                 y2 = y1;
@@ -1143,14 +1154,14 @@ namespace Filters
                 x1 = x;
                 buffer[i] = y;
             }
-        }                
+        }
     };
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // BiquadSection
 //////////////////////////////////////////////////////////////////////////////////////////
-    
+
     struct BiquadSection
     {
         DspFloatType z[3];
@@ -1276,7 +1287,7 @@ namespace Filters
             Undenormal denormal;
             #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
-            {                
+            {
                 x = in[i];
                 y = biquad.z[0] * x + biquad.z[1] * x1 + biquad.z[2] * x2;
                 y = y - biquad.p[0] * y1 - biquad.p[1] * y2;
@@ -1318,7 +1329,7 @@ namespace Filters
         void setCoefficients(const BiquadSection &b)
         {
             biquad = b;
-        }        
+        }
         void setBiquad(const BiquadSection &b)
         {
             biquad = b;
@@ -1338,7 +1349,7 @@ namespace Filters
             Undenormal denormal;
             #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
-            {                
+            {
                 x = in[i];
                 v = x - biquad.p[0] * v1 - biquad.p[1] * v2;
                 y = biquad.z[0] * v + biquad.z[1] * v1 + biquad.z[2] * v2;
@@ -1378,7 +1389,7 @@ namespace Filters
         void setCoefficients(const BiquadSection &b)
         {
             biquad = b;
-        }        
+        }
         void setBiquad(const BiquadSection &b)
         {
             biquad = b;
@@ -1400,7 +1411,7 @@ namespace Filters
             Undenormal denormal;
             #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
-            {            
+            {
                 x = in[i];
                 x += -biquad.p[0] * y1 + -biquad.p[1] * y2;
                 y = biquad.z[0] * x + biquad.z[1] * x1 + biquad.z[2] * x2;
@@ -1409,7 +1420,7 @@ namespace Filters
                 y2 = y1;
                 y1 = y;
                 out[i] =  y;
-            }        
+            }
         }
     };
 
@@ -1441,7 +1452,7 @@ namespace Filters
         void setCoefficients(const BiquadSection &b)
         {
             biquad = b;
-        }        
+        }
         void setBiquad(const BiquadSection &b)
         {
             biquad = b;
@@ -1461,7 +1472,7 @@ namespace Filters
             Undenormal denormal;
             #pragma omp simd aligned(in,out)
             for(size_t i = 0; i < n; i++)
-            {            
+            {
                 x = in[i];
                 y = biquad.z[0] * x + d1;
                 d1 = biquad.z[1] * x - biquad.p[0] * y + d2;
@@ -1542,7 +1553,7 @@ namespace Filters
             return A * o;
         }
         void ProcessSIMD(size_t n, DspFloatType * in, DspFloatType * out)
-        {			
+        {
 			biquads[0].ProcessSIMD(n,in,out);
 			for(size_t i = 1; i < biquads.size(); i++)
 				biquads[i].ProcessSIMD(n,out,out);

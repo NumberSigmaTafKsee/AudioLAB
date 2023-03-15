@@ -31,18 +31,26 @@
             lv2:name "Audio output" ;
         ] ,
         [
-            a lv2:InputPort , lv2:ControlPort ;
+            a lv2:InputPort , atom:AtomPort ;
             lv2:index 2 ;
-            lv2:symbol "cutoff" ;
-            lv2:name "Cutoff" ;
-            lv2:default 1000;
-            lv2:minimum 30;
-            lv2:maximum 20000;            
-            lv2:portProperty pprops:logarithmic ;
+            lv2:symbol "midi_in" ;
+            lv2:name "MIDI in" ;
+            atom:bufferType atom:Sequence ;
+            atom:supports midi:MidiEvent ;
         ] ,
         [
             a lv2:InputPort , lv2:ControlPort ;
             lv2:index 3 ;
+            lv2:symbol "cutoff" ;
+            lv2:name "Cutoff" ;
+            lv2:default 1000;
+            lv2:minimum 30;
+            lv2:maximum 11025;            
+            lv2:portProperty pprops:logarithmic ;
+        ] ,
+        [
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 4 ;
             lv2:symbol "q" ;
             lv2:name "Q" ;
             lv2:default 0.5;
@@ -52,7 +60,7 @@
         ] ,        
         [
             a lv2:InputPort , lv2:ControlPort ;
-            lv2:index 4;
+            lv2:index 5;
             lv2:symbol "type";
             lv2:name "Type";
             lv2:portProperty lv2:integer, lv2:enumeration;
@@ -71,17 +79,17 @@
         ] ,
         [
             a lv2:InputPort , lv2:ControlPort ;
-            lv2:index 5 ;
+            lv2:index 6 ;
             lv2:symbol "gain" ;
             lv2:name "Gain" ;
             lv2:default 0;
-            lv2:minimum -24.0;
-            lv2:maximum 6.0;            
+            lv2:minimum -12.0;
+            lv2:maximum 12.0;            
             lv2:portProperty pprops:logarithmic ;
         ] ,
         [
             a lv2:InputPort , lv2:ControlPort ;
-            lv2:index 6 ;
+            lv2:index 7 ;
             lv2:symbol "minclip" ;
             lv2:name "minClip" ;
             lv2:default -1.0;
@@ -91,41 +99,180 @@
         ] ,
         [
             a lv2:InputPort , lv2:ControlPort ;
-            lv2:index 7 ;
+            lv2:index 8 ;
             lv2:symbol "maxclip" ;
             lv2:name "maxClip" ;
             lv2:default 1.0;
             lv2:minimum -1.0;
             lv2:maximum 1.0;            
             lv2:portProperty pprops:logarithmic ;
-        ] ,
-        [
-            a lv2:InputPort , lv2:ControlPort ;
-            lv2:index 8 ;
-            lv2:symbol "A" ;
-            lv2:name "A" ;
-            lv2:default 1.0;
-            lv2:minimum -1.0;
-            lv2:maximum 1.0;            
-            lv2:portProperty pprops:logarithmic ;
-        ] ,[
+        ]         
+        ,[
             a lv2:InputPort , lv2:ControlPort ;
             lv2:index 9 ;
-            lv2:symbol "X" ;
-            lv2:name "X" ;
-            lv2:default 1.0;
-            lv2:minimum -1.0;
-            lv2:maximum 1.0;            
+            lv2:symbol "attack" ;
+            lv2:name "Attack" ;
+            lv2:default 0.01;
+            lv2:minimum 0.001;
+            lv2:maximum 10.0;            
             lv2:portProperty pprops:logarithmic ;
-        ] ,[
+        ],[
             a lv2:InputPort , lv2:ControlPort ;
             lv2:index 10 ;
-            lv2:symbol "Y" ;
-            lv2:name "Y" ;
+            lv2:symbol "decay" ;
+            lv2:name "Decay" ;
+            lv2:default 0.01;
+            lv2:minimum 0.001;
+            lv2:maximum 10.0;            
+            lv2:portProperty pprops:logarithmic ;
+        ],[
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 11 ;
+            lv2:symbol "sustain" ;
+            lv2:name "Sustain" ;
+            lv2:default 1.0;
+            lv2:minimum 0.0;
+            lv2:maximum 1.0;            
+            lv2:portProperty pprops:logarithmic ;
+        ],[
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 12 ;
+            lv2:symbol "release" ;
+            lv2:name "Release" ;
+            lv2:default 0.01;
+            lv2:minimum 0.001;
+            lv2:maximum 10.0;            
+            lv2:portProperty pprops:logarithmic ;
+        ],[
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 13;
+            lv2:symbol "cutoff_env" ;
+            lv2:name "CutoffEnv" ;
+            lv2:default 0.0;
+            lv2:minimum 0.0;
+            lv2:maximum 1.0;            
+            lv2:portProperty pprops:logarithmic ;
+        ],[
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 14 ;
+            lv2:symbol "q_env" ;
+            lv2:name "QEnv" ;
+            lv2:default 0.0;
+            lv2:minimum 0.0;
+            lv2:maximum 1.0;            
+            lv2:portProperty pprops:logarithmic ;
+        ],[
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 15;
+            lv2:symbol "lfo_waveform";
+            lv2:name "LFO Waveform";
+            lv2:portProperty lv2:integer, lv2:enumeration;            
+            lv2:scalePoint [ rdfs:label "Triangle" ; rdf:value 0 ] ;
+            lv2:scalePoint [ rdfs:label "Sinus" ; rdf:value 1] ;
+            lv2:scalePoint [ rdfs:label "Sawtooth" ; rdf:value 2 ] ;
+            lv2:scalePoint [ rdfs:label "Square" ; rdf:value 3 ] ;
+            lv2:scalePoint [ rdfs:label "Exponent" ; rdf:value 4 ] ;            
+            lv2:default 0;
+            lv2:minimum 0;
+            lv2:maximum 4;
+        ],[
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 16 ;
+            lv2:symbol "lfo_freq" ;
+            lv2:name "LFOFreq" ;
+            lv2:default 0.01;
+            lv2:minimum 0.001;
+            lv2:maximum 10.0;            
+            lv2:portProperty pprops:logarithmic ;
+        ],[
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 17 ;
+            lv2:symbol "cutoff_lfo" ;
+            lv2:name "Cutoff LFO" ;
+            lv2:default 0.0;
+            lv2:minimum 0.0;
+            lv2:maximum 1.0;            
+            lv2:portProperty pprops:logarithmic ;
+        ],[
+            a lv2:InputPort , lv2:ControlPort ;
+            lv2:index 18 ;
+            lv2:symbol "q_lfo" ;
+            lv2:name "Q LFO" ;
+            lv2:default 0.0;
+            lv2:minimum 0.0;
+            lv2:maximum 1.0;            
+            lv2:portProperty pprops:logarithmic ;
+        ],[
+            a lv2:InputPort , lv2:CVPort ;
+            lv2:index 19 ;
+            lv2:symbol "A" ;
+            lv2:name "A" ;            
             lv2:default 1.0;
             lv2:minimum -1.0;
             lv2:maximum 1.0;            
-            lv2:portProperty pprops:logarithmic ;
+        ],[
+            a lv2:InputPort , lv2:CVPort ;
+            lv2:index 20 ;
+            lv2:symbol "X" ;
+            lv2:name "X" ;            
+            lv2:default 0.0;
+            lv2:minimum -1.0;
+            lv2:maximum 1.0;            
+        ],[
+            a lv2:InputPort , lv2:CVPort ;
+            lv2:index 21 ;
+            lv2:symbol "Y" ;
+            lv2:name "Y" ;            
+            lv2:default 0.0;
+            lv2:minimum -1.0;
+            lv2:maximum 1.0;            
+        ],
+        [
+            a lv2:OutputPort , lv2:AudioPort ;
+            lv2:index 22 ;
+            lv2:symbol "lp_out" ;
+            lv2:name "LP out" ;
+        ] ,
+        [
+            a lv2:OutputPort , lv2:AudioPort ;
+            lv2:index 23 ;
+            lv2:symbol "Hp_out" ;
+            lv2:name "HP out" ;
+        ] ,
+        [
+            a lv2:OutputPort , lv2:AudioPort ;
+            lv2:index 24 ;
+            lv2:symbol "bp_out" ;
+            lv2:name "BP out" ;
+        ] ,
+        [
+            a lv2:OutputPort , lv2:AudioPort ;
+            lv2:index 25 ;
+            lv2:symbol "ubp_out" ;
+            lv2:name "UP out" ;
+        ] ,
+        [
+            a lv2:OutputPort , lv2:AudioPort ;
+            lv2:index 26 ;
+            lv2:symbol "shelf_out" ;
+            lv2:name "Shelf out" ;
+        ] ,
+        [
+            a lv2:OutputPort , lv2:AudioPort ;
+            lv2:index 27 ;
+            lv2:symbol "notch_out" ;
+            lv2:name "Notch out" ;
+        ] ,
+		[
+            a lv2:OutputPort , lv2:AudioPort ;
+            lv2:index 28 ;
+            lv2:symbol "apf_out" ;
+            lv2:name "APF out" ;
+        ] ,
+        [
+            a lv2:OutputPort , lv2:AudioPort ;
+            lv2:index 29 ;
+            lv2:symbol "peak_out" ;
+            lv2:name "Peak out" ;
         ] .
-        
-        
+	

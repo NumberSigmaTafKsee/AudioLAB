@@ -1,5 +1,5 @@
 
-// Genetic Template for LV2 Plugin theory
+// Generic Template for LV2 Plugin theory
 
 #include "stddef.h"
 #include "stdint.h"

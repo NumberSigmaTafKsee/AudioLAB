@@ -13,10 +13,10 @@ namespace Analog::Filters::AnalogSVF
         DspFloatType maxC = 1;
         DspFloatType gain = 1.0;
         
-        // Fiaxy
-		DspFloatType FX=1.0;
-		DspFloatType FY=1.0;
-		DspFloatType FA=1.0;
+        
+		std::array<DspFloatType,1024> Xa;
+		std::array<DspFloatType,1024> Ya;
+		std::array<DspFloatType,1024> Aa;
 		
         enum {
             LP,
@@ -48,12 +48,21 @@ namespace Analog::Filters::AnalogSVF
 			lp = bp = hp = ubp = peak = shelf = notch = apf = 0;
 		}
         void setCutoff(DspFloatType f) {
-            if(f < 30 || f >= fs/2) return;                                          
+            if(f < 30 || f >= fs/4) return;                                          
             fc = f;
         }
         void setQ(DspFloatType Q) {               
             q = Q;
         }
+        void setGain(DspFloatType g) {
+			K = g;
+		}
+        DspFloatType getCutoff() const { 
+			return fc;
+		}
+		DspFloatType getQ() const {
+			return q;
+		}
         enum {
             PORT_CUTOFF,
             PORT_Q,
@@ -75,7 +84,7 @@ namespace Analog::Filters::AnalogSVF
         }
         DspFloatType Tick(DspFloatType I, DspFloatType A = 1, DspFloatType X = 1, DspFloatType Y = 1)
         {         			
-            DspFloatType wd = 2*M_PI*fc;
+            DspFloatType wd = 2*M_PI*fc*fabs(X);
             DspFloatType T  = 1/fs;
             DspFloatType temp = wd*T/2;
             DspFloatType wa;
@@ -85,8 +94,7 @@ namespace Analog::Filters::AnalogSVF
             else
                 wa = (2/T)*tan(temp*0.995);
             
-            wa *= fabs(X);
-
+            
             DspFloatType g  = wa*T/2;
             DspFloatType xn = A*I;
             DspFloatType qt = fabs(Y)*q;
@@ -128,9 +136,14 @@ namespace Analog::Filters::AnalogSVF
         void ProcessSIMD(size_t n, DspFloatType * input, DspFloatType * output)
         {
             #pragma omp simd aligned(input,output)
+            assert(n < 1024);
             for(size_t i = 0; i < n; i++)
             {
-                DspFloatType wd = 2*M_PI*fc;
+				DspFloatType A  = Aa[i];
+				DspFloatType X  = Xa[i];
+				DspFloatType Y  = Ya[i];
+				
+                DspFloatType wd = 2*M_PI*(fc+fc*X);
                 DspFloatType T  = 1/fs;
                 DspFloatType temp = wd*T/2;
                 DspFloatType wa;
@@ -139,12 +152,12 @@ namespace Analog::Filters::AnalogSVF
                     wa = (2/T)*tan(temp);
                 else
                     wa = (2/T)*tan(temp*0.995);
-                                
+        									
                 DspFloatType I  = input[i];
                 DspFloatType g  = wa*T/2;
-                DspFloatType xn = I;
-                DspFloatType qt = q;
-                if(qt < 0.5) qt = 0.5;
+                DspFloatType xn = A*I;
+                DspFloatType qt = Y*10.0+q;
+                if(qt < 0.5)  qt = 0.5;
                 DspFloatType  R  = 1.0/(2*qt);
                 
                               
