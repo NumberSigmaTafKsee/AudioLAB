@@ -81,6 +81,14 @@
 * a better blit
 * Saw, Triangle, Square
 
+# DPW
+* Saw
+* Square
+* Triangle
+
+# minBlip
+* MinBLEP Saw,Square,Triangle
+
 # VCO
 * Vectorized PolyBlep
 * many waveforms
