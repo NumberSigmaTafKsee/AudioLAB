@@ -31,3 +31,5 @@
 * midi input can set the keyboard frequency
 * midi output to control synthesizer
 * cv ports for everybody
+
+
