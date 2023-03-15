@@ -96,7 +96,7 @@
 # QuadVCO
 * 4x VCO mixed or parallel
 
-* OctaVCO
+# OctaVCO
 * 8x VCO mixed or parallel
 
 # VCO9000
