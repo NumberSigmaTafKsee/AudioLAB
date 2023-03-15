@@ -94,3 +94,12 @@
 
 # LFO9000
 * Deep Tesla LFO Frequency Terrain
+
+# IIR Filters
+* Butterworths
+* Bessels
+* Chebyshevs
+* Ellipticals
+* DspFilters
+* Spuce Filters
+* IPP Filters
