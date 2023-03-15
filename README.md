@@ -5,6 +5,9 @@
 * It is going to take a while to connect the LV2 frames to them all
 * They will be highly detailed to do any theory possible
 
+# MIDI CC
+* any midi cc use the same format as the DSI Prophet 08/mopho/tetra 
+
 # AnalogSVF
 * Will pirkins equations
 * mono audio channel
