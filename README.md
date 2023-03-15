@@ -33,6 +33,9 @@
 * midi output to control synthesizer
 * cv ports for everybody
 
+# ZolzerFilter
+* Equations from DAFX book
+
 # AR
 * Attack Release envelope
 * Midi note on
