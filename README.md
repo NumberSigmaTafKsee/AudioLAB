@@ -1,6 +1,10 @@
 # AudioLAB
  Generic LV2 Plugins
 
+# There are a tremenedous amount of them
+* It is going to take a while to connect the LV2 frames to them all
+* They will be highly detailed to do any theory possible
+
 # AnalogSVF
 * Will pirkins equations
 * mono audio channel
